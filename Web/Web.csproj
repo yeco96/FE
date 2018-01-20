@@ -118,6 +118,7 @@
     <Content Include="Pages\BlogPost.aspx" />
     <Content Include="Pages\BlogTimeline.aspx" />
     <Content Include="Pages\Contacts.aspx" />
+    <Content Include="Pages\FrmCatalogoCondicionVenta.aspx" />
     <Content Include="Pages\FrmCatalogoUnidadMedida.aspx" />
     <Content Include="Pages\FrmCatalogoTipoMoneda.aspx" />
     <Content Include="Pages\Home.aspx" />
@@ -201,6 +202,13 @@
     </Compile>
     <Compile Include="Pages\Contacts.aspx.designer.cs">
       <DependentUpon>Contacts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FrmCatalogoCondicionVenta.aspx.cs">
+      <DependentUpon>FrmCatalogoCondicionVenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FrmCatalogoCondicionVenta.aspx.designer.cs">
+      <DependentUpon>FrmCatalogoCondicionVenta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\FrmCatalogoUnidadMedida.aspx.cs">
       <DependentUpon>FrmCatalogoUnidadMedida.aspx</DependentUpon>

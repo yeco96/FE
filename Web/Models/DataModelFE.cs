@@ -18,7 +18,7 @@ namespace Web.Models
         public virtual DbSet<TipoMoneda> TipoMoneda { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<UnidadMedida> UnidadMedida { get; set; }
-        
+        public virtual DbSet<CondicionVenta> CondicionVenta { get; set; }
 
 
 

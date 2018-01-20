@@ -55,10 +55,11 @@
                                             <Items>
                                                 <dx:MenuItem Text="HOME" NavigateUrl="~/Pages/Home.aspx" />
                                                 <dx:MenuItem Text="BLOG" NavigateUrl="~/Pages/BlogTimeline.aspx" />
-                                                <dx:MenuItem Text="CATALOGOS" NavigateUrl="~/Pages/FrmCatalogoMoneda.aspx" >
+                                                <dx:MenuItem Text="CATALOGOS">
                                                      <Items>
                                                          <dx:MenuItem Text="TIPO MONEDA" NavigateUrl="~/Pages/FrmCatalogoTipoMoneda.aspx" />
                                                          <dx:MenuItem Text="UNIDAD MEDIDA" NavigateUrl="~/Pages/FrmCatalogoUnidadMedida.aspx" />
+                                                         <dx:MenuItem Text="UNIDAD CONDICION DE VENTA" NavigateUrl="~/Pages/FrmCatalogoCondicionVenta.aspx" />
                                                      </Items>
                                                 </dx:MenuItem>
                                                 <dx:MenuItem Text="CONTACT US" NavigateUrl="~/Pages/Contacts.aspx" />
