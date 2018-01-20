@@ -118,6 +118,7 @@
     <Content Include="Pages\BlogPost.aspx" />
     <Content Include="Pages\BlogTimeline.aspx" />
     <Content Include="Pages\Contacts.aspx" />
+    <Content Include="Pages\FrmCatalogoExoneracion.aspx" />
     <Content Include="Pages\FrmCatalogoCondicionVenta.aspx" />
     <Content Include="Pages\FrmCatalogoUnidadMedida.aspx" />
     <Content Include="Pages\FrmCatalogoTipoMoneda.aspx" />
@@ -174,6 +175,7 @@
     <Compile Include="Models\CondicionVenta.cs" />
     <Compile Include="Models\DataModelFE.cs" />
     <Compile Include="Models\Distrito.cs" />
+    <Compile Include="Models\Exoneracion.cs" />
     <Compile Include="Models\MedioPago.cs" />
     <Compile Include="Models\ProductoServicio.cs" />
     <Compile Include="Models\Provincia.cs" />
@@ -202,6 +204,13 @@
     </Compile>
     <Compile Include="Pages\Contacts.aspx.designer.cs">
       <DependentUpon>Contacts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FrmCatalogoExoneracion.aspx.cs">
+      <DependentUpon>FrmCatalogoExoneracion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FrmCatalogoExoneracion.aspx.designer.cs">
+      <DependentUpon>FrmCatalogoExoneracion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\FrmCatalogoCondicionVenta.aspx.cs">
       <DependentUpon>FrmCatalogoCondicionVenta.aspx</DependentUpon>

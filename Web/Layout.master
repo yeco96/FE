@@ -57,6 +57,7 @@
                                                 <dx:MenuItem Text="BLOG" NavigateUrl="~/Pages/BlogTimeline.aspx" />
                                                 <dx:MenuItem Text="CATALOGOS">
                                                      <Items>
+                                                         <dx:MenuItem Text="EXONERACION" NavigateUrl="~/Pages/FrmCatalogoExoneracion.aspx" />
                                                          <dx:MenuItem Text="TIPO MONEDA" NavigateUrl="~/Pages/FrmCatalogoTipoMoneda.aspx" />
                                                          <dx:MenuItem Text="UNIDAD MEDIDA" NavigateUrl="~/Pages/FrmCatalogoUnidadMedida.aspx" />
                                                          <dx:MenuItem Text="UNIDAD CONDICION DE VENTA" NavigateUrl="~/Pages/FrmCatalogoCondicionVenta.aspx" />
