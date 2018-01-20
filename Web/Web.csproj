@@ -167,7 +167,17 @@
     <Compile Include="Layout.master.designer.cs">
       <DependentUpon>Layout.master</DependentUpon>
     </Compile>
+    <Compile Include="Models\Canton.cs" />
+    <Compile Include="Models\CodigoReferencia.cs" />
+    <Compile Include="Models\CondicionVenta.cs" />
     <Compile Include="Models\DataModelFE.cs" />
+    <Compile Include="Models\Distrito.cs" />
+    <Compile Include="Models\MedioPago.cs" />
+    <Compile Include="Models\ProductoServicio.cs" />
+    <Compile Include="Models\Provincia.cs" />
+    <Compile Include="Models\TipoDocumento.cs" />
+    <Compile Include="Models\TipoIdentificacion.cs" />
+    <Compile Include="Models\UnidadMedida.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\TipoMoneda.cs" />
     <Compile Include="Pages\BlogPost.aspx.cs">
