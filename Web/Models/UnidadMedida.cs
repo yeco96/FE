@@ -12,7 +12,7 @@ namespace Web.Models
     {
         [Key]
         [Required]
-        [MaxLength(3, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         [Display(Name = "Código")]
         public String codigo { set; get; }
 
@@ -22,19 +22,34 @@ namespace Web.Models
         public String descripcion { set; get; }
 
 
-        [Display(Name = "Usuario Creación")]
+        /// <summary>
+        /// AUDIOTORIA
+        /// </summary>
+        public String estado { set; get; }
+
+        [ForeignKey("UsuarioCreacion")]
         public String usuarioCreacion { set; get; }
 
-        [Display(Name = "Fecha Creación")]
-        public String fechaCreacion { set; get; }
+        public DateTime? fechaCreacion { set; get; }
 
-        [Display(Name = "Usuario Modificación")]
+        [ForeignKey("UsuarioModificacion")]
         public String usuarioModificacion { set; get; }
 
-        [Display(Name = "Fecha Modificación")]
-        public String fechaModificacion { set; get; }
+        public DateTime? fechaModificacion { set; get; }
 
-        [Display(Name = "Estado")]
-        public String estado { set; get; }
+        /// <summary>
+        /// CONSTRUCTOR
+        /// </summary>
+        public UnidadMedida()
+        {
+        }
+
+        /// <summary>
+        /// OBJETOS COMPUESTOS
+        /// </summary>
+        public virtual Usuario UsuarioCreacion { get; set; }
+        public virtual Usuario UsuarioModificacion { get; set; }
+
+
     }
 }

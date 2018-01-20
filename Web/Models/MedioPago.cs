@@ -21,21 +21,35 @@ namespace Web.Models
         [Display(Name = "Descripción")]
         public String descripcion { set; get; }
 
+        /// <summary>
+        /// AUDIOTORIA
+        /// </summary>
+        public String estado { set; get; }
 
-        [Display(Name = "Usuario Creación")]
+        [ForeignKey("UsuarioCreacion")]
         public String usuarioCreacion { set; get; }
 
-        [Display(Name = "Fecha Creación")]
-        public String fechaCreacion { set; get; }
+        public DateTime? fechaCreacion { set; get; }
 
-        [Display(Name = "Usuario Modificación")]
+        [ForeignKey("UsuarioModificacion")]
         public String usuarioModificacion { set; get; }
 
-        [Display(Name = "Fecha Modificación")]
-        public String fechaModificacion { set; get; }
+        public DateTime? fechaModificacion { set; get; }
 
-        [Display(Name = "Estado")]
-        public String estado { set; get; }
+        /// <summary>
+        /// CONSTRUCTOR
+        /// </summary>
+        public MedioPago()
+        {
+        }
+
+        /// <summary>
+        /// OBJETOS COMPUESTOS
+        /// </summary>
+        public virtual Usuario UsuarioCreacion { get; set; }
+        public virtual Usuario UsuarioModificacion { get; set; }
+
+
 
 
     }
