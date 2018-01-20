@@ -9,7 +9,7 @@
                 <dx:LayoutItem Caption="Usuario Creación">
                     <LayoutItemNestedControlCollection>
                         <dx:LayoutItemNestedControlContainer>
-                            <dx:ASPxTextBox runat="server" Value='<%# Eval("usuarioCreacion") %>' AutoResizeWithContainer="true" Width="100%" />
+                            <dx:ASPxTextBox runat="server" Value='<%# Eval("usuarioCreacion") %>' AutoResizeWithContainer="true" Width="100%" BackColor="LightGray" ReadOnly="true" />
 
                         </dx:LayoutItemNestedControlContainer>
                     </LayoutItemNestedControlCollection>
@@ -17,21 +17,21 @@
                 <dx:LayoutItem Caption="Fecha Creación">
                     <LayoutItemNestedControlCollection>
                         <dx:LayoutItemNestedControlContainer>
-                            <dx:ASPxTextBox runat="server" Value='<%# Eval("fechaCreacion") %>' AutoResizeWithContainer="true" Width="100%" />
+                            <dx:ASPxTextBox runat="server" Value='<%# Eval("fechaCreacion") %>' AutoResizeWithContainer="true" Width="100%" BackColor="LightGray" ReadOnly="true"/>
                         </dx:LayoutItemNestedControlContainer>
                     </LayoutItemNestedControlCollection>
                 </dx:LayoutItem>
                 <dx:LayoutItem Caption="Usuario Modificación">
                     <LayoutItemNestedControlCollection>
                         <dx:LayoutItemNestedControlContainer>
-                            <dx:ASPxTextBox runat="server" Value='<%# Eval("usuarioModificacion") %>' AutoResizeWithContainer="true" Width="100%" />
+                            <dx:ASPxTextBox runat="server" Value='<%# Eval("usuarioModificacion") %>' AutoResizeWithContainer="true" Width="100%" BackColor="LightGray" ReadOnly="true"/>
                         </dx:LayoutItemNestedControlContainer>
                     </LayoutItemNestedControlCollection>
                 </dx:LayoutItem>
                 <dx:LayoutItem Caption="Fecha Modificación">
                     <LayoutItemNestedControlCollection>
                         <dx:LayoutItemNestedControlContainer>
-                            <dx:ASPxTextBox runat="server" Value='<%# Eval("fechaModificacion") %>' AutoResizeWithContainer="true" Width="100%" />
+                            <dx:ASPxTextBox runat="server" Value='<%# Eval("fechaModificacion") %>' AutoResizeWithContainer="true" Width="100%" BackColor="LightGray" ReadOnly="true"/>
                         </dx:LayoutItemNestedControlContainer>
                     </LayoutItemNestedControlCollection>
                 </dx:LayoutItem>

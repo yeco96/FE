@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using Web.Models.Catalogos;
 
 namespace Web.Models
 {
@@ -14,11 +15,21 @@ namespace Web.Models
         {
         }
 
+        public virtual DbSet<Canton> Canton { get; set; }
+        public virtual DbSet<CondicionVenta> CondicionVenta { get; set; }
+        public virtual DbSet<CodigoReferencia> CodigoReferencia { get; set; }
+        public virtual DbSet<Distrito> Distrito { get; set; }
+        public virtual DbSet<Exoneracion> Exoneracion { get; set; }
+        public virtual DbSet<MedioPago> MedioPago { get; set; }
+        public virtual DbSet<Provincia> Provincia { get; set; }
+        public virtual DbSet<ProductoServicio> ProductoServicio { get; set; }
+        public virtual DbSet<TipoDocumento> TipoDocumento { get; set; }
+        public virtual DbSet<TipoIdentificacion> TipoIdentificacion { get; set; }
         public virtual DbSet<TipoMoneda> TipoMoneda { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<UnidadMedida> UnidadMedida { get; set; }
-        public virtual DbSet<CondicionVenta> CondicionVenta { get; set; }
-        public virtual DbSet<Exoneracion> Exoneracion { get; set; }
+
+ 
 
 
 

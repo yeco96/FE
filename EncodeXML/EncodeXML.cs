@@ -87,6 +87,7 @@ namespace EncodeXML
             catch (Exception exp)
             {
                 //Handle Exception Code
+                return exp.Message;
             }
             finally
             {

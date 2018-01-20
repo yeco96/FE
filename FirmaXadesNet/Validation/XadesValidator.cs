@@ -58,6 +58,7 @@ namespace FirmaXadesNet.Validation
             catch (Exception ex)
             {
                 result.IsValid = false;
+                result.Message = ex.Message;
                 result.Message = "La verificación de la firma no ha sido satisfactoria";
 
                 return result;

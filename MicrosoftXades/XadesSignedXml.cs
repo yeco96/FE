@@ -162,7 +162,9 @@ namespace Microsoft.Xades
         /// </summary>
         public const string SignedPropertiesType = "http://uri.etsi.org/01903#SignedProperties";
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         public const string XmlDsigObjectType = "http://www.w3.org/2000/09/xmldsig#Object";
         #endregion
 
@@ -190,8 +192,14 @@ namespace Microsoft.Xades
 
         #region Public properties
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static string XmlDSigPrefix { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static string XmlXadesPrefix { get; set; }
 
 
@@ -315,6 +323,9 @@ namespace Microsoft.Xades
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public XmlElement ContentElement
         {
             get
@@ -328,6 +339,9 @@ namespace Microsoft.Xades
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public XmlElement SignatureNodeDestination
         {
             get
@@ -341,6 +355,9 @@ namespace Microsoft.Xades
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public bool AddXadesNamespace
         {
             get
@@ -716,7 +733,10 @@ namespace Microsoft.Xades
             return retVal;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public X509Certificate2 GetSigningCertificate()
         {
             XmlNode keyXml = this.KeyInfo.GetXml().GetElementsByTagName("X509Certificate", SignedXml.XmlDsigNamespaceUrl)[0];
@@ -1459,6 +1479,9 @@ namespace Microsoft.Xades
             return description;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public new void ComputeSignature()
         {
 
@@ -1505,6 +1528,10 @@ namespace Microsoft.Xades
             this.m_signature.SignatureValue = description.CreateFormatter(signingKey).CreateSignature(hash);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public Reference GetContentReference()
         {
             XadesObject xadesObject = null;
@@ -1586,7 +1613,11 @@ namespace Microsoft.Xades
             }
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fromElement"></param>
+        /// <returns></returns>
         public List<XmlAttribute> GetAllNamespaces(XmlElement fromElement)
         {
             List<XmlAttribute> namespaces = new List<XmlAttribute>();
@@ -1786,7 +1817,7 @@ namespace Microsoft.Xades
             }
         }
 
-
+        
         private AsymmetricAlgorithm GetPublicKey()
         {
             Type SignedXml_Type = typeof(SignedXml);

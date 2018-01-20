@@ -117,11 +117,15 @@
     <Content Include="Global.asax" />
     <Content Include="Pages\BlogPost.aspx" />
     <Content Include="Pages\BlogTimeline.aspx" />
+    <Content Include="Pages\Catalogos\FrmCatalogoTipoIdentificacion.aspx" />
     <Content Include="Pages\Contacts.aspx" />
-    <Content Include="Pages\FrmCatalogoExoneracion.aspx" />
-    <Content Include="Pages\FrmCatalogoCondicionVenta.aspx" />
-    <Content Include="Pages\FrmCatalogoUnidadMedida.aspx" />
-    <Content Include="Pages\FrmCatalogoTipoMoneda.aspx" />
+    <Content Include="Pages\Catalogos\FrmCatalogoCodigoReferencia.aspx" />
+    <Content Include="Pages\Catalogos\FrmCatalogoMedioPago.aspx" />
+    <Content Include="Pages\Catalogos\FrmCatalogoExoneracion.aspx" />
+    <Content Include="Pages\Catalogos\FrmCatalogoCondicionVenta.aspx" />
+    <Content Include="Pages\Catalogos\FrmCatalogoTipoDocumento.aspx" />
+    <Content Include="Pages\Catalogos\FrmCatalogoUnidadMedida.aspx" />
+    <Content Include="Pages\Catalogos\FrmCatalogoTipoMoneda.aspx" />
     <Content Include="Pages\Home.aspx" />
     <Content Include="Pages\Search.aspx" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -171,19 +175,19 @@
       <DependentUpon>Layout.master</DependentUpon>
     </Compile>
     <Compile Include="Models\Canton.cs" />
-    <Compile Include="Models\CodigoReferencia.cs" />
-    <Compile Include="Models\CondicionVenta.cs" />
+    <Compile Include="Models\Catalogos\CodigoReferencia.cs" />
+    <Compile Include="Models\Catalogos\CondicionVenta.cs" />
     <Compile Include="Models\DataModelFE.cs" />
-    <Compile Include="Models\Distrito.cs" />
-    <Compile Include="Models\Exoneracion.cs" />
-    <Compile Include="Models\MedioPago.cs" />
-    <Compile Include="Models\ProductoServicio.cs" />
-    <Compile Include="Models\Provincia.cs" />
-    <Compile Include="Models\TipoDocumento.cs" />
-    <Compile Include="Models\TipoIdentificacion.cs" />
-    <Compile Include="Models\UnidadMedida.cs" />
+    <Compile Include="Models\Catalogos\Distrito.cs" />
+    <Compile Include="Models\Catalogos\Exoneracion.cs" />
+    <Compile Include="Models\Catalogos\MedioPago.cs" />
+    <Compile Include="Models\Catalogos\ProductoServicio.cs" />
+    <Compile Include="Models\Catalogos\Provincia.cs" />
+    <Compile Include="Models\Catalogos\TipoDocumento.cs" />
+    <Compile Include="Models\Catalogos\TipoIdentificacion.cs" />
+    <Compile Include="Models\Catalogos\UnidadMedida.cs" />
     <Compile Include="Models\Usuario.cs" />
-    <Compile Include="Models\TipoMoneda.cs" />
+    <Compile Include="Models\Catalogos\TipoMoneda.cs" />
     <Compile Include="Pages\BlogPost.aspx.cs">
       <DependentUpon>BlogPost.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -198,6 +202,13 @@
     <Compile Include="Pages\BlogTimeline.aspx.designer.cs">
       <DependentUpon>BlogTimeline.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoTipoIdentificacion.aspx.cs">
+      <DependentUpon>FrmCatalogoTipoIdentificacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoTipoIdentificacion.aspx.designer.cs">
+      <DependentUpon>FrmCatalogoTipoIdentificacion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Contacts.aspx.cs">
       <DependentUpon>Contacts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -205,32 +216,53 @@
     <Compile Include="Pages\Contacts.aspx.designer.cs">
       <DependentUpon>Contacts.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\FrmCatalogoExoneracion.aspx.cs">
+    <Compile Include="Pages\Catalogos\FrmCatalogoCodigoReferencia.aspx.cs">
+      <DependentUpon>FrmCatalogoCodigoReferencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoCodigoReferencia.aspx.designer.cs">
+      <DependentUpon>FrmCatalogoCodigoReferencia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoMedioPago.aspx.cs">
+      <DependentUpon>FrmCatalogoMedioPago.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoMedioPago.aspx.designer.cs">
+      <DependentUpon>FrmCatalogoMedioPago.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoExoneracion.aspx.cs">
       <DependentUpon>FrmCatalogoExoneracion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\FrmCatalogoExoneracion.aspx.designer.cs">
+    <Compile Include="Pages\Catalogos\FrmCatalogoExoneracion.aspx.designer.cs">
       <DependentUpon>FrmCatalogoExoneracion.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\FrmCatalogoCondicionVenta.aspx.cs">
+    <Compile Include="Pages\Catalogos\FrmCatalogoCondicionVenta.aspx.cs">
       <DependentUpon>FrmCatalogoCondicionVenta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\FrmCatalogoCondicionVenta.aspx.designer.cs">
+    <Compile Include="Pages\Catalogos\FrmCatalogoCondicionVenta.aspx.designer.cs">
       <DependentUpon>FrmCatalogoCondicionVenta.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\FrmCatalogoUnidadMedida.aspx.cs">
+    <Compile Include="Pages\Catalogos\FrmCatalogoTipoDocumento.aspx.cs">
+      <DependentUpon>FrmCatalogoTipoDocumento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoTipoDocumento.aspx.designer.cs">
+      <DependentUpon>FrmCatalogoTipoDocumento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoUnidadMedida.aspx.cs">
       <DependentUpon>FrmCatalogoUnidadMedida.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\FrmCatalogoUnidadMedida.aspx.designer.cs">
+    <Compile Include="Pages\Catalogos\FrmCatalogoUnidadMedida.aspx.designer.cs">
       <DependentUpon>FrmCatalogoUnidadMedida.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\FrmCatalogoTipoMoneda.aspx.cs">
+    <Compile Include="Pages\Catalogos\FrmCatalogoTipoMoneda.aspx.cs">
       <DependentUpon>FrmCatalogoTipoMoneda.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\FrmCatalogoTipoMoneda.aspx.designer.cs">
+    <Compile Include="Pages\Catalogos\FrmCatalogoTipoMoneda.aspx.designer.cs">
       <DependentUpon>FrmCatalogoTipoMoneda.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Home.aspx.cs">

@@ -37,15 +37,15 @@
                     </Styles>
                     <ExpandBarTemplate>
                         <div class='title'>
-                            <a href='<%: ResolveUrl("~/Pages/Home.aspx") %>'>DX BLOG</a>
+                            <a href='<%: ResolveUrl("~/Pages/Home.aspx") %>'>FACTURACIÓN DIGITA</a>
                             <p class='small'>Mobile friendly</p>
                         </div>
                     </ExpandBarTemplate>
                     <PanelCollection>
                         <dx:PanelContent>
                             <div class='title'>
-                                <a href='<%: ResolveUrl("~/Pages/Home.aspx") %>'>DX BLOG</a>
-                                <p class="small">Mobile friendly</p>
+                                <a href='<%: ResolveUrl("~/Pages/Home.aspx") %>'>FACTURACIÓN DIGITAL</a>
+                                <p class="small">MSA SOFT</p>
                             </div>
                             <div class="panelContent">
                                 <div class="pull-right">
@@ -57,10 +57,20 @@
                                                 <dx:MenuItem Text="BLOG" NavigateUrl="~/Pages/BlogTimeline.aspx" />
                                                 <dx:MenuItem Text="CATALOGOS">
                                                      <Items>
-                                                         <dx:MenuItem Text="EXONERACION" NavigateUrl="~/Pages/FrmCatalogoExoneracion.aspx" />
-                                                         <dx:MenuItem Text="TIPO MONEDA" NavigateUrl="~/Pages/FrmCatalogoTipoMoneda.aspx" />
-                                                         <dx:MenuItem Text="UNIDAD MEDIDA" NavigateUrl="~/Pages/FrmCatalogoUnidadMedida.aspx" />
-                                                         <dx:MenuItem Text="UNIDAD CONDICION DE VENTA" NavigateUrl="~/Pages/FrmCatalogoCondicionVenta.aspx" />
+                                                         
+                                                         <dx:MenuItem Text="MEDIO PAGO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoMedioPago.aspx" />
+                                                         
+                                                         <dx:MenuItem Text="CÓDIGO VENTA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoCodigoVenta.aspx" />
+                                                         <dx:MenuItem Text="CÓDIGO REFERENCIA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoCodigoReferencia.aspx" />
+
+                                                         <dx:MenuItem Text="EXONERACION" NavigateUrl="~/Pages/Catalogos/FrmCatalogoExoneracion.aspx" />
+                                                          
+                                                         <dx:MenuItem Text="TIPO DOCUMENTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoDocumento.aspx" />
+                                                         <dx:MenuItem Text="TIPO IDENTIFICACIÓN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoIdentificacion.aspx" />
+                                                         <dx:MenuItem Text="TIPO MONEDA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoMoneda.aspx" />
+
+                                                         <dx:MenuItem Text="UNIDAD MEDIDA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoUnidadMedida.aspx" />
+
                                                      </Items>
                                                 </dx:MenuItem>
                                                 <dx:MenuItem Text="CONTACT US" NavigateUrl="~/Pages/Contacts.aspx" />
