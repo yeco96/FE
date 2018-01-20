@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FacturaElectronica xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Clave>50608011800060354097400100001010000000001188888888</Clave>
+  <NumeroConsecutivo>00100001010000000001</NumeroConsecutivo>
+  <FechaEmision>2018-01-12T10:38:38.529764-06:00</FechaEmision>
+  <Emisor>
+    <Nombre>MAIKOL JESUS SALAMANCA ARIAS</Nombre>
+    <Identificacion>
+      <tipo>1</tipo>
+      <numero>603540974</numero>
+    </Identificacion>
+    <NombreComercial>MSA SOFT</NombreComercial>
+    <Ubicacion>
+      <provincia>1</provincia>
+      <canton>1</canton>
+      <distrito>1</distrito>
+      <barrio>1</barrio>
+      <otrassenas>SanJose</otrassenas>
+    </Ubicacion>
+    <Telefono>
+      <codigoPais>506</codigoPais>
+      <numTelefono>88729065</numTelefono>
+    </Telefono>
+    <Fax>
+      <codigoPais>506</codigoPais>
+      <numTelefono>24402090</numTelefono>
+    </Fax>
+    <CorreoElectronico>jupmasalamanca@gmail.com</CorreoElectronico>
+  </Emisor>
+  <Receptor>
+    <Nombre>Andrea Santamaria Quesada</Nombre>
+    <Identificacion>
+      <tipo>1</tipo>
+      <numero>603540974</numero>
+    </Identificacion>
+    <NombreComercial>MSA SOFT</NombreComercial>
+    <Ubicacion>
+      <provincia>1</provincia>
+      <canton>1</canton>
+      <distrito>1</distrito>
+      <barrio>1</barrio>
+      <otrassenas>SanJose</otrassenas>
+    </Ubicacion>
+    <Telefono>
+      <codigoPais>506</codigoPais>
+      <numTelefono>61818738</numTelefono>
+    </Telefono>
+    <Fax>
+      <codigoPais>506</codigoPais>
+      <numTelefono>24402090</numTelefono>
+    </Fax>
+    <CorreoElectronico>jandreasantamariaquesada@gmail.com</CorreoElectronico>
+  </Receptor>
+  <CondicionVenta>01</CondicionVenta>
+  <PlazoCredito>1</PlazoCredito>
+  <MedioPago>01</MedioPago>
+  <DetalleServicio>
+    <LineaDetalle>
+      <numeroLinea>1</numeroLinea>
+      <codigo>
+        <Tipo>04</Tipo>
+        <Codigo>01</Codigo>
+      </codigo>
+      <cantidad>1</cantidad>
+      <unidadMedida>1</unidadMedida>
+      <detalle>COOMBS INDIRECTO</detalle>
+      <precioUnitario>1900000000</precioUnitario>
+      <montoTotal>1900000000</montoTotal>
+      <montoDescuento>380000000</montoDescuento>
+      <naturalezaDescuento>Descuento</naturalezaDescuento>
+      <subTotal>152000000</subTotal>
+    </LineaDetalle>
+  </DetalleServicio>
+  <ResumenFactura>
+    <codigoMoneda>CRC</codigoMoneda>
+    <tipoCambio>0</tipoCambio>
+    <TotalServGravados>0</TotalServGravados>
+    <TotalServExentos>1900000000</TotalServExentos>
+    <TotalMercanciasGravadas>0</TotalMercanciasGravadas>
+    <TotalMercanciasExentas>0</TotalMercanciasExentas>
+    <TotalGravado>0</TotalGravado>
+    <TotalExento>1900000000</TotalExento>
+    <TotalVenta>1900000000</TotalVenta>
+    <TotalDescuentos>380000000</TotalDescuentos>
+    <TotalVentaNeta>1520000000</TotalVentaNeta>
+    <TotalImpuesto>0</TotalImpuesto>
+    <TotalComprobante>1520000000</TotalComprobante>
+  </ResumenFactura>
+  <Normativa>
+    <numeroResolucion>DGT-R-48-2016</numeroResolucion>
+    <fechaResolucion>07-10-2016 08:00:00</fechaResolucion>
+  </Normativa>
+  <Otros />
+</FacturaElectronica>
