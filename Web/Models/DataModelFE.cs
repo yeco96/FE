@@ -12,7 +12,6 @@ namespace Web.Models
 
         public DataModelFE() : base("name=fe_db")
         {
-
         }
 
         public virtual DbSet<TipoMoneda> TipoMoneda { get; set; }
