@@ -13,7 +13,7 @@ using Web.Models;
 
 namespace Web.Pages
 {
-    public partial class FrmCatalogoMoneda : System.Web.UI.Page
+    public partial class FrmCatalogoTipoMoneda : System.Web.UI.Page
     {
 
         private DataModelFE dataModelFE;
@@ -21,7 +21,7 @@ namespace Web.Pages
         /// <summary>
         /// constructor
         /// </summary>
-        public FrmCatalogoMoneda()
+        public FrmCatalogoTipoMoneda()
         { 
             this.dataModelFE = new DataModelFE();
         }
@@ -51,7 +51,7 @@ namespace Web.Pages
         /// </summary>  
         private void refreshData()
         {
-            this.ASPxGridView1.DataSource = this.dataModelFE.Moneda.ToList();
+            this.ASPxGridView1.DataSource = this.dataModelFE.TipoMoneda.ToList();
             this.ASPxGridView1.DataBind();
         }
 
@@ -106,7 +106,7 @@ namespace Web.Pages
                 dato.fechaCreacion =  Date.DateTimeNow();
 
                 //agrega el objeto
-                this.dataModelFE.Moneda.Add(dato);
+                this.dataModelFE.TipoMoneda.Add(dato);
                 this.dataModelFE.SaveChanges();
                  
                 //esto es para el manero del devexpress
@@ -127,7 +127,7 @@ namespace Web.Pages
                 // Combine the original exception message with the new one.
                 var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
 
-               // DataModelFE.GetInstance().Moneda.Remove(DataModelFE.GetInstance().Moneda.Last() );
+               // DataModelFE.GetInstance().TipoMoneda.Remove(DataModelFE.GetInstance().TipoMoneda.Last() );
 
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
@@ -161,7 +161,7 @@ namespace Web.Pages
                 dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
 
                 //busca el objeto 
-                TipoMoneda oldDato = DataModelFE.GetInstance().Moneda.Find(dato.codigo);
+                TipoMoneda oldDato = DataModelFE.GetInstance().TipoMoneda.Find(dato.codigo);
                 dato = oldDato;
 
                 dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString() : null; 
@@ -201,8 +201,8 @@ namespace Web.Pages
                 var id = e.Values["codigo"].ToString();
 
                 //busca objeto
-                var itemToRemove = DataModelFE.GetInstance().Moneda.SingleOrDefault(x => x.codigo == id);
-                DataModelFE.GetInstance().Moneda.Remove(itemToRemove);
+                var itemToRemove = DataModelFE.GetInstance().TipoMoneda.SingleOrDefault(x => x.codigo == id);
+                DataModelFE.GetInstance().TipoMoneda.Remove(itemToRemove);
                 DataModelFE.GetInstance().SaveChanges();
 
                 //esto es para el manero del devexpress
@@ -229,7 +229,7 @@ namespace Web.Pages
         /// <param name="e"></param>
         protected void ASPxGridView1_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
         {
-            // if (e.Column.FieldName == "idMoneda") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+            // if (e.Column.FieldName == "idTipoMoneda") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
             //if (e.Column.FieldName == "usuarioCreacion") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
             // if (e.Column.FieldName == "fechaCreacion") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
             // if (e.Column.FieldName == "usuarioModificacion") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
@@ -239,25 +239,25 @@ namespace Web.Pages
 
         protected void exportarPDF_Click(object sender, ImageClickEventArgs e)
         {
-            this.ASPxGridViewExporter1.FileName = String.Format("ListaMonedas_{0}", DateTime.Now.ToString("yyyyMMdd"));
+            this.ASPxGridViewExporter1.FileName = String.Format("ListaTipoMonedas_{0}", DateTime.Now.ToString("yyyyMMdd"));
             this.ASPxGridViewExporter1.WritePdfToResponse();
         }
 
         protected void exportarXLS_Click(object sender, ImageClickEventArgs e)
         {
-            this.ASPxGridViewExporter1.FileName = String.Format("ListaMonedas_{0}", DateTime.Now.ToString("yyyyMMdd"));
+            this.ASPxGridViewExporter1.FileName = String.Format("ListaTipoMonedas_{0}", DateTime.Now.ToString("yyyyMMdd"));
             this.ASPxGridViewExporter1.WriteXlsToResponse();
         }
 
         protected void exportarXLSX_Click(object sender, ImageClickEventArgs e)
         {
-            this.ASPxGridViewExporter1.FileName = String.Format("ListaMonedas_{0}", DateTime.Now.ToString("yyyyMMdd"));
+            this.ASPxGridViewExporter1.FileName = String.Format("ListaTipoMonedas_{0}", DateTime.Now.ToString("yyyyMMdd"));
             this.ASPxGridViewExporter1.WriteXlsxToResponse(new XlsxExportOptionsEx { ExportType = ExportType.WYSIWYG });
         }
 
         protected void exportarCSV_Click(object sender, ImageClickEventArgs e)
         {
-            this.ASPxGridViewExporter1.FileName = String.Format("ListaMonedas_{0}", DateTime.Now.ToString("yyyyMMdd"));
+            this.ASPxGridViewExporter1.FileName = String.Format("ListaTipoMonedas_{0}", DateTime.Now.ToString("yyyyMMdd"));
             this.ASPxGridViewExporter1.WriteCsvToResponse();
         }
         protected void ASPxGridView1_CustomErrorText(object sender, ASPxGridViewCustomErrorTextEventArgs e)

@@ -10,7 +10,8 @@
 namespace Web.Pages {
     
     
-    public partial class FrmCatalogoMoneda {
+    public partial class FrmCatalogoTipoMoneda
+    {
         
         /// <summary>
         /// ASPxGridView1 control.

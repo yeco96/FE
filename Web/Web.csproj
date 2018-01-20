@@ -118,7 +118,8 @@
     <Content Include="Pages\BlogPost.aspx" />
     <Content Include="Pages\BlogTimeline.aspx" />
     <Content Include="Pages\Contacts.aspx" />
-    <Content Include="Pages\FrmCatalogoMoneda.aspx" />
+    <Content Include="Pages\FrmCatalogoUnidadMedida.aspx" />
+    <Content Include="Pages\FrmCatalogoTipoMoneda.aspx" />
     <Content Include="Pages\Home.aspx" />
     <Content Include="Pages\Search.aspx" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -201,12 +202,19 @@
     <Compile Include="Pages\Contacts.aspx.designer.cs">
       <DependentUpon>Contacts.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\FrmCatalogoMoneda.aspx.cs">
-      <DependentUpon>FrmCatalogoMoneda.aspx</DependentUpon>
+    <Compile Include="Pages\FrmCatalogoUnidadMedida.aspx.cs">
+      <DependentUpon>FrmCatalogoUnidadMedida.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\FrmCatalogoMoneda.aspx.designer.cs">
-      <DependentUpon>FrmCatalogoMoneda.aspx</DependentUpon>
+    <Compile Include="Pages\FrmCatalogoUnidadMedida.aspx.designer.cs">
+      <DependentUpon>FrmCatalogoUnidadMedida.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FrmCatalogoTipoMoneda.aspx.cs">
+      <DependentUpon>FrmCatalogoTipoMoneda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FrmCatalogoTipoMoneda.aspx.designer.cs">
+      <DependentUpon>FrmCatalogoTipoMoneda.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
