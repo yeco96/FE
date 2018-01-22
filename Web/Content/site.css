@@ -267,4 +267,15 @@ footer h4 {
     background-color:white;  /* C0C0C0 F2F3F4*/
 }
  
+#banner { 
+    padding: 10px 0px 10px 100px;
+    background: url(http://claveintegral.com/asociados/wp-content/uploads/2015/09/icono.png);
+    background-repeat: no-repeat;
+    background-size: 90px 90px;
+} 
 
+@media only screen and (max-width: 800px) {
+    #banner { 
+        background: none;
+    } 
+}

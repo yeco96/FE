@@ -4,24 +4,28 @@ using DevExpress.Web;
 using DevExpress.XtraPrinting;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Web.Models;
 using Web.Models.Catalogos;
+using Web.Models.Facturacion;
 
 namespace Web.Pages.Catalogos
 {
-    public partial class FrmCatalogoMedioPago : System.Web.UI.Page
+    public partial class FrmEmisorReceptor : System.Web.UI.Page
     {
-        
+
         /// <summary>
         /// constructor
         /// </summary>
-        public FrmCatalogoMedioPago()
+        public FrmEmisorReceptor()
         { 
         }
+
         /// <summary>
         /// este metodo si inicializa al cada vez que se renderiza la pagina
         /// </summary>
@@ -33,7 +37,7 @@ namespace Web.Pages.Catalogos
             {
                 if (!IsCallback && !IsPostBack)
                 {
-                    this.cargarCombos();
+                    this.loadComboBox(); 
                 }
                 this.refreshData();
             }
@@ -49,7 +53,7 @@ namespace Web.Pages.Catalogos
         {
             using (var conexion = new DataModelFE())
             {
-                this.ASPxGridView1.DataSource = conexion.MedioPago.ToList();
+                this.ASPxGridView1.DataSource = conexion.EmisorReceptor.ToList();
                 this.ASPxGridView1.DataBind();
             }
         }
@@ -57,14 +61,29 @@ namespace Web.Pages.Catalogos
         /// <summary>
         /// carga solo una vez para ahorar tiempo 
         /// </summary>
-        private void cargarCombos()
+        private void loadComboBox() 
         {
-            // Cargar valores de combo para estado
-            GridViewDataComboBoxColumn comboEstado = this.ASPxGridView1.Columns["estado"] as GridViewDataComboBoxColumn;
-            comboEstado.PropertiesComboBox.Items.Clear();
-            comboEstado.PropertiesComboBox.Items.AddRange(Enum.GetValues(typeof(Estado)));
-        }
+            using (var conexion = new DataModelFE())
+            {
+                /* ESTADO */
+                GridViewDataComboBoxColumn comboEstado = this.ASPxGridView1.Columns["estado"] as GridViewDataComboBoxColumn;
+                comboEstado.PropertiesComboBox.Items.Clear();
+                comboEstado.PropertiesComboBox.Items.AddRange(Enum.GetValues(typeof(Estado)));
 
+                /* PROVINCIA */
+                 
+
+                /* IDENTIFICACION TIPO */
+                GridViewDataComboBoxColumn tipoID = this.ASPxGridView1.Columns["identificacionTipo"] as GridViewDataComboBoxColumn;
+                tipoID.PropertiesComboBox.Items.Clear();
+                foreach (var item in conexion.TipoIdentificacion.ToList())
+                {
+                    tipoID.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
+                }
+                tipoID.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+            }
+        }
+         
 
         /// <summary>
         /// manejo de errores en pantalla
@@ -97,17 +116,21 @@ namespace Web.Pages.Catalogos
                 using (var conexion = new DataModelFE())
                 {
                     //se declara el objeto a insertar
-                    MedioPago dato = new MedioPago();
+                    EmisorReceptor dato = new EmisorReceptor();
                     //llena el objeto con los valores de la pantalla
-                    dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
-                    dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
+                    dato.identificacionTipo = e.NewValues["identificacionTipo"] != null ? e.NewValues["identificacionTipo"].ToString().ToUpper() : null;
+                    dato.identificacion = e.NewValues["identificacion"] != null ? e.NewValues["identificacion"].ToString().ToUpper() : null;
+
+                    dato.nombre = e.NewValues["nombre"] != null ? e.NewValues["nombre"].ToString().ToUpper() : null;
+                    
+                    dato.nombreComercial = e.NewValues["nombreComercial"] != null ? e.NewValues["nombreComercial"].ToString().ToUpper() : null;
 
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioCreacion = Session["usuario"].ToString();
                     dato.fechaCreacion = Date.DateTimeNow();
 
                     //agrega el objeto
-                    conexion.MedioPago.Add(dato);
+                    conexion.EmisorReceptor.Add(dato);
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress
@@ -115,28 +138,9 @@ namespace Web.Pages.Catalogos
                     this.ASPxGridView1.CancelEdit();
                 }
 
-            }
-            catch (DbEntityValidationException ex)
-            {
-                // Retrieve the error messages as a list of strings.
-                var errorMessages = ex.EntityValidationErrors
-                        .SelectMany(x => x.ValidationErrors)
-                        .Select(x => x.ErrorMessage);
-
-                // Join the list to a single string.
-                var fullErrorMessage = string.Join("; ", errorMessages);
-
-                // Combine the original exception message with the new one.
-                var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
-
-                // conexion.MedioPago.Remove(conexion.MedioPago.Last() );
-
-                // Throw a new DbEntityValidationException with the improved exception message.
-                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
-
-            }
+            } 
             catch (Exception ex)
-            {
+            { 
                 throw new Exception(ex.Message, ex.InnerException);
             }
             finally
@@ -158,21 +162,21 @@ namespace Web.Pages.Catalogos
                 using (var conexion = new DataModelFE())
                 {
                     // se declara el objeto a insertar
-                    MedioPago dato = new MedioPago();
+                    EmisorReceptor dato = new EmisorReceptor();
                     //llena el objeto con los valores de la pantalla
-                    dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
+                    dato.identificacionTipo = e.NewValues["identificacionTipo"] != null ? e.NewValues["identificacionTipo"].ToString().ToUpper() : null;
 
                     //busca el objeto 
-                    MedioPago oldDato = conexion.MedioPago.Find(dato.codigo);
-                    dato = oldDato;
+                    dato = conexion.EmisorReceptor.Find(dato.identificacionTipo);
 
-                    dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
+                    dato.identificacion = e.NewValues["identificacion"] != null ? e.NewValues["identificacion"].ToString().ToUpper() : null;
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioModificacion = Session["usuario"].ToString();
                     dato.fechaModificacion = Date.DateTimeNow();
 
                     //modifica objeto
-                    conexion.Entry(oldDato).CurrentValues.SetValues(dato);
+                    //conexion.Entry(oldDato).CurrentValues.SetValues(dato);
+                    conexion.Entry(dato).State = EntityState.Modified;
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress
@@ -203,11 +207,11 @@ namespace Web.Pages.Catalogos
             {
                 using (var conexion = new DataModelFE())
                 {
-                    var id = e.Values["codigo"].ToString();
+                    var id = e.Values["identificacionTipo"].ToString();
 
                     //busca objeto
-                    var itemToRemove = conexion.MedioPago.SingleOrDefault(x => x.codigo == id);
-                    conexion.MedioPago.Remove(itemToRemove);
+                    var itemToRemove = conexion.EmisorReceptor.SingleOrDefault(x => x.identificacionTipo == id);
+                    conexion.EmisorReceptor.Remove(itemToRemove);
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress
@@ -237,9 +241,10 @@ namespace Web.Pages.Catalogos
         {
             if (!this.ASPxGridView1.IsNewRowEditing)
             {
-                if (e.Column.FieldName == "codigo") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+                if (e.Column.FieldName == "identificacionTipo") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
             }
         }
+
 
         // <summary>
         /// EXPORTAR DATOS
@@ -275,10 +280,18 @@ namespace Web.Pages.Catalogos
         {
             if (e.Exception != null)
             {
-                String error = e.Exception.InnerException.Message;
-                error = e.Exception.InnerException.InnerException.Message;
+                String error = "";
+                if (e.Exception.InnerException!=null)
+                {
+                    error =  e.Exception.InnerException.Message;
+                    error = e.Exception.InnerException.InnerException.Message;
+                }
+                else
+                {
+                    error = e.ErrorText; 
+                }
 
-                e.ErrorText = Utilidades.validarExepcionSQL(error);
+            e.ErrorText = Utilidades.validarExepcionSQL(error); 
             }
         }
     }

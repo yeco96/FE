@@ -16,19 +16,16 @@ namespace Web.Pages.Catalogos
 {
     public partial class FrmCatalogoExoneracion : System.Web.UI.Page
     {
-
-        private DataModelFE dataModelFE;
+        
 
         /// <summary>
         /// constructor
         /// </summary>
         public FrmCatalogoExoneracion()
         { 
-            this.dataModelFE = new DataModelFE();
         }
-
         /// <summary>
-        /// este metodo si inicializa al cada vez que se renderiza la pagina 
+        /// este metodo si inicializa al cada vez que se renderiza la pagina
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -44,7 +41,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw new Exception(ex.Message, ex.InnerException);
             }
         }
         /// <summary>
@@ -52,8 +49,11 @@ namespace Web.Pages.Catalogos
         /// </summary>  
         private void refreshData()
         {
-            this.ASPxGridView1.DataSource = this.dataModelFE.Exoneracion.ToList();
-            this.ASPxGridView1.DataBind();
+            using (var conexion = new DataModelFE())
+            {
+                this.ASPxGridView1.DataSource = conexion.Exoneracion.ToList();
+                this.ASPxGridView1.DataBind();
+            }
         }
 
         /// <summary>
@@ -96,23 +96,26 @@ namespace Web.Pages.Catalogos
         {
             try
             {
-                //se declara el objeto a insertar
-                Exoneracion dato = new Exoneracion();
-                //llena el objeto con los valores de la pantalla
-                dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
-                dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
+                using (var conexion = new DataModelFE())
+                {
+                    //se declara el objeto a insertar
+                    Exoneracion dato = new Exoneracion();
+                    //llena el objeto con los valores de la pantalla
+                    dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
+                    dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
 
-                dato.estado = e.NewValues["estado"].ToString();
-                dato.usuarioCreacion = Session["usuario"].ToString();
-                dato.fechaCreacion =  Date.DateTimeNow();
+                    dato.estado = e.NewValues["estado"].ToString();
+                    dato.usuarioCreacion = Session["usuario"].ToString();
+                    dato.fechaCreacion = Date.DateTimeNow();
 
-                //agrega el objeto
-                this.dataModelFE.Exoneracion.Add(dato);
-                this.dataModelFE.SaveChanges();
-                 
-                //esto es para el manero del devexpress
-                e.Cancel = true;
-                this.ASPxGridView1.CancelEdit();
+                    //agrega el objeto
+                    conexion.Exoneracion.Add(dato);
+                    conexion.SaveChanges();
+
+                    //esto es para el manero del devexpress
+                    e.Cancel = true;
+                    this.ASPxGridView1.CancelEdit();
+                }
 
             }
             catch (DbEntityValidationException ex)
@@ -128,15 +131,15 @@ namespace Web.Pages.Catalogos
                 // Combine the original exception message with the new one.
                 var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
 
-               // DataModelFE.GetInstance().Exoneracion.Remove(DataModelFE.GetInstance().Exoneracion.Last() );
+                // conexion.Exoneracion.Remove(conexion.Exoneracion.Last() );
 
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
 
             }
             catch (Exception ex)
-            { 
-                throw new Exception(ex.Message);
+            {
+                throw new Exception(ex.Message, ex.InnerException);
             }
             finally
             {
@@ -154,34 +157,35 @@ namespace Web.Pages.Catalogos
         {
             try
             {
+                using (var conexion = new DataModelFE())
+                {
+                    // se declara el objeto a insertar
+                    Exoneracion dato = new Exoneracion();
+                    //llena el objeto con los valores de la pantalla
+                    dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
 
+                    //busca el objeto 
+                    Exoneracion oldDato = conexion.Exoneracion.Find(dato.codigo);
+                    dato = oldDato;
 
-                // se declara el objeto a insertar
-                Exoneracion dato = new Exoneracion();
-                //llena el objeto con los valores de la pantalla
-                dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
+                    dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
+                    dato.estado = e.NewValues["estado"].ToString();
+                    dato.usuarioModificacion = Session["usuario"].ToString();
+                    dato.fechaModificacion = Date.DateTimeNow();
 
-                //busca el objeto 
-                Exoneracion oldDato = DataModelFE.GetInstance().Exoneracion.Find(dato.codigo);
-                dato = oldDato;
+                    //modifica objeto
+                    conexion.Entry(oldDato).CurrentValues.SetValues(dato);
+                    conexion.SaveChanges();
 
-                dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null; 
-                dato.estado = e.NewValues["estado"].ToString();
-                dato.usuarioModificacion = Session["usuario"].ToString();
-                dato.fechaModificacion = Date.DateTimeNow();
-                
-                //modifica objeto
-                DataModelFE.GetInstance().Entry(oldDato).CurrentValues.SetValues(dato);
-                DataModelFE.GetInstance().SaveChanges();
-
-                //esto es para el manero del devexpress
-                e.Cancel = true;
-                this.ASPxGridView1.CancelEdit();
+                    //esto es para el manero del devexpress
+                    e.Cancel = true;
+                    this.ASPxGridView1.CancelEdit();
+                }
 
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw new Exception(ex.Message, ex.InnerException);
             }
             finally
             {
@@ -199,21 +203,24 @@ namespace Web.Pages.Catalogos
         {
             try
             {
-                var id = e.Values["codigo"].ToString();
+                using (var conexion = new DataModelFE())
+                {
+                    var id = e.Values["codigo"].ToString();
 
-                //busca objeto
-                var itemToRemove = DataModelFE.GetInstance().Exoneracion.SingleOrDefault(x => x.codigo == id);
-                DataModelFE.GetInstance().Exoneracion.Remove(itemToRemove);
-                DataModelFE.GetInstance().SaveChanges();
+                    //busca objeto
+                    var itemToRemove = conexion.Exoneracion.SingleOrDefault(x => x.codigo == id);
+                    conexion.Exoneracion.Remove(itemToRemove);
+                    conexion.SaveChanges();
 
-                //esto es para el manero del devexpress
-                e.Cancel = true;
-                this.ASPxGridView1.CancelEdit();
+                    //esto es para el manero del devexpress
+                    e.Cancel = true;
+                    this.ASPxGridView1.CancelEdit();
+                }
 
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw new Exception(ex.Message, ex.InnerException);
             }
             finally
             {
@@ -270,11 +277,10 @@ namespace Web.Pages.Catalogos
         {
             if (e.Exception != null)
             {
-                if (Session["errorMessage"] != null)
-                {
-                    e.ErrorText = Utilidades.validarExepcionSQL(Session["errorMessage"].ToString());
-                    Session["errorMessage"] = null;
-                }
+                String error = e.Exception.InnerException.Message;
+                error = e.Exception.InnerException.InnerException.Message;
+
+                e.ErrorText = Utilidades.validarExepcionSQL(error);
             }
         }
     }

@@ -11,6 +11,8 @@ namespace Web.Models.Catalogos
     [Table("xml_tipo_moneda")]
     public class TipoMoneda 
     {
+        public static String CRC = "CRC";
+
         [Key]
         [Required]
         [MaxLength(3, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]

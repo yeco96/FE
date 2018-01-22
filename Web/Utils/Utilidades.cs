@@ -103,19 +103,19 @@ namespace Class.Utilidades
 
         public static String validarExepcionSQL(String message)  {
             if(message.ToUpper().Contains("DUPLICATE ENTRY") ){
-                return "El registro a insertar ya se encuentra en el sistema." +  
+                return "El registro a insertar ya se encuentra en el sistema. " +  
                         "Cambiar el o los códigos que desea guardar por otros que no existan en el sistema.";
             }else{ 
                 if(message.ToUpper().Contains("CANNOT DELETE OR UPDATE A PARENT ROW") ){
-                    return "El registro está siendo utilizado por otras funcionalidades del sistema." + 
+                    return "El registro está siendo utilizado por otras funcionalidades del sistema. " + 
                             "Para eliminar el registro primero se deben eliminar los registros asociados en los respectivos mantenimientos o modificar estos para que no se relacionen con este registro.";
                 }else{ 
                     if (message.ToUpper().Contains("FOREIGN KEY")) {
                         if(message.ToUpper().Contains("ADD") ){
-                            return "El registro a insertar contiene datos asociados que aún no están almacenados en el sistema." + "\n" +
+                            return "El registro a insertar contiene datos asociados que aún no están almacenados en el sistema. " + "\n" +
                                                 "Para insertar el registro primero debe verificar los registros asociados, esto porque algún registro asociado no existe en el sistema.";
                         }else{
-                            return "El registro está siendo utilizado por otras funcionalidades del sistema." +  
+                            return "El registro está siendo utilizado por otras funcionalidades del sistema. " +  
                                                 "Para eliminar el registro primero se deben eliminar los registros asociados en los respectivos mantenimientos o modificar estos para que no se relacionen con este registro.";
                         }
                     }else{

@@ -9,7 +9,6 @@
             Mantenimiento Medio Pago
         </div>
     </section>
-    <br />
     <div class="borde_redondo_tabla">
 
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
@@ -47,7 +46,7 @@
              <SettingsBehavior ColumnResizeMode="NextColumn" />
             <Settings ShowFooter="True" ShowFilterBar="Visible" ShowFilterRow="true" />
             <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="True" ConfirmDelete="True" />
-            <SettingsPager PageSize="10"  Visible="true" PageSizeItemSettings-Items="10, 20, 50, 100" />
+            <SettingsPager PageSize="10" PageSizeItemSettings-Visible="true"  PageSizeItemSettings-Items="10, 20, 50, 100" />
             <SettingsEditing Mode="EditFormAndDisplayRow" />
             <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="True" ShowFilterRow="True" ShowTitlePanel="True" UseFixedTableLayout="True" />
             <SettingsContextMenu EnableColumnMenu="True" Enabled="True" EnableFooterMenu="True" EnableGroupPanelMenu="True" EnableRowMenu="True" />

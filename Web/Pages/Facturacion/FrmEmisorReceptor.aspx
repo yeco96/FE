@@ -1,12 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmCatalogoTipoIdentificacion.aspx.cs" Inherits="Web.Pages.Catalogos.FrmCatalogoTipoIdentificacion" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmEmisorReceptor.aspx.cs" Inherits="Web.Pages.Catalogos.FrmEmisorReceptor" %>
 
-<%@ Register Src="~/UserControls/AddAuditoriaForm.ascx" TagPrefix="user" TagName="AddAuditoriaForm" %>
+<%@ Register Src="~/UserControls/AddAuditoriaForm.ascx" TagPrefix="user1" TagName="AddAuditoriaForm" %>
+<%@ Register Src="~/UserControls/AddUbicacionForm.ascx" TagPrefix="user2" TagName="AddUbicacionForm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 
     <section class="featured">
         <div class="content-wrapper">
-            Mantenimiento Tipo Identificación
+            Mantenimiento Moneda
         </div>
     </section>
     <div class="borde_redondo_tabla">
@@ -22,24 +23,40 @@
             <Columns>
                 <dx:GridViewCommandColumn Width="100px" ButtonType="Image" ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
                 </dx:GridViewCommandColumn>
-                <dx:GridViewDataTextColumn Caption="Código" FieldName="codigo" VisibleIndex="2" PropertiesTextEdit-MaxLength="3"
+
+                <dx:GridViewDataComboBoxColumn Caption="Tipo" FieldName="identificacionTipo" VisibleIndex="2" 
+                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataComboBoxColumn>
+                <dx:GridViewDataTextColumn Caption="Identificación" FieldName="identificacion" VisibleIndex="3" PropertiesTextEdit-MaxLength="12"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Descripción" FieldName="descripcion" VisibleIndex="3" PropertiesTextEdit-MaxLength="50"
+
+                <dx:GridViewDataTextColumn Caption="Nombre" FieldName="nombre" VisibleIndex="4" PropertiesTextEdit-MaxLength="30"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
                   
-                <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="4"
+                  <dx:GridViewDataTextColumn Caption="Nombre Comercial" FieldName="nombreComercial" VisibleIndex="6" PropertiesTextEdit-MaxLength="80"
+                    PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataTextColumn>
+
+
+                <dx:GridViewDataComboBoxColumn FieldName="provincia" Visible="false"  />
+                <dx:GridViewDataComboBoxColumn FieldName="canton" Visible="false"   />
+                <dx:GridViewDataComboBoxColumn FieldName="distrito"  Visible="false"  />
+                <dx:GridViewDataComboBoxColumn FieldName="barrio"  Visible="false"  />
+                <dx:GridViewDataMemoColumn FieldName="otraSena"  Visible="false"  />
+                  
+                <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="50"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
-                <dx:GridViewDataTextColumn Visible="false" Caption="Usuario Creación" FieldName="usuarioCreacion" VisibleIndex="5">
+                <dx:GridViewDataTextColumn Visible="false" Caption="Usuario Creación" FieldName="usuarioCreacion" VisibleIndex="51">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataDateColumn Visible="false" Caption="Fecha Creación" FieldName="fechaCreacion" VisibleIndex="6">
+                <dx:GridViewDataDateColumn Visible="false" Caption="Fecha Creación" FieldName="fechaCreacion" VisibleIndex="52">
                     <PropertiesDateEdit EditFormat="DateTime" DisplayFormatString="" EditFormatString="dd/MM/yyyy hh:mm:ss"></PropertiesDateEdit>
                 </dx:GridViewDataDateColumn>
-                <dx:GridViewDataTextColumn Visible="false" Caption="Usuario Modificación" FieldName="usuarioModificacion" VisibleIndex="7">
+                <dx:GridViewDataTextColumn Visible="false" Caption="Usuario Modificación" FieldName="usuarioModificacion" VisibleIndex="53">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataDateColumn Visible="false" Caption="Fecha Modificación" FieldName="fechaModificacion" VisibleIndex="8">
+                <dx:GridViewDataDateColumn Visible="false" Caption="Fecha Modificación" FieldName="fechaModificacion" VisibleIndex="54">
                     <PropertiesDateEdit EditFormat="DateTime" DisplayFormatString="" EditFormatString="dd/MM/yyyy hh:mm:ss"></PropertiesDateEdit>
                 </dx:GridViewDataDateColumn>
             </Columns>
@@ -80,10 +97,17 @@
                                         </dx:ContentControl>
                                     </ContentCollection>
                                 </dx:TabPage>
-                                <dx:TabPage Text="Auditoría" Visible="true">
+                                <dx:TabPage Text="Ubicación" Visible="true">
                                     <ContentCollection>
                                         <dx:ContentControl runat="server">
-                                            <user:AddAuditoriaForm runat="server" />
+                                            <user2:AddUbicacionForm runat="server" />
+                                        </dx:ContentControl>
+                                    </ContentCollection>
+                                </dx:TabPage>
+                                 <dx:TabPage Text="Auditoría" Visible="true">
+                                    <ContentCollection>
+                                        <dx:ContentControl runat="server">
+                                            <user1:AddAuditoriaForm runat="server" />
                                         </dx:ContentControl>
                                     </ContentCollection>
                                 </dx:TabPage>
@@ -105,11 +129,11 @@
             <BorderBottom BorderWidth="1px" />
 
         </dx:ASPxGridView>
-        <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="ASPxGridView1" FileName="Catálogo Tipo Identificación">
+        <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="ASPxGridView1" FileName="Catálogo Moneda">
             <Styles>
                 <Default Font-Names="Arial" Font-Size="Small" />
             </Styles>
-            <PageHeader Center="Facturación Web - Catálogo Tipo Identificación">
+            <PageHeader Center="Facturación Web - Catálogo Moneda">
                 <Font Bold="True" Names="Arial" Size="Large" />
             </PageHeader>
             <PageFooter Left="[Page # of Pages #]" Right="[Date Printed][Time Printed]">

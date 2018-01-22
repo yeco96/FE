@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Web {
+namespace Web.UserControls {
     
     
-    public partial class Home {
+    public partial class AddUbicacionForm {
         
         /// <summary>
-        /// ImageSlider control.
+        /// layoutAddUbicacionForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxImageSlider ImageSlider;
+        protected global::DevExpress.Web.ASPxFormLayout layoutAddUbicacionForm;
     }
 }

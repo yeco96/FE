@@ -7,15 +7,12 @@ using System.Web;
 
 namespace Web.Models.Catalogos
 {
-    [Table("xml_condicion_venta")]
-    public class CondicionVenta
+    [Table("xml_codigo_pais")]
+    public class CodigoPais
     {
-
-        public static String CREDITO = "CRÉDITO";
-
         [Key]
         [Required]
-        [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [MaxLength(3, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         [Display(Name = "Código")]
         public String codigo { set; get; }
 
@@ -23,7 +20,6 @@ namespace Web.Models.Catalogos
         [MaxLength(50, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         [Display(Name = "Descripción")]
         public String descripcion { set; get; }
-
 
         /// <summary>
         /// AUDIOTORIA
@@ -43,7 +39,7 @@ namespace Web.Models.Catalogos
         /// <summary>
         /// CONSTRUCTOR
         /// </summary>
-        public CondicionVenta()
+        public CodigoPais()
         {
         }
 
@@ -52,6 +48,8 @@ namespace Web.Models.Catalogos
         /// </summary>
         public virtual Usuario UsuarioCreacion { get; set; }
         public virtual Usuario UsuarioModificacion { get; set; }
+
+
 
 
     }

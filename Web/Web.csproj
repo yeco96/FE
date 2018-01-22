@@ -68,6 +68,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -90,6 +92,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\add.png" />
     <Content Include="Content\Images\acept.png" />
+    <Content Include="Content\Images\banner.jpg" />
     <Content Include="Content\Images\Blog\image0.png" />
     <Content Include="Content\Images\Blog\image1.png" />
     <Content Include="Content\Images\Blog\image2.png" />
@@ -118,6 +121,8 @@
     <Content Include="Pages\BlogPost.aspx" />
     <Content Include="Pages\BlogTimeline.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoTipoIdentificacion.aspx" />
+    <Content Include="Pages\Catalogos\FrmCatalogoTipoProductoServicio.aspx" />
+    <Content Include="Pages\Catalogos\FrmCatalogoUbicacion.aspx" />
     <Content Include="Pages\Contacts.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoCodigoReferencia.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoMedioPago.aspx" />
@@ -126,11 +131,22 @@
     <Content Include="Pages\Catalogos\FrmCatalogoTipoDocumento.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoUnidadMedida.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoTipoMoneda.aspx" />
+    <Content Include="Pages\Facturacion\FrmEmisorReceptor.aspx" />
+    <Content Include="Pages\Facturacion\FrmGenerarDocumento.aspx" />
     <Content Include="Pages\Home.aspx" />
     <Content Include="Pages\Search.aspx" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.12.2.min.js" />
     <Content Include="Scripts\site.js" />
+    <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Service References\ServiceReferenceBCCR\wsIndicadoresEconomicos.disco" />
+    <None Include="Service References\ServiceReferenceBCCR\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReferenceBCCR\configuration.svcinfo" />
+    <None Include="Service References\ServiceReferenceBCCR\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="UserControls\AddUbicacionForm.ascx" />
     <Content Include="UserControls\AddAuditoriaForm.ascx" />
     <Content Include="UserControls\AddCommentForm.ascx" />
     <Content Include="UserControls\BlogNavigation.ascx" />
@@ -154,6 +170,7 @@
     <Content Include="Web.config" />
     <Content Include="packages.config" />
     <Content Include="App_Data\180119160538.psc" />
+    <None Include="Service References\ServiceReferenceBCCR\wsIndicadoresEconomicos.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -174,18 +191,21 @@
     <Compile Include="Layout.master.designer.cs">
       <DependentUpon>Layout.master</DependentUpon>
     </Compile>
-    <Compile Include="Models\Canton.cs" />
+    <Compile Include="Models\Catalogos\Canton.cs" />
     <Compile Include="Models\Catalogos\CodigoReferencia.cs" />
     <Compile Include="Models\Catalogos\CondicionVenta.cs" />
+    <Compile Include="Models\Catalogos\CodigoPais.cs" />
+    <Compile Include="Models\Catalogos\Ubicacion.cs" />
     <Compile Include="Models\DataModelFE.cs" />
     <Compile Include="Models\Catalogos\Distrito.cs" />
     <Compile Include="Models\Catalogos\Exoneracion.cs" />
     <Compile Include="Models\Catalogos\MedioPago.cs" />
-    <Compile Include="Models\Catalogos\ProductoServicio.cs" />
+    <Compile Include="Models\Catalogos\TipoProductoServicio.cs" />
     <Compile Include="Models\Catalogos\Provincia.cs" />
     <Compile Include="Models\Catalogos\TipoDocumento.cs" />
     <Compile Include="Models\Catalogos\TipoIdentificacion.cs" />
     <Compile Include="Models\Catalogos\UnidadMedida.cs" />
+    <Compile Include="Models\Facturacion\EmisorReceptor.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Catalogos\TipoMoneda.cs" />
     <Compile Include="Pages\BlogPost.aspx.cs">
@@ -208,6 +228,20 @@
     </Compile>
     <Compile Include="Pages\Catalogos\FrmCatalogoTipoIdentificacion.aspx.designer.cs">
       <DependentUpon>FrmCatalogoTipoIdentificacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoTipoProductoServicio.aspx.cs">
+      <DependentUpon>FrmCatalogoTipoProductoServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoTipoProductoServicio.aspx.designer.cs">
+      <DependentUpon>FrmCatalogoTipoProductoServicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoUbicacion.aspx.cs">
+      <DependentUpon>FrmCatalogoUbicacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoUbicacion.aspx.designer.cs">
+      <DependentUpon>FrmCatalogoUbicacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Contacts.aspx.cs">
       <DependentUpon>Contacts.aspx</DependentUpon>
@@ -265,6 +299,20 @@
     <Compile Include="Pages\Catalogos\FrmCatalogoTipoMoneda.aspx.designer.cs">
       <DependentUpon>FrmCatalogoTipoMoneda.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Facturacion\FrmEmisorReceptor.aspx.cs">
+      <DependentUpon>FrmEmisorReceptor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmEmisorReceptor.aspx.designer.cs">
+      <DependentUpon>FrmEmisorReceptor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmGenerarDocumento.aspx.cs">
+      <DependentUpon>FrmGenerarDocumento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmGenerarDocumento.aspx.designer.cs">
+      <DependentUpon>FrmGenerarDocumento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -280,6 +328,18 @@
       <DependentUpon>Search.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ServiceReferenceBCCR\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AddUbicacionForm.ascx.cs">
+      <DependentUpon>AddUbicacionForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\AddUbicacionForm.ascx.designer.cs">
+      <DependentUpon>AddUbicacionForm.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AddAuditoriaForm.ascx.cs">
       <DependentUpon>AddAuditoriaForm.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -306,9 +366,16 @@
     <Compile Include="Utils\MD5Util.cs" />
     <Compile Include="Utils\ProperCase.cs" />
     <Compile Include="Utils\Utilidades.cs" />
+    <Compile Include="Utils\BCCR.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReferenceBCCR\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

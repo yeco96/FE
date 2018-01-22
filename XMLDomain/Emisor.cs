@@ -23,13 +23,12 @@ namespace XMLDomain
 
         [XmlElement(ElementName = "Telefono", Order = 5)]
         public Telefono telefono { set; get; }
-
-
+        
         [XmlElement(ElementName = "Fax", Order = 6)]
-            public Fax fax { set; get; }
+        public Fax fax { set; get; }
 
         [XmlElement(ElementName = "CorreoElectronico", Order = 7)]
-            public string correoElectronico { set; get; }//tamaño 60  DGT
+        public string correoElectronico { set; get; }//tamaño 60  DGT
 
         public Emisor() {
             this.identificacion = new Identificacion();

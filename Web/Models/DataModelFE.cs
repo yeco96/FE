@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using Web.Models.Catalogos;
+using Web.Models.Facturacion;
 
 namespace Web.Models
 {
@@ -12,26 +13,30 @@ namespace Web.Models
 
 
         public DataModelFE() : base("name=fe_db")
-        {
+        { 
         }
 
-        public virtual DbSet<Canton> Canton { get; set; }
+        //public virtual DbSet<Canton> Canton { get; set; }
         public virtual DbSet<CondicionVenta> CondicionVenta { get; set; }
+        public virtual DbSet<CodigoPais> CodigoPais { get; set; }
         public virtual DbSet<CodigoReferencia> CodigoReferencia { get; set; }
-        public virtual DbSet<Distrito> Distrito { get; set; }
+        //public virtual DbSet<Distrito> Distrito { get; set; }
         public virtual DbSet<Exoneracion> Exoneracion { get; set; }
         public virtual DbSet<MedioPago> MedioPago { get; set; }
-        public virtual DbSet<Provincia> Provincia { get; set; }
-        public virtual DbSet<ProductoServicio> ProductoServicio { get; set; }
+        //public virtual DbSet<Provincia> Provincia { get; set; }
+        public virtual DbSet<TipoProductoServicio> TipoProductoServicio { get; set; }
         public virtual DbSet<TipoDocumento> TipoDocumento { get; set; }
         public virtual DbSet<TipoIdentificacion> TipoIdentificacion { get; set; }
         public virtual DbSet<TipoMoneda> TipoMoneda { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<UnidadMedida> UnidadMedida { get; set; }
+        public virtual DbSet<Ubicacion> Ubicacion { get; set; }
 
- 
+
+        public virtual DbSet<EmisorReceptor> EmisorReceptor { get; set; }
 
 
+         
 
         #region singletonInstance
         /// <summary>

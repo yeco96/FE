@@ -4,8 +4,10 @@ using DevExpress.Web;
 using DevExpress.XtraPrinting;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Web.Models;
@@ -13,15 +15,17 @@ using Web.Models.Catalogos;
 
 namespace Web.Pages.Catalogos
 {
-    public partial class FrmCatalogoMedioPago : System.Web.UI.Page
+    public partial class FrmCatalogoTipoProductoServicio : System.Web.UI.Page
     {
-        
+         
+
         /// <summary>
         /// constructor
         /// </summary>
-        public FrmCatalogoMedioPago()
-        { 
+        public FrmCatalogoTipoProductoServicio()
+        {  
         }
+
         /// <summary>
         /// este metodo si inicializa al cada vez que se renderiza la pagina
         /// </summary>
@@ -49,7 +53,7 @@ namespace Web.Pages.Catalogos
         {
             using (var conexion = new DataModelFE())
             {
-                this.ASPxGridView1.DataSource = conexion.MedioPago.ToList();
+                this.ASPxGridView1.DataSource = conexion.TipoProductoServicio.ToList();
                 this.ASPxGridView1.DataBind();
             }
         }
@@ -97,7 +101,7 @@ namespace Web.Pages.Catalogos
                 using (var conexion = new DataModelFE())
                 {
                     //se declara el objeto a insertar
-                    MedioPago dato = new MedioPago();
+                    TipoProductoServicio dato = new TipoProductoServicio();
                     //llena el objeto con los valores de la pantalla
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
@@ -107,7 +111,7 @@ namespace Web.Pages.Catalogos
                     dato.fechaCreacion = Date.DateTimeNow();
 
                     //agrega el objeto
-                    conexion.MedioPago.Add(dato);
+                    conexion.TipoProductoServicio.Add(dato);
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress
@@ -129,7 +133,7 @@ namespace Web.Pages.Catalogos
                 // Combine the original exception message with the new one.
                 var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
 
-                // conexion.MedioPago.Remove(conexion.MedioPago.Last() );
+                // conexion.TipoProductoServicio.Remove(conexion.TipoProductoServicio.Last() );
 
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
@@ -158,12 +162,12 @@ namespace Web.Pages.Catalogos
                 using (var conexion = new DataModelFE())
                 {
                     // se declara el objeto a insertar
-                    MedioPago dato = new MedioPago();
+                    TipoProductoServicio dato = new TipoProductoServicio();
                     //llena el objeto con los valores de la pantalla
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
 
                     //busca el objeto 
-                    MedioPago oldDato = conexion.MedioPago.Find(dato.codigo);
+                    TipoProductoServicio oldDato = conexion.TipoProductoServicio.Find(dato.codigo);
                     dato = oldDato;
 
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
@@ -206,8 +210,8 @@ namespace Web.Pages.Catalogos
                     var id = e.Values["codigo"].ToString();
 
                     //busca objeto
-                    var itemToRemove = conexion.MedioPago.SingleOrDefault(x => x.codigo == id);
-                    conexion.MedioPago.Remove(itemToRemove);
+                    var itemToRemove = conexion.TipoProductoServicio.SingleOrDefault(x => x.codigo == id);
+                    conexion.TipoProductoServicio.Remove(itemToRemove);
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress

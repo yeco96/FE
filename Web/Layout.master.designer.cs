@@ -40,33 +40,6 @@ namespace Web {
         protected global::DevExpress.Web.ASPxMenu NavMenu;
         
         /// <summary>
-        /// SearchBlock control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SearchBlock;
-        
-        /// <summary>
-        /// Search control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButtonEdit Search;
-        
-        /// <summary>
-        /// hfAction control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxHiddenField hfAction;
-        
-        /// <summary>
         /// Content control.
         /// </summary>
         /// <remarks>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmCatalogoTipoIdentificacion.aspx.cs" Inherits="Web.Pages.Catalogos.FrmCatalogoTipoIdentificacion" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmCatalogoTipoProductoServicio.aspx.cs" Inherits="Web.Pages.Catalogos.FrmCatalogoTipoProductoServicio" %>
 
 <%@ Register Src="~/UserControls/AddAuditoriaForm.ascx" TagPrefix="user" TagName="AddAuditoriaForm" %>
 
@@ -6,7 +6,7 @@
 
     <section class="featured">
         <div class="content-wrapper">
-            Mantenimiento Tipo Identificación
+            Mantenimiento Tipo Producto Servicio
         </div>
     </section>
     <div class="borde_redondo_tabla">
@@ -105,11 +105,11 @@
             <BorderBottom BorderWidth="1px" />
 
         </dx:ASPxGridView>
-        <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="ASPxGridView1" FileName="Catálogo Tipo Identificación">
+        <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="ASPxGridView1" FileName="Catálogo Tipo Producto Servicio">
             <Styles>
                 <Default Font-Names="Arial" Font-Size="Small" />
             </Styles>
-            <PageHeader Center="Facturación Web - Catálogo Tipo Identificación">
+            <PageHeader Center="Facturación Web - Catálogo Tipo Producto Servicio">
                 <Font Bold="True" Names="Arial" Size="Large" />
             </PageHeader>
             <PageFooter Left="[Page # of Pages #]" Right="[Date Printed][Time Printed]">

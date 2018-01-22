@@ -13,8 +13,8 @@ namespace Web.Models.Catalogos
         [Key]
         [Required]
         [MaxLength(3, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
-        [Display(Name = "IdDistrito")]
-        public string idDistrito { set; get; }
+        [Display(Name = "Código")]
+        public string codigo { set; get; }
 
         [Required]
         [MaxLength(50, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
@@ -24,13 +24,13 @@ namespace Web.Models.Catalogos
 
         [Required]
         [MaxLength(3, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
-        [Display(Name = "IdCanton")]
-        public string idCanton { set; get; }
+        [Display(Name = "Canton")]
+        public string canton { set; get; }
 
         [Required]
         [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
-        [Display(Name = "IdProvincia")]
-        public string idProvincia { set; get; }
+        [Display(Name = "provincia")]
+        public string provincia { set; get; }
 
          
 

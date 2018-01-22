@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Codigo.cs" />
     <Compile Include="DetalleServicio.cs" />
     <Compile Include="Emisor.cs" />

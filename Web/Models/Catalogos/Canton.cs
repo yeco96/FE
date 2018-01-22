@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace Web.Models
+namespace Web.Models.Catalogos
 {
     [Table("xml_canton")]
     public class Canton
@@ -13,8 +13,8 @@ namespace Web.Models
         [Key]
         [Required]
         [MaxLength(3, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
-        [Display(Name = "IdCanton")]
-        public string idCanton { set; get; }
+        [Display(Name = "Código")]
+        public string codigo { set; get; }
 
         [Required]
         [MaxLength(50, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
@@ -23,8 +23,8 @@ namespace Web.Models
         
         [Required]
         [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
-        [Display(Name = "IdProvincia")]
-        public string idProvincia { set; get; }
+        [Display(Name = "Provincia")]
+        public string provincia { set; get; }
          
     }
 }

@@ -1,11 +1,11 @@
 <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.Master.cs" Inherits="Web.Layout" %>
+
 <!DOCTYPE html>
 <html>
 <head runat="server">
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title></title>
 
     <link href="Content/bootstrap.min.css" rel="stylesheet">
     <link href="Content/site.css" rel="stylesheet">
@@ -15,134 +15,148 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
- 
-    <script src="<%# ResolveUrl("~/Scripts/jquery-1.12.2.min.js")%>" type="text/javascript"></script>
- 
+
+    <script src="<%# ResolveUrl("~/Scripts/jquery-1.12.2.min.js")%>" type="text/javascript"></script> 
     <script src="<%# ResolveUrl("~/Scripts/bootstrap.min.js")%>" type="text/javascript"></script>
     <script src="<%# ResolveUrl("~/Scripts/site.js")%>" type="text/javascript"></script>
 </head>
 <body>
     <form id="form1" runat="server" class="aspnetForm">
-    <div class="wrapper">
-        <header>
-            <div class="container">
-                <dx:ASPxPanel ID="TopPanel" runat="server" ClientInstanceName="TopPanel" Width="100%" Collapsible="true">
-                    <SettingsAdaptivity CollapseAtWindowInnerWidth="680" />
-                    <SettingsCollapsing>
-                        <ExpandButton GlyphType="Strips" />
-                    </SettingsCollapsing>
-                    <Styles>
-                        <ExpandBar CssClass="expandBar" />
-                        <ExpandedPanel CssClass="expandedPanel" />
-                    </Styles>
-                    <ExpandBarTemplate>
-                        <div class='title'>
-                            <a href='<%: ResolveUrl("~/Pages/Home.aspx") %>'>FACTURACIÓN DIGITA</a>
-                            <p class='small'>Mobile friendly</p>
-                        </div>
-                    </ExpandBarTemplate>
-                    <PanelCollection>
-                        <dx:PanelContent>
+        <div class="wrapper">
+            <header >
+                <div class="container">
+                    <dx:ASPxPanel ID="TopPanel" runat="server" ClientInstanceName="TopPanel" Width="100%" Collapsible="true">
+                        <SettingsAdaptivity CollapseAtWindowInnerWidth="680" />
+                        <SettingsCollapsing>
+                            <ExpandButton GlyphType="Strips" />
+                        </SettingsCollapsing>
+                        <Styles>
+                            <ExpandBar CssClass="expandBar" />
+                            <ExpandedPanel CssClass="expandedPanel" />
+                        </Styles>
+                        <ExpandBarTemplate>
                             <div class='title'>
                                 <a href='<%: ResolveUrl("~/Pages/Home.aspx") %>'>FACTURACIÓN DIGITAL</a>
-                                <p class="small">MSA SOFT</p>
+                                <p class='small'>Mobile MSA SOFT</p>
                             </div>
-                            <div class="panelContent">
-                                <div class="pull-right">
-                                    <div class="panelItem">
-                                        <dx:ASPxMenu ID="NavMenu" runat="server" ClientInstanceName="NavMenu" EnableAnimation="true" CssClass="navMenu">
-                                            <ItemStyle Paddings-PaddingLeft="22" Paddings-PaddingRight="22" />
-                                            <Items>
-                                                <dx:MenuItem Text="HOME" NavigateUrl="~/Pages/Home.aspx" />
-                                                <dx:MenuItem Text="BLOG" NavigateUrl="~/Pages/BlogTimeline.aspx" />
-                                                <dx:MenuItem Text="CATALOGOS">
-                                                     <Items>
-                                                         
-                                                         <dx:MenuItem Text="MEDIO PAGO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoMedioPago.aspx" />
-                                                         
-                                                         <dx:MenuItem Text="CÓDIGO VENTA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoCodigoVenta.aspx" />
-                                                         <dx:MenuItem Text="CÓDIGO REFERENCIA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoCodigoReferencia.aspx" />
-
-                                                         <dx:MenuItem Text="EXONERACION" NavigateUrl="~/Pages/Catalogos/FrmCatalogoExoneracion.aspx" />
-                                                          
-                                                         <dx:MenuItem Text="TIPO DOCUMENTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoDocumento.aspx" />
-                                                         <dx:MenuItem Text="TIPO IDENTIFICACIÓN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoIdentificacion.aspx" />
-                                                         <dx:MenuItem Text="TIPO MONEDA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoMoneda.aspx" />
-
-                                                         <dx:MenuItem Text="UNIDAD MEDIDA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoUnidadMedida.aspx" />
-
-                                                     </Items>
-                                                </dx:MenuItem>
-                                                <dx:MenuItem Text="CONTACT US" NavigateUrl="~/Pages/Contacts.aspx" />
-                                            </Items>
-                                        </dx:ASPxMenu>
-                                    </div>
-                                    <div id="SearchBlock" runat="server" class="panelItem">
-                                        <script>
-                                            function DoSearch(s){
-                                                hfAction.Set("search", true);
-                                            }
-                                        </script>
-                                        <dx:ASPxButtonEdit ID="Search" runat="server" NullText="Search in blog" CssClass="searchBox" AutoPostBack="True">
-                                            <ButtonStyle CssClass="glyphicon glyphicon-search searchBoxButton" />
-                                            <Buttons>
-                                                <dx:EditButton />
-                                            </Buttons>
-                                            <ClientSideEvents KeyUp="DoSearch" ButtonClick="DoSearch" />
-                                        </dx:ASPxButtonEdit>
-                                        <dx:ASPxHiddenField ID="hfAction" runat="server" ClientInstanceName="hfAction"></dx:ASPxHiddenField>
-                                    </div>
- 
+                        </ExpandBarTemplate>
+                        <PanelCollection>
+                            <dx:PanelContent>
+                                <div id="banner"/>
+                                <div class='title'>
+                                    <a href='<%: ResolveUrl("~/Pages/Home.aspx") %>'>FACTURACIÓN DIGITAL</a>
+                                    <p class="small">MSA SOFT</p>
                                 </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </dx:PanelContent>
-                    </PanelCollection>
-                </dx:ASPxPanel>       
+                                <div class="panelContent">
+                                    <div class="pull-right">
+                                        <div class="panelItem">
+                                            <dx:ASPxMenu ID="NavMenu" runat="server" ClientInstanceName="NavMenu" EnableAnimation="true" CssClass="navMenu">
+                                                <ItemStyle Paddings-PaddingLeft="22" Paddings-PaddingRight="22" />
+                                                <Items>
+                                                    <dx:MenuItem Text="INICIO" NavigateUrl="~/Pages/Home.aspx" />
+                                                    <dx:MenuItem Text="BLOG" NavigateUrl="~/Pages/BlogTimeline.aspx" />
+                                                    <dx:MenuItem Text="CATALOGOS">
+                                                        <Items>
+
+                                                            <dx:MenuItem Text="MEDIO PAGO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoMedioPago.aspx" />
+
+                                                            <dx:MenuItem Text="CÓDIGO VENTA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoCondicionVenta.aspx" />
+                                                            <dx:MenuItem Text="CÓDIGO REFERENCIA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoCodigoReferencia.aspx" />
+
+                                                            <dx:MenuItem Text="EXONERACION" NavigateUrl="~/Pages/Catalogos/FrmCatalogoExoneracion.aspx" />
+
+                                                            <dx:MenuItem Text="TIPO DOCUMENTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoDocumento.aspx" />
+                                                            <dx:MenuItem Text="TIPO IDENTIFICACIÓN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoIdentificacion.aspx" />
+                                                            <dx:MenuItem Text="TIPO MONEDA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoMoneda.aspx" />
+                                                            <dx:MenuItem Text="TIPO PRODUCTO SERVICIO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoProductoServicio.aspx" />
+
+                                                            <dx:MenuItem Text="UBICACIÓN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoUbicacion.aspx" />
+                                                            <dx:MenuItem Text="UNIDAD MEDIDA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoUnidadMedida.aspx" />
+
+
+                                                        </Items>
+                                                    </dx:MenuItem>
+                                                      <dx:MenuItem Text="FACTURACIÓN">
+                                                        <Items>
+
+                                                            <dx:MenuItem Text="EMISOR" NavigateUrl="~/Pages/facturacion/FrmEmisor.aspx" />
+                                                            <dx:MenuItem Text="DOCUMENTO ELECTRÓNICO" NavigateUrl="~/Pages/facturacion/FrmGenerarDocumento.aspx" />
+ 
+                                                        </Items>
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Text="CONTACT US" NavigateUrl="~/Pages/Contacts.aspx" />
+                                                </Items>
+                                            </dx:ASPxMenu>
+                                        </div>
+
+                                        <%-- DXCOMMENT: 
+                                            <div id="SearchBlock" runat="server" class="panelItem" visible="false">
+                                                <script>
+                                                    function DoSearch(s){
+                                                        hfAction.Set("search", true);
+                                                    }
+                                                </script>
+                                                <dx:ASPxButtonEdit ID="Search" runat="server" NullText="Search in blog" CssClass="searchBox" AutoPostBack="True">
+                                                    <ButtonStyle CssClass="glyphicon glyphicon-search searchBoxButton" />
+                                                    <Buttons>
+                                                        <dx:EditButton />
+                                                    </Buttons>
+                                                    <ClientSideEvents KeyUp="DoSearch" ButtonClick="DoSearch" />
+                                                </dx:ASPxButtonEdit>
+                                                <dx:ASPxHiddenField ID="hfAction" runat="server" ClientInstanceName="hfAction"></dx:ASPxHiddenField>
+                                            </div>
+                                        --%>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </dx:PanelContent>
+                        </PanelCollection>
+                    </dx:ASPxPanel>
+                </div>
+            </header>
+            <div class="content">
+                <asp:ContentPlaceHolder runat="server" ID="Content" />
             </div>
-        </header>
-        <div class="content">
-            <asp:ContentPlaceHolder runat="server" ID="Content" />
-        </div>
-        <div id="btnBackToTop" class="btnBackToTop hidden">
-            <i class="glyphicon glyphicon-circle-arrow-up"></i>
-        </div>
-        <footer>
-            <div class="footerUp">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <h4>DevExpress</h4>
-                            <p>DevExpress engineers feature-complete Presentation Controls, IDE Productivity Tools, Business Application Frameworks, and Reporting Systems for Visual Studio.</p>
-                        </div>
-                        <div class="col-md-offset-1 col-md-4">
-                            <h4>Latest Posts</h4>
-                            <ul class="list-unstyled latestPosts">
-                                <li><a href="#">Upcoming webinar: Give AdHoc Query Powers to Your ASP.NET Grid Users</a></li>
-                                <li><a href="#">HTML5 Chart and Data Visualization Widgets - Enhancements</a></li>
-                                <li><a href="#">HTML5 Form Layout Widget</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-offset-1 col-md-3">
-                            <h4>Contact Us</h4>
-                            <ul class="list-unstyled">
-                                <li>505 N. Brand Blvd</li>
-                                <li>Glendale CA 91203 USA</li>
-                                <li>Phone: + 1 (818) 844 3383</li>
-                                <li>Mail: <a href="#">clientservices@devexpress.com</a></li>
-                            </ul>
+            <div id="btnBackToTop" class="btnBackToTop hidden">
+                <i class="glyphicon glyphicon-circle-arrow-up"></i>
+            </div>
+            <footer>
+                <div class="footerUp">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h4>MSA Soft</h4>
+                                <p>Desarrollo de aplicaciones tropicalisadas, desarrollo de sitios web, sistema de recursos humanos, sistemas de matricula, sistema de reparación vehicular, mantenimiento y consultorias.</p>
+                            </div>
+                            <div class="col-md-offset-1 col-md-4">
+                                <h4>Latest Posts</h4>
+                                <ul class="list-unstyled latestPosts">
+                                    <li><a href="#">Upcoming webinar: Give AdHoc Query Powers to Your ASP.NET Grid Users</a></li>
+                                    <li><a href="#">HTML5 Chart and Data Visualization Widgets - Enhancements</a></li>
+                                    <li><a href="#">HTML5 Form Layout Widget</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-offset-1 col-md-3">
+                                <h4>Contáctenos</h4>
+                                <ul class="list-unstyled">
+                                    <li>Heredia</li>
+                                    <li>Costa Rica</li>
+                                    <li>Teléfono: +(506) 8872 9065</li>
+                                    <li>Correo: <a href="#">msalamanca@msasoft.com</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="footerDown">
-                <div class="container">
-                    <p><%:DateTime.Today.Year.ToString()%> &copy; All Rights Reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+                <div class="footerDown">
+                    <div class="container">
+                        <p><%:DateTime.Today.Year.ToString()%> &copy; All Rights Reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+                    </div>
                 </div>
-            </div>
-        </footer>
-    </div>
-    <dx:ASPxGlobalEvents runat="server" ClientSideEvents-ControlsInitialized="adjustNavMenu" />
+            </footer>
+        </div>
+        <dx:ASPxGlobalEvents runat="server" ClientSideEvents-ControlsInitialized="adjustNavMenu" />
     </form>
+
 </body>
 </html>
