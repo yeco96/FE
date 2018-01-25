@@ -35,6 +35,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -45,14 +46,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComprobanteParametro.cs" />
-    <Compile Include="Comprobante.cs" />
+    <Compile Include="WSComprobante.cs" />
     <Compile Include="NotaDebito.cs" />
     <Compile Include="NotaCredito.cs" />
-    <Compile Include="RecepcionPOST.cs" />
+    <Compile Include="WSRecepcionPOST.cs" />
     <Compile Include="Receptor.cs" />
     <Compile Include="Emisor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RecepcionGET.cs" />
+    <Compile Include="WSRecepcionGET.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

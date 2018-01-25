@@ -9,7 +9,7 @@
                 <dx:LayoutItem Caption="Provincia">
                     <LayoutItemNestedControlCollection>
                         <dx:LayoutItemNestedControlContainer>
-                            <dx:ASPxGridViewTemplateReplacement   ReplacementType="EditFormCellEditor" ColumnID="provincia" runat="server"/>  
+                            <dx:ASPxGridViewTemplateReplacement   ReplacementType="EditFormCellEditor" ColumnID="provincia" runat="server" />  
                         </dx:LayoutItemNestedControlContainer> 
                     </LayoutItemNestedControlCollection>
                 </dx:LayoutItem>

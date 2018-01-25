@@ -50,6 +50,7 @@
     <Compile Include="Impuesto.cs" />
     <Compile Include="InformacionReferencia.cs" />
     <Compile Include="LineaDetalle.cs" />
+    <Compile Include="MensajeHacienda.cs" />
     <Compile Include="Normativa.cs" />
     <Compile Include="NotaCreditoElectronica.cs" />
     <Compile Include="NotaDebitoElectronica.cs" />
@@ -60,6 +61,12 @@
     <Compile Include="Telefono.cs" />
     <Compile Include="TiqueteElectronico.cs" />
     <Compile Include="Ubicacion.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EncodeXML\EncodeXML.csproj">
+      <Project>{e4ed4ae5-e668-4e03-a081-efa2dce011fa}</Project>
+      <Name>EncodeXML</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

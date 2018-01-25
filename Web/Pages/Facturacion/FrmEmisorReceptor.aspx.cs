@@ -71,16 +71,13 @@ namespace Web.Pages.Catalogos
                 comboEstado.PropertiesComboBox.Items.AddRange(Enum.GetValues(typeof(Estado)));
 
                 /* PROVINCIA */
-                 
-
-                /* IDENTIFICACION TIPO */
-                GridViewDataComboBoxColumn tipoID = this.ASPxGridView1.Columns["identificacionTipo"] as GridViewDataComboBoxColumn;
-                tipoID.PropertiesComboBox.Items.Clear();
-                foreach (var item in conexion.TipoIdentificacion.ToList())
+                GridViewDataComboBoxColumn provinciaCombo = this.ASPxGridView1.Columns["provincia"] as GridViewDataComboBoxColumn;
+                provinciaCombo.PropertiesComboBox.Items.Clear();
+                foreach (var item in conexion.Ubicacion.Select(x => new { x.codProvincia, x.nombreProvincia }).Distinct())
                 {
-                    tipoID.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
+                    provinciaCombo.PropertiesComboBox.Items.Add(item.nombreProvincia, item.codProvincia);
                 }
-                tipoID.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                provinciaCombo.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             }
         }
          
@@ -91,7 +88,7 @@ namespace Web.Pages.Catalogos
         /// <param name="errors"></param>
         /// <param name="column"></param>
         /// <param name="errorText"></param>
-        void AddError(Dictionary<GridViewColumn, String> errors, GridViewColumn column, String errorText)
+        void AddError(Dictionary<GridViewColumn, string> errors, GridViewColumn column, string errorText)
         {
             if (errors.ContainsKey(column))
             {
@@ -124,8 +121,7 @@ namespace Web.Pages.Catalogos
                     dato.nombre = e.NewValues["nombre"] != null ? e.NewValues["nombre"].ToString().ToUpper() : null;
                     
                     dato.nombreComercial = e.NewValues["nombreComercial"] != null ? e.NewValues["nombreComercial"].ToString().ToUpper() : null;
-
-                    dato.estado = e.NewValues["estado"].ToString();
+                    
                     dato.usuarioCreacion = Session["usuario"].ToString();
                     dato.fechaCreacion = Date.DateTimeNow();
 
@@ -170,7 +166,7 @@ namespace Web.Pages.Catalogos
                     dato = conexion.EmisorReceptor.Find(dato.identificacionTipo);
 
                     dato.identificacion = e.NewValues["identificacion"] != null ? e.NewValues["identificacion"].ToString().ToUpper() : null;
-                    dato.estado = e.NewValues["estado"].ToString();
+                 
                     dato.usuarioModificacion = Session["usuario"].ToString();
                     dato.fechaModificacion = Date.DateTimeNow();
 
@@ -280,7 +276,7 @@ namespace Web.Pages.Catalogos
         {
             if (e.Exception != null)
             {
-                String error = "";
+                string error = "";
                 if (e.Exception.InnerException!=null)
                 {
                     error =  e.Exception.InnerException.Message;

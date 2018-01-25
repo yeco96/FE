@@ -91,7 +91,7 @@ namespace Microsoft.Xades
 		{
 			bool retVal = false;
 
-			if (!String.IsNullOrEmpty(this.organization))
+			if (!string.IsNullOrEmpty(this.organization))
 			{
 				retVal = true;
 			}

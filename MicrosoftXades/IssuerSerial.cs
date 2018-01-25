@@ -88,12 +88,12 @@ namespace Microsoft.Xades
 		{
 			bool retVal = false;
 
-			if (!String.IsNullOrEmpty(this.x509IssuerName))
+			if (!string.IsNullOrEmpty(this.x509IssuerName))
 			{
 				retVal = true;
 			}
 
-			if (!String.IsNullOrEmpty(this.x509SerialNumber))
+			if (!string.IsNullOrEmpty(this.x509SerialNumber))
 			{
 				retVal = true;
 			}

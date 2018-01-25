@@ -44,6 +44,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Utils.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.ASPxHtmlEditor.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.Resources.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -63,11 +64,16 @@
       <HintPath>..\packages\MySql.Data.Entity.6.9.10\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Extensions" />
@@ -123,6 +129,7 @@
     <Content Include="Pages\Catalogos\FrmCatalogoTipoIdentificacion.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoTipoProductoServicio.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoUbicacion.aspx" />
+    <Content Include="Pages\Catalogos\FrmCatalogoProducto.aspx" />
     <Content Include="Pages\Contacts.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoCodigoReferencia.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoMedioPago.aspx" />
@@ -131,6 +138,8 @@
     <Content Include="Pages\Catalogos\FrmCatalogoTipoDocumento.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoUnidadMedida.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoTipoMoneda.aspx" />
+    <Content Include="Pages\Facturacion\FrmCargarXML.aspx" />
+    <Content Include="Pages\Facturacion\FrmDocumentoElectronico.aspx" />
     <Content Include="Pages\Facturacion\FrmEmisorReceptor.aspx" />
     <Content Include="Pages\Facturacion\FrmGenerarDocumento.aspx" />
     <Content Include="Pages\Home.aspx" />
@@ -196,6 +205,10 @@
     <Compile Include="Models\Catalogos\CondicionVenta.cs" />
     <Compile Include="Models\Catalogos\CodigoPais.cs" />
     <Compile Include="Models\Catalogos\Ubicacion.cs" />
+    <Compile Include="Models\Catalogos\Producto.cs" />
+    <Compile Include="Models\Configuracion\ConfiguracionAPP.cs" />
+    <Compile Include="Models\DataModelOAuth2.cs" />
+    <Compile Include="Models\DataModelWS.cs" />
     <Compile Include="Models\DataModelFE.cs" />
     <Compile Include="Models\Catalogos\Distrito.cs" />
     <Compile Include="Models\Catalogos\Exoneracion.cs" />
@@ -242,6 +255,13 @@
     </Compile>
     <Compile Include="Pages\Catalogos\FrmCatalogoUbicacion.aspx.designer.cs">
       <DependentUpon>FrmCatalogoUbicacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoProducto.aspx.cs">
+      <DependentUpon>FrmCatalogoProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoProducto.aspx.designer.cs">
+      <DependentUpon>FrmCatalogoProducto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Contacts.aspx.cs">
       <DependentUpon>Contacts.aspx</DependentUpon>
@@ -298,6 +318,20 @@
     </Compile>
     <Compile Include="Pages\Catalogos\FrmCatalogoTipoMoneda.aspx.designer.cs">
       <DependentUpon>FrmCatalogoTipoMoneda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmCargarXML.aspx.cs">
+      <DependentUpon>FrmCargarXML.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmCargarXML.aspx.designer.cs">
+      <DependentUpon>FrmCargarXML.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmDocumentoElectronico.aspx.cs">
+      <DependentUpon>FrmDocumentoElectronico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmDocumentoElectronico.aspx.designer.cs">
+      <DependentUpon>FrmDocumentoElectronico.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Facturacion\FrmEmisorReceptor.aspx.cs">
       <DependentUpon>FrmEmisorReceptor.aspx</DependentUpon>
@@ -367,6 +401,8 @@
     <Compile Include="Utils\ProperCase.cs" />
     <Compile Include="Utils\Utilidades.cs" />
     <Compile Include="Utils\BCCR.cs" />
+    <Compile Include="WebServices\Services.cs" />
+    <Compile Include="WebServices\URLServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -376,6 +412,35 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ServiceReferenceBCCR\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EncodeXML\EncodeXML.csproj">
+      <Project>{e4ed4ae5-e668-4e03-a081-efa2dce011fa}</Project>
+      <Name>EncodeXML</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FirmaXadesNet\FirmaXadesNet.csproj">
+      <Project>{84b87815-dd45-4c60-b343-c11d45847bdf}</Project>
+      <Name>FirmaXadesNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MicrosoftXades\Microsoft.Xades.csproj">
+      <Project>{ee1dc57a-344a-4b0a-82ce-5fd328c14894}</Project>
+      <Name>Microsoft.Xades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OAuth2\OAuth2.csproj">
+      <Project>{7dd98f7b-d51d-44f9-88fb-071983d68d60}</Project>
+      <Name>OAuth2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WSDomain\WSDomain.csproj">
+      <Project>{e1718bce-a57a-4c93-9490-8d5a9bc52d02}</Project>
+      <Name>WSDomain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XMLDomain\XMLDomain.csproj">
+      <Project>{341baa6c-4f85-4384-82de-b7c0d1320be6}</Project>
+      <Name>XMLDomain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Seguridad\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,7 +1,7 @@
 <%@ Page Title="Blog" Language="C#" AutoEventWireup="true" MasterPageFile="~/Layout.master" CodeBehind="BlogTimeline.aspx.cs" Inherits="Web.BlogTimeline" %>
 <%@ Register Src="~/UserControls/BlogNavigation.ascx" TagPrefix="dx" TagName="BlogNavigation" %>
 <script runat=server>
-protected String GetPreviewText() {
+protected string GetPreviewText() {
     var previewTextLength = 335;
     var blogBody = Eval("Body").ToString();
     return blogBody.Length > previewTextLength ? blogBody.Substring(0, previewTextLength) : blogBody;

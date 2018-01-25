@@ -125,22 +125,22 @@ namespace Microsoft.Xades
 		{
 			bool retVal = false;
 
-            if (!String.IsNullOrEmpty(this.city))
+            if (!string.IsNullOrEmpty(this.city))
 			{
 				retVal = true;
 			}
 
-			if (!String.IsNullOrEmpty(this.stateOrProvince))
+			if (!string.IsNullOrEmpty(this.stateOrProvince))
 			{
 				retVal = true;
 			}
 
-			if (!String.IsNullOrEmpty(this.postalCode))
+			if (!string.IsNullOrEmpty(this.postalCode))
 			{
 				retVal = true;
 			}
 
-			if (!String.IsNullOrEmpty(this.countryName))
+			if (!string.IsNullOrEmpty(this.countryName))
 			{
 				retVal = true;
 			}
@@ -203,21 +203,21 @@ namespace Microsoft.Xades
 			creationXmlDocument = new XmlDocument();
 			retVal = creationXmlDocument.CreateElement(XadesSignedXml.XmlXadesPrefix, "SignatureProductionPlace", XadesSignedXml.XadesNamespaceUri);
 
-			if (!String.IsNullOrEmpty(this.city))
+			if (!string.IsNullOrEmpty(this.city))
 			{
 				bufferXmlElement = creationXmlDocument.CreateElement(XadesSignedXml.XmlXadesPrefix, "City", XadesSignedXml.XadesNamespaceUri);
 				bufferXmlElement.InnerText = this.city;
 				retVal.AppendChild(bufferXmlElement);
 			}
 
-			if (!String.IsNullOrEmpty(this.stateOrProvince))
+			if (!string.IsNullOrEmpty(this.stateOrProvince))
 			{
                 bufferXmlElement = creationXmlDocument.CreateElement(XadesSignedXml.XmlXadesPrefix, "StateOrProvince", XadesSignedXml.XadesNamespaceUri);
 				bufferXmlElement.InnerText = this.stateOrProvince;
 				retVal.AppendChild(bufferXmlElement);
 			}
 
-			if (!String.IsNullOrEmpty(this.postalCode))
+			if (!string.IsNullOrEmpty(this.postalCode))
 			{
                 bufferXmlElement = creationXmlDocument.CreateElement(XadesSignedXml.XmlXadesPrefix, "PostalCode", XadesSignedXml.XadesNamespaceUri);
 				bufferXmlElement.InnerText = this.postalCode;

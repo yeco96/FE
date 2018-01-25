@@ -19,7 +19,7 @@ namespace Web.Models.Catalogos
         [Required]
         [MaxLength(50, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         [Display(Name = "Descripción")]
-        public String descripcion { set; get; }
+        public string descripcion { set; get; }
         
         [Required]
         [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]

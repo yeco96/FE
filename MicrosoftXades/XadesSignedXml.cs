@@ -904,7 +904,7 @@ namespace Microsoft.Xades
             string xadesCertHash = Convert.ToBase64String(((Cert)xadesSigningCertificateCollection[0]).CertDigest.DigestValue);
 
 
-            if (String.Compare(xmldsigCertHash, xadesCertHash, true, CultureInfo.InvariantCulture) != 0)
+            if (string.Compare(xmldsigCertHash, xadesCertHash, true, CultureInfo.InvariantCulture) != 0)
             {
                 throw new CryptographicException("Certificate in XMLDSIG signature doesn't match certificate in SigningCertificate element");
             }
@@ -1440,7 +1440,7 @@ namespace Microsoft.Xades
 
         #region Fix to add a namespace prefix for all XmlDsig nodes
 
-        private void SetPrefix(String prefix, XmlNode node)
+        private void SetPrefix(string prefix, XmlNode node)
         {
             if (node.NamespaceURI == SignedXml.XmlDsigNamespaceUrl)
             {

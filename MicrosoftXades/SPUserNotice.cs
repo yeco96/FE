@@ -105,7 +105,7 @@ namespace Microsoft.Xades
 		{
 			bool retVal = false;
 
-			if (!String.IsNullOrEmpty(this.explicitText))
+			if (!string.IsNullOrEmpty(this.explicitText))
 			{
 				retVal = true;
 			}
@@ -168,7 +168,7 @@ namespace Microsoft.Xades
 			{
 				bufferXmlElement.AppendChild(creationXmlDocument.ImportNode(this.noticeRef.GetXml(), true));
 			}
-			if (!String.IsNullOrEmpty(this.explicitText))
+			if (!string.IsNullOrEmpty(this.explicitText))
 			{
 				bufferXmlElement2 = creationXmlDocument.CreateElement("ExplicitText", XadesSignedXml.XadesNamespaceUri);
 				bufferXmlElement2.InnerText = this.explicitText;

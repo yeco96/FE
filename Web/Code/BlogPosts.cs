@@ -79,7 +79,7 @@ namespace Web.Code
 
         [XmlIgnore]
         public DateTime Date { get; set; }
-        public string DateString
+        public string Datestring
         {
             get { return this.Date.ToString("yyyy-MM-dd HH:mm:ss"); }
             set { this.Date = DateTime.Parse(value); }

@@ -12,28 +12,28 @@ namespace Web.Models.Catalogos
     {
         [Key]
         [Required]
-        [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [MaxLength(10, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         [Display(Name = "Código")]
-        public String codigo { set; get; }
+        public string codigo { set; get; }
 
         [Required]
         [MaxLength(50, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         [Display(Name = "Descripción")]
-        public String descripcion { set; get; }
+        public string descripcion { set; get; }
 
 
         /// <summary>
         /// AUDIOTORIA
         /// </summary>
-        public String estado { set; get; }
+        public string estado { set; get; }
 
         [ForeignKey("UsuarioCreacion")]
-        public String usuarioCreacion { set; get; }
+        public string usuarioCreacion { set; get; }
 
         public DateTime? fechaCreacion { set; get; }
 
         [ForeignKey("UsuarioModificacion")]
-        public String usuarioModificacion { set; get; }
+        public string usuarioModificacion { set; get; }
 
         public DateTime? fechaModificacion { set; get; }
 

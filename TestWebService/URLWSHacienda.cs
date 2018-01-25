@@ -7,14 +7,26 @@ using System.Threading.Tasks;
 namespace TestWebService
 {
     class URLWSHacienda
-    {  
-        public static string enviroment = "DES";
-          
+    {
+
+        private static string enviroment = "DES";
+
+
+        public URLWSHacienda()
+        {
+            enviroment = "DES";
+        }
+
+        public URLWSHacienda(string pEnviroment)
+        {
+            enviroment = pEnviroment;
+        } 
+
         /// <summary>
         /// 
         /// </summary>
         /// <returns>URL</returns>
-        public static String RECEPCION_POST()
+        public static string RECEPCION_POST()
         { 
             if (enviroment.Equals("PRD"))
             {
@@ -30,15 +42,15 @@ namespace TestWebService
         /// 
         /// </summary>
         /// <returns>URL</returns>
-        public static String RECEPCION_GET_CLAVE(string clave)
+        public static string RECEPCION_GET_CLAVE(string clave)
         { 
             if (enviroment.Equals("PRD"))
             {
-                return  String.Format("https://api.comprobanteselectronicos.go.cr/recepcion/v1/recepcion/{0}", clave);
+                return  string.Format("https://api.comprobanteselectronicos.go.cr/recepcion/v1/recepcion/{0}", clave);
             }
             else if (enviroment.Equals("DES"))
             {
-                return String.Format("https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/recepcion/{0}", clave);
+                return string.Format("https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/recepcion/{0}", clave);
             }
             return null;
         }
@@ -47,15 +59,15 @@ namespace TestWebService
         /// 
         /// </summary>
         /// <returns>URL</returns>
-        public static String COMPROBANTE_GET(String parametros)
+        public static string COMPROBANTE_GET(string parametros)
         { 
             if (enviroment.Equals("PRD"))
             {
-                return String.Format("https://api.comprobanteselectronicos.go.cr/recepcion/v1/comprobantes/{0}", parametros);
+                return string.Format("https://api.comprobanteselectronicos.go.cr/recepcion/v1/comprobantes/{0}", parametros);
             }
             else if (enviroment.Equals("DES"))
             {
-                return String.Format("https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/comprobantes/{0}", parametros);
+                return string.Format("https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/comprobantes/{0}", parametros);
             }
             return null;
         }
@@ -65,15 +77,15 @@ namespace TestWebService
         /// 
         /// </summary>
         /// <returns>URL</returns>
-        public static String COMPROBANTE_GET_CLAVE(string clave)
+        public static string COMPROBANTE_GET_CLAVE(string clave)
         {
             if (enviroment.Equals("PRD"))
             {
-                return String.Format("https://api.comprobanteselectronicos.go.cr/recepcion/v1/comprobantes/{0}", clave);
+                return string.Format("https://api.comprobanteselectronicos.go.cr/recepcion/v1/comprobantes/{0}", clave);
             }
             else if (enviroment.Equals("DES"))
             {
-                return String.Format("https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/comprobantes/{0}", clave);
+                return string.Format("https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/comprobantes/{0}", clave);
             }
             return null;
         }

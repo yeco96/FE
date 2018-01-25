@@ -1,4 +1,5 @@
-﻿using DevExpress.Web;
+﻿using Class.Utilidades;
+using DevExpress.Web;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace Web.Pages.Facturacion
             {
                 if (!IsCallback && !IsPostBack)
                 {
-                    this.txtFechaEmision.Date = DateTime.Now;
+                    this.txtFechaEmision.Date = Date.DateTimeNow();
                     this.cmbTipoMoneda.Value = TipoMoneda.CRC;
                     this.txtTipoCambio.Text = "0";
                     this.loadComboBox();
@@ -40,7 +41,7 @@ namespace Web.Pages.Facturacion
             using (var conexion = new DataModelFE())
             {
                 /* EMISOR */
-                String usuario = "603540974";
+                string usuario = "603540974";
                 EmisorReceptor emisor = conexion.EmisorReceptor.Where(x => x.identificacion == usuario).FirstOrDefault();
                 this.loadEmisor(emisor);
 
@@ -82,21 +83,21 @@ namespace Web.Pages.Facturacion
                 this.cmbReceptorProvincia.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
                 /* MEDIO PAGO */
-                foreach (var item in conexion.MedioPago.ToList())
+                foreach (var item in conexion.MedioPago.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
                 {
                     this.cmbMedioPago.Items.Add(item.descripcion, item.codigo);
                 }
                 this.cmbMedioPago.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
                 /* CONDICION VENTA */
-                foreach (var item in conexion.CondicionVenta.ToList())
+                foreach (var item in conexion.CondicionVenta.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
                 {
                     this.cmbCondicionVenta.Items.Add(item.descripcion, item.codigo);
                 }
                 this.cmbCondicionVenta.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
                 /* TIPO MONEDA */
-                foreach (var item in conexion.TipoMoneda.ToList())
+                foreach (var item in conexion.TipoMoneda.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
                 {
                     this.cmbTipoMoneda.Items.Add(item.descripcion, item.codigo);
                 }

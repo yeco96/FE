@@ -117,7 +117,7 @@ namespace Microsoft.Xades
 		{
 			bool retVal = false;
 
-            if (!String.IsNullOrEmpty(this.id))
+            if (!string.IsNullOrEmpty(this.id))
 			{
 				retVal = true;
 			}
@@ -187,7 +187,7 @@ namespace Microsoft.Xades
 
 			creationXmlDocument = new XmlDocument();
 			retVal = creationXmlDocument.CreateElement(XadesSignedXml.XmlXadesPrefix, "SignedProperties", XadesSignedXml.XadesNamespaceUri);
-            if (!String.IsNullOrEmpty(this.id))
+            if (!string.IsNullOrEmpty(this.id))
 			{
 				retVal.SetAttribute("Id", this.id);
 			}

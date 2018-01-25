@@ -117,7 +117,7 @@ namespace Microsoft.Xades
 		{
 			bool retVal = false;
 
-            if (!String.IsNullOrEmpty(this.id))
+            if (!string.IsNullOrEmpty(this.id))
 			{
 				retVal = true;
 			}
@@ -167,7 +167,7 @@ namespace Microsoft.Xades
             retVal.SetAttribute("xmlns:ds", SignedXml.XmlDsigNamespaceUrl);
             retVal.SetAttribute("Encoding", "http://uri.etsi.org/01903/v1.2.2#DER");
 
-            if (!String.IsNullOrEmpty(this.id))
+            if (!string.IsNullOrEmpty(this.id))
 			{
 				retVal.SetAttribute("Id", this.id);
 			}

@@ -126,7 +126,7 @@ namespace Microsoft.Xades
 		{
 			bool retVal = false;
 
-            if (!String.IsNullOrEmpty(this.id))
+            if (!string.IsNullOrEmpty(this.id))
 			{
 				retVal = true;
 			}

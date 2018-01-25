@@ -23,7 +23,7 @@ namespace Class.Utilidades
             return value.Equals(other);
         }
 
-        public override String ToString()
+        public override string ToString()
         {
             return value.ToString();
         }

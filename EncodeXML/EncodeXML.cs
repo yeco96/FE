@@ -33,7 +33,7 @@ namespace EncodeXML
 
                 utf8Decode.GetChars(todecode_byte, 0, todecode_byte.Length, decoded_char, 0);
 
-                string result = new String(decoded_char);
+                string result = new string(decoded_char);
 
                 return result;
 
@@ -69,9 +69,23 @@ namespace EncodeXML
         }
 
 
+        public static T Deserialize<T>(string input) where T : class
+        {
+            System.Xml.Serialization.XmlSerializer ser = new System.Xml.Serialization.XmlSerializer(typeof(T));
 
+            using (StringReader sr = new StringReader(input))
+            {
+                return (T)ser.Deserialize(sr);
+            }
+        }
 
-        public static Object ObjectToXML(string xml, Type objectType)
+        /// <summary>
+        /// tranforma un XML a su objeto correspondiente mapeado
+        /// </summary>
+        /// <param name="xml">XML con la data</param>
+        /// <param name="objectType">tipo de objeto</param>
+        /// <returns></returns>
+        public static Object objectToXML(string xml, Type objectType)
         {
             StringReader strReader = null;
             XmlSerializer serializer = null;
@@ -105,10 +119,14 @@ namespace EncodeXML
 
 
 
-
-        public static string GetXMLFromObject(object o)
-        {
-            StringWriterUtf8 sw = new StringWriterUtf8(); 
+        /// <summary>
+        /// Optiene un XML del objeto enviado
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        public static string getXMLFromObject(object o)
+        { 
+            stringWriterUtf8 sw = new stringWriterUtf8(); 
             XmlTextWriter tw = null;
             try
             {  
@@ -123,8 +141,8 @@ namespace EncodeXML
                 serializer.Serialize(tw, o); 
                 tw.Indentation = (Int32)Formatting.Indented;
                  
-                //tw.WriteAttributeString("xmlns", "https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica");
-                //tw.WriteAttributeString("xmlns:xsd", "https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica");
+                //tw.WriteAttributestring("xmlns", "https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica");
+                //tw.WriteAttributestring("xmlns:xsd", "https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica");
 
             }
             catch (Exception ex)
@@ -143,15 +161,36 @@ namespace EncodeXML
         }
 
 
-        class StringWriterUtf8 : System.IO.StringWriter
+        class stringWriterUtf8 : System.IO.StringWriter
         {
             public override Encoding Encoding => Encoding.UTF8;
 
         }
 
+        /// <summary>
+        /// Valida el formato XML contra su XDS
+        /// </summary>
+        /// <param name="xmlFirmado"></param>
+        public static void validadXMLXSD(string xmlFirmado)
+        {
+            XmlReaderSettings booksSettings = new XmlReaderSettings();
+            booksSettings.Schemas.Add("https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/tiqueteElectronico", "TiqueteElectronico_V4.2.xsd");
+            booksSettings.ValidationType = ValidationType.Schema;
+            booksSettings.ValidationEventHandler += new ValidationEventHandler(booksSettingsValidationEventHandler);
+
+            XmlReader books = XmlReader.Create(generateStreamFromstring(xmlFirmado), booksSettings);
+
+            while (books.Read()) { }
+        }
 
 
-        private static Stream GenerateStreamFromString(string s)
+
+        /// <summary>
+        /// Objetiene un Stream de datos de un objeto tipo string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        private static Stream generateStreamFromstring(string s)
         {
             MemoryStream stream = new MemoryStream();
             StreamWriter writer = new StreamWriter(stream);
@@ -162,21 +201,8 @@ namespace EncodeXML
         }
 
 
-        public static void validadXMLXSD(String xmlFirmado)
-        {
-             
 
-            XmlReaderSettings booksSettings = new XmlReaderSettings();
-            booksSettings.Schemas.Add("https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/tiqueteElectronico", "TiqueteElectronico_V4.2.xsd");
-            booksSettings.ValidationType = ValidationType.Schema;
-            booksSettings.ValidationEventHandler += new ValidationEventHandler(booksSettingsValidationEventHandler);
-
-            XmlReader books = XmlReader.Create(GenerateStreamFromString(xmlFirmado), booksSettings);
-
-            while (books.Read()) { }
-        }
-
-        static void booksSettingsValidationEventHandler(object sender, ValidationEventArgs e)
+        private static void booksSettingsValidationEventHandler(object sender, ValidationEventArgs e)
         {
             if (e.Severity == XmlSeverityType.Warning)
             {
@@ -189,6 +215,56 @@ namespace EncodeXML
                 Console.WriteLine(e.Message);
             }
         }
+
+        /// <summary>
+        /// Busca el valor de una etiqueta dentro de un XML
+        /// </summary>
+        /// <param name="tagPadre">nombre de la etiqueta padre Ej: emisor receptor MensajeHacienda FacturaElectronica NotaCreditoElectronica NotaDebitoElectronica</param>
+        /// <param name="label">nombre de la etiqueta</param>
+        /// <param name="xml">XML donde se busca la etiqueta</param>
+        /// <returns></returns>
+        public static string buscarValorEtiquetaXML(string tagPadre,string label, string xml)
+        {
+            try {  
+                string dato = "";
+                XmlDocument xm = new XmlDocument();
+                xm.LoadXml(xml);
+                XmlNodeList xmlTag = xm.GetElementsByTagName(tagPadre);
+                XmlNodeList lista = ((XmlElement)xmlTag[0]).GetElementsByTagName(label);
+                foreach (XmlElement nodo in lista)
+                {
+                    XmlNodeList nNombre = nodo.GetElementsByTagName(label);
+                    dato = nodo.InnerText;
+                }
+                return dato;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message, e.InnerException);
+            }
+        }
+
+        public static string tipoDocumentoXML(string xml)
+        {
+            if (xml.Contains("MensajeHacienda"))
+                return "MensajeHacienda";
+          
+            if (xml.Contains("FacturaElectronica"))
+                return "FacturaElectronica";
+
+            if (xml.Contains("NotaCreditoElectronica"))
+                return "NotaCreditoElectronica";
+
+            if (xml.Contains("NotaDebitoElectronica"))
+                return "NotaDebitoElectronica";
+
+            if (xml.Contains("TiqueteElectronico"))
+                return "TiqueteElectronico";
+
+            return null;
+        }
+
+
 
     }
 }

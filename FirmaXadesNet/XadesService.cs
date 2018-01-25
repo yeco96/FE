@@ -630,8 +630,8 @@ namespace FirmaXadesNet
         /// <summary>
         /// Añade una transformación XPath al contenido a firmar
         /// </summary>
-        /// <param name="XPathString"></param>
-        private void AddXPathTransform(SignatureDocument sigDocument, Dictionary<string, string> namespaces, string XPathString)
+        /// <param name="XPathstring"></param>
+        private void AddXPathTransform(SignatureDocument sigDocument, Dictionary<string, string> namespaces, string XPathstring)
         {
             XmlDocument document;
 
@@ -654,7 +654,7 @@ namespace FirmaXadesNet
                 xPathElem.Attributes.Append(attr);
             }
 
-            xPathElem.InnerText = XPathString;
+            xPathElem.InnerText = XPathstring;
 
             XmlDsigXPathTransform transform = new XmlDsigXPathTransform();
 
@@ -788,7 +788,7 @@ namespace FirmaXadesNet
 
             cert = new Cert();
             cert.IssuerSerial.X509IssuerName = parameters.Signer.Certificate.IssuerName.Name;
-            cert.IssuerSerial.X509SerialNumber = parameters.Signer.Certificate.GetSerialNumberAsDecimalString();
+            cert.IssuerSerial.X509SerialNumber = parameters.Signer.Certificate.GetSerialNumberAsDecimalstring();
             DigestUtil.SetCertDigest(parameters.Signer.Certificate.GetRawCertData(), parameters.DigestMethod, cert.CertDigest);
             signedSignatureProperties.SigningCertificate.CertCollection.Add(cert);
 

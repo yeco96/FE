@@ -21,7 +21,7 @@ namespace Web.UserControls {
                     var blogs = monthGroup.Value;
                     var navBarItem = navBarGroup.Items.Add();
                     var month = blogs.First().Date.ToString("MMMM");
-                    navBarItem.Text = String.Format("{0} ({1})", month, blogs.Count());
+                    navBarItem.Text = string.Format("{0} ({1})", month, blogs.Count());
                     navBarItem.NavigateUrl = string.Format("{0}?year={1}&month={2}", blogTimelineUrl, yearsGroup.Key, monthGroup.Key);
                 }
             }

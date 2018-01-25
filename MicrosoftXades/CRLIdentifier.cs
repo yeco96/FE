@@ -125,12 +125,12 @@ namespace Microsoft.Xades
 		{
 			bool retVal = false;
 
-			if (!String.IsNullOrEmpty(this.uriAttribute))
+			if (!string.IsNullOrEmpty(this.uriAttribute))
 			{
 				retVal = true;
 			}
 
-			if (!String.IsNullOrEmpty(this.issuer))
+			if (!string.IsNullOrEmpty(this.issuer))
 			{
 				retVal = true;
 			}
@@ -203,7 +203,7 @@ namespace Microsoft.Xades
 
 			retVal.SetAttribute("URI", this.uriAttribute);
 
-			if (!String.IsNullOrEmpty(this.issuer))
+			if (!string.IsNullOrEmpty(this.issuer))
 			{
 				bufferXmlElement = creationXmlDocument.CreateElement(XadesSignedXml.XmlXadesPrefix, "Issuer", XadesSignedXml.XadesNamespaceUri);
 				bufferXmlElement.InnerText = this.issuer;

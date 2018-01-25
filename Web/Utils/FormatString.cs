@@ -7,41 +7,41 @@ using System.Text.RegularExpressions;
 
 namespace Class.Utilidades
 {
-    class FormatString
+    class Formatstring
     {
         // NO CURRENCY
-        public static String GetCurrencyNoFormat(String pValor)
+        public static string GetCurrencyNoFormat(string pValor)
         {
             double value = double.Parse(pValor, NumberStyles.Currency, CultureInfo.CurrentCulture);
             return Convert.ToString(value);
         }
         // CURRENCY
-        public static String SetCurrencyFormat(double pValor)
+        public static string SetCurrencyFormat(double pValor)
         {
-            return String.Format(CultureInfo.CurrentCulture, "{0:C2}", pValor);
+            return string.Format(CultureInfo.CurrentCulture, "{0:C2}", pValor);
         }
         // NO NUMERIC
-        public static String GetNumericNoFormat(String pValor)
+        public static string GetNumericNoFormat(string pValor)
         {
             double value = double.Parse(pValor, NumberStyles.Number, CultureInfo.CurrentCulture);
             return Convert.ToString(value);
         }
         // NUMERIC
-        public static String SetNumericFormat(double pValor)
+        public static string SetNumericFormat(double pValor)
         {
-            return String.Format(CultureInfo.CurrentCulture, "{0:N}", pValor);
+            return string.Format(CultureInfo.CurrentCulture, "{0:N}", pValor);
         }
         // NO PHONE NUMBER
-        public static String GetPhoneNumberNoFormat(String pValor)
+        public static string GetPhoneNumberNoFormat(string pValor)
         {
-            String phoneNumber = pValor;
+            string phoneNumber = pValor;
             phoneNumber = Regex.Replace(phoneNumber, @"[^\d]", "");
             return phoneNumber;
         }
         // PHONE NUMBER
-        public static String GetDNINoFormat(String pValor)
+        public static string GetDNINoFormat(string pValor)
         {
-            String dni = pValor;
+            string dni = pValor;
             dni = Regex.Replace(dni, @"[^\d]", "");
             return dni;
         }

@@ -15,31 +15,31 @@ namespace Web.Models
         [Required]
         [MaxLength(15, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         [Display(Name = "Id")]
-        public String id { set; get; }
+        public string id { set; get; }
 
         [Required]
         [MaxLength(50, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         [Display(Name = "Nombre")]
-        public String nombre { set; get; }
+        public string nombre { set; get; }
 
         [Required]
         [MaxLength(50, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         [Display(Name = "Apellidos")]
-        public String apellido { set; get; }
+        public string apellido { set; get; }
 
-        public String nombreCompleto { get { return ToString(); } }
+        public string nombreCompleto { get { return ToString(); } }
 
 
         /// <summary>
         /// AUDIOTORIA
         /// </summary>
-        public String estado { set; get; }
+        public string estado { set; get; }
          
-        public String usuarioCreacion { set; get; }
+        public string usuarioCreacion { set; get; }
          
         public DateTime? fechaCreacion { set; get; }
          
-        public String usuarioModificacion { set; get; }
+        public string usuarioModificacion { set; get; }
          
         public DateTime? fechaModificacion { set; get; }
 
@@ -58,7 +58,7 @@ namespace Web.Models
         /// <returns></returns>
         public override string ToString()
         {
-            return String.Format("{0} {1} - {2}",this.apellido,this.nombre,this.id);
+            return string.Format("{0} {1} - {2}",this.apellido,this.nombre,this.id);
         }
 
 

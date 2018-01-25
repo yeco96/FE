@@ -93,7 +93,7 @@ namespace Microsoft.Xades
 		{
 			bool retVal = false;
 
-			if (!String.IsNullOrEmpty(this.uriAttribute))
+			if (!string.IsNullOrEmpty(this.uriAttribute))
 			{
 				retVal = true;
 			}

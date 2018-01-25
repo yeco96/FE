@@ -14,8 +14,7 @@ namespace XMLDomain
         [XmlElement(ElementName = "numTelefono", Order = 2)]
         public int numTelefono { set; get; }//tamaño 20  DGT
 
-
-
+         
         public Telefono() {
 
     }

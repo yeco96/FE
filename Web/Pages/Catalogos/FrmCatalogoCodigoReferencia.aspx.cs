@@ -4,6 +4,7 @@ using DevExpress.Web;
 using DevExpress.XtraPrinting;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
@@ -75,7 +76,7 @@ namespace Web.Pages.Catalogos
         /// <param name="errors"></param>
         /// <param name="column"></param>
         /// <param name="errorText"></param>
-        void AddError(Dictionary<GridViewColumn, String> errors, GridViewColumn column, String errorText)
+        void AddError(Dictionary<GridViewColumn, string> errors, GridViewColumn column, string errorText)
         {
             if (errors.ContainsKey(column))
             {
@@ -166,8 +167,7 @@ namespace Web.Pages.Catalogos
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
 
                     //busca el objeto 
-                    CodigoReferencia oldDato = conexion.CodigoReferencia.Find(dato.codigo);
-                    dato = oldDato;
+                    dato = conexion.CodigoReferencia.Find(dato.codigo);
 
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
                     dato.estado = e.NewValues["estado"].ToString();
@@ -175,7 +175,7 @@ namespace Web.Pages.Catalogos
                     dato.fechaModificacion = Date.DateTimeNow();
 
                     //modifica objeto
-                    conexion.Entry(oldDato).CurrentValues.SetValues(dato);
+                    conexion.Entry(dato).State = EntityState.Modified;
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress
@@ -278,7 +278,7 @@ namespace Web.Pages.Catalogos
         {
             if (e.Exception != null)
             {
-                String error = e.Exception.InnerException.Message;
+                string error = e.Exception.InnerException.Message;
                 error = e.Exception.InnerException.InnerException.Message;
 
                 e.ErrorText = Utilidades.validarExepcionSQL(error);

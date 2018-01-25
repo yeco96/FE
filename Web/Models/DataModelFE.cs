@@ -24,6 +24,9 @@ namespace Web.Models
         public virtual DbSet<Exoneracion> Exoneracion { get; set; }
         public virtual DbSet<MedioPago> MedioPago { get; set; }
         //public virtual DbSet<Provincia> Provincia { get; set; }
+
+        public virtual DbSet<Producto> Producto { get; set; }
+
         public virtual DbSet<TipoProductoServicio> TipoProductoServicio { get; set; }
         public virtual DbSet<TipoDocumento> TipoDocumento { get; set; }
         public virtual DbSet<TipoIdentificacion> TipoIdentificacion { get; set; }

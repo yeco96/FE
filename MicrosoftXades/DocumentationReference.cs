@@ -71,7 +71,7 @@ namespace Microsoft.Xades
 		{
 			bool retVal = false;
 
-			if (!String.IsNullOrEmpty(this.documentationReferenceUri))
+			if (!string.IsNullOrEmpty(this.documentationReferenceUri))
 			{
 				retVal = true;
 			}

@@ -15,9 +15,9 @@ namespace XMLDomain
         public string clave { set; get; }
         [XmlElement(ElementName = "NumeroConsecutivo", Order = 2)]
         public string numeroConsecutivo { set; get; }
-
+        
         [XmlElement(ElementName = "FechaEmision", Order = 3)]
-        public DateTime fechaEmision { set; get; }
+        public DateTime? fechaEmision { set; get; }
 
         [XmlElement(ElementName = "Emisor", Order = 4)]
         public Emisor emisor { set; get; }

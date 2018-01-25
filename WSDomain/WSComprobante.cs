@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WSDomain
 {
-    class Comprobante
+    class WSComprobante
     {
         [JsonProperty("clave", Order = 1)]
         public string clave;
@@ -27,7 +27,7 @@ namespace WSDomain
         [JsonProperty("notasDebito", Order = 6)]
         public List<NotaDebito> notasDebito;
 
-        public Comprobante()
+        public WSComprobante()
         {
             this.emisor = new Emisor();
             this.receptor = new Receptor();

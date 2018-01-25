@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using DevExpress.Web;
 using Class.Utilidades;
 using System.Threading;
+using Web.Models;
+using Web.Models.Facturacion;
 
 namespace Web {
     public partial class Layout : System.Web.UI.MasterPage
@@ -17,7 +19,16 @@ namespace Web {
         protected void Page_Load(object sender, EventArgs e)
         {
             Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
-            Session["usuario"] = "603540974";
+             
+            if (Session["usuario"] == null) {  
+                using (var conexion = new DataModelFE())
+                {
+                    EmisorReceptor emisor = conexion.EmisorReceptor.Where(x => x.identificacion == "603540974").FirstOrDefault();
+                    Session["usuario"] = emisor.identificacion;
+                    Session["emisor"] = emisor;
+                }
+            }
+
 
             /*
             Page.Header.DataBind();

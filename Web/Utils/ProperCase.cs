@@ -7,24 +7,24 @@ namespace Class.Utilidades
 {
     public class ProperCase
     {
-        public static String ToProperCase(String s)
+        public static string ToProperCase(string s)
         {
             if (s == null) return s;
 
-            String[] words = s.Split(' ');
+            string[] words = s.Split(' ');
             for (Int32 i = 0; i < words.Length; i++)
             {
                 if (words[i].Length == 0) continue;
 
                 Char firstChar = Char.ToUpper(words[i][0]);
-                String rest = "";
+                string rest = "";
                 if (words[i].Length > 1)
                 {
                     rest = words[i].Substring(1).ToLower();
                 }
                 words[i] = firstChar + rest;
             }
-            return String.Join(" ", words);
+            return string.Join(" ", words);
         }
     }
 }

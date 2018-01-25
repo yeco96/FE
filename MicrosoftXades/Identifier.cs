@@ -115,7 +115,7 @@ namespace Microsoft.Xades
 				retVal = true;
 			}
 
-			if (!String.IsNullOrEmpty(this.identifierUri))
+			if (!string.IsNullOrEmpty(this.identifierUri))
 			{
 				retVal = true;
 			}

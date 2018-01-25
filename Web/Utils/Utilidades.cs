@@ -10,32 +10,32 @@ namespace Class.Utilidades
     public class Utilidades
     {
         #region VALIDACIONES
-        // Numero: parametro String
-        public static bool esNumero(String miTextBox)
+        // Numero: parametro string
+        public static bool esNumero(string miTextBox)
         {
             Regex regex = new Regex(@"^[0-9]+$");
             return regex.IsMatch(miTextBox);
         }
-        // Cadena: parametro String
-        public static bool esCadena(String pValor)
+        // Cadena: parametro string
+        public static bool esCadena(string pValor)
         {
             Regex regex = new Regex(@"^[^ ][a-zA-Z ]+[^ ]$");
             return regex.IsMatch(pValor);
         }
         //Es mayuscula
-        public static bool esMayuscula(String pValor)
+        public static bool esMayuscula(string pValor)
         {
             Regex regex = new Regex(@"^[A-Z]+$");
             return regex.IsMatch(pValor);
         }
         //Es minuscula
-        public static bool esMinuscula(String pValor)
+        public static bool esMinuscula(string pValor)
         {
             Regex regex = new Regex(@"^[a-z]+$");
             return regex.IsMatch(pValor);
         }
         // Telefono
-        public static bool esTelefono(String miTextBox)
+        public static bool esTelefono(string miTextBox)
         {
             if (miTextBox.Trim().Equals("-")) {
                 return true;
@@ -52,7 +52,7 @@ namespace Class.Utilidades
         /// </summary>
         /// <param name="telefono"></param>
         /// <returns></returns>
-        public static String verificaTelefono(String telefono){
+        public static string verificaTelefono(string telefono){
             if (telefono.Trim().Equals("-"))
             {
                 return "";
@@ -65,20 +65,20 @@ namespace Class.Utilidades
 
 
 
-        // Decimal: parametro String
-        public static bool esDecimal(String pValor)
+        // Decimal: parametro string
+        public static bool esDecimal(string pValor)
         {  
             Regex regex = new Regex(@"^[0-9]{1,9}([\.][0-9]{1,3})?$");
             return regex.IsMatch(pValor);
         }
         // URL                                       
-        public static bool esUrl(String miTextBox)
+        public static bool esUrl(string miTextBox)
         {
             Regex regex = new Regex(@"^[a-zA-Z0-9\-\.]+\.(com|org|net|mil|edu|es|COM|ORG|NET|MIL|EDU|ES)$");
             return regex.IsMatch(miTextBox);
         }
         // Email
-        public static bool esEmail(String miTextBox)
+        public static bool esEmail(string miTextBox)
         {                              // \w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*
             Regex regex = new Regex(@"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
                 @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9]{2,17}))$");
@@ -101,7 +101,7 @@ namespace Class.Utilidades
         }
 
 
-        public static String validarExepcionSQL(String message)  {
+        public static string validarExepcionSQL(string message)  {
             if(message.ToUpper().Contains("DUPLICATE ENTRY") ){
                 return "El registro a insertar ya se encuentra en el sistema. " +  
                         "Cambiar el o los códigos que desea guardar por otros que no existan en el sistema.";

@@ -95,7 +95,7 @@ namespace Microsoft.Xades
 		{
 			bool retVal = false;
 
-			if (!String.IsNullOrEmpty(this.id))
+			if (!string.IsNullOrEmpty(this.id))
 			{
 				retVal = true;
 			}
@@ -153,7 +153,7 @@ namespace Microsoft.Xades
 			retVal = creationXmlDocument.CreateElement(XadesSignedXml.XmlXadesPrefix, "CompleteCertificateRefs", XadesSignedXml.XadesNamespaceUri);
             retVal.SetAttribute("xmlns:ds", SignedXml.XmlDsigNamespaceUrl);
 
-			if (!String.IsNullOrEmpty(this.id))
+			if (!string.IsNullOrEmpty(this.id))
 			{
 				retVal.SetAttribute("Id", this.id);
 			}

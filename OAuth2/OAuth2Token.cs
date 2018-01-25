@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace OAuth2
 {
-    public class Token
+    public class OAuth2Token
     {
-        public Token()
+        public OAuth2Token()
         {
         }
   
@@ -23,7 +23,7 @@ namespace OAuth2
 
         public override string ToString()
         {
-            String result = "";
+            string result = "";
             result += "access_token : " + access_token; 
             result += "expires_in : " + expires_in;
             result += "refresh_expires_in : " + refresh_expires_in;

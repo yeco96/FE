@@ -14,7 +14,7 @@
                 <Columns>
                     <dx:GridViewDataHyperLinkColumn FieldName="Id">
                         <CellStyle HorizontalAlign="Left" />
-                        <PropertiesHyperLinkEdit TextField="Subject" NavigateUrlFormatString="~/Pages/BlogPost.aspx?id={0}"/>
+                        <PropertiesHyperLinkEdit TextField="Subject" NavigateUrlFormatstring="~/Pages/BlogPost.aspx?id={0}"/>
                     </dx:GridViewDataHyperLinkColumn>
                 </Columns>
                 <Settings ShowPreview="true" ShowColumnHeaders="false"/>
