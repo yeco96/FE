@@ -21,13 +21,13 @@ namespace WSDomain
 
         [NotMapped]
         [JsonProperty("emisor", Order = 3)]
-        public Emisor emisor { set; get; }
-
+        public EmisorReceptor emisor { set; get; }
         [NotMapped]
         [JsonProperty("receptor", Order = 4)]
-        public Receptor receptor { set; get; }
+        public EmisorReceptor receptor { set; get; }
         [NotMapped]
         public string factura { get { return clave.Substring(21,20); } }
+
 
         [JsonProperty("comprobanteXml", Order = 5)]
         public string comprobanteXml { set; get; }
@@ -35,11 +35,13 @@ namespace WSDomain
         public int indEstado { set; get; }
         public string mensaje { set; get; }
 
-        public string emisorTipo { set; get; }
-        //[ForeignKey("emisor")]
+       
+        public string emisorTipo { set; get; } 
         public string emisorIdentificacion { set; get; }
+
+      
         public string receptorTipo { set; get; }
-        //[ForeignKey("receptor")]
+        [ForeignKey("Receptor")]
         public string receptorIdentificacion { set; get; }
          
         public double montoTotalImpuesto { set; get; }
@@ -63,8 +65,8 @@ namespace WSDomain
 
 
         public WSRecepcionPOST() {
-            this.emisor = new Emisor();
-            this.receptor = new Receptor();
+            this.receptor = new EmisorReceptor();
+            this.emisor = new EmisorReceptor();
             //this.fecha = DateTime.Now.ToString("yyyy-MM-dd'T'HH:mm:ss");
             this.fecha = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, "Central America Standard Time");
         }
@@ -72,9 +74,9 @@ namespace WSDomain
         /// <summary>
         /// OBJETOS COMPUESTOS
         /// </summary>
-       // public virtual Usuario UsuarioCreacion { get; set; }
-       // public virtual Usuario UsuarioModificacion { get; set; }
-
+        // public virtual Usuario UsuarioCreacion { get; set; }
+        // public virtual Usuario UsuarioModificacion { get; set; }
+        public virtual EmisorReceptor Receptor { set; get; }
 
     }
 }

@@ -12,24 +12,33 @@
     <div class="borde_redondo_tabla">
 
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
-            Width="100%" EnableTheming="True" KeyFieldName="codigo" Theme="Moderno"
+            Width="100%" EnableTheming="True" KeyFieldName="codigo" Theme="Moderno" 
             OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize"
             OnCustomErrorText="ASPxGridView1_CustomErrorText" 
             OnRowDeleting="ASPxGridView1_RowDeleting"
             OnRowInserting="ASPxGridView1_RowInserting"
             OnRowUpdating="ASPxGridView1_RowUpdating"> 
+            <ClientSideEvents  EndCallback="function(s, e) {if (s.cpUpdatedMessage) { alert(s.cpUpdatedMessage);  delete s.cpUpdatedMessage;  }}"/>
             <Columns>
                 <dx:GridViewCommandColumn Width="100px" ButtonType="Image" ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
                 </dx:GridViewCommandColumn>
-                 <dx:GridViewDataComboBoxColumn Caption="Tipo" FieldName="tipo" VisibleIndex="2" PropertiesComboBox-MaxLength="2"
+                 <dx:GridViewDataComboBoxColumn Caption="Tipo" FieldName="tipo" VisibleIndex="1"  Width="23%"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
+                 <dx:GridViewDataComboBoxColumn Caption="Unidad Medida" FieldName="unidadMedida" VisibleIndex="2"  Width="20%"
+                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataComboBoxColumn> 
                 <dx:GridViewDataTextColumn Caption="Código" FieldName="codigo" VisibleIndex="3" PropertiesTextEdit-MaxLength="20" 
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Descripción" FieldName="descripcion" VisibleIndex="4" PropertiesTextEdit-MaxLength="50"
+                <dx:GridViewDataTextColumn Caption="Descripción" FieldName="descripcion" VisibleIndex="4" PropertiesTextEdit-MaxLength="50"  Width="27%"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
+
+                 <dx:GridViewDataSpinEditColumn Caption="Precio" FieldName="precio" VisibleIndex="4" PropertiesSpinEdit-DecimalPlaces="2" 
+                     PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="c2"
+                    PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataSpinEditColumn>
                   
                 <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="4"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">

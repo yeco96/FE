@@ -2,6 +2,7 @@
 using DevExpress.Web;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -10,11 +11,20 @@ using Web.Models;
 using Web.Models.Catalogos;
 using Web.Models.Facturacion;
 using Web.Utils;
+using XMLDomain;
 
 namespace Web.Pages.Facturacion
 {
     public partial class FrmGenerarDocumento : System.Web.UI.Page
     {
+        private DetalleServicio detalleServicio;
+
+        public FrmGenerarDocumento()
+        {
+            this.detalleServicio = new DetalleServicio();
+        }
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -25,11 +35,28 @@ namespace Web.Pages.Facturacion
                     this.cmbTipoMoneda.Value = TipoMoneda.CRC;
                     this.txtTipoCambio.Text = "0";
                     this.loadComboBox();
+
+                    this.detalleServicio = new DetalleServicio();
+                    Session["detalleServicio"] = detalleServicio;  
                 }
+                this.refreshData();
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message, ex.InnerException);
+            }
+        }
+
+        /// <summary>
+        /// carga inicial de todos los registros
+        /// </summary>  
+        private void refreshData()
+        {
+            if(Session["detalleServicio"]!=null)
+            {
+                DetalleServicio detalleServicio = (DetalleServicio) Session["detalleServicio"];
+                this.ASPxGridView1.DataSource = detalleServicio.lineaDetalle;
+                this.ASPxGridView1.DataBind();
             }
         }
 
@@ -41,12 +68,12 @@ namespace Web.Pages.Facturacion
             using (var conexion = new DataModelFE())
             {
                 /* EMISOR */
-                string usuario = "603540974";
-                EmisorReceptor emisor = conexion.EmisorReceptor.Where(x => x.identificacion == usuario).FirstOrDefault();
+                string elEmisor = "603540974";
+                EmisorReceptor emisor = conexion.EmisorReceptor.Where(x => x.identificacion == elEmisor).FirstOrDefault();
                 this.loadEmisor(emisor);
 
-                usuario = "601230863";
-                EmisorReceptor receptor = conexion.EmisorReceptor.Where(x => x.identificacion == usuario).FirstOrDefault();
+                string elReceptor = "601230863";
+                EmisorReceptor receptor = conexion.EmisorReceptor.Where(x => x.identificacion == elReceptor).FirstOrDefault();
                 this.loadReceptor(receptor);
 
                 /* IDENTIFICACION TIPO */
@@ -103,8 +130,16 @@ namespace Web.Pages.Facturacion
                 }
                 this.cmbTipoMoneda.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
-                /* TIPO PRODUCTO SERVICIO */
-                 
+                /* PRODUCTO */
+
+                GridViewDataComboBoxColumn comboCodigo = this.ASPxGridView1.Columns["codigo"] as GridViewDataComboBoxColumn;
+                comboCodigo.PropertiesComboBox.Items.Clear(); 
+                foreach (var item in conexion.Producto.Where(x => x.estado == Estado.ACTIVO.ToString()).Where( x => x.emisor == elEmisor).ToList())
+                {
+                    this.cmbTipoMoneda.Items.Add(item.descripcion, item.codigo);
+                }
+                comboCodigo.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+
             }
         }
 
@@ -317,6 +352,153 @@ namespace Web.Pages.Facturacion
             }
         }
 
+        protected void ASPxGridView1_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
+        { 
+            if (e.Column.FieldName == "subTotal") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+            if (e.Column.FieldName == "montoTotal") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+        }
 
+        protected void ASPxGridView1_CustomErrorText(object sender, ASPxGridViewCustomErrorTextEventArgs e)
+        {
+
+        }
+
+        protected void ASPxGridView1_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)
+        {
+            try
+            {
+                using (var conexion = new DataModelFE())
+                {
+                    DetalleServicio detalleServicio = (DetalleServicio)Session["detalleServicio"];
+                    var id = e.Values["codigo"].ToString();
+                    LineaDetalle dato = detalleServicio.lineaDetalle.Where(x => x.codigo.codigo == id).FirstOrDefault();
+                    detalleServicio.lineaDetalle.Remove(dato);  
+
+                    //esto es para el manero del devexpress
+                    e.Cancel = true;
+                    this.ASPxGridView1.CancelEdit();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex.InnerException);
+            }
+            finally
+            {
+                //refescar los datos
+                this.refreshData();
+            }
+
+        }
+
+        protected void ASPxGridView1_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
+        { 
+            try
+            {
+                using (var conexion = new DataModelFE())
+                {
+                    DetalleServicio detalleServicio = (DetalleServicio)Session["detalleServicio"];
+
+                    //se declara el objeto a insertar
+                    LineaDetalle dato = new LineaDetalle();
+                    //llena el objeto con los valores de la pantalla
+                    string codProducto = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
+                    Producto producto = conexion.Producto.Where(x => x.codigo == codProducto).FirstOrDefault();
+
+                    dato.numeroLinea = e.NewValues["numeroLinea"] != null ? int.Parse(e.NewValues["numeroLinea"].ToString()) : 0;
+                    dato.cantidad = e.NewValues["cantidad"] != null ? double.Parse(e.NewValues["cantidad"].ToString()) : 0;
+                    dato.codigo.tipo = producto.tipo;
+                    dato.codigo.codigo = producto.codigo;
+                    dato.precioUnitario = producto.precio;
+                    dato.subTotal = producto.precio * dato.cantidad;
+                    dato.montoDescuento = e.NewValues["montoDescuento"] != null ? double.Parse(e.NewValues["montoDescuento"].ToString()) : 0;
+                    dato.montoTotal = dato.subTotal - dato.montoDescuento;
+
+                    dato.naturalezaDescuento = e.NewValues["naturalezaDescuento"] != null ? e.NewValues["naturalezaDescuento"].ToString().ToUpper() : null;
+  
+                    //agrega el objeto
+                    detalleServicio.lineaDetalle.Add(dato);
+                }
+
+                //esto es para el manero del devexpress
+                e.Cancel = true;
+                this.ASPxGridView1.CancelEdit();
+                
+
+            }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
+                // Combine the original exception message with the new one.
+                var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+
+                // conexion.CodigoReferencia.Remove(conexion.CodigoReferencia.Last() );
+
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex.InnerException);
+            }
+            finally
+            {
+                //refescar los datos
+                this.refreshData();
+            }
+        }
+
+        protected void ASPxGridView1_RowUpdating(object sender, DevExpress.Web.Data.ASPxDataUpdatingEventArgs e)
+        {
+            try
+            {
+                using (var conexion = new DataModelFE())
+                {
+                    DetalleServicio detalleServicio = (DetalleServicio)Session["detalleServicio"];
+
+                    string codProducto = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
+                    LineaDetalle dato = detalleServicio.lineaDetalle.Where(x => x.codigo.codigo == codProducto).FirstOrDefault();
+                    //llena el objeto con los valores de la pantalla
+                    
+                    Producto producto = conexion.Producto.Where(x => x.codigo == codProducto).FirstOrDefault();
+
+                    dato.cantidad = e.NewValues["cantidad"] != null ? double.Parse(e.NewValues["cantidad"].ToString()) : 0;
+                    dato.codigo.tipo = producto.tipo;
+                    dato.codigo.codigo = producto.codigo;
+                    dato.precioUnitario = producto.precio;
+                    dato.subTotal = producto.precio * dato.cantidad;
+                    dato.montoDescuento = e.NewValues["montoDescuento"] != null ? double.Parse(e.NewValues["montoDescuento"].ToString()) : 0;
+                    dato.montoTotal = dato.subTotal - dato.montoDescuento;
+
+                    dato.naturalezaDescuento = e.NewValues["naturalezaDescuento"] != null ? e.NewValues["naturalezaDescuento"].ToString().ToUpper() : null;
+
+                     
+                }
+
+                //esto es para el manero del devexpress
+                e.Cancel = true;
+                this.ASPxGridView1.CancelEdit();
+
+
+            } 
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex.InnerException);
+            }
+            finally
+            {
+                //refescar los datos
+                this.refreshData();
+            }
+        }
     }
 }

@@ -14,19 +14,17 @@ namespace Web.Models.Facturacion
     [Table("fact_emisor_receptor")]
     public class EmisorReceptor
     {
-        [Key]
-        [Column(Order = 1)]
+      
         [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         public string identificacionTipo { set; get; }
 
         [Key]
-        [Column(Order = 2)]
         [MaxLength(12, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         public string identificacion { set; get; }
 
         [MaxLength(80, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         public string nombre { set; get; } 
-
+         
 
         [MaxLength(80, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         public string nombreComercial { set; get; }

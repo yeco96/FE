@@ -69,8 +69,7 @@
                                                             <dx:MenuItem Text="TIPO IDENTIFICACIÓN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoIdentificacion.aspx" />
                                                             <dx:MenuItem Text="TIPO MONEDA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoMoneda.aspx" />
                                                             <dx:MenuItem Text="TIPO PRODUCTO SERVICIO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoProductoServicio.aspx" />
-                                                            <dx:MenuItem Text="PRODUCTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProducto.aspx" />
-
+                                                             
                                                             <dx:MenuItem Text="UBICACIÓN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoUbicacion.aspx" />
                                                             <dx:MenuItem Text="UNIDAD MEDIDA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoUnidadMedida.aspx" />
 
@@ -81,6 +80,7 @@
                                                         <Items>
 
                                                             <dx:MenuItem Text="EMISOR" NavigateUrl="~/Pages/Facturacion/FrmEmisorReceptor.aspx" />
+                                                            <dx:MenuItem Text="PRODUCTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProducto.aspx" />
                                                             <dx:MenuItem Text="DOCUMENTO ELECTRÓNICO" NavigateUrl="~/Pages/Facturacion/FrmDocumentoElectronico.aspx" />
                                                             <dx:MenuItem Text="CARGAR XML" NavigateUrl="~/Pages/Facturacion/FrmCargarXML.aspx" />
                                                             <dx:MenuItem Text="FACTURAR" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumento.aspx" />

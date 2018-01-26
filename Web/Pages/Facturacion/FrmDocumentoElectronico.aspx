@@ -25,7 +25,7 @@
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Emisor" FieldName="emisorIdentificacion" VisibleIndex="4">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Receptor" FieldName="receptorIdentificacion" VisibleIndex="5">
+                <dx:GridViewDataTextColumn Caption="Receptor" FieldName="Receptor.nombre" VisibleIndex="5" Width="30%">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Mensaje" FieldName="mensaje" VisibleIndex="5" Visible="false">
                 </dx:GridViewDataTextColumn>
@@ -85,7 +85,7 @@
                                     <dx:LayoutItem Caption="Mensaje" ColSpan="3" Width="100%">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxMemo runat="server" Value='<%# Eval("mensaje") %>' AutoResizeWithContainer="true" Width="100%" BackColor="LightGray" ReadOnly="true" />
+                                                <dx:ASPxMemo runat="server" Value='<%# Eval("mensaje") %>' AutoResizeWithContainer="true" Width="100%" ReadOnly="true" />
 
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>

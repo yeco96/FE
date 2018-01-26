@@ -78,6 +78,16 @@ namespace Web.Pages.Catalogos
                     provinciaCombo.PropertiesComboBox.Items.Add(item.nombreProvincia, item.codProvincia);
                 }
                 provinciaCombo.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+
+
+                /* TIPO IDENTIFICACION */
+                GridViewDataComboBoxColumn identificacionTipoCombo = this.ASPxGridView1.Columns["identificacionTipo"] as GridViewDataComboBoxColumn;
+                identificacionTipoCombo.PropertiesComboBox.Items.Clear();
+                foreach (var item in conexion.TipoIdentificacion.Select(x => new { x.codigo, x.descripcion }).Distinct())
+                {
+                    identificacionTipoCombo.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
+                }
+                identificacionTipoCombo.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             }
         }
          
@@ -157,21 +167,18 @@ namespace Web.Pages.Catalogos
             {
                 using (var conexion = new DataModelFE())
                 {
-                    // se declara el objeto a insertar
-                    EmisorReceptor dato = new EmisorReceptor();
-                    //llena el objeto con los valores de la pantalla
-                    dato.identificacionTipo = e.NewValues["identificacionTipo"] != null ? e.NewValues["identificacionTipo"].ToString().ToUpper() : null;
+                     
+                    EmisorReceptor dato = new EmisorReceptor(); 
+                    dato.identificacion = e.NewValues["identificacion"] != null ? e.NewValues["identificacion"].ToString().ToUpper() : null;
 
                     //busca el objeto 
-                    dato = conexion.EmisorReceptor.Find(dato.identificacionTipo);
+                    dato = conexion.EmisorReceptor.Find(dato.identificacion);
 
-                    dato.identificacion = e.NewValues["identificacion"] != null ? e.NewValues["identificacion"].ToString().ToUpper() : null;
                  
                     dato.usuarioModificacion = Session["usuario"].ToString();
                     dato.fechaModificacion = Date.DateTimeNow();
 
-                    //modifica objeto
-                    //conexion.Entry(oldDato).CurrentValues.SetValues(dato);
+                    //modifica objeto 
                     conexion.Entry(dato).State = EntityState.Modified;
                     conexion.SaveChanges();
 

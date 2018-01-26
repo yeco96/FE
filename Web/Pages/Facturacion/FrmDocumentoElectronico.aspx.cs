@@ -96,7 +96,7 @@ namespace Web.Pages.Facturacion
             {
                 using (var conexion = new DataModelOAuth2())
                 {
-                    EmisorReceptor emisor = (EmisorReceptor)Session["emisor"];
+                    Models.Facturacion.EmisorReceptor emisor = (Models.Facturacion.EmisorReceptor)base.Session["emisor"];
                     string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
                     OAuth2.OAuth2Config config = conexion.OAuth2Config.Where(x => x.enviroment == ambiente).FirstOrDefault();
                     config.username = emisor.usernameOAuth2;

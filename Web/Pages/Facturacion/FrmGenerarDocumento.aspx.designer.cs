@@ -328,58 +328,13 @@ namespace Web.Pages.Facturacion {
         protected global::DevExpress.Web.ASPxSpinEdit txtTipoCambio;
         
         /// <summary>
-        /// txtCantidad control.
+        /// ASPxGridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxSpinEdit txtCantidad;
-        
-        /// <summary>
-        /// ASPxSpinEdit1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox ASPxSpinEdit1;
-        
-        /// <summary>
-        /// txtMonto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxSpinEdit txtMonto;
-        
-        /// <summary>
-        /// txtDescuento control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxSpinEdit txtDescuento;
-        
-        /// <summary>
-        /// txtDescuentoDescripcion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txtDescuentoDescripcion;
-        
-        /// <summary>
-        /// bntAgregarLineaDetalle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton bntAgregarLineaDetalle;
+        protected global::DevExpress.Web.ASPxGridView ASPxGridView1;
         
         /// <summary>
         /// btnFacturar control.

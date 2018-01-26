@@ -16,10 +16,10 @@ namespace WSDomain
         public string fecha;
 
         [JsonProperty("emisor", Order = 3)]
-        public Emisor emisor;
+        public EmisorReceptor emisor;
 
         [JsonProperty("receptor", Order = 4)]
-        public Receptor receptor;
+        public EmisorReceptor receptor;
 
         [JsonProperty("notasCredito", Order = 5)]
         public List<NotaCredito> notasCredito;
@@ -29,8 +29,8 @@ namespace WSDomain
 
         public WSComprobante()
         {
-            this.emisor = new Emisor();
-            this.receptor = new Receptor();
+            this.emisor = new EmisorReceptor();
+            this.receptor = new EmisorReceptor();
             this.notasCredito = new List<NotaCredito>();
             this.notasDebito = new List<NotaDebito>();
             this.fecha = null;

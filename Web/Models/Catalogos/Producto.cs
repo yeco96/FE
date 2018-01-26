@@ -22,6 +22,13 @@ namespace Web.Models.Catalogos
         [Display(Name = "Tipo")]
         public string tipo { set; get; }
 
+        
+        [Required]
+        [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [Display(Name = "Unidad Medida")]
+        [ForeignKey("UnidadMedida")]
+        public string unidadMedida { set; get; }
+
         [Required]
         [MaxLength(50, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         [Display(Name = "Descripción")]
@@ -31,10 +38,10 @@ namespace Web.Models.Catalogos
         [MaxLength(12, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         [Display(Name = "Emisor")]
 
-        [ForeignKey("Emisor") Column(Order = 2)]
+        [ForeignKey("Emisor")]
         public string emisor { set; get; }
-        [ForeignKey("Emisor") Column(Order = 1)]
-        public string emisorTipo { set; get; }
+
+        public double precio { set; get; }
 
 
         /// <summary>
@@ -65,6 +72,8 @@ namespace Web.Models.Catalogos
         public virtual Usuario UsuarioCreacion { get; set; }
         public virtual Usuario UsuarioModificacion { get; set; }
         public virtual EmisorReceptor Emisor { get; set; }
+        public virtual UnidadMedida UnidadMedida { get; set; }
+        
 
 
     }

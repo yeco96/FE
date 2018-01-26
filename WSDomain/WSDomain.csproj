@@ -50,8 +50,7 @@
     <Compile Include="NotaDebito.cs" />
     <Compile Include="NotaCredito.cs" />
     <Compile Include="WSRecepcionPOST.cs" />
-    <Compile Include="Receptor.cs" />
-    <Compile Include="Emisor.cs" />
+    <Compile Include="EmisorReceptor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WSRecepcionGET.cs" />
   </ItemGroup>

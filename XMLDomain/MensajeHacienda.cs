@@ -72,8 +72,18 @@ namespace XMLDomain
 
             this.mensaje = int.Parse(EncondeXML.buscarValorEtiquetaXML("MensajeHacienda", "Mensaje", xml));
             this.mensajeDetalle = EncondeXML.buscarValorEtiquetaXML("MensajeHacienda", "DetalleMensaje", xml);
-            this.montoTotalFactura = double.Parse(EncondeXML.buscarValorEtiquetaXML("MensajeHacienda", "TotalFactura", xml));
-            this.montoTotalImpuesto = double.Parse(EncondeXML.buscarValorEtiquetaXML("MensajeHacienda", "MontoTotalImpuesto", xml));
+
+            string totalFactura = EncondeXML.buscarValorEtiquetaXML("MensajeHacienda", "TotalFactura", xml);
+            if (!String.IsNullOrWhiteSpace(totalFactura))
+            {
+                this.montoTotalFactura = double.Parse(totalFactura); 
+            }
+            
+            string totalImpueto = EncondeXML.buscarValorEtiquetaXML("MensajeHacienda", "MontoTotalImpuesto", xml);
+            if (!String.IsNullOrWhiteSpace(totalFactura))
+            {
+                this.montoTotalImpuesto = double.Parse(totalImpueto);
+            }
         }
 
 

@@ -9,7 +9,7 @@
                 <ContentCollection>
                     <dx:ContentControl runat="server">
 
-                        <dx:ASPxFormLayout runat="server" >
+                        <dx:ASPxFormLayout runat="server">
                             <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
                             <Items>
                                 <dx:LayoutGroup Caption="Datos Personales" ColCount="3" GroupBoxDecoration="Box" UseDefaultPaddings="false">
@@ -41,7 +41,7 @@
                                         <dx:LayoutItem Caption="Nombre Comercial" ColSpan="3" Width="97.5%">
                                             <LayoutItemNestedControlCollection>
                                                 <dx:LayoutItemNestedControlContainer>
-                                                    <dx:ASPxTextBox ID="txtEmisorNombreComercial" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" MaxLength="80"/>
+                                                    <dx:ASPxTextBox ID="txtEmisorNombreComercial" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" MaxLength="80" />
                                                 </dx:LayoutItemNestedControlContainer>
                                             </LayoutItemNestedControlCollection>
                                         </dx:LayoutItem>
@@ -165,7 +165,7 @@
                     <dx:ContentControl runat="server">
 
 
-                        <dx:ASPxFormLayout runat="server" >
+                        <dx:ASPxFormLayout runat="server">
                             <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
                             <Items>
                                 <dx:LayoutGroup Caption="Datos Personales" ColCount="3" GroupBoxDecoration="Box" UseDefaultPaddings="false">
@@ -245,7 +245,7 @@
                                                 </dx:LayoutItemNestedControlContainer>
                                             </LayoutItemNestedControlCollection>
                                         </dx:LayoutItem>
-                                        <dx:LayoutItem Caption="Correo" >
+                                        <dx:LayoutItem Caption="Correo">
                                             <LayoutItemNestedControlCollection>
                                                 <dx:LayoutItemNestedControlContainer>
                                                     <dx:ASPxTextBox ID="txtReceptorCorreo" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
@@ -291,7 +291,7 @@
                                         <dx:LayoutItem Caption="Barrio">
                                             <LayoutItemNestedControlCollection>
                                                 <dx:LayoutItemNestedControlContainer>
-                                                    <dx:ASPxComboBox ID="cmbReceptorBarrio" runat="server" Width="100%" AutoResizeWithContainer="true" 
+                                                    <dx:ASPxComboBox ID="cmbReceptorBarrio" runat="server" Width="100%" AutoResizeWithContainer="true"
                                                         ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
                                                 </dx:LayoutItemNestedControlContainer>
                                             </LayoutItemNestedControlCollection>
@@ -304,7 +304,7 @@
                                                 </dx:LayoutItemNestedControlContainer>
                                             </LayoutItemNestedControlCollection>
                                         </dx:LayoutItem>
-                                       
+
                                     </Items>
                                 </dx:LayoutGroup>
 
@@ -358,85 +358,128 @@
                                                 </dx:LayoutItemNestedControlContainer>
                                             </LayoutItemNestedControlCollection>
                                         </dx:LayoutItem>
-                                         <dx:LayoutItem Caption="Moneda">
+                                        <dx:LayoutItem Caption="Moneda">
                                             <LayoutItemNestedControlCollection>
                                                 <dx:LayoutItemNestedControlContainer>
-                                                       <dx:ASPxComboBox ID="cmbTipoMoneda" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" OnValueChanged="cmbMoneda_ValueChanged" AutoPostBack="true"
-                                                                    ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido"/>
+                                                    <dx:ASPxComboBox ID="cmbTipoMoneda" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" OnValueChanged="cmbMoneda_ValueChanged" AutoPostBack="true"
+                                                        ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" />
                                                 </dx:LayoutItemNestedControlContainer>
                                             </LayoutItemNestedControlCollection>
                                         </dx:LayoutItem>
                                         <dx:LayoutItem Caption="Tipo Cambio">
                                             <LayoutItemNestedControlCollection>
                                                 <dx:LayoutItemNestedControlContainer>
-                                                    <dx:ASPxSpinEdit ID="txtTipoCambio" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"  MinValue="0" MaxValue="999999" Enabled="false" DecimalPlaces="2"
-                                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido"/>
+                                                    <dx:ASPxSpinEdit ID="txtTipoCambio" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" MinValue="0" MaxValue="999999" Enabled="false" DecimalPlaces="2"
+                                                        ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" />
                                                 </dx:LayoutItemNestedControlContainer>
                                             </LayoutItemNestedControlCollection>
                                         </dx:LayoutItem>
                                     </Items>
                                 </dx:LayoutGroup>
-                                 
+
                             </Items>
                         </dx:ASPxFormLayout>
 
 
-                           <dx:ASPxFormLayout runat="server">
-                            <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
-                            <Items>
-                                <dx:LayoutGroup Caption="Detalle" ColCount="6" GroupBoxDecoration="Box" UseDefaultPaddings="false" SettingsItemCaptions-Location="Top">
-                                    <Items>
-                                        <dx:LayoutItem Caption="Cantidad">
-                                            <LayoutItemNestedControlCollection>
-                                                <dx:LayoutItemNestedControlContainer>
-                                                    <dx:ASPxSpinEdit ID="txtCantidad" runat="server" Width="100%" AutoResizeWithContainer="true" MinValue="0" 
-                                                        ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
-                                                </dx:LayoutItemNestedControlContainer>
-                                            </LayoutItemNestedControlCollection>
-                                        </dx:LayoutItem>
-                                        <dx:LayoutItem Caption="Producto" >
-                                            <LayoutItemNestedControlCollection>
-                                                <dx:LayoutItemNestedControlContainer>
-                                                    <dx:ASPxComboBox ID="ASPxSpinEdit1" runat="server" Width="100%" AutoResizeWithContainer="true" 
-                                                        ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido"  ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
-                                                </dx:LayoutItemNestedControlContainer>
-                                            </LayoutItemNestedControlCollection>
-                                        </dx:LayoutItem>
-                                        <dx:LayoutItem Caption="Monto">
-                                            <LayoutItemNestedControlCollection>
-                                                <dx:LayoutItemNestedControlContainer>
-                                                    <dx:ASPxSpinEdit ID="txtMonto" Width="100%" AutoResizeWithContainer="true" runat="server" DecimalPlaces="2"  MinValue="0"
-                                                        ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
-                                                </dx:LayoutItemNestedControlContainer>
-                                            </LayoutItemNestedControlCollection>
-                                        </dx:LayoutItem>
-                                        <dx:LayoutItem Caption="Decuento">
-                                            <LayoutItemNestedControlCollection>
-                                                <dx:LayoutItemNestedControlContainer>
-                                                    <dx:ASPxSpinEdit ID="txtDescuento" Width="100%" AutoResizeWithContainer="true" runat="server" DecimalPlaces="2" MinValue="0"
-                                                            ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
-                                                </dx:LayoutItemNestedControlContainer>
-                                            </LayoutItemNestedControlCollection>
-                                        </dx:LayoutItem>
-                                         <dx:LayoutItem Caption="Naturaleza Descuento">
-                                            <LayoutItemNestedControlCollection>
-                                                <dx:LayoutItemNestedControlContainer>
-                                                       <dx:ASPxTextBox ID="txtDescuentoDescripcion" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"  MaxLength="80"/>
-                                                </dx:LayoutItemNestedControlContainer>
-                                            </LayoutItemNestedControlCollection>
-                                        </dx:LayoutItem>
-                                         <dx:LayoutItem Caption=" ">
-                                            <LayoutItemNestedControlCollection>
-                                                <dx:LayoutItemNestedControlContainer>
-                                                       <dx:ASPxButton ID="bntAgregarLineaDetalle"  Image-Url="~/Content/Images/acept.png" runat="server" Width="50px" />
-                                                </dx:LayoutItemNestedControlContainer>
-                                            </LayoutItemNestedControlCollection>
-                                        </dx:LayoutItem>
-                                    </Items>
-                                </dx:LayoutGroup>
-                                 
-                            </Items>
-                        </dx:ASPxFormLayout>
+
+
+
+                        <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
+                            Width="100%" EnableTheming="True" KeyFieldName="codigo" Theme="Moderno"
+                            OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize"
+                            OnCustomErrorText="ASPxGridView1_CustomErrorText"
+                            OnRowDeleting="ASPxGridView1_RowDeleting"
+                            OnRowInserting="ASPxGridView1_RowInserting"
+                            OnRowUpdating="ASPxGridView1_RowUpdating">
+                            <Columns>
+                                <dx:GridViewCommandColumn Width="100px" ButtonType="Image" ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
+                                </dx:GridViewCommandColumn>
+
+                                <dx:GridViewDataSpinEditColumn Caption="Cantidad" FieldName="cantidad" VisibleIndex="2" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
+                                    PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                </dx:GridViewDataSpinEditColumn>
+                                <dx:GridViewDataComboBoxColumn Caption="Producto" FieldName="codigo" VisibleIndex="3" PropertiesComboBox-MaxLength="10"
+                                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                </dx:GridViewDataComboBoxColumn>
+
+                                <dx:GridViewDataSpinEditColumn Caption="Precio U" FieldName="precioUnitario" VisibleIndex="2" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
+                                    PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="c2"
+                                    PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                </dx:GridViewDataSpinEditColumn>
+
+                                <dx:GridViewDataSpinEditColumn Caption="SubTotal" FieldName="subTotal" VisibleIndex="2" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
+                                    PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="c2"
+                                    PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                </dx:GridViewDataSpinEditColumn>
+
+                                <dx:GridViewDataSpinEditColumn Caption="Descuento" FieldName="montoDescuento" VisibleIndex="2" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
+                                    PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="c2"
+                                    PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                </dx:GridViewDataSpinEditColumn>
+
+                                <dx:GridViewDataTextColumn Caption="Naturaleza Descuento" FieldName="naturalezaDescuento" VisibleIndex="2" PropertiesTextEdit-MaxLength="80"
+                                    PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                </dx:GridViewDataTextColumn>
+
+                                <dx:GridViewDataSpinEditColumn Caption="Total" FieldName="montoTotal" VisibleIndex="2" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
+                                    PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="c2"
+                                    PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                </dx:GridViewDataSpinEditColumn>
+
+
+                            </Columns>
+
+                            <SettingsBehavior ColumnResizeMode="NextColumn" />
+                            <Settings ShowFooter="True" ShowFilterBar="Hidden" ShowFilterRow="false" />
+                            <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="True" ConfirmDelete="True" />
+                            <SettingsPager PageSize="10" PageSizeItemSettings-Visible="true" PageSizeItemSettings-Items="10, 20, 50, 100" />
+                            <SettingsEditing Mode="EditFormAndDisplayRow" />
+                            <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="false" ShowFilterRow="false" ShowTitlePanel="True" UseFixedTableLayout="True" />
+                            <SettingsContextMenu EnableColumnMenu="True" Enabled="True" EnableFooterMenu="True" EnableGroupPanelMenu="false" EnableRowMenu="True" />
+
+                            <SettingsCommandButton>
+                                <NewButton Image-ToolTip="Nuevo" Image-Url="~/Content/Images/add.png" />
+                                <EditButton Image-ToolTip="Modificar" Image-Url="~/Content/Images/edit.png" />
+                                <DeleteButton Image-ToolTip="Eliminar" Image-Url="~/Content/Images/delete.png" />
+                                <ClearFilterButton Image-ToolTip="Quitar filtros" Image-Url="~/Content/Images/refresh.png" />
+                                <UpdateButton ButtonType="Link" Image-ToolTip="Guardar cambios y cerrar formulario de edición" Image-Url="~/Content/Images/acept.png" />
+                                <CancelButton ButtonType="Link" Image-ToolTip="Cerrar el formulario de edición sin guardar los cambios" Image-Url="~/Content/Images/cancel.png" />
+                            </SettingsCommandButton>
+
+                            <SettingsAdaptivity AdaptivityMode="HideDataCellsWindowLimit" HideDataCellsAtWindowInnerWidth="800" AllowOnlyOneAdaptiveDetailExpanded="true" AdaptiveDetailColumnCount="1"></SettingsAdaptivity>
+                            <EditFormLayoutProperties>
+                                <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="600" />
+                            </EditFormLayoutProperties>
+                            <Styles>
+                                <Cell Wrap="False"></Cell>
+                                <AlternatingRow Enabled="true" />
+                            </Styles>
+                            <Templates>
+                                <EditForm>
+                                    <div style="padding: 4px 4px 3px 4px">
+                                        <dx:ASPxPageControl runat="server" ID="pageControl" Width="100%" Theme="Moderno">
+                                            <TabPages>
+                                                <dx:TabPage Text="Datos" Visible="true">
+                                                    <ContentCollection>
+                                                        <dx:ContentControl runat="server">
+                                                            <dx:ASPxGridViewTemplateReplacement ID="Editors" ReplacementType="EditFormEditors" runat="server" />
+                                                        </dx:ContentControl>
+                                                    </ContentCollection>
+                                                </dx:TabPage>
+                                            </TabPages>
+                                        </dx:ASPxPageControl>
+                                    </div>
+                                    <div style="text-align: right; padding: 2px 2px 2px 2px">
+                                        <dx:ASPxGridViewTemplateReplacement ID="UpdateButton" ReplacementType="EditFormUpdateButton" runat="server" />
+                                        <dx:ASPxGridViewTemplateReplacement ID="CancelButton" ReplacementType="EditFormCancelButton" runat="server" />
+                                    </div>
+                                </EditForm>
+                            </Templates>
+                            <Border BorderWidth="0px" />
+                            <BorderBottom BorderWidth="1px" />
+
+                        </dx:ASPxGridView>
+
 
 
                     </dx:ContentControl>
