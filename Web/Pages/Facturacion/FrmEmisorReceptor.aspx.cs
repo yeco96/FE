@@ -70,24 +70,20 @@ namespace Web.Pages.Catalogos
                 comboEstado.PropertiesComboBox.Items.Clear();
                 comboEstado.PropertiesComboBox.Items.AddRange(Enum.GetValues(typeof(Estado)));
 
-                /* PROVINCIA */
-                GridViewDataComboBoxColumn provinciaCombo = this.ASPxGridView1.Columns["provincia"] as GridViewDataComboBoxColumn;
-                provinciaCombo.PropertiesComboBox.Items.Clear();
+                /* IDENTIFICACION TIPO */
+                foreach (var item in conexion.TipoIdentificacion.ToList())
+                {
+                    this.cmbEmisorTipo.Items.Add(item.descripcion, item.codigo); 
+                }
+                this.cmbEmisorTipo.IncrementalFilteringMode = IncrementalFilteringMode.Contains; 
+                 
+                /* PROVINCIA*/
                 foreach (var item in conexion.Ubicacion.Select(x => new { x.codProvincia, x.nombreProvincia }).Distinct())
                 {
-                    provinciaCombo.PropertiesComboBox.Items.Add(item.nombreProvincia, item.codProvincia);
+                    this.cmbEmisorProvincia.Items.Add(item.nombreProvincia, item.codProvincia); 
                 }
-                provinciaCombo.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                this.cmbEmisorProvincia.IncrementalFilteringMode = IncrementalFilteringMode.Contains; 
 
-
-                /* TIPO IDENTIFICACION */
-                GridViewDataComboBoxColumn identificacionTipoCombo = this.ASPxGridView1.Columns["identificacionTipo"] as GridViewDataComboBoxColumn;
-                identificacionTipoCombo.PropertiesComboBox.Items.Clear();
-                foreach (var item in conexion.TipoIdentificacion.Select(x => new { x.codigo, x.descripcion }).Distinct())
-                {
-                    identificacionTipoCombo.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
-                }
-                identificacionTipoCombo.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             }
         }
          
@@ -296,6 +292,87 @@ namespace Web.Pages.Catalogos
 
             e.ErrorText = Utilidades.validarExepcionSQL(error); 
             }
+        }
+
+
+
+
+
+        protected void cmbEmisorProvincia_ValueChanged(object sender, EventArgs e)
+        {
+            using (var conexion = new DataModelFE())
+            {
+                this.cmbEmisorDistrito.SelectedItem = null;
+                this.cmbEmisorDistrito.Items.Clear();
+                this.cmbEmisorCanton.SelectedItem = null;
+                this.cmbEmisorCanton.Items.Clear();
+
+                foreach (var item in conexion.Ubicacion.
+                    Where(x => x.codProvincia == this.cmbEmisorProvincia.Value.ToString()).
+                    Select(x => new { x.codCanton, x.nombreCanton }).Distinct())
+                {
+                    this.cmbEmisorCanton.Items.Add(item.nombreCanton, item.codCanton);
+                }
+                this.cmbEmisorCanton.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+            }
+        }
+        protected void cmbEmisorCanton_ValueChanged(object sender, EventArgs e)
+        {
+            using (var conexion = new DataModelFE())
+            {
+                this.cmbEmisorDistrito.SelectedItem = null;
+                this.cmbEmisorDistrito.Items.Clear();
+
+                foreach (var item in conexion.Ubicacion.
+                    Where(x => x.codProvincia == this.cmbEmisorProvincia.Value.ToString()).
+                    Where(x => x.codCanton == this.cmbEmisorCanton.Value.ToString()).
+                    Select(x => new { x.codDistrito, x.nombreDistrito }).Distinct())
+                {
+                    this.cmbEmisorDistrito.Items.Add(item.nombreDistrito, item.codDistrito);
+                }
+                this.cmbEmisorDistrito.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+            }
+        }
+        
+
+        protected void cmbEmisorDistrito_ValueChanged(object sender, EventArgs e)
+        {
+            using (var conexion = new DataModelFE())
+            {
+                this.cmbEmisorBarrio.SelectedItem = null;
+                this.cmbEmisorBarrio.Items.Clear();
+                foreach (var item in conexion.Ubicacion.
+                    Where(x => x.codProvincia == this.cmbEmisorProvincia.Value.ToString()).
+                    Where(x => x.codCanton == this.cmbEmisorCanton.Value.ToString()).
+                     Where(x => x.codDistrito == this.cmbEmisorDistrito.Value.ToString()).
+                    Select(x => new { x.codBarrio, x.nombreBarrio }).Distinct())
+                {
+                    this.cmbEmisorBarrio.Items.Add(item.nombreBarrio, item.codBarrio);
+                }
+                this.cmbEmisorBarrio.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+            }
+        }
+
+
+
+        protected void DocumentsUploadControl_FileUploadComplete(object sender, DevExpress.Web.FileUploadCompleteEventArgs e)
+        {
+            try
+            {
+                Session["LlaveCriptograficap12"] = e.UploadedFile.FileBytes;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex.InnerException);
+            }
+        }
+
+
+
+        protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

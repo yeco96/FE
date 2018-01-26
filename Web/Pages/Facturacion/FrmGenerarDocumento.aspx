@@ -325,8 +325,16 @@
                             <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
                             <Items>
                                 <dx:LayoutGroup Caption="Encabezado" ColCount="3" GroupBoxDecoration="Box" UseDefaultPaddings="false">
-                                    <Items>
-                                        <dx:LayoutItem Caption="Condición Venta">
+                                    <Items> 
+                                        <dx:LayoutItem Caption="Medio Pago">
+                                            <LayoutItemNestedControlCollection>
+                                                <dx:LayoutItemNestedControlContainer>
+                                                    <dx:ASPxComboBox ID="cmbMedioPago" Width="100%" AutoResizeWithContainer="true" runat="server"
+                                                        ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                </dx:LayoutItemNestedControlContainer>
+                                            </LayoutItemNestedControlCollection>
+                                        </dx:LayoutItem>
+                                         <dx:LayoutItem Caption="Condición Venta">
                                             <LayoutItemNestedControlCollection>
                                                 <dx:LayoutItemNestedControlContainer>
                                                     <dx:ASPxComboBox ID="cmbCondicionVenta" runat="server" Width="100%" AutoResizeWithContainer="true" OnValueChanged="cmbCondicionVenta_ValueChanged" AutoPostBack="true"
@@ -337,19 +345,11 @@
                                         <dx:LayoutItem Caption="Plazo Crédito">
                                             <LayoutItemNestedControlCollection>
                                                 <dx:LayoutItemNestedControlContainer>
-                                                    <dx:ASPxSpinEdit ID="cmbPlazoCredito" runat="server" Width="100%" AutoResizeWithContainer="true" OnValueChanged="cmbEmisorCanton_ValueChanged" AutoPostBack="true" MaxLength="2" Enabled="false"
+                                                    <dx:ASPxSpinEdit ID="txtPlazoCredito" runat="server" Width="100%" AutoResizeWithContainer="true" OnValueChanged="cmbEmisorCanton_ValueChanged" AutoPostBack="true" MaxLength="2" Enabled="false"
                                                         ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
                                                 </dx:LayoutItemNestedControlContainer>
                                             </LayoutItemNestedControlCollection>
-                                        </dx:LayoutItem>
-                                        <dx:LayoutItem Caption="Medio Pago">
-                                            <LayoutItemNestedControlCollection>
-                                                <dx:LayoutItemNestedControlContainer>
-                                                    <dx:ASPxComboBox ID="cmbMedioPago" Width="100%" AutoResizeWithContainer="true" runat="server"
-                                                        ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
-                                                </dx:LayoutItemNestedControlContainer>
-                                            </LayoutItemNestedControlCollection>
-                                        </dx:LayoutItem>
+                                        </dx:LayoutItem> 
                                         <dx:LayoutItem Caption="Fecha de Emision">
                                             <LayoutItemNestedControlCollection>
                                                 <dx:LayoutItemNestedControlContainer>
@@ -385,7 +385,7 @@
 
 
                         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
-                            Width="100%" EnableTheming="True" KeyFieldName="codigo" Theme="Moderno"
+                            Width="100%" EnableTheming="True" KeyFieldName="producto" Theme="Moderno"
                             OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize"
                             OnCustomErrorText="ASPxGridView1_CustomErrorText"
                             OnRowDeleting="ASPxGridView1_RowDeleting"
@@ -398,36 +398,41 @@
                                 <dx:GridViewDataSpinEditColumn Caption="Cantidad" FieldName="cantidad" VisibleIndex="2" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
                                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                                 </dx:GridViewDataSpinEditColumn>
-                                <dx:GridViewDataComboBoxColumn Caption="Producto" FieldName="codigo" VisibleIndex="3" PropertiesComboBox-MaxLength="10"
+                                <dx:GridViewDataComboBoxColumn Caption="Producto" FieldName="producto" VisibleIndex="3" 
                                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                                 </dx:GridViewDataComboBoxColumn>
 
-                                <dx:GridViewDataSpinEditColumn Caption="Precio U" FieldName="precioUnitario" VisibleIndex="2" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
+                                <dx:GridViewDataSpinEditColumn Caption="Precio U" FieldName="precioUnitario" VisibleIndex="4" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
                                     PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="c2"
                                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                                 </dx:GridViewDataSpinEditColumn>
 
-                                <dx:GridViewDataSpinEditColumn Caption="SubTotal" FieldName="subTotal" VisibleIndex="2" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
+                                <dx:GridViewDataSpinEditColumn Caption="SubTotal" FieldName="subTotal" VisibleIndex="5" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
                                     PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="c2"
                                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                                 </dx:GridViewDataSpinEditColumn>
 
-                                <dx:GridViewDataSpinEditColumn Caption="Descuento" FieldName="montoDescuento" VisibleIndex="2" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
+                                <dx:GridViewDataSpinEditColumn Caption="Descuento" FieldName="montoDescuento" VisibleIndex="6" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
                                     PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="c2"
                                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                                 </dx:GridViewDataSpinEditColumn>
 
-                                <dx:GridViewDataTextColumn Caption="Naturaleza Descuento" FieldName="naturalezaDescuento" VisibleIndex="2" PropertiesTextEdit-MaxLength="80"
+                                <dx:GridViewDataTextColumn Caption="Naturaleza Descuento" FieldName="naturalezaDescuento" VisibleIndex="7" PropertiesTextEdit-MaxLength="80"
                                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                                 </dx:GridViewDataTextColumn>
 
-                                <dx:GridViewDataSpinEditColumn Caption="Total" FieldName="montoTotal" VisibleIndex="2" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
+                                <dx:GridViewDataSpinEditColumn Caption="Total" FieldName="montoTotal" VisibleIndex="8" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
                                     PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="c2"
                                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                                 </dx:GridViewDataSpinEditColumn>
 
 
                             </Columns>
+                            <TotalSummary>
+                                <dx:ASPxSummaryItem FieldName="subTotal" SummaryType="Sum" />
+                                <dx:ASPxSummaryItem FieldName="montoDescuento" SummaryType="Sum" />
+                                <dx:ASPxSummaryItem FieldName="montoTotal" SummaryType="Sum" />
+                            </TotalSummary>
 
                             <SettingsBehavior ColumnResizeMode="NextColumn" />
                             <Settings ShowFooter="True" ShowFilterBar="Hidden" ShowFilterRow="false" />
@@ -488,7 +493,8 @@
         </TabPages>
     </dx:ASPxPageControl>
 
-    <dx:ASPxButton runat="server" ID="btnFacturar" Text="Facturr" OnClick="btnFacturar_Click" CausesValidation="true"></dx:ASPxButton>
+    <dx:ASPxButton runat="server" ID="btnFacturar" Text="Facturar" OnClick="btnFacturar_Click" CausesValidation="true"></dx:ASPxButton>
 
 
 </asp:Content>
+

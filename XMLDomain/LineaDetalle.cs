@@ -31,7 +31,10 @@ namespace XMLDomain
         public string naturalezaDescuento { set; get; }//tamaño 80 DGT
         [XmlElement(ElementName = "SubTotal", Order = 11)]
         public double subTotal { set; get; }//tamaño 80 DGT
-       
+
+         
+        public string producto { set; get; }
+
         public LineaDetalle() {
             this.codigo = new Codigo();
             this.montoTotal = 0;

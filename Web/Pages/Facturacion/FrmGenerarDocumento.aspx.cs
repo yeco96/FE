@@ -130,15 +130,14 @@ namespace Web.Pages.Facturacion
                 }
                 this.cmbTipoMoneda.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
-                /* PRODUCTO */
-
-                GridViewDataComboBoxColumn comboCodigo = this.ASPxGridView1.Columns["codigo"] as GridViewDataComboBoxColumn;
-                comboCodigo.PropertiesComboBox.Items.Clear(); 
+                /* PRODUCTO */ 
+                GridViewDataComboBoxColumn comboProducto = this.ASPxGridView1.Columns["producto"] as GridViewDataComboBoxColumn;
+                comboProducto.PropertiesComboBox.Items.Clear(); 
                 foreach (var item in conexion.Producto.Where(x => x.estado == Estado.ACTIVO.ToString()).Where( x => x.emisor == elEmisor).ToList())
                 {
-                    this.cmbTipoMoneda.Items.Add(item.descripcion, item.codigo);
+                    comboProducto.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
                 }
-                comboCodigo.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                comboProducto.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
             }
         }
@@ -342,22 +341,29 @@ namespace Web.Pages.Facturacion
         {
             if (CondicionVenta.CREDITO.Equals(this.cmbCondicionVenta.Value.ToString()))
             {
-                this.cmbPlazoCredito.Enabled = true;
-                this.cmbPlazoCredito.Value = 3;
+                this.txtPlazoCredito.Enabled = true;
+                this.txtPlazoCredito.Value = 3;
             }
             else
             {
-                this.cmbPlazoCredito.Value = 0;
-                this.cmbPlazoCredito.Enabled = false;
+                this.txtPlazoCredito.Value = 0;
+                this.txtPlazoCredito.Enabled = false;
             }
         }
 
         protected void ASPxGridView1_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
-        { 
-            if (e.Column.FieldName == "subTotal") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
-            if (e.Column.FieldName == "montoTotal") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
-        }
+        {
+            if (e.Column.FieldName == "subTotal") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+            if (e.Column.FieldName == "montoTotal") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+            if (e.Column.FieldName == "montoDescuento") { e.Editor.Value = 0; }
+            if (e.Column.FieldName == "precioUnitario") { e.Editor.Value = 0; }
+            if (e.Column.FieldName == "naturalezaDescuento") { e.Editor.Value = "N/A"; }
 
+            if (!this.ASPxGridView1.IsNewRowEditing)
+            {
+                if (e.Column.FieldName == "producto") {e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+            }
+        }
         protected void ASPxGridView1_CustomErrorText(object sender, ASPxGridViewCustomErrorTextEventArgs e)
         {
 
@@ -403,22 +409,29 @@ namespace Web.Pages.Facturacion
                     //se declara el objeto a insertar
                     LineaDetalle dato = new LineaDetalle();
                     //llena el objeto con los valores de la pantalla
-                    string codProducto = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
+                    string codProducto = e.NewValues["producto"] != null ? e.NewValues["producto"].ToString().ToUpper() : null;
                     Producto producto = conexion.Producto.Where(x => x.codigo == codProducto).FirstOrDefault();
 
                     dato.numeroLinea = e.NewValues["numeroLinea"] != null ? int.Parse(e.NewValues["numeroLinea"].ToString()) : 0;
                     dato.cantidad = e.NewValues["cantidad"] != null ? double.Parse(e.NewValues["cantidad"].ToString()) : 0;
                     dato.codigo.tipo = producto.tipo;
                     dato.codigo.codigo = producto.codigo;
+                    dato.detalle = producto.descripcion;
+                    dato.unidadMedida = producto.unidadMedida;
+                    dato.unidadMedidaComercial = "";
+
+                    dato.producto = producto.codigo;/*solo para uso del grid*/
                     dato.precioUnitario = producto.precio;
                     dato.subTotal = producto.precio * dato.cantidad;
                     dato.montoDescuento = e.NewValues["montoDescuento"] != null ? double.Parse(e.NewValues["montoDescuento"].ToString()) : 0;
                     dato.montoTotal = dato.subTotal - dato.montoDescuento;
 
                     dato.naturalezaDescuento = e.NewValues["naturalezaDescuento"] != null ? e.NewValues["naturalezaDescuento"].ToString().ToUpper() : null;
-  
+                    dato.naturalezaDescuento = dato.naturalezaDescuento;
+
                     //agrega el objeto
                     detalleServicio.lineaDetalle.Add(dato);
+                    Session["detalleServicio"] = detalleServicio;
                 }
 
                 //esto es para el manero del devexpress
@@ -465,7 +478,7 @@ namespace Web.Pages.Facturacion
                 {
                     DetalleServicio detalleServicio = (DetalleServicio)Session["detalleServicio"];
 
-                    string codProducto = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
+                    string codProducto = e.NewValues["producto"] != null ? e.NewValues["producto"].ToString().ToUpper() : null;
                     LineaDetalle dato = detalleServicio.lineaDetalle.Where(x => x.codigo.codigo == codProducto).FirstOrDefault();
                     //llena el objeto con los valores de la pantalla
                     
@@ -474,14 +487,22 @@ namespace Web.Pages.Facturacion
                     dato.cantidad = e.NewValues["cantidad"] != null ? double.Parse(e.NewValues["cantidad"].ToString()) : 0;
                     dato.codigo.tipo = producto.tipo;
                     dato.codigo.codigo = producto.codigo;
+                    dato.detalle = producto.descripcion;
+                    dato.unidadMedida = producto.unidadMedida;
+                    dato.unidadMedidaComercial = "";
+
+                    dato.producto = producto.codigo;/*solo para uso del grid*/
                     dato.precioUnitario = producto.precio;
                     dato.subTotal = producto.precio * dato.cantidad;
                     dato.montoDescuento = e.NewValues["montoDescuento"] != null ? double.Parse(e.NewValues["montoDescuento"].ToString()) : 0;
                     dato.montoTotal = dato.subTotal - dato.montoDescuento;
 
                     dato.naturalezaDescuento = e.NewValues["naturalezaDescuento"] != null ? e.NewValues["naturalezaDescuento"].ToString().ToUpper() : null;
+                    dato.naturalezaDescuento = dato.naturalezaDescuento;
 
-                     
+                    //agrega el objeto 
+                    Session["detalleServicio"] = detalleServicio;
+
                 }
 
                 //esto es para el manero del devexpress
@@ -500,5 +521,12 @@ namespace Web.Pages.Facturacion
                 this.refreshData();
             }
         }
+
+
+
+
+
+
+
     }
 }

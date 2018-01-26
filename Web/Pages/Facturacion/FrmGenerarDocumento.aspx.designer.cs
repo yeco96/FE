@@ -274,6 +274,15 @@ namespace Web.Pages.Facturacion {
         protected global::DevExpress.Web.ASPxMemo txtReceptorOtraSenas;
         
         /// <summary>
+        /// cmbMedioPago control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxComboBox cmbMedioPago;
+        
+        /// <summary>
         /// cmbCondicionVenta control.
         /// </summary>
         /// <remarks>
@@ -283,22 +292,13 @@ namespace Web.Pages.Facturacion {
         protected global::DevExpress.Web.ASPxComboBox cmbCondicionVenta;
         
         /// <summary>
-        /// cmbPlazoCredito control.
+        /// txtPlazoCredito control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxSpinEdit cmbPlazoCredito;
-        
-        /// <summary>
-        /// cmbMedioPago control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbMedioPago;
+        protected global::DevExpress.Web.ASPxSpinEdit txtPlazoCredito;
         
         /// <summary>
         /// txtFechaEmision control.
