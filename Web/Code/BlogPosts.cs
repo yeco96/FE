@@ -20,6 +20,7 @@ namespace Web.Code
             {
                 if(current == null)
                 {
+                    //Crear el filepath
                     string filePath = HttpContext.Current.Server.MapPath("~/App_Data/BlogPosts.xml");
                     using(StreamReader reader = new StreamReader(filePath))
                     {
