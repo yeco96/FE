@@ -119,12 +119,12 @@ namespace Microsoft.Xades
 		{
 			bool retVal = false;
 
-			if (!string.IsNullOrEmpty(this.uriAttribute))
+			if (!String.IsNullOrEmpty(this.uriAttribute))
 			{
 				retVal = true;
 			}
 
-			if (!string.IsNullOrEmpty(this.responderID))
+			if (!String.IsNullOrEmpty(this.responderID))
 			{
 				retVal = true;
 			}
@@ -194,7 +194,7 @@ namespace Microsoft.Xades
                 retVal.SetAttribute("URI", this.uriAttribute);
             }
 
-			if (!string.IsNullOrEmpty(this.responderID))
+			if (!String.IsNullOrEmpty(this.responderID))
 			{
 				bufferXmlElement = creationXmlDocument.CreateElement(XadesSignedXml.XmlXadesPrefix, "ResponderID", XadesSignedXml.XadesNamespaceUri);
                 bufferXmlElement.SetAttribute("xmlns:ds", SignedXml.XmlDsigNamespaceUrl);

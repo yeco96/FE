@@ -43,6 +43,12 @@
     <Compile Include="EncodeXML.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XMLDomain\XMLDomain.csproj">
+      <Project>{341baa6c-4f85-4384-82de-b7c0d1320be6}</Project>
+      <Name>XMLDomain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

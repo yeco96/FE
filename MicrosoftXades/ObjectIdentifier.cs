@@ -137,7 +137,7 @@ namespace Microsoft.Xades
 				retVal = true;
 			}
 
-			if (!string.IsNullOrEmpty(this.description))
+			if (!String.IsNullOrEmpty(this.description))
 			{
 				retVal = true;
 			}

@@ -26,26 +26,32 @@ namespace WSDomain
         [JsonProperty("receptor", Order = 4)]
         public EmisorReceptor receptor { set; get; }
         [NotMapped]
+        [JsonIgnore]
         public string factura { get { return clave.Substring(21,20); } }
 
 
         [JsonProperty("comprobanteXml", Order = 5)]
         public string comprobanteXml { set; get; }
 
+        [JsonIgnore]
         public int indEstado { set; get; }
+        [JsonIgnore]
         public string mensaje { set; get; }
 
-       
-        public string emisorTipo { set; get; } 
+        [JsonIgnore]
+        public string emisorTipo { set; get; }
+        [JsonIgnore]
         public string emisorIdentificacion { set; get; }
 
-      
+        [JsonIgnore]
         public string receptorTipo { set; get; }
         [ForeignKey("Receptor")]
+        [JsonIgnore]
         public string receptorIdentificacion { set; get; }
-         
+
+        [JsonIgnore]
         public double montoTotalImpuesto { set; get; }
-         
+        [JsonIgnore]
         public double montoTotalFactura { set; get; }
 
 
@@ -53,14 +59,14 @@ namespace WSDomain
         /// AUDIOTORIA
         /// </summary> 
 
-        // [ForeignKey("UsuarioCreacion")]
+        [JsonIgnore]
         public string usuarioCreacion { set; get; }
-
+        [JsonIgnore]
         public DateTime? fechaCreacion { set; get; }
 
-       // [ForeignKey("UsuarioModificacion")]
+        [JsonIgnore]
         public string usuarioModificacion { set; get; }
-
+        [JsonIgnore]
         public DateTime? fechaModificacion { set; get; }
 
 
@@ -76,6 +82,7 @@ namespace WSDomain
         /// </summary>
         // public virtual Usuario UsuarioCreacion { get; set; }
         // public virtual Usuario UsuarioModificacion { get; set; }
+        [JsonIgnore]
         public virtual EmisorReceptor Receptor { set; get; }
 
     }

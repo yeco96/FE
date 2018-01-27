@@ -27,7 +27,7 @@ namespace FirmaXadesNet
               
             // Política de firma de factura-e 3.1
             parametros.SignaturePolicyInfo = new SignaturePolicyInfo();
-            parametros.SignaturePolicyInfo.PolicyIdentifier = "https://tribunet.hacienda.go.cr/docs/esquemas/2016/v4.1/Resolucion_Comprobantes_Electronicos_DGT-R-48-2016.pdf";
+            parametros.SignaturePolicyInfo.PolicyIdentifier = "https://tribunet.hacienda.go.cr/docs/esquemas/2016/v4.2/ResolucionComprobantesElectronicosDGT-R-48-2016_4.2.pdf";
             parametros.SignaturePolicyInfo.PolicyHash = "Ohixl6upD6av8N7pEvDABhEL6hM=";
             parametros.SignaturePackaging = SignaturePackaging.ENVELOPED;
             parametros.DataFormat = new DataFormat();

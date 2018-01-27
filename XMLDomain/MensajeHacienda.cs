@@ -1,9 +1,10 @@
-﻿using EncodeXML;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace XMLDomain
@@ -60,29 +61,59 @@ namespace XMLDomain
         /// <param name="xml">Genera un documento MensajeHacienda con los datos del XML</param>
         public MensajeHacienda(string xml)
         {
-            this.clave = EncondeXML.buscarValorEtiquetaXML("MensajeHacienda", "Clave", xml);
+            this.clave = buscarValorEtiquetaXML("MensajeHacienda", "Clave", xml);
 
-            this.emisorNombre = EncondeXML.buscarValorEtiquetaXML("MensajeHacienda", "NombreEmisor", xml);
-            this.emisorTipoIdentificacion = EncondeXML.buscarValorEtiquetaXML("MensajeHacienda", "TipoIdentificacionEmisor", xml);
-            this.emisorNumeroCedula = EncondeXML.buscarValorEtiquetaXML("MensajeHacienda", "NumeroCedulaEmisor", xml);
+            this.emisorNombre = buscarValorEtiquetaXML("MensajeHacienda", "NombreEmisor", xml);
+            this.emisorTipoIdentificacion = buscarValorEtiquetaXML("MensajeHacienda", "TipoIdentificacionEmisor", xml);
+            this.emisorNumeroCedula = buscarValorEtiquetaXML("MensajeHacienda", "NumeroCedulaEmisor", xml);
 
-            this.receptorNombre = EncondeXML.buscarValorEtiquetaXML("MensajeHacienda", "NombreReceptor", xml);
-            this.receptorTipoIdentificacion = EncondeXML.buscarValorEtiquetaXML("MensajeHacienda", "TipoIdentificacionReceptor", xml);
-            this.receptorNumeroCedula = EncondeXML.buscarValorEtiquetaXML("MensajeHacienda", "NumeroCedulaReceptor", xml);
+            this.receptorNombre = buscarValorEtiquetaXML("MensajeHacienda", "NombreReceptor", xml);
+            this.receptorTipoIdentificacion = buscarValorEtiquetaXML("MensajeHacienda", "TipoIdentificacionReceptor", xml);
+            this.receptorNumeroCedula = buscarValorEtiquetaXML("MensajeHacienda", "NumeroCedulaReceptor", xml);
 
-            this.mensaje = int.Parse(EncondeXML.buscarValorEtiquetaXML("MensajeHacienda", "Mensaje", xml));
-            this.mensajeDetalle = EncondeXML.buscarValorEtiquetaXML("MensajeHacienda", "DetalleMensaje", xml);
+            this.mensaje = int.Parse(buscarValorEtiquetaXML("MensajeHacienda", "Mensaje", xml));
+            this.mensajeDetalle = buscarValorEtiquetaXML("MensajeHacienda", "DetalleMensaje", xml);
 
-            string totalFactura = EncondeXML.buscarValorEtiquetaXML("MensajeHacienda", "TotalFactura", xml);
+            string totalFactura = buscarValorEtiquetaXML("MensajeHacienda", "TotalFactura", xml);
             if (!String.IsNullOrWhiteSpace(totalFactura))
             {
                 this.montoTotalFactura = double.Parse(totalFactura); 
             }
             
-            string totalImpueto = EncondeXML.buscarValorEtiquetaXML("MensajeHacienda", "MontoTotalImpuesto", xml);
+            string totalImpueto = buscarValorEtiquetaXML("MensajeHacienda", "MontoTotalImpuesto", xml);
             if (!String.IsNullOrWhiteSpace(totalFactura))
             {
                 this.montoTotalImpuesto = double.Parse(totalImpueto);
+            }
+        }
+
+
+        /// <summary>
+        /// Busca el valor de una etiqueta dentro de un XML
+        /// </summary>
+        /// <param name="tagPadre">nombre de la etiqueta padre Ej: emisor receptor MensajeHacienda FacturaElectronica NotaCreditoElectronica NotaDebitoElectronica</param>
+        /// <param name="label">nombre de la etiqueta</param>
+        /// <param name="xml">XML donde se busca la etiqueta</param>
+        /// <returns></returns>
+        public static string buscarValorEtiquetaXML(string tagPadre, string label, string xml)
+        {
+            try
+            {
+                string dato = "";
+                XmlDocument xm = new XmlDocument();
+                xm.LoadXml(xml);
+                XmlNodeList xmlTag = xm.GetElementsByTagName(tagPadre);
+                XmlNodeList lista = ((XmlElement)xmlTag[0]).GetElementsByTagName(label);
+                foreach (XmlElement nodo in lista)
+                {
+                    XmlNodeList nNombre = nodo.GetElementsByTagName(label);
+                    dato = nodo.InnerText;
+                }
+                return dato;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message, e.InnerException);
             }
         }
 

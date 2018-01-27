@@ -7,6 +7,7 @@ using System.Xml.Serialization;
 
 namespace XMLDomain
 {
+    [XmlRoot(ElementName = "NotaCreditoElectronica", Namespace = "https://tribunet.hacienda.go.cr/docs/esquemas/2016/v4.2/NotaCreditoElectronica")]
     public class NotaCreditoElectronica
     {
         [XmlElement(ElementName = "Clave", Order = 1)]

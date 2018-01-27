@@ -1,14 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<FacturaElectronica 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica" 
-  xmlns:xsd="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica" 
-  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-  xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" 
-  xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-  <Clave>50608011800060354097400100001010000000014188888888</Clave>
-  <NumeroConsecutivo>00100001010000000014</NumeroConsecutivo>
-  <FechaEmision>2018-01-09T20:11:57</FechaEmision>
+<?xml version="1.0" encoding="utf-8"?>
+<FacturaElectronica xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica" xmlns:xsd="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+  <Clave>50608011800060354097400100001010000000019188888888</Clave>
+  <NumeroConsecutivo>00100001010000000019</NumeroConsecutivo>
+  <FechaEmision>2018-01-27T07:05:57</FechaEmision>
   <Emisor>
     <Nombre>MAIKOL JESUS SALAMANCA ARIAS</Nombre>
     <Identificacion>

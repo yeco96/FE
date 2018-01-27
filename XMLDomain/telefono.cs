@@ -10,9 +10,9 @@ namespace XMLDomain
     public class Telefono
     {
         [XmlElement(ElementName = "CodigoPais", Order = 1)]
-        public int codigoPais { set; get; }//tamaño 3  DGT
+        public string codigoPais { set; get; }//tamaño 3  DGT
         [XmlElement(ElementName = "numTelefono", Order = 2)]
-        public int numTelefono { set; get; }//tamaño 20  DGT
+        public string numTelefono { set; get; }//tamaño 20  DGT
 
          
         public Telefono() {

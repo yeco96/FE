@@ -271,11 +271,6 @@
             The generic XML element that represents a claimed role
             </summary>
         </member>
-        <member name="P:Microsoft.Xades.ClaimedRole.InnerText">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="M:Microsoft.Xades.ClaimedRole.#ctor">
             <summary>
             Default constructor
@@ -2316,44 +2311,6 @@
                 </list>
             </summary>
         </member>
-        <member name="M:Microsoft.Xades.RSAPKCS1SHA256SignatureDescription.CreateDeformatter(System.Security.Cryptography.AsymmetricAlgorithm)">
-            <summary>
-            
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Microsoft.Xades.RSAPKCS1SHA256SignatureDescription.CreateFormatter(System.Security.Cryptography.AsymmetricAlgorithm)">
-            <summary>
-            
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Microsoft.Xades.RSAPKCS1SHA512SignatureDescription">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Microsoft.Xades.RSAPKCS1SHA512SignatureDescription.#ctor">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Microsoft.Xades.RSAPKCS1SHA512SignatureDescription.CreateDeformatter(System.Security.Cryptography.AsymmetricAlgorithm)">
-            <summary>
-            
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Microsoft.Xades.RSAPKCS1SHA512SignatureDescription.CreateFormatter(System.Security.Cryptography.AsymmetricAlgorithm)">
-            <summary>
-            
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
         <member name="T:Microsoft.Xades.SignaturePolicyId">
             <summary>
             The SignaturePolicyId element is an explicit and unambiguous identifier
@@ -3006,11 +2963,6 @@
             The name of the element when serializing
             </summary>
         </member>
-        <member name="P:Microsoft.Xades.TimeStamp.Id">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="P:Microsoft.Xades.TimeStamp.HashDataInfoCollection">
             <summary>
             A collection of hash data infos
@@ -3586,21 +3538,6 @@
             Mandated type name for the Uri reference to the SignedProperties element
             </summary>
         </member>
-        <member name="F:Microsoft.Xades.XadesSignedXml.XmlDsigObjectType">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xades.XadesSignedXml.XmlDSigPrefix">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xades.XadesSignedXml.XmlXadesPrefix">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="P:Microsoft.Xades.XadesSignedXml.SignatureStandard">
             <summary>
             Property indicating the type of signature (XmlDsig or XAdES)
@@ -3628,21 +3565,6 @@
             signature value need to be added to the signature. The
             SignatureTimeStamp element is such a property, it can only be
             created when the XMLDSIG signature has been computed.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xades.XadesSignedXml.ContentElement">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xades.XadesSignedXml.SignatureNodeDestination">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xades.XadesSignedXml.AddXadesNamespace">
-            <summary>
-            
             </summary>
         </member>
         <member name="M:Microsoft.Xades.XadesSignedXml.#ctor">
@@ -3715,12 +3637,6 @@
             with a bit in the mask has the same name as enum value name.</param>
             <returns>If the function returns true the check was OK.  If the
             check fails an exception with a explanatory message is thrown.</returns>
-        </member>
-        <member name="M:Microsoft.Xades.XadesSignedXml.GetSigningCertificate">
-            <summary>
-            
-            </summary>
-            <returns></returns>
         </member>
         <member name="M:Microsoft.Xades.XadesSignedXml.CheckXmldsigSignature">
             <summary>
@@ -3836,35 +3752,6 @@
             Check if RevocationValues match RevocationRefs
             </summary>
             <returns>If the function returns true the check was OK</returns>
-        </member>
-        <member name="M:Microsoft.Xades.XadesSignedXml.ComputeSignature">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Microsoft.Xades.XadesSignedXml.GetContentReference">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Microsoft.Xades.XadesSignedXml.FindContentElement">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Microsoft.Xades.XadesSignedXml.GetSignatureElement">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Microsoft.Xades.XadesSignedXml.GetAllNamespaces(System.Xml.XmlElement)">
-            <summary>
-            
-            </summary>
-            <param name="fromElement"></param>
-            <returns></returns>
         </member>
         <member name="M:Microsoft.Xades.XadesSignedXml.BuildDigestedReferences">
             <summary>

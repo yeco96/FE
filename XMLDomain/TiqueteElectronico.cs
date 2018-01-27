@@ -7,6 +7,7 @@ using System.Xml.Serialization;
 
 namespace XMLDomain
 {
+    [XmlRoot(ElementName = "TiqueteElectronico", Namespace = "https://tribunet.hacienda.go.cr/docs/esquemas/2016/v4.2/TiqueteElectronico")]
     public class TiqueteElectronico
     {
         [XmlElement(ElementName = "Clave", Order = 1)]
@@ -78,25 +79,25 @@ namespace XMLDomain
             this.emisor.ubicacion.distrito = "1";
             this.emisor.ubicacion.barrio = "1";
             this.emisor.ubicacion.otrassenas = "125n de la biblioteca";
-            this.emisor.telefono.codigoPais = 506;
-            this.emisor.telefono.numTelefono = 88729065;
-            this.emisor.fax.codigoPais = 506;
-            this.emisor.fax.numTelefono = 24402090;
+            this.emisor.telefono.codigoPais = "506";
+            this.emisor.telefono.numTelefono = "88729065";
+            this.emisor.fax.codigoPais = "506";
+            this.emisor.fax.numTelefono = "24402090";
             this.emisor.correoElectronico = "jupmasalamanca@gmail.com";
             this.receptor = new Receptor();
             this.receptor.nombre = "Andrea Santamaria Quesada";
             this.receptor.identificacion.tipo = "1";
-            this.receptor.identificacion.numero = "603540974";
+            this.receptor.identificacion.numero = "207550498";
             this.receptor.nombreComercial = "MSA SOFT";
-            this.receptor.ubicacion.provincia = "1";
-            this.receptor.ubicacion.canton = "1";
-            this.receptor.ubicacion.distrito = "1";
-            this.receptor.ubicacion.barrio = "1";
-            this.receptor.ubicacion.otrassenas = "SanJose";
-            this.receptor.telefono.codigoPais = 506;
-            this.receptor.telefono.numTelefono = 61818738;
-            this.receptor.fax.codigoPais = 506;
-            this.receptor.fax.numTelefono = 24402090;
+            this.receptor.ubicacion.provincia = "4";
+            this.receptor.ubicacion.canton = "01";
+            this.receptor.ubicacion.distrito = "01";
+            this.receptor.ubicacion.barrio = "01";
+            this.receptor.ubicacion.otrassenas = "125 norte dela biblioteca publica";
+            this.receptor.telefono.codigoPais = "506";
+            this.receptor.telefono.numTelefono = "61818738";
+            this.receptor.fax.codigoPais = "506";
+            this.receptor.fax.numTelefono = "24402090";
             this.receptor.correoElectronico = "jandreasantamariaquesada@gmail.com";
             this.condicionVenta = "01";
             this.plazoCredito = "1";

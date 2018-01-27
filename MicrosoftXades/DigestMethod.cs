@@ -71,7 +71,7 @@ namespace Microsoft.Xades
 		{
 			bool retVal = false;
 
-			if (!string.IsNullOrEmpty(this.algorithm))
+			if (!String.IsNullOrEmpty(this.algorithm))
 			{
 				retVal = true;
 			}

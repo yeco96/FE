@@ -8,8 +8,17 @@ using System.Xml.Serialization;
 
 namespace XMLDomain
 {
-   public class FacturaElectronica
+    
+    [XmlRoot(ElementName = "FacturaElectronica" , Namespace = "https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica") ]  
+    
+    public class FacturaElectronica
     {
+
+       // [XmlAttributeAttribute("schemaLocation", AttributeName = "FacturaElectronica", Namespace = "http://www.w3.org/2001/XMLSchema-instance")]
+       // public string SchemaLocation = "https://tribunet.hacienda.go.cr/docs/esquemas/2016/v4.2/facturaElectronica";
+
+        [XmlAttribute(Namespace = System.Xml.Schema.XmlSchema.InstanceNamespace)]
+        public string schemaLocation = "https://tribunet.hacienda.go.cr/docs/esquemas/2016/v4.2/facturaElectronica";
 
         [XmlElement(ElementName = "Clave", Order = 1)]
         public string clave { set; get; }
@@ -17,7 +26,7 @@ namespace XMLDomain
         public string numeroConsecutivo { set; get; }
         
         [XmlElement(ElementName = "FechaEmision", Order = 3)]
-        public DateTime? fechaEmision { set; get; }
+        public DateTime fechaEmision { set; get; }
 
         [XmlElement(ElementName = "Emisor", Order = 4)]
         public Emisor emisor { set; get; }
@@ -58,14 +67,15 @@ namespace XMLDomain
             this.receptor = new Receptor();
             this.detalleServicio = new DetalleServicio();
             this.resumenFactura = new ResumenFactura();
-            this.normativa = new Normativa();
+            this.normativa = new Normativa(); 
+
             this.otros = new Otros();
         }
           
         public void iniciarParametros()
         {
-            this.clave = "50608011800060354097400100001010000000001188888888";
-            this.numeroConsecutivo = "00100001010000000001";
+            this.clave = "50608011800060354097400100001010000000024188888888";
+            this.numeroConsecutivo = "00100001010000000024";
             this.fechaEmision = DateTime.Now;
 
             this.emisor = new Emisor();
@@ -73,33 +83,33 @@ namespace XMLDomain
             this.emisor.identificacion.tipo = "1";
             this.emisor.identificacion.numero = "603540974";
             this.emisor.nombreComercial = "MSA SOFT";
-            this.emisor.ubicacion.provincia = "1";
-            this.emisor.ubicacion.canton = "1";
-            this.emisor.ubicacion.distrito = "1";
-            this.emisor.ubicacion.barrio = "1";
-            this.emisor.ubicacion.otrassenas = "SanJose";
-            this.emisor.telefono.codigoPais = 506;
-            this.emisor.telefono.numTelefono = 88729065;
-            this.emisor.fax.codigoPais = 506;
-            this.emisor.fax.numTelefono = 24402090;
+            this.emisor.ubicacion.provincia = "4";
+            this.emisor.ubicacion.canton = "01";
+            this.emisor.ubicacion.distrito = "01";
+            this.emisor.ubicacion.barrio = "01";
+            this.emisor.ubicacion.otrassenas = "125 norte dela biblioteca publica";
+            this.emisor.telefono.codigoPais = "506";
+            this.emisor.telefono.numTelefono = "88729065";
+            this.emisor.fax.codigoPais = "506";
+            this.emisor.fax.numTelefono = "24402090";
             this.emisor.correoElectronico = "jupmasalamanca@gmail.com";
             this.receptor = new Receptor();
             this.receptor.nombre = "Andrea Santamaria Quesada";
             this.receptor.identificacion.tipo = "1";
-            this.receptor.identificacion.numero = "603540974";
+            this.receptor.identificacion.numero = "207550498";
             this.receptor.nombreComercial = "MSA SOFT";
-            this.receptor.ubicacion.provincia = "1";
-            this.receptor.ubicacion.canton = "1";
-            this.receptor.ubicacion.distrito = "1";
-            this.receptor.ubicacion.barrio = "1";
-            this.receptor.ubicacion.otrassenas = "SanJose";
-            this.receptor.telefono.codigoPais = 506;
-            this.receptor.telefono.numTelefono = 61818738;
-            this.receptor.fax.codigoPais = 506;
-            this.receptor.fax.numTelefono = 24402090;
+            this.receptor.ubicacion.provincia ="4";
+            this.receptor.ubicacion.canton = "01";
+            this.receptor.ubicacion.distrito = "01";
+            this.receptor.ubicacion.barrio = "01";
+            this.receptor.ubicacion.otrassenas = "125 norte dela biblioteca publica";
+            this.receptor.telefono.codigoPais = "506";
+            this.receptor.telefono.numTelefono = "61818738";
+            this.receptor.fax.codigoPais = "506";
+            this.receptor.fax.numTelefono = "24402090";
             this.receptor.correoElectronico = "jandreasantamariaquesada@gmail.com";
             this.condicionVenta = "01";
-            this.plazoCredito = "1";
+            this.plazoCredito = "0";
             this.medioPago = "01";
 
 
@@ -112,7 +122,7 @@ namespace XMLDomain
             lineaDetalle.codigo.codigo = "01";
             lineaDetalle.cantidad = 1;
             lineaDetalle.unidadMedida = "1";
-            lineaDetalle.detalle = "COOMBS INDIRECTO";
+            lineaDetalle.detalle = "COMBO INDIRECTO";
             lineaDetalle.precioUnitario = 1900000000;
             lineaDetalle.montoTotal = 1900000000;
             lineaDetalle.montoDescuento = 380000000;

@@ -12,219 +12,270 @@
     </section>
     <div class="borde_redondo_tabla">
 
-        <dx:ASPxFormLayout runat="server">
-            <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
-            <Items>
-                <dx:LayoutGroup Caption="Datos Personales" ColCount="3" GroupBoxDecoration="Box" UseDefaultPaddings="false">
-                    <Items>
-                        <dx:LayoutItem Caption="Tipo">
-                            <LayoutItemNestedControlCollection>
-                                <dx:LayoutItemNestedControlContainer>
-                                    <dx:ASPxComboBox ID="cmbEmisorTipo" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
-                                        ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" />
-                                </dx:LayoutItemNestedControlContainer>
-                            </LayoutItemNestedControlCollection>
-                        </dx:LayoutItem>
-                        <dx:LayoutItem Caption="Identficación">
-                            <LayoutItemNestedControlCollection>
-                                <dx:LayoutItemNestedControlContainer>
-                                    <dx:ASPxSpinEdit ID="txtEmisorIdentificacion" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
-                                        ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" MaxLength="12" />
-                                </dx:LayoutItemNestedControlContainer>
-                            </LayoutItemNestedControlCollection>
-                        </dx:LayoutItem>
-                        <dx:LayoutItem Caption="Nombre">
-                            <LayoutItemNestedControlCollection>
-                                <dx:LayoutItemNestedControlContainer>
-                                    <dx:ASPxTextBox ID="txtEmisorNombre" Width="100%" AutoResizeWithContainer="true" runat="server" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
-                                        ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" MaxLength="80" />
-                                </dx:LayoutItemNestedControlContainer>
-                            </LayoutItemNestedControlCollection>
-                        </dx:LayoutItem>
-                        <dx:LayoutItem Caption="Nombre Comercial" ColSpan="3" Width="97.5%">
-                            <LayoutItemNestedControlCollection>
-                                <dx:LayoutItemNestedControlContainer>
-                                    <dx:ASPxTextBox ID="txtEmisorNombreComercial" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" MaxLength="80" />
-                                </dx:LayoutItemNestedControlContainer>
-                            </LayoutItemNestedControlCollection>
-                        </dx:LayoutItem>
-
-                    </Items>
-                </dx:LayoutGroup>
-
-            </Items>
-        </dx:ASPxFormLayout>
-
-        <dx:ASPxFormLayout runat="server">
-            <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
-            <Items>
-                <dx:LayoutGroup Caption="Contácto" ColCount="3" GroupBoxDecoration="Box" UseDefaultPaddings="false">
-                    <Items>
-
-                        <dx:LayoutItem Caption="Teléfono">
-                            <LayoutItemNestedControlCollection>
-                                <dx:LayoutItemNestedControlContainer>
-                                    <table>
-                                        <tr>
-                                            <td style="width: 30%;">
-                                                <dx:ASPxComboBox ID="cmbEmisorTelefonoCod" runat="server" Width="90%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
-                                            </td>
-                                            <td style="width: 70%;">
-                                                <dx:ASPxSpinEdit ID="txtEmisorTelefono" runat="server" Width="90%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </dx:LayoutItemNestedControlContainer>
-                            </LayoutItemNestedControlCollection>
-                        </dx:LayoutItem>
-                        <dx:LayoutItem Caption="Fax">
-                            <LayoutItemNestedControlCollection>
-                                <dx:LayoutItemNestedControlContainer>
-                                    <table>
-                                        <tr>
-                                            <td style="width: 30%;">
-                                                <dx:ASPxComboBox ID="cmbEmisorFaxCod" runat="server" Width="90%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
-                                            </td>
-                                            <td style="width: 70%;">
-                                                <dx:ASPxSpinEdit ID="txtEmisorFax" runat="server" Width="90%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </dx:LayoutItemNestedControlContainer>
-                            </LayoutItemNestedControlCollection>
-                        </dx:LayoutItem>
-                        <dx:LayoutItem Caption="Correo">
-                            <LayoutItemNestedControlCollection>
-                                <dx:LayoutItemNestedControlContainer>
-                                    <dx:ASPxTextBox ID="txtEmisorCorreo" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
-                                        ValidationSettings-RegularExpression-ValidationExpression="\s*\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*\s*" />
-                                </dx:LayoutItemNestedControlContainer>
-                            </LayoutItemNestedControlCollection>
-                        </dx:LayoutItem>
-
-                    </Items>
-                </dx:LayoutGroup>
-
-            </Items>
-        </dx:ASPxFormLayout>
-
-        <dx:ASPxFormLayout runat="server">
-            <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
-            <Items>
-                <dx:LayoutGroup Caption="Ubicación" ColCount="3" GroupBoxDecoration="Box" UseDefaultPaddings="false">
-                    <Items>
-                        <dx:LayoutItem Caption="Provincia">
-                            <LayoutItemNestedControlCollection>
-                                <dx:LayoutItemNestedControlContainer>
-                                    <dx:ASPxComboBox ID="cmbEmisorProvincia" runat="server" Width="100%" AutoResizeWithContainer="true" OnValueChanged="cmbEmisorProvincia_ValueChanged" AutoPostBack="true"
-                                        ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
-                                </dx:LayoutItemNestedControlContainer>
-                            </LayoutItemNestedControlCollection>
-                        </dx:LayoutItem>
-                        <dx:LayoutItem Caption="Canton">
-                            <LayoutItemNestedControlCollection>
-                                <dx:LayoutItemNestedControlContainer>
-                                    <dx:ASPxComboBox ID="cmbEmisorCanton" runat="server" Width="100%" AutoResizeWithContainer="true" OnValueChanged="cmbEmisorCanton_ValueChanged" AutoPostBack="true"
-                                        ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
-                                </dx:LayoutItemNestedControlContainer>
-                            </LayoutItemNestedControlCollection>
-                        </dx:LayoutItem>
-                        <dx:LayoutItem Caption="Distrito">
-                            <LayoutItemNestedControlCollection>
-                                <dx:LayoutItemNestedControlContainer>
-                                    <dx:ASPxComboBox ID="cmbEmisorDistrito" Width="100%" AutoResizeWithContainer="true" runat="server" OnValueChanged="cmbEmisorDistrito_ValueChanged" AutoPostBack="true"
-                                        ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
-                                </dx:LayoutItemNestedControlContainer>
-                            </LayoutItemNestedControlCollection>
-                        </dx:LayoutItem>
-                        <dx:LayoutItem Caption="Barrio">
-                            <LayoutItemNestedControlCollection>
-                                <dx:LayoutItemNestedControlContainer>
-                                    <dx:ASPxComboBox ID="cmbEmisorBarrio" runat="server" Width="100%" AutoResizeWithContainer="true"
-                                        ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
-                                </dx:LayoutItemNestedControlContainer>
-                            </LayoutItemNestedControlCollection>
-                        </dx:LayoutItem>
-                        <dx:LayoutItem Caption="Otras Señas" ColSpan="2" Width="100%">
-                            <LayoutItemNestedControlCollection>
-                                <dx:LayoutItemNestedControlContainer>
-                                    <dx:ASPxMemo ID="txtEmisorOtraSenas" runat="server" Width="100%" AutoResizeWithContainer="true"
-                                        ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
-                                </dx:LayoutItemNestedControlContainer>
-                            </LayoutItemNestedControlCollection>
-                        </dx:LayoutItem>
-
-                    </Items>
-                </dx:LayoutGroup>
-
-            </Items>
-        </dx:ASPxFormLayout>
 
 
+        <dx:ASPxPageControl ID="documento" Width="100%" runat="server" ActiveTabIndex="0" EnableHierarchyRecreation="True"  EnableTabScrolling="true" TabAlign="Justify" >
+            <TabPages>
+                <dx:TabPage Text="Datos Personales">
+                    <ContentCollection>
+                        <dx:ContentControl runat="server">
 
-          <dx:ASPxFormLayout runat="server">
-            <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
-            <Items>
-                <dx:LayoutGroup Caption="Hacienda" ColCount="2" GroupBoxDecoration="Box" UseDefaultPaddings="false">
-                    <Items>
-                        <dx:LayoutItem Caption="Llave Criptográfica">
-                            <LayoutItemNestedControlCollection>
-                                <dx:LayoutItemNestedControlContainer>
-                                    <dx:ASPxUploadControl runat="server" ID="xmlUploadControl" ClientInstanceName="DocumentsUploadControl" Width="100%"
-                                        AutoStartUpload="true" ShowProgressPanel="True" ShowTextBox="false" BrowseButton-Text="Subir" FileUploadMode="OnPageLoad"
-                                        OnFileUploadComplete="DocumentsUploadControl_FileUploadComplete">
-                                        <AdvancedModeSettings EnableMultiSelect="false" EnableDragAndDrop="true" ExternalDropZoneID="dropZone" />
-                                        <ValidationSettings
-                                            AllowedFileExtensions=".xml"
-                                            MaxFileSize="4194304">
-                                        </ValidationSettings>
-                                    </dx:ASPxUploadControl> 
-                                </dx:LayoutItemNestedControlContainer>
-                            </LayoutItemNestedControlCollection>
-                        </dx:LayoutItem>
-                        <dx:LayoutItem Caption="Clave">
-                            <LayoutItemNestedControlCollection>
-                                <dx:LayoutItemNestedControlContainer>
-                                    <dx:ASPxTextBox ID="txtClaveLlaveCriptografica" runat="server" Width="100%" AutoResizeWithContainer="true"   
-                                        ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
-                                </dx:LayoutItemNestedControlContainer>
-                            </LayoutItemNestedControlCollection>
-                        </dx:LayoutItem>
-                        <dx:LayoutItem Caption="Usurio Comprobantes Electrónicos">
-                            <LayoutItemNestedControlCollection>
-                                <dx:LayoutItemNestedControlContainer>
-                                    <dx:ASPxTextBox ID="txtUsernameOAuth2" runat="server" Width="100%" AutoResizeWithContainer="true" 
-                                        ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
-                                </dx:LayoutItemNestedControlContainer>
-                            </LayoutItemNestedControlCollection>
-                        </dx:LayoutItem>
-                        <dx:LayoutItem Caption="Contraseña Comprobantes Electrónicos">
-                            <LayoutItemNestedControlCollection>
-                                <dx:LayoutItemNestedControlContainer>
-                                    <dx:ASPxTextBox ID="txtPasswordOAuth2" runat="server" Width="100%" AutoResizeWithContainer="true"
-                                        ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
-                                </dx:LayoutItemNestedControlContainer>
-                            </LayoutItemNestedControlCollection>
-                        </dx:LayoutItem>
-                        
-                    </Items>
-                </dx:LayoutGroup>
+                            <dx:ASPxFormLayout runat="server">
+                                <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
+                                <Items>
+                                    <dx:LayoutGroup Caption="Datos Personales" ColCount="3" GroupBoxDecoration="HeadingLine" UseDefaultPaddings="false">
+                                        <Items>
+                                            <dx:LayoutItem Caption="Tipo">
+                                                <LayoutItemNestedControlCollection>
+                                                    <dx:LayoutItemNestedControlContainer>
+                                                        <dx:ASPxComboBox ID="cmbEmisorTipo" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
+                                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" />
+                                                    </dx:LayoutItemNestedControlContainer>
+                                                </LayoutItemNestedControlCollection>
+                                            </dx:LayoutItem>
+                                            <dx:LayoutItem Caption="Identficación">
+                                                <LayoutItemNestedControlCollection>
+                                                    <dx:LayoutItemNestedControlContainer>
+                                                        <dx:ASPxSpinEdit ID="txtEmisorIdentificacion" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
+                                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" MaxLength="12" />
+                                                    </dx:LayoutItemNestedControlContainer>
+                                                </LayoutItemNestedControlCollection>
+                                            </dx:LayoutItem>
+                                            <dx:LayoutItem Caption="Nombre">
+                                                <LayoutItemNestedControlCollection>
+                                                    <dx:LayoutItemNestedControlContainer>
+                                                        <dx:ASPxTextBox ID="txtEmisorNombre" Width="100%" AutoResizeWithContainer="true" runat="server" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
+                                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" MaxLength="80" />
+                                                    </dx:LayoutItemNestedControlContainer>
+                                                </LayoutItemNestedControlCollection>
+                                            </dx:LayoutItem>
+                                            <dx:LayoutItem Caption="Nombre Comercial" ColSpan="3" Width="97.5%">
+                                                <LayoutItemNestedControlCollection>
+                                                    <dx:LayoutItemNestedControlContainer>
+                                                        <dx:ASPxTextBox ID="txtEmisorNombreComercial" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" MaxLength="80" />
+                                                    </dx:LayoutItemNestedControlContainer>
+                                                </LayoutItemNestedControlCollection>
+                                            </dx:LayoutItem>
 
-            </Items>
-        </dx:ASPxFormLayout>
+                                        </Items>
+                                    </dx:LayoutGroup>
 
-        <dx:ASPxButton runat="server" ID="btnAgregar" Text="Actualizar" OnClick="btnAgregar_Click" />
+                                </Items>
+                            </dx:ASPxFormLayout>
 
+                        </dx:ContentControl>
+                    </ContentCollection>
+                </dx:TabPage>
+
+                <dx:TabPage Text="Contácto">
+                    <ContentCollection>
+                        <dx:ContentControl runat="server">
+
+                            <dx:ASPxFormLayout runat="server">
+                                <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
+                                <Items>
+                                    <dx:LayoutGroup Caption="Contácto" ColCount="3" GroupBoxDecoration="HeadingLine" UseDefaultPaddings="false">
+                                        <Items>
+
+                                            <dx:LayoutItem Caption="Teléfono">
+                                                <LayoutItemNestedControlCollection>
+                                                    <dx:LayoutItemNestedControlContainer>
+                                                        <table>
+                                                            <tr>
+                                                                <td style="width: 30%;">
+                                                                    <dx:ASPxComboBox ID="cmbEmisorTelefonoCod" runat="server" Width="90%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                                </td>
+                                                                <td style="width: 70%;">
+                                                                    <dx:ASPxSpinEdit ID="txtEmisorTelefono" runat="server" Width="90%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </dx:LayoutItemNestedControlContainer>
+                                                </LayoutItemNestedControlCollection>
+                                            </dx:LayoutItem>
+                                            <dx:LayoutItem Caption="Fax">
+                                                <LayoutItemNestedControlCollection>
+                                                    <dx:LayoutItemNestedControlContainer>
+                                                        <table>
+                                                            <tr>
+                                                                <td style="width: 30%;">
+                                                                    <dx:ASPxComboBox ID="cmbEmisorFaxCod" runat="server" Width="90%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                                </td>
+                                                                <td style="width: 70%;">
+                                                                    <dx:ASPxSpinEdit ID="txtEmisorFax" runat="server" Width="90%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </dx:LayoutItemNestedControlContainer>
+                                                </LayoutItemNestedControlCollection>
+                                            </dx:LayoutItem>
+                                            <dx:LayoutItem Caption="Correo">
+                                                <LayoutItemNestedControlCollection>
+                                                    <dx:LayoutItemNestedControlContainer>
+                                                        <dx:ASPxTextBox ID="txtEmisorCorreo" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
+                                                            ValidationSettings-RegularExpression-ValidationExpression="\s*\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*\s*">
+                                                        </dx:ASPxTextBox>
+                                                    </dx:LayoutItemNestedControlContainer>
+                                                </LayoutItemNestedControlCollection>
+                                            </dx:LayoutItem>
+
+                                        </Items>
+                                    </dx:LayoutGroup>
+
+                                </Items>
+                            </dx:ASPxFormLayout>
+
+
+                        </dx:ContentControl>
+                    </ContentCollection>
+                </dx:TabPage>
+
+                <dx:TabPage Text="Ubicación">
+                    <ContentCollection>
+                        <dx:ContentControl runat="server">
+
+                            <dx:ASPxFormLayout runat="server">
+                                <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
+                                <Items>
+                                    <dx:LayoutGroup Caption="Ubicación" ColCount="3" GroupBoxDecoration="HeadingLine" UseDefaultPaddings="false">
+                                        <Items>
+                                            <dx:LayoutItem Caption="Provincia">
+                                                <LayoutItemNestedControlCollection>
+                                                    <dx:LayoutItemNestedControlContainer>
+                                                        <dx:ASPxComboBox ID="cmbEmisorProvincia" runat="server" Width="100%" AutoResizeWithContainer="true" OnValueChanged="cmbEmisorProvincia_ValueChanged" AutoPostBack="true"
+                                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                    </dx:LayoutItemNestedControlContainer>
+                                                </LayoutItemNestedControlCollection>
+                                            </dx:LayoutItem>
+                                            <dx:LayoutItem Caption="Canton">
+                                                <LayoutItemNestedControlCollection>
+                                                    <dx:LayoutItemNestedControlContainer>
+                                                        <dx:ASPxComboBox ID="cmbEmisorCanton" runat="server" Width="100%" AutoResizeWithContainer="true" OnValueChanged="cmbEmisorCanton_ValueChanged" AutoPostBack="true"
+                                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                    </dx:LayoutItemNestedControlContainer>
+                                                </LayoutItemNestedControlCollection>
+                                            </dx:LayoutItem>
+                                            <dx:LayoutItem Caption="Distrito">
+                                                <LayoutItemNestedControlCollection>
+                                                    <dx:LayoutItemNestedControlContainer>
+                                                        <dx:ASPxComboBox ID="cmbEmisorDistrito" Width="100%" AutoResizeWithContainer="true" runat="server" OnValueChanged="cmbEmisorDistrito_ValueChanged" AutoPostBack="true"
+                                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                    </dx:LayoutItemNestedControlContainer>
+                                                </LayoutItemNestedControlCollection>
+                                            </dx:LayoutItem>
+                                            <dx:LayoutItem Caption="Barrio">
+                                                <LayoutItemNestedControlCollection>
+                                                    <dx:LayoutItemNestedControlContainer>
+                                                        <dx:ASPxComboBox ID="cmbEmisorBarrio" runat="server" Width="100%" AutoResizeWithContainer="true"
+                                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                    </dx:LayoutItemNestedControlContainer>
+                                                </LayoutItemNestedControlCollection>
+                                            </dx:LayoutItem>
+                                            <dx:LayoutItem Caption="Otras Señas" ColSpan="2" Width="100%">
+                                                <LayoutItemNestedControlCollection>
+                                                    <dx:LayoutItemNestedControlContainer>
+                                                        <dx:ASPxMemo ID="txtEmisorOtraSenas" runat="server" Width="100%" AutoResizeWithContainer="true"
+                                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                    </dx:LayoutItemNestedControlContainer>
+                                                </LayoutItemNestedControlCollection>
+                                            </dx:LayoutItem>
+
+                                        </Items>
+                                    </dx:LayoutGroup>
+
+                                </Items>
+                            </dx:ASPxFormLayout>
+
+
+                        </dx:ContentControl>
+                    </ContentCollection>
+                </dx:TabPage>
+
+                <dx:TabPage Text="Hacienda">
+                    <ContentCollection>
+                        <dx:ContentControl runat="server">
+
+                            <dx:ASPxFormLayout runat="server">
+                                <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
+                                <Items>
+                                    <dx:LayoutGroup Caption="Hacienda" ColCount="2" GroupBoxDecoration="HeadingLine" UseDefaultPaddings="false">
+                                        <Items>
+                                            <dx:LayoutItem Caption="Llave Criptográfica">
+                                                <LayoutItemNestedControlCollection>
+                                                    <dx:LayoutItemNestedControlContainer>
+                                                        <dx:ASPxUploadControl runat="server" ID="p12UploadControl" ClientInstanceName="DocumentsUploadControl" Width="100%"
+                                                            AutoStartUpload="true" ShowProgressPanel="True" ShowTextBox="false" BrowseButton-Text="Subir" FileUploadMode="OnPageLoad"
+                                                            OnFileUploadComplete="DocumentsUploadControl_FileUploadComplete">
+                                                            <AdvancedModeSettings EnableMultiSelect="false" EnableDragAndDrop="true" ExternalDropZoneID="dropZone" />
+                                                            <ValidationSettings
+                                                                AllowedFileExtensions=".p12"
+                                                                MaxFileSize="4194304">
+                                                            </ValidationSettings>
+                                                        </dx:ASPxUploadControl>
+                                                    </dx:LayoutItemNestedControlContainer>
+                                                </LayoutItemNestedControlCollection>
+                                            </dx:LayoutItem>
+                                            <dx:LayoutItem Caption="Clave">
+                                                <LayoutItemNestedControlCollection>
+                                                    <dx:LayoutItemNestedControlContainer>
+                                                        <dx:ASPxSpinEdit ID="txtClaveLlaveCriptografica" runat="server" Width="100%" AutoResizeWithContainer="true" MaxLength="4" MinValue="0" MaxValue="9999"
+                                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                    </dx:LayoutItemNestedControlContainer>
+                                                </LayoutItemNestedControlCollection>
+                                            </dx:LayoutItem>
+                                            <dx:LayoutItem Caption="Usurio Comprobantes Electrónicos">
+                                                <LayoutItemNestedControlCollection>
+                                                    <dx:LayoutItemNestedControlContainer>
+                                                        <dx:ASPxTextBox ID="txtUsernameOAuth2" runat="server" Width="100%" AutoResizeWithContainer="true" MaxLength="100"
+                                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                    </dx:LayoutItemNestedControlContainer>
+                                                </LayoutItemNestedControlCollection>
+                                            </dx:LayoutItem>
+                                            <dx:LayoutItem Caption="Contraseña Comprobantes Electrónicos">
+                                                <LayoutItemNestedControlCollection>
+                                                    <dx:LayoutItemNestedControlContainer>
+                                                        <dx:ASPxTextBox ID="txtPasswordOAuth2" runat="server" Width="100%" AutoResizeWithContainer="true" MaxLength="50"
+                                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                    </dx:LayoutItemNestedControlContainer>
+                                                </LayoutItemNestedControlCollection>
+                                            </dx:LayoutItem>
+
+                                        </Items>
+                                    </dx:LayoutGroup>
+
+                                </Items>
+                            </dx:ASPxFormLayout>
+
+
+                        </dx:ContentControl>
+                    </ContentCollection>
+                </dx:TabPage>
+
+            </TabPages>
+        </dx:ASPxPageControl>
+
+
+
+
+
+
+
+
+
+        <dx:ASPxButton runat="server" ID="btnActualizar" Text="Actualizar" OnClick="btnActualizar_Click" CausesValidation="true" />
+
+        <dx:ASPxLabel runat="server" ID="lblMensaje" />
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
-            Width="100%" EnableTheming="True" KeyFieldName="identificacionTipo;identificacion" Theme="Moderno"
+            Width="100%" EnableTheming="True" KeyFieldName="identificacionTipo;identificacion" Theme="Moderno" EnableCallBacks="false"
             OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize"
             OnCustomErrorText="ASPxGridView1_CustomErrorText"
+            OnSelectionChanged="ASPxGridView1_SelectionChanged"
             OnRowDeleting="ASPxGridView1_RowDeleting"
             OnRowInserting="ASPxGridView1_RowInserting"
             OnRowUpdating="ASPxGridView1_RowUpdating">
 
             <Columns>
-                <dx:GridViewCommandColumn Width="100px" ButtonType="Image" ShowDeleteButton="True" ShowEditButton="false" ShowNewButtonInHeader="false" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
+                <dx:GridViewCommandColumn Width="100px" ButtonType="Image" ShowSelectButton="true" ShowDeleteButton="True" ShowEditButton="false" ShowNewButtonInHeader="false" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
                 </dx:GridViewCommandColumn>
 
                 <dx:GridViewDataComboBoxColumn Caption="Tipo" FieldName="identificacionTipo" VisibleIndex="2"
@@ -234,11 +285,19 @@
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
 
-                <dx:GridViewDataTextColumn Caption="Nombre" FieldName="nombre" VisibleIndex="4" PropertiesTextEdit-MaxLength="30"
+                <dx:GridViewDataTextColumn Caption="Nombre" FieldName="nombre" VisibleIndex="4" PropertiesTextEdit-MaxLength="30" Width="20%"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
 
                 <dx:GridViewDataTextColumn Caption="Nombre Comercial" FieldName="nombreComercial" VisibleIndex="6" PropertiesTextEdit-MaxLength="80"
+                    PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataTextColumn>
+
+                <dx:GridViewDataTextColumn Caption="Teléfono" FieldName="telefono" VisibleIndex="7" PropertiesTextEdit-MaxLength="80"
+                    PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataTextColumn>
+
+                <dx:GridViewDataTextColumn Caption="Correo" FieldName="correoElectronico" VisibleIndex="8" PropertiesTextEdit-MaxLength="80" Width="20%"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
 
@@ -266,13 +325,14 @@
 
             <SettingsBehavior ColumnResizeMode="NextColumn" />
             <Settings ShowFooter="True" ShowFilterBar="Visible" ShowFilterRow="true" />
-            <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="True" ConfirmDelete="True" />
+            <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="True" ConfirmDelete="True" ProcessSelectionChangedOnServer="True" />
             <SettingsPager PageSize="10" PageSizeItemSettings-Visible="true" PageSizeItemSettings-Items="10, 20, 50, 100" />
             <SettingsEditing Mode="EditFormAndDisplayRow" />
             <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="True" ShowFilterRow="True" ShowTitlePanel="True" UseFixedTableLayout="True" />
             <SettingsContextMenu EnableColumnMenu="True" Enabled="True" EnableFooterMenu="True" EnableGroupPanelMenu="True" EnableRowMenu="True" />
 
             <SettingsCommandButton>
+                <SelectButton Image-ToolTip="Seleccionar" Image-Url="~/Content/Images/search2.png" />
                 <NewButton Image-ToolTip="Nuevo" Image-Url="~/Content/Images/add.png" />
                 <EditButton Image-ToolTip="Modificar" Image-Url="~/Content/Images/edit.png" />
                 <DeleteButton Image-ToolTip="Eliminar" Image-Url="~/Content/Images/delete.png" />
@@ -300,7 +360,7 @@
             <BorderBottom BorderWidth="1px" />
 
         </dx:ASPxGridView>
-        <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="ASPxGridView1" FileName="Catálogo Moneda">
+        <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="ASPxGridView1" FileName="Catálogo Emisor">
             <Styles>
                 <Default Font-Names="Arial" Font-Size="Small" />
             </Styles>

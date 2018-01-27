@@ -13,6 +13,15 @@ namespace Web.Pages.Catalogos {
     public partial class FrmEmisorReceptor {
         
         /// <summary>
+        /// documento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxPageControl documento;
+        
+        /// <summary>
         /// cmbEmisorTipo control.
         /// </summary>
         /// <remarks>
@@ -139,13 +148,13 @@ namespace Web.Pages.Catalogos {
         protected global::DevExpress.Web.ASPxMemo txtEmisorOtraSenas;
         
         /// <summary>
-        /// xmlUploadControl control.
+        /// p12UploadControl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxUploadControl xmlUploadControl;
+        protected global::DevExpress.Web.ASPxUploadControl p12UploadControl;
         
         /// <summary>
         /// txtClaveLlaveCriptografica control.
@@ -154,7 +163,7 @@ namespace Web.Pages.Catalogos {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txtClaveLlaveCriptografica;
+        protected global::DevExpress.Web.ASPxSpinEdit txtClaveLlaveCriptografica;
         
         /// <summary>
         /// txtUsernameOAuth2 control.
@@ -175,13 +184,22 @@ namespace Web.Pages.Catalogos {
         protected global::DevExpress.Web.ASPxTextBox txtPasswordOAuth2;
         
         /// <summary>
-        /// btnAgregar control.
+        /// btnActualizar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btnAgregar;
+        protected global::DevExpress.Web.ASPxButton btnActualizar;
+        
+        /// <summary>
+        /// lblMensaje control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblMensaje;
         
         /// <summary>
         /// ASPxGridView1 control.

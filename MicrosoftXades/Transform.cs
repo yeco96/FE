@@ -87,12 +87,12 @@ namespace Microsoft.Xades
 		{
 			bool retVal = false;
 
-            if (!string.IsNullOrEmpty(this.algorithm))
+            if (!String.IsNullOrEmpty(this.algorithm))
 			{
 				retVal = true;
 			}
 
-			if (!string.IsNullOrEmpty(this.xpath))
+			if (!String.IsNullOrEmpty(this.xpath))
 			{
 				retVal = true;
 			}

@@ -96,7 +96,9 @@
   <ItemGroup>
     <Content Include="App_Data\20180125214700.sql" />
     <Content Include="App_Data\BlogPosts.xml" />
+    <Content Include="App_Data\ErrorLog.txt" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap4.min.css" />
     <Content Include="Content\Images\add.png" />
     <Content Include="Content\Images\acept.png" />
     <Content Include="Content\Images\banner.jpg" />
@@ -120,6 +122,8 @@
     <Content Include="Content\Images\edit.png" />
     <Content Include="Content\Images\pdf.png" />
     <Content Include="Content\Images\refresh.png" />
+    <Content Include="Content\Images\search1.png" />
+    <Content Include="Content\Images\search2.png" />
     <Content Include="Content\Images\xls.png" />
     <Content Include="Content\Images\xlsx.png" />
     <Content Include="Content\site.css" />
@@ -139,14 +143,20 @@
     <Content Include="Pages\Catalogos\FrmCatalogoTipoDocumento.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoUnidadMedida.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoTipoMoneda.aspx" />
+    <Content Include="Pages\Error\DefaultRedirectErrorPage.aspx" />
+    <Content Include="Pages\Error\Http404ErrorPage.aspx" />
     <Content Include="Pages\Facturacion\FrmCargarXML.aspx" />
     <Content Include="Pages\Facturacion\FrmDocumentoElectronico.aspx" />
+    <Content Include="Pages\Facturacion\FrmEmisorReceptorAdministrador.aspx" />
     <Content Include="Pages\Facturacion\FrmEmisorReceptor.aspx" />
     <Content Include="Pages\Facturacion\FrmGenerarDocumento.aspx" />
     <Content Include="Pages\Home.aspx" />
     <Content Include="Pages\Search.aspx" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap4.min.js" />
     <Content Include="Scripts\jquery-1.12.2.min.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\site.js" />
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Service References\ServiceReferenceBCCR\wsIndicadoresEconomicos.disco" />
@@ -219,7 +229,7 @@
     <Compile Include="Models\Catalogos\TipoDocumento.cs" />
     <Compile Include="Models\Catalogos\TipoIdentificacion.cs" />
     <Compile Include="Models\Catalogos\UnidadMedida.cs" />
-    <Compile Include="Models\Facturacion\EmisorReceptor.cs" />
+    <Compile Include="Models\Facturacion\EmisorReceptorIMEC.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Catalogos\TipoMoneda.cs" />
     <Compile Include="Pages\BlogPost.aspx.cs">
@@ -320,6 +330,21 @@
     <Compile Include="Pages\Catalogos\FrmCatalogoTipoMoneda.aspx.designer.cs">
       <DependentUpon>FrmCatalogoTipoMoneda.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Error\DefaultRedirectErrorPage.aspx.cs">
+      <DependentUpon>DefaultRedirectErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Error\DefaultRedirectErrorPage.aspx.designer.cs">
+      <DependentUpon>DefaultRedirectErrorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Error\ExceptionUtility.cs" />
+    <Compile Include="Pages\Error\Http404ErrorPage.aspx.cs">
+      <DependentUpon>Http404ErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Error\Http404ErrorPage.aspx.designer.cs">
+      <DependentUpon>Http404ErrorPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Facturacion\FrmCargarXML.aspx.cs">
       <DependentUpon>FrmCargarXML.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -333,6 +358,13 @@
     </Compile>
     <Compile Include="Pages\Facturacion\FrmDocumentoElectronico.aspx.designer.cs">
       <DependentUpon>FrmDocumentoElectronico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmEmisorReceptorAdministrador.aspx.cs">
+      <DependentUpon>FrmEmisorReceptorAdministrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmEmisorReceptorAdministrador.aspx.designer.cs">
+      <DependentUpon>FrmEmisorReceptorAdministrador.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Facturacion\FrmEmisorReceptor.aspx.cs">
       <DependentUpon>FrmEmisorReceptor.aspx</DependentUpon>

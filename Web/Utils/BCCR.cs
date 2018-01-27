@@ -12,7 +12,7 @@ namespace Web.Utils
         {
             try {
                 ServiceReferenceBCCR.wsIndicadoresEconomicosSoapClient serviceBCCR = new ServiceReferenceBCCR.wsIndicadoresEconomicosSoapClient();
-                string xml = serviceBCCR.ObtenerIndicadoresEconomicosXML("317", DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToString("dd/MM/yyyy"), "MSASoft", "N");
+                string xml = serviceBCCR.ObtenerIndicadoresEconomicosXML("318", DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToString("dd/MM/yyyy"), "MSASoft", "N");
                  
                 XmlDocument xm = new XmlDocument();
                 xm.LoadXml(xml);

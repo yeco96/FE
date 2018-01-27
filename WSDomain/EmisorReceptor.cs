@@ -23,10 +23,12 @@ namespace WSDomain
         public string numeroIdentificacion { set; get; }
 
         // [JsonProperty("nombre")]
+        [JsonIgnore]
         [Column("nombre")]
         public string nombre { set; get; }
 
         // [JsonProperty("nombreComercial")]
+        [JsonIgnore]
         [Column("nombreComercial")]
         public string nombreComercial { set; get; }
          

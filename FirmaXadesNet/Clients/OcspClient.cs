@@ -106,7 +106,6 @@ namespace FirmaXadesNet.Clients
             }
             catch (Exception e)
             {
-                string x = e.Message;
                 return null;
             }
 

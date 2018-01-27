@@ -23,7 +23,7 @@ namespace Web {
             if (Session["usuario"] == null) {  
                 using (var conexion = new DataModelFE())
                 {
-                    EmisorReceptor emisor = conexion.EmisorReceptor.Where(x => x.identificacion == "603540974").FirstOrDefault();
+                    EmisorReceptorIMEC emisor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == "603540974").FirstOrDefault();
                     Session["usuario"] = emisor.identificacion;
                     Session["emisor"] = emisor;
                 }

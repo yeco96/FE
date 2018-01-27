@@ -96,7 +96,7 @@ namespace Web.Pages.Facturacion
             {
                 using (var conexion = new DataModelOAuth2())
                 {
-                    Models.Facturacion.EmisorReceptor emisor = (Models.Facturacion.EmisorReceptor)base.Session["emisor"];
+                    Models.Facturacion.EmisorReceptorIMEC emisor = (Models.Facturacion.EmisorReceptorIMEC)base.Session["emisor"];
                     string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
                     OAuth2.OAuth2Config config = conexion.OAuth2Config.Where(x => x.enviroment == ambiente).FirstOrDefault();
                     config.username = emisor.usernameOAuth2;
@@ -119,7 +119,7 @@ namespace Web.Pages.Facturacion
                         dato.indEstado = mensajeHacienda.mensaje;
                         dato.fechaModificacion = Date.DateTimeNow();
                         dato.usuarioModificacion = Session["usuario"].ToString();
-                        dato.receptorIdentificacion = mensajeHacienda.receptorNumeroCedula;
+                        //dato.receptorIdentificacion = mensajeHacienda.receptorNumeroCedula;
                         dato.montoTotalFactura = mensajeHacienda.montoTotalFactura;
                         dato.montoTotalImpuesto = mensajeHacienda.montoTotalImpuesto;
                         conexionWS.Entry(dato).State = EntityState.Modified;

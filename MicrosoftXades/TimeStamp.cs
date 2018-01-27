@@ -60,9 +60,6 @@ namespace Microsoft.Xades
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public string Id
         {
             get

@@ -109,11 +109,6 @@ namespace Microsoft.Xades
             DeformatterAlgorithm = typeof(RSAPKCS1SignatureDeformatter).FullName;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
         public override AsymmetricSignatureDeformatter CreateDeformatter(AsymmetricAlgorithm key)
         {
             if (key == null)
@@ -124,11 +119,6 @@ namespace Microsoft.Xades
             return deformatter;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
         public override AsymmetricSignatureFormatter CreateFormatter(AsymmetricAlgorithm key)
         {
             if (key == null)

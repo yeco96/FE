@@ -143,12 +143,12 @@ namespace Microsoft.Xades
 		{
 			bool retVal = false;
 
-			if (!string.IsNullOrEmpty(this.objectReferenceAttribute))
+			if (!String.IsNullOrEmpty(this.objectReferenceAttribute))
 			{
 				retVal = true;
 			}
 
-			if (!string.IsNullOrEmpty(this.description))
+			if (!String.IsNullOrEmpty(this.description))
 			{
 				retVal = true;
 			}
@@ -158,12 +158,12 @@ namespace Microsoft.Xades
 				retVal = true;
 			}
 
-			if (!string.IsNullOrEmpty(this.mimeType))
+			if (!String.IsNullOrEmpty(this.mimeType))
 			{
 				retVal = true;
 			}
 
-			if (!string.IsNullOrEmpty(this.encoding))
+			if (!String.IsNullOrEmpty(this.encoding))
 			{
 				retVal = true;
 			}
@@ -246,7 +246,7 @@ namespace Microsoft.Xades
 				throw new CryptographicException("Attribute ObjectReference missing");
 			}
 
-            if (!string.IsNullOrEmpty(this.description))
+            if (!String.IsNullOrEmpty(this.description))
 			{
 				bufferXmlElement = creationXmlDocument.CreateElement(XadesSignedXml.XmlXadesPrefix, "Description", XadesSignedXml.XadesNamespaceUri);
 				bufferXmlElement.InnerText = this.description;
@@ -258,14 +258,14 @@ namespace Microsoft.Xades
 				retVal.AppendChild(creationXmlDocument.ImportNode(this.objectIdentifier.GetXml(), true));
 			}
 
-            if (!string.IsNullOrEmpty(this.mimeType))
+            if (!String.IsNullOrEmpty(this.mimeType))
 			{
 				bufferXmlElement = creationXmlDocument.CreateElement(XadesSignedXml.XmlXadesPrefix, "MimeType", XadesSignedXml.XadesNamespaceUri);
 				bufferXmlElement.InnerText = this.mimeType;
 				retVal.AppendChild(bufferXmlElement);
 			}
 
-            if (!string.IsNullOrEmpty(this.encoding))
+            if (!String.IsNullOrEmpty(this.encoding))
 			{
 				bufferXmlElement = creationXmlDocument.CreateElement(XadesSignedXml.XmlXadesPrefix, "Encoding", XadesSignedXml.XadesNamespaceUri);
 				bufferXmlElement.InnerText = this.encoding;

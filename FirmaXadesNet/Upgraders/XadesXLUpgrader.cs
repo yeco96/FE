@@ -163,7 +163,7 @@ namespace FirmaXadesNet.Upgraders
 
                 Cert chainCert = new Cert();
                 chainCert.IssuerSerial.X509IssuerName = cert.IssuerName.Name;
-                chainCert.IssuerSerial.X509SerialNumber = cert.GetSerialNumberAsDecimalstring();
+                chainCert.IssuerSerial.X509SerialNumber = cert.GetSerialNumberAsDecimalString();
                 DigestUtil.SetCertDigest(cert.GetRawCertData(), digestMethod, chainCert.CertDigest);
                 chainCert.URI = "#Cert" + guidCert;
                 unsignedProperties.UnsignedSignatureProperties.CompleteCertificateRefs.CertRefs.CertCollection.Add(chainCert);

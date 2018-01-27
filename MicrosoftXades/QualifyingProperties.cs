@@ -127,12 +127,12 @@ namespace Microsoft.Xades
 		{
 			bool retVal = false;
 
-            if (!string.IsNullOrEmpty(this.id))
+            if (!String.IsNullOrEmpty(this.id))
 			{
 				retVal = true;
 			}
 
-            if (!string.IsNullOrEmpty(this.target))
+            if (!String.IsNullOrEmpty(this.target))
 			{
 				retVal = true;
 			}
@@ -214,12 +214,12 @@ namespace Microsoft.Xades
 			creationXmlDocument = new XmlDocument();
 			retVal = creationXmlDocument.CreateElement(XadesSignedXml.XmlXadesPrefix, "QualifyingProperties", XadesSignedXml.XadesNamespaceUri);
           
-            if (!string.IsNullOrEmpty(this.id))
+            if (!String.IsNullOrEmpty(this.id))
 			{
 				retVal.SetAttribute("Id", this.id);
 			}
 
-            if (!string.IsNullOrEmpty(this.target))
+            if (!String.IsNullOrEmpty(this.target))
 			{
 				retVal.SetAttribute("Target", this.target);
 			}

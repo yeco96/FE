@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
+using XMLDomain;
 
 namespace EncodeXML
 {
@@ -132,18 +133,21 @@ namespace EncodeXML
             {  
                 XmlSerializer serializer = new XmlSerializer(o.GetType());
                 tw = new XmlTextWriter(sw);
-               
-              
-                //xmlns: vc = "http://www.w3.org/2007/XMLSchema-versioning" 
-                //xmlns: ds = "http://www.w3.org/2000/09/xmldsig#"
 
+                if(typeof(FacturaElectronica) == o.GetType()) { 
+                    tw.WriteStartElement("FacturaElectronica");
+                    tw.WriteAttributeString("xmlns", null, "https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica");
+                    tw.WriteAttributeString("xmlns", "xsd", null, "https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica");
+                    tw.WriteAttributeString("xmlns", "xs", null, "http://www.w3.org/2001/XMLSchema");
+                    tw.WriteAttributeString("xmlns", "vc", null, "http://www.w3.org/2007/XMLSchema-versioning");
+                    tw.WriteAttributeString("xmlns", "ds", null, "http://www.w3.org/2000/09/xmldsig#");
+                    tw.WriteEndElement();
+                    tw.Flush();
+                }
 
                 serializer.Serialize(tw, o); 
                 tw.Indentation = (Int32)Formatting.Indented;
-                 
-                //tw.WriteAttributestring("xmlns", "https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica");
-                //tw.WriteAttributestring("xmlns:xsd", "https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica");
-
+            
             }
             catch (Exception ex)
             {
@@ -174,7 +178,7 @@ namespace EncodeXML
         public static void validadXMLXSD(string xmlFirmado)
         {
             XmlReaderSettings booksSettings = new XmlReaderSettings();
-            booksSettings.Schemas.Add("https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/tiqueteElectronico", "TiqueteElectronico_V4.2.xsd");
+            booksSettings.Schemas.Add("https://tribunet.hacienda.go.cr/docs/esquemas/2016/v4.2/facturaElectronica", "facturaElectronica");
             booksSettings.ValidationType = ValidationType.Schema;
             booksSettings.ValidationEventHandler += new ValidationEventHandler(booksSettingsValidationEventHandler);
 

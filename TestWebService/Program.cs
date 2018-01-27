@@ -20,8 +20,10 @@ namespace TestWebService
     {
         static void Main(string[] args)
         {
-             enviarDocumento(OAuth2.OAuth2Config.getToken());
-            //consultarDocumento(OAuth2.OAuth2Config.getToken());
+            OAuth2Token token = OAuth2.OAuth2Config.getToken();
+
+            enviarDocumento(token);
+            consultarDocumento(token);
 
             //  consultarComprobantes(OAuth2.OAuth2Config.getToken());
 
@@ -36,7 +38,7 @@ namespace TestWebService
         /// </summary>
         public static void consultarDocumento(OAuth2Token token)
         { 
-            string clave = "50608011800060354097400100001010000000015188888888";
+            string clave = "50608011800060354097400100001010000000026188888888";
              
             //secured web api request
             string response = getRecepcion(token, clave)
@@ -66,7 +68,7 @@ namespace TestWebService
         {
             
             WSRecepcionPOST post = new WSRecepcionPOST();
-            post.clave = "5060801180006035409740010000104000000000188888888";
+            post.clave = "50608011800060354097400100001010000000026188888888";
             post.emisor.tipoIdentificacion = "01";
             post.emisor.numeroIdentificacion = "603540974";
             post.receptor.tipoIdentificacion = "01";
@@ -76,11 +78,15 @@ namespace TestWebService
             fact.iniciarParametros();
 
             string path = Path.Combine(Path.GetFullPath("fact.xml"));
+
             //string xmlData = File.ReadAllText(path);
-            string xmlData = EncondeXML.getXMLFromObject(fact);    
+            string xmlData = EncondeXML.getXMLFromObject(fact);   
+
+            //EncondeXML.validadXMLXSD(xmlData);
+
             string xmlDataSigned = FirmaXML.getXMLFirmado(xmlData);
 
-           // EncondeXML.validadXMLXSD(xmlDataSigned);
+          
 
             // guarda xml firmado para pruebas
             File.WriteAllText(Path.GetFullPath("fact_firma.xml"), xmlDataSigned); 

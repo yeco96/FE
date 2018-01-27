@@ -74,11 +74,11 @@ namespace Web.Pages.Facturacion
             {
                 string xmlFile = Session["xmlFile"].ToString();
 
-                Models.Facturacion.EmisorReceptor dato = null;
+                EmisorReceptorIMEC dato = null;
                 using (var conexion = new DataModelFE())
                 {
                     string usuario = Session["usuario"].ToString();
-                    dato = conexion.EmisorReceptor.Where(x => x.identificacion == usuario).FirstOrDefault();
+                    dato = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == usuario).FirstOrDefault();
                 }
 
                 string xmlFileSigned = FirmaXML.getXMLFirmadoWeb(xmlFile, dato.llaveCriptografica, dato.claveLlaveCriptografica);
@@ -100,7 +100,7 @@ namespace Web.Pages.Facturacion
             {
                 using (var conexion = new DataModelOAuth2())
                 {
-                    Models.Facturacion.EmisorReceptor emisor = (Models.Facturacion.EmisorReceptor)base.Session["emisor"];
+                    EmisorReceptorIMEC emisor = (EmisorReceptorIMEC)base.Session["emisor"];
                     string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
                     OAuth2.OAuth2Config config = conexion.OAuth2Config.Where(x => x.enviroment == ambiente).FirstOrDefault();
                     config.username = emisor.usernameOAuth2;
@@ -111,10 +111,19 @@ namespace Web.Pages.Facturacion
                     string xmlFile = Session["xmlFile"].ToString();
                     WSDomain.WSRecepcionPOST trama = new WSDomain.WSRecepcionPOST();
                     trama.clave = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "Clave", xmlFile);
-                    trama.emisor.tipoIdentificacion = EncondeXML.buscarValorEtiquetaXML("Identificacion", "Tipo", xmlFile);
-                    trama.emisor.numeroIdentificacion = EncondeXML.buscarValorEtiquetaXML("Identificacion", "Numero", xmlFile);
-                    trama.receptor.tipoIdentificacion = EncondeXML.buscarValorEtiquetaXML("Identificacion", "Tipo", xmlFile);
-                    trama.receptor.numeroIdentificacion = EncondeXML.buscarValorEtiquetaXML("Identificacion", "Numero", xmlFile);
+
+                    string emisorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Emisor", "Identificacion", xmlFile);
+                    trama.emisor.tipoIdentificacion = emisorIdentificacion.Substring(0, 2);
+                    trama.emisor.numeroIdentificacion = emisorIdentificacion.Substring(2);
+                    trama.emisorTipo = trama.emisor.tipoIdentificacion;
+                    trama.emisorIdentificacion = trama.emisor.numeroIdentificacion;
+
+                    string receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xmlFile);
+                    trama.receptor.tipoIdentificacion = receptorIdentificacion.Substring(0, 2);
+                    trama.receptor.numeroIdentificacion = receptorIdentificacion.Substring(2);
+                    trama.receptorTipo = trama.receptor.tipoIdentificacion;
+                    trama.receptorIdentificacion = trama.receptor.numeroIdentificacion;
+
                     trama.comprobanteXml = EncodeXML.EncondeXML.base64Encode(xmlFile);
 
                     string jsonTrama = JsonConvert.SerializeObject(trama);

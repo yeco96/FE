@@ -12,7 +12,7 @@ namespace Web.Models.Facturacion
 {
  
     [Table("fact_emisor_receptor")]
-    public class EmisorReceptor
+    public class EmisorReceptorIMEC
     {
       
         [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
@@ -63,7 +63,7 @@ namespace Web.Models.Facturacion
         public string correoElectronico { set; get; }
 
 
-        [MaxLength(16), Column(TypeName = "Binary")]
+        [Column(TypeName = "Binary")]
         public byte[] llaveCriptografica { set; get; }
 
         [MaxLength(100, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
@@ -94,7 +94,7 @@ namespace Web.Models.Facturacion
         /// <summary>
         /// CONSTRUCTOR
         /// </summary>
-        public EmisorReceptor()
+        public EmisorReceptorIMEC()
         {
         }
 

@@ -71,10 +71,14 @@ namespace Web.Models.Catalogos
         /// </summary>
         public virtual Usuario UsuarioCreacion { get; set; }
         public virtual Usuario UsuarioModificacion { get; set; }
-        public virtual EmisorReceptor Emisor { get; set; }
+        public virtual EmisorReceptorIMEC Emisor { get; set; }
         public virtual UnidadMedida UnidadMedida { get; set; }
-        
 
+
+        public override string ToString()
+        {
+            return String.Format("{0} - {1}",this.descripcion,this.precio.ToString("c2"));
+        }
 
     }
 }

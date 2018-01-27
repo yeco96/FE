@@ -36,7 +36,7 @@ namespace Web.Models
         public virtual DbSet<Ubicacion> Ubicacion { get; set; }
 
 
-        public virtual DbSet<EmisorReceptor> EmisorReceptor { get; set; }
+        public virtual DbSet<EmisorReceptorIMEC> EmisorReceptorIMEC { get; set; }
 
 
          

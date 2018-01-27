@@ -32,7 +32,7 @@ namespace FirmaXadesNet.Utils
 {
     static class X509Certificate2Extensions
     {
-        public static string GetSerialNumberAsDecimalstring(this X509Certificate2 certificate)
+        public static string GetSerialNumberAsDecimalString(this X509Certificate2 certificate)
         {            
             List<int> dec = new List<int> { 0 };
             

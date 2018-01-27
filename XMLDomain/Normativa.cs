@@ -16,6 +16,9 @@ namespace XMLDomain
         /// <summary>
         /// La fecha con formato (DD-MM-AAAA) La hora con formato (HH:MM:SS) 
         /// </summary>
-        public Normativa(){    }
+        public Normativa(){
+            this.numeroResolucion = "DGT-R-48-2016";
+            this.fechaResolucion = "07-10-2016 08:00:00";
+        }
     }
 }

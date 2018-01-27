@@ -133,7 +133,7 @@ namespace Web.Pages.Catalogos
                     dato.tipo = e.NewValues["tipo"] != null ? e.NewValues["tipo"].ToString().ToUpper() : null;
                     dato.unidadMedida = e.NewValues["unidadMedida"] != null ? e.NewValues["unidadMedida"].ToString().ToUpper() : null;
                     dato.precio = e.NewValues["precio"] != null ? double.Parse(e.NewValues["precio"].ToString()) : 0;
-                    dato.emisor = ((EmisorReceptor)Session["emisor"]).identificacion;
+                    dato.emisor = ((EmisorReceptorIMEC)Session["emisor"]).identificacion;
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioCreacion = Session["usuario"].ToString();
                     dato.fechaCreacion = Date.DateTimeNow();
@@ -200,7 +200,7 @@ namespace Web.Pages.Catalogos
                     dato = conexion.Producto.Find(dato.codigo);
 
                     dato.precio = e.NewValues["precio"] != null ? double.Parse(e.NewValues["precio"].ToString()) : 0;
-                    dato.emisor = ((EmisorReceptor)Session["emisor"]).identificacion;
+                    dato.emisor = ((EmisorReceptorIMEC)Session["emisor"]).identificacion;
                     dato.tipo = e.NewValues["tipo"] != null ? e.NewValues["tipo"].ToString().ToUpper() : null;
                     dato.unidadMedida = e.NewValues["unidadMedida"] != null ? e.NewValues["unidadMedida"].ToString(): null;
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;

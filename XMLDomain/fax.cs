@@ -13,7 +13,7 @@ namespace XMLDomain
         /// tamaño 3  DGT
         /// </summary>
         [XmlElement(ElementName = "CodigoPais", Order = 1)]
-        public int codigoPais { set; get; }
+        public string codigoPais { set; get; }
 
 
 
@@ -21,7 +21,7 @@ namespace XMLDomain
         /// <summary>
         /// tamaño 20  DGT
         /// </summary>
-        public int numTelefono { set; get; }
+        public string numTelefono { set; get; }
         public Fax() {
     }
     }

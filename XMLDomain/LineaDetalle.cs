@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace XMLDomain
 {
-   public  class LineaDetalle
+    public class LineaDetalle
     {
         [XmlElement(ElementName = "NumeroLinea", Order = 1)]
         public int numeroLinea { set; get; }
@@ -32,7 +32,7 @@ namespace XMLDomain
         [XmlElement(ElementName = "SubTotal", Order = 11)]
         public double subTotal { set; get; }//tamaño 80 DGT
 
-         
+        [XmlIgnoreAttribute]
         public string producto { set; get; }
 
         public LineaDetalle() {
