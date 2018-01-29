@@ -1,4 +1,5 @@
-﻿using EncodeXML;
+﻿using Class.Utilidades;
+using EncodeXML;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,16 +17,21 @@ namespace Web.Pages.Facturacion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
         }
 
-        
+
         protected void xmlUploadControl_FileUploadComplete(object sender, DevExpress.Web.FileUploadCompleteEventArgs e)
         {
             try
             {
                 string file = Convert.ToBase64String(e.UploadedFile.FileBytes);
                 Session["xmlFileValidar"] = EncondeXML.base64Decode(file);
+
+                this.alertMessages.Attributes["class"] = "alert alert-info";
+                this.alertMessages.InnerText = "Los datos fueron cargados correctamente!!!";
+
+                
             }
             catch (Exception ex)
             {
@@ -35,25 +41,34 @@ namespace Web.Pages.Facturacion
 
         protected void btnCargarDatos_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string str = Session["xmlFileValidar"].ToString();
+                txtClave.Text = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(str), "Clave", str);
+                //Emisor
+                string emisorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Emisor", "Identificacion", str);
+                txtNumCedEmisor.Text = emisorIdentificacion.Substring(1);
+                txtFechaEmisor.Text = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(str), "FechaEmision", str);
+                //Factura
+                double totalImpuesto = Convert.ToDouble(EncondeXML.buscarValorEtiquetaXML("ResumenFactura", "TotalImpuesto", str));
+                txtMontoTotalImpuesto.Text = string.Format("{0:C}", totalImpuesto);
+                double totalFactura = Convert.ToDouble(EncondeXML.buscarValorEtiquetaXML("ResumenFactura", "TotalComprobante", str));
+                txtTotalFactura.Text = string.Format("{0:C}", totalFactura);
 
-            string str = Session["xmlFileValidar"].ToString();
-            txtClave.Text = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(str), "Clave", str);
-            //Emisor
-            string emisorIdentificacion= EncondeXML.buscarValorEtiquetaXML("Emisor", "Identificacion", str);
-            txtNumCedEmisor.Text = emisorIdentificacion.Substring(1);
-            txtFechaEmisor.Text = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(str), "FechaEmision", str);
-            //Factura
-            double totalImpuesto = Convert.ToDouble(EncondeXML.buscarValorEtiquetaXML("ResumenFactura", "TotalImpuesto", str));
-            txtMontoTotalImpuesto.Text = string.Format("{0:C}",totalImpuesto);
-            double totalFactura = Convert.ToDouble(EncondeXML.buscarValorEtiquetaXML("ResumenFactura", "TotalComprobante", str));
-            txtTotalFactura.Text = string.Format("{0:C}", totalFactura);
+                //Receptor
+                string receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", str);
+                txtNumCedReceptor.Text = receptorIdentificacion.Substring(1);
+                txtNumConsecReceptor.Text = "";
 
-            //Receptor
-            string receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", str);
-            txtNumCedReceptor.Text = receptorIdentificacion.Substring(1);
-            txtNumConsecReceptor.Text = "";
+                this.alertMessages.Attributes["class"] = "alert alert-info";
+                this.alertMessages.InnerText = "Los datos fueron aplicados correctamente!!!";
 
-
+            }
+            catch (Exception ex)
+            {
+                this.alertMessages.Attributes["class"] = "alert alert-danger";
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+            }
         }
 
 

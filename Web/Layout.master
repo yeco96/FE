@@ -89,7 +89,7 @@
                                                             <dx:MenuItem Text="CONSECUTIVO" NavigateUrl="~/Pages/Facturacion/FrmConsecutivoDocElectronico.aspx" />
                                                             <dx:MenuItem Text="PRODUCTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProducto.aspx" />
                                                             <dx:MenuItem Text="DOCUMENTO ELECTRÓNICO" NavigateUrl="~/Pages/Facturacion/FrmDocumentoElectronico.aspx" />
-                                                            <dx:MenuItem Text="CARGAR XML" NavigateUrl="~/Pages/Facturacion/FrmCargarXML.aspx" />
+                                                            <dx:MenuItem Text="CONFIRMAR XML" NavigateUrl="~/Pages/Facturacion/FrmValidarXML.aspx" />
                                                             <dx:MenuItem Text="FACTURAR" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumento.aspx" />
  
                                                         </Items>

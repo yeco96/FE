@@ -3,15 +3,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 
 
-
     <script type="text/javascript">
-        function onFileUploadComplete(s, e) {
+         function onFileUploadComplete(s, e) {
             var boton = document.getElementById('<%=btnCargarDatos.ClientID%>');
             boton.click();
         }
 
     </script>
 
+     <section class="featured">
+        <div class="content-wrapper">
+            Confirmar XML
+        </div>
+    </section>
 
     <dx:ASPxFormLayout runat="server">
         <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
@@ -24,7 +28,7 @@
                             <dx:LayoutItemNestedControlContainer>
                                 <dx:ASPxUploadControl runat="server" ID="xmlUploadControl1" ClientInstanceName="DocumentsUploadControl" Width="100%"
                                     AutoStartUpload="true" ShowProgressPanel="True" ShowTextBox="true" NullText="Seleccione un archivo XML ..."
-                                    BrowseButton-Text="Cargar XML" FileUploadMode="OnPageLoad"
+                                    BrowseButton-Text="Cargar XML" FileUploadMode="OnPageLoad"   
                                     OnFileUploadComplete="xmlUploadControl_FileUploadComplete">
                                     <AdvancedModeSettings EnableMultiSelect="false" EnableDragAndDrop="true" ExternalDropZoneID="dropZone" EnableFileList="True" />
                                     <ValidationSettings
@@ -40,7 +44,7 @@
                     <dx:LayoutItem Caption=" ">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxButton ID="btnCargarDatos" Visible="true" runat="server" Width="50px" Text="Cargar Valores del XML" OnClick="btnCargarDatos_Click"></dx:ASPxButton>
+                                <dx:ASPxButton ID="btnCargarDatos" runat="server" OnClick="btnCargarDatos_Click"  Style="visibility: hidden" ></dx:ASPxButton>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
@@ -48,7 +52,7 @@
                     <dx:LayoutItem Caption="Clave">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxTextBox ID="txtClave" runat="server" Width="400px" Enabled="false">
+                                <dx:ASPxTextBox ID="txtClave" runat="server" Width="100%" AutoResizeWithContainer="true" Enabled="false">
                                     <ValidationSettings>
                                         <RequiredField IsRequired="true" />
                                     </ValidationSettings>
@@ -57,18 +61,10 @@
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
 
-                    <dx:LayoutItem Caption=" ">
-                        <LayoutItemNestedControlCollection>
-                            <dx:LayoutItemNestedControlContainer>
-                                
-                            </dx:LayoutItemNestedControlContainer>
-                        </LayoutItemNestedControlCollection>
-                    </dx:LayoutItem>
-
                     <dx:LayoutItem Caption="Número Cédula Emisor">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxTextBox ID="txtNumCedEmisor" runat="server" Width="400px" Enabled="false">
+                                <dx:ASPxTextBox ID="txtNumCedEmisor" runat="server" Width="100%" AutoResizeWithContainer="true"   Enabled="false">
                                     <ValidationSettings>
                                         <RequiredField IsRequired="true" />
                                     </ValidationSettings>
@@ -80,7 +76,7 @@
                     <dx:LayoutItem Caption="Fecha del Emisor">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxTextBox ID="txtFechaEmisor" runat="server" Width="400px" Enabled="false">
+                                <dx:ASPxTextBox ID="txtFechaEmisor" runat="server" Width="100%" AutoResizeWithContainer="true"  Enabled="false">
                                     <ValidationSettings>
                                         <RequiredField IsRequired="true" />
                                     </ValidationSettings>
@@ -92,7 +88,7 @@
                     <dx:LayoutItem Caption="Mensaje">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxComboBox ID="cmbMensaje" runat="server" SelectedIndex="0" Width="400px">
+                                <dx:ASPxComboBox ID="cmbMensaje" runat="server" SelectedIndex="0" Width="100%" AutoResizeWithContainer="true">
                                     <Items>
                                         <dx:ListEditItem Selected="True" Text="Aceptado" Value="0" />
                                         <dx:ListEditItem Selected="True" Text="Rechazado Parcial" Value="1" />
@@ -103,27 +99,12 @@
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
 
-                    <dx:LayoutItem Caption=" ">
-                        <LayoutItemNestedControlCollection>
-                            <dx:LayoutItemNestedControlContainer>
-                                
-                            </dx:LayoutItemNestedControlContainer>
-                        </LayoutItemNestedControlCollection>
-                    </dx:LayoutItem>
 
-                    <dx:LayoutItem Caption="Detalle del Mensaje">
+                    <dx:LayoutItem Caption="Detalle del Mensaje" ColSpan="2"  Width="100%">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxMemo ID="txtDetalleMensaje" runat="server" Width="400px" Height="100px">
+                                <dx:ASPxMemo ID="txtDetalleMensaje" runat="server" Width="100%" AutoResizeWithContainer="true">
                                 </dx:ASPxMemo>
-                            </dx:LayoutItemNestedControlContainer>
-                        </LayoutItemNestedControlCollection>
-                    </dx:LayoutItem>
-
-                    <dx:LayoutItem Caption=" ">
-                        <LayoutItemNestedControlCollection>
-                            <dx:LayoutItemNestedControlContainer>
-                                
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
@@ -131,7 +112,10 @@
                     <dx:LayoutItem Caption="Monto Total Impuesto">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxTextBox ID="txtMontoTotalImpuesto" runat="server" Width="400px" Enabled="false" PropertiesTextEdit-DisplayFormatString="c2">
+                                <dx:ASPxTextBox ID="txtMontoTotalImpuesto" runat="server"  Width="100%" AutoResizeWithContainer="true" Enabled="false" PropertiesTextEdit-DisplayFormatString="c2">
+                                     <ValidationSettings>
+                                        <RequiredField IsRequired="true" />
+                                    </ValidationSettings>
                                 </dx:ASPxTextBox>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
@@ -140,7 +124,7 @@
                     <dx:LayoutItem Caption="Total Factura">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxTextBox ID="txtTotalFactura" runat="server" Width="400px" Enabled="false" PropertiesTextEdit-DisplayFormatString="c2">
+                                <dx:ASPxTextBox ID="txtTotalFactura" runat="server"  Width="100%" AutoResizeWithContainer="true" Enabled="false" PropertiesTextEdit-DisplayFormatString="c2">
                                     <ValidationSettings>
                                         <RequiredField IsRequired="true" />
                                     </ValidationSettings>
@@ -152,7 +136,7 @@
                     <dx:LayoutItem Caption="Número Cédula del Receptor">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxTextBox ID="txtNumCedReceptor" runat="server" Width="400px" Enabled="false">
+                                <dx:ASPxTextBox ID="txtNumCedReceptor" runat="server" Width="100%" AutoResizeWithContainer="true" Enabled="false">
                                     <ValidationSettings>
                                         <RequiredField IsRequired="true" />
                                     </ValidationSettings>
@@ -164,7 +148,7 @@
                     <dx:LayoutItem Caption="Número Consecutivo Receptor">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxTextBox ID="txtNumConsecReceptor" runat="server" Width="400px" Enabled="false">
+                                <dx:ASPxTextBox ID="txtNumConsecReceptor" runat="server" Width="100%" AutoResizeWithContainer="true" Enabled="false">
                                     <ValidationSettings>
                                         <RequiredField IsRequired="true" />
                                     </ValidationSettings>
@@ -182,5 +166,6 @@
         </Items>
 
     </dx:ASPxFormLayout>
-
+    <div id="alertMessages" role="alert"  runat="server" /> 
+         
 </asp:Content>
