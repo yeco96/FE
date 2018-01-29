@@ -24,7 +24,7 @@ namespace Web
 
         void Application_Error(object sender, EventArgs e)
         {
-            Server.Transfer("/Pages/Error/DefaultRedirectErrorPage.aspx");
+            //Server.Transfer("/Pages/Error/DefaultRedirectErrorPage.aspx");
         }
 
         void Session_Start(object sender, EventArgs e)
