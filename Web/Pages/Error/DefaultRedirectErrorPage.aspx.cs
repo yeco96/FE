@@ -18,7 +18,7 @@ namespace Web.Pages.Error
             string safeMsg = "A problem has occurred in the web site. ";
 
             // Show Inner Exception fields for local access
-            if (ex.InnerException != null)
+            if (ex!=null && ex.InnerException != null)
             {
                 innerTrace.Text = ex.InnerException.StackTrace;
                 InnerErrorPanel.Visible = Request.IsLocal;
@@ -31,15 +31,26 @@ namespace Web.Pages.Error
                 ex = new Exception(safeMsg, ex);
 
             // Fill the page fields
-            exMessage.Text = ex.Message;
-            exTrace.Text = ex.StackTrace;
+            if (ex != null)
+            {
+                exMessage.Text = ex.Message;
+                exTrace.Text = ex.StackTrace;
 
-            // Log the exception and notify system operators
-            ExceptionUtility.LogException(ex, "Generic Error Page");
-            ExceptionUtility.NotifySystemOps(ex);
+                // Log the exception and notify system operators
+                ExceptionUtility.LogException(ex, "Generic Error Page");
+                ExceptionUtility.NotifySystemOps(ex);
+            }
+            else
+            {
+                if (Session["error"] != null){ 
+                    exMessage.Text = Session["error"].ToString();
+                }
+            }
+
+           
 
             // Clear the error from the server
-            Server.ClearError();
+           // Server.ClearError();
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -34,9 +35,9 @@ namespace Web.Pages.Facturacion
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
             try
             {
-                this.lblMensaje.Text = "";
                 this.AsyncMode = true;
                 if (!IsCallback && !IsPostBack)
                 {
@@ -52,7 +53,8 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                this.alertMessages.Attributes["class"] = "alert alert-danger";
+                this.alertMessages.InnerText =  Utilidades.validarExepcionSQL(ex.Message);
             }
         }
 
@@ -79,7 +81,7 @@ namespace Web.Pages.Facturacion
 
 
                 /* EMISOR */
-                string elEmisor = "603540974";
+                string elEmisor = ((EmisorReceptorIMEC)Session["emisor"]).identificacion;
                 EmisorReceptorIMEC emisor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == elEmisor).FirstOrDefault();
                 this.loadEmisor(emisor);
 
@@ -150,6 +152,14 @@ namespace Web.Pages.Facturacion
                     comboProducto.PropertiesComboBox.Items.Add(item.ToString(), item.codigo);
                 }
                 comboProducto.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+
+
+                /* SUCURSAL CAJA */
+                foreach (var item in conexion.ConsecutivoDocElectronico.Where(x=>x.emisor == elEmisor).Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                {
+                    this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}",item.sucursal, item.caja));
+                }
+                this.cmbSucursalCaja.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
             }
         }
@@ -362,22 +372,18 @@ namespace Web.Pages.Facturacion
 
         protected void ASPxGridView1_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
         {
-            if (e.Column.FieldName == "subTotal") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
-            if (e.Column.FieldName == "montoTotal") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
-            if (e.Column.FieldName == "montoDescuento") { e.Editor.Value = 0; }
-            if (e.Column.FieldName == "precioUnitario") { e.Editor.Value = 0; }
-            if (e.Column.FieldName == "naturalezaDescuento") { e.Editor.Value = "N/A"; }
-
-            if (!this.ASPxGridView1.IsNewRowEditing)
+            if (this.ASPxGridView1.IsNewRowEditing) { 
+                if (e.Column.FieldName == "subTotal") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+                if (e.Column.FieldName == "montoTotal") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+                if (e.Column.FieldName == "montoDescuento") { e.Editor.Value = 0; }
+                if (e.Column.FieldName == "precioUnitario") { e.Editor.Value = 0; }
+                if (e.Column.FieldName == "naturalezaDescuento") { e.Editor.Value = "N/A"; }
+            }else
             {
                 if (e.Column.FieldName == "producto") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
             }
         }
-        protected void ASPxGridView1_CustomErrorText(object sender, ASPxGridViewCustomErrorTextEventArgs e)
-        {
-
-        }
-
+        
         protected void ASPxGridView1_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)
         {
             try
@@ -397,7 +403,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
             finally
             {
@@ -422,20 +428,19 @@ namespace Web.Pages.Facturacion
                     Producto producto = conexion.Producto.Where(x => x.codigo == codProducto).FirstOrDefault();
 
                     dato.numeroLinea = detalleServicio.lineaDetalle.Count;
-                    dato.cantidad = e.NewValues["cantidad"] != null ? double.Parse(e.NewValues["cantidad"].ToString()) : 0;
+                    dato.cantidad = e.NewValues["cantidad"] != null ? decimal.Parse(e.NewValues["cantidad"].ToString()) : 0;
                     dato.codigo.tipo = producto.tipo;
                     dato.codigo.codigo = producto.codigo;
                     dato.detalle = producto.descripcion;
                     dato.unidadMedida = producto.unidadMedida;
                     dato.unidadMedidaComercial = "";
 
-                    double precio = "0".Equals(e.NewValues["precioUnitario"].ToString()) ? producto.precio :  double.Parse(e.NewValues["precioUnitario"].ToString());
+                    decimal precio = "0".Equals(e.NewValues["precioUnitario"].ToString()) ? producto.precio :  decimal.Parse(e.NewValues["precioUnitario"].ToString());
 
                     dato.producto = producto.codigo;/*solo para uso del grid*/
-                    dato.precioUnitario = producto.precio;
-                    dato.subTotal = precio * dato.cantidad;
-                    dato.montoDescuento = e.NewValues["montoDescuento"] != null ? double.Parse(e.NewValues["montoDescuento"].ToString()) : 0;
-                    dato.montoTotal = dato.subTotal - dato.montoDescuento;
+                    dato.precioUnitario = producto.precio; 
+                    dato.montoDescuento = e.NewValues["montoDescuento"] != null ? decimal.Parse(e.NewValues["montoDescuento"].ToString()) : 0;
+                    dato.calcularMontos();
 
                     dato.naturalezaDescuento = e.NewValues["naturalezaDescuento"] != null ? e.NewValues["naturalezaDescuento"].ToString().ToUpper() : null;
                     dato.naturalezaDescuento = dato.naturalezaDescuento;
@@ -461,10 +466,10 @@ namespace Web.Pages.Facturacion
                 // Join the list to a single string.
                 var fullErrorMessage = string.Join("; ", errorMessages);
 
-                // Combine the original exception message with the new one.
-                var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+                
+                
 
-                // conexion.CodigoReferencia.Remove(conexion.CodigoReferencia.Last() );
+                
 
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
@@ -472,7 +477,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
             finally
             {
@@ -496,21 +501,20 @@ namespace Web.Pages.Facturacion
                     Producto producto = conexion.Producto.Where(x => x.codigo == codProducto).FirstOrDefault();
 
                     //dato.numeroLinea = detalleServicio.lineaDetalle.Count;
-                    dato.cantidad = e.NewValues["cantidad"] != null ? double.Parse(e.NewValues["cantidad"].ToString()) : 0;
+                    dato.cantidad = e.NewValues["cantidad"] != null ? decimal.Parse(e.NewValues["cantidad"].ToString()) : 0;
                     //dato.codigo.tipo = producto.tipo;
                     //dato.codigo.codigo = producto.codigo;
                     //dato.detalle = producto.descripcion;
                     //dato.unidadMedida = producto.unidadMedida;
                     dato.unidadMedidaComercial = "";
 
-                    double precio = "0".Equals(e.NewValues["precioUnitario"].ToString()) ? producto.precio : double.Parse(e.NewValues["precioUnitario"].ToString());
+                    decimal precio = "0".Equals(e.NewValues["precioUnitario"].ToString()) ? producto.precio : decimal.Parse(e.NewValues["precioUnitario"].ToString());
 
                     dato.producto = producto.codigo;/*solo para uso del grid*/
-                    dato.precioUnitario = producto.precio;
-                    dato.subTotal = precio * dato.cantidad;
-                    dato.montoDescuento = e.NewValues["montoDescuento"] != null ? double.Parse(e.NewValues["montoDescuento"].ToString()) : 0;
+                    dato.precioUnitario = producto.precio; 
+                    dato.montoDescuento = e.NewValues["montoDescuento"] != null ? decimal.Parse(e.NewValues["montoDescuento"].ToString()) : 0;
                     dato.montoTotal = dato.subTotal - dato.montoDescuento;
-
+                    dato.calcularMontos();
 
                     dato.naturalezaDescuento = e.NewValues["naturalezaDescuento"] != null ? e.NewValues["naturalezaDescuento"].ToString().ToUpper() : null;
                     dato.naturalezaDescuento = dato.naturalezaDescuento;
@@ -528,7 +532,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
             finally
             {
@@ -538,7 +542,11 @@ namespace Web.Pages.Facturacion
         }
 
 
-
+        /// <summary>
+        /// obtiene los valores para crear el documento electronico
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnFacturar_Click(object sender, EventArgs e)
         {
             try
@@ -551,9 +559,8 @@ namespace Web.Pages.Facturacion
                     dato.medioPago = this.cmbMedioPago.Value.ToString();
                     dato.plazoCredito = this.txtPlazoCredito.Text;
                     dato.condicionVenta = this.cmbCondicionVenta.Value.ToString();
-                    dato.fechaEmision = this.txtFechaEmision.Date;
-                    dato.medioPago = this.cmbMedioPago.Value.ToString();
-                    dato.fechaEmision = this.txtFechaEmision.Date;
+                    dato.fechaEmision = Date.DateTimeNow().ToString("yyyy-MM-ddTHH:mm:ss-06:00");
+                    dato.medioPago = this.cmbMedioPago.Value.ToString(); 
 
                     /* DETALLE */
                     dato.detalleServicio = (DetalleServicio)Session["detalleServicio"];
@@ -621,28 +628,40 @@ namespace Web.Pages.Facturacion
                     dato.resumenFactura.totalImpuesto = 0;
                     dato.resumenFactura.totalComprobante = dato.detalleServicio.lineaDetalle.Sum(x => x.montoTotal); // + impuesto
 
-                    dato.clave = "50608011800060354097400100001010000000018188888888";
-                    dato.numeroConsecutivo = "00100001010000000018";
+                    //genera el consecutivo del documento
+                    string sucursal = this.cmbSucursalCaja.Value.ToString().Substring(0,3);
+                    string caja = this.cmbSucursalCaja.Value.ToString().Substring(3,5);
+                    object[] key = new object[] { dato.emisor.identificacion.numero, sucursal, caja };
+                    ConsecutivoDocElectronico consecutivo = conexion.ConsecutivoDocElectronico.Find(key);
 
+                    dato.clave = consecutivo.getClave(FacturaElectronica.TIPO);
+                    dato.numeroConsecutivo = consecutivo.getConsecutivo(FacturaElectronica.TIPO);
+
+                    consecutivo.consecutivo += 1; 
+                    conexion.Entry(consecutivo).State = EntityState.Modified;
+                    conexion.SaveChanges();
+                    
                     string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
+                    //string xmlSigned = FirmaXML.getXMLFirmadoWeb(xml, elEmisor.llaveCriptografica, elEmisor.claveLlaveCriptografica);
                     string responsePost = "";
-                    enviarDocumentoElectronico(xml, responsePost);
+                    enviarDocumentoElectronico(xml, responsePost, elEmisor);
 
-                    if (responsePost.Equals("Success")) { 
-                        this.lblMensaje.Text = String.Format("Factura #{0} enviada.",dato.numeroConsecutivo);
-                        this.lblMensaje.CssClass = "colorAzul";
+                    if (responsePost.Equals("Success")) {  
+                        this.alertMessages.Attributes["class"] = "alert alert-info";
+                        this.alertMessages.InnerText = String.Format("Factura #{0} enviada.", dato.numeroConsecutivo);
                     }
                     else
-                    {
-                        this.lblMensaje.Text = String.Format("Factura #{0} con errores.", dato.numeroConsecutivo);
-                        this.lblMensaje.CssClass = "colorRojo";
+                    { 
+                        this.alertMessages.Attributes["class"] = "alert alert-danger";
+                        this.alertMessages.InnerText = String.Format("Factura #{0} con errores.", dato.numeroConsecutivo);
                     }
 
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                this.alertMessages.Attributes["class"] = "alert alert-danger";
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
             }
             finally
             {
@@ -652,53 +671,59 @@ namespace Web.Pages.Facturacion
 
         }
 
-
-        public async void enviarDocumentoElectronico(string xmlFile, string responsePost )
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="xmlFile">XML sin firmar</param>
+        /// <param name="responsePost">respuesta del webs ervices</param>
+        public async void enviarDocumentoElectronico(string xmlFile, string responsePost, EmisorReceptorIMEC emisor)
         {
-            using (var conexion = new DataModelOAuth2())
+            try {
+                using (var conexion = new DataModelOAuth2())
+                { 
+                    string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
+                    OAuth2.OAuth2Config config = conexion.OAuth2Config.Where(x => x.enviroment == ambiente).FirstOrDefault();
+                    config.username = emisor.usernameOAuth2;
+                    config.password = emisor.passwordOAuth2;
+
+                    await OAuth2.OAuth2Config.getTokenWeb(config);
+
+                    WSDomain.WSRecepcionPOST trama = new WSDomain.WSRecepcionPOST();
+                    trama.clave = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "Clave", xmlFile);
+
+                    string emisorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Emisor", "Identificacion", xmlFile);
+                    trama.emisor.tipoIdentificacion = emisorIdentificacion.Substring(0, 2);
+                    trama.emisor.numeroIdentificacion = emisorIdentificacion.Substring(2);
+                    trama.emisorTipo = trama.emisor.tipoIdentificacion;
+                    trama.emisorIdentificacion = trama.emisor.numeroIdentificacion;
+
+                    string receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xmlFile);
+                    trama.receptor.tipoIdentificacion = receptorIdentificacion.Substring(0, 2);
+                    trama.receptor.numeroIdentificacion = receptorIdentificacion.Substring(2);
+                    trama.receptorTipo = trama.receptor.tipoIdentificacion;
+                    trama.receptorIdentificacion = trama.receptor.numeroIdentificacion;
+
+                    xmlFile = FirmaXML.getXMLFirmadoWeb(xmlFile, emisor.llaveCriptografica, emisor.claveLlaveCriptografica.ToString());
+                    
+                    trama.comprobanteXml = EncodeXML.EncondeXML.base64Encode(xmlFile);
+
+                    string jsonTrama = JsonConvert.SerializeObject(trama);
+
+                    using (var conexion2 = new DataModelWS())
+                    {
+                        WSRecepcionPOST tramaObjeto = JsonConvert.DeserializeObject<WSRecepcionPOST>(jsonTrama);
+                        tramaObjeto.cargarEmisorReceptor();
+                        conexion2.WSRecepcionPOST.Add(tramaObjeto);
+                        conexion2.SaveChanges();
+                    } 
+                    await Services.postRecepcion(config.token, jsonTrama, responsePost);
+
+                }
+            }
+            catch (Exception ex)
             {
-                EmisorReceptorIMEC emisor = (EmisorReceptorIMEC)base.Session["emisor"];
-                string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
-                OAuth2.OAuth2Config config = conexion.OAuth2Config.Where(x => x.enviroment == ambiente).FirstOrDefault();
-                config.username = emisor.usernameOAuth2;
-                config.password = emisor.passwordOAuth2;
-
-                await OAuth2.OAuth2Config.getTokenWeb(config);
-
-                WSDomain.WSRecepcionPOST trama = new WSDomain.WSRecepcionPOST();
-                trama.clave = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "Clave", xmlFile);
-
-                string emisorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Emisor", "Identificacion", xmlFile);
-                trama.emisor.tipoIdentificacion = emisorIdentificacion.Substring(0, 2);
-                trama.emisor.numeroIdentificacion = emisorIdentificacion.Substring(2);
-                trama.emisorTipo = trama.emisor.tipoIdentificacion;
-                trama.emisorIdentificacion = trama.emisor.numeroIdentificacion;
-                
-                string receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xmlFile);
-                trama.receptor.tipoIdentificacion = receptorIdentificacion.Substring(0, 2);
-                trama.receptor.numeroIdentificacion = receptorIdentificacion.Substring(2);
-                trama.receptorTipo = trama.receptor.tipoIdentificacion;
-                trama.receptorIdentificacion = trama.receptor.numeroIdentificacion;
-
-                using (var conexionFE = new DataModelFE())
-                {
-                    EmisorReceptorIMEC dato = conexionFE.EmisorReceptorIMEC.Where(x => x.identificacion == trama.emisor.numeroIdentificacion).FirstOrDefault();
-                    xmlFile = FirmaXML.getXMLFirmadoWeb(xmlFile, dato.llaveCriptografica, dato.claveLlaveCriptografica); 
-                }
-
-                trama.comprobanteXml = EncodeXML.EncondeXML.base64Encode(xmlFile);
-
-                string jsonTrama = JsonConvert.SerializeObject(trama);
-
-                using (var conexion2 = new DataModelWS())
-                {
-                    WSRecepcionPOST tramaObjeto = JsonConvert.DeserializeObject<WSRecepcionPOST>(jsonTrama);
-                    conexion2.WSRecepcionPOST.Add(tramaObjeto);
-                    conexion2.SaveChanges();
-                }
-
-                
-                await Services.postRecepcion(config.token, jsonTrama, responsePost);
+                this.alertMessages.Attributes["class"] = "alert alert-danger";
+                this.alertMessages.InnerText =  Utilidades.validarExepcionSQL(ex.Message);
             }
         } 
             
@@ -779,20 +804,17 @@ namespace Web.Pages.Facturacion
                         .Select(x => x.ErrorMessage);
 
                 // Join the list to a single string.
-                var fullErrorMessage = string.Join("; ", errorMessages);
-
-                // Combine the original exception message with the new one.
-                var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
-
-                // conexion.CodigoReferencia.Remove(conexion.CodigoReferencia.Last() );
-
-                // Throw a new DbEntityValidationException with the improved exception message.
-                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
+                var fullErrorMessage = string.Join("; ", errorMessages); 
+                 
+                this.alertMessages.Attributes["class"] = "alert alert-danger";
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(fullErrorMessage);
+                Server.ClearError();
 
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                this.alertMessages.Attributes["class"] = "alert alert-danger";
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
             }
 
         }

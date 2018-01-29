@@ -43,7 +43,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
         }
         /// <summary>
@@ -130,8 +130,8 @@ namespace Web.Pages.Catalogos
                 // Join the list to a single string.
                 var fullErrorMessage = string.Join("; ", errorMessages);
 
-                // Combine the original exception message with the new one.
-                var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+                
+                
 
                 // conexion.TipoMoneda.Remove(conexion.TipoMoneda.Last() );
 
@@ -141,7 +141,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
             finally
             {
@@ -186,7 +186,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
             finally
             {
@@ -221,7 +221,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
             finally
             {
@@ -269,20 +269,5 @@ namespace Web.Pages.Catalogos
             this.ASPxGridViewExporter1.WriteCsvToResponse();
         }
 
-        /// <summary>
-        /// errore personalizados
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void ASPxGridView1_CustomErrorText(object sender, ASPxGridViewCustomErrorTextEventArgs e)
-        {
-            if (e.Exception != null)
-            {
-                string error = e.Exception.InnerException.Message;
-                error = e.Exception.InnerException.InnerException.Message;
-
-                e.ErrorText = Utilidades.validarExepcionSQL(error);
-            }
-        }
     }
 }

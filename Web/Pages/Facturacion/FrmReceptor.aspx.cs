@@ -16,13 +16,13 @@ using Web.Models.Facturacion;
 
 namespace Web.Pages.Catalogos
 {
-    public partial class FrmEmisorReceptor : System.Web.UI.Page
+    public partial class FrmReceptor : System.Web.UI.Page
     {
 
         /// <summary>
         /// constructor
         /// </summary>
-        public FrmEmisorReceptor()
+        public FrmReceptor()
         {
         }
 
@@ -42,8 +42,8 @@ namespace Web.Pages.Catalogos
                         Session["LlaveCriptograficap12"] = null;
                         /* EMISOR */
                         // string emisorUsuario = Session["usuario"].ToString();
-                        // EmisorReceptor emisor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == emisorUsuario).FirstOrDefault();
-                        // this.loadEmisor(emisor);
+                        // ReceptorReceptor emisor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == emisorUsuario).FirstOrDefault();
+                        // this.loadReceptor(emisor);
                     }
 
                     this.loadComboBox();
@@ -53,7 +53,7 @@ namespace Web.Pages.Catalogos
             catch (Exception ex)
             {
 
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
         }
 
@@ -62,35 +62,35 @@ namespace Web.Pages.Catalogos
         /// carga datos del emisor
         /// </summary>
         /// <param name="emisor"></param>
-        private void loadEmisor(EmisorReceptorIMEC emisor)
+        private void loadReceptor(EmisorReceptorIMEC emisor)
         {
-            this.cmbEmisorTipo.Value = emisor.identificacionTipo;
-            this.txtEmisorIdentificacion.Text = emisor.identificacion;
-            this.txtEmisorNombre.Text = emisor.nombre;
-            this.txtEmisorNombreComercial.Text = emisor.nombreComercial;
+            this.cmbReceptorTipo.Value = emisor.identificacionTipo;
+            this.txtReceptorIdentificacion.Text = emisor.identificacion;
+            this.txtReceptorNombre.Text = emisor.nombre;
+            this.txtReceptorNombreComercial.Text = emisor.nombreComercial;
 
-            this.cmbEmisorTelefonoCod.Value = emisor.telefonoCodigoPais;
-            this.cmbEmisorFaxCod.Value = emisor.faxCodigoPais;
-            this.txtEmisorTelefono.Value = emisor.telefono;
-            this.txtEmisorFax.Value = emisor.fax;
-            this.txtEmisorCorreo.Text = emisor.correoElectronico;
+            this.cmbReceptorTelefonoCod.Value = emisor.telefonoCodigoPais;
+            this.cmbReceptorFaxCod.Value = emisor.faxCodigoPais;
+            this.txtReceptorTelefono.Value = emisor.telefono;
+            this.txtReceptorFax.Value = emisor.fax;
+            this.txtReceptorCorreo.Text = emisor.correoElectronico;
 
-            this.cmbEmisorProvincia.Value = emisor.provincia;
+            this.cmbReceptorProvincia.Value = emisor.provincia;
 
-            this.cmbEmisorProvincia_ValueChanged(null, null);
-            this.cmbEmisorCanton.Value = emisor.canton;
+            this.cmbReceptorProvincia_ValueChanged(null, null);
+            this.cmbReceptorCanton.Value = emisor.canton;
 
-            this.cmbEmisorCanton_ValueChanged(null, null);
-            this.cmbEmisorDistrito.Value = emisor.distrito;
+            this.cmbReceptorCanton_ValueChanged(null, null);
+            this.cmbReceptorDistrito.Value = emisor.distrito;
 
-            this.cmbEmisorDistrito_ValueChanged(null, null);
-            this.cmbEmisorBarrio.Value = emisor.barrio;
-            this.txtEmisorOtraSenas.Value = emisor.otraSena;
-
+            this.cmbReceptorDistrito_ValueChanged(null, null);
+            this.cmbReceptorBarrio.Value = emisor.barrio;
+            this.txtReceptorOtraSenas.Value = emisor.otraSena;
+            /*
             this.txtUsernameOAuth2.Text = emisor.usernameOAuth2;
-            this.txtPasswordOAuth2.Text = emisor.passwordOAuth2;
-            this.txtClaveLlaveCriptografica.Text = emisor.claveLlaveCriptografica;
-
+            this.txtPasswordOAuth2.Text = emisor.passwordOAuth2; 
+            this.txtClaveLlaveCriptografica.Text = emisor.claveLlaveCriptografica.ToString() ;
+            */
 
         }
 
@@ -123,14 +123,14 @@ namespace Web.Pages.Catalogos
                 comboIdentificacionTipo.PropertiesComboBox.Items.Clear();
                 foreach (var item in conexion.TipoIdentificacion.ToList())
                 {
-                    this.cmbEmisorTipo.Items.Add(item.descripcion, item.codigo);
+                    this.cmbReceptorTipo.Items.Add(item.descripcion, item.codigo);
                     comboIdentificacionTipo.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
                 }
 
                 /* PROVINCIA*/
                 foreach (var item in conexion.Ubicacion.Select(x => new { x.codProvincia, x.nombreProvincia }).Distinct())
                 {
-                    this.cmbEmisorProvincia.Items.Add(item.nombreProvincia, item.codProvincia);
+                    this.cmbReceptorProvincia.Items.Add(item.nombreProvincia, item.codProvincia);
                 }
 
             }
@@ -192,7 +192,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
             finally
             {
@@ -235,7 +235,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
             finally
             {
@@ -270,7 +270,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
             finally
             {
@@ -319,86 +319,59 @@ namespace Web.Pages.Catalogos
             this.ASPxGridViewExporter1.WriteCsvToResponse();
         }
 
-        /// <summary>
-        /// errore personalizados
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void ASPxGridView1_CustomErrorText(object sender, ASPxGridViewCustomErrorTextEventArgs e)
-        {
-            if (e.Exception != null)
-            {
-                string error = "";
-                if (e.Exception.InnerException != null)
-                {
-                    error = e.Exception.InnerException.Message;
-                    error = e.Exception.InnerException.InnerException.Message;
-                }
-                else
-                {
-                    error = e.ErrorText;
-                }
-
-                e.ErrorText = Utilidades.validarExepcionSQL(error);
-            }
-        }
-
-
-
-
-
-        protected void cmbEmisorProvincia_ValueChanged(object sender, EventArgs e)
+       
+        protected void cmbReceptorProvincia_ValueChanged(object sender, EventArgs e)
         {
             using (var conexion = new DataModelFE())
             {
-                this.cmbEmisorDistrito.SelectedItem = null;
-                this.cmbEmisorDistrito.Items.Clear();
-                this.cmbEmisorCanton.SelectedItem = null;
-                this.cmbEmisorCanton.Items.Clear();
+                this.cmbReceptorDistrito.SelectedItem = null;
+                this.cmbReceptorDistrito.Items.Clear();
+                this.cmbReceptorCanton.SelectedItem = null;
+                this.cmbReceptorCanton.Items.Clear();
 
                 foreach (var item in conexion.Ubicacion.
-                    Where(x => x.codProvincia == this.cmbEmisorProvincia.Value.ToString()).
+                    Where(x => x.codProvincia == this.cmbReceptorProvincia.Value.ToString()).
                     Select(x => new { x.codCanton, x.nombreCanton }).Distinct())
                 {
-                    this.cmbEmisorCanton.Items.Add(item.nombreCanton, item.codCanton);
+                    this.cmbReceptorCanton.Items.Add(item.nombreCanton, item.codCanton);
                 }
-                this.cmbEmisorCanton.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                this.cmbReceptorCanton.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             }
         }
-        protected void cmbEmisorCanton_ValueChanged(object sender, EventArgs e)
+        protected void cmbReceptorCanton_ValueChanged(object sender, EventArgs e)
         {
             using (var conexion = new DataModelFE())
             {
-                this.cmbEmisorDistrito.SelectedItem = null;
-                this.cmbEmisorDistrito.Items.Clear();
+                this.cmbReceptorDistrito.SelectedItem = null;
+                this.cmbReceptorDistrito.Items.Clear();
 
                 foreach (var item in conexion.Ubicacion.
-                    Where(x => x.codProvincia == this.cmbEmisorProvincia.Value.ToString()).
-                    Where(x => x.codCanton == this.cmbEmisorCanton.Value.ToString()).
+                    Where(x => x.codProvincia == this.cmbReceptorProvincia.Value.ToString()).
+                    Where(x => x.codCanton == this.cmbReceptorCanton.Value.ToString()).
                     Select(x => new { x.codDistrito, x.nombreDistrito }).Distinct())
                 {
-                    this.cmbEmisorDistrito.Items.Add(item.nombreDistrito, item.codDistrito);
+                    this.cmbReceptorDistrito.Items.Add(item.nombreDistrito, item.codDistrito);
                 }
-                this.cmbEmisorDistrito.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                this.cmbReceptorDistrito.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             }
         }
 
 
-        protected void cmbEmisorDistrito_ValueChanged(object sender, EventArgs e)
+        protected void cmbReceptorDistrito_ValueChanged(object sender, EventArgs e)
         {
             using (var conexion = new DataModelFE())
             {
-                this.cmbEmisorBarrio.SelectedItem = null;
-                this.cmbEmisorBarrio.Items.Clear();
+                this.cmbReceptorBarrio.SelectedItem = null;
+                this.cmbReceptorBarrio.Items.Clear();
                 foreach (var item in conexion.Ubicacion.
-                    Where(x => x.codProvincia == this.cmbEmisorProvincia.Value.ToString()).
-                    Where(x => x.codCanton == this.cmbEmisorCanton.Value.ToString()).
-                     Where(x => x.codDistrito == this.cmbEmisorDistrito.Value.ToString()).
+                    Where(x => x.codProvincia == this.cmbReceptorProvincia.Value.ToString()).
+                    Where(x => x.codCanton == this.cmbReceptorCanton.Value.ToString()).
+                     Where(x => x.codDistrito == this.cmbReceptorDistrito.Value.ToString()).
                     Select(x => new { x.codBarrio, x.nombreBarrio }).Distinct())
                 {
-                    this.cmbEmisorBarrio.Items.Add(item.nombreBarrio, item.codBarrio);
+                    this.cmbReceptorBarrio.Items.Add(item.nombreBarrio, item.codBarrio);
                 }
-                this.cmbEmisorBarrio.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                this.cmbReceptorBarrio.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             }
         }
 
@@ -413,7 +386,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
         }
 
@@ -426,34 +399,50 @@ namespace Web.Pages.Catalogos
                 using (var conexion = new DataModelFE())
                 {
 
-                    string buscar = this.txtEmisorIdentificacion.Text;
+                    string buscar = this.txtReceptorIdentificacion.Text;
                     EmisorReceptorIMEC emisor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == buscar).FirstOrDefault();
 
-                    emisor.identificacionTipo = this.cmbEmisorTipo.Value.ToString();
-                    emisor.identificacion = this.txtEmisorIdentificacion.Text;
-                    emisor.nombre = this.txtEmisorNombre.Text;
-                    emisor.nombreComercial = this.txtEmisorNombreComercial.Text;
+                    emisor.identificacionTipo = this.cmbReceptorTipo.Value.ToString();
+                    emisor.identificacion = this.txtReceptorIdentificacion.Text;
+                    emisor.nombre = this.txtReceptorNombre.Text;
+                    emisor.nombreComercial = this.txtReceptorNombreComercial.Text;
 
-                    emisor.telefonoCodigoPais = this.cmbEmisorTelefonoCod.Value.ToString();
-                    emisor.telefono = this.txtEmisorTelefono.Value.ToString();
-
-                    emisor.correoElectronico = this.txtEmisorCorreo.Text;
-
-                    if (this.cmbEmisorFaxCod.Value != null)
+                    if (this.cmbReceptorTelefonoCod.Value != null)
                     {
-                        emisor.faxCodigoPais = this.cmbEmisorFaxCod.Value.ToString();
-                        emisor.fax = this.txtEmisorFax.Value.ToString();
-                    } 
+                        emisor.telefonoCodigoPais = this.cmbReceptorTelefonoCod.Value.ToString();
+                        emisor.telefono = this.txtReceptorTelefono.Text;
+                    }
 
-                    emisor.provincia = this.cmbEmisorProvincia.Value.ToString();
-                    emisor.canton = this.cmbEmisorCanton.Value.ToString();
-                    emisor.distrito = this.cmbEmisorDistrito.Value.ToString();
-                    emisor.barrio = this.cmbEmisorBarrio.Value.ToString();
-                    emisor.otraSena = this.txtEmisorOtraSenas.Text;
+                    emisor.correoElectronico = this.txtReceptorCorreo.Text;
 
+                    if (this.cmbReceptorFaxCod.Value != null)
+                    {
+                        emisor.faxCodigoPais = this.cmbReceptorFaxCod.Value.ToString();
+                        emisor.fax = this.txtReceptorFax.Text;
+                    }
+
+                    if (this.cmbReceptorProvincia.Value != null)
+                    {
+                        emisor.provincia = this.cmbReceptorProvincia.Value.ToString();
+                    }
+                    if (this.cmbReceptorCanton.Value != null)
+                    {
+                        emisor.canton = this.cmbReceptorCanton.Value.ToString();
+                    }
+                    if (this.cmbReceptorDistrito.Value != null)
+                    {
+                        emisor.distrito = this.cmbReceptorDistrito.Value.ToString();
+                    }
+                    if (this.cmbReceptorBarrio.Value != null)
+                    {
+                        emisor.barrio = this.cmbReceptorBarrio.Value.ToString();
+                    }
+                    emisor.otraSena = this.txtReceptorOtraSenas.Text;
+                    /*
                     emisor.usernameOAuth2 = this.txtUsernameOAuth2.Text;
                     emisor.passwordOAuth2 = this.txtPasswordOAuth2.Text;
                     emisor.claveLlaveCriptografica = this.txtClaveLlaveCriptografica.Text;
+                    */
 
                     if (Session["LlaveCriptograficap12"] != null)
                     {
@@ -463,7 +452,10 @@ namespace Web.Pages.Catalogos
                     //modifica objeto
                     conexion.Entry(emisor).State = EntityState.Modified;
                     conexion.SaveChanges();
-                    
+                     
+                    this.alertMessages.Attributes["class"] = "alert alert-info";
+                    this.alertMessages.InnerText = "Los datos fueron aplicados correctamente!!!"; 
+
                 }
             }
             catch (DbEntityValidationException ex)
@@ -476,10 +468,10 @@ namespace Web.Pages.Catalogos
                 // Join the list to a single string.
                 var fullErrorMessage = string.Join("; ", errorMessages);
 
-                // Combine the original exception message with the new one.
-                var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+                
+                
 
-                // conexion.CodigoReferencia.Remove(conexion.CodigoReferencia.Last() );
+                
 
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
@@ -487,7 +479,11 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+            }
+            finally
+            {
+                this.refreshData();
             }
 
         }
@@ -503,7 +499,10 @@ namespace Web.Pages.Catalogos
                     {
                         EmisorReceptorIMEC emisor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == emisorUsuario).FirstOrDefault();
                         Session["LlaveCriptograficap12"] = null;
-                        this.loadEmisor(emisor);
+                        this.loadReceptor(emisor);
+                        this.alertMessages.Attributes["class"] = "alert alert-info";
+                        this.alertMessages.InnerText = "Los datos fueron cargados correctamente!!!";
+                        this.btnActualizar.Enabled = true;
                     }
                 }
 
@@ -511,7 +510,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
         }
     }

@@ -12,7 +12,11 @@ namespace Web.Models.Catalogos
     public class Producto
     {
         [Key]
+        [Display(Name = "Id")]
+        public long id { set; get; }
+
         [Required]
+        [Column("codigo", Order = 1)]
         [MaxLength(20, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         [Display(Name = "Código")]
         public string codigo { set; get; }
@@ -24,7 +28,7 @@ namespace Web.Models.Catalogos
 
         
         [Required]
-        [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [MaxLength(10, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         [Display(Name = "Unidad Medida")]
         [ForeignKey("UnidadMedida")]
         public string unidadMedida { set; get; }
@@ -39,9 +43,12 @@ namespace Web.Models.Catalogos
         [Display(Name = "Emisor")]
 
         [ForeignKey("Emisor")]
+        [Column("emisor", Order = 2)]
         public string emisor { set; get; }
 
-        public double precio { set; get; }
+        public decimal precio { set; get; }
+
+        
 
 
         /// <summary>
@@ -64,6 +71,7 @@ namespace Web.Models.Catalogos
         /// </summary>
         public Producto()
         {
+            this.id = 0;
         }
 
         /// <summary>

@@ -125,7 +125,8 @@ header.shrink {
 }
 .footerUp {
     padding-bottom: 26px;
-    background: #6f6f6f;
+    /*background: #6f6f6f;*/
+    background: #0072C6;
 }
 .footerDown {
     background: #525252;
@@ -281,10 +282,17 @@ footer h4 {
 }
 
 
-.colorRojo {
-    color: red;
+.success {
 }
 
-.colorAzul {
-    color: blue;
+.error {
+    
 }
+
+.alert{
+    margin-bottom: 0;
+    font-size: small;
+    padding: .50rem 1.25rem;
+    margin: 1rem auto;
+}
+ 

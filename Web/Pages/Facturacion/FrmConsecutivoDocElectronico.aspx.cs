@@ -11,18 +11,18 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Web.Models;
-using Web.Models.Catalogos;
+using Web.Models.Facturacion;
 
-namespace Web.Pages.Catalogos
+namespace Web.Pages.Facturacion
 {
-    public partial class FrmCatalogoCodigoReferencia : System.Web.UI.Page
+    public partial class FrmConsecutivoDocElectronico : System.Web.UI.Page
     {
-        
+
         /// <summary>
         /// constructor
         /// </summary>
-        public FrmCatalogoCodigoReferencia()
-        { 
+        public FrmConsecutivoDocElectronico()
+        {
         }
 
 
@@ -53,7 +53,7 @@ namespace Web.Pages.Catalogos
         {
             using (var conexion = new DataModelFE())
             {
-                this.ASPxGridView1.DataSource = conexion.CodigoReferencia.ToList();
+                this.ASPxGridView1.DataSource = conexion.ConsecutivoDocElectronico.ToList();
                 this.ASPxGridView1.DataBind();
             }
         }
@@ -101,17 +101,19 @@ namespace Web.Pages.Catalogos
                 using (var conexion = new DataModelFE())
                 {
                     //se declara el objeto a insertar
-                    CodigoReferencia dato = new CodigoReferencia();
+                    ConsecutivoDocElectronico dato = new ConsecutivoDocElectronico();
                     //llena el objeto con los valores de la pantalla
-                    dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
-                    dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
-
+                    dato.emisor = e.NewValues["emisor"] != null ? e.NewValues["emisor"].ToString().ToUpper() : null;
+                    dato.sucursal = e.NewValues["sucursal"] != null ? e.NewValues["sucursal"].ToString().PadLeft(3, '0') : "001";
+                    dato.caja = e.NewValues["caja"] != null ? e.NewValues["caja"].ToString().PadLeft(3, '0') : "00001";
+                    dato.consecutivo = e.NewValues["consecutivo"] != null ? long.Parse(e.NewValues["consecutivo"].ToString()) : 0 ;
+                    dato.digitoVerificador= e.NewValues["digitoVerificador"].ToString();
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioCreacion = Session["usuario"].ToString();
                     dato.fechaCreacion = Date.DateTimeNow();
 
                     //agrega el objeto
-                    conexion.CodigoReferencia.Add(dato);
+                    conexion.ConsecutivoDocElectronico.Add(dato);
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress
@@ -162,14 +164,18 @@ namespace Web.Pages.Catalogos
                 using (var conexion = new DataModelFE())
                 {
                     // se declara el objeto a insertar
-                    CodigoReferencia dato = new CodigoReferencia();
+                    ConsecutivoDocElectronico dato = new ConsecutivoDocElectronico();
                     //llena el objeto con los valores de la pantalla
-                    dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
+                    dato.emisor = e.NewValues["emisor"] != null ? e.NewValues["emisor"].ToString().ToUpper() : null;
+                    dato.sucursal = e.NewValues["sucursal"] != null ? e.NewValues["sucursal"].ToString().PadLeft(3, '0') : "001";
+                    dato.caja = e.NewValues["caja"] != null ? e.NewValues["caja"].ToString().PadLeft(3,'0') : "00001";
+                     
+                    //busca el objeto  
+                    object[] key = new object[] { dato.emisor, dato.sucursal, dato.caja };
+                    dato = conexion.ConsecutivoDocElectronico.Find(key);
 
-                    //busca el objeto 
-                    dato = conexion.CodigoReferencia.Find(dato.codigo);
-
-                    dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
+                    dato.digitoVerificador = e.NewValues["digitoVerificador"].ToString();
+                    dato.consecutivo = e.NewValues["consecutivo"] != null ? long.Parse(e.NewValues["consecutivo"].ToString()) : 0;
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioModificacion = Session["usuario"].ToString();
                     dato.fechaModificacion = Date.DateTimeNow();
@@ -182,6 +188,20 @@ namespace Web.Pages.Catalogos
                     e.Cancel = true;
                     this.ASPxGridView1.CancelEdit();
                 }
+
+            }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+                 
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
 
             }
             catch (Exception ex)
@@ -206,11 +226,11 @@ namespace Web.Pages.Catalogos
             {
                 using (var conexion = new DataModelFE())
                 {
-                    var id = e.Values["codigo"].ToString();
+                    var id = e.Values["emisor"].ToString();
 
                     //busca objeto
-                    var itemToRemove = conexion.CodigoReferencia.SingleOrDefault(x => x.codigo == id);
-                    conexion.CodigoReferencia.Remove(itemToRemove);
+                    var itemToRemove = conexion.ConsecutivoDocElectronico.SingleOrDefault(x => x.emisor == id);
+                    conexion.ConsecutivoDocElectronico.Remove(itemToRemove);
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress
@@ -240,7 +260,9 @@ namespace Web.Pages.Catalogos
         {
             if (!this.ASPxGridView1.IsNewRowEditing)
             {
-                if (e.Column.FieldName == "codigo") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+                if (e.Column.FieldName == "emisor") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+                if (e.Column.FieldName == "sucursal") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+                if (e.Column.FieldName == "caja") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
             }
         }
 
@@ -269,6 +291,9 @@ namespace Web.Pages.Catalogos
             this.ASPxGridViewExporter1.WriteCsvToResponse();
         }
 
-        
+       
     }
 }
+
+
+ 

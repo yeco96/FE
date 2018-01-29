@@ -45,7 +45,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
         }
         /// <summary>
@@ -88,7 +88,7 @@ namespace Web.Pages.Catalogos
             {
                 foreach (var item in conexion.UnidadMedida.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
                 {
-                    comboUnidadMedida.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
+                    comboUnidadMedida.PropertiesComboBox.Items.Add(item.ToString(), item.codigo);
                 }
             }
 
@@ -131,8 +131,8 @@ namespace Web.Pages.Catalogos
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
                     dato.tipo = e.NewValues["tipo"] != null ? e.NewValues["tipo"].ToString().ToUpper() : null;
-                    dato.unidadMedida = e.NewValues["unidadMedida"] != null ? e.NewValues["unidadMedida"].ToString().ToUpper() : null;
-                    dato.precio = e.NewValues["precio"] != null ? double.Parse(e.NewValues["precio"].ToString()) : 0;
+                    dato.unidadMedida = e.NewValues["unidadMedida"] != null ? e.NewValues["unidadMedida"].ToString() : null;
+                    dato.precio = e.NewValues["precio"] != null ? decimal.Parse(e.NewValues["precio"].ToString()) : 0;
                     dato.emisor = ((EmisorReceptorIMEC)Session["emisor"]).identificacion;
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioCreacion = Session["usuario"].ToString();
@@ -160,8 +160,8 @@ namespace Web.Pages.Catalogos
                 // Join the list to a single string.
                 var fullErrorMessage = string.Join("; ", errorMessages);
 
-                // Combine the original exception message with the new one.
-                var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+                
+                
 
                // conexion.Producto.Remove(conexion.Producto.Last() );
 
@@ -171,7 +171,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             { 
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
             finally
             {
@@ -194,12 +194,13 @@ namespace Web.Pages.Catalogos
                     // se declara el objeto a insertar
                     Producto dato = new Producto();
                     //llena el objeto con los valores de la pantalla
-                    dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
+                    dato.id = e.NewValues["id"] != null ? long.Parse(e.NewValues["id"].ToString()) : 0;
 
                     //busca el objeto 
-                    dato = conexion.Producto.Find(dato.codigo);
+                    dato = conexion.Producto.Find(dato.id);
 
-                    dato.precio = e.NewValues["precio"] != null ? double.Parse(e.NewValues["precio"].ToString()) : 0;
+                    dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
+                    dato.precio = e.NewValues["precio"] != null ? decimal.Parse(e.NewValues["precio"].ToString()) : 0;
                     dato.emisor = ((EmisorReceptorIMEC)Session["emisor"]).identificacion;
                     dato.tipo = e.NewValues["tipo"] != null ? e.NewValues["tipo"].ToString().ToUpper() : null;
                     dato.unidadMedida = e.NewValues["unidadMedida"] != null ? e.NewValues["unidadMedida"].ToString(): null;
@@ -221,7 +222,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
             finally
             {
@@ -241,10 +242,10 @@ namespace Web.Pages.Catalogos
             {
                 using (var conexion = new DataModelFE())
                 {
-                    var id = e.Values["codigo"].ToString().ToUpper();
+                    var id = long.Parse(e.Values["id"].ToString());
 
                     //busca objeto
-                    var itemToRemove = conexion.Producto.SingleOrDefault(x => x.codigo == id);
+                    var itemToRemove = conexion.Producto.SingleOrDefault(x => x.id == id);
                     conexion.Producto.Remove(itemToRemove);
                     conexion.SaveChanges();
 
@@ -258,7 +259,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
             finally
             {
@@ -275,9 +276,13 @@ namespace Web.Pages.Catalogos
         /// <param name="e"></param>
         protected void ASPxGridView1_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
         {
-            if (!this.ASPxGridView1.IsNewRowEditing)
+            if (this.ASPxGridView1.IsNewRowEditing)
             {
-                if (e.Column.FieldName == "codigo") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+                if (e.Column.FieldName == "id") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; e.Editor.Value = 0; }
+            }
+            else
+            {
+                if (e.Column.FieldName == "id") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
             }
         }
 
@@ -306,20 +311,6 @@ namespace Web.Pages.Catalogos
             this.ASPxGridViewExporter1.WriteCsvToResponse();
         }
 
-        /// <summary>
-        /// errore personalizados
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void ASPxGridView1_CustomErrorText(object sender, ASPxGridViewCustomErrorTextEventArgs e)
-        {
-            if (e.Exception != null)
-            {
-                string error = e.Exception.InnerException.Message;
-                error = e.Exception.InnerException.InnerException.Message;
-
-                e.ErrorText = Utilidades.validarExepcionSQL(error);
-            }
-        }
+       
     }
 }

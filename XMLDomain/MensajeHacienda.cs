@@ -42,10 +42,10 @@ namespace XMLDomain
         public string mensajeDetalle{ set; get; }
         
         [XmlElement(ElementName = "MontoTotalImpuesto", Order = 10)]
-        public double montoTotalImpuesto { set; get; }
+        public decimal montoTotalImpuesto { set; get; }
 
         [XmlElement(ElementName = "TotalFactura", Order = 11)]
-        public double montoTotalFactura { set; get; }
+        public decimal montoTotalFactura { set; get; }
          
         /// <summary>
         /// CONSTRUCTOR
@@ -77,13 +77,13 @@ namespace XMLDomain
             string totalFactura = buscarValorEtiquetaXML("MensajeHacienda", "TotalFactura", xml);
             if (!String.IsNullOrWhiteSpace(totalFactura))
             {
-                this.montoTotalFactura = double.Parse(totalFactura); 
+                this.montoTotalFactura = decimal.Parse(totalFactura); 
             }
             
             string totalImpueto = buscarValorEtiquetaXML("MensajeHacienda", "MontoTotalImpuesto", xml);
             if (!String.IsNullOrWhiteSpace(totalFactura))
             {
-                this.montoTotalImpuesto = double.Parse(totalImpueto);
+                this.montoTotalImpuesto = decimal.Parse(totalImpueto);
             }
         }
 

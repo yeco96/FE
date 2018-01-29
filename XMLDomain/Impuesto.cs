@@ -16,6 +16,11 @@ namespace XMLDomain
         [XmlElement(ElementName = "Monto", Order = 3)]
         public decimal monto { set; get; }//tamaño 18,5  DGT
 
-        public Impuesto(){ }
+        [XmlElement(ElementName = "Exoneracion", Order = 4)]
+        public Exoneracion exoneracion;
+
+        public Impuesto(){
+            this.exoneracion = new Exoneracion();
+        }
     }
 }

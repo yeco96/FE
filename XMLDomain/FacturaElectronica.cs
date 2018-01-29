@@ -9,24 +9,19 @@ using System.Xml.Serialization;
 namespace XMLDomain
 {
     
-    [XmlRoot(ElementName = "FacturaElectronica" , Namespace = "https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica") ]  
-    
+    //[XmlRoot(ElementName = "FacturaElectronica" , Namespace = "https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica") ]  
     public class FacturaElectronica
-    {
-
-       // [XmlAttributeAttribute("schemaLocation", AttributeName = "FacturaElectronica", Namespace = "http://www.w3.org/2001/XMLSchema-instance")]
-       // public string SchemaLocation = "https://tribunet.hacienda.go.cr/docs/esquemas/2016/v4.2/facturaElectronica";
-
-        [XmlAttribute(Namespace = System.Xml.Schema.XmlSchema.InstanceNamespace)]
-        public string schemaLocation = "https://tribunet.hacienda.go.cr/docs/esquemas/2016/v4.2/facturaElectronica";
-
+    {  
+        [XmlIgnore]
+        public static string TIPO = "01";
+        
         [XmlElement(ElementName = "Clave", Order = 1)]
         public string clave { set; get; }
         [XmlElement(ElementName = "NumeroConsecutivo", Order = 2)]
         public string numeroConsecutivo { set; get; }
         
         [XmlElement(ElementName = "FechaEmision", Order = 3)]
-        public DateTime fechaEmision { set; get; }
+        public String fechaEmision { set; get; }
 
         [XmlElement(ElementName = "Emisor", Order = 4)]
         public Emisor emisor { set; get; }
@@ -74,13 +69,13 @@ namespace XMLDomain
           
         public void iniciarParametros()
         {
-            this.clave = "50608011800060354097400100001010000000024188888888";
-            this.numeroConsecutivo = "00100001010000000024";
-            this.fechaEmision = DateTime.Now;
+            this.clave = "50608011800060354097400100001010000000038188888888";
+            this.numeroConsecutivo = "00100001010000000038";
+            this.fechaEmision = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss") +"-06:00"; 
 
             this.emisor = new Emisor();
             this.emisor.nombre = "MAIKOL JESUS SALAMANCA ARIAS";
-            this.emisor.identificacion.tipo = "1";
+            this.emisor.identificacion.tipo = "01";
             this.emisor.identificacion.numero = "603540974";
             this.emisor.nombreComercial = "MSA SOFT";
             this.emisor.ubicacion.provincia = "4";
@@ -95,7 +90,7 @@ namespace XMLDomain
             this.emisor.correoElectronico = "jupmasalamanca@gmail.com";
             this.receptor = new Receptor();
             this.receptor.nombre = "Andrea Santamaria Quesada";
-            this.receptor.identificacion.tipo = "1";
+            this.receptor.identificacion.tipo = "01";
             this.receptor.identificacion.numero = "207550498";
             this.receptor.nombreComercial = "MSA SOFT";
             this.receptor.ubicacion.provincia ="4";
@@ -124,10 +119,12 @@ namespace XMLDomain
             lineaDetalle.unidadMedida = "1";
             lineaDetalle.detalle = "COMBO INDIRECTO";
             lineaDetalle.precioUnitario = 1900000000;
-            lineaDetalle.montoTotal = 1900000000;
+            //lineaDetalle.montoTotal = 1900000000;
             lineaDetalle.montoDescuento = 380000000;
-            lineaDetalle.naturalezaDescuento = "Descuento";
-            lineaDetalle.subTotal = 152000000;
+            lineaDetalle.naturalezaDescuento = "PRMOCION";
+            //lineaDetalle.subTotal = lineaDetalle.precioUnitario * lineaDetalle.cantidad;
+            //lineaDetalle.montoTotalLinea = 152000000;
+            lineaDetalle.calcularMontos();
 
             this.detalleServicio.lineaDetalle.Add(lineaDetalle);
 
@@ -151,6 +148,11 @@ namespace XMLDomain
             this.normativa.fechaResolucion = "07-10-2016 08:00:00";
             
             //  valores para la firma
+
+        }
+
+        public void verificaParametros()
+        {
 
         }
 
