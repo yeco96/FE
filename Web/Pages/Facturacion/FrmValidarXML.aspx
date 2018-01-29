@@ -45,14 +45,135 @@
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
 
-                    <dx:LayoutItem Caption=" ">
+                    <dx:LayoutItem Caption="Clave">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxMemo ID="txtXML" runat="server" Width="170px"></dx:ASPxMemo>
+                                <dx:ASPxTextBox ID="txtClave" runat="server" Width="400px" Enabled="false">
+                                    <ValidationSettings>
+                                        <RequiredField IsRequired="true" />
+                                    </ValidationSettings>
+                                </dx:ASPxTextBox>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
-                    
+
+                    <dx:LayoutItem Caption=" ">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                                
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+
+                    <dx:LayoutItem Caption="Número Cédula Emisor">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                                <dx:ASPxTextBox ID="txtNumCedEmisor" runat="server" Width="400px" Enabled="false">
+                                    <ValidationSettings>
+                                        <RequiredField IsRequired="true" />
+                                    </ValidationSettings>
+                                </dx:ASPxTextBox>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+
+                    <dx:LayoutItem Caption="Fecha del Emisor">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                                <dx:ASPxTextBox ID="txtFechaEmisor" runat="server" Width="400px" Enabled="false">
+                                    <ValidationSettings>
+                                        <RequiredField IsRequired="true" />
+                                    </ValidationSettings>
+                                </dx:ASPxTextBox>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+
+                    <dx:LayoutItem Caption="Mensaje">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                                <dx:ASPxComboBox ID="cmbMensaje" runat="server" SelectedIndex="0" Width="400px">
+                                    <Items>
+                                        <dx:ListEditItem Selected="True" Text="Aceptado" Value="0" />
+                                        <dx:ListEditItem Selected="True" Text="Rechazado Parcial" Value="1" />
+                                        <dx:ListEditItem Text="Rechazado" Value="2" />
+                                    </Items>
+                                </dx:ASPxComboBox>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+
+                    <dx:LayoutItem Caption=" ">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                                
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+
+                    <dx:LayoutItem Caption="Detalle del Mensaje">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                                <dx:ASPxMemo ID="txtDetalleMensaje" runat="server" Width="400px" Height="100px">
+                                </dx:ASPxMemo>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+
+                    <dx:LayoutItem Caption=" ">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                                
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+
+                    <dx:LayoutItem Caption="Monto Total Impuesto">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                                <dx:ASPxTextBox ID="txtMontoTotalImpuesto" runat="server" Width="400px" Enabled="false" PropertiesTextEdit-DisplayFormatString="c2">
+                                </dx:ASPxTextBox>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+
+                    <dx:LayoutItem Caption="Total Factura">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                                <dx:ASPxTextBox ID="txtTotalFactura" runat="server" Width="400px" Enabled="false" PropertiesTextEdit-DisplayFormatString="c2">
+                                    <ValidationSettings>
+                                        <RequiredField IsRequired="true" />
+                                    </ValidationSettings>
+                                </dx:ASPxTextBox>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+
+                    <dx:LayoutItem Caption="Número Cédula del Receptor">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                                <dx:ASPxTextBox ID="txtNumCedReceptor" runat="server" Width="400px" Enabled="false">
+                                    <ValidationSettings>
+                                        <RequiredField IsRequired="true" />
+                                    </ValidationSettings>
+                                </dx:ASPxTextBox>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+
+                    <dx:LayoutItem Caption="Número Consecutivo Receptor">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                                <dx:ASPxTextBox ID="txtNumConsecReceptor" runat="server" Width="400px" Enabled="false">
+                                    <ValidationSettings>
+                                        <RequiredField IsRequired="true" />
+                                    </ValidationSettings>
+                                </dx:ASPxTextBox>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+
+
                 </Items>
 
             </dx:LayoutGroup>
@@ -61,120 +182,5 @@
         </Items>
 
     </dx:ASPxFormLayout>
-    <table style="width: 100%;">
-        <tr>
-            <td>
-                <dx:ASPxLabel ID="lblClave" runat="server" Text="Clave : "></dx:ASPxLabel>
-            </td>
-            <td>
-                <dx:ASPxTextBox ID="txtClave" runat="server" Width="170px" Enabled="false">
-                    <ValidationSettings>
-                        <RequiredField IsRequired="true" />
-                    </ValidationSettings>
-                </dx:ASPxTextBox>
-            </td>
-        </tr>
 
-        <tr>
-            <td>
-                <dx:ASPxLabel ID="lblNumCedEmisor" runat="server" Text="Número Cédula Emisor : "></dx:ASPxLabel>
-            </td>
-            <td>
-                <dx:ASPxTextBox ID="txtNumCedEmisor" runat="server" Width="170px" Enabled="false">
-                    <ValidationSettings>
-                        <RequiredField IsRequired="true" />
-                    </ValidationSettings>
-                </dx:ASPxTextBox>
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                <dx:ASPxLabel ID="lblFechaEmisor" runat="server" Text="Fecha Emisor : "></dx:ASPxLabel>
-            </td>
-            <td>
-                <dx:ASPxTextBox ID="txtFechaEmisor" runat="server" Width="170px" Enabled="false">
-                    <ValidationSettings>
-                        <RequiredField IsRequired="true" />
-                    </ValidationSettings>
-                </dx:ASPxTextBox>
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                <dx:ASPxLabel ID="lblmensaje" runat="server" Text="Mensaje : "></dx:ASPxLabel>
-            </td>
-            <td>
-                <dx:ASPxComboBox ID="cmbMensaje" runat="server" SelectedIndex="0">
-                    <Items>
-                        <dx:ListEditItem Selected="True" Text="Aceptado" Value="0" />
-                        <dx:ListEditItem Selected="True" Text="Rechazado Parcial" Value="1" />
-                        <dx:ListEditItem Text="Rechazado" Value="2" />
-                    </Items>
-                </dx:ASPxComboBox>
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                <dx:ASPxLabel ID="lblDetalleMensaje" runat="server" Text="Detalle Mensaje : "></dx:ASPxLabel>
-            </td>
-            <td>
-                <%--<dx:ASPxMemo ID="txtDetalleMensaje" runat="server" Height="71px" Width="170px">
-                </dx:ASPxMemo>--%>
-                <dx:ASPxTextBox ID="ASPxTextBox1" runat="server" Width="170px" Enabled="false">
-                </dx:ASPxTextBox>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <dx:ASPxLabel ID="lblMontotalImpuesto" runat="server" Text="Monto Total Impuesto : "></dx:ASPxLabel>
-            </td>
-            <td>
-                <dx:ASPxTextBox ID="txtMontoTotalImpuesto" runat="server" Width="170px" Enabled="false">
-                </dx:ASPxTextBox>
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                <dx:ASPxLabel ID="lblTotalFactura" runat="server" Text="Total Factura : "></dx:ASPxLabel>
-            </td>
-            <td>
-                <dx:ASPxTextBox ID="txtTotalFactura" runat="server" Width="170px" Enabled="false">
-                    <ValidationSettings>
-                        <RequiredField IsRequired="true" />
-                    </ValidationSettings>
-                </dx:ASPxTextBox>
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                <dx:ASPxLabel ID="lblNumCedReceptor" runat="server" Text="Número Cédula Receptor : "></dx:ASPxLabel>
-            </td>
-            <td>
-                <dx:ASPxTextBox ID="txtNumCedReceptor" runat="server" Width="170px" Enabled="false">
-                    <ValidationSettings>
-                        <RequiredField IsRequired="true" />
-                    </ValidationSettings>
-                </dx:ASPxTextBox>
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                <dx:ASPxLabel ID="lblNumConsecReceptor" runat="server" Text="Número Consecutivo Receptor : "></dx:ASPxLabel>
-            </td>
-            <td>
-                <dx:ASPxTextBox ID="txtNumConsecReceptor" runat="server" Width="170px" Enabled="false">
-                    <ValidationSettings>
-                        <RequiredField IsRequired="true" />
-                    </ValidationSettings>
-                </dx:ASPxTextBox>
-            </td>
-        </tr>
-
-    </table>
 </asp:Content>

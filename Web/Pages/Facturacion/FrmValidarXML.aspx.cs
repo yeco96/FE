@@ -26,10 +26,6 @@ namespace Web.Pages.Facturacion
             {
                 string file = Convert.ToBase64String(e.UploadedFile.FileBytes);
                 Session["xmlFileValidar"] = EncondeXML.base64Decode(file);
-
-                string file1 = Convert.ToBase64String(e.UploadedFile.FileBytes);
-                Session["xmlFile"] = EncondeXML.base64Decode(file1);
-
             }
             catch (Exception ex)
             {
@@ -40,23 +36,26 @@ namespace Web.Pages.Facturacion
         protected void btnCargarDatos_Click(object sender, EventArgs e)
         {
 
-            string str = Session["xmlFile"].ToString();
-            txtXML.Text = str;
-            txtClave.Text = valores(str);
-            
+            string str = Session["xmlFileValidar"].ToString();
+            txtClave.Text = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(str), "Clave", str);
+            //Emisor
+            string emisorIdentificacion= EncondeXML.buscarValorEtiquetaXML("Emisor", "Identificacion", str);
+            txtNumCedEmisor.Text = emisorIdentificacion.Substring(1);
+            txtFechaEmisor.Text = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(str), "FechaEmision", str);
+            //Factura
+            double totalImpuesto = Convert.ToDouble(EncondeXML.buscarValorEtiquetaXML("ResumenFactura", "TotalImpuesto", str));
+            txtMontoTotalImpuesto.Text = string.Format("{0:C}",totalImpuesto);
+            double totalFactura = Convert.ToDouble(EncondeXML.buscarValorEtiquetaXML("ResumenFactura", "TotalComprobante", str));
+            txtTotalFactura.Text = string.Format("{0:C}", totalFactura);
+
+            //Receptor
+            string receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", str);
+            txtNumCedReceptor.Text = receptorIdentificacion.Substring(1);
+            txtNumConsecReceptor.Text = "";
+
 
         }
 
-        private static string valores(string pXML)
-        {
-            string dato = "";
-            
-            dato = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(pXML),"Clave",pXML);
-
-
-
-            return dato;
-        }
 
     }
 }

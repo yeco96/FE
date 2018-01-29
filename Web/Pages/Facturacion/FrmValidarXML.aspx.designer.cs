@@ -31,24 +31,6 @@ namespace Web.Pages.Facturacion {
         protected global::DevExpress.Web.ASPxButton btnCargarDatos;
         
         /// <summary>
-        /// Control txtXML.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxMemo txtXML;
-        
-        /// <summary>
-        /// Control lblClave.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblClave;
-        
-        /// <summary>
         /// Control txtClave.
         /// </summary>
         /// <remarks>
@@ -56,15 +38,6 @@ namespace Web.Pages.Facturacion {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTextBox txtClave;
-        
-        /// <summary>
-        /// Control lblNumCedEmisor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblNumCedEmisor;
         
         /// <summary>
         /// Control txtNumCedEmisor.
@@ -76,15 +49,6 @@ namespace Web.Pages.Facturacion {
         protected global::DevExpress.Web.ASPxTextBox txtNumCedEmisor;
         
         /// <summary>
-        /// Control lblFechaEmisor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblFechaEmisor;
-        
-        /// <summary>
         /// Control txtFechaEmisor.
         /// </summary>
         /// <remarks>
@@ -92,15 +56,6 @@ namespace Web.Pages.Facturacion {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTextBox txtFechaEmisor;
-        
-        /// <summary>
-        /// Control lblmensaje.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblmensaje;
         
         /// <summary>
         /// Control cmbMensaje.
@@ -112,31 +67,13 @@ namespace Web.Pages.Facturacion {
         protected global::DevExpress.Web.ASPxComboBox cmbMensaje;
         
         /// <summary>
-        /// Control lblDetalleMensaje.
+        /// Control txtDetalleMensaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblDetalleMensaje;
-        
-        /// <summary>
-        /// Control ASPxTextBox1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox ASPxTextBox1;
-        
-        /// <summary>
-        /// Control lblMontotalImpuesto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblMontotalImpuesto;
+        protected global::DevExpress.Web.ASPxMemo txtDetalleMensaje;
         
         /// <summary>
         /// Control txtMontoTotalImpuesto.
@@ -148,15 +85,6 @@ namespace Web.Pages.Facturacion {
         protected global::DevExpress.Web.ASPxTextBox txtMontoTotalImpuesto;
         
         /// <summary>
-        /// Control lblTotalFactura.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblTotalFactura;
-        
-        /// <summary>
         /// Control txtTotalFactura.
         /// </summary>
         /// <remarks>
@@ -166,15 +94,6 @@ namespace Web.Pages.Facturacion {
         protected global::DevExpress.Web.ASPxTextBox txtTotalFactura;
         
         /// <summary>
-        /// Control lblNumCedReceptor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblNumCedReceptor;
-        
-        /// <summary>
         /// Control txtNumCedReceptor.
         /// </summary>
         /// <remarks>
@@ -182,15 +101,6 @@ namespace Web.Pages.Facturacion {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTextBox txtNumCedReceptor;
-        
-        /// <summary>
-        /// Control lblNumConsecReceptor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblNumConsecReceptor;
         
         /// <summary>
         /// Control txtNumConsecReceptor.
