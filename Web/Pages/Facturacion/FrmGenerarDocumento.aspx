@@ -2,7 +2,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 
-
+    <section class="featured">
+        <div class="content-wrapper">
+            Documento Electrónico
+        </div>
+    </section>
     <dx:ASPxPageControl ID="documento" Width="100%" runat="server" ActiveTabIndex="0" EnableHierarchyRecreation="True">
         <TabPages>
             <dx:TabPage Text="Emisor">

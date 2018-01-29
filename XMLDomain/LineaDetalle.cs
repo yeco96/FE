@@ -23,13 +23,13 @@ namespace XMLDomain
         public string detalle { set; get; }//tamaño 160 DGT
         [XmlElement(ElementName = "PrecioUnitario", Order = 7)]
         public decimal precioUnitario { set; get; }//tamaño 18,3 DGT
-         
+
         /// <summary>
         //Se obtiene de multiplicar el campo cantidad por el campo precio unitario tamaño 18,3 DGT 
         /// </summary>
         [XmlElement(ElementName = "MontoTotal", Order = 8)]
         public decimal montoTotal { set; get; }
-        
+
         [XmlElement(ElementName = "MontoDescuento", Order = 9)]
         public decimal montoDescuento { set; get; }//tamaño 18,3 DGT
 
@@ -64,9 +64,10 @@ namespace XMLDomain
         /// <summary>
         /// 
         /// </summary>
-        public LineaDetalle() {
+        public LineaDetalle()
+        {
             this.codigo = new Codigo();
-            //this.impuesto = new  List<Impuesto>();
+            this.impuestos = new List<Impuesto>();
             this.montoTotal = 0;
             this.montoDescuento = 0;
             this.precioUnitario = 0;
@@ -79,7 +80,7 @@ namespace XMLDomain
         public void calcularMontos()
         {
             this.montoTotal = this.precioUnitario * this.cantidad;
-            this.subTotal =  this.montoTotal - this.montoDescuento;
+            this.subTotal = this.montoTotal - this.montoDescuento;
 
             if (this.impuestos != null)
             {
@@ -90,12 +91,24 @@ namespace XMLDomain
                 this.montoTotalLinea = this.subTotal;
             }
 
-            if(this.montoDescuento > 0)
+            if (this.montoDescuento > 0)
             {
                 this.naturalezaDescuento = null;
             }
 
         }
 
+
+        /// <summary>
+        /// Este método determina los valores que no tienen datos y los asigna NULL para que no se generen los notos
+        /// </summary>
+        public void verificaDatosParaXML()
+        {
+            if (this.impuestos.Count == 0)
+            {
+                this.impuestos = null;
+            }
+
+        }
     }
 }
