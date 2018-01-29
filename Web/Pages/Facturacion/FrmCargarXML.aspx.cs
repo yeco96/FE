@@ -1,4 +1,5 @@
-﻿using EncodeXML;
+﻿using Class.Utilidades;
+using EncodeXML;
 using FirmaXadesNet;
 using Newtonsoft.Json;
 using OAuth2;
@@ -63,7 +64,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
         }
 
@@ -81,14 +82,14 @@ namespace Web.Pages.Facturacion
                     dato = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == usuario).FirstOrDefault();
                 }
 
-                string xmlFileSigned = FirmaXML.getXMLFirmadoWeb(xmlFile, dato.llaveCriptografica, dato.claveLlaveCriptografica);
+                string xmlFileSigned = FirmaXML.getXMLFirmadoWeb(xmlFile, dato.llaveCriptografica, dato.claveLlaveCriptografica.ToString());
                 Session["xmlFile"] = xmlFileSigned;
 
                 this.loadHTML();
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
         }
 
@@ -142,7 +143,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
         }
 

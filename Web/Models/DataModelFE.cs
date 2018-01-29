@@ -21,6 +21,7 @@ namespace Web.Models
         public virtual DbSet<CodigoPais> CodigoPais { get; set; }
         public virtual DbSet<CodigoReferencia> CodigoReferencia { get; set; }
         //public virtual DbSet<Distrito> Distrito { get; set; }
+        public virtual DbSet<ConsecutivoDocElectronico> ConsecutivoDocElectronico { get; set; } 
         public virtual DbSet<Exoneracion> Exoneracion { get; set; }
         public virtual DbSet<MedioPago> MedioPago { get; set; }
         //public virtual DbSet<Provincia> Provincia { get; set; }

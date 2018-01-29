@@ -50,9 +50,9 @@ namespace WSDomain
         public string receptorIdentificacion { set; get; }
 
         [JsonIgnore]
-        public double montoTotalImpuesto { set; get; }
+        public decimal montoTotalImpuesto { set; get; }
         [JsonIgnore]
-        public double montoTotalFactura { set; get; }
+        public decimal montoTotalFactura { set; get; }
 
 
         /// <summary>
@@ -84,6 +84,19 @@ namespace WSDomain
         // public virtual Usuario UsuarioModificacion { get; set; }
         [JsonIgnore]
         public virtual EmisorReceptor Receptor { set; get; }
+
+        /// <summary>
+        /// carga los datos del emisor y recetor a las variables mateadas a la base de datos
+        /// </summary>
+        public void cargarEmisorReceptor()
+        {
+            this.emisorIdentificacion = this.emisor.numeroIdentificacion;
+            this.emisorTipo = this.emisor.tipoIdentificacion;
+
+            this.receptorIdentificacion = this.receptor.numeroIdentificacion;
+            this.receptorTipo = this.receptor.tipoIdentificacion;
+
+        }
 
     }
 }

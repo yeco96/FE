@@ -10,7 +10,7 @@
 namespace Web.Pages.Catalogos {
     
     
-    public partial class FrmEmisorReceptor {
+    public partial class FrmReceptor {
         
         /// <summary>
         /// documento control.
@@ -22,166 +22,130 @@ namespace Web.Pages.Catalogos {
         protected global::DevExpress.Web.ASPxPageControl documento;
         
         /// <summary>
-        /// cmbEmisorTipo control.
+        /// cmbReceptorTipo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbEmisorTipo;
+        protected global::DevExpress.Web.ASPxComboBox cmbReceptorTipo;
         
         /// <summary>
-        /// txtEmisorIdentificacion control.
+        /// txtReceptorIdentificacion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxSpinEdit txtEmisorIdentificacion;
+        protected global::DevExpress.Web.ASPxSpinEdit txtReceptorIdentificacion;
         
         /// <summary>
-        /// txtEmisorNombre control.
+        /// txtReceptorNombre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txtEmisorNombre;
+        protected global::DevExpress.Web.ASPxTextBox txtReceptorNombre;
         
         /// <summary>
-        /// txtEmisorNombreComercial control.
+        /// txtReceptorNombreComercial control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txtEmisorNombreComercial;
+        protected global::DevExpress.Web.ASPxTextBox txtReceptorNombreComercial;
         
         /// <summary>
-        /// cmbEmisorTelefonoCod control.
+        /// cmbReceptorTelefonoCod control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbEmisorTelefonoCod;
+        protected global::DevExpress.Web.ASPxComboBox cmbReceptorTelefonoCod;
         
         /// <summary>
-        /// txtEmisorTelefono control.
+        /// txtReceptorTelefono control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxSpinEdit txtEmisorTelefono;
+        protected global::DevExpress.Web.ASPxSpinEdit txtReceptorTelefono;
         
         /// <summary>
-        /// cmbEmisorFaxCod control.
+        /// cmbReceptorFaxCod control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbEmisorFaxCod;
+        protected global::DevExpress.Web.ASPxComboBox cmbReceptorFaxCod;
         
         /// <summary>
-        /// txtEmisorFax control.
+        /// txtReceptorFax control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxSpinEdit txtEmisorFax;
+        protected global::DevExpress.Web.ASPxSpinEdit txtReceptorFax;
         
         /// <summary>
-        /// txtEmisorCorreo control.
+        /// txtReceptorCorreo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txtEmisorCorreo;
+        protected global::DevExpress.Web.ASPxTextBox txtReceptorCorreo;
         
         /// <summary>
-        /// cmbEmisorProvincia control.
+        /// cmbReceptorProvincia control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbEmisorProvincia;
+        protected global::DevExpress.Web.ASPxComboBox cmbReceptorProvincia;
         
         /// <summary>
-        /// cmbEmisorCanton control.
+        /// cmbReceptorCanton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbEmisorCanton;
+        protected global::DevExpress.Web.ASPxComboBox cmbReceptorCanton;
         
         /// <summary>
-        /// cmbEmisorDistrito control.
+        /// cmbReceptorDistrito control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbEmisorDistrito;
+        protected global::DevExpress.Web.ASPxComboBox cmbReceptorDistrito;
         
         /// <summary>
-        /// cmbEmisorBarrio control.
+        /// cmbReceptorBarrio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbEmisorBarrio;
+        protected global::DevExpress.Web.ASPxComboBox cmbReceptorBarrio;
         
         /// <summary>
-        /// txtEmisorOtraSenas control.
+        /// txtReceptorOtraSenas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxMemo txtEmisorOtraSenas;
-        
-        /// <summary>
-        /// p12UploadControl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxUploadControl p12UploadControl;
-        
-        /// <summary>
-        /// txtClaveLlaveCriptografica control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxSpinEdit txtClaveLlaveCriptografica;
-        
-        /// <summary>
-        /// txtUsernameOAuth2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txtUsernameOAuth2;
-        
-        /// <summary>
-        /// txtPasswordOAuth2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txtPasswordOAuth2;
+        protected global::DevExpress.Web.ASPxMemo txtReceptorOtraSenas;
         
         /// <summary>
         /// btnActualizar control.
@@ -193,13 +157,13 @@ namespace Web.Pages.Catalogos {
         protected global::DevExpress.Web.ASPxButton btnActualizar;
         
         /// <summary>
-        /// lblMensaje control.
+        /// alertMessages control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblMensaje;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertMessages;
         
         /// <summary>
         /// ASPxGridView1 control.

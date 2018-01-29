@@ -18,15 +18,26 @@ namespace Web {
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
-             
-            if (Session["usuario"] == null) {  
-                using (var conexion = new DataModelFE())
+            try {
+                Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
+
+                if (!Request.Url.Segments[Request.Url.Segments.Length - 1].Contains("DefaultRedirectErrorPage"))
                 {
-                    EmisorReceptorIMEC emisor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == "603540974").FirstOrDefault();
-                    Session["usuario"] = emisor.identificacion;
-                    Session["emisor"] = emisor;
+                    if (Session["usuario"] == null)
+                    {
+                        using (var conexion = new DataModelFE())
+                        {
+                            EmisorReceptorIMEC emisor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == "603540974").FirstOrDefault();
+                            Session["usuario"] = emisor.identificacion;
+                            Session["emisor"] = emisor;
+                        }
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Session["error"] = ex.Message;
+                Response.Redirect("~/Pages/Error/DefaultRedirectErrorPage.aspx");
             }
 
 

@@ -218,7 +218,7 @@
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
             Width="100%" EnableTheming="True" KeyFieldName="identificacionTipo;identificacion" Theme="Moderno"
             OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize"
-            OnCustomErrorText="ASPxGridView1_CustomErrorText"
+            
             OnRowDeleting="ASPxGridView1_RowDeleting"
             OnRowInserting="ASPxGridView1_RowInserting"
             OnRowUpdating="ASPxGridView1_RowUpdating">

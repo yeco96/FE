@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace XMLDomain
 {
-    [XmlRoot(ElementName = "TiqueteElectronico", Namespace = "https://tribunet.hacienda.go.cr/docs/esquemas/2016/v4.2/TiqueteElectronico")]
+    //[XmlRoot(ElementName = "TiqueteElectronico", Namespace = "https://tribunet.hacienda.go.cr/docs/esquemas/2016/v4.2/tiqueteElectronico")]
     public class TiqueteElectronico
     {
         [XmlElement(ElementName = "Clave", Order = 1)]

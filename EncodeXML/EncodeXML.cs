@@ -126,28 +126,69 @@ namespace EncodeXML
         /// <param name="o"></param>
         /// <returns></returns>
         public static string getXMLFromObject(object o)
-        { 
+        {
+            string xml = "";
+            string tipo_documento = "";
+            string nodo_inicial = "";
             stringWriterUtf8 sw = new stringWriterUtf8(); 
             XmlTextWriter tw = null;
             try
             {  
                 XmlSerializer serializer = new XmlSerializer(o.GetType());
                 tw = new XmlTextWriter(sw);
-
-                if(typeof(FacturaElectronica) == o.GetType()) { 
-                    tw.WriteStartElement("FacturaElectronica");
-                    tw.WriteAttributeString("xmlns", null, "https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica");
-                    tw.WriteAttributeString("xmlns", "xsd", null, "https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica");
-                    tw.WriteAttributeString("xmlns", "xs", null, "http://www.w3.org/2001/XMLSchema");
-                    tw.WriteAttributeString("xmlns", "vc", null, "http://www.w3.org/2007/XMLSchema-versioning");
-                    tw.WriteAttributeString("xmlns", "ds", null, "http://www.w3.org/2000/09/xmldsig#");
-                    tw.WriteEndElement();
-                    tw.Flush();
-                }
-
+                
                 serializer.Serialize(tw, o); 
                 tw.Indentation = (Int32)Formatting.Indented;
-            
+
+                if (typeof(FacturaElectronica) == o.GetType())
+                {
+                    tipo_documento = "facturaElectronica";
+                    nodo_inicial = "FacturaElectronica ";
+                } 
+                if (typeof(NotaCreditoElectronica) == o.GetType())
+                {
+                    tipo_documento = "notaCreditoElectronica";
+                    nodo_inicial = "NotaCreditoElectronica ";
+                }
+                if (typeof(NotaDebitoElectronica) == o.GetType())
+                {
+                    tipo_documento = "notaDebitoElectronica";
+                    nodo_inicial = "NotaDebitoElectronica ";
+                }
+                if (typeof(TiqueteElectronico) == o.GetType())
+                {
+                    tipo_documento = "tiqueteElectronico";
+                    nodo_inicial = "TiqueteElectronico ";
+                }
+                xml = sw.ToString();
+                //FacturaElectronica xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                //xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                //xmlns ="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica"
+
+                xml = xml.Replace("http://www.w3.org/2001/XMLSchema-instance", "XSI");// esto es solo para que no se reemplace por el de abajo
+                xml = xml.Replace("http://www.w3.org/2001/XMLSchema", "https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/" + tipo_documento );
+
+                xml = xml.Replace("XSI","http://www.w3.org/2001/XMLSchema-instance");
+
+
+                string new_atribute = nodo_inicial + " ";
+               // string new_atribute = nodo_inicial + "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ";
+                new_atribute += "xmlns=\"https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/" + tipo_documento + "\" ";
+                ///new_atribute += "xmlns:xsd=\"https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/" + tipo_documento + "\" ";
+                new_atribute += "xmlns:xs=\"http://www.w3.org/2001/XMLSchema" + "\" ";
+               // new_atribute += "xmlns:vc=\"http://www.w3.org/2007/XMLSchema-versioning" + "\" ";
+                //new_atribute += "xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#a" + "\" "; 
+
+                xml = xml.Replace(nodo_inicial, new_atribute);
+                 
+                //tw.WriteAttributeString("xmlns", null, "https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica");
+                //tw.WriteAttributeString("xmlns", "xsd", null, "https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica");
+                //tw.WriteAttributeString("xmlns", "xs", null, "http://www.w3.org/2001/XMLSchema");
+                //tw.WriteAttributeString("xmlns", "vc", null, "http://www.w3.org/2007/XMLSchema-versioning");
+                //tw.WriteAttributeString("xmlns", "ds", null, "http://www.w3.org/2000/09/xmldsig#");
+             
+
+
             }
             catch (Exception ex)
             {
@@ -161,7 +202,7 @@ namespace EncodeXML
                     tw.Close();
                 }
             }
-            return sw.ToString();
+            return xml;
         }
 
 

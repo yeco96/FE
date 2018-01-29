@@ -135,6 +135,7 @@
     <Content Include="Pages\Catalogos\FrmCatalogoTipoProductoServicio.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoUbicacion.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoProducto.aspx" />
+    <Content Include="Pages\Facturacion\FrmConsecutivoDocElectronico.aspx" />
     <Content Include="Pages\Contacts.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoCodigoReferencia.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoMedioPago.aspx" />
@@ -147,8 +148,9 @@
     <Content Include="Pages\Error\Http404ErrorPage.aspx" />
     <Content Include="Pages\Facturacion\FrmCargarXML.aspx" />
     <Content Include="Pages\Facturacion\FrmDocumentoElectronico.aspx" />
+    <Content Include="Pages\Facturacion\FrmReceptor.aspx" />
     <Content Include="Pages\Facturacion\FrmEmisorReceptorAdministrador.aspx" />
-    <Content Include="Pages\Facturacion\FrmEmisorReceptor.aspx" />
+    <Content Include="Pages\Facturacion\FrmEmisor.aspx" />
     <Content Include="Pages\Facturacion\FrmGenerarDocumento.aspx" />
     <Content Include="Pages\Home.aspx" />
     <Content Include="Pages\Search.aspx" />
@@ -157,6 +159,7 @@
     <Content Include="Scripts\jquery-1.12.2.min.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\site.js" />
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Service References\ServiceReferenceBCCR\wsIndicadoresEconomicos.disco" />
@@ -215,6 +218,7 @@
     <Compile Include="Models\Catalogos\CodigoReferencia.cs" />
     <Compile Include="Models\Catalogos\CondicionVenta.cs" />
     <Compile Include="Models\Catalogos\CodigoPais.cs" />
+    <Compile Include="Models\Facturacion\ConsecutivoDocElectronico.cs" />
     <Compile Include="Models\Catalogos\Ubicacion.cs" />
     <Compile Include="Models\Catalogos\Producto.cs" />
     <Compile Include="Models\Configuracion\ConfiguracionAPP.cs" />
@@ -273,6 +277,13 @@
     </Compile>
     <Compile Include="Pages\Catalogos\FrmCatalogoProducto.aspx.designer.cs">
       <DependentUpon>FrmCatalogoProducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmConsecutivoDocElectronico.aspx.cs">
+      <DependentUpon>FrmConsecutivoDocElectronico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmConsecutivoDocElectronico.aspx.designer.cs">
+      <DependentUpon>FrmConsecutivoDocElectronico.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Contacts.aspx.cs">
       <DependentUpon>Contacts.aspx</DependentUpon>
@@ -359,6 +370,13 @@
     <Compile Include="Pages\Facturacion\FrmDocumentoElectronico.aspx.designer.cs">
       <DependentUpon>FrmDocumentoElectronico.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Facturacion\FrmReceptor.aspx.cs">
+      <DependentUpon>FrmReceptor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmReceptor.aspx.designer.cs">
+      <DependentUpon>FrmReceptor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Facturacion\FrmEmisorReceptorAdministrador.aspx.cs">
       <DependentUpon>FrmEmisorReceptorAdministrador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -366,12 +384,12 @@
     <Compile Include="Pages\Facturacion\FrmEmisorReceptorAdministrador.aspx.designer.cs">
       <DependentUpon>FrmEmisorReceptorAdministrador.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Facturacion\FrmEmisorReceptor.aspx.cs">
-      <DependentUpon>FrmEmisorReceptor.aspx</DependentUpon>
+    <Compile Include="Pages\Facturacion\FrmEmisor.aspx.cs">
+      <DependentUpon>FrmEmisor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Facturacion\FrmEmisorReceptor.aspx.designer.cs">
-      <DependentUpon>FrmEmisorReceptor.aspx</DependentUpon>
+    <Compile Include="Pages\Facturacion\FrmEmisor.aspx.designer.cs">
+      <DependentUpon>FrmEmisor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Facturacion\FrmGenerarDocumento.aspx.cs">
       <DependentUpon>FrmGenerarDocumento.aspx</DependentUpon>

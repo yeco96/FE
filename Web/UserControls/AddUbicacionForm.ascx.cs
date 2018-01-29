@@ -1,3 +1,4 @@
+using Class.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace Web.UserControls {
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
         }
     }

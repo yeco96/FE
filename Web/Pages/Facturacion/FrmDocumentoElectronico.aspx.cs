@@ -37,7 +37,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             } 
         }
 
@@ -61,7 +61,7 @@ namespace Web.Pages.Facturacion
         {
             using (var conexion = new DataModelWS())
             {
-                this.ASPxGridView1.DataSource = conexion.WSRecepcionPOST.ToList();
+                this.ASPxGridView1.DataSource = conexion.WSRecepcionPOST.OrderByDescending(x=>x.fecha).ToList();
                 this.ASPxGridView1.DataBind();
             }
         }
@@ -131,7 +131,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
             finally
             {
@@ -178,22 +178,6 @@ namespace Web.Pages.Facturacion
         protected void exportarCSV_Click(object sender, ImageClickEventArgs e)
         {
             this.ASPxGridViewExporter1.WriteCsvToResponse();
-        }
-
-        /// <summary>
-        /// errore personalizados
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void ASPxGridView1_CustomErrorText(object sender, ASPxGridViewCustomErrorTextEventArgs e)
-        {
-            if (e.Exception != null)
-            {
-                string error = e.Exception.InnerException.Message;
-                error = e.Exception.InnerException.InnerException.Message;
-
-               throw new Exception(Utilidades.validarExepcionSQL(error), e.Exception.InnerException);
-            }
         }
 
         protected void ASPxGridView1_DetailRowExpandedChanged(object sender, ASPxGridViewDetailRowEventArgs e)

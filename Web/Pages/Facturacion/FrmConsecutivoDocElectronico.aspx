@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmCatalogoProducto.aspx.cs" Inherits="Web.Pages.Catalogos.FrmCatalogoProducto" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmConsecutivoDocElectronico.aspx.cs" Inherits="Web.Pages.Facturacion.FrmConsecutivoDocElectronico" %>
+
 
 <%@ Register Src="~/UserControls/AddAuditoriaForm.ascx" TagPrefix="user" TagName="AddAuditoriaForm" %>
 
@@ -6,56 +7,48 @@
 
     <section class="featured">
         <div class="content-wrapper">
-            Mantenimiento Producto
+            Mantenimiento Consecutivo Documento Electrónico 
         </div>
     </section>
     <div class="borde_redondo_tabla">
 
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
-            Width="100%" EnableTheming="True" KeyFieldName="id" Theme="Moderno" 
-            OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize"
-             
+            Width="100%" EnableTheming="True" KeyFieldName="emisor;sucursal;caja;" Theme="Moderno"
+            OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize" 
             OnRowDeleting="ASPxGridView1_RowDeleting"
             OnRowInserting="ASPxGridView1_RowInserting"
-            OnRowUpdating="ASPxGridView1_RowUpdating"> 
-            <ClientSideEvents  EndCallback="function(s, e) {if (s.cpUpdatedMessage) { alert(s.cpUpdatedMessage);  delete s.cpUpdatedMessage;  }}"/>
+            OnRowUpdating="ASPxGridView1_RowUpdating">
             <Columns>
-                
                 <dx:GridViewCommandColumn Width="100px" ButtonType="Image" ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
                 </dx:GridViewCommandColumn>
-
-                 <dx:GridViewDataTextColumn Caption="Id" FieldName="id"  VisibleIndex="1"  
+                <dx:GridViewDataTextColumn Caption="Emisor" FieldName="emisor" VisibleIndex="2" PropertiesTextEdit-MaxLength="12"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-                 <dx:GridViewDataComboBoxColumn Caption="Tipo" FieldName="tipo" VisibleIndex="1"  Width="23%"
-                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
-                </dx:GridViewDataComboBoxColumn>
-                 <dx:GridViewDataComboBoxColumn Caption="Unidad Medida" FieldName="unidadMedida" VisibleIndex="2"  Width="20%"
-                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
-                </dx:GridViewDataComboBoxColumn> 
-                <dx:GridViewDataTextColumn Caption="Código" FieldName="codigo" VisibleIndex="3" PropertiesTextEdit-MaxLength="20" 
+                <dx:GridViewDataTextColumn Caption="Sucursal" FieldName="sucursal" VisibleIndex="3" PropertiesTextEdit-MaxLength="3" 
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Descripción" FieldName="descripcion" VisibleIndex="4" PropertiesTextEdit-MaxLength="50"  Width="27%"
+                <dx:GridViewDataTextColumn Caption="Caja" FieldName="caja" VisibleIndex="4" PropertiesTextEdit-MaxLength="5"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-
-                 <dx:GridViewDataSpinEditColumn Caption="Precio" FieldName="precio" VisibleIndex="4" PropertiesSpinEdit-DecimalPlaces="2" 
-                     PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="c2"
+                 <dx:GridViewDataSpinEditColumn Caption="Consecutivo" FieldName="consecutivo" VisibleIndex="5" PropertiesSpinEdit-MaxLength="10"
                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataSpinEditColumn>
-                  
-                <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="4"
+
+                <dx:GridViewDataTextColumn Caption="Dígito Verificador" FieldName="digitoVerificador" VisibleIndex="5" PropertiesTextEdit-MaxLength="8"
+                    PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataTextColumn>
+
+                <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="6"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
-                <dx:GridViewDataTextColumn Visible="false" Caption="Usuario Creación" FieldName="usuarioCreacion" VisibleIndex="5">
+                <dx:GridViewDataTextColumn Visible="false" Caption="Usuario Creación" FieldName="usuarioCreacion" VisibleIndex="7">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataDateColumn Visible="false" Caption="Fecha Creación" FieldName="fechaCreacion" VisibleIndex="6">
+                <dx:GridViewDataDateColumn Visible="false" Caption="Fecha Creación" FieldName="fechaCreacion" VisibleIndex="8">
                     <PropertiesDateEdit EditFormat="DateTime" DisplayFormatstring="" EditFormatstring="dd/MM/yyyy hh:mm:ss"></PropertiesDateEdit>
                 </dx:GridViewDataDateColumn>
-                <dx:GridViewDataTextColumn Visible="false" Caption="Usuario Modificación" FieldName="usuarioModificacion" VisibleIndex="7">
+                <dx:GridViewDataTextColumn  Visible="false" Caption="Usuario Modificación" FieldName="usuarioModificacion" VisibleIndex="9">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataDateColumn Visible="false" Caption="Fecha Modificación" FieldName="fechaModificacion" VisibleIndex="8">
+                <dx:GridViewDataDateColumn Visible="false" Caption="Fecha Modificación" FieldName="fechaModificacion" VisibleIndex="10">
                     <PropertiesDateEdit EditFormat="DateTime" DisplayFormatstring="" EditFormatstring="dd/MM/yyyy hh:mm:ss"></PropertiesDateEdit>
                 </dx:GridViewDataDateColumn>
             </Columns>
@@ -122,11 +115,11 @@
             <BorderBottom BorderWidth="1px" />
 
         </dx:ASPxGridView>
-        <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="ASPxGridView1" FileName="Catálogo Producto">
+        <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="ASPxGridView1" FileName="Catálogo Consecutivo Documento Electrónico">
             <Styles>
                 <Default Font-Names="Arial" Font-Size="Small" />
             </Styles>
-            <PageHeader Center="Facturación Web - Catálogo Producto">
+            <PageHeader Center="Facturación Web - Catálogo Consecutivo Documento Electrónico">
                 <Font Bold="True" Names="Arial" Size="Large" />
             </PageHeader>
             <PageFooter Left="[Page # of Pages #]" Right="[Date Printed][Time Printed]">

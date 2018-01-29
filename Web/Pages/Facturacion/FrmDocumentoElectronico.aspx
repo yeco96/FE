@@ -15,7 +15,7 @@
             Width="100%" EnableTheming="True" KeyFieldName="clave" Theme="Moderno"
             OnDetailRowExpandedChanged="ASPxGridView1_DetailRowExpandedChanged"
             OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize"
-            OnCustomErrorText="ASPxGridView1_CustomErrorText">
+            >
             <Columns>
 
                 <dx:GridViewDataTextColumn Caption="Clave" FieldName="clave" VisibleIndex="2" Visible="false">

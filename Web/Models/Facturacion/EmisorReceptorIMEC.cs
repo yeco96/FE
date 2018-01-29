@@ -20,6 +20,7 @@ namespace Web.Models.Facturacion
 
         [Key]
         [MaxLength(12, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [MinLength(9, ErrorMessage = "La propiedad {0} no puede tener menos de {1} elementos")]
         public string identificacion { set; get; }
 
         [MaxLength(80, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
@@ -35,12 +36,18 @@ namespace Web.Models.Facturacion
         public string provincia { set; get; }
 
         [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [MinLength(2, ErrorMessage = "La propiedad {0} no puede tener menos de {1} elementos")]
+        [RegularExpression("\\d{2}", ErrorMessage = "La propiedad {0} solo debe tener valores numéricos")]
         public string canton { set; get; }
 
         [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [MinLength(2, ErrorMessage = "La propiedad {0} no puede tener menos de {1} elementos")]
+        [RegularExpression("\\d{2}", ErrorMessage = "La propiedad {0} solo debe tener valores numéricos")]
         public string distrito { set; get; }
 
         [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [MinLength(2, ErrorMessage = "La propiedad {0} no puede tener menos de {1} elementos")]
+        [RegularExpression("\\d{2}", ErrorMessage = "La propiedad {0} solo debe tener valores numéricos")]
         public string barrio { set; get; }
 
         [MaxLength(160, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
@@ -48,25 +55,32 @@ namespace Web.Models.Facturacion
          
 
         [MaxLength(3, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [RegularExpression("^[0-9]{1,3}?$", ErrorMessage = "La propiedad {0} solo debe tener valores numéricos")]
         public string telefonoCodigoPais { set; get; }
 
         [MaxLength(20, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [RegularExpression("^[0-9]{1,20}?$", ErrorMessage = "La propiedad {0} solo debe tener valores numéricos")]
         public string telefono { set; get; }
 
         [MaxLength(3, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [RegularExpression("^[0-9]{1,3}?$", ErrorMessage = "La propiedad {0} solo debe tener valores numéricos")]
         public string faxCodigoPais { set; get; }
 
         [MaxLength(20, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [RegularExpression("^[0-9]{1,20}?$", ErrorMessage = "La propiedad {0} solo debe tener valores numéricos")]
         public string fax { set; get; }
 
         [MaxLength(60, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [RegularExpression(@"\s*\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*\s*", ErrorMessage = "La propiedad {0} debe tener una dirección de correo valida, ejemplo: cuenta@dominio.com")]
         public string correoElectronico { set; get; }
 
 
         [Column(TypeName = "Binary")]
         public byte[] llaveCriptografica { set; get; }
 
-        [MaxLength(100, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [MaxLength(4, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [MinLength(4, ErrorMessage = "La propiedad {0} no puede tener menos de {1} elementos")]
+        [RegularExpression("\\d{4}", ErrorMessage = "La propiedad {0} solo debe tener valores numéricos")] 
         public string claveLlaveCriptografica { set; get; }
 
         [MaxLength(100, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]

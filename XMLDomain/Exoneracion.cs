@@ -16,7 +16,7 @@ namespace XMLDomain
         [XmlElement(ElementName = "NombreInstitucion", Order = 3)]
         public string nombreInstitucion { set; get; }//tamaño 100  DGT
         [XmlElement(ElementName = "FechaEmision", Order = 4)]
-        public DateTime fechaEmision { set; get; }
+        public string fechaEmision { set; get; }
         [XmlElement(ElementName = "MontoImpuesto", Order = 5)]
         public decimal montoImpuesto { set; get; }//tamaño 18,5
         [XmlElement(ElementName = "PorcentajeCompra", Order = 6)]
