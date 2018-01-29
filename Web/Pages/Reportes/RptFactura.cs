@@ -27,6 +27,7 @@ public class RptFactura : DevExpress.XtraReports.UI.XtraReport
     private XRTableCell xrTableCell28;
     private XRTableCell xrTableCell30;
     private XRTableCell xrTableCell32;
+    private SubBand SubBand1;
     private XRPageInfo xrPageInfo1;
     private XRPageInfo xrPageInfo2;
     private DevExpress.DataAccess.ObjectBinding.ObjectDataSource objectDataSource1;
@@ -60,6 +61,7 @@ public class RptFactura : DevExpress.XtraReports.UI.XtraReport
     private XRControlStyle FieldCaption;
     private XRControlStyle PageInfo;
     private XRControlStyle DataField;
+    private XRSubreport xrSubreport1;
 
     /// <summary>
     /// Required designer variable.
@@ -147,6 +149,8 @@ public class RptFactura : DevExpress.XtraReports.UI.XtraReport
             this.FieldCaption = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.SubBand1 = new DevExpress.XtraReports.UI.SubBand();
+            this.xrSubreport1 = new DevExpress.XtraReports.UI.XRSubreport();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
@@ -159,6 +163,8 @@ public class RptFactura : DevExpress.XtraReports.UI.XtraReport
             this.Detail.HeightF = 18F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
+            this.Detail.SubBands.AddRange(new DevExpress.XtraReports.UI.SubBand[] {
+            this.SubBand1});
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // TopMargin
@@ -593,7 +599,7 @@ public class RptFactura : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
             this.xrLabel1.SizeF = new System.Drawing.SizeF(638F, 33F);
             this.xrLabel1.StyleName = "Title";
-            this.xrLabel1.Text = "Factura Electrónica";
+            this.xrLabel1.Text = "Factura";
             // 
             // Title
             // 
@@ -635,6 +641,19 @@ public class RptFactura : DevExpress.XtraReports.UI.XtraReport
             this.DataField.ForeColor = System.Drawing.Color.Black;
             this.DataField.Name = "DataField";
             this.DataField.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            // 
+            // SubBand1
+            // 
+            this.SubBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrSubreport1});
+            this.SubBand1.HeightF = 100F;
+            this.SubBand1.Name = "SubBand1";
+            // 
+            // xrSubreport1
+            // 
+            this.xrSubreport1.LocationFloat = new DevExpress.Utils.PointFloat(10F, 10.00001F);
+            this.xrSubreport1.Name = "xrSubreport1";
+            this.xrSubreport1.SizeF = new System.Drawing.SizeF(630F, 79.99998F);
             // 
             // RptFactura
             // 
