@@ -415,9 +415,6 @@
     <Compile Include="Pages\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Reportes\RptFactura.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Pages\Search.aspx.cs">
       <DependentUpon>Search.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -469,9 +466,6 @@
     <Compile Include="WebServices\URLServices.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\Reportes\RptFactura.resx">
-      <DependentUpon>RptFactura.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
@@ -508,6 +502,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\Seguridad\" />
+    <Folder Include="Pages\Reportes\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

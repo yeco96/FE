@@ -628,6 +628,9 @@ namespace Web.Pages.Facturacion
                     dato.resumenFactura.totalImpuesto = 0;
                     dato.resumenFactura.totalComprobante = dato.detalleServicio.lineaDetalle.Sum(x => x.montoTotal); // + impuesto
 
+                    /* VERIFICA VACIOS PARA XML */
+                    dato.verificaDatosParaXML();
+
                     //genera el consecutivo del documento
                     string sucursal = this.cmbSucursalCaja.Value.ToString().Substring(0,3);
                     string caja = this.cmbSucursalCaja.Value.ToString().Substring(3,5);

@@ -151,8 +151,40 @@ namespace XMLDomain
 
         }
 
-        public void verificaParametros()
+
+        /// <summary>
+        /// Este método determina los valores que no tienen datos y los asigna NULL para que no se generen los notos
+        /// </summary>
+        public void verificaDatosParaXML()
         {
+            if (string.IsNullOrWhiteSpace(this.emisor.fax.codigoPais) || string.IsNullOrWhiteSpace(this.emisor.fax.numTelefono))
+            {
+                this.emisor.fax = null;
+            }
+            if (string.IsNullOrWhiteSpace(this.receptor.fax.codigoPais) || string.IsNullOrWhiteSpace(this.receptor.fax.numTelefono))
+            {
+                this.emisor.fax = null;
+            }
+            if (string.IsNullOrWhiteSpace(this.receptor.telefono.codigoPais) || string.IsNullOrWhiteSpace(this.receptor.telefono.numTelefono))
+            {
+                this.receptor.fax = null;
+            }
+
+            if (string.IsNullOrWhiteSpace(this.receptor.ubicacion.barrio) || 
+                string.IsNullOrWhiteSpace(this.receptor.ubicacion.distrito) ||
+                string.IsNullOrWhiteSpace(this.receptor.ubicacion.canton) ||
+                string.IsNullOrWhiteSpace(this.receptor.ubicacion.provincia) ||
+                 string.IsNullOrWhiteSpace(this.receptor.ubicacion.otrassenas) 
+                )
+            {
+                this.receptor.ubicacion = null;
+            }
+
+
+            foreach (var item in this.detalleServicio.lineaDetalle)
+            {
+                item.verificaDatosParaXML();
+            }
 
         }
 
