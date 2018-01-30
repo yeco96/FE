@@ -40,7 +40,7 @@ namespace Web.Pages.Facturacion
             Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
             try
             {
-                
+
                 this.AsyncMode = true;
                 if (!IsCallback && !IsPostBack)
                 {
@@ -57,10 +57,10 @@ namespace Web.Pages.Facturacion
             catch (Exception ex)
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
-                this.alertMessages.InnerText =  Utilidades.validarExepcionSQL(ex.Message);
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
             }
         }
-        
+
         protected void UpdatePanel_Unload(object sender, EventArgs e)
         {
             RegisterUpdatePanel((UpdatePanel)sender);
@@ -94,16 +94,14 @@ namespace Web.Pages.Facturacion
             using (var conexion = new DataModelFE())
             {
 
-
                 /* EMISOR */
                 string elEmisor = ((EmisorReceptorIMEC)Session["emisor"]).identificacion;
                 EmisorReceptorIMEC emisor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == elEmisor).FirstOrDefault();
                 this.loadEmisor(emisor);
 
-
-                string elReceptor = "601230863";
-                EmisorReceptorIMEC receptor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == elReceptor).FirstOrDefault();
-                this.loadReceptor(receptor);
+                //string elReceptor = "601230863";
+                //EmisorReceptorIMEC receptor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == elReceptor).FirstOrDefault();
+                //this.loadReceptor(receptor);
 
                 /* IDENTIFICACION TIPO */
                 foreach (var item in conexion.TipoIdentificacion.ToList())
@@ -170,9 +168,9 @@ namespace Web.Pages.Facturacion
 
 
                 /* SUCURSAL CAJA */
-                foreach (var item in conexion.ConsecutivoDocElectronico.Where(x=>x.emisor == elEmisor).Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                foreach (var item in conexion.ConsecutivoDocElectronico.Where(x => x.emisor == elEmisor).Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
                 {
-                    this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}",item.sucursal, item.caja));
+                    this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}", item.sucursal, item.caja));
                 }
                 this.cmbSucursalCaja.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
@@ -387,18 +385,20 @@ namespace Web.Pages.Facturacion
 
         protected void ASPxGridView1_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
         {
-            if (this.ASPxGridView1.IsNewRowEditing) { 
+            if (this.ASPxGridView1.IsNewRowEditing)
+            {
                 if (e.Column.FieldName == "subTotal") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
                 if (e.Column.FieldName == "montoTotal") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
                 if (e.Column.FieldName == "montoDescuento") { e.Editor.Value = 0; }
                 if (e.Column.FieldName == "precioUnitario") { e.Editor.Value = 0; }
                 if (e.Column.FieldName == "naturalezaDescuento") { e.Editor.Value = "N/A"; }
-            }else
+            }
+            else
             {
                 if (e.Column.FieldName == "producto") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
             }
         }
-        
+
         protected void ASPxGridView1_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)
         {
             try
@@ -442,7 +442,7 @@ namespace Web.Pages.Facturacion
                     string codProducto = e.NewValues["producto"] != null ? e.NewValues["producto"].ToString().ToUpper() : null;
                     Producto producto = conexion.Producto.Where(x => x.codigo == codProducto).FirstOrDefault();
 
-                    dato.numeroLinea = detalleServicio.lineaDetalle.Count+1;
+                    dato.numeroLinea = detalleServicio.lineaDetalle.Count + 1;
                     dato.cantidad = e.NewValues["cantidad"] != null ? decimal.Parse(e.NewValues["cantidad"].ToString()) : 0;
                     dato.codigo.tipo = producto.tipo;
                     dato.codigo.codigo = producto.codigo;
@@ -450,10 +450,10 @@ namespace Web.Pages.Facturacion
                     dato.unidadMedida = producto.unidadMedida;
                     dato.unidadMedidaComercial = "";
 
-                    decimal precio = "0".Equals(e.NewValues["precioUnitario"].ToString()) ? producto.precio :  decimal.Parse(e.NewValues["precioUnitario"].ToString());
+                    decimal precio = "0".Equals(e.NewValues["precioUnitario"].ToString()) ? producto.precio : decimal.Parse(e.NewValues["precioUnitario"].ToString());
 
                     dato.producto = producto.codigo;/*solo para uso del grid*/
-                    dato.precioUnitario = producto.precio; 
+                    dato.precioUnitario = producto.precio;
                     dato.montoDescuento = e.NewValues["montoDescuento"] != null ? decimal.Parse(e.NewValues["montoDescuento"].ToString()) : 0;
                     dato.calcularMontos();
 
@@ -481,10 +481,10 @@ namespace Web.Pages.Facturacion
                 // Join the list to a single string.
                 var fullErrorMessage = string.Join("; ", errorMessages);
 
-                
-                
 
-                
+
+
+
 
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
@@ -526,7 +526,7 @@ namespace Web.Pages.Facturacion
                     decimal precio = "0".Equals(e.NewValues["precioUnitario"].ToString()) ? producto.precio : decimal.Parse(e.NewValues["precioUnitario"].ToString());
 
                     dato.producto = producto.codigo;/*solo para uso del grid*/
-                    dato.precioUnitario = producto.precio; 
+                    dato.precioUnitario = producto.precio;
                     dato.montoDescuento = e.NewValues["montoDescuento"] != null ? decimal.Parse(e.NewValues["montoDescuento"].ToString()) : 0;
                     dato.montoTotal = dato.subTotal - dato.montoDescuento;
                     dato.calcularMontos();
@@ -678,7 +678,7 @@ namespace Web.Pages.Facturacion
                         {
                             Utilidades.sendMail(dato.receptor.correoElectronico,
                                 string.Format("{0} - {1}", dato.numeroConsecutivo, dato.receptor.nombre),
-                                Utilidades.mensageGenerico(), "Factura Electrónica",xml, dato.numeroConsecutivo);
+                                Utilidades.mensageGenerico(), "Factura Electrónica", xml, dato.numeroConsecutivo);
                         }
                     }
                     else
@@ -707,12 +707,13 @@ namespace Web.Pages.Facturacion
         /// </summary>
         /// <param name="xmlFile">XML sin firmar</param>
         /// <param name="responsePost">respuesta del webs ervices</param>
-        public async Task<string> enviarDocumentoElectronico(string xmlFile,  EmisorReceptorIMEC emisor)
+        public async Task<string> enviarDocumentoElectronico(string xmlFile, EmisorReceptorIMEC emisor)
         {
             String responsePost = "";
-            try {
+            try
+            {
                 using (var conexion = new DataModelOAuth2())
-                { 
+                {
                     string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
                     OAuth2.OAuth2Config config = conexion.OAuth2Config.Where(x => x.enviroment == ambiente).FirstOrDefault();
                     config.username = emisor.usernameOAuth2;
@@ -736,7 +737,7 @@ namespace Web.Pages.Facturacion
                     trama.receptorIdentificacion = trama.receptor.numeroIdentificacion;
 
                     xmlFile = FirmaXML.getXMLFirmadoWeb(xmlFile, emisor.llaveCriptografica, emisor.claveLlaveCriptografica.ToString());
-                    
+
                     trama.comprobanteXml = EncodeXML.EncondeXML.base64Encode(xmlFile);
 
                     string jsonTrama = JsonConvert.SerializeObject(trama);
@@ -749,17 +750,17 @@ namespace Web.Pages.Facturacion
                         conexion2.SaveChanges();
                     }
                     responsePost = await Services.postRecepcion(config.token, jsonTrama);
-                    
+
                 }
             }
             catch (Exception ex)
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
-                this.alertMessages.InnerText =  Utilidades.validarExepcionSQL(ex.Message);
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
             }
             return responsePost;
-        } 
-            
+        }
+
 
         public EmisorReceptorIMEC crearModificarReceptor()
         {
@@ -768,7 +769,7 @@ namespace Web.Pages.Facturacion
             {
                 using (var conexion = new DataModelFE())
                 {
-                    
+
                     string buscar = this.txtReceptorIdentificacion.Text;
                     receptor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == buscar).FirstOrDefault();
 
@@ -836,8 +837,8 @@ namespace Web.Pages.Facturacion
                         .Select(x => x.ErrorMessage);
 
                 // Join the list to a single string.
-                var fullErrorMessage = string.Join("; ", errorMessages); 
-                 
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
                 this.alertMessages.InnerText = Utilidades.validarExepcionSQL(fullErrorMessage);
                 Server.ClearError();
@@ -847,8 +848,36 @@ namespace Web.Pages.Facturacion
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
                 this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
-            } 
+            }
             return receptor;
         }
-    } 
+
+        protected void btnBuscarReceptor_Click(object sender, EventArgs e)
+        {
+            try {
+                using (var conexion = new DataModelFE())
+                {
+                    /* RECEPTOR */
+                    if (string.IsNullOrWhiteSpace(this.txtReceptorIdentificacion.Text))
+                    {
+                        this.alertMessages.Attributes["class"] = "alert alert-danger";
+                        this.alertMessages.InnerText = "El número de identifiación es requerida";
+                    }
+                    else { 
+                        string elReceptor = this.txtReceptorIdentificacion.Text;
+                        EmisorReceptorIMEC receptor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == elReceptor).FirstOrDefault();
+                        this.loadReceptor(receptor);
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                this.alertMessages.Attributes["class"] = "alert alert-danger";
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+            }
+        }
+
+
+    }
 }

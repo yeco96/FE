@@ -130,6 +130,7 @@
     <Content Include="Content\Images\Customers\NathanBryant.jpg" />
     <Content Include="Content\Images\Customers\RafaelRaje.jpg" />
     <Content Include="Content\Images\edit.png" />
+    <Content Include="Content\Images\loadUser.png" />
     <Content Include="Content\Images\pdf.png" />
     <Content Include="Content\Images\refresh.png" />
     <Content Include="Content\Images\search1.png" />

@@ -12,7 +12,7 @@
 
     <asp:UpdatePanel ID="UpdatePanel" runat="server" UpdateMode="Always" OnUnload="UpdatePanel_Unload">
         <ContentTemplate>
-
+            <div id="alertMessages" role="alert" runat="server" />
             <dx:ASPxPageControl ID="documento" Width="100%" runat="server" ActiveTabIndex="0" EnableHierarchyRecreation="True">
                 <TabPages>
                     <dx:TabPage Text="Emisor">
@@ -39,6 +39,7 @@
                                                             <dx:ASPxSpinEdit ID="txtEmisorIdentificacion" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
                                                                 ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" MaxLength="12">
                                                             </dx:ASPxSpinEdit>
+                                                            
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
@@ -204,8 +205,19 @@
                                                 <dx:LayoutItem Caption="Identficación">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
-                                                            <dx:ASPxSpinEdit ID="txtReceptorIdentificacion" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
+
+                                                            <table>
+                                                                <tr>
+                                                                    <td style="width: 80%;">
+                                                                       <dx:ASPxSpinEdit ID="txtReceptorIdentificacion" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
                                                                 ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" MaxLength="12" />
+                                                                    </td>
+                                                                    <td style="width: 20%;">
+                                                                       <dx:ASPxButton runat="server" ToolTip="Búscar" Image-AlternateText="Búscar" ID="btnBuscarReceptor" CausesValidation="false" OnClick="btnBuscarReceptor_Click"  Image-Url="~/Content/Images/loadUser.png"  Height="50px"></dx:ASPxButton> 
+                                                                    </td>
+                                                                </tr>
+                                                            </table> 
+                                                           
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
@@ -555,7 +567,7 @@
 
 
             <dx:ASPxButton runat="server" ID="btnFacturar" Text="Facturar" OnClick="btnFacturar_Click" CausesValidation="true"></dx:ASPxButton>
-            <div id="alertMessages" role="alert" runat="server" />
+            
 
         </ContentTemplate>
     </asp:UpdatePanel>
