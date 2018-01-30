@@ -100,7 +100,7 @@ namespace Web.Models.Facturacion
         public string getConsecutivo(string tipoDocumento)
         {
             //001 00001 01 0000000018 
-            return String.Format("{0}{1}{2}{3}",  this.sucursal, this.caja, this.consecutivo.ToString().PadLeft(10, '0'), tipoDocumento);
+            return String.Format("{0}{1}{2}{3}",  this.sucursal, this.caja, tipoDocumento, this.consecutivo.ToString().PadLeft(10, '0'));
         }
 
 

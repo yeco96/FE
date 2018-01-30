@@ -22,7 +22,7 @@
     -->
     <script src="/Scripts/jquery-3.3.1.min.js" type="text/javascript"></script> 
     <script src="/Scripts/popper.min.js" type="text/javascript"></script> 
-    <script src="/Scripts/bootstrap4.min.js" type="text/javascript"></script>
+    <script src="/Scripts/bootstrap4.min.js" type="text/javascript"></script> 
     <script src="/Scripts/site.js" type="text/javascript"></script>
 </head>
 <body>
@@ -92,6 +92,13 @@
                                                             <dx:MenuItem Text="CONFIRMAR XML" NavigateUrl="~/Pages/Facturacion/FrmValidarXML.aspx" />
                                                             <dx:MenuItem Text="FACTURAR" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumento.aspx" />
  
+                                                        </Items>
+                                                    </dx:MenuItem>
+                                                      <dx:MenuItem Text="CONFIGURACIÓN">
+                                                        <Items>
+
+                                                            <dx:MenuItem Text="CORREO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoConfiguracionCorreo.aspx" />
+                                                            
                                                         </Items>
                                                     </dx:MenuItem>
                                                     <dx:MenuItem Text="CONTACT US" NavigateUrl="~/Pages/Contacts.aspx" />

@@ -141,6 +141,7 @@
     <Content Include="Global.asax" />
     <Content Include="Pages\BlogPost.aspx" />
     <Content Include="Pages\BlogTimeline.aspx" />
+    <Content Include="Pages\Catalogos\FrmCatalogoConfiguracionCorreo.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoTipoIdentificacion.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoTipoProductoServicio.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoUbicacion.aspx" />
@@ -229,6 +230,7 @@
     <Compile Include="Models\Catalogos\CodigoReferencia.cs" />
     <Compile Include="Models\Catalogos\CondicionVenta.cs" />
     <Compile Include="Models\Catalogos\CodigoPais.cs" />
+    <Compile Include="Models\Catalogos\ConfiguracionCorreo.cs" />
     <Compile Include="Models\Facturacion\ConsecutivoDocElectronico.cs" />
     <Compile Include="Models\Catalogos\Ubicacion.cs" />
     <Compile Include="Models\Catalogos\Producto.cs" />
@@ -260,6 +262,13 @@
     </Compile>
     <Compile Include="Pages\BlogTimeline.aspx.designer.cs">
       <DependentUpon>BlogTimeline.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoConfiguracionCorreo.aspx.cs">
+      <DependentUpon>FrmCatalogoConfiguracionCorreo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoConfiguracionCorreo.aspx.designer.cs">
+      <DependentUpon>FrmCatalogoConfiguracionCorreo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Catalogos\FrmCatalogoTipoIdentificacion.aspx.cs">
       <DependentUpon>FrmCatalogoTipoIdentificacion.aspx</DependentUpon>

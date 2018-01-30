@@ -20,6 +20,8 @@ namespace Web.Models
         public virtual DbSet<CondicionVenta> CondicionVenta { get; set; }
         public virtual DbSet<CodigoPais> CodigoPais { get; set; }
         public virtual DbSet<CodigoReferencia> CodigoReferencia { get; set; }
+        public virtual DbSet<ConfiguracionCorreo> ConfiguracionCorreo { get; set; }
+        
         //public virtual DbSet<Distrito> Distrito { get; set; }
         public virtual DbSet<ConsecutivoDocElectronico> ConsecutivoDocElectronico { get; set; } 
         public virtual DbSet<Exoneracion> Exoneracion { get; set; }

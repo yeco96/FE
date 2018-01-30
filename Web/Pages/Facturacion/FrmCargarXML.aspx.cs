@@ -136,8 +136,7 @@ namespace Web.Pages.Facturacion
                         conexion2.SaveChanges();
                     }
 
-                    string responsePost = "";
-                    await Services.postRecepcion(config.token, jsonTrama, responsePost); 
+                    string responsePost = await Services.postRecepcion(config.token, jsonTrama); 
                 }
 
             }

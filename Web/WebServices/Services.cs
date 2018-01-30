@@ -69,7 +69,7 @@ namespace Web.WebServices
         /// <param name="token"></param>
         /// <param name="jsonData"></param>
         /// <returns></returns>
-        public static async Task  postRecepcion(OAuth2Token token, string jsonData, string result)
+        public static async Task<string>  postRecepcion(OAuth2Token token, string jsonData)
         {
             HttpResponseMessage responseMessage;
             using (HttpClient httpClient = new HttpClient())
@@ -82,15 +82,15 @@ namespace Web.WebServices
 
                 if (responseMessage.IsSuccessStatusCode)
                 {
-                    result = "Success";
+                    return "Success";
                 }
                 else
                 {
-                    result = "Error";
+                    return "Error";
                 } 
             }
 
-             string x =  await responseMessage.Content.ReadAsStringAsync();
+             //string x =  await responseMessage.Content.ReadAsStringAsync();
         }
 
 

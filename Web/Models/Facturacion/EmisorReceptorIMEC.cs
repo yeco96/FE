@@ -118,7 +118,17 @@ namespace Web.Models.Facturacion
         public virtual Usuario UsuarioCreacion { get; set; }
         public virtual Usuario UsuarioModificacion { get; set; }
 
-
+        public bool existe()
+        {
+            if (string.IsNullOrEmpty(usuarioCreacion) && string.IsNullOrEmpty(usuarioModificacion))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
     }
 }

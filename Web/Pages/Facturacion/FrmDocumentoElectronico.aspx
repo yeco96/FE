@@ -79,10 +79,10 @@
                     <dx:ASPxFormLayout runat="server" ID="layoutAddAuditoriaForm">
                         <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
                         <Items>
-                            <dx:LayoutGroup Caption=" " ColCount="3" GroupBoxDecoration="None" UseDefaultPaddings="false">
+                            <dx:LayoutGroup Caption=" " ColCount="5" GroupBoxDecoration="None" UseDefaultPaddings="false">
 
                                 <Items>
-                                    <dx:LayoutItem Caption="Mensaje" ColSpan="3" Width="100%">
+                                    <dx:LayoutItem Caption="Mensaje" ColSpan="5" Width="100%">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
                                                 <dx:ASPxMemo runat="server" Value='<%# Eval("mensaje") %>' AutoResizeWithContainer="true" Width="100%" ReadOnly="true" />
@@ -90,6 +90,22 @@
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
+                                     <dx:LayoutItem Caption="">
+                                        <LayoutItemNestedControlCollection>
+                                            <dx:LayoutItemNestedControlContainer>
+                                                <dx:ASPxButton ID="btnDescargarXML" runat="server" Text="DescargarXML" OnClick="btnDescargarXML_Click"></dx:ASPxButton>
+                                            </dx:LayoutItemNestedControlContainer>
+                                        </LayoutItemNestedControlCollection>
+                                    </dx:LayoutItem>
+
+                                     <dx:LayoutItem Caption="">
+                                        <LayoutItemNestedControlCollection>
+                                            <dx:LayoutItemNestedControlContainer>
+                                                <dx:ASPxButton ID="btnReenvioCorreo" runat="server" Text="Reenviar Correo" OnClick="btnReenvioCorreo_Click"></dx:ASPxButton>
+                                            </dx:LayoutItemNestedControlContainer>
+                                        </LayoutItemNestedControlCollection>
+                                    </dx:LayoutItem>
+
                                     <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
