@@ -22,15 +22,6 @@ namespace Web.Pages.Catalogos {
         protected global::DevExpress.Web.ASPxGridView ASPxGridView1;
         
         /// <summary>
-        /// impuestosDS control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource impuestosDS;
-        
-        /// <summary>
         /// ASPxGridViewExporter1 control.
         /// </summary>
         /// <remarks>

@@ -13,7 +13,7 @@
 
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
             Width="100%" EnableTheming="True" KeyFieldName="id" Theme="Moderno" 
-            OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize"
+            OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize" OnDetailRowExpandedChanged="ASPxGridView2_DetailRowExpandedChanged"
             OnRowDeleting="ASPxGridView1_RowDeleting"
             OnRowInserting="ASPxGridView1_RowInserting"
             OnRowUpdating="ASPxGridView1_RowUpdating">
@@ -119,13 +119,10 @@
                 <DetailRow>
 
                     <dx:ASPxGridView ID="ASPxGridView2" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView2" KeyboardSupport="True"
-                        Width="100%" EnableTheming="True" KeyFieldName="idProducto" Theme="Moderno"
-                        DataSourceID="impuestosDS" OnBeforePerformDataSelect="ASPxGridView2_BeforePerformDataSelect" >
+                       EnableTheming="True" KeyFieldName="idProducto" Theme="Moderno" 
+                         >
                         <Columns>
-                            <dx:GridViewDataComboBoxColumn Caption="Producto" FieldName="idProducto" VisibleIndex="1" Width="30%"
-                                PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
-                            </dx:GridViewDataComboBoxColumn>
-                            <dx:GridViewDataComboBoxColumn Caption="Tipo Impuesto" FieldName="tipoImpuesto" VisibleIndex="2" Width="30%"
+                            <dx:GridViewDataComboBoxColumn Caption="Tipo Impuesto" FieldName="TipoImpuesto.descripcion" VisibleIndex="2"
                                 PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                             </dx:GridViewDataComboBoxColumn>
                             <dx:GridViewDataSpinEditColumn Caption="Porcentaje" FieldName="porcentaje" VisibleIndex="3" PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="9999" PropertiesSpinEdit-DecimalPlaces="2"
@@ -153,16 +150,6 @@
 
         </dx:ASPxGridView>
        
-
-        <asp:EntityDataSource runat="server" ID="impuestosDS"  
-            ConnectionString="<%$ ConnectionStrings:fe_db %>" 
-            ContextTypeName="ProductoImpuesto"
-            EntitySetName="ProductoImpuesto" Where="it.[ProductoImpuesto].[idProducto] = @idProducto">
-           <WhereParameters>
-               <asp:SessionParameter DbType="Decimal" Name="idProducto" SessionField="idProducto" />
-           </WhereParameters>
-        </asp:EntityDataSource>
-
         <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="ASPxGridView1" FileName="Catálogo Producto">
             <Styles>
                 <Default Font-Names="Arial" Font-Size="Small" />

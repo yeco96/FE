@@ -46,6 +46,25 @@ namespace XMLDomain
             this.exoneracion = new Exoneracion();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="codigo">código del impuesto</param>
+        /// <param name="tarifa">porcentaje del impuesto</param>
+        /// <param name="montoDetalle">monto de la linea de detalle</param>
+        public Impuesto(string codigo, decimal tarifa, decimal montoDetalle)
+        {
+            this.exoneracion = new Exoneracion();
+            if (tarifa > 0)
+            {
+                this.monto = (tarifa / 100) * montoDetalle;
+            }
+            else
+            {
+                this.monto = 0;
+            }
+        }
+
 
         /// <summary>
         /// Este método determina los valores que no tienen datos y los asigna NULL para que no se generen los notos

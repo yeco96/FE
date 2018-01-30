@@ -149,7 +149,6 @@
     <Content Include="Pages\Catalogos\FrmCatalogoTipoProductoServicio.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoUbicacion.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoProducto.aspx" />
-    <Content Include="Pages\Catalogos\WebForm1.aspx" />
     <Content Include="Pages\Facturacion\FrmConsecutivoDocElectronico.aspx" />
     <Content Include="Pages\Contacts.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoCodigoReferencia.aspx" />
@@ -317,13 +316,6 @@
     </Compile>
     <Compile Include="Pages\Catalogos\FrmCatalogoProducto.aspx.designer.cs">
       <DependentUpon>FrmCatalogoProducto.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Catalogos\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Catalogos\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Facturacion\FrmConsecutivoDocElectronico.aspx.cs">
       <DependentUpon>FrmConsecutivoDocElectronico.aspx</DependentUpon>

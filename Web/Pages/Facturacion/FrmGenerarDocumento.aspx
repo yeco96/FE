@@ -192,7 +192,7 @@
                                 <dx:ASPxFormLayout runat="server">
                                     <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
                                     <Items>
-                                        <dx:LayoutGroup Caption="Datos Personales" ColCount="3" GroupBoxDecoration="HeadingLine" UseDefaultPaddings="false">
+                                        <dx:LayoutGroup Caption="Datos Personales" ColCount="3" GroupBoxDecoration="Box" UseDefaultPaddings="false">
                                             <Items>
                                                 <dx:LayoutItem Caption="Tipo">
                                                     <LayoutItemNestedControlCollection>
@@ -208,12 +208,12 @@
 
                                                             <table>
                                                                 <tr>
-                                                                    <td style="width: 80%;">
+                                                                    <td style="width: 90%;">
                                                                        <dx:ASPxSpinEdit ID="txtReceptorIdentificacion" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
                                                                 ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" MaxLength="12" />
                                                                     </td>
-                                                                    <td style="width: 20%;">
-                                                                       <dx:ASPxButton runat="server" ToolTip="Búscar" Image-AlternateText="Búscar" ID="btnBuscarReceptor" CausesValidation="false" OnClick="btnBuscarReceptor_Click"  Image-Url="~/Content/Images/loadUser.png"  Height="50px"></dx:ASPxButton> 
+                                                                    <td style="width: 10%;"> 
+                                                                       <dx:ASPxButton runat="server" ToolTip="Búscar" Image-AlternateText="Búscar" ID="btnBuscarReceptor" CssClass="imagen" CausesValidation="false" OnClick="btnBuscarReceptor_Click"  Image-Url="~/Content/Images/loadUser.png"  Height="50px"></dx:ASPxButton> 
                                                                     </td>
                                                                 </tr>
                                                             </table> 
@@ -246,7 +246,7 @@
                                 <dx:ASPxFormLayout runat="server">
                                     <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
                                     <Items>
-                                        <dx:LayoutGroup Caption="Contácto" ColCount="3" GroupBoxDecoration="HeadingLine" UseDefaultPaddings="false">
+                                        <dx:LayoutGroup Caption="Contácto" ColCount="3" GroupBoxDecoration="Box" UseDefaultPaddings="false">
                                             <Items>
 
                                                 <dx:LayoutItem Caption="Teléfono">
@@ -300,7 +300,7 @@
                                 <dx:ASPxFormLayout runat="server">
                                     <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
                                     <Items>
-                                        <dx:LayoutGroup Caption="Ubicación" ColCount="3" GroupBoxDecoration="HeadingLine" UseDefaultPaddings="false">
+                                        <dx:LayoutGroup Caption="Ubicación" ColCount="3" GroupBoxDecoration="Box" UseDefaultPaddings="false">
                                             <Items>
                                                 <dx:LayoutItem Caption="Provincia">
                                                     <LayoutItemNestedControlCollection>

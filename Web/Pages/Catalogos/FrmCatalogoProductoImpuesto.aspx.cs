@@ -313,7 +313,6 @@ namespace Web.Pages.Catalogos
         {
             this.ASPxGridViewExporter1.WriteCsvToResponse();
         }
-
-       
+         
     }
 }

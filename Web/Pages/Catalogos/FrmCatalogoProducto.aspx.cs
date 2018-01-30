@@ -313,7 +313,30 @@ namespace Web.Pages.Catalogos
 
         protected void ASPxGridView2_BeforePerformDataSelect(object sender, EventArgs e)
         {
-            Session["idProducto"] = long.Parse((sender as ASPxGridView).GetMasterRowKeyValue().ToString()); 
+            using (var conexion = new DataModelFE())
+            {
+                long idProducto = long.Parse((sender as ASPxGridView).GetMasterRowKeyValue().ToString());
+
+               
+                ASPxGridView detailGird = ASPxGridView1.FindDetailRowTemplateControl(ASPxGridView1.FocusedRowIndex, "ASPxGridView2") as ASPxGridView;
+                //detailGird.DataSource = conexion.ProductoImpuesto.Where(x => x.idProducto == idProducto).ToList();
+               // detailGird.DataBind();
+            }
+        }
+
+        protected void ASPxGridView2_DetailRowExpandedChanged(object sender, ASPxGridViewDetailRowEventArgs e)
+        {
+            using (var conexion = new DataModelFE())
+            {
+                long idProducto = long.Parse(ASPxGridView1.GetRowValues(e.VisibleIndex, "id").ToString());
+                 
+                ASPxGridView detailGird = ASPxGridView1.FindDetailRowTemplateControl(e.VisibleIndex, "ASPxGridView2") as ASPxGridView;
+                if (detailGird != null)
+                {
+                    detailGird.DataSource = conexion.ProductoImpuesto.Where(x => x.idProducto == idProducto).ToList();
+                    detailGird.DataBind();
+                }
+            }
         }
     }
 }

@@ -40,7 +40,8 @@ namespace Web.Pages.Facturacion
             Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
             try
             {
-
+                this.alertMessages.Attributes["class"]="";
+                this.alertMessages.InnerText = "";
                 this.AsyncMode = true;
                 if (!IsCallback && !IsPostBack)
                 {
@@ -455,6 +456,18 @@ namespace Web.Pages.Facturacion
                     dato.producto = producto.codigo;/*solo para uso del grid*/
                     dato.precioUnitario = producto.precio;
                     dato.montoDescuento = e.NewValues["montoDescuento"] != null ? decimal.Parse(e.NewValues["montoDescuento"].ToString()) : 0;
+
+                    if(dato.montoDescuento > (dato.precioUnitario*dato.cantidad))
+                    {
+                        throw new Exception("El descuento no puede ser mayor al total de la linea");
+                    }
+
+                    dato.impuestos.Clear();
+                    foreach (var item in conexion.ProductoImpuesto.Where(x=>x.idProducto== producto.id))
+                    { 
+                        dato.impuestos.Add(new Impuesto(item.tipoImpuesto,item.porcentaje,dato.montoTotal));
+                    } 
+
                     dato.calcularMontos();
 
                     dato.naturalezaDescuento = e.NewValues["naturalezaDescuento"] != null ? e.NewValues["naturalezaDescuento"].ToString().ToUpper() : null;

@@ -87,7 +87,7 @@ namespace XMLDomain
 
             if (this.impuestos != null)
             {
-                this.montoTotalLinea = this.subTotal + this.impuestos.Sum(x => x.monto);
+                this.montoTotalLinea = this.subTotal + this.impuestos.Sum(x => x.monto * (x.tarifa/100));
             }
             else
             {
