@@ -29,10 +29,13 @@ namespace Web.Models
         //public virtual DbSet<Provincia> Provincia { get; set; }
 
         public virtual DbSet<Producto> Producto { get; set; }
+        public virtual DbSet<ProductoImpuesto> ProductoImpuesto { get; set; }
+        
 
         public virtual DbSet<TipoProductoServicio> TipoProductoServicio { get; set; }
         public virtual DbSet<TipoDocumento> TipoDocumento { get; set; }
         public virtual DbSet<TipoIdentificacion> TipoIdentificacion { get; set; }
+        public virtual DbSet<TipoImpuesto> TipoImpuesto { get; set; }
         public virtual DbSet<TipoMoneda> TipoMoneda { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<UnidadMedida> UnidadMedida { get; set; }

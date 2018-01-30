@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmCatalogoConfiguracionCorreo.aspx.cs" Inherits="Web.Pages.Catalogos.FrmCatalogoConfiguracionCorreo" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmCatalogoProductoImpuesto.aspx.cs" Inherits="Web.Pages.Catalogos.FrmCatalogoProductoImpuesto" %>
 
 <%@ Register Src="~/UserControls/AddAuditoriaForm.ascx" TagPrefix="user" TagName="AddAuditoriaForm" %>
 
@@ -6,13 +6,13 @@
 
     <section class="featured">
         <div class="content-wrapper">
-            Mantenimiento Configuración Correo
+            Mantenimiento Producto Impuesto
         </div>
     </section>
     <div class="borde_redondo_tabla">
 
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
-            Width="100%" EnableTheming="True" KeyFieldName="codigo" Theme="Moderno" 
+            Width="100%" EnableTheming="True" KeyFieldName="idProducto" Theme="Moderno" 
             OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize"
              
             OnRowDeleting="ASPxGridView1_RowDeleting"
@@ -24,22 +24,16 @@
                 <dx:GridViewCommandColumn Width="100px" ButtonType="Image" ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
                 </dx:GridViewCommandColumn>
 
-                 <dx:GridViewDataTextColumn Caption="Código" FieldName="codigo"  VisibleIndex="1"  
-                    PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
-                </dx:GridViewDataTextColumn>
-                 <dx:GridViewDataTextColumn Caption="Servidor" FieldName="host" VisibleIndex="1"  PropertiesTextEdit-MaxLength="25"  Width="25%" 
-                    PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
-                </dx:GridViewDataTextColumn>
-                <dx:GridViewDataSpinEditColumn Caption="Puerto" FieldName="port" VisibleIndex="4"    
+                 <dx:GridViewDataComboBoxColumn Caption="Producto" FieldName="idProducto"  VisibleIndex="1"   Width="30%"
+                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataComboBoxColumn>
+                 <dx:GridViewDataComboBoxColumn Caption="Tipo Impuesto" FieldName="tipoImpuesto" VisibleIndex="2"   Width="30%"
+                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataComboBoxColumn>
+                 <dx:GridViewDataSpinEditColumn Caption="Porcentaje" FieldName="porcentaje" VisibleIndex="3"   PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="9999" PropertiesSpinEdit-DecimalPlaces="2"
                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
-                </dx:GridViewDataSpinEditColumn> 
-                <dx:GridViewDataTextColumn Caption="Usuario" FieldName="user" VisibleIndex="3" PropertiesTextEdit-MaxLength="50"    Width="25%"
-                    PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
-                </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Contraseña" FieldName="password" VisibleIndex="4" PropertiesTextEdit-MaxLength="50"    PropertiesTextEdit-Password="true" 
-                    PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
-                </dx:GridViewDataTextColumn>
-
+                </dx:GridViewDataSpinEditColumn>  
+                 
                 <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="4"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
@@ -121,7 +115,7 @@
             <Styles>
                 <Default Font-Names="Arial" Font-Size="Small" />
             </Styles>
-            <PageHeader Center="Facturación Web - Catálogo Configuración Correo">
+            <PageHeader Center="Facturación Web - Catálogo Producto Impuesto">
                 <Font Bold="True" Names="Arial" Size="Large" />
             </PageHeader>
             <PageFooter Left="[Page # of Pages #]" Right="[Date Printed][Time Printed]">

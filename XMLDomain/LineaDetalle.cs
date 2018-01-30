@@ -111,6 +111,13 @@ namespace XMLDomain
             {
                 this.impuestos = null;
             }
+            else
+            {
+                foreach (var item in this.impuestos)
+                {
+                    item.verificaDatosParaXML();
+                } 
+            }
 
         }
     }

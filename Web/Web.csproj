@@ -143,10 +143,13 @@
     <Content Include="Pages\BlogPost.aspx" />
     <Content Include="Pages\BlogTimeline.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoConfiguracionCorreo.aspx" />
+    <Content Include="Pages\Catalogos\FrmCatalogoProductoImpuesto.aspx" />
+    <Content Include="Pages\Catalogos\FrmCatalogoTipoImpuesto.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoTipoIdentificacion.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoTipoProductoServicio.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoUbicacion.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoProducto.aspx" />
+    <Content Include="Pages\Catalogos\WebForm1.aspx" />
     <Content Include="Pages\Facturacion\FrmConsecutivoDocElectronico.aspx" />
     <Content Include="Pages\Contacts.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoCodigoReferencia.aspx" />
@@ -232,6 +235,8 @@
     <Compile Include="Models\Catalogos\CondicionVenta.cs" />
     <Compile Include="Models\Catalogos\CodigoPais.cs" />
     <Compile Include="Models\Catalogos\ConfiguracionCorreo.cs" />
+    <Compile Include="Models\Catalogos\ProductoImpuesto.cs" />
+    <Compile Include="Models\Catalogos\TipoImpuesto.cs" />
     <Compile Include="Models\Facturacion\ConsecutivoDocElectronico.cs" />
     <Compile Include="Models\Catalogos\Ubicacion.cs" />
     <Compile Include="Models\Catalogos\Producto.cs" />
@@ -271,6 +276,20 @@
     <Compile Include="Pages\Catalogos\FrmCatalogoConfiguracionCorreo.aspx.designer.cs">
       <DependentUpon>FrmCatalogoConfiguracionCorreo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoProductoImpuesto.aspx.cs">
+      <DependentUpon>FrmCatalogoProductoImpuesto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoProductoImpuesto.aspx.designer.cs">
+      <DependentUpon>FrmCatalogoProductoImpuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoTipoImpuesto.aspx.cs">
+      <DependentUpon>FrmCatalogoTipoImpuesto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoTipoImpuesto.aspx.designer.cs">
+      <DependentUpon>FrmCatalogoTipoImpuesto.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Catalogos\FrmCatalogoTipoIdentificacion.aspx.cs">
       <DependentUpon>FrmCatalogoTipoIdentificacion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -298,6 +317,13 @@
     </Compile>
     <Compile Include="Pages\Catalogos\FrmCatalogoProducto.aspx.designer.cs">
       <DependentUpon>FrmCatalogoProducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Catalogos\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Catalogos\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Facturacion\FrmConsecutivoDocElectronico.aspx.cs">
       <DependentUpon>FrmConsecutivoDocElectronico.aspx</DependentUpon>

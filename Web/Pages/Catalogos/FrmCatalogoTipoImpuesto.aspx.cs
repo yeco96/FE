@@ -7,26 +7,23 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
-using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Web.Models;
 using Web.Models.Catalogos;
-using Web.Models.Facturacion;
 
 namespace Web.Pages.Catalogos
 {
-    public partial class FrmCatalogoProducto : System.Web.UI.Page
+    public partial class FrmCatalogoTipoImpuesto : System.Web.UI.Page
     {
 
         /// <summary>
         /// constructor
         /// </summary>
-        public FrmCatalogoProducto()
+        public FrmCatalogoTipoImpuesto()
         { 
         }
-
         /// <summary>
         /// este metodo si inicializa al cada vez que se renderiza la pagina
         /// </summary>
@@ -36,10 +33,9 @@ namespace Web.Pages.Catalogos
         {
             try
             {
-                Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
                 if (!IsCallback && !IsPostBack)
                 {
-                    this.cargarCombos(); 
+                    this.cargarCombos();
                 }
                 this.refreshData();
             }
@@ -55,7 +51,7 @@ namespace Web.Pages.Catalogos
         {
             using (var conexion = new DataModelFE())
             {
-                this.ASPxGridView1.DataSource = conexion.Producto.ToList(); 
+                this.ASPxGridView1.DataSource = conexion.TipoImpuesto.ToList();
                 this.ASPxGridView1.DataBind();
             }
         }
@@ -65,33 +61,10 @@ namespace Web.Pages.Catalogos
         /// </summary>
         private void cargarCombos()
         {
-            /* ESTADO */
+            // Cargar valores de combo para estado
             GridViewDataComboBoxColumn comboEstado = this.ASPxGridView1.Columns["estado"] as GridViewDataComboBoxColumn;
             comboEstado.PropertiesComboBox.Items.Clear();
             comboEstado.PropertiesComboBox.Items.AddRange(Enum.GetValues(typeof(Estado)));
-
-            /* TIPO */
-            GridViewDataComboBoxColumn comboTipo = this.ASPxGridView1.Columns["tipo"] as GridViewDataComboBoxColumn;
-            comboTipo.PropertiesComboBox.Items.Clear();
-            using (var conexion = new DataModelFE())
-            { 
-                foreach (var item in conexion.TipoProductoServicio.Where(x=>x.estado==Estado.ACTIVO.ToString()).ToList())
-                {
-                    comboTipo.PropertiesComboBox.Items.Add(item.descripcion, item.codigo); 
-                }
-            }
-
-            /* UNIDAD MEDIDA */
-            GridViewDataComboBoxColumn comboUnidadMedida = this.ASPxGridView1.Columns["unidadMedida"] as GridViewDataComboBoxColumn;
-            comboUnidadMedida.PropertiesComboBox.Items.Clear();
-            using (var conexion = new DataModelFE())
-            {
-                foreach (var item in conexion.UnidadMedida.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
-                {
-                    comboUnidadMedida.PropertiesComboBox.Items.Add(item.ToString(), item.codigo);
-                }
-            }
-
         }
 
 
@@ -126,27 +99,22 @@ namespace Web.Pages.Catalogos
                 using (var conexion = new DataModelFE())
                 {
                     //se declara el objeto a insertar
-                    Producto dato = new Producto();
+                    TipoImpuesto dato = new TipoImpuesto();
                     //llena el objeto con los valores de la pantalla
-                    dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
+                    dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
-                    dato.tipo = e.NewValues["tipo"] != null ? e.NewValues["tipo"].ToString().ToUpper() : null;
-                    dato.unidadMedida = e.NewValues["unidadMedida"] != null ? e.NewValues["unidadMedida"].ToString() : null;
-                    dato.precio = e.NewValues["precio"] != null ? decimal.Parse(e.NewValues["precio"].ToString()) : 0;
-                    dato.emisor = ((EmisorReceptorIMEC)Session["emisor"]).identificacion;
+
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioCreacion = Session["usuario"].ToString();
                     dato.fechaCreacion = Date.DateTimeNow();
 
                     //agrega el objeto
-                    conexion.Producto.Add(dato);
+                    conexion.TipoImpuesto.Add(dato);
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress
                     e.Cancel = true;
                     this.ASPxGridView1.CancelEdit();
-
-                    ((ASPxGridView)sender).JSProperties["cpUpdatedMessage"] = "Los datos se agregaron correctamente, puede continuar.";
                 }
 
             }
@@ -163,14 +131,14 @@ namespace Web.Pages.Catalogos
                 
                 
 
-               // conexion.Producto.Remove(conexion.Producto.Last() );
+                // conexion.TipoImpuesto.Remove(conexion.TipoImpuesto.Last() );
 
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
 
             }
             catch (Exception ex)
-            { 
+            {
                 throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
             finally
@@ -192,31 +160,25 @@ namespace Web.Pages.Catalogos
                 using (var conexion = new DataModelFE())
                 {
                     // se declara el objeto a insertar
-                    Producto dato = new Producto();
+                    TipoImpuesto dato = new TipoImpuesto();
                     //llena el objeto con los valores de la pantalla
-                    dato.id = e.NewValues["id"] != null ? long.Parse(e.NewValues["id"].ToString()) : 0;
+                    dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
 
                     //busca el objeto 
-                    dato = conexion.Producto.Find(dato.id);
+                    dato = conexion.TipoImpuesto.Find(dato.codigo); 
 
-                    dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
-                    dato.precio = e.NewValues["precio"] != null ? decimal.Parse(e.NewValues["precio"].ToString()) : 0;
-                    dato.emisor = ((EmisorReceptorIMEC)Session["emisor"]).identificacion;
-                    dato.tipo = e.NewValues["tipo"] != null ? e.NewValues["tipo"].ToString().ToUpper() : null;
-                    dato.unidadMedida = e.NewValues["unidadMedida"] != null ? e.NewValues["unidadMedida"].ToString(): null;
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioModificacion = Session["usuario"].ToString();
                     dato.fechaModificacion = Date.DateTimeNow();
 
                     //modifica objeto
-                    conexion.Entry(dato).State = EntityState.Modified; 
+                    conexion.Entry(dato).State = EntityState.Modified;
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress
                     e.Cancel = true;
                     this.ASPxGridView1.CancelEdit();
-                    ((ASPxGridView)sender).JSProperties["cpUpdatedMessage"] = "Los datos se modificaron correctamente, puede continuar.";
                 }
 
             }
@@ -242,18 +204,16 @@ namespace Web.Pages.Catalogos
             {
                 using (var conexion = new DataModelFE())
                 {
-                    var id = long.Parse(e.Values["id"].ToString());
+                    var id = e.Values["codigo"].ToString();
 
                     //busca objeto
-                    var itemToRemove = conexion.Producto.SingleOrDefault(x => x.id == id);
-                    conexion.Producto.Remove(itemToRemove);
+                    var itemToRemove = conexion.TipoImpuesto.SingleOrDefault(x => x.codigo == id);
+                    conexion.TipoImpuesto.Remove(itemToRemove);
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress
                     e.Cancel = true;
                     this.ASPxGridView1.CancelEdit();
-
-                    ((ASPxGridView)sender).JSProperties["cpUpdatedMessage"] = "Los datos se eliminaron correctamente, puede continuar.";
                 }
 
             }
@@ -276,13 +236,9 @@ namespace Web.Pages.Catalogos
         /// <param name="e"></param>
         protected void ASPxGridView1_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
         {
-            if (this.ASPxGridView1.IsNewRowEditing)
+            if (!this.ASPxGridView1.IsNewRowEditing)
             {
-                if (e.Column.FieldName == "id") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; e.Editor.Value = 0; }
-            }
-            else
-            {
-                if (e.Column.FieldName == "id") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+                if (e.Column.FieldName == "codigo") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
             }
         }
 
@@ -311,9 +267,5 @@ namespace Web.Pages.Catalogos
             this.ASPxGridViewExporter1.WriteCsvToResponse();
         }
 
-        protected void ASPxGridView2_BeforePerformDataSelect(object sender, EventArgs e)
-        {
-            Session["idProducto"] = long.Parse((sender as ASPxGridView).GetMasterRowKeyValue().ToString()); 
-        }
     }
 }
