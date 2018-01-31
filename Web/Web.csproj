@@ -57,6 +57,7 @@
     <Reference Include="DevExpress.XtraGauges.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v17.1.Web, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -181,6 +182,7 @@
     <Content Include="Pages\Facturacion\FrmGenerarDocumento.aspx" />
     <Content Include="Pages\Facturacion\FrmValidarXML.aspx" />
     <Content Include="Pages\Home.aspx" />
+    <Content Include="Pages\Reportes\FrmReporteFactura.aspx" />
     <Content Include="Pages\Search.aspx" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrap4.min.js" />
@@ -466,6 +468,19 @@
     <Compile Include="Pages\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Reportes\FrmReporteFactura.aspx.cs">
+      <DependentUpon>FrmReporteFactura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reportes\FrmReporteFactura.aspx.designer.cs">
+      <DependentUpon>FrmReporteFactura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reportes\RptDetalleFactura.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Pages\Reportes\RptFactura.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Pages\Search.aspx.cs">
       <DependentUpon>Search.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -517,6 +532,12 @@
     <Compile Include="WebServices\URLServices.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Pages\Reportes\RptDetalleFactura.resx">
+      <DependentUpon>RptDetalleFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Reportes\RptFactura.resx">
+      <DependentUpon>RptFactura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
@@ -553,7 +574,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\Seguridad\" />
-    <Folder Include="Pages\Reportes\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
