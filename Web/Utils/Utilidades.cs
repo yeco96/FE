@@ -1,10 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Web;  
+using System.Web;
+using Web.Models;
+using Web.Models.Catalogos;
+
 namespace Class.Utilidades
 {
     public class Utilidades
@@ -163,5 +169,77 @@ namespace Class.Utilidades
             return Micultura;
             
         }
+
+
+
+        #region sendMail 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="destinatario">direccion de correo</param>
+        /// <param name="asunto">asunto de correo</param>
+        /// <param name="mensaje">contenido del correo</param>
+        /// /// <param name="alias">nombre para enmascar el correo</param>
+        /// <returns></returns>
+        public static bool sendMail(string destinatario, string asunto, string mensaje, string alias, string xml, string clave)
+        {
+            try
+            {
+                using (var conexion = new DataModelFE())
+                {
+                    ConfiguracionCorreo mailConfig = conexion.ConfiguracionCorreo.Where(x => x.estado == Estado.ACTIVO.ToString()).FirstOrDefault();
+                     
+                    MailMessage correo = new MailMessage();
+                    SmtpClient smtp = new SmtpClient(); 
+                    correo.From = new MailAddress(mailConfig.user, alias);
+                    correo.To.Add(destinatario);
+                    correo.Subject = String.Format("SPAM-LOW: {0}", asunto);
+                    correo.Body = mensaje;
+                    correo.Attachments.Add( new Attachment(GenerateStreamFromString(xml), clave) );
+                    correo.Priority = MailPriority.Normal;
+                    correo.IsBodyHtml = true;
+                    smtp.Credentials = new NetworkCredential(mailConfig.user, mailConfig.password);
+                    smtp.Host = mailConfig.host;
+                    smtp.Port = int.Parse(mailConfig.port);
+                    smtp.EnableSsl = true;
+                    smtp.Send(correo);
+                    correo.Dispose();
+                } 
+                return true;
+            }
+            catch (Exception e)
+            {
+                e.ToString();
+                return false;
+            }
+        }
+        #endregion
+
+        
+         public static string mensageGenerico()
+        {
+            String mensaje = "";
+            mensaje += "<p>Estimado Cliente:</p>";
+            mensaje += "<p>Adjunto a este correo encontrará un Comprobante Electrónico en formato XML y su correspondiente representación en formato PDF. Lo anterior con base en las especificaciones del Ministerio de Hacienda.</p>";
+            mensaje += "<p></p>";
+            mensaje += "<p>**** Este mensaje se ha generado automáticamente.</p>";
+            mensaje += "<p>**** Por Favor No conteste a este mensaje ya que no recibirá ninguna respuesta..</p>";
+            
+            return mensaje; 
+        }
+
+   
+
+        public static Stream GenerateStreamFromString(string s)
+        {
+            MemoryStream stream = new MemoryStream();
+            StreamWriter writer = new StreamWriter(stream);
+            writer.Write(s);
+            writer.Flush();
+            stream.Position = 0;
+            return stream;
+        }
+
+
     }
 }

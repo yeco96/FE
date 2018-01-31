@@ -25,16 +25,19 @@ namespace XMLDomain
         public decimal precioUnitario { set; get; }//tamaño 18,3 DGT
 
         /// <summary>
-        //Se obtiene de multiplicar el campo cantidad por el campo precio unitario tamaño 18,3 DGT 
+        /// Se obtiene de multiplicar el campo cantidad por el campo precio unitario tamaño 18,3 DGT 
         /// </summary>
         [XmlElement(ElementName = "MontoTotal", Order = 8)]
         public decimal montoTotal { set; get; }
 
+        /// <summary>
+        /// Monto de descuento concedido, el cual es obligatorio si existe descuento
+        /// </summary>
         [XmlElement(ElementName = "MontoDescuento", Order = 9)]
         public decimal montoDescuento { set; get; }//tamaño 18,3 DGT
 
         /// <summary>
-        //  Monto de descuento concedido, el cual es obligatorio si existe descuento //tamaño 80 DGT
+        ///  Monto de descuento concedido, el cual es obligatorio si existe descuento //tamaño 80 DGT
         /// </summary>
         [XmlElement(ElementName = "NaturalezaDescuento", Order = 10)]
         public string naturalezaDescuento { set; get; }
@@ -84,14 +87,14 @@ namespace XMLDomain
 
             if (this.impuestos != null)
             {
-                this.montoTotalLinea = this.subTotal + this.impuestos.Sum(x => x.monto);
+                this.montoTotalLinea = this.subTotal + this.impuestos.Sum(x => x.monto * (x.tarifa/100));
             }
             else
             {
                 this.montoTotalLinea = this.subTotal;
             }
 
-            if (this.montoDescuento > 0)
+            if (this.montoDescuento < 0)
             {
                 this.naturalezaDescuento = null;
             }
@@ -107,6 +110,13 @@ namespace XMLDomain
             if (this.impuestos.Count == 0)
             {
                 this.impuestos = null;
+            }
+            else
+            {
+                foreach (var item in this.impuestos)
+                {
+                    item.verificaDatosParaXML();
+                } 
             }
 
         }

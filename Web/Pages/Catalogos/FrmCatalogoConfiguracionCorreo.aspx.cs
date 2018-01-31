@@ -17,13 +17,13 @@ using Web.Models.Facturacion;
 
 namespace Web.Pages.Catalogos
 {
-    public partial class FrmCatalogoProducto : System.Web.UI.Page
+    public partial class FrmCatalogoConfiguracionCorreo : System.Web.UI.Page
     {
 
         /// <summary>
         /// constructor
         /// </summary>
-        public FrmCatalogoProducto()
+        public FrmCatalogoConfiguracionCorreo()
         { 
         }
 
@@ -55,7 +55,7 @@ namespace Web.Pages.Catalogos
         {
             using (var conexion = new DataModelFE())
             {
-                this.ASPxGridView1.DataSource = conexion.Producto.ToList(); 
+                this.ASPxGridView1.DataSource = conexion.ConfiguracionCorreo.ToList(); 
                 this.ASPxGridView1.DataBind();
             }
         }
@@ -69,28 +69,7 @@ namespace Web.Pages.Catalogos
             GridViewDataComboBoxColumn comboEstado = this.ASPxGridView1.Columns["estado"] as GridViewDataComboBoxColumn;
             comboEstado.PropertiesComboBox.Items.Clear();
             comboEstado.PropertiesComboBox.Items.AddRange(Enum.GetValues(typeof(Estado)));
-
-            /* TIPO */
-            GridViewDataComboBoxColumn comboTipo = this.ASPxGridView1.Columns["tipo"] as GridViewDataComboBoxColumn;
-            comboTipo.PropertiesComboBox.Items.Clear();
-            using (var conexion = new DataModelFE())
-            { 
-                foreach (var item in conexion.TipoProductoServicio.Where(x=>x.estado==Estado.ACTIVO.ToString()).ToList())
-                {
-                    comboTipo.PropertiesComboBox.Items.Add(item.descripcion, item.codigo); 
-                }
-            }
-
-            /* UNIDAD MEDIDA */
-            GridViewDataComboBoxColumn comboUnidadMedida = this.ASPxGridView1.Columns["unidadMedida"] as GridViewDataComboBoxColumn;
-            comboUnidadMedida.PropertiesComboBox.Items.Clear();
-            using (var conexion = new DataModelFE())
-            {
-                foreach (var item in conexion.UnidadMedida.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
-                {
-                    comboUnidadMedida.PropertiesComboBox.Items.Add(item.ToString(), item.codigo);
-                }
-            }
+            
 
         }
 
@@ -126,20 +105,20 @@ namespace Web.Pages.Catalogos
                 using (var conexion = new DataModelFE())
                 {
                     //se declara el objeto a insertar
-                    Producto dato = new Producto();
+                    ConfiguracionCorreo dato = new ConfiguracionCorreo();
                     //llena el objeto con los valores de la pantalla
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
-                    dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
-                    dato.tipo = e.NewValues["tipo"] != null ? e.NewValues["tipo"].ToString().ToUpper() : null;
-                    dato.unidadMedida = e.NewValues["unidadMedida"] != null ? e.NewValues["unidadMedida"].ToString() : null;
-                    dato.precio = e.NewValues["precio"] != null ? decimal.Parse(e.NewValues["precio"].ToString()) : 0;
-                    dato.emisor = ((EmisorReceptorIMEC)Session["emisor"]).identificacion;
+                    dato.host = e.NewValues["host"] != null ? e.NewValues["host"].ToString().ToUpper() : null;
+                    dato.port = e.NewValues["port"] != null ? e.NewValues["port"].ToString().ToUpper() : null;
+                    dato.user = e.NewValues["user"] != null ? e.NewValues["user"].ToString() : null;
+                    dato.password = e.NewValues["password"] != null ? e.NewValues["password"].ToString() : null;
+                    
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioCreacion = Session["usuario"].ToString();
                     dato.fechaCreacion = Date.DateTimeNow();
 
                     //agrega el objeto
-                    conexion.Producto.Add(dato);
+                    conexion.ConfiguracionCorreo.Add(dato);
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress
@@ -158,16 +137,9 @@ namespace Web.Pages.Catalogos
                         .Select(x => x.ErrorMessage);
 
                 // Join the list to a single string.
-                var fullErrorMessage = string.Join("; ", errorMessages);
-
-                
-                
-
-               // conexion.Producto.Remove(conexion.Producto.Last() );
-
+                var fullErrorMessage = string.Join("; ", errorMessages); 
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
-
             }
             catch (Exception ex)
             { 
@@ -192,19 +164,19 @@ namespace Web.Pages.Catalogos
                 using (var conexion = new DataModelFE())
                 {
                     // se declara el objeto a insertar
-                    Producto dato = new Producto();
+                    ConfiguracionCorreo dato = new ConfiguracionCorreo();
                     //llena el objeto con los valores de la pantalla
-                    dato.id = e.NewValues["id"] != null ? long.Parse(e.NewValues["id"].ToString()) : 0;
+                    dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
 
                     //busca el objeto 
-                    dato = conexion.Producto.Find(dato.id);
+                    dato = conexion.ConfiguracionCorreo.Find(dato.codigo);
 
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
-                    dato.precio = e.NewValues["precio"] != null ? decimal.Parse(e.NewValues["precio"].ToString()) : 0;
-                    dato.emisor = ((EmisorReceptorIMEC)Session["emisor"]).identificacion;
-                    dato.tipo = e.NewValues["tipo"] != null ? e.NewValues["tipo"].ToString().ToUpper() : null;
-                    dato.unidadMedida = e.NewValues["unidadMedida"] != null ? e.NewValues["unidadMedida"].ToString(): null;
-                    dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
+                    dato.password = e.NewValues["password"] != null ? e.NewValues["password"].ToString() : null;
+                   
+                    dato.port = e.NewValues["port"] != null ? e.NewValues["port"].ToString().ToUpper() : null;
+                    dato.user = e.NewValues["user"] != null ? e.NewValues["user"].ToString(): null;
+                    dato.host = e.NewValues["host"] != null ? e.NewValues["host"].ToString().ToUpper() : null;
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioModificacion = Session["usuario"].ToString();
                     dato.fechaModificacion = Date.DateTimeNow();
@@ -219,6 +191,18 @@ namespace Web.Pages.Catalogos
                     ((ASPxGridView)sender).JSProperties["cpUpdatedMessage"] = "Los datos se modificaron correctamente, puede continuar.";
                 }
 
+            }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
             }
             catch (Exception ex)
             {
@@ -242,11 +226,11 @@ namespace Web.Pages.Catalogos
             {
                 using (var conexion = new DataModelFE())
                 {
-                    var id = long.Parse(e.Values["id"].ToString());
+                    var codigo = e.Values["codigo"].ToString();
 
                     //busca objeto
-                    var itemToRemove = conexion.Producto.SingleOrDefault(x => x.id == id);
-                    conexion.Producto.Remove(itemToRemove);
+                    var itemToRemove = conexion.ConfiguracionCorreo.SingleOrDefault(x => x.codigo == codigo);
+                    conexion.ConfiguracionCorreo.Remove(itemToRemove);
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress
@@ -311,32 +295,6 @@ namespace Web.Pages.Catalogos
             this.ASPxGridViewExporter1.WriteCsvToResponse();
         }
 
-        protected void ASPxGridView2_BeforePerformDataSelect(object sender, EventArgs e)
-        {
-            using (var conexion = new DataModelFE())
-            {
-                long idProducto = long.Parse((sender as ASPxGridView).GetMasterRowKeyValue().ToString());
-
-               
-                ASPxGridView detailGird = ASPxGridView1.FindDetailRowTemplateControl(ASPxGridView1.FocusedRowIndex, "ASPxGridView2") as ASPxGridView;
-                //detailGird.DataSource = conexion.ProductoImpuesto.Where(x => x.idProducto == idProducto).ToList();
-               // detailGird.DataBind();
-            }
-        }
-
-        protected void ASPxGridView2_DetailRowExpandedChanged(object sender, ASPxGridViewDetailRowEventArgs e)
-        {
-            using (var conexion = new DataModelFE())
-            {
-                long idProducto = long.Parse(ASPxGridView1.GetRowValues(e.VisibleIndex, "id").ToString());
-                 
-                ASPxGridView detailGird = ASPxGridView1.FindDetailRowTemplateControl(e.VisibleIndex, "ASPxGridView2") as ASPxGridView;
-                if (detailGird != null)
-                {
-                    detailGird.DataSource = conexion.ProductoImpuesto.Where(x => x.idProducto == idProducto).ToList();
-                    detailGird.DataBind();
-                }
-            }
-        }
+       
     }
 }

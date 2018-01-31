@@ -17,13 +17,13 @@ using Web.Models.Facturacion;
 
 namespace Web.Pages.Catalogos
 {
-    public partial class FrmCatalogoProducto : System.Web.UI.Page
+    public partial class FrmCatalogoProductoImpuesto : System.Web.UI.Page
     {
 
         /// <summary>
         /// constructor
         /// </summary>
-        public FrmCatalogoProducto()
+        public FrmCatalogoProductoImpuesto()
         { 
         }
 
@@ -55,7 +55,7 @@ namespace Web.Pages.Catalogos
         {
             using (var conexion = new DataModelFE())
             {
-                this.ASPxGridView1.DataSource = conexion.Producto.ToList(); 
+                this.ASPxGridView1.DataSource = conexion.ProductoImpuesto.ToList(); 
                 this.ASPxGridView1.DataBind();
             }
         }
@@ -70,28 +70,30 @@ namespace Web.Pages.Catalogos
             comboEstado.PropertiesComboBox.Items.Clear();
             comboEstado.PropertiesComboBox.Items.AddRange(Enum.GetValues(typeof(Estado)));
 
-            /* TIPO */
-            GridViewDataComboBoxColumn comboTipo = this.ASPxGridView1.Columns["tipo"] as GridViewDataComboBoxColumn;
-            comboTipo.PropertiesComboBox.Items.Clear();
-            using (var conexion = new DataModelFE())
-            { 
-                foreach (var item in conexion.TipoProductoServicio.Where(x=>x.estado==Estado.ACTIVO.ToString()).ToList())
-                {
-                    comboTipo.PropertiesComboBox.Items.Add(item.descripcion, item.codigo); 
-                }
-            }
-
-            /* UNIDAD MEDIDA */
-            GridViewDataComboBoxColumn comboUnidadMedida = this.ASPxGridView1.Columns["unidadMedida"] as GridViewDataComboBoxColumn;
-            comboUnidadMedida.PropertiesComboBox.Items.Clear();
+            /* PRODUCTO */
+            GridViewDataComboBoxColumn comboProducto = this.ASPxGridView1.Columns["idProducto"] as GridViewDataComboBoxColumn;
+            comboProducto.PropertiesComboBox.Items.Clear();
             using (var conexion = new DataModelFE())
             {
-                foreach (var item in conexion.UnidadMedida.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                string emisor = ((EmisorReceptorIMEC)Session["emisor"]).identificacion;
+                foreach (var item in conexion.Producto.Where(x=>x.emisor == emisor).Where(x=>x.estado==Estado.ACTIVO.ToString()).ToList())
                 {
-                    comboUnidadMedida.PropertiesComboBox.Items.Add(item.ToString(), item.codigo);
+                    comboProducto.PropertiesComboBox.Items.Add(item.descripcion, item.id); 
                 }
             }
+            comboProducto.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
+            /* TIPO IMPUESTO */
+            GridViewDataComboBoxColumn comboTipoImpuesto = this.ASPxGridView1.Columns["tipoImpuesto"] as GridViewDataComboBoxColumn;
+            comboTipoImpuesto.PropertiesComboBox.Items.Clear();
+            using (var conexion = new DataModelFE())
+            { 
+                foreach (var item in conexion.TipoImpuesto.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                {
+                    comboTipoImpuesto.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
+                }
+            }
+            comboProducto.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
         }
 
 
@@ -126,20 +128,18 @@ namespace Web.Pages.Catalogos
                 using (var conexion = new DataModelFE())
                 {
                     //se declara el objeto a insertar
-                    Producto dato = new Producto();
+                    ProductoImpuesto dato = new ProductoImpuesto();
                     //llena el objeto con los valores de la pantalla
-                    dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
-                    dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
-                    dato.tipo = e.NewValues["tipo"] != null ? e.NewValues["tipo"].ToString().ToUpper() : null;
-                    dato.unidadMedida = e.NewValues["unidadMedida"] != null ? e.NewValues["unidadMedida"].ToString() : null;
-                    dato.precio = e.NewValues["precio"] != null ? decimal.Parse(e.NewValues["precio"].ToString()) : 0;
+                    dato.idProducto = e.NewValues["idProducto"] != null ? long.Parse(e.NewValues["idProducto"].ToString()) : 0 ;
+                    dato.tipoImpuesto = e.NewValues["tipoImpuesto"] != null ? e.NewValues["tipoImpuesto"].ToString().ToUpper() : null;
+                    dato.porcentaje = e.NewValues["porcentaje"] != null ? decimal.Parse(e.NewValues["porcentaje"].ToString()) : 0;
                     dato.emisor = ((EmisorReceptorIMEC)Session["emisor"]).identificacion;
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioCreacion = Session["usuario"].ToString();
                     dato.fechaCreacion = Date.DateTimeNow();
 
                     //agrega el objeto
-                    conexion.Producto.Add(dato);
+                    conexion.ProductoImpuesto.Add(dato);
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress
@@ -163,7 +163,7 @@ namespace Web.Pages.Catalogos
                 
                 
 
-               // conexion.Producto.Remove(conexion.Producto.Last() );
+               // conexion.ProductoImpuesto..Remove(conexion.ProductoImpuesto..Last() );
 
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
@@ -192,19 +192,17 @@ namespace Web.Pages.Catalogos
                 using (var conexion = new DataModelFE())
                 {
                     // se declara el objeto a insertar
-                    Producto dato = new Producto();
+                    ProductoImpuesto dato = new ProductoImpuesto();
                     //llena el objeto con los valores de la pantalla
-                    dato.id = e.NewValues["id"] != null ? long.Parse(e.NewValues["id"].ToString()) : 0;
+                    dato.idProducto = e.NewValues["idProducto"] != null ? long.Parse(e.NewValues["idProducto"].ToString()) : 0;
+                    dato.tipoImpuesto = e.NewValues["tipoImpuesto"] != null ? e.NewValues["tipoImpuesto"].ToString().ToUpper() : null;
 
+                    object[] key = new object[] { dato.idProducto, dato.tipoImpuesto};
                     //busca el objeto 
-                    dato = conexion.Producto.Find(dato.id);
-
-                    dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
-                    dato.precio = e.NewValues["precio"] != null ? decimal.Parse(e.NewValues["precio"].ToString()) : 0;
+                    dato = conexion.ProductoImpuesto.Find(key);
+                   
+                    dato.porcentaje = e.NewValues["porcentaje"] != null ? decimal.Parse(e.NewValues["porcentaje"].ToString()) : 0;
                     dato.emisor = ((EmisorReceptorIMEC)Session["emisor"]).identificacion;
-                    dato.tipo = e.NewValues["tipo"] != null ? e.NewValues["tipo"].ToString().ToUpper() : null;
-                    dato.unidadMedida = e.NewValues["unidadMedida"] != null ? e.NewValues["unidadMedida"].ToString(): null;
-                    dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioModificacion = Session["usuario"].ToString();
                     dato.fechaModificacion = Date.DateTimeNow();
@@ -242,11 +240,16 @@ namespace Web.Pages.Catalogos
             {
                 using (var conexion = new DataModelFE())
                 {
-                    var id = long.Parse(e.Values["id"].ToString());
+
+                    var idProducto = long.Parse(e.Values["idProducto"].ToString());
+                    var tipoImpuesto =  e.Values["tipoImpuesto"].ToString().ToUpper();
+
+                    object[] key = new object[] { idProducto, tipoImpuesto };
+
 
                     //busca objeto
-                    var itemToRemove = conexion.Producto.SingleOrDefault(x => x.id == id);
-                    conexion.Producto.Remove(itemToRemove);
+                    var itemToRemove = conexion.ProductoImpuesto.Find(key);
+                    conexion.ProductoImpuesto.Remove(itemToRemove);
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress
@@ -310,33 +313,6 @@ namespace Web.Pages.Catalogos
         {
             this.ASPxGridViewExporter1.WriteCsvToResponse();
         }
-
-        protected void ASPxGridView2_BeforePerformDataSelect(object sender, EventArgs e)
-        {
-            using (var conexion = new DataModelFE())
-            {
-                long idProducto = long.Parse((sender as ASPxGridView).GetMasterRowKeyValue().ToString());
-
-               
-                ASPxGridView detailGird = ASPxGridView1.FindDetailRowTemplateControl(ASPxGridView1.FocusedRowIndex, "ASPxGridView2") as ASPxGridView;
-                //detailGird.DataSource = conexion.ProductoImpuesto.Where(x => x.idProducto == idProducto).ToList();
-               // detailGird.DataBind();
-            }
-        }
-
-        protected void ASPxGridView2_DetailRowExpandedChanged(object sender, ASPxGridViewDetailRowEventArgs e)
-        {
-            using (var conexion = new DataModelFE())
-            {
-                long idProducto = long.Parse(ASPxGridView1.GetRowValues(e.VisibleIndex, "id").ToString());
-                 
-                ASPxGridView detailGird = ASPxGridView1.FindDetailRowTemplateControl(e.VisibleIndex, "ASPxGridView2") as ASPxGridView;
-                if (detailGird != null)
-                {
-                    detailGird.DataSource = conexion.ProductoImpuesto.Where(x => x.idProducto == idProducto).ToList();
-                    detailGird.DataBind();
-                }
-            }
-        }
+         
     }
 }

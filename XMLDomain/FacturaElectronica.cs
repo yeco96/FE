@@ -157,6 +157,7 @@ namespace XMLDomain
         /// </summary>
         public void verificaDatosParaXML()
         {
+            /* RECEPTOR */
             if (string.IsNullOrWhiteSpace(this.emisor.fax.codigoPais) || string.IsNullOrWhiteSpace(this.emisor.fax.numTelefono))
             {
                 this.emisor.fax = null;
@@ -165,7 +166,12 @@ namespace XMLDomain
             {
                 this.emisor.fax = null;
             }
+            /* EMISOR */
             if (string.IsNullOrWhiteSpace(this.receptor.telefono.codigoPais) || string.IsNullOrWhiteSpace(this.receptor.telefono.numTelefono))
+            {
+                this.receptor.fax = null;
+            }
+            if (string.IsNullOrWhiteSpace(this.receptor.fax.codigoPais) || string.IsNullOrWhiteSpace(this.receptor.fax.numTelefono))
             {
                 this.receptor.fax = null;
             }
@@ -180,10 +186,20 @@ namespace XMLDomain
                 this.receptor.ubicacion = null;
             }
 
-
+            /* LINEA DE DETALLES (IMPUESTOS) */
+            int numeroLinea = 1;
             foreach (var item in this.detalleServicio.lineaDetalle)
             {
                 item.verificaDatosParaXML();
+                item.numeroLinea = numeroLinea;
+                numeroLinea = numeroLinea + 1;
+            }
+
+            /*TIPO CAMBIO*/
+            if (resumenFactura.tipoCambio.ToString().Contains(".") ||
+                resumenFactura.tipoCambio.ToString().Contains(",") )
+            {
+                resumenFactura.tipoCambio = resumenFactura.tipoCambio / 100;
             }
 
         }

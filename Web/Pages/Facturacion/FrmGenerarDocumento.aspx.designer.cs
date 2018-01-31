@@ -13,6 +13,33 @@ namespace Web.Pages.Facturacion {
     public partial class FrmGenerarDocumento {
         
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
+        /// UpdatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel;
+        
+        /// <summary>
+        /// alertMessages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertMessages;
+        
+        /// <summary>
         /// documento control.
         /// </summary>
         /// <remarks>
@@ -164,6 +191,15 @@ namespace Web.Pages.Facturacion {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxSpinEdit txtReceptorIdentificacion;
+        
+        /// <summary>
+        /// btnBuscarReceptor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnBuscarReceptor;
         
         /// <summary>
         /// txtReceptorNombre control.
@@ -355,12 +391,12 @@ namespace Web.Pages.Facturacion {
         protected global::DevExpress.Web.ASPxButton btnFacturar;
         
         /// <summary>
-        /// alertMessages control.
+        /// UpdateProgress1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertMessages;
+        protected global::System.Web.UI.UpdateProgress UpdateProgress1;
     }
 }

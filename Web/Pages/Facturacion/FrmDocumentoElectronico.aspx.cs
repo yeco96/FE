@@ -2,6 +2,7 @@
 using DevExpress.Export;
 using DevExpress.Web;
 using DevExpress.XtraPrinting;
+using EncodeXML;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Text;
 using System.Threading;
 using System.Web;
 using System.Web.UI;
@@ -183,6 +185,59 @@ namespace Web.Pages.Facturacion
         protected void ASPxGridView1_DetailRowExpandedChanged(object sender, ASPxGridViewDetailRowEventArgs e)
         {
             Session["clave"] = (sender as ASPxGridView).GetRowValues(e.VisibleIndex, "clave");
+        }
+
+        protected void btnDescargarXML_Click(object sender, EventArgs e)
+        {
+            try
+            { 
+                string xml = "";
+
+                using (var conexion = new DataModelWS())
+                {
+                    string clave = Session["clave"].ToString();
+                    WSRecepcionPOST dato = conexion.WSRecepcionPOST.Where(x => x.clave == clave).FirstOrDefault();
+                    xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml); 
+                }
+                Response.Clear();
+                Response.ClearHeaders();
+
+                Response.AddHeader("Content-Length", xml.Length.ToString());
+                Response.ContentType = "text/plain";
+                Response.AppendHeader("content-disposition", String.Format( "attachment;filename=\"{0}.xml\"", Session["clave"].ToString()));
+
+                Response.Write(xml);
+                Response.End();
+
+               
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex.InnerException);
+            }
+           
+        }
+
+        protected void btnReenvioCorreo_Click(object sender, EventArgs e)
+        {
+
+            using (var conexion = new DataModelWS())
+            {
+                string clave = Session["clave"].ToString();
+                WSRecepcionPOST dato = conexion.WSRecepcionPOST.Where(x => x.clave == clave).FirstOrDefault();
+                string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+
+                string numeroConsecutivo = EncondeXML.buscarValorEtiquetaXML("FacturaElectronica", "NumeroConsecutivo", xml);
+                string correoElectronico = EncondeXML.buscarValorEtiquetaXML("Receptor", "CorreoElectronico", xml);
+
+                if (!string.IsNullOrWhiteSpace(correoElectronico))
+                {
+                    Utilidades.sendMail(correoElectronico,
+                        string.Format("{0} - {1}", numeroConsecutivo, dato.receptor.nombre),
+                        Utilidades.mensageGenerico(), "Factura Electrónica",xml, numeroConsecutivo);
+                }
+            }
+            
         }
     }
 }

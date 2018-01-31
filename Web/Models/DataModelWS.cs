@@ -14,8 +14,7 @@ namespace Web.Models
 
         public DataModelWS() : base("name=fe_db")
         { 
-        }
-        
+        } 
         public virtual DbSet<WSDomain.WSRecepcionPOST> WSRecepcionPOST { get; set; }
     }
 }

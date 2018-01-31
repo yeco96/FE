@@ -7,8 +7,8 @@
 <script src="http://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
 <script src="http://openlayers.org/en/v3.18.2/build/ol.js"></script>
 <script type="text/javascript">
-(function(){
-    var location = ol.proj.fromLonLat([-118.2554522, 34.1532212]);
+    (function () { 
+        var location = ol.proj.fromLonLat([9.998352, -84.1307602]);
 
     var map = new ol.Map({
         layers: [
@@ -56,28 +56,28 @@
 <div class="container">
     <div class="row">
         <section class="col-md-8 marginTop40">
-            <h3>Contact Form</h3>
-            <p>Feel free to contact us</p>
+            <h3>Formulario de Contácto</h3>
+            <p>Siéntase libre de contactarnos</p>
             <dx:AddCommentForm runat="server"/>
             <hr class="marginTop40 visible-sm visible-xs"/>
         </section>
         <aside class="col-md-4 marginTop40">
-            <h3>Address</h3>
-            <p>505 N. Brand Blvd. 16th Floor Glendale CA 91203 USA</p>
-            <h3>Customer Services</h3>
+            <h3>Dirección</h3>
+            <p>Heredia, Costa Rica</p>
+            <h3>Servicio al Cliente</h3>
             <ul class="list-unstyled">
-                <li><i class="glyphicon glyphicon-phone-alt"></i> + 1 (818) 844 3383</li>
-                <li><i class="glyphicon glyphicon-envelope"></i> clientservices@devexpress.com</li>
+                <li><i class="glyphicon glyphicon-phone-alt"></i> + (506) 8872 9065</li>
+                <li><i class="glyphicon glyphicon-envelope"></i> msalamanca@msasoft.net</li>
             </ul>
-            <h3>Enterprise Sales</h3>
+            <h3>Ventas</h3>
             <ul class="list-unstyled">
-                <li><i class="glyphicon glyphicon-phone-alt"></i> + 1 (818) 844 3395</li>
-                <li><i class="glyphicon glyphicon-envelope"></i> corpsales@devexpress.com</li>
+                <li><i class="glyphicon glyphicon-phone-alt"></i> + (506) 8872 9065</li>
+                <li><i class="glyphicon glyphicon-envelope"></i> msalamanca@msasoft.net</li>
             </ul>
-            <h3>Support</h3>
+            <h3>Soporte</h3>
             <ul class="list-unstyled">
-                <li><i class="glyphicon glyphicon-hand-right"></i> <a href="#">Support Center</a></li>
-                <li><i class="glyphicon glyphicon-envelope"></i> support@devexpress.com</li>
+                <li><i class="glyphicon glyphicon-hand-right"></i> <a href="#">Centro de Soporte</a></li>
+                <li><i class="glyphicon glyphicon-envelope"></i> msalamanca@msasoft.net</li>
             </ul>
         </aside>
     </div>

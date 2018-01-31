@@ -29,8 +29,11 @@ namespace WSDomain
         [JsonIgnore]
         public string factura { get { return clave.Substring(21,20); } }
 
+        [JsonProperty("callbackUrl", Order = 5)]
+        string callbackUrl { set; get; }
 
-        [JsonProperty("comprobanteXml", Order = 5)]
+
+        [JsonProperty("comprobanteXml", Order = 6)]
         public string comprobanteXml { set; get; }
 
         [JsonIgnore]

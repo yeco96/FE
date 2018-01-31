@@ -41,7 +41,7 @@
         <dx:LayoutItem ShowCaption="False">
             <LayoutItemNestedControlCollection>
                 <dx:LayoutItemNestedControlContainer>
-                    <dx:ASPxButton ID="Submit" runat="server" Text="Submit" Width="100px" UseSubmitBehavior="true" />
+                    <dx:ASPxButton ID="Submit" runat="server" Text="Enviar" Width="100px" UseSubmitBehavior="true" />
                 </dx:LayoutItemNestedControlContainer>
             </LayoutItemNestedControlCollection>
         </dx:LayoutItem>
