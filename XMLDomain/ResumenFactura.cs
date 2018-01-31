@@ -12,7 +12,7 @@ namespace XMLDomain
         [XmlElement(ElementName = "CodigoMoneda", Order = 1)]
         public string codigoMoneda { set; get; }//tamaño 3  DGT
         [XmlElement(ElementName = "TipoCambio", Order = 2)]
-        public string tipoCambio { set; get; }//tamaño 18,5  DGT
+        public decimal tipoCambio { set; get; }//tamaño 18,5  DGT
 
 
         /// <summary>

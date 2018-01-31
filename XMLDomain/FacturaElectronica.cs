@@ -195,6 +195,13 @@ namespace XMLDomain
                 numeroLinea = numeroLinea + 1;
             }
 
+            /*TIPO CAMBIO*/
+            if (resumenFactura.tipoCambio.ToString().Contains(".") ||
+                resumenFactura.tipoCambio.ToString().Contains(",") )
+            {
+                resumenFactura.tipoCambio = resumenFactura.tipoCambio / 100;
+            }
+
         }
 
     }

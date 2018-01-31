@@ -94,7 +94,7 @@ namespace XMLDomain
                 this.montoTotalLinea = this.subTotal;
             }
 
-            if (this.montoDescuento > 0)
+            if (this.montoDescuento < 0)
             {
                 this.naturalezaDescuento = null;
             }

@@ -579,6 +579,7 @@ namespace Web.Pages.Facturacion
         {
             try
             {
+                Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
                 DetalleServicio detalle = (DetalleServicio)Session["detalleServicio"];
                 if (detalle.lineaDetalle.Count == 0)
                 {
@@ -658,7 +659,7 @@ namespace Web.Pages.Facturacion
                     dato.receptor.ubicacion.otrassenas = elReceptor.otraSena;
 
                     /* RESUMEN */
-                    dato.resumenFactura.tipoCambio = this.txtTipoCambio.Text;
+                    dato.resumenFactura.tipoCambio = decimal.Parse(this.txtTipoCambio.Text); 
                     dato.resumenFactura.codigoMoneda = this.cmbTipoMoneda.Value.ToString();
                     dato.resumenFactura.calcularResumenFactura(dato.detalleServicio.lineaDetalle);
 
