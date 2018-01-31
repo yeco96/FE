@@ -10,6 +10,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml;
 using System.Xml.Linq;
+using WSDomain;
 
 namespace Web.Pages.Facturacion
 {
@@ -71,6 +72,21 @@ namespace Web.Pages.Facturacion
             }
         }
 
+        protected void btnEnviar_Click(object sender, EventArgs e)
+        {
+            WSReceptorPOST dato = new WSReceptorPOST();
+            dato.clave = this.txtClave.Text;
 
+            dato.numeroCedulaEmisor = this.txtNumCedEmisor.Text;
+            dato.numeroCedulaReceptor = this.txtNumCedReceptor.Text;
+
+            dato.detalleMensaje = this.txtDetalleMensaje.Text;
+            dato.mensaje = int.Parse(this.cmbMensaje.Text);
+            dato.numeroConsecutivoReceptor = this.txtNumConsecReceptor.Text;
+
+            dato.montoTotalImpuesto = decimal.Parse(this.txtDetalleMensaje.Text);
+            dato.montoTotalFactura = decimal.Parse(this.txtDetalleMensaje.Text);
+            
+        }
     }
 }

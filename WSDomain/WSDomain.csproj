@@ -49,6 +49,7 @@
     <Compile Include="WSComprobante.cs" />
     <Compile Include="NotaDebito.cs" />
     <Compile Include="NotaCredito.cs" />
+    <Compile Include="WSReceptorPOST.cs" />
     <Compile Include="WSRecepcionPOST.cs" />
     <Compile Include="EmisorReceptor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

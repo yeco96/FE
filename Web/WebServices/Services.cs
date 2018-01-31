@@ -9,6 +9,13 @@ using System.Net.Http.Headers;
 using System.Text;
 using OAuth2;
 using System.Configuration;
+using Web.Models.Facturacion;
+using Class.Utilidades;
+using EncodeXML;
+using Web.Models;
+using WSDomain;
+using FirmaXadesNet;
+using Newtonsoft.Json;
 
 namespace Web.WebServices
 {
@@ -130,6 +137,71 @@ namespace Web.WebServices
             }
 
             return await responseMessage.Content.ReadAsStringAsync();
+        }
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="xmlFile">XML sin firmar</param>
+        /// <param name="responsePost">respuesta del webs ervices</param>
+        public static  async Task<string> enviarDocumentoElectronico(string xmlFile, EmisorReceptorIMEC emisor)
+        {
+            String responsePost = "";
+            try
+            {
+                using (var conexion = new DataModelOAuth2())
+                {
+                    string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
+                    OAuth2.OAuth2Config config = conexion.OAuth2Config.Where(x => x.enviroment == ambiente).FirstOrDefault();
+                    config.username = emisor.usernameOAuth2;
+                    config.password = emisor.passwordOAuth2;
+
+                    await OAuth2.OAuth2Config.getTokenWeb(config);
+
+                    WSDomain.WSRecepcionPOST trama = new WSDomain.WSRecepcionPOST();
+                    trama.clave = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "Clave", xmlFile);
+
+                    string emisorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Emisor", "Identificacion", xmlFile);
+                    trama.emisor.tipoIdentificacion = emisorIdentificacion.Substring(0, 2);
+                    trama.emisor.numeroIdentificacion = emisorIdentificacion.Substring(2);
+                    trama.emisorTipo = trama.emisor.tipoIdentificacion;
+                    trama.emisorIdentificacion = trama.emisor.numeroIdentificacion;
+
+                    string receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xmlFile);
+                    trama.receptor.tipoIdentificacion = receptorIdentificacion.Substring(0, 2);
+                    trama.receptor.numeroIdentificacion = receptorIdentificacion.Substring(2);
+                    trama.receptorTipo = trama.receptor.tipoIdentificacion;
+                    trama.receptorIdentificacion = trama.receptor.numeroIdentificacion;
+
+                    xmlFile = FirmaXML.getXMLFirmadoWeb(xmlFile, emisor.llaveCriptografica, emisor.claveLlaveCriptografica.ToString());
+
+                    trama.comprobanteXml = EncodeXML.EncondeXML.base64Encode(xmlFile);
+
+                    string jsonTrama = JsonConvert.SerializeObject(trama);
+
+                    using (var conexion2 = new DataModelWS())
+                    {
+                        WSRecepcionPOST tramaObjeto = JsonConvert.DeserializeObject<WSRecepcionPOST>(jsonTrama);
+                        tramaObjeto.cargarEmisorReceptor();
+                        conexion2.WSRecepcionPOST.Add(tramaObjeto);
+                        conexion2.SaveChanges();
+                    }
+                    responsePost = await Services.postRecepcion(config.token, jsonTrama);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException); 
+            }
+            return responsePost;
         }
 
 

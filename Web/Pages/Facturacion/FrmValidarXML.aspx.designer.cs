@@ -112,6 +112,15 @@ namespace Web.Pages.Facturacion {
         protected global::DevExpress.Web.ASPxTextBox txtNumConsecReceptor;
         
         /// <summary>
+        /// btnEnviar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnEnviar;
+        
+        /// <summary>
         /// alertMessages control.
         /// </summary>
         /// <remarks>

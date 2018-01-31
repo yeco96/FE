@@ -158,6 +158,15 @@
                     </dx:LayoutItem>
 
 
+                    <dx:LayoutItem Caption="" ColSpan="2">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                                <dx:ASPxButton ID="btnEnviar" runat="server" Width="50px" CausesValidation="true"  OnClick="btnEnviar_Click"> </dx:ASPxButton>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+
+
                 </Items>
 
             </dx:LayoutGroup>
