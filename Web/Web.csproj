@@ -132,6 +132,10 @@
     <Content Include="Content\Images\Blog\image3.png" />
     <Content Include="Content\Images\cancel.png" />
     <Content Include="Content\Images\csv.png" />
+    <Content Include="Content\Images\Customers\auditoria.jpg" />
+    <Content Include="Content\Images\Customers\cliente.png" />
+    <Content Include="Content\Images\Customers\costos01.png" />
+    <Content Include="Content\Images\Customers\rapidez.jpg" />
     <Content Include="Content\Images\delete.png" />
     <Content Include="Content\Images\cargando.gif" />
     <Content Include="Content\Images\Components\aspnet-mvc-extensions.jpg" />
