@@ -331,3 +331,37 @@ footer h4 {
     padding: 0px;
     height: 0px !important;
 }
+
+
+.text-box-heading {
+    font-size: 1em;
+    padding: 10px 12px;
+    background: #8ec63f;
+    color: #fff;
+}
+
+.text-box {
+    background: #f4f4f4;
+    padding: 15px;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
+    background-color: #8DC2EC !important;
+    transition: all 0.3s ease 0.1s;
+}
+
+.text-box .arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #8ec63f;
+    font-size: 0;
+    line-height: 0;
+    margin-left: 7%;
+}
+
+
+.span4{
+    width:100%;
+}
