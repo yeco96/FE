@@ -52,6 +52,17 @@ namespace Web.Pages.Facturacion
             GridViewDataComboBoxColumn comboEstado = this.ASPxGridView1.Columns["indEstado"] as GridViewDataComboBoxColumn;
             comboEstado.PropertiesComboBox.Items.Clear(); 
             comboEstado.PropertiesComboBox.Items.AddRange(EstadoMensajeHaciendaClass.values());
+
+            /* TIPO DOCUMENTO */
+            GridViewDataComboBoxColumn comboTipoDocumento = this.ASPxGridView1.Columns["tipoDocumento"] as GridViewDataComboBoxColumn;
+            using (var conexion = new DataModelFE())
+            {
+                foreach (var item in conexion.TipoDocumento.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                {
+                    comboTipoDocumento.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
+                }
+                comboTipoDocumento.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+            }
         }
 
         

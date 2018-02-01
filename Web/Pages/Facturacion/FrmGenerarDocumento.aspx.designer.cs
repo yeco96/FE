@@ -310,6 +310,24 @@ namespace Web.Pages.Facturacion {
         protected global::DevExpress.Web.ASPxMemo txtReceptorOtraSenas;
         
         /// <summary>
+        /// cmbTipoDocumento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxComboBox cmbTipoDocumento;
+        
+        /// <summary>
+        /// cmbSucursalCaja control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxComboBox cmbSucursalCaja;
+        
+        /// <summary>
         /// cmbMedioPago control.
         /// </summary>
         /// <remarks>
@@ -362,15 +380,6 @@ namespace Web.Pages.Facturacion {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxSpinEdit txtTipoCambio;
-        
-        /// <summary>
-        /// cmbSucursalCaja control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbSucursalCaja;
         
         /// <summary>
         /// ASPxGridView1 control.

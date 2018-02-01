@@ -175,6 +175,13 @@ namespace Web.Pages.Facturacion
                 }
                 this.cmbSucursalCaja.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
+                /* TIPO DOCUMENTO */
+                foreach (var item in conexion.TipoDocumento.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                {
+                    this.cmbTipoDocumento.Items.Add(item.descripcion, item.codigo);
+                }
+                this.cmbTipoDocumento.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+
             }
         }
 
@@ -407,7 +414,7 @@ namespace Web.Pages.Facturacion
                 using (var conexion = new DataModelFE())
                 {
                     DetalleServicio detalleServicio = (DetalleServicio)Session["detalleServicio"];
-                    var id = e.Values["codigo"].ToString();
+                    var id = e.Values["producto"].ToString();
                     LineaDetalle dato = detalleServicio.lineaDetalle.Where(x => x.codigo.codigo == id).FirstOrDefault();
                     detalleServicio.lineaDetalle.Remove(dato);
 
@@ -672,8 +679,8 @@ namespace Web.Pages.Facturacion
                     object[] key = new object[] { dato.emisor.identificacion.numero, sucursal, caja };
                     ConsecutivoDocElectronico consecutivo = conexion.ConsecutivoDocElectronico.Find(key);
 
-                    dato.clave = consecutivo.getClave(FacturaElectronica.TIPO);
-                    dato.numeroConsecutivo = consecutivo.getConsecutivo(FacturaElectronica.TIPO);
+                    dato.clave = consecutivo.getClave(this.cmbTipoDocumento.Value.ToString());
+                    dato.numeroConsecutivo = consecutivo.getConsecutivo(this.cmbTipoDocumento.Value.ToString());
 
                     consecutivo.consecutivo += 1;
                     conexion.Entry(consecutivo).State = EntityState.Modified;
@@ -681,7 +688,7 @@ namespace Web.Pages.Facturacion
 
                     string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
                     //string xmlSigned = FirmaXML.getXMLFirmadoWeb(xml, elEmisor.llaveCriptografica, elEmisor.claveLlaveCriptografica);
-                    string responsePost = await enviarDocumentoElectronico(xml, elEmisor);
+                    string responsePost = await Services.enviarDocumentoElectronico(xml, elEmisor, this.cmbTipoDocumento.Value.ToString());
 
                     if (responsePost.Equals("Success"))
                     {
@@ -716,65 +723,6 @@ namespace Web.Pages.Facturacion
 
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="xmlFile">XML sin firmar</param>
-        /// <param name="responsePost">respuesta del webs ervices</param>
-        public async Task<string> enviarDocumentoElectronico(string xmlFile, EmisorReceptorIMEC emisor)
-        {
-            String responsePost = "";
-            try
-            {
-                using (var conexion = new DataModelOAuth2())
-                {
-                    string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
-                    OAuth2.OAuth2Config config = conexion.OAuth2Config.Where(x => x.enviroment == ambiente).FirstOrDefault();
-                    config.username = emisor.usernameOAuth2;
-                    config.password = emisor.passwordOAuth2;
-
-                    await OAuth2.OAuth2Config.getTokenWeb(config);
-
-                    WSDomain.WSRecepcionPOST trama = new WSDomain.WSRecepcionPOST();
-                    trama.clave = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "Clave", xmlFile);
-
-                    string emisorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Emisor", "Identificacion", xmlFile);
-                    trama.emisor.tipoIdentificacion = emisorIdentificacion.Substring(0, 2);
-                    trama.emisor.numeroIdentificacion = emisorIdentificacion.Substring(2);
-                    trama.emisorTipo = trama.emisor.tipoIdentificacion;
-                    trama.emisorIdentificacion = trama.emisor.numeroIdentificacion;
-
-                    string receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xmlFile);
-                    trama.receptor.tipoIdentificacion = receptorIdentificacion.Substring(0, 2);
-                    trama.receptor.numeroIdentificacion = receptorIdentificacion.Substring(2);
-                    trama.receptorTipo = trama.receptor.tipoIdentificacion;
-                    trama.receptorIdentificacion = trama.receptor.numeroIdentificacion;
-
-                    xmlFile = FirmaXML.getXMLFirmadoWeb(xmlFile, emisor.llaveCriptografica, emisor.claveLlaveCriptografica.ToString());
-
-                    trama.comprobanteXml = EncodeXML.EncondeXML.base64Encode(xmlFile);
-
-                    string jsonTrama = JsonConvert.SerializeObject(trama);
-
-                    using (var conexion2 = new DataModelWS())
-                    {
-                        WSRecepcionPOST tramaObjeto = JsonConvert.DeserializeObject<WSRecepcionPOST>(jsonTrama);
-                        tramaObjeto.cargarEmisorReceptor();
-                        conexion2.WSRecepcionPOST.Add(tramaObjeto);
-                        conexion2.SaveChanges();
-                    }
-                    responsePost = await Services.postRecepcion(config.token, jsonTrama);
-
-                }
-            }
-            catch (Exception ex)
-            {
-                this.alertMessages.Attributes["class"] = "alert alert-danger";
-                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
-            }
-            return responsePost;
-        }
-
 
         public EmisorReceptorIMEC crearModificarReceptor()
         {
@@ -784,8 +732,8 @@ namespace Web.Pages.Facturacion
                 using (var conexion = new DataModelFE())
                 {
 
-                    string buscar = this.txtReceptorIdentificacion.Text;
-                    receptor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == buscar).FirstOrDefault();
+                    string identificacion = this.txtReceptorIdentificacion.Text;
+                    receptor = conexion.EmisorReceptorIMEC.Find(identificacion);
 
                     if (receptor == null)
                     {

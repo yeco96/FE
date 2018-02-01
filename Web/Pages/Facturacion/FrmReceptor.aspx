@@ -261,7 +261,7 @@
             <SettingsContextMenu EnableColumnMenu="True" Enabled="True" EnableFooterMenu="True" EnableGroupPanelMenu="True" EnableRowMenu="True" />
 
             <SettingsCommandButton>
-                <SelectButton Image-ToolTip="Seleccionar" Image-Url="~/Content/Images/search2.png" />
+                <SelectButton Image-ToolTip="Seleccionar" Image-Url="~/Content/Images/search1.png" />
                 <NewButton Image-ToolTip="Nuevo" Image-Url="~/Content/Images/add.png" />
                 <EditButton Image-ToolTip="Modificar" Image-Url="~/Content/Images/edit.png" />
                 <DeleteButton Image-ToolTip="Eliminar" Image-Url="~/Content/Images/delete.png" />

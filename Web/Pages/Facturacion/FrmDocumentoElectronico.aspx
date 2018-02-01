@@ -21,34 +21,42 @@
                 <dx:GridViewDataTextColumn Caption="Clave" FieldName="clave" VisibleIndex="2" Visible="false">
                 </dx:GridViewDataTextColumn>
 
-                <dx:GridViewDataTextColumn Caption="Código" FieldName="factura" VisibleIndex="3">
+                <dx:GridViewDataTextColumn Caption="Consecutivo" FieldName="factura" VisibleIndex="3">
+                </dx:GridViewDataTextColumn>
+                  <dx:GridViewDataTextColumn Caption="Fecha" FieldName="fecha" VisibleIndex="3">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Emisor" FieldName="emisorIdentificacion" VisibleIndex="4">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Receptor" FieldName="Receptor.nombre" VisibleIndex="5" Width="30%">
+                <dx:GridViewDataTextColumn Caption="Receptor" FieldName="Receptor.nombre" VisibleIndex="5" Width="25%">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Mensaje" FieldName="mensaje" VisibleIndex="5" Visible="false">
+                <dx:GridViewDataTextColumn Caption="Mensaje" FieldName="mensaje" VisibleIndex="6" Visible="false">
+                </dx:GridViewDataTextColumn>
+                
+                <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="indEstado" VisibleIndex="7">
+                </dx:GridViewDataComboBoxColumn>
+                <dx:GridViewDataTextColumn Caption="Monto Impuesto" FieldName="montoTotalImpuesto" VisibleIndex="8" PropertiesTextEdit-DisplayFormatString="c2">
+                </dx:GridViewDataTextColumn>
+                 <dx:GridViewDataTextColumn Caption="Monto Factura" FieldName="montoTotalFactura" VisibleIndex="9" PropertiesTextEdit-DisplayFormatString="c2">
                 </dx:GridViewDataTextColumn>
 
-                <dx:GridViewDataTextColumn Caption="Monto Impuesto" FieldName="montoTotalImpuesto" VisibleIndex="5" PropertiesTextEdit-DisplayFormatString="c2">
-                </dx:GridViewDataTextColumn>
-                 <dx:GridViewDataTextColumn Caption="Monto Factura" FieldName="montoTotalFactura" VisibleIndex="5" PropertiesTextEdit-DisplayFormatString="c2">
-                </dx:GridViewDataTextColumn>
-
-                <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="indEstado" VisibleIndex="6">
+                <dx:GridViewDataComboBoxColumn Caption="Tipo" FieldName="tipoDocumento" VisibleIndex="10">
                 </dx:GridViewDataComboBoxColumn>
 
-                <dx:GridViewDataTextColumn Visible="false" Caption="Usuario Creación" FieldName="usuarioCreacion" VisibleIndex="5">
+                <dx:GridViewDataTextColumn Visible="false" Caption="Usuario Creación" FieldName="usuarioCreacion" VisibleIndex="11">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataDateColumn Visible="false" Caption="Fecha Creación" FieldName="fechaCreacion" VisibleIndex="6">
+                <dx:GridViewDataDateColumn Visible="false" Caption="Fecha Creación" FieldName="fechaCreacion" VisibleIndex="12">
                     <PropertiesDateEdit EditFormat="DateTime" DisplayFormatString="" EditFormatString="dd/MM/yyyy hh:mm:ss"></PropertiesDateEdit>
                 </dx:GridViewDataDateColumn>
-                <dx:GridViewDataTextColumn Visible="false" Caption="Usuario Modificación" FieldName="usuarioModificacion" VisibleIndex="7">
+                <dx:GridViewDataTextColumn Visible="false" Caption="Usuario Modificación" FieldName="usuarioModificacion" VisibleIndex="13">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataDateColumn Visible="false" Caption="Fecha Modificación" FieldName="fechaModificacion" VisibleIndex="8">
+                <dx:GridViewDataDateColumn Visible="false" Caption="Fecha Modificación" FieldName="fechaModificacion" VisibleIndex="14">
                     <PropertiesDateEdit EditFormat="DateTime" DisplayFormatString="" EditFormatString="dd/MM/yyyy hh:mm:ss"></PropertiesDateEdit>
                 </dx:GridViewDataDateColumn>
             </Columns>
+            <TotalSummary>
+                <dx:ASPxSummaryItem FieldName="montoTotalImpuesto" SummaryType="Sum" />
+                <dx:ASPxSummaryItem FieldName="montoTotalFactura" SummaryType="Sum" />
+            </TotalSummary>
 
             <SettingsBehavior ColumnResizeMode="NextColumn" />
             <Settings ShowFooter="True" ShowFilterBar="Visible" ShowFilterRow="true" />
@@ -135,11 +143,13 @@
 
 
                 </DetailRow>
-                <FooterRow>
+                <TitlePanel>
+                    <div style="text-align: right;">
                     <asp:ImageButton ID="exportarPDF" runat="server" ImageUrl="~/Content/Images/pdf.png" ToolTip="Exportar a PDF" OnClick="exportarPDF_Click" />
                     <asp:ImageButton ID="exportarXLSX" runat="server" ImageUrl="~/Content/Images/xlsx.png" ToolTip="Exportar a MS-Excel 2007 o superior" OnClick="exportarXLSX_Click" />
                     <asp:ImageButton ID="exportarCSV" runat="server" ImageUrl="~/Content/Images/csv.png" ToolTip="Exportar a MS-Excel delimitado con punto y coma" OnClick="exportarCSV_Click" />
-                </FooterRow>
+                    </div>
+                </TitlePanel>
             </Templates>
             <Border BorderWidth="0px" />
             <BorderBottom BorderWidth="1px" />
