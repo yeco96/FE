@@ -175,6 +175,13 @@ namespace Web.Pages.Facturacion
                 }
                 this.cmbSucursalCaja.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
+                /* TIPO DOCUMENTO */
+                foreach (var item in conexion.TipoDocumento.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                {
+                    this.cmbTipoDocumento.Items.Add(item.descripcion, item.codigo);
+                }
+                this.cmbTipoDocumento.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+
             }
         }
 
@@ -672,8 +679,8 @@ namespace Web.Pages.Facturacion
                     object[] key = new object[] { dato.emisor.identificacion.numero, sucursal, caja };
                     ConsecutivoDocElectronico consecutivo = conexion.ConsecutivoDocElectronico.Find(key);
 
-                    dato.clave = consecutivo.getClave(FacturaElectronica.TIPO);
-                    dato.numeroConsecutivo = consecutivo.getConsecutivo(FacturaElectronica.TIPO);
+                    dato.clave = consecutivo.getClave(this.cmbTipoDocumento.Value.ToString());
+                    dato.numeroConsecutivo = consecutivo.getConsecutivo(this.cmbTipoDocumento.Value.ToString());
 
                     consecutivo.consecutivo += 1;
                     conexion.Entry(consecutivo).State = EntityState.Modified;
@@ -681,7 +688,7 @@ namespace Web.Pages.Facturacion
 
                     string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
                     //string xmlSigned = FirmaXML.getXMLFirmadoWeb(xml, elEmisor.llaveCriptografica, elEmisor.claveLlaveCriptografica);
-                    string responsePost = await Services.enviarDocumentoElectronico(xml, elEmisor);
+                    string responsePost = await Services.enviarDocumentoElectronico(xml, elEmisor, this.cmbTipoDocumento.Value.ToString());
 
                     if (responsePost.Equals("Success"))
                     {
@@ -725,8 +732,8 @@ namespace Web.Pages.Facturacion
                 using (var conexion = new DataModelFE())
                 {
 
-                    string buscar = this.txtReceptorIdentificacion.Text;
-                    receptor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == buscar).FirstOrDefault();
+                    string identificacion = this.txtReceptorIdentificacion.Text;
+                    receptor = conexion.EmisorReceptorIMEC.Find(identificacion);
 
                     if (receptor == null)
                     {

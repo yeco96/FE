@@ -50,6 +50,7 @@
     <Compile Include="Impuesto.cs" />
     <Compile Include="InformacionReferencia.cs" />
     <Compile Include="LineaDetalle.cs" />
+    <Compile Include="MensajeReceptor.cs" />
     <Compile Include="MensajeHacienda.cs" />
     <Compile Include="Normativa.cs" />
     <Compile Include="NotaCreditoElectronica.cs" />

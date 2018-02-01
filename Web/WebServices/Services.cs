@@ -97,7 +97,7 @@ namespace Web.WebServices
                 } 
             }
 
-             //string x =  await responseMessage.Content.ReadAsStringAsync();
+             string x =  await responseMessage.Content.ReadAsStringAsync();
         }
 
 
@@ -151,7 +151,8 @@ namespace Web.WebServices
         /// </summary>
         /// <param name="xmlFile">XML sin firmar</param>
         /// <param name="responsePost">respuesta del webs ervices</param>
-        public static  async Task<string> enviarDocumentoElectronico(string xmlFile, EmisorReceptorIMEC emisor)
+        /// <param name="tipoDocumento">Facura, Nota Crédito, Nota Débito</param> 
+        public static  async Task<string> enviarDocumentoElectronico(string xmlFile, EmisorReceptorIMEC emisor, string tipoDocumento)
         {
             String responsePost = "";
             try
@@ -179,6 +180,7 @@ namespace Web.WebServices
                     trama.receptor.numeroIdentificacion = receptorIdentificacion.Substring(2);
                     trama.receptorTipo = trama.receptor.tipoIdentificacion;
                     trama.receptorIdentificacion = trama.receptor.numeroIdentificacion;
+                    trama.tipoDocumento = tipoDocumento;
 
                     xmlFile = FirmaXML.getXMLFirmadoWeb(xmlFile, emisor.llaveCriptografica, emisor.claveLlaveCriptografica.ToString());
 
@@ -188,7 +190,7 @@ namespace Web.WebServices
 
                     using (var conexion2 = new DataModelWS())
                     {
-                        WSRecepcionPOST tramaObjeto = JsonConvert.DeserializeObject<WSRecepcionPOST>(jsonTrama);
+                        WSRecepcionPOST tramaObjeto = trama;// JsonConvert.DeserializeObject<WSRecepcionPOST>(jsonTrama);
                         tramaObjeto.cargarEmisorReceptor();
                         conexion2.WSRecepcionPOST.Add(tramaObjeto);
                         conexion2.SaveChanges();
@@ -200,6 +202,55 @@ namespace Web.WebServices
             catch (Exception ex)
             {
                 throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException); 
+            }
+            return responsePost;
+        }
+
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="xmlFile">XML sin firmar</param>
+        /// <param name="responsePost">respuesta del webs ervices</param>
+        /// <param name="receptorTipoIdentificacion">tipoo identificacion del receptor</param>
+        public static async Task<string> enviarMensajeReceptor(string xmlFile, EmisorReceptorIMEC emisor, string receptorTipoIdentificacion)
+        {
+            String responsePost = "";
+            try
+            {
+                using (var conexion = new DataModelOAuth2())
+                {
+                    string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
+                    OAuth2.OAuth2Config config = conexion.OAuth2Config.Where(x => x.enviroment == ambiente).FirstOrDefault();
+                    config.username = emisor.usernameOAuth2;
+                    config.password = emisor.passwordOAuth2;
+
+                    await OAuth2.OAuth2Config.getTokenWeb(config);
+
+                    WSDomain.WSRecepcionPOST trama = new WSDomain.WSRecepcionPOST();
+                    trama.clave = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "Clave", xmlFile);
+
+                    trama.emisor.tipoIdentificacion = emisor.identificacionTipo;
+                    trama.emisor.numeroIdentificacion = emisor.identificacion;
+
+                    trama.receptor.tipoIdentificacion = receptorTipoIdentificacion;
+                    trama.receptor.numeroIdentificacion = EncondeXML.buscarValorEtiquetaXML("MensajeReceptor", "NumeroCedulaReceptor", xmlFile);
+                   
+                    xmlFile = FirmaXML.getXMLFirmadoWeb(xmlFile, emisor.llaveCriptografica, emisor.claveLlaveCriptografica.ToString());
+
+                    trama.comprobanteXml = EncodeXML.EncondeXML.base64Encode(xmlFile);
+
+                    string jsonTrama = JsonConvert.SerializeObject(trama);
+                    
+                    responsePost = await Services.postRecepcion(config.token, jsonTrama);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
             return responsePost;
         }

@@ -160,6 +160,11 @@ namespace EncodeXML
                     tipo_documento = "tiqueteElectronico";
                     nodo_inicial = "TiqueteElectronico ";
                 }
+                if (typeof(MensajeReceptor) == o.GetType())
+                {
+                    tipo_documento = "mensajeReceptor";
+                    nodo_inicial = "MensajeReceptor ";
+                }
                 xml = sw.ToString();
                 //FacturaElectronica xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
                 //xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -291,11 +296,14 @@ namespace EncodeXML
 
         public static string tipoDocumentoXML(string xml)
         {
-            if (xml.Contains("MensajeHacienda"))
-                return "MensajeHacienda";
-          
             if (xml.Contains("FacturaElectronica"))
                 return "FacturaElectronica";
+
+            if (xml.Contains("MensajeReceptor"))
+                return "MensajeReceptor";
+
+            if (xml.Contains("MensajeHacienda"))
+                return "MensajeHacienda";
 
             if (xml.Contains("NotaCreditoElectronica"))
                 return "NotaCreditoElectronica";

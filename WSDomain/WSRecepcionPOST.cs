@@ -25,11 +25,17 @@ namespace WSDomain
         [NotMapped]
         [JsonProperty("receptor", Order = 4)]
         public EmisorReceptor receptor { set; get; }
+
         [NotMapped]
         [JsonIgnore]
         public string factura { get { return clave.Substring(21,20); } }
 
-        [JsonProperty("callbackUrl", Order = 5)]
+        
+        [JsonIgnore]
+        public string tipoDocumento { set; get; }
+
+        [JsonIgnore]
+       // [JsonProperty("callbackUrl", Order = 5)]
         string callbackUrl { set; get; }
 
 
