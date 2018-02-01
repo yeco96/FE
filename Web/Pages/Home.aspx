@@ -1,4 +1,4 @@
-<%@ Page Title="Home" Language="C#" AutoEventWireup="true" MasterPageFile="~/Layout.master" CodeBehind="Home.aspx.cs" Inherits="Web.Home" %>
+<%@ Page Title="MSAFactura" Language="C#" AutoEventWireup="true" MasterPageFile="~/Layout.master" CodeBehind="Home.aspx.cs" Inherits="Web.Home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
     <div class="container-fluid">
@@ -14,7 +14,7 @@
         <section class="row text-center">
             <div class="col-md-12">
                 <h1>¿Qué es la Factura Electrónica?</h1>
-                <p class="mainText">Una factura electrónica es un documento de uso comercial para trabajar en línea con tributación directa, dicho documento está en formato electrónico y podrá sustituir la factura tradicional en papel; la factura será en enviada vía correo electrónico al cliente sin perder validez o bien puede consultarla en nuestro portal.</p>
+                <p class="mainText">Una factura electrónica es un documento de uso comercial para trabajar en línea con tributación directa, este documento electrónico podrá sustituir la factura tradicional en papel; la factura será en enviada vía correo electrónico al cliente sin perder validez o bien puede consultarla desde nuestro portal.</p>
             </div>
             <div class="col-md-12 marginTop20">
                 <a class="btn btn-primary btn-lg" href="#"><i class="glyphicon glyphicon-info-sign"></i>Desplace la página para más información</a>
@@ -27,7 +27,7 @@
                     <div class="text-box">
                         <div class="text-box-heading">Facturas Electrónicas </div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
-                        <p>Realice su facturacion desde la NUBE. </p><p>¿Trabajas como profesional independiente? ¿Tiene una PYME y no cuenta con un sistema de facturación o ERP?</p>
+                        <p>Realice su facturación desde la NUBE. </p><p>¿Trabajas como profesional independiente? ¿Tiene una PYME y no cuenta con un sistema de facturación o ERP?</p>
                         <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="http://msasoft.net" style="pull-right" id="yui_3_17_2_1_1517459886390_165">Más Detalles</a></p>
                     </div>
                 </div>
@@ -49,17 +49,16 @@
                         <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="http://msasoft.net" style="pull-right">Más Detalles</a></p>
                     </div>
                 </div>
-
             </div>
-            <div class="col-md-4 media">
 
+            <div class="col-md-4 media">
                  <div class="span4">
                     <div class="text-box">
                         <div class="text-box-heading">Requisitos</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
                         <p><ul>
-                            <li><a href="https://tribunet.hacienda.go.cr/principal.htm">Inscribirse en Hacienda</a></li>
-                            <li>ATV Hacienda</li>
+                            <li><a href="https://tribunet.hacienda.go.cr/principal.html">Inscribirse en Hacienda</a></li>
+                            <li><a href="https://www.hacienda.go.cr/atv/login.aspx">ATV Hacienda </a></li>
                             <li><a href="https://www.youtube.com/watch?v=7kZcx3dZIHc">Crear llave Criptográfica</a></li>
                             <li>Llenar nuestro formulario</li>
                             <li>Preguntas frecuentes</li> 
@@ -67,14 +66,13 @@
                         <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="http://msasoft.net" style="pull-right">Más Detalles</a></p>
                     </div>
                 </div>
-
             </div>
 
         </section>
         <section>
             <div class="row marginTop20">
                 <div class="col-md-12">
-                    <h3>¿Cuáles beneficios obtiene adquiriendo MSA Factura Electrónica?</h3>
+                    <h3>¿Cuáles beneficios obtiene adquiriendo MSAFactura Electrónica?</h3>
                     <p></p>
                 </div>
             </div>
@@ -88,7 +86,7 @@
                         </div>
                         <div class="media-body">
                             <h4 class="media-heading">Reducción de Costos</h4>
-                            <p><small>Utilice la factura electrónica para ahorrar gastos de papelería, espacio para almacenar.  Si el cliente desea puede eliminar por completo el comprobante impreso, ya que la factura es un archivo digital, los datos y transacciones de su facturación se guardan en un archivo digital, y finalmente, el cliente recibe su factura por medio de un correo electrónico facilitando el envío de la misma. También tiene la posibilidad de consultar dichos documentos en nuestro portal.</small></p>
+                            <p><small>Utilice la factura electrónica para ahorrar gastos de papelería, espacio para almacenar. Si el cliente desea puede continuar utilizando el comprobante impreso sin embargo es sufiente con emitir o enviar por correo electrónico el documento digital, este archivo guarda los datos y transacciones de su facturación,posteriormente tiene la posibilidad de consultar dichos documentos de nuestro portal.</small></p>
                         </div>
                     </div>
                 </div>
@@ -128,8 +126,8 @@
                             </div>
                         </div>
                         <div class="media-body">
-                            <h4 class="media-heading">Seguridad y trasparencia fiscal</h4>
-                            <p><small>La factura electrónica MSA facilita los procesos contables y fiscales mediante consultas rápidas, de fácil acceso por medio del portal o el computador del cliente.</small></p>
+                            <h4 class="media-heading">Seguridad y transparencia fiscal</h4>
+                            <p><small>MSAFactura electrónica facilita los procesos contables y fiscales mediante consultas rápidas, de fácil acceso desde un portal o el computador del cliente.</small></p>
                         </div>
                     </div>
                 </div>
