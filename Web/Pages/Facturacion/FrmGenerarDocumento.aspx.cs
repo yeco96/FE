@@ -105,7 +105,7 @@ namespace Web.Pages.Facturacion
                 //this.loadReceptor(receptor);
 
                 /* IDENTIFICACION TIPO */
-                foreach (var item in conexion.TipoIdentificacion.ToList())
+                foreach (var item in conexion.TipoIdentificacion.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
                 {
                     this.cmbEmisorTipo.Items.Add(item.descripcion, item.codigo);
                     this.cmbReceptorTipo.Items.Add(item.descripcion, item.codigo);
@@ -115,10 +115,11 @@ namespace Web.Pages.Facturacion
 
 
                 /* CODIGO PAIS */
-                foreach (var item in conexion.CodigoPais.ToList())
+                foreach (var item in conexion.CodigoPais.Where(x=>x.estado==Estado.ACTIVO.ToString()).ToList())
                 {
                     this.cmbEmisorTelefonoCod.Items.Add(item.descripcion, item.codigo);
                     this.cmbEmisorFaxCod.Items.Add(item.descripcion, item.codigo);
+
                     this.cmbReceptorTelefonoCod.Items.Add(item.descripcion, item.codigo);
                     this.cmbReceptorFaxCod.Items.Add(item.descripcion, item.codigo);
                 }
@@ -143,6 +144,7 @@ namespace Web.Pages.Facturacion
                     this.cmbMedioPago.Items.Add(item.descripcion, item.codigo);
                 }
                 this.cmbMedioPago.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                this.cmbMedioPago.SelectedIndex = 0;
 
                 /* CONDICION VENTA */
                 foreach (var item in conexion.CondicionVenta.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
@@ -150,6 +152,8 @@ namespace Web.Pages.Facturacion
                     this.cmbCondicionVenta.Items.Add(item.descripcion, item.codigo);
                 }
                 this.cmbCondicionVenta.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                this.cmbCondicionVenta.SelectedIndex = 0;
+                this.txtPlazoCredito.Text = "0";
 
                 /* TIPO MONEDA */
                 foreach (var item in conexion.TipoMoneda.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
@@ -157,6 +161,7 @@ namespace Web.Pages.Facturacion
                     this.cmbTipoMoneda.Items.Add(item.descripcion, item.codigo);
                 }
                 this.cmbTipoMoneda.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                this.cmbTipoMoneda.SelectedIndex = 0;
 
                 /* PRODUCTO */
                 GridViewDataComboBoxColumn comboProducto = this.ASPxGridView1.Columns["producto"] as GridViewDataComboBoxColumn;
@@ -174,6 +179,7 @@ namespace Web.Pages.Facturacion
                     this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}", item.sucursal, item.caja));
                 }
                 this.cmbSucursalCaja.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                this.cmbSucursalCaja.SelectedIndex = 0;
 
                 /* TIPO DOCUMENTO */
                 foreach (var item in conexion.TipoDocumento.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
@@ -181,6 +187,7 @@ namespace Web.Pages.Facturacion
                     this.cmbTipoDocumento.Items.Add(item.descripcion, item.codigo);
                 }
                 this.cmbTipoDocumento.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                this.cmbTipoDocumento.SelectedIndex = 0;
 
             }
         }
@@ -688,7 +695,7 @@ namespace Web.Pages.Facturacion
 
                     string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
                     //string xmlSigned = FirmaXML.getXMLFirmadoWeb(xml, elEmisor.llaveCriptografica, elEmisor.claveLlaveCriptografica);
-                    string responsePost = await Services.enviarDocumentoElectronico(xml, elEmisor, this.cmbTipoDocumento.Value.ToString());
+                    string responsePost = await Services.enviarDocumentoElectronico(false, xml, elEmisor, this.cmbTipoDocumento.Value.ToString(), Session["usuario"].ToString());
 
                     if (responsePost.Equals("Success"))
                     {
@@ -702,10 +709,15 @@ namespace Web.Pages.Facturacion
                                 Utilidades.mensageGenerico(), "Factura Electrónica", xml, dato.numeroConsecutivo);
                         }
                     }
-                    else
+                    else if (responsePost.Equals("Error"))
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-danger";
                         this.alertMessages.InnerText = String.Format("Factura #{0} con errores.", dato.numeroConsecutivo);
+                    }
+                    else
+                    {
+                        this.alertMessages.Attributes["class"] = "alert alert-warning";
+                        this.alertMessages.InnerText = String.Format("Factura #{0} pendiente de envío", dato.numeroConsecutivo);
                     }
 
                 }

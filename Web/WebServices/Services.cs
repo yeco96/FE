@@ -16,6 +16,7 @@ using Web.Models;
 using WSDomain;
 using FirmaXadesNet;
 using Newtonsoft.Json;
+using System.Data.Entity;
 
 namespace Web.WebServices
 {
@@ -149,10 +150,11 @@ namespace Web.WebServices
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="xmlFile">XML sin firmar</param>
+        /// <param name="tieneFirma">determina si el XML esta firmado o no</param>
+        /// <param name="xmlFile">XML</param>
         /// <param name="responsePost">respuesta del webs ervices</param>
         /// <param name="tipoDocumento">Facura, Nota Crédito, Nota Débito</param> 
-        public static  async Task<string> enviarDocumentoElectronico(string xmlFile, EmisorReceptorIMEC emisor, string tipoDocumento)
+        public static  async Task<string> enviarDocumentoElectronico(bool tieneFirma,string xmlFile, EmisorReceptorIMEC emisor, string tipoDocumento, string usuario)
         {
             String responsePost = "";
             try
@@ -182,20 +184,45 @@ namespace Web.WebServices
                     trama.receptorIdentificacion = trama.receptor.numeroIdentificacion;
                     trama.tipoDocumento = tipoDocumento;
 
-                    xmlFile = FirmaXML.getXMLFirmadoWeb(xmlFile, emisor.llaveCriptografica, emisor.claveLlaveCriptografica.ToString());
+                    if (!tieneFirma)
+                    {
+                        xmlFile = FirmaXML.getXMLFirmadoWeb(xmlFile, emisor.llaveCriptografica, emisor.claveLlaveCriptografica.ToString());
+                    }
 
                     trama.comprobanteXml = EncodeXML.EncondeXML.base64Encode(xmlFile);
 
                     string jsonTrama = JsonConvert.SerializeObject(trama);
-
-                    using (var conexion2 = new DataModelWS())
+                    
+                    if (config.token.access_token != null)
                     {
-                        WSRecepcionPOST tramaObjeto = trama;// JsonConvert.DeserializeObject<WSRecepcionPOST>(jsonTrama);
-                        tramaObjeto.cargarEmisorReceptor();
-                        conexion2.WSRecepcionPOST.Add(tramaObjeto);
-                        conexion2.SaveChanges();
+                        responsePost = await Services.postRecepcion(config.token, jsonTrama);
                     }
-                    responsePost = await Services.postRecepcion(config.token, jsonTrama);
+                    else
+                    {
+                        // facturar guardada para envio en linea
+                        trama.indEstado = 9;
+                    }
+
+                    using (var conexionWS = new DataModelWS())
+                    {
+                        WSRecepcionPOST tramaExiste = conexionWS.WSRecepcionPOST.Find(trama.clave);
+
+                        if (tramaExiste != null) {// si existe
+                            trama.fechaModificacion = Date.DateTimeNow();
+                            trama.usuarioModificacion = usuario;
+                            trama.indEstado = 0;
+                            trama.cargarEmisorReceptor();
+                            conexionWS.Entry(tramaExiste).State = EntityState.Modified; 
+                        }
+                        else//si no existe
+                        {
+                            trama.fechaCreacion = Date.DateTimeNow();
+                            trama.usuarioCreacion = usuario;
+                            trama.cargarEmisorReceptor();
+                            conexionWS.WSRecepcionPOST.Add(trama);
+                        }
+                        conexionWS.SaveChanges();
+                    }
 
                 }
             }

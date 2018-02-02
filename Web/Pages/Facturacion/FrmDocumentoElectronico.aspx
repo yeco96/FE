@@ -11,17 +11,17 @@
     </section>
     <div class="borde_redondo_tabla">
 
+         <div id="alertMessages" role="alert" runat="server" />
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
             Width="100%" EnableTheming="True" KeyFieldName="clave" Theme="Moderno"
             OnDetailRowExpandedChanged="ASPxGridView1_DetailRowExpandedChanged"
-            OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize"
-            >
+            OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize"  >
             <Columns>
 
                 <dx:GridViewDataTextColumn Caption="Clave" FieldName="clave" VisibleIndex="2" Visible="false">
                 </dx:GridViewDataTextColumn>
 
-                <dx:GridViewDataTextColumn Caption="Consecutivo" FieldName="factura" VisibleIndex="3">
+                <dx:GridViewDataTextColumn Caption="Consecutivo" FieldName="numeroConsecutivo" VisibleIndex="3">
                 </dx:GridViewDataTextColumn>
                   <dx:GridViewDataTextColumn Caption="Fecha" FieldName="fecha" VisibleIndex="3">
                 </dx:GridViewDataTextColumn>
@@ -61,7 +61,7 @@
             <SettingsBehavior ColumnResizeMode="NextColumn" />
             <Settings ShowFooter="True" ShowFilterBar="Visible" ShowFilterRow="true" />
             <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="True" ConfirmDelete="True" />
-            <SettingsPager PageSize="10" PageSizeItemSettings-Visible="true" PageSizeItemSettings-Items="10, 20, 50, 100" />
+            <SettingsPager PageSize="10" PageSizeItemSettings-Visible="true" PageSizeItemSettings-Items="10, 20, 30, 100" />
             <SettingsEditing Mode="EditFormAndDisplayRow" />
             <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="True" ShowFilterRow="True" ShowTitlePanel="True" UseFixedTableLayout="True" />
             <SettingsContextMenu EnableColumnMenu="True" Enabled="True" EnableFooterMenu="True" EnableGroupPanelMenu="True" EnableRowMenu="True" />
@@ -87,10 +87,10 @@
                     <dx:ASPxFormLayout runat="server" ID="layoutAddAuditoriaForm">
                         <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
                         <Items>
-                            <dx:LayoutGroup Caption=" " ColCount="5" GroupBoxDecoration="None" UseDefaultPaddings="false">
+                            <dx:LayoutGroup Caption=" " ColCount="6" GroupBoxDecoration="None" UseDefaultPaddings="false">
 
                                 <Items>
-                                    <dx:LayoutItem Caption="Mensaje" ColSpan="5" Width="100%">
+                                    <dx:LayoutItem Caption="Mensaje" ColSpan="6" Width="100%">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
                                                 <dx:ASPxMemo runat="server" Value='<%# Eval("mensaje") %>' AutoResizeWithContainer="true" Width="100%" ReadOnly="true" />
@@ -101,7 +101,7 @@
                                      <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="btnDescargarXML" runat="server" Text="DescargarXML" OnClick="btnDescargarXML_Click"></dx:ASPxButton>
+                                                <dx:ASPxButton ID="btnDescargarXML" runat="server" Text="Descargar XML" OnClick="btnDescargarXML_Click"  ></dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
@@ -109,7 +109,7 @@
                                      <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="btnReenvioCorreo" runat="server" Text="Reenviar Correo" OnClick="btnReenvioCorreo_Click"></dx:ASPxButton>
+                                                <dx:ASPxButton ID="btnReenvioCorreo" runat="server" Text="Reenviar Correo" OnClick="btnReenvioCorreo_Click" ></dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
@@ -117,21 +117,30 @@
                                     <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="btnNotaCredito" runat="server" Text="Crear Nota Crédito" OnClick="btnActualizar_Click"></dx:ASPxButton>
+                                                <dx:ASPxButton ID="btnNotaCredito" runat="server" Text="Crear Nota Crédito" OnClick="btnActualizar_Click" ></dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
                                     <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="btnNotaDebito" runat="server" Text="Crear Nota Débito" OnClick="btnActualizar_Click"></dx:ASPxButton>
+                                                <dx:ASPxButton ID="btnNotaDebito" runat="server" Text="Crear Nota Débito" OnClick="btnActualizar_Click" ></dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
+
+                                     <dx:LayoutItem Caption="">
+                                        <LayoutItemNestedControlCollection>
+                                            <dx:LayoutItemNestedControlContainer>
+                                                <dx:ASPxButton ID="btnEnviar" runat="server" Text="Envio Manual" OnClick="btnEnviar_Click" ></dx:ASPxButton>
+                                            </dx:LayoutItemNestedControlContainer>
+                                        </LayoutItemNestedControlCollection>
+                                    </dx:LayoutItem>
+
                                     <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="btnActualizar" runat="server" Text="Actualizar" OnClick="btnActualizar_Click"></dx:ASPxButton>
+                                                <dx:ASPxButton ID="btnActualizar" runat="server" Text="Actualizar" OnClick="btnActualizar_Click" ></dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>

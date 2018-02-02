@@ -28,7 +28,7 @@ namespace WSDomain
 
         [NotMapped]
         [JsonIgnore]
-        public string factura { get { return clave.Substring(21,20); } }
+        public string numeroConsecutivo { get { return clave.Substring(21,20); } }
 
         
         [JsonIgnore]
@@ -54,6 +54,7 @@ namespace WSDomain
 
         [JsonIgnore]
         public string receptorTipo { set; get; }
+
         [ForeignKey("Receptor")]
         [JsonIgnore]
         public string receptorIdentificacion { set; get; }
@@ -62,7 +63,7 @@ namespace WSDomain
         public decimal montoTotalImpuesto { set; get; }
         [JsonIgnore]
         public decimal montoTotalFactura { set; get; }
-
+        
 
         /// <summary>
         /// AUDIOTORIA
@@ -105,6 +106,22 @@ namespace WSDomain
             this.receptorIdentificacion = this.receptor.numeroIdentificacion;
             this.receptorTipo = this.receptor.tipoIdentificacion;
 
+        }
+
+        /// <summary>
+        /// Verifica si existe en el documento
+        /// </summary>
+        /// <returns></returns>
+        public bool existe()
+        {
+            if (string.IsNullOrWhiteSpace(this.usuarioCreacion) || string.IsNullOrWhiteSpace(this.usuarioModificacion))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
     }

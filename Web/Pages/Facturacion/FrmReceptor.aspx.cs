@@ -42,8 +42,8 @@ namespace Web.Pages.Catalogos
                         Session["LlaveCriptograficap12"] = null;
                         /* EMISOR */
                         // string emisorUsuario = Session["usuario"].ToString();
-                        // ReceptorReceptor emisor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == emisorUsuario).FirstOrDefault();
-                        // this.loadReceptor(emisor);
+                        // ReceptorReceptor receptor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == emisorUsuario).FirstOrDefault();
+                        // this.loadReceptor(receptor);
                     }
 
                     this.loadComboBox();
@@ -59,37 +59,37 @@ namespace Web.Pages.Catalogos
 
 
         /// <summary>
-        /// carga datos del emisor
+        /// carga datos del receptor
         /// </summary>
-        /// <param name="emisor"></param>
-        private void loadReceptor(EmisorReceptorIMEC emisor)
+        /// <param name="receptor"></param>
+        private void loadReceptor(EmisorReceptorIMEC receptor)
         {
-            this.cmbReceptorTipo.Value = emisor.identificacionTipo;
-            this.txtReceptorIdentificacion.Text = emisor.identificacion;
-            this.txtReceptorNombre.Text = emisor.nombre;
-            this.txtReceptorNombreComercial.Text = emisor.nombreComercial;
+            this.cmbReceptorTipo.Value = receptor.identificacionTipo;
+            this.txtReceptorIdentificacion.Text = receptor.identificacion;
+            this.txtReceptorNombre.Text = receptor.nombre;
+            this.txtReceptorNombreComercial.Text = receptor.nombreComercial;
 
-            this.cmbReceptorTelefonoCod.Value = emisor.telefonoCodigoPais;
-            this.cmbReceptorFaxCod.Value = emisor.faxCodigoPais;
-            this.txtReceptorTelefono.Value = emisor.telefono;
-            this.txtReceptorFax.Value = emisor.fax;
-            this.txtReceptorCorreo.Text = emisor.correoElectronico;
+            this.cmbReceptorTelefonoCod.Value = receptor.telefonoCodigoPais;
+            this.cmbReceptorFaxCod.Value = receptor.faxCodigoPais;
+            this.txtReceptorTelefono.Value = receptor.telefono;
+            this.txtReceptorFax.Value = receptor.fax;
+            this.txtReceptorCorreo.Text = receptor.correoElectronico;
 
-            this.cmbReceptorProvincia.Value = emisor.provincia;
+            this.cmbReceptorProvincia.Value = receptor.provincia;
 
             this.cmbReceptorProvincia_ValueChanged(null, null);
-            this.cmbReceptorCanton.Value = emisor.canton;
+            this.cmbReceptorCanton.Value = receptor.canton;
 
             this.cmbReceptorCanton_ValueChanged(null, null);
-            this.cmbReceptorDistrito.Value = emisor.distrito;
+            this.cmbReceptorDistrito.Value = receptor.distrito;
 
             this.cmbReceptorDistrito_ValueChanged(null, null);
-            this.cmbReceptorBarrio.Value = emisor.barrio;
-            this.txtReceptorOtraSenas.Value = emisor.otraSena;
+            this.cmbReceptorBarrio.Value = receptor.barrio;
+            this.txtReceptorOtraSenas.Value = receptor.otraSena;
             /*
-            this.txtUsernameOAuth2.Text = emisor.usernameOAuth2;
-            this.txtPasswordOAuth2.Text = emisor.passwordOAuth2; 
-            this.txtClaveLlaveCriptografica.Text = emisor.claveLlaveCriptografica.ToString() ;
+            this.txtUsernameOAuth2.Text = receptor.usernameOAuth2;
+            this.txtPasswordOAuth2.Text = receptor.passwordOAuth2; 
+            this.txtClaveLlaveCriptografica.Text = receptor.claveLlaveCriptografica != null ?  receptor.claveLlaveCriptografica.ToString() : null;
             */
 
         }
@@ -132,6 +132,17 @@ namespace Web.Pages.Catalogos
                 {
                     this.cmbReceptorProvincia.Items.Add(item.nombreProvincia, item.codProvincia);
                 }
+
+                /* CODIGO PAIS */
+                foreach (var item in conexion.CodigoPais.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                { 
+                    this.cmbReceptorTelefonoCod.Items.Add(item.descripcion, item.codigo);
+                    this.cmbReceptorFaxCod.Items.Add(item.descripcion, item.codigo);
+                } 
+                this.cmbReceptorTelefonoCod.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                this.cmbReceptorFaxCod.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+
+
 
             }
         }
@@ -400,57 +411,57 @@ namespace Web.Pages.Catalogos
                 {
 
                     string buscar = this.txtReceptorIdentificacion.Text;
-                    EmisorReceptorIMEC emisor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == buscar).FirstOrDefault();
+                    EmisorReceptorIMEC receptor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == buscar).FirstOrDefault();
 
-                    emisor.identificacionTipo = this.cmbReceptorTipo.Value.ToString();
-                    emisor.identificacion = this.txtReceptorIdentificacion.Text;
-                    emisor.nombre = this.txtReceptorNombre.Text;
-                    emisor.nombreComercial = this.txtReceptorNombreComercial.Text;
+                    receptor.identificacionTipo = this.cmbReceptorTipo.Value.ToString();
+                    receptor.identificacion = this.txtReceptorIdentificacion.Text;
+                    receptor.nombre = this.txtReceptorNombre.Text;
+                    receptor.nombreComercial = this.txtReceptorNombreComercial.Text;
 
                     if (this.cmbReceptorTelefonoCod.Value != null)
                     {
-                        emisor.telefonoCodigoPais = this.cmbReceptorTelefonoCod.Value.ToString();
-                        emisor.telefono = this.txtReceptorTelefono.Text;
+                        receptor.telefonoCodigoPais = this.cmbReceptorTelefonoCod.Value.ToString();
+                        receptor.telefono = this.txtReceptorTelefono.Text;
                     }
 
-                    emisor.correoElectronico = this.txtReceptorCorreo.Text;
+                    receptor.correoElectronico = this.txtReceptorCorreo.Text;
 
                     if (this.cmbReceptorFaxCod.Value != null)
                     {
-                        emisor.faxCodigoPais = this.cmbReceptorFaxCod.Value.ToString();
-                        emisor.fax = this.txtReceptorFax.Text;
+                        receptor.faxCodigoPais = this.cmbReceptorFaxCod.Value.ToString();
+                        receptor.fax = this.txtReceptorFax.Text;
                     }
 
                     if (this.cmbReceptorProvincia.Value != null)
                     {
-                        emisor.provincia = this.cmbReceptorProvincia.Value.ToString();
+                        receptor.provincia = this.cmbReceptorProvincia.Value.ToString();
                     }
                     if (this.cmbReceptorCanton.Value != null)
                     {
-                        emisor.canton = this.cmbReceptorCanton.Value.ToString();
+                        receptor.canton = this.cmbReceptorCanton.Value.ToString();
                     }
                     if (this.cmbReceptorDistrito.Value != null)
                     {
-                        emisor.distrito = this.cmbReceptorDistrito.Value.ToString();
+                        receptor.distrito = this.cmbReceptorDistrito.Value.ToString();
                     }
                     if (this.cmbReceptorBarrio.Value != null)
                     {
-                        emisor.barrio = this.cmbReceptorBarrio.Value.ToString();
+                        receptor.barrio = this.cmbReceptorBarrio.Value.ToString();
                     }
-                    emisor.otraSena = this.txtReceptorOtraSenas.Text;
+                    receptor.otraSena = this.txtReceptorOtraSenas.Text;
                     /*
-                    emisor.usernameOAuth2 = this.txtUsernameOAuth2.Text;
-                    emisor.passwordOAuth2 = this.txtPasswordOAuth2.Text;
-                    emisor.claveLlaveCriptografica = this.txtClaveLlaveCriptografica.Text;
+                    receptor.usernameOAuth2 = this.txtUsernameOAuth2.Text;
+                    receptor.passwordOAuth2 = this.txtPasswordOAuth2.Text;
+                    receptor.claveLlaveCriptografica = this.txtClaveLlaveCriptografica.Text;
                     */
 
                     if (Session["LlaveCriptograficap12"] != null)
                     {
-                        emisor.llaveCriptografica = (byte[])Session["LlaveCriptograficap12"];
+                        receptor.llaveCriptografica = (byte[])Session["LlaveCriptograficap12"];
                     }
                     
                     //modifica objeto
-                    conexion.Entry(emisor).State = EntityState.Modified;
+                    conexion.Entry(receptor).State = EntityState.Modified;
                     conexion.SaveChanges();
                      
                     this.alertMessages.Attributes["class"] = "alert alert-info";
@@ -497,9 +508,9 @@ namespace Web.Pages.Catalogos
                     string emisorUsuario = (sender as ASPxGridView).GetSelectedFieldValues("identificacion")[0].ToString();
                     using (var conexion = new DataModelFE())
                     {
-                        EmisorReceptorIMEC emisor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == emisorUsuario).FirstOrDefault();
+                        EmisorReceptorIMEC receptor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == emisorUsuario).FirstOrDefault();
                         Session["LlaveCriptograficap12"] = null;
-                        this.loadReceptor(emisor);
+                        this.loadReceptor(receptor);
                         this.alertMessages.Attributes["class"] = "alert alert-info";
                         this.alertMessages.InnerText = "Los datos fueron cargados correctamente!!!";
                         this.btnActualizar.Enabled = true;

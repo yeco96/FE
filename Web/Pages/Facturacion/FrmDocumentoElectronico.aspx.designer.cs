@@ -13,6 +13,15 @@ namespace Web.Pages.Facturacion {
     public partial class FrmDocumentoElectronico {
         
         /// <summary>
+        /// alertMessages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertMessages;
+        
+        /// <summary>
         /// ASPxGridView1 control.
         /// </summary>
         /// <remarks>

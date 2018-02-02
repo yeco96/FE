@@ -23,22 +23,6 @@ public enum Sexo
 }
 
 
-public enum EstadoMensajeHacienda { 
-
- 
-    [Display(Name = "ENVIADO")]
-    ENVIADO = 0,
-
-    [Display(Name = "ACEPTADO")]
-    ACEPTADO = 1,
-
-    [Display(Name = "ACEPTADO PARCIALMENTE")] 
-    ACEPTADO_PARCIALMENTE = 2,
-
-    [Display(Name = "RECHAZADO")]
-    RECHAZADO = 3
-}
-
 public class EstadoMensajeHaciendaClass
 {
 
@@ -49,6 +33,8 @@ public class EstadoMensajeHaciendaClass
         lista.Add(new ListEditItem("ACEPTADO", 1));
         lista.Add(new ListEditItem("ACEPTADO PARCIALMENTE", 2));
         lista.Add(new ListEditItem("RECHAZADO", 3));
+
+        lista.Add(new ListEditItem("PENDIENTE", 9));
 
         return lista;
        

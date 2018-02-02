@@ -107,12 +107,9 @@ namespace XMLDomain
                     {
                         totalImpuesto += impuesto.monto;
                     }
-                }
-                //sin IV
-                if(linea.impuestos.Count == 0)
-                {
+                    //sin IV
                     totalServExentos += linea.montoTotal;
-                }
+                } 
                 else//con IV
                 {
                     totalServGravados += linea.montoTotal;

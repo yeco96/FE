@@ -195,7 +195,7 @@ namespace Web.Pages.Facturacion
 
         protected void ASPxGridView1_DetailRowExpandedChanged(object sender, ASPxGridViewDetailRowEventArgs e)
         {
-            Session["clave"] = (sender as ASPxGridView).GetRowValues(e.VisibleIndex, "clave");
+            Session["clave"] = (sender as ASPxGridView).GetRowValues(e.VisibleIndex, "clave"); 
         }
 
         protected void btnDescargarXML_Click(object sender, EventArgs e)
@@ -224,7 +224,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message, ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
            
         }
@@ -249,6 +249,52 @@ namespace Web.Pages.Facturacion
                 }
             }
             
+        }
+
+        protected async void btnEnviar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
+                
+                using (var conexion = new DataModelWS())
+                {
+
+                    string clave = Session["clave"].ToString(); 
+                    WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
+                    string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+
+                    EmisorReceptorIMEC elEmisor = ((EmisorReceptorIMEC)Session["emisor"]);
+                    string responsePost = await Services.enviarDocumentoElectronico(true,xml, elEmisor, dato.tipoDocumento, Session["usuario"].ToString());
+                    string correoElectronico = EncondeXML.buscarValorEtiquetaXML("Receptor", "CorreoElectronico", xml);
+
+                    if (responsePost.Equals("Success"))
+                    {
+
+                        this.alertMessages.InnerText = String.Format("Factura #{0} enviada." , dato.numeroConsecutivo);
+
+                        if (!string.IsNullOrWhiteSpace(correoElectronico))
+                        {
+                            Utilidades.sendMail(correoElectronico,
+                                string.Format("{0} - {1}", dato.numeroConsecutivo, dato.receptor.nombre),
+                                Utilidades.mensageGenerico(), "Factura Electrónica", xml, dato.numeroConsecutivo);
+                        }
+                    }
+                    else if (responsePost.Equals("Error"))
+                    {
+                        this.alertMessages.InnerText = String.Format("Factura #{0} con errores.", dato.numeroConsecutivo);
+                    }
+                    else
+                    {
+                        this.alertMessages.InnerText = String.Format("Factura #{0} pendiente de envío", dato.numeroConsecutivo);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+            }
         }
     }
 }

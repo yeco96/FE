@@ -89,7 +89,7 @@ namespace Web.Pages.Catalogos
 
             this.txtUsernameOAuth2.Text = emisor.usernameOAuth2;
             this.txtPasswordOAuth2.Text = emisor.passwordOAuth2; 
-            this.txtClaveLlaveCriptografica.Text = emisor.claveLlaveCriptografica.ToString() ;
+            this.txtClaveLlaveCriptografica.Text = emisor.claveLlaveCriptografica != null ?  emisor.claveLlaveCriptografica.ToString() : null;
 
 
         }
@@ -132,6 +132,18 @@ namespace Web.Pages.Catalogos
                 {
                     this.cmbEmisorProvincia.Items.Add(item.nombreProvincia, item.codProvincia);
                 }
+
+                /* CODIGO PAIS */
+                foreach (var item in conexion.CodigoPais.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                {
+                    this.cmbEmisorTelefonoCod.Items.Add(item.descripcion, item.codigo);
+                    this.cmbEmisorFaxCod.Items.Add(item.descripcion, item.codigo);
+                     
+                }
+                this.cmbEmisorTelefonoCod.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                this.cmbEmisorFaxCod.IncrementalFilteringMode = IncrementalFilteringMode.Contains; 
+
+
 
             }
         }
