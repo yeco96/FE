@@ -60,7 +60,7 @@
                                                 <Items>
                                                     <dx:MenuItem Text="INICIO" NavigateUrl="~/Pages/Home.aspx" />
                                                     <dx:MenuItem Text="BLOG" NavigateUrl="~/Pages/BlogTimeline.aspx" Visible="false" />
-                                                    <dx:MenuItem Text="CATALOGOS">
+                                                    <dx:MenuItem Text="CATÁLOGOS">
                                                         <Items>
 
                                                             <dx:MenuItem Text="MEDIO PAGO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoMedioPago.aspx" />
@@ -103,7 +103,7 @@
                                                             
                                                         </Items>
                                                     </dx:MenuItem>
-                                                    <dx:MenuItem Text="CONTÁCTENOS" NavigateUrl="~/Pages/Contacts.aspx" />
+                                                    <dx:MenuItem Text="CONTACTO" NavigateUrl="~/Pages/Contacts.aspx" />
                                                 </Items>
                                             </dx:ASPxMenu>
                                         </div>
@@ -144,19 +144,20 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-3">
-                                <h4>MSA Soft</h4>
-                                <p>Desarrollo de aplicaciones tropicalisadas, desarrollo de sitios web, sistema de recursos humanos, sistemas de matricula, sistema de reparación vehicular, mantenimiento y consultorias.</p>
+                                <h4>¿Quienes Somos?</h4>
+                                <p>MSA SOFT es una empresa dedicada a soluciones de intercambio de documentos electrónicos y desarrollo de aplicaciones según la necesidad de nuestros clientes.</p>
                             </div>
                             <div class="col-md-offset-1 col-md-4">
-                                <h4>Latest Posts</h4>
+                                <h4>Nuestros Productos</h4>
                                 <ul class="list-unstyled latestPosts">
-                                    <li><a href="#">Upcoming webinar: Give AdHoc Query Powers to Your ASP.NET Grid Users</a></li>
-                                    <li><a href="#">HTML5 Chart and Data Visualization Widgets - Enhancements</a></li>
-                                    <li><a href="#">HTML5 Form Layout Widget</a></li>
+                                    <li>Factura Electrónica</li>
+                                    <li>Sistema de matrícula</li>
+                                    <li>Sistema de reparación vehicular</li>
+                                    <li>Mantenimiento y Consultorías</li>
                                 </ul>
                             </div>
                             <div class="col-md-offset-1 col-md-3">
-                                <h4>Contáctenos</h4>
+                                <h4>Contacto</h4>
                                 <ul class="list-unstyled">
                                     <li>Heredia</li>
                                     <li>Costa Rica</li>
