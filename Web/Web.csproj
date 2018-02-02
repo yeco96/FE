@@ -179,7 +179,7 @@
     <Content Include="Pages\Error\DefaultRedirectErrorPage.aspx" />
     <Content Include="Pages\Error\Http404ErrorPage.aspx" />
     <Content Include="Pages\Facturacion\FrmCargarXML.aspx" />
-    <Content Include="Pages\Facturacion\FrmDocumentoElectronico.aspx" />
+    <Content Include="Pages\Facturacion\FrmConsultaDocElectronico.aspx" />
     <Content Include="Pages\Facturacion\FrmNotaCredito.aspx" />
     <Content Include="Pages\Facturacion\FrmReceptor.aspx" />
     <Content Include="Pages\Facturacion\FrmEmisorReceptorAdministrador.aspx" />
@@ -424,12 +424,12 @@
     <Compile Include="Pages\Facturacion\FrmCargarXML.aspx.designer.cs">
       <DependentUpon>FrmCargarXML.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Facturacion\FrmDocumentoElectronico.aspx.cs">
-      <DependentUpon>FrmDocumentoElectronico.aspx</DependentUpon>
+    <Compile Include="Pages\Facturacion\FrmConsultaDocElectronico.aspx.cs">
+      <DependentUpon>FrmConsultaDocElectronico.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Facturacion\FrmDocumentoElectronico.aspx.designer.cs">
-      <DependentUpon>FrmDocumentoElectronico.aspx</DependentUpon>
+    <Compile Include="Pages\Facturacion\FrmConsultaDocElectronico.aspx.designer.cs">
+      <DependentUpon>FrmConsultaDocElectronico.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Facturacion\FrmNotaCredito.aspx.cs">
       <DependentUpon>FrmNotaCredito.aspx</DependentUpon>

@@ -1,4 +1,4 @@
-﻿<%@ Page Async="true" Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmDocumentoElectronico.aspx.cs" Inherits="Web.Pages.Facturacion.FrmDocumentoElectronico" %>
+﻿<%@ Page Async="true" Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmConsultaDocElectronico.aspx.cs" Inherits="Web.Pages.Facturacion.FrmConsultaDocElectronico" %>
 
 <%@ Register Src="~/UserControls/AddAuditoriaForm.ascx" TagPrefix="user" TagName="AddAuditoriaForm" %>
 
@@ -117,14 +117,14 @@
                                     <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="btnNotaCredito" runat="server" Text="Crear Nota Crédito" OnClick="btnActualizar_Click" ></dx:ASPxButton>
+                                                <dx:ASPxButton ID="btnNotaCredito" runat="server" Text="Crear Nota Crédito" OnClick="btnNotaCredito_Click" ></dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
                                     <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="btnNotaDebito" runat="server" Text="Crear Nota Débito" OnClick="btnActualizar_Click" ></dx:ASPxButton>
+                                                <dx:ASPxButton ID="btnNotaDebito" runat="server" Text="Crear Nota Débito" OnClick="btnNotaDebito_Click" ></dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
@@ -132,7 +132,7 @@
                                      <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="btnEnviar" runat="server" Text="Envio Manual" OnClick="btnEnviar_Click" ></dx:ASPxButton>
+                                                <dx:ASPxButton ID="btnEnvioManual" runat="server" Text="Envio Manual" OnClick="btnEnvioManual_Click" ></dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>

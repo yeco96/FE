@@ -10,7 +10,7 @@
 namespace Web.Pages.Facturacion {
     
     
-    public partial class FrmDocumentoElectronico {
+    public partial class FrmConsultaDocElectronico {
         
         /// <summary>
         /// alertMessages control.

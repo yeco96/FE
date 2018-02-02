@@ -247,7 +247,7 @@ namespace Web.Pages.Facturacion
 
             this.cmbReceptorDistrito_ValueChanged(null, null);
             this.cmbReceptorBarrio.Value = emisor.barrio;
-            this.txtEmisorOtraSenas.Value = emisor.otraSena;
+            this.txtReceptorOtraSenas.Value = emisor.otraSena;
 
         }
 

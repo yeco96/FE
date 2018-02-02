@@ -82,17 +82,16 @@
 
                                                         </Items>
                                                     </dx:MenuItem>
-                                                      <dx:MenuItem Text="FACTURACIÓN">
+                                                      <dx:MenuItem Text="DOCUMENTOS">
                                                         <Items>
 
                                                             <dx:MenuItem Text="EMISOR" NavigateUrl="~/Pages/Facturacion/FrmEmisor.aspx" />
-                                                            <dx:MenuItem Text="RECEPTOR" NavigateUrl="~/Pages/Facturacion/FrmReceptor.aspx" />
-                                                            
+                                                            <dx:MenuItem Text="RECEPTOR" NavigateUrl="~/Pages/Facturacion/FrmReceptor.aspx" /> 
                                                             <dx:MenuItem Text="PRODUCTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProducto.aspx" />
                                                             <dx:MenuItem Text="PRODUCTO IMPUESTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProductoImpuesto.aspx" />
-                                                            <dx:MenuItem Text="DOCUMENTO ELECTRÓNICO" NavigateUrl="~/Pages/Facturacion/FrmDocumentoElectronico.aspx" />
+                                                            <dx:MenuItem Text="CONSULTA" NavigateUrl="~/Pages/Facturacion/FrmConsultaDocElectronico.aspx" />
                                                             <dx:MenuItem Text="CONFIRMAR XML" NavigateUrl="~/Pages/Facturacion/FrmValidarXML.aspx" />
-                                                            <dx:MenuItem Text="FACTURAR" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumento.aspx" />
+                                                            <dx:MenuItem Text="CREAR DOCUMENTO" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumento.aspx" />
  
                                                         </Items>
                                                     </dx:MenuItem>

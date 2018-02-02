@@ -23,17 +23,23 @@ public enum Sexo
 }
 
 
-public class EstadoMensajeHaciendaClass
+public enum EstadoMensajeHacienda
 {
+    ENVIADO,
+    ACEPTADO,
+    RECHAZADO,
+    PENDIENTE
+}
 
+public class EstadoMensajeHaciendaClass
+{ 
     public static List<ListEditItem> values()
     { 
         List<ListEditItem> lista = new List<ListEditItem>();
         lista.Add(new ListEditItem("ENVIADO",0));
         lista.Add(new ListEditItem("ACEPTADO", 1));
         lista.Add(new ListEditItem("ACEPTADO PARCIALMENTE", 2));
-        lista.Add(new ListEditItem("RECHAZADO", 3));
-
+        lista.Add(new ListEditItem("RECHAZADO", 3)); 
         lista.Add(new ListEditItem("PENDIENTE", 9));
 
         return lista;
