@@ -114,7 +114,7 @@
                         </div>
                         <div class="media-body">
                             <h4 class="media-heading">Mejora la atención a sus clientes</h4>
-                            <p><small>La herramienta cuenta con portal para el cliente, estos podrán tramitar sus facturas directamente en el sistema desde internet. Asi mismo, ahorra tiempo y dinero.</small></p>
+                            <p><small>La herramienta cuenta con sitio web para el cliente, estos podrán tramitar sus facturas directamente en el sistema desde internet.Así mismo, ahorra tiempo y dinero.</small></p>
                         </div>
                     </div>
                 </div>
@@ -127,7 +127,7 @@
                         </div>
                         <div class="media-body">
                             <h4 class="media-heading">Seguridad y transparencia fiscal</h4>
-                            <p><small>MSAFactura facilita los procesos contables y fiscales mediante consultas rápidas sobre sus documentos emitidos desde un sitio web.</small></p>
+                            <p><small>MSAFactura facilita los procesos contables y fiscales mediante consultas rápidas de todos los documentos electrónicos emitidos.</small></p>
                         </div>
                     </div>
                 </div>

@@ -3,7 +3,7 @@
     <SettingsItems Width="100%" />
     <SettingsItemCaptions  Location="Top" />
     <Items>
-        <dx:LayoutItem Caption="Name">
+        <dx:LayoutItem Caption="Nombre">
             <LayoutItemNestedControlCollection>
                 <dx:LayoutItemNestedControlContainer>
                     <dx:ASPxTextBox ID="Name" runat="server" Width="100%">
@@ -14,7 +14,7 @@
                 </dx:LayoutItemNestedControlContainer>
             </LayoutItemNestedControlCollection>
         </dx:LayoutItem>
-        <dx:LayoutItem Caption="Email">
+        <dx:LayoutItem Caption="Correo electrónico">
             <LayoutItemNestedControlCollection>
                 <dx:LayoutItemNestedControlContainer>
                     <dx:ASPxTextBox ID="Email" runat="server" Width="100%">
@@ -26,7 +26,7 @@
                 </dx:LayoutItemNestedControlContainer>
             </LayoutItemNestedControlCollection>
         </dx:LayoutItem>
-        <dx:LayoutItem Caption="Notes">
+        <dx:LayoutItem Caption="Consulta">
             <LayoutItemNestedControlCollection>
                 <dx:LayoutItemNestedControlContainer>
                     <dx:ASPxMemo ID="Notes" runat="server" Width="100%" MaxLength="500" Rows="6">

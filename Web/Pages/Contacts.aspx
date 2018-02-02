@@ -56,8 +56,8 @@
 <div class="container">
     <div class="row">
         <section class="col-md-8 marginTop40">
-            <h3>Formulario de Contácto</h3>
-            <p>Siéntase libre de contactarnos</p>
+            <h3>Formulario de Contacto</h3>
+            <p>Puede enviarnos sus consultas en el siguiente formulario</p>
             <dx:AddCommentForm runat="server"/>
             <hr class="marginTop40 visible-sm visible-xs"/>
         </section>
