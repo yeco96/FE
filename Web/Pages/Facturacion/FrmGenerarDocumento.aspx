@@ -19,7 +19,7 @@
                         <ContentCollection>
                             <dx:ContentControl runat="server">
 
-                                <dx:ASPxFormLayout runat="server">
+                                <dx:ASPxFormLayout runat="server"  AlignItemCaptionsInAllGroups="true" >
                                     <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
                                     <Items>
                                         <dx:LayoutGroup Caption="Datos Personales" ColCount="3" GroupBoxDecoration="Box" UseDefaultPaddings="false">
@@ -128,7 +128,7 @@
                                 <dx:ASPxFormLayout runat="server">
                                     <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
                                     <Items>
-                                        <dx:LayoutGroup Caption="Ubicación" ColCount="3" GroupBoxDecoration="Box" UseDefaultPaddings="false">
+                                        <dx:LayoutGroup Caption="Ubicación" ColCount="4" GroupBoxDecoration="Box" UseDefaultPaddings="false">
                                             <Items>
                                                 <dx:LayoutItem Caption="Provincia">
                                                     <LayoutItemNestedControlCollection>
@@ -166,7 +166,7 @@
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
-                                                <dx:LayoutItem Caption="Otras Señas" ColSpan="2" Width="100%">
+                                                <dx:LayoutItem Caption="Otras Señas" ColSpan="4" Width="100%">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxMemo ID="txtEmisorOtraSenas" runat="server" Width="100%" AutoResizeWithContainer="true"
@@ -189,7 +189,7 @@
                         <ContentCollection>
                             <dx:ContentControl runat="server">
 
-                                <dx:ASPxFormLayout runat="server">
+                                <dx:ASPxFormLayout runat="server"  AlignItemCaptionsInAllGroups="true" >
                                     <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
                                     <Items>
                                         <dx:LayoutGroup Caption="Datos Personales" ColCount="3" GroupBoxDecoration="Box" UseDefaultPaddings="false">
@@ -300,7 +300,7 @@
                                 <dx:ASPxFormLayout runat="server">
                                     <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
                                     <Items>
-                                        <dx:LayoutGroup Caption="Ubicación" ColCount="3" GroupBoxDecoration="Box" UseDefaultPaddings="false">
+                                        <dx:LayoutGroup Caption="Ubicación" ColCount="4" GroupBoxDecoration="Box" UseDefaultPaddings="false">
                                             <Items>
                                                 <dx:LayoutItem Caption="Provincia">
                                                     <LayoutItemNestedControlCollection>
@@ -333,7 +333,7 @@
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
-                                                <dx:LayoutItem Caption="Otras Señas" ColSpan="2" Width="100%">
+                                                <dx:LayoutItem Caption="Otras Señas" ColSpan="4" Width="100%">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxMemo ID="txtReceptorOtraSenas" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
@@ -356,7 +356,7 @@
                             <dx:ContentControl runat="server">
 
 
-                                <dx:ASPxFormLayout runat="server">
+                                <dx:ASPxFormLayout runat="server"  AlignItemCaptionsInAllGroups="true" >
                                     <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
                                     <Items>
                                         <dx:LayoutGroup Caption="Encabezado" ColCount="3" GroupBoxDecoration="Box" UseDefaultPaddings="false">

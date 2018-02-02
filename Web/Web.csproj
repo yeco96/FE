@@ -586,6 +586,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\Seguridad\" />
+    <Folder Include="Pages\Seguridad\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

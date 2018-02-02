@@ -137,7 +137,7 @@
                             <dx:ASPxFormLayout runat="server">
                                 <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
                                 <Items>
-                                    <dx:LayoutGroup Caption="Ubicación" ColCount="3" GroupBoxDecoration="HeadingLine" UseDefaultPaddings="false">
+                                    <dx:LayoutGroup Caption="Ubicación" ColCount="4" GroupBoxDecoration="HeadingLine" UseDefaultPaddings="false">
                                         <Items>
                                             <dx:LayoutItem Caption="Provincia">
                                                 <LayoutItemNestedControlCollection>
@@ -170,7 +170,7 @@
                                                     </dx:LayoutItemNestedControlContainer>
                                                 </LayoutItemNestedControlCollection>
                                             </dx:LayoutItem>
-                                            <dx:LayoutItem Caption="Otras Señas" ColSpan="2" Width="100%">
+                                            <dx:LayoutItem Caption="Otras Señas" ColSpan="4" Width="100%">
                                                 <LayoutItemNestedControlCollection>
                                                     <dx:LayoutItemNestedControlContainer>
                                                         <dx:ASPxMemo ID="txtReceptorOtraSenas" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />

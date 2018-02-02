@@ -8,29 +8,12 @@
         </div>
     </section>
 
-    <asp:ScriptManager ID="ScriptManager1" runat="server" />
-    <asp:UpdatePanel ID="UpdatePanel" runat="server" UpdateMode="Always" OnUnload="UpdatePanel_Unload">
-        <ContentTemplate>
-            <div id="alertMessages" role="alert" runat="server" />
-        </ContentTemplate>
-    </asp:UpdatePanel>
-    <div style="text-align: center;">
-        <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="UpdatePanel">
-            <ProgressTemplate>
-                <div class="modalBlock">
-                    <div class="centerBlock">
-                        <img src="../../Content/Images/cargando.gif" />
-                    </div>
-                </div>
-            </ProgressTemplate>
-        </asp:UpdateProgress>
-    </div>
-
-    <dx:ASPxFormLayout runat="server">
-        <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
+   
+    <dx:ASPxFormLayout runat="server" AlignItemCaptionsInAllGroups="true" >
+        <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800"  />
         <Items>
             <%-- Datos del docuemento de referencia --%>
-            <dx:LayoutGroup Caption="Datos del Documento de Referencia" ColCount="2" GroupBoxDecoration="Box" UseDefaultPaddings="false">
+            <dx:LayoutGroup  Caption="Datos del Documento de Referencia" ColCount="3" GroupBoxDecoration="Box" UseDefaultPaddings="false">
                 <Items>
                     <dx:LayoutItem Caption="Factura Electrónica">
                         <LayoutItemNestedControlCollection>
@@ -269,5 +252,26 @@
         <BorderBottom BorderWidth="1px" />
 
     </dx:ASPxGridView>
+
+
+
+     <asp:ScriptManager ID="ScriptManager1" runat="server" />
+    <asp:UpdatePanel ID="UpdatePanel" runat="server" UpdateMode="Always" OnUnload="UpdatePanel_Unload">
+        <ContentTemplate>
+            <div id="alertMessages" role="alert" runat="server" />
+        </ContentTemplate>
+    </asp:UpdatePanel>
+    <div style="text-align: center;">
+        <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="UpdatePanel">
+            <ProgressTemplate>
+                <div class="modalBlock">
+                    <div class="centerBlock">
+                        <img src="../../Content/Images/cargando.gif" />
+                    </div>
+                </div>
+            </ProgressTemplate>
+        </asp:UpdateProgress>
+    </div>
+
 
 </asp:Content>
