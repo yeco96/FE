@@ -28,7 +28,10 @@ namespace Web.Pages.Facturacion
         protected void Page_Load(object sender, EventArgs e)
         {
             Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
+            this.alertMessages.Attributes["class"] = "";
+            this.alertMessages.InnerText = "";
             this.AsyncMode = true;
+             
             try
             {
                 if (!IsCallback && !IsPostBack)

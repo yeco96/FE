@@ -47,6 +47,8 @@
     <Compile Include="FacturaElectronica.cs" />
     <Compile Include="Fax.cs" />
     <Compile Include="Identificacion.cs" />
+    <Compile Include="ImpresionDetalle.cs" />
+    <Compile Include="Impresion.cs" />
     <Compile Include="Impuesto.cs" />
     <Compile Include="InformacionReferencia.cs" />
     <Compile Include="LineaDetalle.cs" />
