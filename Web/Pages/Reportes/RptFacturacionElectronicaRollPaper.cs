@@ -52,7 +52,6 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
     private XRLabel xrLabel37;
     private XRLabel xrLabel14;
     private XRLabel xrLabel38;
-    public XRSubreport xrSubreport1;
     private XRLine xrLine2;
     private XRLabel xrLabel18;
     private XRLabel xrLabel16;
@@ -60,6 +59,8 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
     private XRLabel xrLabel24;
     private XRLabel xrLabel10;
     private XRLabel xrLabel9;
+    public XRSubreport xrSubreport1;
+    public XRBarCode xrBarCode1;
 
     /// <summary>
     /// Required designer variable.
@@ -96,6 +97,7 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
     private void InitializeComponent()
     {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraPrinting.BarCode.QRCodeGenerator qrCodeGenerator1 = new DevExpress.XtraPrinting.BarCode.QRCodeGenerator();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrLabel18 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
@@ -128,7 +130,6 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
             this.xrLabel42 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel43 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
-            this.xrSubreport1 = new DevExpress.XtraReports.UI.XRSubreport();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.xrLine2 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
@@ -147,6 +148,8 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
             this.FieldCaption = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.xrBarCode1 = new DevExpress.XtraReports.UI.XRBarCode();
+            this.xrSubreport1 = new DevExpress.XtraReports.UI.XRSubreport();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -184,52 +187,49 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
             this.xrLabel42,
             this.xrLabel43,
             this.xrLine1,
-            this.xrSubreport1});
-            this.Detail.HeightF = 465.2083F;
+            this.xrSubreport1,
+            this.xrBarCode1});
+            this.Detail.HeightF = 565.2083F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
-            //this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // xrLabel18
             // 
             this.xrLabel18.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "montoImpuestoVenta", "{0:C2}")});
-            this.xrLabel18.LocationFloat = new DevExpress.Utils.PointFloat(166.5F, 315.2084F);
+            this.xrLabel18.LocationFloat = new DevExpress.Utils.PointFloat(166.5F, 322.5001F);
             this.xrLabel18.Name = "xrLabel18";
             this.xrLabel18.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel18.SizeF = new System.Drawing.SizeF(124.5F, 18F);
             this.xrLabel18.StyleName = "DataField";
             this.xrLabel18.StylePriority.UseTextAlignment = false;
-            //this.xrLabel18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel16
             // 
             this.xrLabel16.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "montoDescuento", "{0:C2}")});
-            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(166.5F, 297.2084F);
+            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(166.5F, 304.5001F);
             this.xrLabel16.Name = "xrLabel16";
             this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel16.SizeF = new System.Drawing.SizeF(124.5F, 18F);
             this.xrLabel16.StyleName = "DataField";
             this.xrLabel16.StylePriority.UseTextAlignment = false;
             this.xrLabel16.Text = "xrLabel16";
-            //this.xrLabel16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel15
             // 
             this.xrLabel15.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "montoSubTotal", "{0:C2}")});
-            this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(166.5F, 279.2084F);
+            this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(166.5F, 286.5F);
             this.xrLabel15.Name = "xrLabel15";
             this.xrLabel15.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel15.SizeF = new System.Drawing.SizeF(124.5F, 18F);
             this.xrLabel15.StyleName = "DataField";
             this.xrLabel15.StylePriority.UseTextAlignment = false;
-            //this.xrLabel15.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel24
             // 
-            this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(78.62502F, 333.2085F);
+            this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(78.62502F, 340.5001F);
             this.xrLabel24.Name = "xrLabel24";
             this.xrLabel24.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel24.SizeF = new System.Drawing.SizeF(87.87495F, 18F);
@@ -238,7 +238,7 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
             // 
             // xrLabel10
             // 
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(78.62499F, 315.2084F);
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(78.62499F, 322.5001F);
             this.xrLabel10.Name = "xrLabel10";
             this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel10.SizeF = new System.Drawing.SizeF(87.87496F, 18F);
@@ -247,7 +247,7 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
             // 
             // xrLabel9
             // 
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(78.62502F, 297.2084F);
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(78.62502F, 304.5001F);
             this.xrLabel9.Name = "xrLabel9";
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel9.SizeF = new System.Drawing.SizeF(87.87495F, 18F);
@@ -258,7 +258,7 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
             // 
             this.xrLabel46.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "receptorNombre")});
-            this.xrLabel46.LocationFloat = new DevExpress.Utils.PointFloat(65.20829F, 181.5417F);
+            this.xrLabel46.LocationFloat = new DevExpress.Utils.PointFloat(65.20829F, 170.5417F);
             this.xrLabel46.Name = "xrLabel46";
             this.xrLabel46.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel46.SizeF = new System.Drawing.SizeF(225.7917F, 17.99998F);
@@ -269,10 +269,10 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
             // 
             this.xrLabel45.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "receptorIdentificacionCorreo")});
-            this.xrLabel45.LocationFloat = new DevExpress.Utils.PointFloat(120.6667F, 199.5417F);
+            this.xrLabel45.LocationFloat = new DevExpress.Utils.PointFloat(6.000058F, 206.5417F);
             this.xrLabel45.Name = "xrLabel45";
             this.xrLabel45.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel45.SizeF = new System.Drawing.SizeF(170.3333F, 18F);
+            this.xrLabel45.SizeF = new System.Drawing.SizeF(284.9999F, 18F);
             this.xrLabel45.StyleName = "DataField";
             this.xrLabel45.Text = "xrLabel45";
             // 
@@ -280,7 +280,7 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
             // 
             this.xrLabel44.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "receptorIdentificacion")});
-            this.xrLabel44.LocationFloat = new DevExpress.Utils.PointFloat(100.8751F, 163.5417F);
+            this.xrLabel44.LocationFloat = new DevExpress.Utils.PointFloat(100.8751F, 152.5417F);
             this.xrLabel44.Name = "xrLabel44";
             this.xrLabel44.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel44.SizeF = new System.Drawing.SizeF(190.1249F, 18F);
@@ -289,7 +289,7 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
             // 
             // xrLabel22
             // 
-            this.xrLabel22.LocationFloat = new DevExpress.Utils.PointFloat(5.999994F, 181.5417F);
+            this.xrLabel22.LocationFloat = new DevExpress.Utils.PointFloat(5.999994F, 170.5417F);
             this.xrLabel22.Name = "xrLabel22";
             this.xrLabel22.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel22.SizeF = new System.Drawing.SizeF(59.2083F, 18F);
@@ -298,7 +298,7 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
             // 
             // xrLabel21
             // 
-            this.xrLabel21.LocationFloat = new DevExpress.Utils.PointFloat(5.999994F, 199.5417F);
+            this.xrLabel21.LocationFloat = new DevExpress.Utils.PointFloat(5.999994F, 188.5417F);
             this.xrLabel21.Name = "xrLabel21";
             this.xrLabel21.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel21.SizeF = new System.Drawing.SizeF(114.6667F, 18F);
@@ -307,7 +307,7 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
             // 
             // xrLabel20
             // 
-            this.xrLabel20.LocationFloat = new DevExpress.Utils.PointFloat(6.000058F, 163.5417F);
+            this.xrLabel20.LocationFloat = new DevExpress.Utils.PointFloat(6.000058F, 152.5417F);
             this.xrLabel20.Name = "xrLabel20";
             this.xrLabel20.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel20.SizeF = new System.Drawing.SizeF(94.87502F, 18F);
@@ -418,7 +418,7 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
             // 
             // xrLabel17
             // 
-            this.xrLabel17.LocationFloat = new DevExpress.Utils.PointFloat(78.62502F, 279.2084F);
+            this.xrLabel17.LocationFloat = new DevExpress.Utils.PointFloat(78.62502F, 286.5F);
             this.xrLabel17.Name = "xrLabel17";
             this.xrLabel17.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel17.SizeF = new System.Drawing.SizeF(87.87495F, 18F);
@@ -475,20 +475,19 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
             // 
             this.xrLabel42.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "montoTotal", "{0:C2}")});
-            this.xrLabel42.LocationFloat = new DevExpress.Utils.PointFloat(166.5F, 333.2085F);
+            this.xrLabel42.LocationFloat = new DevExpress.Utils.PointFloat(166.5F, 340.5001F);
             this.xrLabel42.Name = "xrLabel42";
             this.xrLabel42.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel42.SizeF = new System.Drawing.SizeF(124.5F, 18F);
             this.xrLabel42.StyleName = "DataField";
             this.xrLabel42.StylePriority.UseTextAlignment = false;
             this.xrLabel42.Text = "xrLabel42";
-            //this.xrLabel42.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel43
             // 
             this.xrLabel43.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Normativa")});
-            this.xrLabel43.LocationFloat = new DevExpress.Utils.PointFloat(6.000058F, 438.0416F);
+            this.xrLabel43.LocationFloat = new DevExpress.Utils.PointFloat(6.000058F, 537.2083F);
             this.xrLabel43.Name = "xrLabel43";
             this.xrLabel43.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel43.SizeF = new System.Drawing.SizeF(285F, 18.00003F);
@@ -500,14 +499,6 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
             this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(6.00001F, 3.000005F);
             this.xrLine1.Name = "xrLine1";
             this.xrLine1.SizeF = new System.Drawing.SizeF(285F, 6.00001F);
-            // 
-            // xrSubreport1
-            // 
-            this.xrSubreport1.LocationFloat = new DevExpress.Utils.PointFloat(6.000058F, 229.125F);
-            this.xrSubreport1.Name = "xrSubreport1";
-            this.xrSubreport1.ReportSource = new RptFacturacionElectronicaRollPaper();
-            this.xrSubreport1.SizeF = new System.Drawing.SizeF(285F, 39.66669F);
-            this.xrSubreport1.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrSubreport1_BeforePrint);
             // 
             // TopMargin
             // 
@@ -703,6 +694,24 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
             this.DataField.Name = "DataField";
             this.DataField.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             // 
+            // xrBarCode1
+            // 
+            this.xrBarCode1.AutoModule = true;
+            this.xrBarCode1.LocationFloat = new DevExpress.Utils.PointFloat(78.62503F, 426.875F);
+            this.xrBarCode1.Name = "xrBarCode1";
+            this.xrBarCode1.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 10, 0, 0, 100F);
+            this.xrBarCode1.ShowText = false;
+            this.xrBarCode1.SizeF = new System.Drawing.SizeF(115.6251F, 110.3332F);
+            this.xrBarCode1.Symbology = qrCodeGenerator1;
+            // 
+            // xrSubreport1
+            // 
+            this.xrSubreport1.LocationFloat = new DevExpress.Utils.PointFloat(5.999994F, 224.8334F);
+            this.xrSubreport1.Name = "xrSubreport1";
+            this.xrSubreport1.ReportSource = new RptFactDetRollPaper();
+            this.xrSubreport1.SizeF = new System.Drawing.SizeF(285F, 51.12502F);
+            this.xrSubreport1.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrSubreport1_BeforePrint_1);
+            // 
             // RptFacturacionElectronicaRollPaper
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -728,6 +737,11 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
     #endregion
 
     private void xrSubreport1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+    {
+    
+    }
+
+    private void xrSubreport1_BeforePrint_1(object sender, System.Drawing.Printing.PrintEventArgs e)
     {
         XRSubreport xrSubReport = (XRSubreport)sender;
         RptFactDetRollPaper subRep = xrSubReport.ReportSource as RptFactDetRollPaper;

@@ -23,9 +23,9 @@ namespace Web.Pages.Reportes
             ASPxWebDocumentViewer1.OpenReport(CreateReport());
         }
 
-        RptFactDetRollPaper CreateReport()
+        RptFacturacionElectronicaRollPaper CreateReport()
         {
-            RptFactDetRollPaper report = new RptFactDetRollPaper();
+            RptFacturacionElectronicaRollPaper report = new RptFacturacionElectronicaRollPaper();
             XMLDomain.Impresion fe = new XMLDomain.Impresion();
             object dataSource = fe;
             report.objectDataSource1.DataSource = dataSource;
@@ -33,7 +33,7 @@ namespace Web.Pages.Reportes
             //EL MENSAJE SE DEBE DE ENVIAR SIEMPRE EN MAYUSCULA
             string variable = "WWW.GMAIL.COM";
             //El control debe estar como Público
-            //report.codebar.Text = variable.ToUpper();
+            report.xrBarCode1.Text = variable.ToUpper();
             //Se crea el documento
 
 
