@@ -415,7 +415,9 @@ public class RptFacturacionElectronica : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel33.SizeF = new System.Drawing.SizeF(638F, 33F);
             this.xrLabel33.StyleName = "Title";
             this.xrLabel33.StylePriority.UseForeColor = false;
+            this.xrLabel33.StylePriority.UseTextAlignment = false;
             this.xrLabel33.Text = "Factura Electrónica";
+            this.xrLabel33.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
             // Title
             // 
@@ -774,15 +776,5 @@ public class RptFacturacionElectronica : DevExpress.XtraReports.UI.XtraReport
         subRep.Report.DataSource = dataSource;
         subRep.Report.FillDataSource();
         
-        
-        ////objectDataSource1.DataSource = feImpresion.detalles;
-
-        //((XRSubreport)sender).ReportSource.DataSource = ((XRSubreport)sender).Report.DataSource;
-        //((XRSubreport)sender).ReportSource.DataSource = feImpresion.detalles;
-
-        //XRSubreport subreport = sender as XRSubreport;
-        //subreport.ReportSource.DataSource = dataSource;
-        //subreport.ReportSource.FillDataSource();
-
     }
 }

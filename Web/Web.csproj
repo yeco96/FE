@@ -188,6 +188,7 @@
     <Content Include="Pages\Facturacion\FrmValidarXML.aspx" />
     <Content Include="Pages\Home.aspx" />
     <Content Include="Pages\Reportes\FrmReporteFactura.aspx" />
+    <Content Include="Pages\Reportes\FrmReporteFacturaRollPaper.aspx" />
     <Content Include="Pages\Search.aspx" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrap4.min.js" />
@@ -487,10 +488,23 @@
     <Compile Include="Pages\Reportes\FrmReporteFactura.aspx.designer.cs">
       <DependentUpon>FrmReporteFactura.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Reportes\FrmReporteFacturaRollPaper.aspx.cs">
+      <DependentUpon>FrmReporteFacturaRollPaper.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reportes\FrmReporteFacturaRollPaper.aspx.designer.cs">
+      <DependentUpon>FrmReporteFacturaRollPaper.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reportes\RptFactDetRollPaper.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Pages\Reportes\RptFacturacionDetalle.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Pages\Reportes\RptFacturacionElectronica.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Pages\Reportes\RptFacturacionElectronicaRollPaper.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Pages\Search.aspx.cs">
@@ -544,11 +558,17 @@
     <Compile Include="WebServices\URLServices.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Pages\Reportes\RptFactDetRollPaper.resx">
+      <DependentUpon>RptFactDetRollPaper.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\Reportes\RptFacturacionDetalle.resx">
       <DependentUpon>RptFacturacionDetalle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Reportes\RptFacturacionElectronica.resx">
       <DependentUpon>RptFacturacionElectronica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Reportes\RptFacturacionElectronicaRollPaper.resx">
+      <DependentUpon>RptFacturacionElectronicaRollPaper.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
