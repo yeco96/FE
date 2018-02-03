@@ -36,9 +36,6 @@ namespace Web.Pages.Reportes
             report.xrBarCode1.Text = variable.ToUpper();
             //Se crea el documento
 
-
-
-
             report.CreateDocument();
             return report;
         }

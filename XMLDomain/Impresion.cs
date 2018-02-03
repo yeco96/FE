@@ -63,7 +63,7 @@ namespace XMLDomain
             this.consecutivo = "00100001010000000038";
             this.fecha = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss") + "-06:00");
             this.leyenda = "Acá va una leyenda";
-            this.moneda = "CRC Colón Costarricense";
+            this.moneda = "CRC";
             this.tipoCambio = "1.0000";
             this.tipoDocumento = "Factura Electrónica";
             this.CondicionVenta = "Crédito";

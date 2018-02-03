@@ -122,7 +122,7 @@ public class RptFactDetRollPaper : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel5.CanGrow = false;
             this.xrLabel5.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "codigo")});
-            this.xrLabel5.Font = new System.Drawing.Font("Arial", 9F);
+            this.xrLabel5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel5.ForeColor = System.Drawing.Color.Black;
             this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(6.00001F, 0F);
             this.xrLabel5.Name = "xrLabel5";
@@ -138,7 +138,7 @@ public class RptFactDetRollPaper : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel5.StylePriority.UsePadding = false;
             this.xrLabel5.StylePriority.UseTextAlignment = false;
             this.xrLabel5.Text = "xrTableCell8";
-            this.xrLabel5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.xrLabel5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel6
             // 
@@ -150,7 +150,7 @@ public class RptFactDetRollPaper : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel6.CanGrow = false;
             this.xrLabel6.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "cantidad")});
-            this.xrLabel6.Font = new System.Drawing.Font("Arial", 9F);
+            this.xrLabel6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel6.ForeColor = System.Drawing.Color.Black;
             this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(40.53128F, 0F);
             this.xrLabel6.Name = "xrLabel6";
@@ -166,7 +166,7 @@ public class RptFactDetRollPaper : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel6.StylePriority.UsePadding = false;
             this.xrLabel6.StylePriority.UseTextAlignment = false;
             this.xrLabel6.Text = "xrTableCell10";
-            this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel7
             // 
@@ -178,12 +178,12 @@ public class RptFactDetRollPaper : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel7.CanGrow = false;
             this.xrLabel7.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "descripcion")});
-            this.xrLabel7.Font = new System.Drawing.Font("Arial", 9F);
+            this.xrLabel7.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel7.ForeColor = System.Drawing.Color.Black;
             this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(79.04466F, 0F);
             this.xrLabel7.Name = "xrLabel7";
             this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel7.SizeF = new System.Drawing.SizeF(160.2794F, 20.12501F);
+            this.xrLabel7.SizeF = new System.Drawing.SizeF(149.8627F, 20.12501F);
             this.xrLabel7.StylePriority.UseBackColor = false;
             this.xrLabel7.StylePriority.UseBorderColor = false;
             this.xrLabel7.StylePriority.UseBorderDashStyle = false;
@@ -205,13 +205,13 @@ public class RptFactDetRollPaper : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel8.BorderWidth = 1F;
             this.xrLabel8.CanGrow = false;
             this.xrLabel8.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "monto")});
-            this.xrLabel8.Font = new System.Drawing.Font("Arial", 9F);
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "monto", "{0:c2}")});
+            this.xrLabel8.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel8.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(239.3241F, 0F);
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(228.9074F, 0F);
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel8.SizeF = new System.Drawing.SizeF(54.67593F, 20.12501F);
+            this.xrLabel8.SizeF = new System.Drawing.SizeF(65.09264F, 20.12501F);
             this.xrLabel8.StylePriority.UseBackColor = false;
             this.xrLabel8.StylePriority.UseBorderColor = false;
             this.xrLabel8.StylePriority.UseBorderDashStyle = false;
@@ -222,7 +222,7 @@ public class RptFactDetRollPaper : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel8.StylePriority.UsePadding = false;
             this.xrLabel8.StylePriority.UseTextAlignment = false;
             this.xrLabel8.Text = "xrTableCell14";
-            this.xrLabel8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.xrLabel8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // TopMargin
             // 
@@ -270,10 +270,10 @@ public class RptFactDetRollPaper : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel4.CanGrow = false;
             this.xrLabel4.Font = new System.Drawing.Font("Times New Roman", 10F);
             this.xrLabel4.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(239.3241F, 9.562504F);
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(228.9074F, 9.562509F);
             this.xrLabel4.Name = "xrLabel4";
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel4.SizeF = new System.Drawing.SizeF(54.6759F, 14.54166F);
+            this.xrLabel4.SizeF = new System.Drawing.SizeF(65.09261F, 14.54166F);
             this.xrLabel4.StylePriority.UseBackColor = false;
             this.xrLabel4.StylePriority.UseBorderColor = false;
             this.xrLabel4.StylePriority.UseBorderDashStyle = false;
@@ -296,10 +296,10 @@ public class RptFactDetRollPaper : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel3.CanGrow = false;
             this.xrLabel3.Font = new System.Drawing.Font("Times New Roman", 10F);
             this.xrLabel3.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(79.04467F, 9.562504F);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(79.04466F, 9.562509F);
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel3.SizeF = new System.Drawing.SizeF(160.2794F, 14.54166F);
+            this.xrLabel3.SizeF = new System.Drawing.SizeF(149.8627F, 14.54166F);
             this.xrLabel3.StylePriority.UseBackColor = false;
             this.xrLabel3.StylePriority.UseBorderColor = false;
             this.xrLabel3.StylePriority.UseBorderDashStyle = false;
@@ -310,7 +310,7 @@ public class RptFactDetRollPaper : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel3.StylePriority.UsePadding = false;
             this.xrLabel3.StylePriority.UseTextAlignment = false;
             this.xrLabel3.Text = "Descripción";
-            this.xrLabel3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel2
             // 
@@ -470,6 +470,8 @@ public class RptFactDetRollPaper : DevExpress.XtraReports.UI.XtraReport
             this.objectDataSource1});
             this.DataSource = this.objectDataSource1;
             this.Margins = new System.Drawing.Printing.Margins(100, 448, 0, 0);
+            this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
+            this.RollPaper = true;
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.Title,
             this.FieldCaption,
