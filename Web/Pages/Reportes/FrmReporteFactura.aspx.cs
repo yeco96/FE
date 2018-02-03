@@ -26,18 +26,23 @@ namespace Web.Pages.Reportes
 
         }
 
-        RptFactura CreateReport()
+        RptFacturacionElectronica CreateReport()
         {
-            RptFactura report = new RptFactura();
-            XMLDomain.FacturaElectronica fe = new XMLDomain.FacturaElectronica();
-            fe.iniciarParametros();
+            RptFacturacionElectronica report = new RptFacturacionElectronica();
+            XMLDomain.Impresion fe = new XMLDomain.Impresion();
+            //fe.iniciarParametros();
             object dataSource = fe;
             report.objectDataSource1.DataSource = dataSource;
+
             //EL MENSAJE SE DEBE DE ENVIAR SIEMPRE EN MAYUSCULA
             string variable = "WWW.GMAIL.COM";
             //El control debe estar como Público
-            report.codebar.Text = variable.ToUpper();
+            //report.codebar.Text = variable.ToUpper();
             //Se crea el documento
+
+
+            
+
             report.CreateDocument();
            return report;
         }

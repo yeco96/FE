@@ -487,10 +487,10 @@
     <Compile Include="Pages\Reportes\FrmReporteFactura.aspx.designer.cs">
       <DependentUpon>FrmReporteFactura.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Reportes\RptDetalleFactura.cs">
+    <Compile Include="Pages\Reportes\RptFacturacionDetalle.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Pages\Reportes\RptFactura.cs">
+    <Compile Include="Pages\Reportes\RptFacturacionElectronica.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Pages\Search.aspx.cs">
@@ -544,11 +544,11 @@
     <Compile Include="WebServices\URLServices.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\Reportes\RptDetalleFactura.resx">
-      <DependentUpon>RptDetalleFactura.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\Reportes\RptFacturacionDetalle.resx">
+      <DependentUpon>RptFacturacionDetalle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\Reportes\RptFactura.resx">
-      <DependentUpon>RptFactura.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\Reportes\RptFacturacionElectronica.resx">
+      <DependentUpon>RptFacturacionElectronica.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
