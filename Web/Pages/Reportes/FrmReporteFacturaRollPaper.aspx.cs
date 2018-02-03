@@ -1,8 +1,5 @@
-﻿using DevExpress.XtraPrinting;
-using DevExpress.XtraReports.UI;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -10,12 +7,13 @@ using System.Web.UI.WebControls;
 
 namespace Web.Pages.Reportes
 {
-    public partial class FrmReporteFactura : System.Web.UI.Page
+    public partial class FrmReporteFacturaRollPaper : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             generarReporte();
         }
+
         /// <summary>
         /// Método para Generar el Reporte
         /// </summary>
@@ -23,14 +21,12 @@ namespace Web.Pages.Reportes
         {
             //Toma el Document Viewer para WEB y se envía el método del reporte
             ASPxWebDocumentViewer1.OpenReport(CreateReport());
-
         }
 
-        RptFacturacionElectronica CreateReport()
+        RptFactDetRollPaper CreateReport()
         {
-            RptFacturacionElectronica report = new RptFacturacionElectronica();
+            RptFactDetRollPaper report = new RptFactDetRollPaper();
             XMLDomain.Impresion fe = new XMLDomain.Impresion();
-            //fe.iniciarParametros();
             object dataSource = fe;
             report.objectDataSource1.DataSource = dataSource;
 
@@ -41,10 +37,10 @@ namespace Web.Pages.Reportes
             //Se crea el documento
 
 
-            
+
 
             report.CreateDocument();
-           return report;
+            return report;
         }
     }
 }

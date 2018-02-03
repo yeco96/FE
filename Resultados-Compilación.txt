@@ -1,0 +1,6 @@
+﻿1>------ Operación Compilar iniciada: proyecto: Web, configuración: Debug Any CPU ------
+1>C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\WebServices\Services.cs(101,14,101,20): warning CS0162: Se ha detectado código inaccesible
+1>C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteFacturaRollPaper.aspx.cs(34,20,34,28): warning CS0219: La variable 'variable' está asignada pero su valor nunca se usa
+1>C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteFactura.aspx.cs(38,20,38,28): warning CS0219: La variable 'variable' está asignada pero su valor nunca se usa
+1>  Web -> C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\bin\Web.dll
+========== Compilar: 1 correctos, 0 incorrectos, 7 actualizados, 0 omitidos ==========

@@ -40,8 +40,7 @@ namespace XMLDomain
         
         [XmlElement(ElementName = "DetalleServicio", Order = 9)]
         public DetalleServicio detalleServicio { set; get; }
-
-        
+                
 
         [XmlElement(ElementName = "ResumenFactura", Order = 10)]
         public ResumenFactura resumenFactura { set; get; }
