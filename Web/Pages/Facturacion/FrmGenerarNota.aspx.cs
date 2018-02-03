@@ -11,16 +11,34 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Web.Models;
 using Web.Models.Catalogos;
+using Web.Models.Facturacion;
+using WSDomain;
 using XMLDomain;
 
 namespace Web.Pages.Facturacion
 {
-    public partial class FrmNotaCredito : System.Web.UI.Page
+    public partial class FrmGenerarNota : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
-            this.AsyncMode = true;
+            try {
+                
+                Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
+                this.AsyncMode = true;
+
+                if (!IsCallback && !IsPostBack)
+                {
+                    this.cargarCombos();
+                    this.cargarDatosDocumento();
+                }
+                this.refreshData();
+
+            }
+            catch (Exception ex)
+            {
+                this.alertMessages.Attributes["class"] = "alert alert-danger";
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+            }
         }
 
         protected void UpdatePanel_Unload(object sender, EventArgs e)
@@ -35,6 +53,79 @@ namespace Web.Pages.Facturacion
             if (mInfo != null)
                 mInfo.Invoke(ScriptManager.GetCurrent(Page), new object[] { panel });
         }
+
+
+        #region Metodos Generales
+
+        private void cargarDatosDocumento()
+        {
+            if (Session["clave"] != null)
+            {
+                string clave = Session["clave"].ToString();
+                using (var conexionWS = new DataModelWS())
+                {
+                    WSRecepcionPOST dato = conexionWS.WSRecepcionPOST.Find(clave);
+                    this.txtClave.Text = dato.clave;
+                    this.txtConsecutivo.Text = dato.numeroConsecutivo;
+                    this.txtFechaEmisor.Text = dato.fecha.ToString();
+                    this.cmbTipoDocumento.Value = Session["tipoNota"].ToString();
+
+                    string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+                    
+                    int start = xml.IndexOf("<Clave>");
+                    int end = xml.IndexOf("<ds:Signature xmlns");
+                    xml =  xml.Substring(0, end) + "</FacturaElectronica>";
+                    xml = "<FacturaElectronica>" + xml.Substring(start) ;
+
+                    FacturaElectronica factura = (FacturaElectronica)EncodeXML.EncondeXML.objectToXML(xml, typeof(FacturaElectronica) );
+
+                    Session["detalleServicio"] = factura.detalleServicio;
+
+                    this.refreshData();
+
+                }
+            }
+        }
+
+        /// <summary>
+        /// carga inicial de todos los registros
+        /// </summary>  
+        private void refreshData()
+        {
+            if (Session["detalleServicio"] != null)
+            {
+                DetalleServicio detalleServicio = (DetalleServicio)Session["detalleServicio"];
+                this.ASPxGridView1.DataSource = detalleServicio.lineaDetalle;
+                this.ASPxGridView1.DataBind();
+            }
+        }
+
+
+        /// <summary>
+        /// carga solo una vez para ahorar tiempo 
+        /// </summary>
+        private void cargarCombos()
+        {
+            using (var conexion = new DataModelFE())
+            {
+                /* SUCURSAL CAJA */
+                string elEmisor = ((EmisorReceptorIMEC)Session["emisor"]).identificacion;
+                foreach (var item in conexion.ConsecutivoDocElectronico.Where(x => x.emisor == elEmisor).Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                {
+                    this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}", item.sucursal, item.caja));
+                }
+                this.cmbSucursalCaja.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+
+                /* TIPO DOCUMENTO */
+                foreach (var item in conexion.TipoDocumento.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                {
+                    this.cmbTipoDocumento.Items.Add(item.descripcion, item.codigo);
+                }
+                this.cmbTipoDocumento.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+
+            }
+        }
+        #endregion
 
         #region Metodos para el Grid
         protected void ASPxGridView1_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
@@ -145,12 +236,7 @@ namespace Web.Pages.Facturacion
                         .Select(x => x.ErrorMessage);
 
                 // Join the list to a single string.
-                var fullErrorMessage = string.Join("; ", errorMessages);
-
-
-
-
-
+                var fullErrorMessage = string.Join("; ", errorMessages); 
 
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
@@ -223,19 +309,6 @@ namespace Web.Pages.Facturacion
         }
         #endregion
 
-        #region Metodos Generales
-        /// <summary>
-        /// carga inicial de todos los registros
-        /// </summary>  
-        private void refreshData()
-        {
-            if (Session["detalleServicio"] != null)
-            {
-                DetalleServicio detalleServicio = (DetalleServicio)Session["detalleServicio"];
-                this.ASPxGridView1.DataSource = detalleServicio.lineaDetalle;
-                this.ASPxGridView1.DataBind();
-            }
-        }
-        #endregion
+      
     }
 }

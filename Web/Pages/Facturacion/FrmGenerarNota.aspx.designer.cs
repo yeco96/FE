@@ -10,7 +10,25 @@
 namespace Web.Pages.Facturacion {
     
     
-    public partial class FrmNotaCredito {
+    public partial class FrmGenerarNota {
+        
+        /// <summary>
+        /// cmbTipoDocumento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxComboBox cmbTipoDocumento;
+        
+        /// <summary>
+        /// cmbSucursalCaja control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxComboBox cmbSucursalCaja;
         
         /// <summary>
         /// txtConsecutivo control.
