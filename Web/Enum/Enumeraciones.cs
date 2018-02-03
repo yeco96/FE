@@ -22,14 +22,7 @@ public enum Sexo
     MASCULINO
 }
 
-
-public enum EstadoMensajeHacienda
-{
-    ENVIADO,
-    ACEPTADO,
-    RECHAZADO,
-    PENDIENTE
-}
+ 
 
 public class EstadoMensajeHaciendaClass
 { 

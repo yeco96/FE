@@ -10,6 +10,25 @@ namespace Web.Models.Catalogos
     [Table("xml_tipo_documento")]
     public class TipoDocumento
     {
+
+        [NotMapped]
+        public static int ENVIADO = 0;
+        [NotMapped]
+        public static int ACEPTADO = 1;
+        [NotMapped]
+        public static int RECHAZADO = 3;
+        [NotMapped]
+        public static int PENDIENTE = 9;
+
+
+        [NotMapped]
+        public static string FACTURA_ELECTRONICA = "01";
+        [NotMapped]
+        public static string NOTA_DEBITO = "02";
+        [NotMapped]
+        public static string NOTA_CREDITO = "03";
+
+
         [Key]
         [Required]
         [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]

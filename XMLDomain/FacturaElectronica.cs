@@ -65,7 +65,8 @@ namespace XMLDomain
 
             this.otros = new Otros();
         }
-          
+
+     
         public void iniciarParametros()
         {
             this.clave = "50608011800060354097400100001010000000038188888888";

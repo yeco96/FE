@@ -87,10 +87,10 @@
                     <dx:ASPxFormLayout runat="server" ID="layoutAddAuditoriaForm">
                         <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
                         <Items>
-                            <dx:LayoutGroup Caption=" " ColCount="6" GroupBoxDecoration="None" UseDefaultPaddings="false">
+                            <dx:LayoutGroup Caption=" " ColCount="3" GroupBoxDecoration="None" UseDefaultPaddings="false">
 
                                 <Items>
-                                    <dx:LayoutItem Caption="Mensaje" ColSpan="6" Width="100%">
+                                    <dx:LayoutItem Caption="Mensaje" ColSpan="3" Width="100%">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
                                                 <dx:ASPxMemo runat="server" Value='<%# Eval("mensaje") %>' AutoResizeWithContainer="true" Width="100%" ReadOnly="true" />
@@ -101,7 +101,7 @@
                                      <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="btnDescargarXML" runat="server" Text="Descargar XML" OnClick="btnDescargarXML_Click"  ></dx:ASPxButton>
+                                                <dx:ASPxButton ID="btnDescargarXML" runat="server" Text="Descargar XML" OnClick="btnDescargarXML_Click" Image-Url="~/Content/Images/xml.png"  ></dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
@@ -109,7 +109,7 @@
                                      <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="btnReenvioCorreo" runat="server" Text="Reenviar Correo" OnClick="btnReenvioCorreo_Click" ></dx:ASPxButton>
+                                                <dx:ASPxButton ID="btnReenvioCorreo" runat="server" Text="Reenviar Correo" OnClick="btnReenvioCorreo_Click" Image-Url="~/Content/Images/send.png"  ></dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
@@ -117,14 +117,22 @@
                                     <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="btnNotaCredito" runat="server" Text="Crear Nota Crédito" OnClick="btnNotaCredito_Click" ></dx:ASPxButton>
+                                                <dx:ASPxButton ID="btnActualizar" runat="server" Text="Actualizar Información" OnClick="btnActualizar_Click"  Image-Url="~/Content/Images/refresh.png"  ></dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
+
                                     <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="btnNotaDebito" runat="server" Text="Crear Nota Débito" OnClick="btnNotaDebito_Click" ></dx:ASPxButton>
+                                                <dx:ASPxButton ID="btnNotaCredito" runat="server" Text="Crear Nota Crédito" OnClick="btnNotaCredito_Click" Image-Url="~/Content/Images/nota_credito.png" ></dx:ASPxButton>
+                                            </dx:LayoutItemNestedControlContainer>
+                                        </LayoutItemNestedControlCollection>
+                                    </dx:LayoutItem>
+                                    <dx:LayoutItem Caption="" >
+                                        <LayoutItemNestedControlCollection>
+                                            <dx:LayoutItemNestedControlContainer>
+                                                <dx:ASPxButton ID="btnNotaDebito" runat="server" Text="Crear Nota Débito" OnClick="btnNotaDebito_Click"  Image-Url="~/Content/Images/nota_debito.png"></dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
@@ -132,18 +140,12 @@
                                      <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="btnEnvioManual" runat="server" Text="Envio Manual" OnClick="btnEnvioManual_Click" ></dx:ASPxButton>
+                                                <dx:ASPxButton ID="btnEnvioManual" runat="server" Text="Reenvio Hacienda" OnClick="btnEnvioManual_Click"  Image-Url="~/Content/Images/send2.png"></dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
 
-                                    <dx:LayoutItem Caption="">
-                                        <LayoutItemNestedControlCollection>
-                                            <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="btnActualizar" runat="server" Text="Actualizar" OnClick="btnActualizar_Click" ></dx:ASPxButton>
-                                            </dx:LayoutItemNestedControlContainer>
-                                        </LayoutItemNestedControlCollection>
-                                    </dx:LayoutItem>
+                                    
                                 </Items>
                             </dx:LayoutGroup>
 

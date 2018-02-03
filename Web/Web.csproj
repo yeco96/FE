@@ -149,12 +149,18 @@
     <Content Include="Content\Images\Customers\RafaelRaje.jpg" />
     <Content Include="Content\Images\edit.png" />
     <Content Include="Content\Images\loadUser.png" />
+    <Content Include="Content\Images\nota_credito.png" />
+    <Content Include="Content\Images\nota_debito.png" />
+    <Content Include="Content\Images\open-file.png" />
     <Content Include="Content\Images\pdf.png" />
     <Content Include="Content\Images\refresh.png" />
     <Content Include="Content\Images\search1.png" />
     <Content Include="Content\Images\search2.png" />
+    <Content Include="Content\Images\send.png" />
+    <Content Include="Content\Images\send2.png" />
     <Content Include="Content\Images\xls.png" />
     <Content Include="Content\Images\xlsx.png" />
+    <Content Include="Content\Images\xml.png" />
     <Content Include="Content\site.css" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -180,7 +186,7 @@
     <Content Include="Pages\Error\Http404ErrorPage.aspx" />
     <Content Include="Pages\Facturacion\FrmCargarXML.aspx" />
     <Content Include="Pages\Facturacion\FrmConsultaDocElectronico.aspx" />
-    <Content Include="Pages\Facturacion\FrmNotaCredito.aspx" />
+    <Content Include="Pages\Facturacion\FrmGenerarNota.aspx" />
     <Content Include="Pages\Facturacion\FrmReceptor.aspx" />
     <Content Include="Pages\Facturacion\FrmEmisorReceptorAdministrador.aspx" />
     <Content Include="Pages\Facturacion\FrmEmisor.aspx" />
@@ -432,12 +438,12 @@
     <Compile Include="Pages\Facturacion\FrmConsultaDocElectronico.aspx.designer.cs">
       <DependentUpon>FrmConsultaDocElectronico.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Facturacion\FrmNotaCredito.aspx.cs">
-      <DependentUpon>FrmNotaCredito.aspx</DependentUpon>
+    <Compile Include="Pages\Facturacion\FrmGenerarNota.aspx.cs">
+      <DependentUpon>FrmGenerarNota.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Facturacion\FrmNotaCredito.aspx.designer.cs">
-      <DependentUpon>FrmNotaCredito.aspx</DependentUpon>
+    <Compile Include="Pages\Facturacion\FrmGenerarNota.aspx.designer.cs">
+      <DependentUpon>FrmGenerarNota.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Facturacion\FrmReceptor.aspx.cs">
       <DependentUpon>FrmReceptor.aspx</DependentUpon>

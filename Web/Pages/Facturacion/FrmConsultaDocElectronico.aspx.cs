@@ -16,6 +16,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Web.Models;
+using Web.Models.Catalogos;
 using Web.Models.Facturacion;
 using Web.WebServices;
 using WSDomain;
@@ -31,7 +32,7 @@ namespace Web.Pages.Facturacion
             this.alertMessages.Attributes["class"] = "";
             this.alertMessages.InnerText = "";
             this.AsyncMode = true;
-             
+
             try
             {
                 if (!IsCallback && !IsPostBack)
@@ -42,7 +43,8 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                this.alertMessages.Attributes["class"] = "alert alert-danger";
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
             }
         }
 
@@ -124,25 +126,31 @@ namespace Web.Pages.Facturacion
                     string respuestaJSON = await Services.getRecepcion(config.token, clave);
 
                     WSRecepcionGET respuesta = JsonConvert.DeserializeObject<WSRecepcionGET>(respuestaJSON);
-                    string respuestaXML = EncodeXML.EncondeXML.base64Decode(respuesta.respuestaXml);
-
-                    MensajeHacienda mensajeHacienda = new MensajeHacienda(respuestaXML);
-
-                    using (var conexionWS = new DataModelWS())
+                    if (respuesta.respuestaXml != null)
                     {
-                        WSRecepcionPOST dato = conexionWS.WSRecepcionPOST.Find(clave);
-                        dato.mensaje = mensajeHacienda.mensajeDetalle;
-                        dato.indEstado = mensajeHacienda.mensaje;
-                        dato.fechaModificacion = Date.DateTimeNow();
-                        dato.usuarioModificacion = Session["usuario"].ToString();
-                        //dato.receptorIdentificacion = mensajeHacienda.receptorNumeroCedula;
-                        dato.montoTotalFactura = mensajeHacienda.montoTotalFactura;
-                        dato.montoTotalImpuesto = mensajeHacienda.montoTotalImpuesto;
-                        conexionWS.Entry(dato).State = EntityState.Modified;
-                        conexionWS.SaveChanges();
+                        string respuestaXML = EncodeXML.EncondeXML.base64Decode(respuesta.respuestaXml);
+
+                        MensajeHacienda mensajeHacienda = new MensajeHacienda(respuestaXML);
+
+                        using (var conexionWS = new DataModelWS())
+                        {
+                            WSRecepcionPOST dato = conexionWS.WSRecepcionPOST.Find(clave);
+                            dato.mensaje = mensajeHacienda.mensajeDetalle;
+                            dato.indEstado = mensajeHacienda.mensaje;
+                            dato.fechaModificacion = Date.DateTimeNow();
+                            dato.usuarioModificacion = Session["usuario"].ToString();
+                            //dato.receptorIdentificacion = mensajeHacienda.receptorNumeroCedula;
+                            dato.montoTotalFactura = mensajeHacienda.montoTotalFactura;
+                            dato.montoTotalImpuesto = mensajeHacienda.montoTotalImpuesto;
+                            conexionWS.Entry(dato).State = EntityState.Modified;
+                            conexionWS.SaveChanges();
+                        }
                     }
-
-
+                    else
+                    {
+                        this.alertMessages.Attributes["class"] = "alert alert-info";
+                        this.alertMessages.InnerText = String.Format("Documento eléctronico se encuentra RECIBIDO pero aún pendiente de ser ACEPTADO");
+                    }
                 }
             }
             catch (Exception ex)
@@ -200,13 +208,14 @@ namespace Web.Pages.Facturacion
         {
             Session["clave"] = (sender as ASPxGridView).GetRowValues(e.VisibleIndex, "clave");
             Session["indEstado"] = (sender as ASPxGridView).GetRowValues(e.VisibleIndex, "indEstado");
+            Session["tipoDocumento"] = (sender as ASPxGridView).GetRowValues(e.VisibleIndex, "tipoDocumento");
         }
 
         protected void btnDescargarXML_Click(object sender, EventArgs e)
         {
             try
             {
-                if (EstadoMensajeHacienda.ACEPTADO.ToString().Equals(Session["indEstado"].ToString()))
+                if (TipoDocumento.ACEPTADO.ToString().Equals(Session["indEstado"].ToString()))
                 {
                     string xml = "";
 
@@ -235,7 +244,8 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                this.alertMessages.Attributes["class"] = "alert alert-danger";
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
             }
 
         }
@@ -244,7 +254,7 @@ namespace Web.Pages.Facturacion
         {
             try
             {
-                if (EstadoMensajeHacienda.ACEPTADO.ToString().Equals(Session["indEstado"].ToString()))
+                if (TipoDocumento.ACEPTADO.ToString().Equals(Session["indEstado"].ToString()))
                 {
                     using (var conexion = new DataModelWS())
                     {
@@ -287,7 +297,7 @@ namespace Web.Pages.Facturacion
         {
             try
             {
-                if (EstadoMensajeHacienda.PENDIENTE.ToString().Equals(Session["indEstado"].ToString()))
+                if (TipoDocumento.PENDIENTE.ToString().Equals(Session["indEstado"].ToString()))
                 {
                     Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
 
@@ -346,18 +356,26 @@ namespace Web.Pages.Facturacion
         /// <param name="e"></param>
         protected void btnNotaDebito_Click(object sender, EventArgs e)
         {
-
             try
             {
-                if (EstadoMensajeHacienda.ACEPTADO.ToString().Equals(Session["indEstado"].ToString()))
-                {
-                    string clave = Session["clave"].ToString();
 
+                if (TipoDocumento.FACTURA_ELECTRONICA.Equals(Session["tipoDocumento"].ToString()))
+                {
+                    if (TipoDocumento.ACEPTADO.ToString().Equals(Session["indEstado"].ToString()))
+                    {
+                        Session["tipoNota"] = TipoDocumento.NOTA_DEBITO;
+                        Response.Redirect("~/Pages/Facturacion/FrmGenerarNota.aspx");
+                    }
+                    else
+                    {
+                        this.alertMessages.Attributes["class"] = "alert alert-danger";
+                        this.alertMessages.InnerText = String.Format("Documento eléctronico no se encuentra ACEPTADO");
+                    }
                 }
                 else
                 {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
-                    this.alertMessages.InnerText = String.Format("Documento eléctronico no se encuentra ACEPTADO");
+                    this.alertMessages.InnerText = String.Format("El documento debe ser una factura");
                 }
             }
             catch (Exception ex)
@@ -376,15 +394,24 @@ namespace Web.Pages.Facturacion
         {
             try
             {
-                if (EstadoMensajeHacienda.ACEPTADO.ToString().Equals(Session["indEstado"].ToString()))
-                {
-                    string clave = Session["clave"].ToString();
 
+                if (TipoDocumento.FACTURA_ELECTRONICA.Equals(Session["tipoDocumento"].ToString()))
+                {
+                    if (TipoDocumento.ACEPTADO.ToString().Equals(Session["indEstado"].ToString()))
+                    {
+                        Session["tipoNota"] = TipoDocumento.NOTA_CREDITO;
+                        Response.Redirect("~/Pages/Facturacion/FrmGenerarNota.aspx");
+                    }
+                    else
+                    {
+                        this.alertMessages.Attributes["class"] = "alert alert-danger";
+                        this.alertMessages.InnerText = String.Format("Documento eléctronico no se encuentra ACEPTADO");
+                    }
                 }
                 else
                 {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
-                    this.alertMessages.InnerText = String.Format("Documento eléctronico no se encuentra ACEPTADO");
+                    this.alertMessages.InnerText = String.Format("El documento debe ser una factura");
                 }
             }
             catch (Exception ex)
