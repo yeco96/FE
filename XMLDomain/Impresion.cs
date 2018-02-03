@@ -10,15 +10,21 @@ namespace XMLDomain
     {
         public string emisorIdentificacion { set; get; }
         public string emisorNombre { set; get; }
+        public string emisorNombreComercial { set; get; }
+        public string emisorTelefonos { set; get; }
+        public string emisorDireccion { set; get; }
+        public string emisorIdentificacionCorreo { set; get; }
 
-          
         public string receptorIdentificacion { set; get; } 
         public string receptorNombre { set; get; }
         public string receptorIdentificacionCorreo { set; get; }
+                
 
-          
         public string clave { set; get; }
         public string consecutivo { set; get; }
+
+        public string CondicionVenta { set; get; }
+        public string MedioPago { set; get; }
         public DateTime fecha { set; get; }
         public string leyenda { set; get; }
         public string moneda { set; get; }
@@ -32,6 +38,7 @@ namespace XMLDomain
         public decimal montoDescuento { set; get; }
         public decimal montoImpuestoVenta { set; get; }
         public decimal montoTotal { set; get; }
+        public string Normativa { set; get; }
 
         public Impresion()
         {
@@ -41,9 +48,13 @@ namespace XMLDomain
 
         public void iniciarParametros()
         {
-            this.emisorNombre = "ROOSVELT ALEJANDRO REYES PEREZ";
-            this.emisorIdentificacion = "205990062";
-
+            this.emisorNombre = "MAIKOL JESUS SALAMANCA ARIAS";
+            this.emisorIdentificacion = "603540974";
+            this.emisorNombreComercial = "MSA SOFT";
+            this.emisorIdentificacionCorreo= "jupmasalamanca@gmail.com";
+            this.emisorTelefonos = "506 24402090";
+            this.emisorDireccion = "HEREDIA, HEREDIA, HEREDIA, 125 norte dela biblioteca publica";
+            
             this.receptorNombre = "Andrea Santamaria Quesada";
             this.receptorIdentificacion= "207550498";
             this.receptorIdentificacionCorreo= "jandreasantamariaquesada@gmail.com";
@@ -55,7 +66,9 @@ namespace XMLDomain
             this.moneda = "CRC Colón Costarricense";
             this.tipoCambio = "1.0000";
             this.tipoDocumento = "Factura Electrónica";
-
+            this.CondicionVenta = "Crédito";
+            this.MedioPago = "Efectivo";
+            
             ImpresionDetalle lineaDetalle = new ImpresionDetalle();
             lineaDetalle.codigo = "1";
             lineaDetalle.descripcion= "Arti,culo 1";
@@ -84,6 +97,7 @@ namespace XMLDomain
             this.montoImpuestoVenta = 78000;
             this.montoTotal = 522000;
 
+            this.Normativa = "Autorizada mediante resolución No DGT-R-48-2016 del 7 de Octubre de 2016";
         }
     }
 }
