@@ -16,7 +16,7 @@ namespace XMLDomain
         [XmlElement(ElementName = "Numero", Order = 2)]
         public string numero { set; get; }//tamaño 50 DGT
         [XmlElement(ElementName = "FechaEmision", Order = 3)]
-        public DateTime fechaEmision { set; get; }//tamaño 2 DGT
+        public string fechaEmision { set; get; }//tamaño 2 DGT
         /// <summary>
         /// Este Codigo campo será de condición obligatoria para la factura y
         ///tiquete electrónico, cuando se incluya información en el

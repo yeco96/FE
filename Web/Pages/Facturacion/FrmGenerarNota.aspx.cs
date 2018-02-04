@@ -2,6 +2,7 @@
 using DevExpress.Web;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Reflection;
@@ -12,6 +13,7 @@ using System.Web.UI.WebControls;
 using Web.Models;
 using Web.Models.Catalogos;
 using Web.Models.Facturacion;
+using Web.WebServices;
 using WSDomain;
 using XMLDomain;
 
@@ -74,6 +76,13 @@ namespace Web.Pages.Facturacion
                      
                     FacturaElectronica factura = (FacturaElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml, typeof(FacturaElectronica) );
 
+                    txtNumCedEmisor.Text = factura.emisor.identificacion.numero;
+                    txtNombreEmisor.Text = factura.emisor.nombre;
+
+                    txtNumCedReceptor.Text = factura.receptor.identificacion.numero;
+                    txtNombreReceptor.Text = factura.receptor.nombre;
+                    txtCorreoReceptor.Text = factura.receptor.correoElectronico;
+
                     Session["detalleServicio"] = factura.detalleServicio;
 
                     this.refreshData();
@@ -117,6 +126,14 @@ namespace Web.Pages.Facturacion
                     this.cmbTipoDocumento.Items.Add(item.descripcion, item.codigo);
                 }
                 this.cmbTipoDocumento.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+
+                
+                /* TIPO DOCUMENTO */
+                foreach (var item in conexion.CodigoReferencia.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                {
+                    this.cmbCodigoReferencia.Items.Add(item.descripcion, item.codigo);
+                }
+                this.cmbCodigoReferencia.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
             }
         }
@@ -302,8 +319,121 @@ namespace Web.Pages.Facturacion
                 this.refreshData();
             }
         }
+
         #endregion
 
-      
+        protected async void btnCrearNota_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
+                DetalleServicio detalle = (DetalleServicio)Session["detalleServicio"];
+                if (detalle.lineaDetalle.Count == 0)
+                {
+                    this.alertMessages.Attributes["class"] = "alert alert-danger";
+                    this.alertMessages.InnerText = "Debe agregar almenos una linea de detalle a la factura";
+                    return;
+                }
+
+                // datos de la factura original
+                FacturaElectronica factura = new FacturaElectronica();
+                string clave = Session["clave"].ToString();
+                using (var conexionWS = new DataModelWS())
+                {
+                    WSRecepcionPOST dato = conexionWS.WSRecepcionPOST.Find(clave);
+                    string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+                    factura = (FacturaElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml, typeof(FacturaElectronica));
+                }
+
+                using (var conexion = new DataModelFE())
+                {
+                    NotaCreditoElectronica dato = new NotaCreditoElectronica();
+
+                    /* ENCABEZADO */
+                    dato.medioPago = factura.medioPago;
+                    dato.plazoCredito = factura.plazoCredito;
+                    dato.condicionVenta = factura.condicionVenta;
+                    dato.fechaEmision = Date.DateTimeNow(); 
+
+                    /* DETALLE */
+                    dato.detalleServicio = detalle;
+
+                    /* EMISOR */
+                    dato.emisor = factura.emisor;
+
+
+                    /* RECEPTOR */
+                    dato.receptor = factura.receptor;
+
+                    /* INFORMACION DE REFERENCIA */
+                    dato.informacionReferencia.tipoDoc = TipoDocumento.FACTURA_ELECTRONICA;
+                    dato.informacionReferencia.numero = factura.clave;
+                    dato.informacionReferencia.fechaEmision = factura.fechaEmision;
+                    dato.informacionReferencia.codigo = this.cmbCodigoReferencia.Value.ToString();
+                    dato.informacionReferencia.razon = this.txtRazón.Text;
+
+
+                    /* RESUMEN */
+                    dato.resumenFactura.tipoCambio = factura.resumenFactura.tipoCambio; 
+                    dato.resumenFactura.codigoMoneda = factura.resumenFactura.codigoMoneda;
+                    dato.resumenFactura.calcularResumenFactura(dato.detalleServicio.lineaDetalle);
+
+                    /* VERIFICA VACIOS PARA XML */
+                    dato.verificaDatosParaXML();
+
+                    //genera el consecutivo del documento
+                    string sucursal = this.cmbSucursalCaja.Value.ToString().Substring(0, 3);
+                    string caja = this.cmbSucursalCaja.Value.ToString().Substring(3, 5);
+                    object[] key = new object[] { dato.emisor.identificacion.numero, sucursal, caja };
+                    ConsecutivoDocElectronico consecutivo = conexion.ConsecutivoDocElectronico.Find(key);
+
+                    dato.clave = consecutivo.getClave(this.cmbTipoDocumento.Value.ToString());
+                    dato.numeroConsecutivo = consecutivo.getConsecutivo(this.cmbTipoDocumento.Value.ToString());
+
+                    consecutivo.consecutivo += 1;
+                    conexion.Entry(consecutivo).State = EntityState.Modified;
+                    conexion.SaveChanges();
+
+                    string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
+
+                    EmisorReceptorIMEC elEmisor = (EmisorReceptorIMEC)base.Session["emisor"];
+                    string responsePost = await Services.enviarDocumentoElectronico(false, xml, elEmisor, this.cmbTipoDocumento.Value.ToString(), Session["usuario"].ToString());
+
+                    if (responsePost.Equals("Success"))
+                    {
+                        this.alertMessages.Attributes["class"] = "alert alert-info";
+                        this.alertMessages.InnerText = String.Format("Nota Crédito #{0} enviada.", dato.numeroConsecutivo);
+
+                        if (!string.IsNullOrWhiteSpace(dato.receptor.correoElectronico))
+                        {
+                            Utilidades.sendMail(dato.receptor.correoElectronico,
+                                string.Format("{0} - {1}", dato.numeroConsecutivo, dato.receptor.nombre),
+                                Utilidades.mensageGenerico(), "Nota Crédito", xml, dato.numeroConsecutivo, dato.clave);
+                        }
+                    }
+                    else if (responsePost.Equals("Error"))
+                    {
+                        this.alertMessages.Attributes["class"] = "alert alert-danger";
+                        this.alertMessages.InnerText = String.Format("Nota Crédito #{0} con errores.", dato.numeroConsecutivo);
+                    }
+                    else
+                    {
+                        this.alertMessages.Attributes["class"] = "alert alert-warning";
+                        this.alertMessages.InnerText = String.Format("Factura #{0} pendiente de envío", dato.numeroConsecutivo);
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                this.alertMessages.Attributes["class"] = "alert alert-danger";
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+            }
+            finally
+            {
+                //refescar los datos
+                this.refreshData();
+            }
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmGenerarNota.aspx.cs" Inherits="Web.Pages.Facturacion.FrmGenerarNota" %>
+﻿<%@ Page  Async="true" Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmGenerarNota.aspx.cs" Inherits="Web.Pages.Facturacion.FrmGenerarNota" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 
@@ -16,7 +16,7 @@
                 <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
                 <Items>
                     <%-- Datos del docuemento de referencia --%>
-                    <dx:LayoutGroup Caption="Datos del Documento de Referencia" ColCount="4" SettingsItemCaptions-Location="Top" GroupBoxDecoration="Box" UseDefaultPaddings="false">
+                    <dx:LayoutGroup Caption="Datos del Documento de Referencia" ColCount="3"  GroupBoxDecoration="Box" UseDefaultPaddings="false">
                         <Items>
 
                             <dx:LayoutItem Caption="Tipo Documento">
@@ -33,8 +33,7 @@
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
                                         <dx:ASPxComboBox ID="cmbSucursalCaja" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
-                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido">
-                                        </dx:ASPxComboBox>
+                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" />
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
                             </dx:LayoutItem>
@@ -42,11 +41,8 @@
                             <dx:LayoutItem Caption="Consecutivo">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
-                                        <dx:ASPxTextBox ID="txtConsecutivo" runat="server" Width="100%" AutoResizeWithContainer="true" Enabled="false">
-                                            <ValidationSettings>
-                                                <RequiredField IsRequired="true" />
-                                            </ValidationSettings>
-                                        </dx:ASPxTextBox>
+                                        <dx:ASPxTextBox ID="txtConsecutivo" runat="server" Width="100%" AutoResizeWithContainer="true" Enabled="false" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
+                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido"/> 
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
                             </dx:LayoutItem>
@@ -54,11 +50,8 @@
                             <dx:LayoutItem Caption="Clave" Visible="false">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
-                                        <dx:ASPxTextBox ID="txtClave" runat="server" Width="100%" AutoResizeWithContainer="true" Enabled="false">
-                                            <ValidationSettings>
-                                                <RequiredField IsRequired="true" />
-                                            </ValidationSettings>
-                                        </dx:ASPxTextBox>
+                                        <dx:ASPxTextBox ID="txtClave" runat="server" Width="100%" AutoResizeWithContainer="true" Enabled="false" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
+                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" />
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
                             </dx:LayoutItem>
@@ -66,11 +59,29 @@
                             <dx:LayoutItem Caption="Fecha">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
-                                        <dx:ASPxTextBox ID="txtFechaEmisor" runat="server" Width="100%" AutoResizeWithContainer="true" Enabled="false">
-                                            <ValidationSettings>
-                                                <RequiredField IsRequired="true" />
-                                            </ValidationSettings>
-                                        </dx:ASPxTextBox>
+                                        <dx:ASPxTextBox ID="txtFechaEmisor" runat="server" Width="100%" AutoResizeWithContainer="true" Enabled="false" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
+                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" />
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                            </dx:LayoutItem>
+
+
+                            <dx:LayoutItem Caption="Referencia">
+                                <LayoutItemNestedControlCollection>
+                                    <dx:LayoutItemNestedControlContainer>
+                                        <dx:ASPxComboBox ID="cmbCodigoReferencia" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
+                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" />
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                            </dx:LayoutItem>
+
+
+
+                            <dx:LayoutItem Caption="Razón">
+                                <LayoutItemNestedControlCollection>
+                                    <dx:LayoutItemNestedControlContainer>
+                                        <dx:ASPxTextBox ID="txtRazón" runat="server" Width="100%" AutoResizeWithContainer="true"  ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
+                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" />
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
                             </dx:LayoutItem>
@@ -274,7 +285,9 @@
 
             </dx:ASPxGridView>
              
-
+            
+            <dx:ASPxButton runat="server" ID="btnCrearNota" Text="Crear Nota" OnClick="btnCrearNota_Click" CausesValidation="true"></dx:ASPxButton>
+            
         </ContentTemplate>
     </asp:UpdatePanel>
     <div style="text-align: center;">

@@ -197,7 +197,8 @@ namespace Class.Utilidades
                     correo.To.Add(destinatario);
                     correo.Subject = String.Format("Documento Electrónico: {0}", asunto);
                     correo.Body = mensaje;
-                    correo.Attachments.Add(new Attachment(UtilidadesReporte.generarPDF(clave), string.Format("{0}.pdf", consecutivo), "application/pdf"));
+
+                    correo.Attachments.Add( new Attachment(GenerateStreamFromMemoryStream(UtilidadesReporte.generarPDF(clave)), string.Format("{0}.pdf", consecutivo)));
                     correo.Attachments.Add( new Attachment(GenerateStreamFromString(xml), string.Format("{0}.xml", consecutivo)));
                   
                     correo.Priority = MailPriority.Normal;
@@ -244,6 +245,13 @@ namespace Class.Utilidades
             return stream;
         }
 
+        public static Stream GenerateStreamFromMemoryStream(MemoryStream stream)
+        { 
+            StreamWriter writer = new StreamWriter(stream); 
+            writer.Flush();
+            stream.Position = 0;
+            return stream;
+        }
 
 
 

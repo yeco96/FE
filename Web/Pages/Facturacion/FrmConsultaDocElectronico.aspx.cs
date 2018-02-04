@@ -116,7 +116,7 @@ namespace Web.Pages.Facturacion
             {
                 using (var conexion = new DataModelOAuth2())
                 {
-                    Models.Facturacion.EmisorReceptorIMEC emisor = (Models.Facturacion.EmisorReceptorIMEC)base.Session["emisor"];
+                    EmisorReceptorIMEC emisor = (EmisorReceptorIMEC)base.Session["emisor"];
                     string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
                     OAuth2.OAuth2Config config = conexion.OAuth2Config.Where(x => x.enviroment == ambiente).FirstOrDefault();
                     config.username = emisor.usernameOAuth2;
@@ -216,9 +216,7 @@ namespace Web.Pages.Facturacion
         protected void btnDescargarXML_Click(object sender, EventArgs e)
         {
             try
-            {
-                if (TipoDocumento.ACEPTADO.ToString().Equals(Session["indEstado"].ToString()))
-                {
+            { 
                     string xml = "";
 
                     using (var conexion = new DataModelWS())
@@ -235,14 +233,7 @@ namespace Web.Pages.Facturacion
                     Response.AppendHeader("content-disposition", String.Format("attachment;filename=\"{0}.xml\"", Session["clave"].ToString()));
 
                     Response.Write(xml);
-                    Response.End();
-                }
-                else
-                {
-                    this.alertMessages.Attributes["class"] = "alert alert-danger";
-                    this.alertMessages.InnerText = String.Format("Documento eléctronico no se encuentra ACEPTADO");
-                }
-
+                    Response.End(); 
             }
             catch (Exception ex)
             {
