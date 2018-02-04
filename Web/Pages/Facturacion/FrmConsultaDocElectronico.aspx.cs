@@ -39,6 +39,8 @@ namespace Web.Pages.Facturacion
             {
                 if (!IsCallback && !IsPostBack)
                 {
+                    this.txtFechaInicio.Date = DateTime.Today;
+                    this.txtFechaFin.Date = Date.DateTimeNow();
                     this.cargarCombos();
                 }
                 this.refreshData();
@@ -81,7 +83,7 @@ namespace Web.Pages.Facturacion
         {
             using (var conexion = new DataModelWS())
             {
-                this.ASPxGridView1.DataSource = conexion.WSRecepcionPOST.OrderByDescending(x => x.fecha).ToList();
+                this.ASPxGridView1.DataSource = conexion.WSRecepcionPOST.Where(x=> x.fecha >= txtFechaInicio.Date && x.fecha <= txtFechaFin.Date).OrderByDescending(x => x.fecha).ToList();
                 this.ASPxGridView1.DataBind();
             }
         }
@@ -229,8 +231,8 @@ namespace Web.Pages.Facturacion
                     Response.ClearHeaders();
 
                     Response.AddHeader("Content-Length", xml.Length.ToString());
-                    Response.ContentType = "text/plain";
-                    Response.AppendHeader("content-disposition", String.Format("attachment;filename=\"{0}.xml\"", Session["clave"].ToString()));
+                    Response.ContentType = "application/xml";
+                Response.AppendHeader("content-disposition", String.Format("attachment;filename=\"{0}.xml\"", Session["clave"].ToString()));
 
                     Response.Write(xml);
                     Response.End(); 

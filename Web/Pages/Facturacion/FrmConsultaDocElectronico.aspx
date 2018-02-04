@@ -11,11 +11,55 @@
     </section>
     <div class="borde_redondo_tabla">
 
-         <div id="alertMessages" role="alert" runat="server" />
+        <dx:ASPxFormLayout runat="server" AlignItemCaptionsInAllGroups="true">
+            <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
+            <Items>
+                <dx:LayoutGroup Caption="Datos de Consulta" ColCount="3" GroupBoxDecoration="Box" UseDefaultPaddings="false">
+                    <Items>
+
+                        <dx:LayoutItem Caption="Fecha Inicio">
+                            <LayoutItemNestedControlCollection>
+                                <dx:LayoutItemNestedControlContainer>
+                                    <dx:ASPxDateEdit ID="txtFechaInicio" runat="server" Width="100%">
+                                        <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ErrorText="Requerido">
+                                            <RequiredField IsRequired="true" />
+                                        </ValidationSettings>
+                                    </dx:ASPxDateEdit>
+                                </dx:LayoutItemNestedControlContainer>
+                            </LayoutItemNestedControlCollection>
+                        </dx:LayoutItem>
+
+                        <dx:LayoutItem Caption="Fecha Fin">
+                            <LayoutItemNestedControlCollection>
+                                <dx:LayoutItemNestedControlContainer>
+                                    <dx:ASPxDateEdit ID="txtFechaFin" runat="server" Width="100%" ValidationSettings-RequiredField-IsRequired="true">
+                                        <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ErrorText="Requerido">
+                                            <RequiredField IsRequired="true" />
+                                        </ValidationSettings>
+                                    </dx:ASPxDateEdit>
+                                </dx:LayoutItemNestedControlContainer>
+                            </LayoutItemNestedControlCollection>
+                        </dx:LayoutItem>
+
+                        <dx:LayoutItem Caption="">
+                            <LayoutItemNestedControlCollection>
+                                <dx:LayoutItemNestedControlContainer>
+                                    <dx:ASPxButton ID="txtCorreoReceptor" runat="server" Text="Consultar" Width="80px" Image-Url="~/Content/Images/search1.png" CausesValidation="true">
+                                    </dx:ASPxButton>
+                                </dx:LayoutItemNestedControlContainer>
+                            </LayoutItemNestedControlCollection>
+                        </dx:LayoutItem>
+                    </Items>
+                </dx:LayoutGroup>
+
+            </Items>
+        </dx:ASPxFormLayout>
+
+        <div id="alertMessages" role="alert" runat="server" />
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
             Width="100%" EnableTheming="True" KeyFieldName="clave" Theme="Moderno"
             OnDetailRowExpandedChanged="ASPxGridView1_DetailRowExpandedChanged"
-            OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize"  >
+            OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize">
             <Columns>
 
                 <dx:GridViewDataTextColumn Caption="Clave" FieldName="clave" VisibleIndex="2" Visible="false">
@@ -23,7 +67,7 @@
 
                 <dx:GridViewDataTextColumn Caption="Consecutivo" FieldName="numeroConsecutivo" VisibleIndex="3">
                 </dx:GridViewDataTextColumn>
-                  <dx:GridViewDataTextColumn Caption="Fecha" FieldName="fecha" VisibleIndex="3">
+                <dx:GridViewDataTextColumn Caption="Fecha" FieldName="fecha" VisibleIndex="3">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Emisor" FieldName="emisorIdentificacion" VisibleIndex="4">
                 </dx:GridViewDataTextColumn>
@@ -31,12 +75,12 @@
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Mensaje" FieldName="mensaje" VisibleIndex="6" Visible="false">
                 </dx:GridViewDataTextColumn>
-                
+
                 <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="indEstado" VisibleIndex="7">
                 </dx:GridViewDataComboBoxColumn>
                 <dx:GridViewDataTextColumn Caption="Monto Impuesto" FieldName="montoTotalImpuesto" VisibleIndex="8" PropertiesTextEdit-DisplayFormatString="c2">
                 </dx:GridViewDataTextColumn>
-                 <dx:GridViewDataTextColumn Caption="Monto Factura" FieldName="montoTotalFactura" VisibleIndex="9" PropertiesTextEdit-DisplayFormatString="c2">
+                <dx:GridViewDataTextColumn Caption="Monto Factura" FieldName="montoTotalFactura" VisibleIndex="9" PropertiesTextEdit-DisplayFormatString="c2">
                 </dx:GridViewDataTextColumn>
 
                 <dx:GridViewDataComboBoxColumn Caption="Tipo" FieldName="tipoDocumento" VisibleIndex="10">
@@ -78,12 +122,12 @@
                 <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="600" />
             </EditFormLayoutProperties>
             <Styles>
-                <Cell Wrap="False"></Cell> 
-                <AlternatingRow Enabled="true" /> 
+                <Cell Wrap="False"></Cell>
+                <AlternatingRow Enabled="true" />
             </Styles>
             <Templates>
                 <DetailRow>
-                     
+
                     <dx:ASPxFormLayout runat="server" ID="layoutAddAuditoriaForm">
                         <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
                         <Items>
@@ -99,10 +143,10 @@
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
 
-                                     <dx:LayoutItem Caption="">
+                                    <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="btnDescargarXML" runat="server" Text="Descargar XML" OnClick="btnDescargarXML_Click"   Image-Url="~/Content/Images/xml.png"  ></dx:ASPxButton>
+                                                <dx:ASPxButton ID="btnDescargarXML" runat="server" Text="Descargar XML" OnClick="btnDescargarXML_Click" Image-Url="~/Content/Images/xml.png"></dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
@@ -111,15 +155,7 @@
                                     <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="btnDescargarPDF" runat="server" Text="Descargar PDF" OnClick="btnDescargarPDF_Click"   Image-Url="~/Content/Images/pdf2.png"></dx:ASPxButton>
-                                            </dx:LayoutItemNestedControlContainer>
-                                        </LayoutItemNestedControlCollection>
-                                    </dx:LayoutItem>
-
-                                     <dx:LayoutItem Caption="">
-                                        <LayoutItemNestedControlCollection>
-                                            <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="btnReenvioCorreo" runat="server" Text="Reenviar Correo" OnClick="btnReenvioCorreo_Click"   Image-Url="~/Content/Images/send.png"  ></dx:ASPxButton>
+                                                <dx:ASPxButton ID="btnDescargarPDF" runat="server" Text="Descargar PDF" OnClick="btnDescargarPDF_Click" Image-Url="~/Content/Images/pdf2.png"></dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
@@ -127,7 +163,7 @@
                                     <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="btnActualizar" runat="server" Text="Actualizar Información" OnClick="btnActualizar_Click"    Image-Url="~/Content/Images/refresh2.png"  ></dx:ASPxButton>
+                                                <dx:ASPxButton ID="btnReenvioCorreo" runat="server" Text="Reenviar Correo" OnClick="btnReenvioCorreo_Click" Image-Url="~/Content/Images/send.png"></dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
@@ -135,27 +171,35 @@
                                     <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="btnNotaCredito" runat="server" Text="Crear Nota Crédito" OnClick="btnNotaCredito_Click"   Image-Url="~/Content/Images/nota_credito.png" ></dx:ASPxButton>
-                                            </dx:LayoutItemNestedControlContainer>
-                                        </LayoutItemNestedControlCollection>
-                                    </dx:LayoutItem>
-                                    <dx:LayoutItem Caption="" >
-                                        <LayoutItemNestedControlCollection>
-                                            <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="btnNotaDebito" runat="server" Text="Crear Nota Débito" OnClick="btnNotaDebito_Click"    Image-Url="~/Content/Images/nota_debito.png"></dx:ASPxButton>
+                                                <dx:ASPxButton ID="btnActualizar" runat="server" Text="Actualizar Información" OnClick="btnActualizar_Click" Image-Url="~/Content/Images/refresh2.png"></dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
 
-                                     <dx:LayoutItem Caption="">
+                                    <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="btnEnvioManual" runat="server" Text="Reenvio Hacienda" OnClick="btnEnvioManual_Click"    Image-Url="~/Content/Images/send2.png"></dx:ASPxButton>
+                                                <dx:ASPxButton ID="btnNotaCredito" runat="server" Text="Crear Nota Crédito" OnClick="btnNotaCredito_Click" Image-Url="~/Content/Images/nota_credito.png"></dx:ASPxButton>
+                                            </dx:LayoutItemNestedControlContainer>
+                                        </LayoutItemNestedControlCollection>
+                                    </dx:LayoutItem>
+                                    <dx:LayoutItem Caption="">
+                                        <LayoutItemNestedControlCollection>
+                                            <dx:LayoutItemNestedControlContainer>
+                                                <dx:ASPxButton ID="btnNotaDebito" runat="server" Text="Crear Nota Débito" OnClick="btnNotaDebito_Click" Image-Url="~/Content/Images/nota_debito.png"></dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
 
-                                    
+                                    <dx:LayoutItem Caption="">
+                                        <LayoutItemNestedControlCollection>
+                                            <dx:LayoutItemNestedControlContainer>
+                                                <dx:ASPxButton ID="btnEnvioManual" runat="server" Text="Reenvio Hacienda" OnClick="btnEnvioManual_Click" Image-Url="~/Content/Images/send2.png"></dx:ASPxButton>
+                                            </dx:LayoutItemNestedControlContainer>
+                                        </LayoutItemNestedControlCollection>
+                                    </dx:LayoutItem>
+
+
                                 </Items>
                             </dx:LayoutGroup>
 
@@ -166,9 +210,9 @@
                 </DetailRow>
                 <TitlePanel>
                     <div style="text-align: right;">
-                    <asp:ImageButton ID="exportarPDF" runat="server" ImageUrl="~/Content/Images/pdf.png" Text="Exportar a PDF" OnClick="exportarPDF_Click" />
-                    <asp:ImageButton ID="exportarXLSX" runat="server" ImageUrl="~/Content/Images/xlsx.png" Text="Exportar a MS-Excel 2007 o superior" OnClick="exportarXLSX_Click" />
-                    <asp:ImageButton ID="exportarCSV" runat="server" ImageUrl="~/Content/Images/csv.png" Text="Exportar a MS-Excel delimitado con punto y coma" OnClick="exportarCSV_Click" />
+                        <asp:ImageButton ID="exportarPDF" runat="server" ImageUrl="~/Content/Images/pdf.png" Text="Exportar a PDF" OnClick="exportarPDF_Click" />
+                        <asp:ImageButton ID="exportarXLSX" runat="server" ImageUrl="~/Content/Images/xlsx.png" Text="Exportar a MS-Excel 2007 o superior" OnClick="exportarXLSX_Click" />
+                        <asp:ImageButton ID="exportarCSV" runat="server" ImageUrl="~/Content/Images/csv.png" Text="Exportar a MS-Excel delimitado con punto y coma" OnClick="exportarCSV_Click" />
                     </div>
                 </TitlePanel>
             </Templates>

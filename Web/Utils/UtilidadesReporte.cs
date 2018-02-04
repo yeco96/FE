@@ -34,24 +34,27 @@ namespace Class.Utilidades
                         FacturaElectronica factura = (FacturaElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml, typeof(FacturaElectronica));
                         object dataSource = UtilidadesReporte.cargarObjetoImpresion(factura);
                         report.objectDataSource1.DataSource = dataSource;
+                        report.xrBarCode1.Text = factura.clave;
                         report.CreateDocument();
                         report.ExportToPdf(reportStream);
                     }
 
                     if (TipoDocumento.NOTA_CREDITO.Equals(dato.tipoDocumento))
                     {
-                        NotaCreditoElectronica factura = (NotaCreditoElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml, typeof(NotaCreditoElectronica));
-                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(factura);
+                        NotaCreditoElectronica notaCredito = (NotaCreditoElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml, typeof(NotaCreditoElectronica));
+                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(notaCredito);
                         report.objectDataSource1.DataSource = dataSource;
+                        report.xrBarCode1.Text = notaCredito.clave;
                         report.CreateDocument();
                         report.ExportToPdf(reportStream);
                     }
 
                     if (TipoDocumento.NOTA_DEBITO.Equals(dato.tipoDocumento))
                     {
-                        NotaDebitoElectronica factura = (NotaDebitoElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml, typeof(NotaDebitoElectronica));
-                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(factura);
+                        NotaDebitoElectronica notaDebito = (NotaDebitoElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml, typeof(NotaDebitoElectronica));
+                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(notaDebito);
                         report.objectDataSource1.DataSource = dataSource;
+                        report.xrBarCode1.Text = notaDebito.clave;
                         report.CreateDocument();
                         report.ExportToPdf(reportStream);
                     }
@@ -85,13 +88,12 @@ namespace Class.Utilidades
             impresion.fecha = Convert.ToDateTime(dato.fechaEmision);
             impresion.moneda = dato.resumenFactura.codigoMoneda;
             impresion.tipoCambio = dato.resumenFactura.tipoCambio.ToString();
-
-            impresion.tipoDocumento = "Factura Electrónica";
+            
             impresion.leyenda = "Acá va una leyenda";
-
-
+            
             using (var conexion = new DataModelFE())
             {
+                impresion.tipoDocumento = conexion.TipoDocumento.Find(TipoDocumento.FACTURA_ELECTRONICA).descripcion;
                 impresion.CondicionVenta = conexion.CondicionVenta.Find(dato.condicionVenta).descripcion;
                 impresion.MedioPago = conexion.MedioPago.Find(dato.medioPago).descripcion;
             }
@@ -142,13 +144,13 @@ namespace Class.Utilidades
             impresion.fecha = Convert.ToDateTime(dato.fechaEmision);
             impresion.moneda = dato.resumenFactura.codigoMoneda;
             impresion.tipoCambio = dato.resumenFactura.tipoCambio.ToString();
-
-            impresion.tipoDocumento = "Factura Electrónica";
+            
             impresion.leyenda = "Acá va una leyenda";
 
 
             using (var conexion = new DataModelFE())
             {
+                impresion.tipoDocumento = conexion.TipoDocumento.Find(TipoDocumento.NOTA_CREDITO).descripcion;
                 impresion.CondicionVenta = conexion.CondicionVenta.Find(dato.condicionVenta).descripcion;
                 impresion.MedioPago = conexion.MedioPago.Find(dato.medioPago).descripcion;
             }
@@ -199,13 +201,13 @@ namespace Class.Utilidades
             impresion.fecha = Convert.ToDateTime(dato.fechaEmision);
             impresion.moneda = dato.resumenFactura.codigoMoneda;
             impresion.tipoCambio = dato.resumenFactura.tipoCambio.ToString();
-
-            impresion.tipoDocumento = "Factura Electrónica";
+            
             impresion.leyenda = "Acá va una leyenda";
 
 
             using (var conexion = new DataModelFE())
             {
+                impresion.tipoDocumento = conexion.TipoDocumento.Find(TipoDocumento.NOTA_DEBITO).descripcion;
                 impresion.CondicionVenta = conexion.CondicionVenta.Find(dato.condicionVenta).descripcion;
                 impresion.MedioPago = conexion.MedioPago.Find(dato.medioPago).descripcion;
             }

@@ -13,24 +13,6 @@ namespace Web.Pages.Facturacion {
     public partial class FrmGenerarNota {
         
         /// <summary>
-        /// ScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
-        /// <summary>
-        /// UpdatePanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel;
-        
-        /// <summary>
         /// alertMessages control.
         /// </summary>
         /// <remarks>
@@ -103,31 +85,13 @@ namespace Web.Pages.Facturacion {
         protected global::DevExpress.Web.ASPxTextBox txtRazón;
         
         /// <summary>
-        /// txtNumCedEmisor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txtNumCedEmisor;
-        
-        /// <summary>
         /// txtNombreEmisor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txtNombreEmisor;
-        
-        /// <summary>
-        /// txtNumCedReceptor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txtNumCedReceptor;
+        protected global::DevExpress.Web.ASPxLabel txtNombreEmisor;
         
         /// <summary>
         /// txtNombreReceptor control.
@@ -136,7 +100,7 @@ namespace Web.Pages.Facturacion {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txtNombreReceptor;
+        protected global::DevExpress.Web.ASPxLabel txtNombreReceptor;
         
         /// <summary>
         /// txtCorreoReceptor control.
@@ -164,14 +128,5 @@ namespace Web.Pages.Facturacion {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton btnCrearNota;
-        
-        /// <summary>
-        /// UpdateProgress1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdateProgress UpdateProgress1;
     }
 }

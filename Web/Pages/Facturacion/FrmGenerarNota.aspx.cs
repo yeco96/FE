@@ -76,11 +76,9 @@ namespace Web.Pages.Facturacion
                      
                     FacturaElectronica factura = (FacturaElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml, typeof(FacturaElectronica) );
 
-                    txtNumCedEmisor.Text = factura.emisor.identificacion.numero;
-                    txtNombreEmisor.Text = factura.emisor.nombre;
-
-                    txtNumCedReceptor.Text = factura.receptor.identificacion.numero;
-                    txtNombreReceptor.Text = factura.receptor.nombre;
+                    txtNombreEmisor.Text = string.Format("{0} - {1}", factura.emisor.identificacion.numero, factura.emisor.nombre); 
+                    txtNombreReceptor.Text = string.Format("{0} - {1}", factura.receptor.identificacion.numero, factura.receptor.nombre);
+                    
                     txtCorreoReceptor.Text = factura.receptor.correoElectronico;
 
                     Session["detalleServicio"] = factura.detalleServicio;
@@ -152,6 +150,8 @@ namespace Web.Pages.Facturacion
             }
             else
             {
+                if (e.Column.FieldName == "subTotal") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+                if (e.Column.FieldName == "montoTotal") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
                 if (e.Column.FieldName == "producto") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
             }
         }
@@ -185,86 +185,6 @@ namespace Web.Pages.Facturacion
 
         }
 
-        protected void ASPxGridView1_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
-        {
-            try
-            {
-                using (var conexion = new DataModelFE())
-                {
-                    DetalleServicio detalleServicio = (DetalleServicio)Session["detalleServicio"];
-
-                    //se declara el objeto a insertar
-                    LineaDetalle dato = new LineaDetalle();
-                    //llena el objeto con los valores de la pantalla
-                    string codProducto = e.NewValues["producto"] != null ? e.NewValues["producto"].ToString().ToUpper() : null;
-                    Producto producto = conexion.Producto.Where(x => x.codigo == codProducto).FirstOrDefault();
-
-                    dato.numeroLinea = detalleServicio.lineaDetalle.Count + 1;
-                    dato.cantidad = e.NewValues["cantidad"] != null ? decimal.Parse(e.NewValues["cantidad"].ToString()) : 0;
-                    dato.codigo.tipo = producto.tipo;
-                    dato.codigo.codigo = producto.codigo;
-                    dato.detalle = producto.descripcion;
-                    dato.unidadMedida = producto.unidadMedida;
-                    dato.unidadMedidaComercial = "";
-
-                    decimal precio = "0".Equals(e.NewValues["precioUnitario"].ToString()) ? producto.precio : decimal.Parse(e.NewValues["precioUnitario"].ToString());
-
-                    dato.producto = producto.codigo;/*solo para uso del grid*/
-                    dato.precioUnitario = producto.precio;
-                    dato.montoDescuento = e.NewValues["montoDescuento"] != null ? decimal.Parse(e.NewValues["montoDescuento"].ToString()) : 0;
-
-                    if (dato.montoDescuento > (dato.precioUnitario * dato.cantidad))
-                    {
-                        throw new Exception("El descuento no puede ser mayor al total de la linea");
-                    }
-
-                    dato.impuestos.Clear();
-                    foreach (var item in conexion.ProductoImpuesto.Where(x => x.idProducto == producto.id))
-                    {
-                        dato.impuestos.Add(new Impuesto(item.tipoImpuesto, item.porcentaje, dato.montoTotal));
-                    }
-
-                    dato.calcularMontos();
-
-                    dato.naturalezaDescuento = e.NewValues["naturalezaDescuento"] != null ? e.NewValues["naturalezaDescuento"].ToString().ToUpper() : null;
-                    dato.naturalezaDescuento = dato.naturalezaDescuento;
-
-                    //agrega el objeto
-                    detalleServicio.lineaDetalle.Add(dato);
-                    Session["detalleServicio"] = detalleServicio;
-                }
-
-                //esto es para el manero del devexpress
-                e.Cancel = true;
-                this.ASPxGridView1.CancelEdit();
-
-
-            }
-            catch (DbEntityValidationException ex)
-            {
-                // Retrieve the error messages as a list of strings.
-                var errorMessages = ex.EntityValidationErrors
-                        .SelectMany(x => x.ValidationErrors)
-                        .Select(x => x.ErrorMessage);
-
-                // Join the list to a single string.
-                var fullErrorMessage = string.Join("; ", errorMessages); 
-
-                // Throw a new DbEntityValidationException with the improved exception message.
-                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
-            }
-            finally
-            {
-                //refescar los datos
-                this.refreshData();
-            }
-        }
-
         protected void ASPxGridView1_RowUpdating(object sender, DevExpress.Web.Data.ASPxDataUpdatingEventArgs e)
         {
             try
@@ -273,11 +193,12 @@ namespace Web.Pages.Facturacion
                 {
                     DetalleServicio detalleServicio = (DetalleServicio)Session["detalleServicio"];
 
-                    string codProducto = e.NewValues["producto"] != null ? e.NewValues["producto"].ToString().ToUpper() : null;
+                    string codProducto = e.NewValues["codigo.codigo"] != null ? e.NewValues["codigo.codigo"].ToString().ToUpper() : null;
                     LineaDetalle dato = detalleServicio.lineaDetalle.Where(x => x.codigo.codigo == codProducto).FirstOrDefault();
                     //llena el objeto con los valores de la pantalla
 
                     Producto producto = conexion.Producto.Where(x => x.codigo == codProducto).FirstOrDefault();
+                    decimal tontoTotalLinea = dato.montoTotalLinea;
 
                     //dato.numeroLinea = detalleServicio.lineaDetalle.Count;
                     dato.cantidad = e.NewValues["cantidad"] != null ? decimal.Parse(e.NewValues["cantidad"].ToString()) : 0;
@@ -290,7 +211,7 @@ namespace Web.Pages.Facturacion
                     decimal precio = "0".Equals(e.NewValues["precioUnitario"].ToString()) ? producto.precio : decimal.Parse(e.NewValues["precioUnitario"].ToString());
 
                     dato.producto = producto.codigo;/*solo para uso del grid*/
-                    dato.precioUnitario = producto.precio;
+                    dato.precioUnitario = precio;
                     dato.montoDescuento = e.NewValues["montoDescuento"] != null ? decimal.Parse(e.NewValues["montoDescuento"].ToString()) : 0;
                     dato.montoTotal = dato.subTotal - dato.montoDescuento;
                     dato.calcularMontos();
@@ -298,6 +219,14 @@ namespace Web.Pages.Facturacion
                     dato.naturalezaDescuento = e.NewValues["naturalezaDescuento"] != null ? e.NewValues["naturalezaDescuento"].ToString().ToUpper() : null;
                     dato.naturalezaDescuento = dato.naturalezaDescuento;
 
+                    if (TipoDocumento.NOTA_CREDITO.Equals(Session["tipoNota"].ToString()))
+                    {
+                        if (tontoTotalLinea < dato.montoTotalLinea)
+                        {
+                            throw new Exception(string.Format("El monto de la línea de la nota de crédito no puede ser mayor al original {0}", tontoTotalLinea));
+                        }
+                    }
+                    
                     //agrega el objeto 
                     Session["detalleServicio"] = detalleServicio;
 

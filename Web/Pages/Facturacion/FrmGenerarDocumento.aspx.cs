@@ -410,6 +410,8 @@ namespace Web.Pages.Facturacion
             }
             else
             {
+                if (e.Column.FieldName == "subTotal") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+                if (e.Column.FieldName == "montoTotal") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
                 if (e.Column.FieldName == "producto") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
             }
         }
@@ -468,7 +470,7 @@ namespace Web.Pages.Facturacion
                     decimal precio = "0".Equals(e.NewValues["precioUnitario"].ToString()) ? producto.precio : decimal.Parse(e.NewValues["precioUnitario"].ToString());
 
                     dato.producto = producto.codigo;/*solo para uso del grid*/
-                    dato.precioUnitario = producto.precio;
+                    dato.precioUnitario = precio;
                     dato.montoDescuento = e.NewValues["montoDescuento"] != null ? decimal.Parse(e.NewValues["montoDescuento"].ToString()) : 0;
 
                     if(dato.montoDescuento > (dato.precioUnitario*dato.cantidad))
@@ -553,7 +555,7 @@ namespace Web.Pages.Facturacion
                     decimal precio = "0".Equals(e.NewValues["precioUnitario"].ToString()) ? producto.precio : decimal.Parse(e.NewValues["precioUnitario"].ToString());
 
                     dato.producto = producto.codigo;/*solo para uso del grid*/
-                    dato.precioUnitario = producto.precio;
+                    dato.precioUnitario = precio;
                     dato.montoDescuento = e.NewValues["montoDescuento"] != null ? decimal.Parse(e.NewValues["montoDescuento"].ToString()) : 0;
                     dato.montoTotal = dato.subTotal - dato.montoDescuento;
                     dato.calcularMontos();
