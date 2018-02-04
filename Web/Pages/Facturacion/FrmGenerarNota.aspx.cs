@@ -71,13 +71,8 @@ namespace Web.Pages.Facturacion
                     this.cmbTipoDocumento.Value = Session["tipoNota"].ToString();
 
                     string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
-                    
-                    int start = xml.IndexOf("<Clave>");
-                    int end = xml.IndexOf("<ds:Signature xmlns");
-                    xml =  xml.Substring(0, end) + "</FacturaElectronica>";
-                    xml = "<FacturaElectronica>" + xml.Substring(start) ;
-
-                    FacturaElectronica factura = (FacturaElectronica)EncodeXML.EncondeXML.objectToXML(xml, typeof(FacturaElectronica) );
+                     
+                    FacturaElectronica factura = (FacturaElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml, typeof(FacturaElectronica) );
 
                     Session["detalleServicio"] = factura.detalleServicio;
 

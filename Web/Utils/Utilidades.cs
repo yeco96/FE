@@ -5,11 +5,13 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Net.Mime;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using Web.Models;
 using Web.Models.Catalogos;
+using XMLDomain;
 
 namespace Class.Utilidades
 {
@@ -181,7 +183,7 @@ namespace Class.Utilidades
         /// <param name="mensaje">contenido del correo</param>
         /// /// <param name="alias">nombre para enmascar el correo</param>
         /// <returns></returns>
-        public static bool sendMail(string destinatario, string asunto, string mensaje, string alias, string xml, string clave)
+        public static bool sendMail(string destinatario, string asunto, string mensaje, string alias, string xml, string consecutivo, string clave)
         {
             try
             {
@@ -193,9 +195,11 @@ namespace Class.Utilidades
                     SmtpClient smtp = new SmtpClient(); 
                     correo.From = new MailAddress(mailConfig.user, alias);
                     correo.To.Add(destinatario);
-                    correo.Subject = String.Format("SPAM-LOW: {0}", asunto);
+                    correo.Subject = String.Format("Documento Electrónico: {0}", asunto);
                     correo.Body = mensaje;
-                    correo.Attachments.Add( new Attachment(GenerateStreamFromString(xml), clave) );
+                    correo.Attachments.Add(new Attachment(UtilidadesReporte.generarPDF(clave), string.Format("{0}.pdf", consecutivo), "application/pdf"));
+                    correo.Attachments.Add( new Attachment(GenerateStreamFromString(xml), string.Format("{0}.xml", consecutivo)));
+                  
                     correo.Priority = MailPriority.Normal;
                     correo.IsBodyHtml = true;
                     smtp.Credentials = new NetworkCredential(mailConfig.user, mailConfig.password);
@@ -239,6 +243,9 @@ namespace Class.Utilidades
             stream.Position = 0;
             return stream;
         }
+
+
+
 
 
     }

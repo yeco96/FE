@@ -706,7 +706,7 @@ namespace Web.Pages.Facturacion
                         {
                             Utilidades.sendMail(dato.receptor.correoElectronico,
                                 string.Format("{0} - {1}", dato.numeroConsecutivo, dato.receptor.nombre),
-                                Utilidades.mensageGenerico(), "Factura Electrónica", xml, dato.numeroConsecutivo);
+                                Utilidades.mensageGenerico(), "Factura Electrónica", xml, dato.numeroConsecutivo, dato.clave);
                         }
                     }
                     else if (responsePost.Equals("Error"))

@@ -558,6 +558,7 @@
     <Compile Include="Utils\FormatString.cs" />
     <Compile Include="Utils\MD5Util.cs" />
     <Compile Include="Utils\ProperCase.cs" />
+    <Compile Include="Utils\UtilidadesReporte.cs" />
     <Compile Include="Utils\Utilidades.cs" />
     <Compile Include="Utils\BCCR.cs" />
     <Compile Include="WebServices\Services.cs" />

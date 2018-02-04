@@ -770,9 +770,10 @@ public class RptFacturacionElectronica : DevExpress.XtraReports.UI.XtraReport
         XRSubreport xrSubReport = (XRSubreport)sender;
         RptFacturacionDetalle subRep = xrSubReport.ReportSource as RptFacturacionDetalle;
 
-        XMLDomain.Impresion feImpresion = new XMLDomain.Impresion();
+        ///XMLDomain.Impresion feImpresion = new XMLDomain.Impresion();
         //feImpresion.iniciarParametros();
-        object dataSource = feImpresion.detalles;
+        //object dataSource = feImpresion.detalles;
+        object dataSource = ((XMLDomain.Impresion)this.objectDataSource1.DataSource).detalles ;
         subRep.Report.DataSource = dataSource;
         subRep.Report.FillDataSource();
         

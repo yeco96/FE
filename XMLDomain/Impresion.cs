@@ -45,6 +45,7 @@ namespace XMLDomain
             this.detalles = new List<ImpresionDetalle>();
             iniciarParametros();
         }
+         
 
         public void iniciarParametros()
         {

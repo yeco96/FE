@@ -2,6 +2,7 @@
 using DevExpress.Export;
 using DevExpress.Web;
 using DevExpress.XtraPrinting;
+using DevExpress.XtraReports.UI;
 using EncodeXML;
 using Newtonsoft.Json;
 using System;
@@ -9,6 +10,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -269,7 +271,7 @@ namespace Web.Pages.Facturacion
                         {
                             Utilidades.sendMail(correoElectronico,
                                 string.Format("{0} - {1}", numeroConsecutivo, dato.receptor.nombre),
-                                Utilidades.mensageGenerico(), "Factura Electrónica", xml, numeroConsecutivo);
+                                Utilidades.mensageGenerico(), "Factura Electrónica", xml, numeroConsecutivo, dato.clave);
 
                             this.alertMessages.Attributes["class"] = "alert alert-info";
                             this.alertMessages.InnerText = String.Format("Factura #{0} enviada.", dato.numeroConsecutivo);
@@ -321,7 +323,7 @@ namespace Web.Pages.Facturacion
                             {
                                 Utilidades.sendMail(correoElectronico,
                                     string.Format("{0} - {1}", dato.numeroConsecutivo, dato.receptor.nombre),
-                                    Utilidades.mensageGenerico(), "Factura Electrónica", xml, dato.numeroConsecutivo);
+                                    Utilidades.mensageGenerico(), "Factura Electrónica", xml, dato.numeroConsecutivo, dato.clave);
                             }
                         }
                         else if (responsePost.Equals("Error"))
@@ -416,6 +418,37 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+            }
+        }
+
+        protected void btnDescargarPDF_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (TipoDocumento.ACEPTADO.ToString().Equals(Session["indEstado"].ToString()))
+                { 
+                    string clave = Session["clave"].ToString(); 
+                      
+                    Response.Clear();
+                    Response.ContentType = "application/pdf";
+                    Response.AppendHeader("content-disposition", String.Format("attachment;filename=\"{0}.pdf\"", Session["clave"].ToString()));
+
+                    Response.BinaryWrite(UtilidadesReporte.generarPDF(clave).ToArray()); 
+                    Response.Flush(); 
+                    Response.End();
+
+                }
+                else
+                {
+                    this.alertMessages.Attributes["class"] = "alert alert-danger";
+                    this.alertMessages.InnerText = String.Format("Documento eléctronico no se encuentra ACEPTADO");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                this.alertMessages.Attributes["class"] = "alert alert-danger";
                 this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
             }
         }

@@ -86,14 +86,49 @@ namespace EncodeXML
         /// <param name="xml">XML con la data</param>
         /// <param name="objectType">tipo de objeto</param>
         /// <returns></returns>
-        public static Object objectToXML(string xml, Type objectType)
+        public static Object getObjetcFromXML(string xml, Type objectType)
         {
             StringReader strReader = null;
             XmlSerializer serializer = null;
             XmlTextReader xmlReader = null;
-            Object obj = null;
+            Object obj = null; 
+            
             try
             {
+                string nodoInicial = "";
+                string nodoFinal = "";
+
+                if (typeof(FacturaElectronica) == objectType)
+                { 
+                    nodoInicial = "<FacturaElectronica>";
+                    nodoFinal = "</FacturaElectronica>";
+                }
+                if (typeof(NotaCreditoElectronica) == objectType)
+                { 
+                    nodoInicial = "<NotaCreditoElectronica>";
+                    nodoFinal = "</NotaCreditoElectronica>";
+                }
+                if (typeof(NotaDebitoElectronica) == objectType)
+                {  
+                    nodoInicial = "<NotaDebitoElectronica>";
+                    nodoFinal = "</NotaDebitoElectronica>";
+                }
+                if (typeof(TiqueteElectronico) == objectType)
+                {  
+                    nodoInicial = "<TiqueteElectronico>";
+                    nodoFinal = "</TiqueteElectronico>";
+                }
+                if (typeof(MensajeReceptor) == objectType)
+                { 
+                    nodoInicial = "<MensajeReceptor>";
+                    nodoFinal = "</MensajeReceptor>";
+                }
+
+                int start = xml.IndexOf("<Clave>");
+                int end = xml.IndexOf("<ds:Signature xmlns");
+                xml = xml.Substring(0, end) + nodoFinal;
+                xml = nodoInicial + xml.Substring(start);
+
                 strReader = new StringReader(xml);
                 serializer = new XmlSerializer(objectType);
                 xmlReader = new XmlTextReader(strReader);
