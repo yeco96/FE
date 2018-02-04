@@ -81,6 +81,13 @@ namespace Web.Pages.Facturacion
                     
                     txtCorreoReceptor.Text = factura.receptor.correoElectronico;
 
+                    // deja el monto neto facturado
+                    foreach (var item in factura.detalleServicio.lineaDetalle)
+                    {
+                        item.montoDescuento = 0;
+                        item.calcularMontos();
+                    }
+
                     Session["detalleServicio"] = factura.detalleServicio;
 
                     this.refreshData();
@@ -163,7 +170,7 @@ namespace Web.Pages.Facturacion
                 using (var conexion = new DataModelFE())
                 {
                     DetalleServicio detalleServicio = (DetalleServicio)Session["detalleServicio"];
-                    var id = e.Values["producto"].ToString();
+                    var id = e.Values["codigo.codigo"].ToString();
                     LineaDetalle dato = detalleServicio.lineaDetalle.Where(x => x.codigo.codigo == id).FirstOrDefault();
                     detalleServicio.lineaDetalle.Remove(dato);
 
@@ -281,9 +288,8 @@ namespace Web.Pages.Facturacion
                     /* ENCABEZADO */
                     dato.medioPago = factura.medioPago;
                     dato.plazoCredito = factura.plazoCredito;
-                    dato.condicionVenta = factura.condicionVenta;
-                    dato.fechaEmision = Date.DateTimeNow(); 
-
+                    dato.condicionVenta = factura.condicionVenta; 
+                    dato.fechaEmision = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss") + "-06:00";
                     /* DETALLE */
                     dato.detalleServicio = detalle;
 
@@ -331,24 +337,24 @@ namespace Web.Pages.Facturacion
                     if (responsePost.Equals("Success"))
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-info";
-                        this.alertMessages.InnerText = String.Format("Nota Crédito #{0} enviada.", dato.numeroConsecutivo);
+                        this.alertMessages.InnerText = String.Format("Documento #{0} enviada.", dato.numeroConsecutivo);
 
                         if (!string.IsNullOrWhiteSpace(dato.receptor.correoElectronico))
                         {
                             Utilidades.sendMail(dato.receptor.correoElectronico,
-                                string.Format("{0} - {1}", dato.numeroConsecutivo, dato.receptor.nombre),
-                                Utilidades.mensageGenerico(), "Nota Crédito", xml, dato.numeroConsecutivo, dato.clave);
+                                string.Format("{0} - {1}", dato.numeroConsecutivo, factura.receptor.nombre),
+                                Utilidades.mensageGenerico(), "Documento Electrónico", xml, dato.numeroConsecutivo, dato.clave);
                         }
                     }
                     else if (responsePost.Equals("Error"))
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-danger";
-                        this.alertMessages.InnerText = String.Format("Nota Crédito #{0} con errores.", dato.numeroConsecutivo);
+                        this.alertMessages.InnerText = String.Format("Documento #{0} con errores.", dato.numeroConsecutivo);
                     }
                     else
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-warning";
-                        this.alertMessages.InnerText = String.Format("Factura #{0} pendiente de envío", dato.numeroConsecutivo);
+                        this.alertMessages.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
                     }
 
                 }

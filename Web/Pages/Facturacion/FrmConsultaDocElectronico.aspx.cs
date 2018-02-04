@@ -254,20 +254,20 @@ namespace Web.Pages.Facturacion
                     using (var conexion = new DataModelWS())
                     {
                         string clave = Session["clave"].ToString();
-                        WSRecepcionPOST dato = conexion.WSRecepcionPOST.Where(x => x.clave == clave).FirstOrDefault();
+                        WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
                         string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
 
-                        string numeroConsecutivo = EncondeXML.buscarValorEtiquetaXML("FacturaElectronica", "NumeroConsecutivo", xml);
+                        string numeroConsecutivo = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xml), "NumeroConsecutivo", xml);
                         string correoElectronico = EncondeXML.buscarValorEtiquetaXML("Receptor", "CorreoElectronico", xml);
 
                         if (!string.IsNullOrWhiteSpace(correoElectronico))
                         {
                             Utilidades.sendMail(correoElectronico,
-                                string.Format("{0} - {1}", numeroConsecutivo, dato.receptor.nombre),
-                                Utilidades.mensageGenerico(), "Factura Electrónica", xml, numeroConsecutivo, dato.clave);
+                                string.Format("{0} - {1}", numeroConsecutivo, dato.Receptor.nombre),
+                                Utilidades.mensageGenerico(), "Documento Electrónico", xml, numeroConsecutivo, dato.clave);
 
                             this.alertMessages.Attributes["class"] = "alert alert-info";
-                            this.alertMessages.InnerText = String.Format("Factura #{0} enviada.", dato.numeroConsecutivo);
+                            this.alertMessages.InnerText = String.Format("Documento #{0} enviado.", dato.numeroConsecutivo);
                         }
                         else
                         {
@@ -310,24 +310,24 @@ namespace Web.Pages.Facturacion
                         if (responsePost.Equals("Success"))
                         {
                             this.alertMessages.Attributes["class"] = "alert alert-info";
-                            this.alertMessages.InnerText = String.Format("Factura #{0} enviada.", dato.numeroConsecutivo);
+                            this.alertMessages.InnerText = String.Format("Documento #{0} enviada.", dato.numeroConsecutivo);
 
                             if (!string.IsNullOrWhiteSpace(correoElectronico))
                             {
                                 Utilidades.sendMail(correoElectronico,
                                     string.Format("{0} - {1}", dato.numeroConsecutivo, dato.receptor.nombre),
-                                    Utilidades.mensageGenerico(), "Factura Electrónica", xml, dato.numeroConsecutivo, dato.clave);
+                                    Utilidades.mensageGenerico(), "Documento Electrónico", xml, dato.numeroConsecutivo, dato.clave);
                             }
                         }
                         else if (responsePost.Equals("Error"))
                         {
                             this.alertMessages.Attributes["class"] = "alert alert-danger";
-                            this.alertMessages.InnerText = String.Format("Factura #{0} con errores.", dato.numeroConsecutivo);
+                            this.alertMessages.InnerText = String.Format("Documento #{0} con errores.", dato.numeroConsecutivo);
                         }
                         else
                         {
                             this.alertMessages.Attributes["class"] = "alert alert-warning";
-                            this.alertMessages.InnerText = String.Format("Factura #{0} pendiente de envío", dato.numeroConsecutivo);
+                            this.alertMessages.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
                         }
                     }
                 }

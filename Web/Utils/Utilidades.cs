@@ -195,7 +195,7 @@ namespace Class.Utilidades
                     SmtpClient smtp = new SmtpClient(); 
                     correo.From = new MailAddress(mailConfig.user, alias);
                     correo.To.Add(destinatario);
-                    correo.Subject = String.Format("Documento Electrónico: {0}", asunto);
+                    correo.Subject = String.Format("{0}", asunto);
                     correo.Body = mensaje;
 
                     correo.Attachments.Add( new Attachment(GenerateStreamFromMemoryStream(UtilidadesReporte.generarPDF(clave)), string.Format("{0}.pdf", consecutivo)));

@@ -114,7 +114,7 @@ namespace XMLDomain
                 {
                     totalServGravados += linea.montoTotal;
                 }
-                totalDescuentos = linea.montoDescuento;
+                totalDescuentos += linea.montoDescuento;
                 
             }
             totalGravado = totalServGravados + totalMercanciasGravadas;

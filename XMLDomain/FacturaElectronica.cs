@@ -10,51 +10,9 @@ namespace XMLDomain
 {
     
     //[XmlRoot(ElementName = "FacturaElectronica" , Namespace = "https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica") ]  
-    public class FacturaElectronica
+    public class FacturaElectronica : DocumentoElectronico
     {  
-        [XmlIgnore]
-        public static string TIPO = "01";
         
-        [XmlElement(ElementName = "Clave", Order = 1)]
-        public string clave { set; get; }
-        [XmlElement(ElementName = "NumeroConsecutivo", Order = 2)]
-        public string numeroConsecutivo { set; get; }
-        
-        [XmlElement(ElementName = "FechaEmision", Order = 3)]
-        public String fechaEmision { set; get; }
-
-        [XmlElement(ElementName = "Emisor", Order = 4)]
-        public Emisor emisor { set; get; }
-
-        [XmlElement(ElementName = "Receptor", Order = 5)]
-        public Receptor receptor { set; get; }
-
-        [XmlElement(ElementName = "CondicionVenta", Order = 6)]
-        public string condicionVenta { set; get; }
-
-        [XmlElement(ElementName = "PlazoCredito", Order = 7)]
-        public string plazoCredito { set; get; }
-
-        [XmlElement(ElementName = "MedioPago", Order = 8)]
-        public string medioPago { set; get; }
-        
-        [XmlElement(ElementName = "DetalleServicio", Order = 9)]
-        public DetalleServicio detalleServicio { set; get; }
-                
-
-        [XmlElement(ElementName = "ResumenFactura", Order = 10)]
-        public ResumenFactura resumenFactura { set; get; }
-
-        [XmlElement(ElementName = "InformacionReferencia", Order = 11)]
-        public InformacionReferencia informacionReferencia { set; get; }
-
-
-        [XmlElement(ElementName = "Normativa",Order = 12)]
-        public Normativa normativa { set; get; }
-
-        [XmlElement(ElementName = "Otros", Order = 13)]
-        public Otros otros { set; get; }
-      
         public FacturaElectronica()
         {
             this.emisor = new Emisor();
@@ -155,7 +113,7 @@ namespace XMLDomain
         /// <summary>
         /// Este método determina los valores que no tienen datos y los asigna NULL para que no se generen los notos
         /// </summary>
-        public void verificaDatosParaXML()
+        public override void verificaDatosParaXML()
         {
             /* RECEPTOR */
             if (string.IsNullOrWhiteSpace(this.emisor.fax.codigoPais) || string.IsNullOrWhiteSpace(this.emisor.fax.numTelefono))

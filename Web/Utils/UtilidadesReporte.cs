@@ -32,7 +32,7 @@ namespace Class.Utilidades
                     if (TipoDocumento.FACTURA_ELECTRONICA.Equals(dato.tipoDocumento))
                     {
                         FacturaElectronica factura = (FacturaElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml, typeof(FacturaElectronica));
-                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(factura);
+                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(factura, dato.mensaje);
                         report.objectDataSource1.DataSource = dataSource;
                         report.xrBarCode1.Text = factura.clave;
                         report.CreateDocument();
@@ -42,7 +42,7 @@ namespace Class.Utilidades
                     if (TipoDocumento.NOTA_CREDITO.Equals(dato.tipoDocumento))
                     {
                         NotaCreditoElectronica notaCredito = (NotaCreditoElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml, typeof(NotaCreditoElectronica));
-                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(notaCredito);
+                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(notaCredito, dato.mensaje);
                         report.objectDataSource1.DataSource = dataSource;
                         report.xrBarCode1.Text = notaCredito.clave;
                         report.CreateDocument();
@@ -52,12 +52,23 @@ namespace Class.Utilidades
                     if (TipoDocumento.NOTA_DEBITO.Equals(dato.tipoDocumento))
                     {
                         NotaDebitoElectronica notaDebito = (NotaDebitoElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml, typeof(NotaDebitoElectronica));
-                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(notaDebito);
+                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(notaDebito, dato.mensaje);
                         report.objectDataSource1.DataSource = dataSource;
                         report.xrBarCode1.Text = notaDebito.clave;
                         report.CreateDocument();
                         report.ExportToPdf(reportStream);
                     }
+
+                    if (TipoDocumento.TIQUETE_ELECTRONICO.Equals(dato.tipoDocumento))
+                    {
+                        TiqueteElectronico notaDebito = (TiqueteElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xml, typeof(TiqueteElectronico));
+                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(notaDebito, dato.mensaje);
+                        report.objectDataSource1.DataSource = dataSource;
+                        report.xrBarCode1.Text = notaDebito.clave;
+                        report.CreateDocument();
+                        report.ExportToPdf(reportStream);
+                    }
+                    
 
 
 
@@ -68,7 +79,7 @@ namespace Class.Utilidades
        
 
 
-        public static Impresion cargarObjetoImpresion(FacturaElectronica dato)
+        public static Impresion cargarObjetoImpresion(FacturaElectronica dato, string mensaje)
         {
             Impresion impresion = new Impresion();
 
@@ -89,7 +100,7 @@ namespace Class.Utilidades
             impresion.moneda = dato.resumenFactura.codigoMoneda;
             impresion.tipoCambio = dato.resumenFactura.tipoCambio.ToString();
             
-            impresion.leyenda = "Acá va una leyenda";
+            impresion.leyenda = mensaje;
             
             using (var conexion = new DataModelFE())
             {
@@ -124,7 +135,7 @@ namespace Class.Utilidades
 
 
 
-        public static Impresion cargarObjetoImpresion(NotaCreditoElectronica dato)
+        public static Impresion cargarObjetoImpresion(NotaCreditoElectronica dato, string mensaje)
         {
             Impresion impresion = new Impresion();
 
@@ -144,10 +155,9 @@ namespace Class.Utilidades
             impresion.fecha = Convert.ToDateTime(dato.fechaEmision);
             impresion.moneda = dato.resumenFactura.codigoMoneda;
             impresion.tipoCambio = dato.resumenFactura.tipoCambio.ToString();
-            
-            impresion.leyenda = "Acá va una leyenda";
 
-
+            impresion.leyenda = mensaje;
+             
             using (var conexion = new DataModelFE())
             {
                 impresion.tipoDocumento = conexion.TipoDocumento.Find(TipoDocumento.NOTA_CREDITO).descripcion;
@@ -157,17 +167,16 @@ namespace Class.Utilidades
 
             impresion.detalles = new List<ImpresionDetalle>();
 
-            foreach (var item in impresion.detalles)
+            foreach (var item in dato.detalleServicio.lineaDetalle)
             {
                 ImpresionDetalle detalle = new ImpresionDetalle();
-                detalle.cantidad = item.cantidad;
-                detalle.codigo = item.codigo;
-                detalle.descripcion = item.descripcion;
-                detalle.monto = item.monto;
+                detalle.cantidad = int.Parse(item.cantidad.ToString());
+                detalle.codigo = item.codigo.codigo;
+                detalle.descripcion = item.detalle;
+                detalle.monto = item.precioUnitario;
 
                 impresion.detalles.Add(detalle);
             }
-
 
             impresion.montoSubTotal = dato.resumenFactura.totalVenta;
             impresion.montoDescuento = dato.resumenFactura.totalDescuentos;
@@ -181,7 +190,7 @@ namespace Class.Utilidades
 
 
 
-        public static Impresion cargarObjetoImpresion(NotaDebitoElectronica dato)
+        public static Impresion cargarObjetoImpresion(NotaDebitoElectronica dato, string mensaje)
         {
             Impresion impresion = new Impresion();
 
@@ -201,9 +210,8 @@ namespace Class.Utilidades
             impresion.fecha = Convert.ToDateTime(dato.fechaEmision);
             impresion.moneda = dato.resumenFactura.codigoMoneda;
             impresion.tipoCambio = dato.resumenFactura.tipoCambio.ToString();
-            
-            impresion.leyenda = "Acá va una leyenda";
 
+            impresion.leyenda = mensaje;
 
             using (var conexion = new DataModelFE())
             {
@@ -214,17 +222,71 @@ namespace Class.Utilidades
 
             impresion.detalles = new List<ImpresionDetalle>();
 
-            foreach (var item in impresion.detalles)
+            foreach (var item in dato.detalleServicio.lineaDetalle)
             {
                 ImpresionDetalle detalle = new ImpresionDetalle();
-                detalle.cantidad = item.cantidad;
-                detalle.codigo = item.codigo;
-                detalle.descripcion = item.descripcion;
-                detalle.monto = item.monto;
+                detalle.cantidad = int.Parse(item.cantidad.ToString());
+                detalle.codigo = item.codigo.codigo;
+                detalle.descripcion = item.detalle;
+                detalle.monto = item.precioUnitario;
 
                 impresion.detalles.Add(detalle);
             }
 
+            impresion.montoSubTotal = dato.resumenFactura.totalVenta;
+            impresion.montoDescuento = dato.resumenFactura.totalDescuentos;
+            impresion.montoImpuestoVenta = dato.resumenFactura.totalImpuesto;
+            impresion.montoTotal = dato.resumenFactura.totalComprobante;
+
+            impresion.Normativa = "Autorizada mediante resolución No DGT-R-48-2016 del 7 de Octubre de 2016";
+
+            return impresion;
+        }
+
+
+
+        public static Impresion cargarObjetoImpresion(TiqueteElectronico dato, string mensaje)
+        {
+            Impresion impresion = new Impresion();
+
+            impresion.emisorNombre = dato.emisor.nombre;
+            impresion.emisorIdentificacion = dato.emisor.identificacion.numero;
+            impresion.emisorNombreComercial = dato.emisor.nombreComercial;
+            impresion.emisorIdentificacionCorreo = dato.emisor.correoElectronico;
+            impresion.emisorTelefonos = dato.emisor.telefono.numTelefono;
+            impresion.emisorDireccion = dato.emisor.ubicacion.otrassenas;
+
+            impresion.receptorNombre = dato.receptor.nombre;
+            impresion.receptorIdentificacion = dato.receptor.identificacion.numero;
+            impresion.receptorIdentificacionCorreo = dato.receptor.correoElectronico;
+
+            impresion.clave = dato.clave;
+            impresion.consecutivo = dato.numeroConsecutivo;
+            impresion.fecha = Convert.ToDateTime(dato.fechaEmision);
+            impresion.moneda = dato.resumenFactura.codigoMoneda;
+            impresion.tipoCambio = dato.resumenFactura.tipoCambio.ToString();
+
+            impresion.leyenda = mensaje;
+
+            using (var conexion = new DataModelFE())
+            {
+                impresion.tipoDocumento = conexion.TipoDocumento.Find(TipoDocumento.TIQUETE_ELECTRONICO).descripcion;
+                impresion.CondicionVenta = conexion.CondicionVenta.Find(dato.condicionVenta).descripcion;
+                impresion.MedioPago = conexion.MedioPago.Find(dato.medioPago).descripcion;
+            }
+
+            impresion.detalles = new List<ImpresionDetalle>();
+
+            foreach (var item in dato.detalleServicio.lineaDetalle)
+            {
+                ImpresionDetalle detalle = new ImpresionDetalle();
+                detalle.cantidad = int.Parse(item.cantidad.ToString());
+                detalle.codigo = item.codigo.codigo;
+                detalle.descripcion = item.detalle;
+                detalle.monto = item.precioUnitario;
+
+                impresion.detalles.Add(detalle);
+            }
 
             impresion.montoSubTotal = dato.resumenFactura.totalVenta;
             impresion.montoDescuento = dato.resumenFactura.totalDescuentos;
