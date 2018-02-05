@@ -859,15 +859,21 @@ public class RptFacturacionElectronica : DevExpress.XtraReports.UI.XtraReport
 
     private void xrSubreport1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
     {
-        XRSubreport xrSubReport = (XRSubreport)sender;
-        RptFacturacionDetalle subRep = xrSubReport.ReportSource as RptFacturacionDetalle;
+        try {
+            XRSubreport xrSubReport = (XRSubreport)sender;
+            RptFacturacionDetalle subRep = xrSubReport.ReportSource as RptFacturacionDetalle;
 
-        ///XMLDomain.Impresion feImpresion = new XMLDomain.Impresion();
-        //feImpresion.iniciarParametros();
-        //object dataSource = feImpresion.detalles;
-        object dataSource = ((XMLDomain.Impresion)this.objectDataSource1.DataSource).detalles ;
-        subRep.Report.DataSource = dataSource;
-        subRep.Report.FillDataSource();
+            ///XMLDomain.Impresion feImpresion = new XMLDomain.Impresion();
+            //feImpresion.iniciarParametros();
+            //object dataSource = feImpresion.detalles;
+            object dataSource = ((XMLDomain.Impresion)this.objectDataSource1.DataSource).detalles;
+            subRep.Report.DataSource = dataSource;
+            subRep.Report.FillDataSource();
+        }
+        catch (Exception ex)
+        {
+            
+        }
         
     }
 }

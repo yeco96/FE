@@ -15,9 +15,8 @@ namespace Web.Pages.Facturacion
         protected void Page_Load(object sender, EventArgs e)
         {
             Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
-            this.AsyncMode = true;
             //Se ingresa el valor en la caja de texto
-            string dato = "50608011800060354097400100001010000000014188888888";
+            string dato = "50601021800060354097400100001010000000060188888888";
             //Se llama el método del botón
             ASPxWebDocumentViewer1.OpenReport(UtilidadesReporte.generarDocumento(dato));
         }
