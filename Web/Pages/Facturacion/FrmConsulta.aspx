@@ -22,7 +22,7 @@
                     <dx:LayoutGroup Caption="" ColCount="2" GroupBoxDecoration="Box" UseDefaultPaddings="false">
                         <Items>
 
-                            <dx:LayoutItem Caption="Documento número">
+<%--                            <dx:LayoutItem Caption="Documento número">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
                                         <dx:ASPxTextBox ID="txtDocumentoNum" runat="server" Width="100%" AutoResizeWithContainer="true" Enabled="true">
@@ -40,7 +40,7 @@
                                         <dx:ASPxButton ID="btnBuscar" Text="Buscar" runat="server" Width="50px" OnClick="btnBuscar_Click" CausesValidation="true" Style="visibility: visible"></dx:ASPxButton>
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
-                            </dx:LayoutItem>
+                            </dx:LayoutItem>--%>
 
                         </Items>
 

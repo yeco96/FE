@@ -17,9 +17,9 @@ namespace Web.Pages.Facturacion
             Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
             this.AsyncMode = true;
             //Se ingresa el valor en la caja de texto
-            this.txtDocumentoNum.Text = "50608011800060354097400100001010000000010188888888";
+            string dato = "50608011800060354097400100001010000000014188888888";
             //Se llama el método del botón
-            this.btnBuscar_Click(null, null);
+            ASPxWebDocumentViewer1.OpenReport(UtilidadesReporte.generarDocumento(dato));
         }
 
         protected void UpdatePanel_Unload(object sender, EventArgs e)
@@ -33,17 +33,5 @@ namespace Web.Pages.Facturacion
             if (mInfo != null)
                 mInfo.Invoke(ScriptManager.GetCurrent(Page), new object[] { panel });
         }
-
-        /// <summary>
-        /// Método que Genera la vista de la factura electrónica
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void btnBuscar_Click(object sender, EventArgs e)
-        {
-            //ASPxWebDocumentViewer1.OpenReport(UtilidadesReporte.generarDocumento(txtDocumentoNum.Text));
-            UtilidadesReporte.generarDocumento(txtDocumentoNum.Text);
-        }
-
     }
 }
