@@ -51,6 +51,7 @@
     <Reference Include="DevExpress.Sparkline.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.ASPxHtmlEditor.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.ASPxScheduler.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.Resources.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpo.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraCharts.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -185,6 +186,7 @@
     <Content Include="Pages\Error\DefaultRedirectErrorPage.aspx" />
     <Content Include="Pages\Error\Http404ErrorPage.aspx" />
     <Content Include="Pages\Facturacion\FrmCargarXML.aspx" />
+    <Content Include="Pages\Facturacion\FrmConsulta.aspx" />
     <Content Include="Pages\Facturacion\FrmConsultaDocElectronico.aspx" />
     <Content Include="Pages\Facturacion\FrmGenerarNota.aspx" />
     <Content Include="Pages\Facturacion\FrmReceptor.aspx" />
@@ -430,6 +432,13 @@
     </Compile>
     <Compile Include="Pages\Facturacion\FrmCargarXML.aspx.designer.cs">
       <DependentUpon>FrmCargarXML.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmConsulta.aspx.cs">
+      <DependentUpon>FrmConsulta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmConsulta.aspx.designer.cs">
+      <DependentUpon>FrmConsulta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Facturacion\FrmConsultaDocElectronico.aspx.cs">
       <DependentUpon>FrmConsultaDocElectronico.aspx</DependentUpon>
