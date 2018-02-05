@@ -18,52 +18,7 @@
             <dx:ASPxFormLayout runat="server">
                 <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
                 <Items>
-                    <dx:LayoutGroup Caption=" " ColCount="2" GroupBoxDecoration="Box" UseDefaultPaddings="false">
-                    
-                            <Items>
-                            <dx:LayoutItem Caption=" ">
-                                <LayoutItemNestedControlCollection>
-                                    <dx:LayoutItemNestedControlContainer>
-                                        <dx:ASPxCheckBox ID="chkGenerarDocumentos" runat="server" Text="Generar Documentos " Theme="Moderno"></dx:ASPxCheckBox>
-                                    </dx:LayoutItemNestedControlContainer>
-                                </LayoutItemNestedControlCollection>
-                            </dx:LayoutItem>
 
-                            <dx:LayoutItem Caption=" ">
-                                <LayoutItemNestedControlCollection>
-                                    <dx:LayoutItemNestedControlContainer>
-                                    </dx:LayoutItemNestedControlContainer>
-                                </LayoutItemNestedControlCollection>
-                            </dx:LayoutItem>
-                            <dx:LayoutItem Caption="Desde :">
-                                <LayoutItemNestedControlCollection>
-                                    <dx:LayoutItemNestedControlContainer>
-                                        <dx:ASPxDateEdit ID="dtnDesde" runat="server"></dx:ASPxDateEdit>
-                                    </dx:LayoutItemNestedControlContainer>
-                                </LayoutItemNestedControlCollection>
-                            </dx:LayoutItem>
-
-                            <dx:LayoutItem Caption="Hasta :">
-                                <LayoutItemNestedControlCollection>
-                                    <dx:LayoutItemNestedControlContainer>
-                                        <dx:ASPxDateEdit ID="dtnHasta" runat="server"></dx:ASPxDateEdit>
-                                    </dx:LayoutItemNestedControlContainer>
-                                </LayoutItemNestedControlCollection>
-                            </dx:LayoutItem>
-
-                            <dx:LayoutItem Caption="Documentos">
-                                <LayoutItemNestedControlCollection>
-                                    <dx:LayoutItemNestedControlContainer>
-                                        <dx:ASPxComboBox ID="cmbDocumentos" runat="server" ValueType="System.String"></dx:ASPxComboBox>
-                                        
-                                    </dx:LayoutItemNestedControlContainer>
-                                </LayoutItemNestedControlCollection>
-                            </dx:LayoutItem>
-
-                        </Items>
-
-                    </dx:LayoutGroup>
-                    
                     <dx:LayoutGroup Caption="" ColCount="2" GroupBoxDecoration="Box" UseDefaultPaddings="false">
                         <Items>
 
@@ -82,7 +37,7 @@
                             <dx:LayoutItem Caption=" ">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
-                                        <dx:ASPxButton ID="btnBuscar" text="Buscar" runat="server" Width="50px" CausesValidation="true" Style="visibility:visible"></dx:ASPxButton>
+                                        <dx:ASPxButton ID="btnBuscar" Text="Buscar" runat="server" Width="50px" OnClick="btnBuscar_Click" CausesValidation="true" Style="visibility: visible"></dx:ASPxButton>
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
                             </dx:LayoutItem>
@@ -96,7 +51,7 @@
 
             </dx:ASPxFormLayout>
             <div id="alertMessages" role="alert" runat="server" />
-             
+
         </ContentTemplate>
     </asp:UpdatePanel>
 

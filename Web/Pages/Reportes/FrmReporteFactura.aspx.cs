@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraPrinting;
+﻿using Class.Utilidades;
+using DevExpress.XtraPrinting;
 using DevExpress.XtraReports.UI;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace Web.Pages.Reportes
         protected void Page_Load(object sender, EventArgs e)
         {
             generarReporte();
+            
         }
         /// <summary>
         /// Método para Generar el Reporte
