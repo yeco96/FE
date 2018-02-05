@@ -97,9 +97,9 @@
                                     <dx:LayoutItemNestedControlContainer>
                                         <dx:ASPxComboBox ID="cmbMensaje" runat="server" SelectedIndex="0" Width="100%" AutoResizeWithContainer="true">
                                             <Items>
-                                                <dx:ListEditItem Selected="True" Text="Aceptado" Value="0" />
-                                                <dx:ListEditItem Selected="True" Text="Rechazado Parcial" Value="1" />
-                                                <dx:ListEditItem Text="Rechazado" Value="2" />
+                                                <dx:ListEditItem Selected="True" Text="Aceptado" Value="1" />
+                                                <dx:ListEditItem Text="Rechazado Parcial" Value="2" />
+                                                <dx:ListEditItem Text="Rechazado" Value="3" />
                                             </Items>
                                         </dx:ASPxComboBox>
                                     </dx:LayoutItemNestedControlContainer>
@@ -155,8 +155,8 @@
                             <dx:LayoutItem Caption="Número Consecutivo Receptor">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
-                                        <dx:ASPxSpinEdit ID="txtNumConsecutivoReceptor" runat="server" Width="100%" AutoResizeWithContainer="true" Enabled="true">
-                                        </dx:ASPxSpinEdit>
+                                        <dx:ASPxTextBox ID="txtNumConsecutivoReceptor" runat="server" Width="100%" AutoResizeWithContainer="true" Enabled="true">
+                                        </dx:ASPxTextBox>
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
                             </dx:LayoutItem>

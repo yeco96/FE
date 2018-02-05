@@ -25,6 +25,11 @@ namespace Web.Pages.Facturacion
         {
             Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
             this.AsyncMode = true;
+
+            if (!IsCallback && !IsPostBack)
+            {
+                this.txtNumConsecutivoReceptor.Text = "00100001010000000001";
+            }
         }
 
         protected void UpdatePanel_Unload(object sender, EventArgs e)
@@ -112,7 +117,7 @@ namespace Web.Pages.Facturacion
 
                 dato.mensajeDetalle = this.txtDetalleMensaje.Text;
                 dato.mensaje = int.Parse(this.cmbMensaje.Value.ToString());
-                dato.numeroConsecutivoReceptor = this.txtNumConsecutivoReceptor.Text;
+                dato.numeroConsecutivoReceptor =  this.txtNumConsecutivoReceptor.Text;
 
                 dato.montoTotalImpuesto = decimal.Parse(this.txtMontoTotalImpuesto.Text);
                 dato.montoTotalFactura = decimal.Parse(this.txtTotalFactura.Text);
