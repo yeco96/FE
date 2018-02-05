@@ -260,7 +260,7 @@ namespace Web.WebServices
                     trama.clave = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "Clave", xmlFile);
 
                     trama.emisor.tipoIdentificacion = emisor.identificacionTipo;
-                    trama.emisor.numeroIdentificacion = emisor.identificacion;
+                    trama.emisor.numeroIdentificacion = EncondeXML.buscarValorEtiquetaXML("MensajeReceptor", "NumeroCedulaEmisor", xmlFile);
 
                     trama.receptor.tipoIdentificacion = receptorTipoIdentificacion;
                     trama.receptor.numeroIdentificacion = EncondeXML.buscarValorEtiquetaXML("MensajeReceptor", "NumeroCedulaReceptor", xmlFile);

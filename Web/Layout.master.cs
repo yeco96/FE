@@ -27,7 +27,8 @@ namespace Web {
                     {
                         using (var conexion = new DataModelFE())
                         {
-                            EmisorReceptorIMEC emisor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == "603540974").FirstOrDefault();
+                            EmisorReceptorIMEC emisor = conexion.EmisorReceptorIMEC.Find("205990622");
+                            //EmisorReceptorIMEC emisor = conexion.EmisorReceptorIMEC.Find("603540974");
                             Session["usuario"] = emisor.identificacion;
                             Session["emisor"] = emisor;
                         }
