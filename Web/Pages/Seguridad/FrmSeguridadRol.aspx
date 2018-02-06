@@ -1,34 +1,33 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmCatalogoUnidadMedida.aspx.cs" Inherits="Web.Pages.Catalogos.FrmCatalogoUnidadMedida" %>
-
-<%@ Register Src="~/UserControls/AddAuditoriaForm.ascx" TagPrefix="user" TagName="AddAuditoriaForm" %>
+﻿<%@ Page Async="true" Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmSeguridadRol.aspx.cs" Inherits="Web.Pages.Seguridad.FrmSeguridadRol" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 
     <section class="featured">
         <div class="content-wrapper">
-            Mantenimiento Unidadad Medida
+            Mantenimiento Rol
         </div>
+        <br />
     </section>
-    <div class="borde_redondo_tabla">
-
+    <div class="borde_redondo_tabla"> 
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
             Width="100%" EnableTheming="True" KeyFieldName="codigo" Theme="Moderno"
-            OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize"
-             
-            OnRowDeleting="ASPxGridView1_RowDeleting"
-            OnRowInserting="ASPxGridView1_RowInserting"
-            OnRowUpdating="ASPxGridView1_RowUpdating">
+            OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize" 
+            OnRowDeleting="ASPxGridView1_RowDeleting" 
+            OnRowInserting="ASPxGridView1_RowInserting" 
+            OnRowUpdating="ASPxGridView1_RowUpdating" 
+            OnRowValidating="ASPxGridView1_RowValidating">
+           
             <Columns>
-                <dx:GridViewCommandColumn Width="100px" ButtonType="Image" ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
+                <dx:GridViewCommandColumn Width="60px" ButtonType="Image" ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
                 </dx:GridViewCommandColumn>
-                <dx:GridViewDataTextColumn Caption="Código" FieldName="codigo" VisibleIndex="2" PropertiesTextEdit-MaxLength="10"
+                <dx:GridViewDataTextColumn Caption="Código" FieldName="codigo" ReadOnly="True" VisibleIndex="2" PropertiesTextEdit-MaxLength="50" 
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Descripción" FieldName="descripcion" VisibleIndex="3" PropertiesTextEdit-MaxLength="50" 
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-                  
-                <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="16"
+                 
+               <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="16"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
                 <dx:GridViewDataTextColumn Visible="false" Caption="Usuario Creación" FieldName="usuarioCreacion" VisibleIndex="17">
@@ -41,8 +40,9 @@
                 <dx:GridViewDataDateColumn Visible="false" Caption="Fecha Modificación" FieldName="fechaModificacion" VisibleIndex="20">
                     <PropertiesDateEdit EditFormat="DateTime" DisplayFormatstring="" EditFormatstring="dd/MM/yyyy hh:mm:ss"></PropertiesDateEdit>
                 </dx:GridViewDataDateColumn>
+
             </Columns>
-            
+
              <SettingsBehavior ColumnResizeMode="NextColumn" />
             <Settings ShowFooter="True" ShowFilterBar="Visible" ShowFilterRow="true" />
             <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="True" ConfirmDelete="True" />
@@ -95,6 +95,24 @@
                         <dx:ASPxGridViewTemplateReplacement ID="CancelButton" ReplacementType="EditFormCancelButton" runat="server" />
                     </div>
                 </EditForm>
+                <DetailRow>
+                    Usuarios<b>
+                        <br />
+                        <dx:ASPxGridView ID="detailGrid" runat="server" KeyFieldName="codigo" Width="100%"
+                            OnBeforePerformDataSelect="detailGrid_DataSelect" DataSourceID="detailDataSource">
+                            <Columns>
+                                <dx:GridViewDataColumn FieldName="codigo" Caption="Usuario" VisibleIndex="1" />
+                                <dx:GridViewDataColumn FieldName="nombre" Caption="Nombre" VisibleIndex="2" />
+                                <dx:GridViewDataColumn FieldName="apellidos" Caption="Apellido" VisibleIndex="3" />
+                                <dx:GridViewDataColumn FieldName="telefono" Caption="Teléfono" VisibleIndex="4" />
+                                <dx:GridViewDataColumn FieldName="correo" Caption="Correo" VisibleIndex="5" />
+                            </Columns>
+                            <Settings ShowFooter="True" />
+                            <TotalSummary>
+                                <dx:ASPxSummaryItem FieldName="idUsuario" SummaryType="Count" />
+                            </TotalSummary>
+                        </dx:ASPxGridView>
+                </DetailRow>
                 <FooterRow>
                     <asp:ImageButton ID="exportarPDF" runat="server" ImageUrl="~/Content/Images/pdf.png" ToolTip="Exportar a PDF" OnClick="exportarPDF_Click" />
                     <asp:ImageButton ID="exportarXLSX" runat="server" ImageUrl="~/Content/Images/xlsx.png" ToolTip="Exportar a MS-Excel 2007 o superior" OnClick="exportarXLSX_Click" />
@@ -102,20 +120,30 @@
                 </FooterRow>
             </Templates>
             <Border BorderWidth="0px" />
-            <BorderBottom BorderWidth="1px" />
-
+            <BorderBottom BorderWidth="1px" /> 
         </dx:ASPxGridView>
-        <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="ASPxGridView1" FileName="Catálogo Unidad Medida">
+        
+         <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="ASPxGridView1" FileName="Catálogo Rol">
             <Styles>
                 <Default Font-Names="Arial" Font-Size="Small" />
             </Styles>
-            <PageHeader Center="Facturación Web - Catálogo Unidad Medida">
+            <PageHeader Center="Facturación Web - Catálogo Rol">
                 <Font Bold="True" Names="Arial" Size="Large" />
             </PageHeader>
             <PageFooter Left="[Page # of Pages #]" Right="[Date Printed][Time Printed]">
                 <Font Names="Arial" Size="Small" />
             </PageFooter>
-        </dx:ASPxGridViewExporter> 
-    </div>
+        </dx:ASPxGridViewExporter>
 
+        <%-- DXCOMMENT: Configure your datasource for ASPxGridView --%>
+        <asp:SqlDataSource ID="detailDataSource" runat="server"
+            ConnectionString="<%$ ConnectionStrings:matricula_web_db %>"
+            ProviderName="<%$ ConnectionStrings:matricula_web_db.ProviderName %>"
+            SelectCommand="SELECT * FROM usuario Where rol = ?">
+            <SelectParameters>
+                <asp:SessionParameter Name="RolID" SessionField="RolID" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+
+    </div>
 </asp:Content>
