@@ -20,10 +20,17 @@ namespace Web.Pages.Facturacion
         {
             Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
             this.AsyncMode = true;
-            //Se ingresa el valor en la caja de texto
-            string dato = "50604021800060354097400100001010000000079188888888";
-            //Se llama el método del botón
-            ASPxWebDocumentViewer1.OpenReport(CreateReport(dato));
+            string url = HttpContext.Current.Request.Url.AbsoluteUri;
+            if (url.Contains('/'))
+            {
+                string[] valor = url.Split('/');
+                string dato = valor[valor.Length - 1];
+                if (dato.Length == 50)
+                {
+                    //Se llama el método del botón
+                    ASPxWebDocumentViewer1.OpenReport(CreateReport(dato));
+                }
+            }
         }
 
         protected void UpdatePanel_Unload(object sender, EventArgs e)
@@ -54,7 +61,7 @@ namespace Web.Pages.Facturacion
                         FacturaElectronica factura = (FacturaElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml, typeof(FacturaElectronica));
                         object dataSource = UtilidadesReporte.cargarObjetoImpresion(factura, dato.mensaje);
                         report.objectDataSource1.DataSource = dataSource;
-                        report.xrBarCode1.Text = factura.clave;
+                        report.xrBarCode1.Text = ("http://localhost:54762/Pages/Facturacion/FrmConsulta.aspx/" + factura.clave).ToUpper();
                         report.CreateDocument();
                     }
 
@@ -63,7 +70,7 @@ namespace Web.Pages.Facturacion
                         NotaCreditoElectronica notaCredito = (NotaCreditoElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml, typeof(NotaCreditoElectronica));
                         object dataSource = UtilidadesReporte.cargarObjetoImpresion(notaCredito, dato.mensaje);
                         report.objectDataSource1.DataSource = dataSource;
-                        report.xrBarCode1.Text = notaCredito.clave;
+                        report.xrBarCode1.Text = ("http://localhost:54762/Pages/Facturacion/FrmConsulta.aspx/" + notaCredito.clave).ToUpper();
                         report.CreateDocument();
                     }
 
@@ -72,7 +79,7 @@ namespace Web.Pages.Facturacion
                         NotaDebitoElectronica notaDebito = (NotaDebitoElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml, typeof(NotaDebitoElectronica));
                         object dataSource = UtilidadesReporte.cargarObjetoImpresion(notaDebito, dato.mensaje);
                         report.objectDataSource1.DataSource = dataSource;
-                        report.xrBarCode1.Text = notaDebito.clave;
+                        report.xrBarCode1.Text = ("http://localhost:54762/Pages/Facturacion/FrmConsulta.aspx/" + notaDebito.clave).ToUpper();
                         report.CreateDocument();
                     }
 
@@ -81,7 +88,7 @@ namespace Web.Pages.Facturacion
                         TiqueteElectronico notaDebito = (TiqueteElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xml, typeof(TiqueteElectronico));
                         object dataSource = UtilidadesReporte.cargarObjetoImpresion(notaDebito, dato.mensaje);
                         report.objectDataSource1.DataSource = dataSource;
-                        report.xrBarCode1.Text = notaDebito.clave;
+                        report.xrBarCode1.Text = ("http://localhost:54762/Pages/Facturacion/FrmConsulta.aspx/"+notaDebito.clave).ToUpper();
                         report.CreateDocument();
                     }
 
