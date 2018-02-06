@@ -119,7 +119,6 @@
     <Reference Include="DevExpress.Web.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\20180125214700.sql" />
     <Content Include="App_Data\BlogPosts.xml" />
     <Content Include="App_Data\ErrorLog.txt" />
     <Content Include="Content\bootstrap.min.css" />
@@ -208,6 +207,7 @@
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\site.js" />
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <Content Include="App_Data\180206175207.psc" />
     <None Include="Service References\ServiceReferenceBCCR\wsIndicadoresEconomicos.disco" />
     <None Include="Service References\ServiceReferenceBCCR\configuration91.svcinfo" />
     <None Include="Service References\ServiceReferenceBCCR\configuration.svcinfo" />
@@ -238,7 +238,6 @@
   <ItemGroup>
     <Content Include="Web.config" />
     <Content Include="packages.config" />
-    <Content Include="App_Data\180119160538.psc" />
     <None Include="Service References\ServiceReferenceBCCR\wsIndicadoresEconomicos.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
