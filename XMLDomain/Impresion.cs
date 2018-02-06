@@ -43,7 +43,7 @@ namespace XMLDomain
         public Impresion()
         {
             this.detalles = new List<ImpresionDetalle>();
-            iniciarParametros();
+            //iniciarParametros();
         }
          
 

@@ -537,6 +537,7 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
             this.xrBarCode1.ShowText = false;
             this.xrBarCode1.SizeF = new System.Drawing.SizeF(115.6251F, 110.3332F);
             this.xrBarCode1.Symbology = qrCodeGenerator1;
+            this.xrBarCode1.Text = "?";
             // 
             // TopMargin
             // 
