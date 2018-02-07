@@ -351,6 +351,105 @@
                         </ContentCollection>
                     </dx:TabPage>
 
+                     <dx:TabPage Text="Documentos de Referencia">
+                        <ContentCollection>
+                            <dx:ContentControl runat="server">
+
+                                  <dx:ASPxGridView ID="ASPxGridView2" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView2" KeyboardSupport="True"
+                                    Width="100%" EnableTheming="True" KeyFieldName="numero" Theme="Moderno" 
+                                      OnCellEditorInitialize="ASPxGridView2_CellEditorInitialize"
+                                    OnRowDeleting="ASPxGridView2_RowDeleting" 
+                                    OnRowInserting="ASPxGridView2_RowInserting"
+                                    OnRowUpdating="ASPxGridView2_RowUpdating">
+                                    <Columns>
+                                        <dx:GridViewCommandColumn Width="100px" ButtonType="Image" ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
+                                        </dx:GridViewCommandColumn>
+
+                                         <dx:GridViewDataComboBoxColumn Caption="Tipo Documento" FieldName="tipoDocumento" VisibleIndex="1" PropertiesComboBox-ClientSideEvents-ValueChanged="function(s,e){cambioPrecio(s,e);}"
+                                            PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                        </dx:GridViewDataComboBoxColumn>
+
+                                        <dx:GridViewDataSpinEditColumn Caption="Número" FieldName="numero" VisibleIndex="2" PropertiesSpinEdit-MaxLength="50" 
+                                            PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                        </dx:GridViewDataSpinEditColumn>
+                                         
+                                       <dx:GridViewDataDateColumn Caption="Fecha Emisión" FieldName="fechaEmision" VisibleIndex="3"  PropertiesDateEdit-DisplayFormatString="yyyy-MM-ddTHH:mm:ss-06:00"
+                                            PropertiesDateEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesDateEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                        </dx:GridViewDataDateColumn>
+                                         
+                                         <dx:GridViewDataComboBoxColumn Caption="Código" FieldName="codigo" VisibleIndex="4" 
+                                            PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                        </dx:GridViewDataComboBoxColumn>
+
+                                        <dx:GridViewDataTextColumn Caption="Razón" FieldName="razon" VisibleIndex="5" PropertiesTextEdit-MaxLength="80"
+                                            PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                        </dx:GridViewDataTextColumn>
+                                         
+                                         
+                                    </Columns>
+                                    <TotalSummary>
+                                        <dx:ASPxSummaryItem FieldName="subTotal" SummaryType="Sum" />
+                                        <dx:ASPxSummaryItem FieldName="montoDescuento" SummaryType="Sum" />
+                                        <dx:ASPxSummaryItem FieldName="montoTotal" SummaryType="Sum" />
+                                    </TotalSummary>
+
+                                    <SettingsBehavior ColumnResizeMode="NextColumn" />
+                                    <Settings ShowFooter="True" ShowFilterBar="Hidden" ShowFilterRow="false" />
+                                    <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="True" ConfirmDelete="True" />
+                                    <SettingsPager PageSize="10" PageSizeItemSettings-Visible="true" PageSizeItemSettings-Items="10, 20, 50, 100">
+                                        <PageSizeItemSettings Items="10, 20, 50, 100" Visible="True"></PageSizeItemSettings>
+                                    </SettingsPager>
+                                    <SettingsEditing Mode="EditFormAndDisplayRow" />
+                                    <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="false" ShowFilterRow="false" ShowTitlePanel="True" UseFixedTableLayout="True" />
+                                    <SettingsContextMenu EnableColumnMenu="True" Enabled="True" EnableFooterMenu="True" EnableGroupPanelMenu="false" EnableRowMenu="True" />
+
+                                    <SettingsCommandButton>
+                                        <NewButton Image-ToolTip="Nuevo" Image-Url="~/Content/Images/add.png" />
+                                        <EditButton Image-ToolTip="Modificar" Image-Url="~/Content/Images/edit.png" />
+                                        <DeleteButton Image-ToolTip="Eliminar" Image-Url="~/Content/Images/delete.png" />
+                                        <ClearFilterButton Image-ToolTip="Quitar filtros" Image-Url="~/Content/Images/refresh.png" />
+                                        <UpdateButton ButtonType="Link" Image-ToolTip="Guardar cambios y cerrar formulario de edición" Image-Url="~/Content/Images/acept.png" />
+                                        <CancelButton ButtonType="Link" Image-ToolTip="Cerrar el formulario de edición sin guardar los cambios" Image-Url="~/Content/Images/cancel.png" />
+                                    </SettingsCommandButton>
+
+                                    <SettingsAdaptivity AdaptivityMode="HideDataCellsWindowLimit" HideDataCellsAtWindowInnerWidth="800" AllowOnlyOneAdaptiveDetailExpanded="true" AdaptiveDetailColumnCount="1"></SettingsAdaptivity>
+                                    <EditFormLayoutProperties>
+                                        <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="600" />
+                                    </EditFormLayoutProperties>
+                                    <Styles>
+                                        <Cell Wrap="False"></Cell>
+                                        <AlternatingRow Enabled="true" />
+                                    </Styles>
+                                    <Templates>
+                                        <EditForm>
+                                            <div style="padding: 4px 4px 3px 4px">
+                                                <dx:ASPxPageControl runat="server" ID="pageControl" Width="100%" Theme="Moderno">
+                                                    <TabPages>
+                                                        <dx:TabPage Text="Datos" Visible="true">
+                                                            <ContentCollection>
+                                                                <dx:ContentControl runat="server">
+                                                                    <dx:ASPxGridViewTemplateReplacement ID="Editors" ReplacementType="EditFormEditors" runat="server" />
+                                                                </dx:ContentControl>
+                                                            </ContentCollection>
+                                                        </dx:TabPage>
+                                                    </TabPages>
+                                                </dx:ASPxPageControl>
+                                            </div>
+                                            <div style="text-align: right; padding: 2px 2px 2px 2px">
+                                                <dx:ASPxGridViewTemplateReplacement ID="UpdateButton" ReplacementType="EditFormUpdateButton" runat="server" />
+                                                <dx:ASPxGridViewTemplateReplacement ID="CancelButton" ReplacementType="EditFormCancelButton" runat="server" />
+                                            </div>
+                                        </EditForm>
+                                    </Templates>
+                                    <Border BorderWidth="0px" />
+                                    <BorderBottom BorderWidth="1px" />
+
+                                </dx:ASPxGridView>
+
+                            </dx:ContentControl>
+                        </ContentCollection>
+                    </dx:TabPage>
+
                     <dx:TabPage Text="Factura">
                         <ContentCollection>
                             <dx:ContentControl runat="server">

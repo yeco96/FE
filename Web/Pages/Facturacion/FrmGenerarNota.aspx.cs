@@ -133,7 +133,7 @@ namespace Web.Pages.Facturacion
                 this.cmbTipoDocumento.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
                 
-                /* TIPO DOCUMENTO */
+                /* CODIGO REFERENCIA */
                 foreach (var item in conexion.CodigoReferencia.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
                 {
                     this.cmbCodigoReferencia.Items.Add(item.descripcion, item.codigo);
@@ -301,7 +301,7 @@ namespace Web.Pages.Facturacion
                     dato.receptor = factura.receptor;
 
                     /* INFORMACION DE REFERENCIA */
-                    dato.informacionReferencia.tipoDoc = TipoDocumento.FACTURA_ELECTRONICA;
+                    dato.informacionReferencia.tipoDocumento = TipoDocumento.FACTURA_ELECTRONICA;
                     dato.informacionReferencia.numero = factura.clave;
                     dato.informacionReferencia.fechaEmision = factura.fechaEmision;
                     dato.informacionReferencia.codigo = this.cmbCodigoReferencia.Value.ToString();

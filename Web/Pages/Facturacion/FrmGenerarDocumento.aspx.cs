@@ -28,10 +28,12 @@ namespace Web.Pages.Facturacion
     public partial class FrmGenerarDocumento : System.Web.UI.Page
     {
         private DetalleServicio detalleServicio;
+        private List<InformacionReferencia> informacionReferencia;
 
         public FrmGenerarDocumento()
         {
             this.detalleServicio = new DetalleServicio();
+            this.informacionReferencia = new List<InformacionReferencia>();
         }
 
 
@@ -52,6 +54,9 @@ namespace Web.Pages.Facturacion
 
                     this.detalleServicio = new DetalleServicio();
                     Session["detalleServicio"] = detalleServicio;
+
+                    this.informacionReferencia =  new List<InformacionReferencia>();
+                    Session["informacionReferencia"] = informacionReferencia;
                 }
                 this.refreshData();
             }
@@ -83,6 +88,13 @@ namespace Web.Pages.Facturacion
             {
                 DetalleServicio detalleServicio = (DetalleServicio)Session["detalleServicio"];
                 this.ASPxGridView1.DataSource = detalleServicio.lineaDetalle;
+                this.ASPxGridView1.DataBind();
+            }
+
+            if (Session["informacionReferencia"] != null)
+            {  
+                List<InformacionReferencia> informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
+                this.ASPxGridView1.DataSource = informacionReferencia;
                 this.ASPxGridView1.DataBind();
             }
         }
@@ -182,12 +194,25 @@ namespace Web.Pages.Facturacion
                 this.cmbSucursalCaja.SelectedIndex = 0;
 
                 /* TIPO DOCUMENTO */
+                GridViewDataComboBoxColumn comboTipoDocumento = this.ASPxGridView2.Columns["tipoDocumento"] as GridViewDataComboBoxColumn;
                 foreach (var item in conexion.TipoDocumento.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
                 {
                     this.cmbTipoDocumento.Items.Add(item.descripcion, item.codigo);
+                    comboTipoDocumento.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
                 }
                 this.cmbTipoDocumento.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                comboTipoDocumento.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
                 this.cmbTipoDocumento.SelectedIndex = 0;
+
+
+
+                /* CODIGO REFERENCIA */
+                GridViewDataComboBoxColumn comboCodigo = this.ASPxGridView2.Columns["comboCodigo"] as GridViewDataComboBoxColumn;
+                foreach (var item in conexion.CodigoReferencia.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                {
+                    comboCodigo.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
+                }
+                comboCodigo.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
             }
         }
@@ -509,12 +534,7 @@ namespace Web.Pages.Facturacion
 
                 // Join the list to a single string.
                 var fullErrorMessage = string.Join("; ", errorMessages);
-
-
-
-
-
-
+                 
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
 
@@ -871,6 +891,76 @@ namespace Web.Pages.Facturacion
             }
         }
 
+        protected void ASPxGridView2_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)
+        {
 
+        }
+
+        protected void ASPxGridView2_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
+        {
+            try
+            {
+                using (var conexion = new DataModelWS())
+                {
+                    List<InformacionReferencia> informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
+
+                    //se declara el objeto a insertar
+                    InformacionReferencia dato = new InformacionReferencia();
+                    //llena el objeto con los valores de la pantalla
+                    string clave = e.NewValues["numero"] != null ? e.NewValues["numero"].ToString().ToUpper() : null;
+                    WSRecepcionPOST documento = conexion.WSRecepcionPOST.Find(clave);
+
+                    dato.fechaEmision = ((DateTime) documento.fecha).ToString("yyyy-MM-ddTHH:mm:ss-06:00");
+                    dato.tipoDocumento = documento.tipoDocumento;
+
+                    dato.razon = e.NewValues["razon"] != null ? e.NewValues["razon"].ToString().ToUpper() : null;
+                    dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
+
+                    //agrega el objeto
+                    informacionReferencia.Add(dato);
+                    Session["informacionReferencia"] = detalleServicio;
+                }
+
+                //esto es para el manero del devexpress
+                e.Cancel = true;
+                this.ASPxGridView1.CancelEdit();
+
+
+            }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+            }
+            finally
+            {
+                //refescar los datos
+                this.refreshData();
+            }
+        }
+
+        protected void ASPxGridView2_RowUpdating(object sender, DevExpress.Web.Data.ASPxDataUpdatingEventArgs e)
+        {
+
+        }
+
+        protected void ASPxGridView2_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
+        {
+            if (e.Column.FieldName == "tipoDocumento") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+            if (e.Column.FieldName == "fechaEmision") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+        }
     }
 }
