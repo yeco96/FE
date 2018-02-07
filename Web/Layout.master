@@ -20,15 +20,15 @@
         <script src="/Scripts/jquery-1.12.2.min.js" type="text/javascript"></script> 
         <script src="/Scripts/bootstrap.min.js" type="text/javascript"></script>
     -->
-    <script src="/Scripts/jquery-3.3.1.min.js" type="text/javascript"></script> 
-    <script src="/Scripts/popper.min.js" type="text/javascript"></script> 
-    <script src="/Scripts/bootstrap4.min.js" type="text/javascript"></script> 
+    <script src="/Scripts/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="/Scripts/popper.min.js" type="text/javascript"></script>
+    <script src="/Scripts/bootstrap4.min.js" type="text/javascript"></script>
     <script src="/Scripts/site.js" type="text/javascript"></script>
 </head>
 <body>
     <form id="form1" runat="server" class="aspnetForm">
         <div class="wrapper">
-            <header >
+            <header>
                 <div class="container">
                     <dx:ASPxPanel ID="TopPanel" runat="server" ClientInstanceName="TopPanel" Width="100%" Collapsible="true">
                         <SettingsAdaptivity CollapseAtWindowInnerWidth="680" />
@@ -47,7 +47,7 @@
                         </ExpandBarTemplate>
                         <PanelCollection>
                             <dx:PanelContent>
-                                <div id="banner"/>
+                                <div id="banner" />
                                 <div class='title'>
                                     <a href='<%: ResolveUrl("~/Pages/Home.aspx") %>'>FACTURACIÓN DIGITAL</a>
                                     <p class="small">MSA SOFT</p>
@@ -75,31 +75,36 @@
                                                             <dx:MenuItem Text="TIPO IMPUESTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoImpuesto.aspx" />
                                                             <dx:MenuItem Text="TIPO MONEDA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoMoneda.aspx" />
                                                             <dx:MenuItem Text="TIPO PRODUCTO SERVICIO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoProductoServicio.aspx" />
-                                                             
+
                                                             <dx:MenuItem Text="UBICACIÓN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoUbicacion.aspx" />
                                                             <dx:MenuItem Text="UNIDAD MEDIDA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoUnidadMedida.aspx" />
 
 
                                                         </Items>
                                                     </dx:MenuItem>
-                                                      <dx:MenuItem Text="DOCUMENTOS">
+                                                    <dx:MenuItem Text="DOCUMENTOS">
                                                         <Items>
 
                                                             <dx:MenuItem Text="EMISOR" NavigateUrl="~/Pages/Facturacion/FrmEmisor.aspx" />
-                                                            <dx:MenuItem Text="RECEPTOR" NavigateUrl="~/Pages/Facturacion/FrmReceptor.aspx" /> 
+                                                            <dx:MenuItem Text="RECEPTOR" NavigateUrl="~/Pages/Facturacion/FrmReceptor.aspx" />
                                                             <dx:MenuItem Text="PRODUCTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProducto.aspx" />
                                                             <dx:MenuItem Text="PRODUCTO IMPUESTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProductoImpuesto.aspx" />
                                                             <dx:MenuItem Text="CONSULTA" NavigateUrl="~/Pages/Facturacion/FrmConsultaDocElectronico.aspx" />
                                                             <dx:MenuItem Text="CONFIRMAR XML" NavigateUrl="~/Pages/Facturacion/FrmValidarXML.aspx" />
                                                             <dx:MenuItem Text="CREAR DOCUMENTO" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumento.aspx" />
- 
+
                                                         </Items>
                                                     </dx:MenuItem>
-                                                      <dx:MenuItem Text="CONFIGURACIÓN">
+                                                    <dx:MenuItem Text="CONFIGURACIÓN">
                                                         <Items>
                                                             <dx:MenuItem Text="NÚMERO DE CONSECUTIVO" NavigateUrl="~/Pages/Facturacion/FrmConsecutivoDocElectronico.aspx" />
                                                             <dx:MenuItem Text="CORREO ELECTRÓNICO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoConfiguracionCorreo.aspx" />
-                                                            
+                                                            <dx:MenuItem Text="SEGURIDAD">
+                                                                <Items>
+                                                                    <dx:MenuItem Text="USUARIO" NavigateUrl="~/Pages/Seguridad/FrmSeguridadUsuario.aspx" />
+                                                                    <dx:MenuItem Text="ROL " NavigateUrl="~/Pages/Seguridad/FrmSeguridadRol.aspx" />
+                                                                </Items>
+                                                            </dx:MenuItem>
                                                         </Items>
                                                     </dx:MenuItem>
                                                     <dx:MenuItem Text="CONTACTO" NavigateUrl="~/Pages/Contacts.aspx" />

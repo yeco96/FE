@@ -1,26 +1,26 @@
-﻿<%@ Page  Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmSeguridadRol.aspx.cs" Inherits="Web.Pages.Seguridad.FrmSeguridadRol" %>
+﻿<%@ Page Async="true" Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmSeguridadRol.aspx.cs" Inherits="Web.Pages.Seguridad.FrmSeguridadRol" %>
+<%@ Register Src="~/UserControls/AddAuditoriaForm.ascx" TagPrefix="user" TagName="AddAuditoriaForm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
-
-    <section class="featured">
+   
+     <section class="featured">
         <div class="content-wrapper">
             Mantenimiento Rol
         </div>
-        <br />
     </section>
+
     <div class="borde_redondo_tabla"> 
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
             Width="100%" EnableTheming="True" KeyFieldName="codigo" Theme="Moderno"
             OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize" 
             OnRowDeleting="ASPxGridView1_RowDeleting" 
             OnRowInserting="ASPxGridView1_RowInserting" 
-            OnRowUpdating="ASPxGridView1_RowUpdating" 
-            OnRowValidating="ASPxGridView1_RowValidating">
+            OnRowUpdating="ASPxGridView1_RowUpdating" >
            
             <Columns>
                 <dx:GridViewCommandColumn Width="60px" ButtonType="Image" ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
                 </dx:GridViewCommandColumn>
-                <dx:GridViewDataTextColumn Caption="Código" FieldName="codigo" ReadOnly="True" VisibleIndex="2" PropertiesTextEdit-MaxLength="50" 
+                <dx:GridViewDataTextColumn Caption="Código" FieldName="codigo" ReadOnly="True" VisibleIndex="2" PropertiesTextEdit-MaxLength="5" 
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Descripción" FieldName="descripcion" VisibleIndex="3" PropertiesTextEdit-MaxLength="50" 
@@ -99,13 +99,10 @@
                     Usuarios<b>
                         <br />
                         <dx:ASPxGridView ID="detailGrid" runat="server" KeyFieldName="codigo" Width="100%"
-                            OnBeforePerformDataSelect="detailGrid_DataSelect" DataSourceID="detailDataSource">
+                            DataSourceID="detailDataSource">
                             <Columns>
                                 <dx:GridViewDataColumn FieldName="codigo" Caption="Usuario" VisibleIndex="1" />
                                 <dx:GridViewDataColumn FieldName="nombre" Caption="Nombre" VisibleIndex="2" />
-                                <dx:GridViewDataColumn FieldName="apellidos" Caption="Apellido" VisibleIndex="3" />
-                                <dx:GridViewDataColumn FieldName="telefono" Caption="Teléfono" VisibleIndex="4" />
-                                <dx:GridViewDataColumn FieldName="correo" Caption="Correo" VisibleIndex="5" />
                             </Columns>
                             <Settings ShowFooter="True" />
                             <TotalSummary>
@@ -135,15 +132,6 @@
             </PageFooter>
         </dx:ASPxGridViewExporter>
 
-        <%-- DXCOMMENT: Configure your datasource for ASPxGridView --%>
-        <asp:SqlDataSource ID="detailDataSource" runat="server"
-            ConnectionString="<%$ ConnectionStrings:matricula_web_db %>"
-            ProviderName="<%$ ConnectionStrings:matricula_web_db.ProviderName %>"
-            SelectCommand="SELECT * FROM usuario Where rol = ?">
-            <SelectParameters>
-                <asp:SessionParameter Name="RolID" SessionField="RolID" Type="String" />
-            </SelectParameters>
-        </asp:SqlDataSource>
 
     </div>
 </asp:Content>

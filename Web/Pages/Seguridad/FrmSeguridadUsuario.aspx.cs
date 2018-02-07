@@ -1,4 +1,5 @@
-﻿using Class.Utilidades;
+﻿using Class.Seguridad;
+using Class.Utilidades;
 using DevExpress.Export;
 using DevExpress.Web;
 using DevExpress.XtraPrinting;
@@ -52,7 +53,7 @@ namespace Web.Pages.Seguridad
         {
             using (var conexion = new DataModelFE())
             {
-                this.ASPxGridView1.DataSource = conexion.UnidadMedida.ToList();
+                this.ASPxGridView1.DataSource = conexion.Usuario.ToList();
                 this.ASPxGridView1.DataBind();
             }
         }
@@ -62,10 +63,22 @@ namespace Web.Pages.Seguridad
         /// </summary>
         private void cargarCombos()
         {
-            // Cargar valores de combo para estado
+            /* ESTADO */
             GridViewDataComboBoxColumn comboEstado = this.ASPxGridView1.Columns["estado"] as GridViewDataComboBoxColumn;
             comboEstado.PropertiesComboBox.Items.Clear();
             comboEstado.PropertiesComboBox.Items.AddRange(Enum.GetValues(typeof(Estado)));
+
+            /* ROL */
+            GridViewDataComboBoxColumn comboRol = this.ASPxGridView1.Columns["rol"] as GridViewDataComboBoxColumn;
+            comboRol.PropertiesComboBox.Items.Clear();
+            using (var conexion = new DataModelFE())
+            {
+                foreach (var item in conexion.Rol.Where(x => x.estado==Estado.ACTIVO.ToString() ).ToList())
+                {
+                    comboRol.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
+                }
+            }
+            comboRol.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
         }
 
 
@@ -100,17 +113,28 @@ namespace Web.Pages.Seguridad
                 using (var conexion = new DataModelFE())
                 {
                     //se declara el objeto a insertar
-                    UnidadMedida dato = new UnidadMedida();
+                    Usuario dato = new Usuario();
                     //llena el objeto con los valores de la pantalla
+
+
+                    dato.contrasena = e.NewValues["contrasena"] != null ? e.NewValues["contrasena"].ToString() : null;
+                    if (dato.contrasena != null) {
+                        if (dato.contrasena.Length < 20)
+                        {
+                            dato.contrasena =  MD5Util.getMd5Hash(dato.contrasena);
+                        }
+                    }
+
+                    dato.rol = e.NewValues["rol"] != null ? e.NewValues["rol"].ToString().ToUpper() : null;
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
-                    dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
+                    dato.nombre = e.NewValues["nombre"] != null ? e.NewValues["nombre"].ToString().ToUpper() : null;
 
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioCreacion = Session["usuario"].ToString();
                     dato.fechaCreacion = Date.DateTimeNow();
 
                     //agrega el objeto
-                    conexion.UnidadMedida.Add(dato);
+                    conexion.Usuario.Add(dato);
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress
@@ -128,12 +152,7 @@ namespace Web.Pages.Seguridad
 
                 // Join the list to a single string.
                 var fullErrorMessage = string.Join("; ", errorMessages);
-
-
-
-
-                // conexion.UnidadMedida.Remove(conexion.UnidadMedida.Last() );
-
+                 
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
 
@@ -161,14 +180,24 @@ namespace Web.Pages.Seguridad
                 using (var conexion = new DataModelFE())
                 {
                     // se declara el objeto a insertar
-                    UnidadMedida dato = new UnidadMedida();
+                    Usuario dato = new Usuario();
                     //llena el objeto con los valores de la pantalla
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
 
                     //busca el objeto 
-                    dato = conexion.UnidadMedida.Find(dato.codigo);
+                    dato = conexion.Usuario.Find(dato.codigo);
 
-                    dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
+                    dato.contrasena = e.NewValues["contrasena"] != null ? e.NewValues["contrasena"].ToString() : null;
+                    if (dato.contrasena != null)
+                    {
+                        if (dato.contrasena.Length < 20)
+                        {
+                            dato.contrasena = MD5Util.getMd5Hash(dato.contrasena);
+                        }
+                    }
+
+                    dato.rol = e.NewValues["rol"] != null ? e.NewValues["rol"].ToString().ToUpper() : null;
+                    dato.nombre = e.NewValues["nombre"] != null ? e.NewValues["nombre"].ToString().ToUpper() : null;
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioModificacion = Session["usuario"].ToString();
                     dato.fechaModificacion = Date.DateTimeNow();
@@ -181,6 +210,20 @@ namespace Web.Pages.Seguridad
                     e.Cancel = true;
                     this.ASPxGridView1.CancelEdit();
                 }
+
+            }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
 
             }
             catch (Exception ex)
@@ -208,8 +251,8 @@ namespace Web.Pages.Seguridad
                     var id = e.Values["codigo"].ToString();
 
                     //busca objeto
-                    var itemToRemove = conexion.UnidadMedida.SingleOrDefault(x => x.codigo == id);
-                    conexion.UnidadMedida.Remove(itemToRemove);
+                    var itemToRemove = conexion.Usuario.SingleOrDefault(x => x.codigo == id);
+                    conexion.Usuario.Remove(itemToRemove);
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress

@@ -1,36 +1,45 @@
-﻿<%@ Page  Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmSeguridadUsuario.aspx.cs" Inherits="Web.Pages.Seguridad.FrmSeguridadUsuario" %>
+﻿<%@ Page Async="true" Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmSeguridadUsuario.aspx.cs" Inherits="Web.Pages.Seguridad.FrmSeguridadUsuario" %>
+<%@ Register Src="~/UserControls/AddAuditoriaForm.ascx" TagPrefix="user" TagName="AddAuditoriaForm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
+
     <section class="featured">
         <div class="content-wrapper">
             Mantenimiento Usuario 
         </div>
     </section>
-    <br />
+ 
     <div class="borde_redondo_tabla">
       
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
             Width="100%" EnableTheming="True" KeyFieldName="codigo" Theme="Moderno" 
             OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize" 
             OnRowDeleting="ASPxGridView1_RowDeleting"
-            OnRowInserting="ASPxGridView1_RowInserting"
-            OnRowUpdating="ASPxGridView1_RowUpdating" 
-            OnRowValidating="ASPxGridView1_RowValidating" >
+            OnRowUpdating="ASPxGridView1_RowUpdating"
+            OnRowInserting="ASPxGridView1_RowInserting" >
             
             <Columns>
                 <dx:GridViewCommandColumn Width="60px" ButtonType="Image" ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
                 </dx:GridViewCommandColumn>
-                <dx:GridViewDataTextColumn Caption="Código" FieldName="codigo" ReadOnly="True" VisibleIndex="2">
-                </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Nombre" FieldName="nombre" VisibleIndex="3" PropertiesTextEdit-MaxLength="100" 
+                <dx:GridViewDataTextColumn Caption="Código" FieldName="codigo" ReadOnly="True" VisibleIndex="2" PropertiesTextEdit-MaxLength="12" 
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
 
-                <dx:GridViewDataComboBoxColumn  Caption="Rol" FieldName="rol" Settings-AutoFilterCondition="Contains" VisibleIndex="4">
+                <dx:GridViewDataTextColumn Caption="Nombre" FieldName="nombre" VisibleIndex="3" PropertiesTextEdit-MaxLength="100"  Width="25%"
+                    PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataTextColumn>
+
+                <dx:GridViewDataComboBoxColumn  Caption="Rol" FieldName="rol" Settings-AutoFilterCondition="Contains" VisibleIndex="4" 
+                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido"> 
                 </dx:GridViewDataComboBoxColumn>
+
                 <dx:GridViewDataSpinEditColumn Caption="Intentos" FieldName="intentos" VisibleIndex="5" 
                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataSpinEditColumn>
+
+                <dx:GridViewDataTextColumn Caption="Contraseña" FieldName="contrasena" VisibleIndex="6" PropertiesTextEdit-MaxLength="100"  
+                    PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataTextColumn>
 
                 <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="16"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">

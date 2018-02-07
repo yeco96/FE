@@ -23,9 +23,9 @@ namespace Class.Seguridad
      
         [Key]
         [Required]
-        [MaxLength(12, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [MaxLength(5, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         [Display(Name = "Código")]
-        public Int32 codigo { set; get; }
+        public string codigo { set; get; }
          
         [Required]
         [MaxLength(50, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
