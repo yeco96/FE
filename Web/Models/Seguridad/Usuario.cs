@@ -61,6 +61,11 @@ namespace Class.Seguridad
         {
         }
 
+        public override string ToString()
+        {
+            return string.Format("{0} - {1}", this.nombre, this.codigo);
+        }
+
         /// <summary>
         /// OBJETOS COMPUESTOS x
         /// </summary>

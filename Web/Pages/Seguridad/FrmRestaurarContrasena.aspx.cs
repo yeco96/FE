@@ -6,23 +6,20 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
 using Class.Seguridad;
-using Bo.Seguridad;
-using Class.Utilidades;
-using Bo.Catalogos;
 
 
 namespace WebServiceFE
 {
     public partial class FrmRestaurarContrasena : System.Web.UI.Page
     {
-        const int MaxCharacterSetLength = 50;
+        /*const int MaxCharacterSetLength = 50;
         const string CaptchaCssPostfixSessionKey = "6aad54c0-25ef-11df-8a39-0800200c9a66";
         UsuarioBo usuarioBo = new UsuarioBo();
         MailConfigBo mailConfigBo = new MailConfigBo();
-        Usuario usuario = new Usuario();
+        Usuario usuario = new Usuario();*/
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+           /* if (!IsPostBack)
             {
                 Session[CaptchaCssPostfixSessionKey] = Captcha.CssPostfix;
                 this.ocultaTablaCorreo();
@@ -33,12 +30,12 @@ namespace WebServiceFE
             {
                 Captcha.IsValid = true;
                 Session[CaptchaCssPostfixSessionKey] = Captcha.CssPostfix;
-            }
+            }*/
         }
 
         //Colocar el metodo del botón
         protected void btnEnviar_Click(object sender, EventArgs e)
-        {
+        {/*
             try { 
                 //Si el captcha es correcto realizar lo del envio de datos
                 if (Captcha.IsValid == true && tbUserName.Text != "" )
@@ -65,11 +62,11 @@ namespace WebServiceFE
             {
                 this.lblError.Text = ex.Message;
                 this.lblError.CssClass = "errorMessage";
-            }
+            }*/
         }
 
         protected void btnContinuar_Click(object sender, EventArgs e)
-        {
+        {/*
             bool siExiste = false;
             this.ocultaTablaCorreo();
             if (this.tbUserName.Text != "")
@@ -121,26 +118,26 @@ namespace WebServiceFE
                     this.lblError.Text = "El usuario no existe";
                     this.lblError.CssClass = "errorMessage";
                 }
-            }
+            }*/
         }
 
         private void muestraTablaCorreo()
         {
-            this.tbCorreo.Visible = true;
+            /*this.tbCorreo.Visible = true;
             this.btnContinuar2.Visible = true;
             this.lblConfirmarCorreo.Visible = true;
-            this.lblCorreo.Visible = true;
+            this.lblCorreo.Visible = true;*/
         }
         private void ocultaTablaCorreo()
         {
-            this.tbCorreo.Visible = false;
+           /* this.tbCorreo.Visible = false;
             this.btnContinuar2.Visible = false;
             this.lblConfirmarCorreo.Visible = false;
-            this.lblCorreo.Visible = false;
+            this.lblCorreo.Visible = false;*/
         }
 
         protected void btnContinuar2_Click(object sender, EventArgs e)
-        {
+        {/*
             if (tbCorreo.Text == lblCorreoOculto.Text)
             {
                 this.Captcha.Visible = true;
@@ -151,7 +148,7 @@ namespace WebServiceFE
                 this.btnEnviar.Visible = false;
                 this.lblError.Text = "El correo no coincide con el ingresado en el repositorio de datos";
                 lblError.CssClass = "errorMessage";
-            }
+            }*/
         }
 
         private void enviaCorreoCambioContrasena()
@@ -170,23 +167,23 @@ namespace WebServiceFE
                 mensaje += "<th bgcolor=#004080 style='color:white; padding:4px;'><div align=center>USUARIO</div></th>";
                 mensaje += "<th bgcolor=#004080 style='color:white; padding:4px;'><div align=center>CONTRASEÑA</div></th>";
                 mensaje += "<tr>";
-                mensaje += String.Format("<td style='padding:4px;'><div align=center>{0}</div></td>", usuario.idUsuario);
-                mensaje += String.Format("<td style='padding:4px;'><div align=center>{0}</div></td>", usuario.contrasena);
+               // mensaje += String.Format("<td style='padding:4px;'><div align=center>{0}</div></td>", usuario.idUsuario);
+                //mensaje += String.Format("<td style='padding:4px;'><div align=center>{0}</div></td>", usuario.contrasena);
                 mensaje += "</tr>";
                 mensaje += "</table>";
 
-                this.mailConfigBo.enviar(this.lblCorreoOculto.Text, "Universidad Santa Lucia | Olvido de Contraseña", mensaje);
+               // this.mailConfigBo.enviar(this.lblCorreoOculto.Text, "Universidad Santa Lucia | Olvido de Contraseña", mensaje);
 
             }
             catch (Exception ex)
             {
-                this.lblError.Text = ex.Message;
-                this.lblError.CssClass = "errorMessage"; 
+                //this.lblError.Text = ex.Message;
+               // this.lblError.CssClass = "errorMessage"; 
             }
         }
         protected void btnRegresar_Click(object sender, EventArgs e)
         {
-            this.tbUserName.Text = " ";
+           // this.tbUserName.Text = " ";
             Response.Redirect("~/Account/Login.aspx");
         }
     }

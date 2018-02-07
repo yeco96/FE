@@ -20,25 +20,19 @@ namespace Web {
         {
             try {
                 Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
-
+                /*
                 if (!Request.Url.Segments[Request.Url.Segments.Length - 1].Contains("DefaultRedirectErrorPage"))
                 {
                     if (Session["usuario"] == null)
                     {
-                        using (var conexion = new DataModelFE())
-                        {
-                            //EmisorReceptorIMEC emisor = conexion.EmisorReceptorIMEC.Find("205990622");
-                            EmisorReceptorIMEC emisor = conexion.EmisorReceptorIMEC.Find("603540974");
-                            Session["usuario"] = emisor.identificacion;
-                            Session["emisor"] = emisor;
-                        }
+                        Response.Redirect("~/Pages/Seguridad/Login.aspx");
                     }
-                }
+                }*/
             }
             catch (Exception ex)
             {
                 Session["error"] = ex.Message;
-                Response.Redirect("~/Pages/Error/DefaultRedirectErrorPage.aspx");
+               // Response.Redirect("~/Pages/Error/DefaultRedirectErrorPage.aspx");
             }
 
 

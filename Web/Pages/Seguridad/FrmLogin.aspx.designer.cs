@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebServiceFE.Seguridad {
+namespace Web.Pages.Seguridad {
     
     
-    public partial class Login {
+    public partial class FrmLogin {
         
         /// <summary>
         /// tbUserName control.
@@ -40,12 +40,12 @@ namespace WebServiceFE.Seguridad {
         protected global::DevExpress.Web.ASPxButton btnLogin;
         
         /// <summary>
-        /// lblError control.
+        /// alertMessages control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblError;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertMessages;
     }
 }
