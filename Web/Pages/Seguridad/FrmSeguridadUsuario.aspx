@@ -1,4 +1,4 @@
-﻿<%@ Page Async="true" Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmSeguridadUsuario.aspx.cs" Inherits="Web.Pages.Seguridad.FrmSeguridadUsuario" %>
+﻿<%@ Page  Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmSeguridadUsuario.aspx.cs" Inherits="Web.Pages.Seguridad.FrmSeguridadUsuario" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
     <section class="featured">

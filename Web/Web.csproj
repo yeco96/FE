@@ -197,8 +197,10 @@
     <Content Include="Pages\Reportes\FrmReporteFactura.aspx" />
     <Content Include="Pages\Reportes\FrmReporteFacturaRollPaper.aspx" />
     <Content Include="Pages\Search.aspx" />
+    <Content Include="Pages\Seguridad\FrmRestaurarContrasena.aspx" />
     <Content Include="Pages\Seguridad\FrmSeguridadRol.aspx" />
     <Content Include="Pages\Seguridad\FrmSeguridadUsuario.aspx" />
+    <Content Include="Pages\Seguridad\Login.aspx" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrap4.min.js" />
     <Content Include="Scripts\jquery-1.12.2.min.js" />
@@ -532,6 +534,13 @@
     <Compile Include="Pages\Search.aspx.designer.cs">
       <DependentUpon>Search.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Seguridad\FrmRestaurarContrasena.aspx.cs">
+      <DependentUpon>FrmRestaurarContrasena.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Seguridad\FrmRestaurarContrasena.aspx.designer.cs">
+      <DependentUpon>FrmRestaurarContrasena.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Seguridad\FrmSeguridadRol.aspx.cs">
       <DependentUpon>FrmSeguridadRol.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -545,6 +554,13 @@
     </Compile>
     <Compile Include="Pages\Seguridad\FrmSeguridadUsuario.aspx.designer.cs">
       <DependentUpon>FrmSeguridadUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Seguridad\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Seguridad\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ServiceReferenceBCCR\Reference.cs">

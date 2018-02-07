@@ -1,4 +1,4 @@
-﻿<%@ Page Async="true" Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmSeguridadRol.aspx.cs" Inherits="Web.Pages.Seguridad.FrmSeguridadRol" %>
+﻿<%@ Page  Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmSeguridadRol.aspx.cs" Inherits="Web.Pages.Seguridad.FrmSeguridadRol" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 
