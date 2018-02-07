@@ -10,7 +10,7 @@
 namespace Web {
     
     
-    public partial class Home {
+    public partial class PlanesDoc {
         
         /// <summary>
         /// Control ImageSlider.

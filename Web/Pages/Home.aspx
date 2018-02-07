@@ -40,13 +40,13 @@
                         <div class="text-box-heading">Nuestros Planes</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
                         <p><ul>
-                            <li>Profesional Independiente</li>  
-                            <li>Pymes</li>
-                            <li>Empresarial</li>
-                            <li>Planes Prepago</li>
-                            <li>Planes Ilimitados</li> 
+                            <li>Planes Prepago</li>  
+                            <li>Plan Profesional Ilimitado</li>  
+                            <li>Plan Pymes</li>
+                            <li>Plan Plan Cliente Jurídico I y II</li>
+                            <li>Planes Empresariales</li>
                         </ul></p>
-                        <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="http://msasoft.net" style="pull-right">Más Detalles</a></p>
+                        <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" <a href="PlanesDoc.aspx">PlanesDoc.aspx</a> style="pull-right">Más Detalles</a></p>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                     <div class="media">
                         <div class="media-left media-middle">
                             <div class="media-object">
-                                <img src="<%:Page.ResolveClientUrl("~/Content/Images/Customers/costos01.png")%>" width="100" alt="customer" class="img-circle">
+                                <img src="<%:Page.ResolveClientUrl("~/Content/Images/Customers/costos5.jpg")%>" width="100" alt="customer" class="img-circle">
                             </div>
                         </div>
                         <div class="media-body">
@@ -94,7 +94,7 @@
                     <div class="media">
                         <div class="media-left media-middle">
                             <div class="media-object">
-                                <img src="<%:Page.ResolveClientUrl("~/Content/Images/Customers/rapidez.jpg")%>" width="100" alt="customer" class="img-circle">
+                                <img src="<%:Page.ResolveClientUrl("~/Content/Images/Customers/Fast2.png")%>" width="100" alt="customer" class="img-circle">
                             </div>
                         </div>
                         <div class="media-body">
