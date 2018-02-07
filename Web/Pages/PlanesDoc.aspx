@@ -13,7 +13,8 @@
     <div class="container">
         <section class="row text-center">
             <div class="col-md-12">
-                <h1>Información de nuestros Planes <a class="btn btn-primary btn-lg" href="#"><i class="glyphicon glyphicon-info-sign"></i>Cotizar Planes</a></h1>
+                <h1>Información de nuestros Planes </h1>
+                <a class="btn btn-primary btn-lg" href="#"><i class="glyphicon glyphicon-info-sign"></i>Cotizar Planes</a>
             </div>
                 <p class="mainText">Si su empresa factura una cantidad superior indicada en los planes, por favor comunicarse con MSASOFT + (506) 8872 9065 o escribamos al correo msalamanca@msasoft.net</p>
         </section>

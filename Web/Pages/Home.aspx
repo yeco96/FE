@@ -46,7 +46,7 @@
                             <li>Plan Plan Cliente Jurídico I y II</li>
                             <li>Planes Empresariales</li>
                         </ul></p>
-                        <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" <a href="PlanesDoc.aspx">PlanesDoc.aspx</a> style="pull-right">Más Detalles</a></p>
+                        <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" <a href="PlanesDoc.aspx">Planes</a></a></p>
                     </div>
                 </div>
             </div>
