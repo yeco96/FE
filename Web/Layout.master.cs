@@ -9,6 +9,7 @@ using Class.Utilidades;
 using System.Threading;
 using Web.Models;
 using Web.Models.Facturacion;
+using System.Web.Security;
 
 namespace Web {
     public partial class Layout : System.Web.UI.MasterPage
@@ -43,6 +44,14 @@ namespace Web {
                 Session["query"] = Search.Text;
                 Response.Redirect("~/Pages/Search.aspx");
             }*/
+        }
+
+        protected void HeadLoginStatus_LoggingOut(object sender, LoginCancelEventArgs e)
+        {
+            Session.RemoveAll();
+            FormsAuthentication.SignOut(); 
+            Response.Redirect("~/Pages/Seguridad/FrmLogin.aspx");
+
         }
     }
 }

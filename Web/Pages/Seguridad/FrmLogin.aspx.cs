@@ -57,7 +57,7 @@ namespace Web.Pages.Seguridad
 
                             if (String.IsNullOrEmpty(Request.QueryString["ReturnUrl"]))
                             {
-                                FormsAuthentication.SetAuthCookie(usuario.ToString(), false);
+                                FormsAuthentication.SetAuthCookie(usuario.nombre, false);
 
                                 if (String.Compare(tbUserName.Text, tbPassword.Text) == 0)
                                 {
@@ -65,13 +65,13 @@ namespace Web.Pages.Seguridad
                                 }
                                 else
                                 {
-                                    Response.Redirect("~/Pages/Home.aspx");
+                                    Response.Redirect("~/");
                                 }
                             }
                             else
                             {
-                                FormsAuthentication.SetAuthCookie(usuario.ToString(), false);
-                                Response.Redirect("~/Pages/Home.aspx");
+                                FormsAuthentication.SetAuthCookie(usuario.nombre, false);
+                                Response.Redirect("~/");
                             }
                         }
                         else

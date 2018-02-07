@@ -30,6 +30,22 @@
         <div class="wrapper">
             <header>
                 <div class="container">
+                    <div class="headerTop">
+                        <div class="loginControl">
+                            <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                                <AnonymousTemplate>
+                                    <a href="~/Pages/Seguridad/FrmLogin.aspx" runat="server" id="loginLink">Ingresar</a>
+                                </AnonymousTemplate>
+                                <LoggedInTemplate>
+                                    Hola! <span class="bold">
+                                        <asp:LoginName ID="HeadLoginName" runat="server" />
+                                    </span>! [
+                                        <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="RedirectToLoginPage" LogoutText="Cerrar sesión" LogoutPageUrl="~/" OnLoggingOut="HeadLoginStatus_LoggingOut" />
+                                    ]
+                                </LoggedInTemplate>
+                            </asp:LoginView>
+                        </div>
+                    </div>
                     <dx:ASPxPanel ID="TopPanel" runat="server" ClientInstanceName="TopPanel" Width="100%" Collapsible="true">
                         <SettingsAdaptivity CollapseAtWindowInnerWidth="680" />
                         <SettingsCollapsing>
@@ -55,33 +71,12 @@
                                 <div class="panelContent">
                                     <div class="pull-right">
                                         <div class="panelItem">
-                                            <dx:ASPxMenu ID="NavMenu" runat="server" ClientInstanceName="NavMenu" EnableAnimation="true" CssClass="navMenu">
+                                            <dx:ASPxMenu ID="NavMenu" runat="server" ClientInstanceName="NavMenu" EnableAnimation="true" CssClass="navMenu" AllowSelectItem="true">
                                                 <ItemStyle Paddings-PaddingLeft="22" Paddings-PaddingRight="22" />
                                                 <Items>
                                                     <dx:MenuItem Text="INICIO" NavigateUrl="~/Pages/Home.aspx" />
                                                     <dx:MenuItem Text="BLOG" NavigateUrl="~/Pages/BlogTimeline.aspx" Visible="false" />
-                                                    <dx:MenuItem Text="CATÁLOGOS">
-                                                        <Items>
 
-                                                            <dx:MenuItem Text="MEDIO PAGO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoMedioPago.aspx" />
-
-                                                            <dx:MenuItem Text="CÓDIGO VENTA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoCondicionVenta.aspx" />
-                                                            <dx:MenuItem Text="CÓDIGO REFERENCIA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoCodigoReferencia.aspx" />
-
-                                                            <dx:MenuItem Text="EXONERACION" NavigateUrl="~/Pages/Catalogos/FrmCatalogoExoneracion.aspx" />
-
-                                                            <dx:MenuItem Text="TIPO DOCUMENTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoDocumento.aspx" />
-                                                            <dx:MenuItem Text="TIPO IDENTIFICACIÓN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoIdentificacion.aspx" />
-                                                            <dx:MenuItem Text="TIPO IMPUESTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoImpuesto.aspx" />
-                                                            <dx:MenuItem Text="TIPO MONEDA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoMoneda.aspx" />
-                                                            <dx:MenuItem Text="TIPO PRODUCTO SERVICIO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoProductoServicio.aspx" />
-
-                                                            <dx:MenuItem Text="UBICACIÓN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoUbicacion.aspx" />
-                                                            <dx:MenuItem Text="UNIDAD MEDIDA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoUnidadMedida.aspx" />
-
-
-                                                        </Items>
-                                                    </dx:MenuItem>
                                                     <dx:MenuItem Text="DOCUMENTOS">
                                                         <Items>
 
@@ -99,6 +94,28 @@
                                                         <Items>
                                                             <dx:MenuItem Text="NÚMERO DE CONSECUTIVO" NavigateUrl="~/Pages/Facturacion/FrmConsecutivoDocElectronico.aspx" />
                                                             <dx:MenuItem Text="CORREO ELECTRÓNICO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoConfiguracionCorreo.aspx" />
+                                                            <dx:MenuItem Text="CATÁLOGOS">
+                                                                <Items>
+
+                                                                    <dx:MenuItem Text="MEDIO PAGO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoMedioPago.aspx" />
+
+                                                                    <dx:MenuItem Text="CÓDIGO VENTA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoCondicionVenta.aspx" />
+                                                                    <dx:MenuItem Text="CÓDIGO REFERENCIA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoCodigoReferencia.aspx" />
+
+                                                                    <dx:MenuItem Text="EXONERACION" NavigateUrl="~/Pages/Catalogos/FrmCatalogoExoneracion.aspx" />
+
+                                                                    <dx:MenuItem Text="TIPO DOCUMENTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoDocumento.aspx" />
+                                                                    <dx:MenuItem Text="TIPO IDENTIFICACIÓN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoIdentificacion.aspx" />
+                                                                    <dx:MenuItem Text="TIPO IMPUESTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoImpuesto.aspx" />
+                                                                    <dx:MenuItem Text="TIPO MONEDA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoMoneda.aspx" />
+                                                                    <dx:MenuItem Text="TIPO PRODUCTO SERVICIO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoProductoServicio.aspx" />
+
+                                                                    <dx:MenuItem Text="UBICACIÓN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoUbicacion.aspx" />
+                                                                    <dx:MenuItem Text="UNIDAD MEDIDA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoUnidadMedida.aspx" />
+
+
+                                                                </Items>
+                                                            </dx:MenuItem>
                                                             <dx:MenuItem Text="SEGURIDAD">
                                                                 <Items>
                                                                     <dx:MenuItem Text="USUARIO" NavigateUrl="~/Pages/Seguridad/FrmSeguridadUsuario.aspx" />

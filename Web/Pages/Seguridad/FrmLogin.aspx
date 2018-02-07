@@ -50,10 +50,10 @@
                                 </dx:LayoutItemNestedControlContainer>
                             </LayoutItemNestedControlCollection>
                         </dx:LayoutItem>
-                        <dx:LayoutItem Caption="" HorizontalAlign="Center">
+                        <dx:LayoutItem Caption="" >
                             <LayoutItemNestedControlCollection>
                                 <dx:LayoutItemNestedControlContainer>
-                                    <dx:ASPxButton ID="btnLogin" runat="server" Text="Ingresar"  ValidationGroup="LoginUserValidationGroup" OnClick="btnLogin_Click">
+                                    <dx:ASPxButton ID="btnLogin" runat="server" Text="Ingresar" Width="100px"  ValidationGroup="LoginUserValidationGroup" OnClick="btnLogin_Click">
                                     </dx:ASPxButton>
                                 </dx:LayoutItemNestedControlContainer>
                             </LayoutItemNestedControlCollection>

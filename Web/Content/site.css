@@ -76,7 +76,8 @@ header.shrink {
 }
 .navMenu {
     float: right;
-    margin: 0px 0px 2px 0px;
+    /*margin: 0px 0px 2px 0px;*/
+    margin: 0px 0px 2px 20px;
 }
 .expandedPanel .navMenu {
     width: 100%;
@@ -365,4 +366,71 @@ footer h4 {
 
 .span4{
     width:100%;
+}
+
+
+
+
+/* Header */
+.dxpnl-edge.t.headerPane 
+{
+    background-color: #EDEDED;
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+.dxpnl-edge.t.headerPane.panel 
+{
+    padding: 0;
+}
+.headerMenu 
+{
+    border-width: 0!important;
+    border-top-width: 1px!important;
+}
+.expandedPanel 
+{
+    padding: 2px!important;
+}
+.expandedPanel .headerMenu 
+{
+    border-top-width: 0!important;
+}
+.expandedPanel .headerTop 
+{
+    display: none;
+}
+.templateTitle 
+{
+    float:left;
+    margin: 12px 12px 18px;
+}
+.dxpnl-edge.t.headerPane.bar .templateTitle 
+{
+    margin: 0;
+}
+.templateTitle a 
+{
+    text-decoration: none;
+    font-size: x-large;
+    color: black;
+}
+.loginControl 
+{
+    /*
+    float: right;
+    margin: 24px 25px 12px;
+    font-size: 12px;
+        */
+    float: none;
+    margin: 0px 0px -23px 101px;
+    font-size: 12px;
+    color: #c7c7c7;
+}
+.loginControl a 
+{
+     /*color: black; */
+    color: #c7c7c7;
+    text-decoration: none;
+    border-bottom: dashed 1px black;
+    display: inline-block;
 }
