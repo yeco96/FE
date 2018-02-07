@@ -21,14 +21,21 @@ namespace Web {
         {
             try {
                 Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
-                /*
-                if (!Request.Url.Segments[Request.Url.Segments.Length - 1].Contains("DefaultRedirectErrorPage"))
+                
+                if (Request.Url.ToString().Contains("Facturacion") ||
+                    Request.Url.ToString().Contains("Catalogos") ||
+                    Request.Url.ToString().Contains("Seguridad") ||
+                    Request.Url.ToString().Contains("Reportes"))
                 {
                     if (Session["usuario"] == null)
                     {
-                        Response.Redirect("~/Pages/Seguridad/Login.aspx");
+                        if (!Request.Url.ToString().Contains("FrmLogin")) {
+                            Session.RemoveAll();
+                            FormsAuthentication.SignOut();
+                            Response.Redirect("~/Pages/Seguridad/FrmLogin.aspx");
+                        }
                     }
-                }*/
+                } 
             }
             catch (Exception ex)
             {
