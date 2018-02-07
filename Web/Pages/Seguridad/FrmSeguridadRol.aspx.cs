@@ -1,4 +1,5 @@
-﻿using Class.Utilidades;
+﻿using Class.Seguridad;
+using Class.Utilidades;
 using DevExpress.Export;
 using DevExpress.Web;
 using DevExpress.XtraPrinting;
@@ -52,7 +53,7 @@ namespace Web.Pages.Seguridad
         {
             using (var conexion = new DataModelFE())
             {
-                this.ASPxGridView1.DataSource = conexion.UnidadMedida.ToList();
+                this.ASPxGridView1.DataSource = conexion.Rol.ToList();
                 this.ASPxGridView1.DataBind();
             }
         }
@@ -100,7 +101,7 @@ namespace Web.Pages.Seguridad
                 using (var conexion = new DataModelFE())
                 {
                     //se declara el objeto a insertar
-                    UnidadMedida dato = new UnidadMedida();
+                    Rol dato = new Rol();
                     //llena el objeto con los valores de la pantalla
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
@@ -110,7 +111,7 @@ namespace Web.Pages.Seguridad
                     dato.fechaCreacion = Date.DateTimeNow();
 
                     //agrega el objeto
-                    conexion.UnidadMedida.Add(dato);
+                    conexion.Rol.Add(dato);
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress
@@ -127,16 +128,10 @@ namespace Web.Pages.Seguridad
                         .Select(x => x.ErrorMessage);
 
                 // Join the list to a single string.
-                var fullErrorMessage = string.Join("; ", errorMessages);
-
-
-
-
-                // conexion.UnidadMedida.Remove(conexion.UnidadMedida.Last() );
+                var fullErrorMessage = string.Join("; ", errorMessages);  
 
                 // Throw a new DbEntityValidationException with the improved exception message.
-                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
-
+                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors); 
             }
             catch (Exception ex)
             {
@@ -161,12 +156,12 @@ namespace Web.Pages.Seguridad
                 using (var conexion = new DataModelFE())
                 {
                     // se declara el objeto a insertar
-                    UnidadMedida dato = new UnidadMedida();
+                    Rol dato = new Rol();
                     //llena el objeto con los valores de la pantalla
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
 
                     //busca el objeto 
-                    dato = conexion.UnidadMedida.Find(dato.codigo);
+                    dato = conexion.Rol.Find(dato.codigo);
 
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
                     dato.estado = e.NewValues["estado"].ToString();
@@ -181,7 +176,19 @@ namespace Web.Pages.Seguridad
                     e.Cancel = true;
                     this.ASPxGridView1.CancelEdit();
                 }
+            }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
 
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
             }
             catch (Exception ex)
             {
@@ -208,8 +215,8 @@ namespace Web.Pages.Seguridad
                     var id = e.Values["codigo"].ToString();
 
                     //busca objeto
-                    var itemToRemove = conexion.UnidadMedida.SingleOrDefault(x => x.codigo == id);
-                    conexion.UnidadMedida.Remove(itemToRemove);
+                    var itemToRemove = conexion.Rol.SingleOrDefault(x => x.codigo == id);
+                    conexion.Rol.Remove(itemToRemove);
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress

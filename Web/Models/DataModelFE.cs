@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Class.Seguridad;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -37,6 +38,8 @@ namespace Web.Models
         public virtual DbSet<TipoIdentificacion> TipoIdentificacion { get; set; }
         public virtual DbSet<TipoImpuesto> TipoImpuesto { get; set; }
         public virtual DbSet<TipoMoneda> TipoMoneda { get; set; }
+
+        public virtual DbSet<Rol> Rol { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<UnidadMedida> UnidadMedida { get; set; }
         public virtual DbSet<Ubicacion> Ubicacion { get; set; }

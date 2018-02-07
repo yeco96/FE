@@ -15,7 +15,7 @@ namespace Class.Seguridad
         [Required]
         [MaxLength(12, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         [Display(Name = "Código")]
-        public Int32 codigo { set; get; }
+        public string codigo { set; get; }
 
        
         [Required]
@@ -33,9 +33,10 @@ namespace Class.Seguridad
         public int intentos { set; get; }
 
         [Required]
+        [MaxLength(5, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         [Display(Name = "Rol")]
         [ForeignKey("Rol")]
-        public int rol { set; get; }
+        public string rol { set; get; }
 
 
         /// <summary>
@@ -43,12 +44,12 @@ namespace Class.Seguridad
         /// </summary>
         public string estado { set; get; }
 
-        [ForeignKey("UsuarioCreacion")]
+
         public string usuarioCreacion { set; get; }
 
         public DateTime? fechaCreacion { set; get; }
 
-        [ForeignKey("UsuarioModificacion")]
+
         public string usuarioModificacion { set; get; }
 
         public DateTime? fechaModificacion { set; get; }
@@ -63,8 +64,6 @@ namespace Class.Seguridad
         /// <summary>
         /// OBJETOS COMPUESTOS x
         /// </summary>
-        public virtual Usuario UsuarioCreacion { get; set; }
-        public virtual Usuario UsuarioModificacion { get; set; }
         public virtual Rol Rol { get; set; }
     }
 }

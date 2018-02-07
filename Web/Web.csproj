@@ -286,7 +286,6 @@
     <Compile Include="Models\Facturacion\EmisorReceptorIMEC.cs" />
     <Compile Include="Models\Seguridad\Rol.cs" />
     <Compile Include="Models\Seguridad\Usuario.cs" />
-    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Catalogos\TipoMoneda.cs" />
     <Compile Include="Pages\BlogPost.aspx.cs">
       <DependentUpon>BlogPost.aspx</DependentUpon>

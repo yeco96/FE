@@ -1,4 +1,5 @@
-﻿using Class.Utilidades;
+﻿using Class.Seguridad;
+using Class.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
