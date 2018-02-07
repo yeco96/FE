@@ -43,10 +43,10 @@
                             <li>Planes Prepago</li>  
                             <li>Plan Profesional Ilimitado</li>  
                             <li>Plan Pymes</li>
-                            <li>Plan Plan Cliente Jurídico I y II</li>
+                            <li>Plan Cliente Jurídico I y II</li>
                             <li>Planes Empresariales</li>
                         </ul></p>
-                        <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" <a href="PlanesDoc.aspx">Planes</a></a></p>
+                        <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary"<a href="PlanesDoc.aspx">Planes</a></a></p>
                     </div>
                 </div>
             </div>

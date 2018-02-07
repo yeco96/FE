@@ -86,7 +86,7 @@
                             <li>Facturas, NC y ND</li> 
                             <li>1 emisor</li>
                             <p>¿Para quién es?</p>
-                            <p>Enfocado en Profesionales independientes</p>
+                            <p>Enfocado para todos los Profesionales independientes o PYMES</p>
                             <li>Válido por año desde la compra</li> 
                         </ul></p>
                         <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="http://msasoft.net" style="pull-right">Comprar</a></p>              
@@ -100,7 +100,7 @@
                         <div class="text-box-heading">¢10,000.00 Mensual-¢100,000.00 anual</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
                            <p><ul>  
-                            <li> 250 Documentose electrónicos mensuales o 3000 anuales</li>                         
+                            <li> 250 Documentose mensuales</li>                         
                             <li>Facturas, NC y ND</li> 
                             <li>1 emisor</li>
                             <p>¿Para quién es?</p>

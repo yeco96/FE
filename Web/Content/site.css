@@ -6,7 +6,7 @@ body {
     padding: 0;
     -ms-overflow-style: scrollbar;
 }
-.aspnetForm {
+.active {
     height: 100%;
 }
 header {
@@ -340,6 +340,7 @@ footer h4 {
     padding: 10px 12px;
     background: #8ec63f;
     color: #fff;
+    text-align:center
 }
 
 .text-box {
