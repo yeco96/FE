@@ -94,8 +94,8 @@ namespace Web.Pages.Facturacion
             if (Session["informacionReferencia"] != null)
             {  
                 List<InformacionReferencia> informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
-                this.ASPxGridView1.DataSource = informacionReferencia;
-                this.ASPxGridView1.DataBind();
+                this.ASPxGridView2.DataSource = informacionReferencia;
+                this.ASPxGridView2.DataBind();
             }
         }
 
@@ -207,7 +207,7 @@ namespace Web.Pages.Facturacion
 
 
                 /* CODIGO REFERENCIA */
-                GridViewDataComboBoxColumn comboCodigo = this.ASPxGridView2.Columns["comboCodigo"] as GridViewDataComboBoxColumn;
+                GridViewDataComboBoxColumn comboCodigo = this.ASPxGridView2.Columns["codigo"] as GridViewDataComboBoxColumn;
                 foreach (var item in conexion.CodigoReferencia.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
                 {
                     comboCodigo.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
@@ -907,11 +907,28 @@ namespace Web.Pages.Facturacion
                     //se declara el objeto a insertar
                     InformacionReferencia dato = new InformacionReferencia();
                     //llena el objeto con los valores de la pantalla
-                    string clave = e.NewValues["numero"] != null ? e.NewValues["numero"].ToString().ToUpper() : null;
-                    WSRecepcionPOST documento = conexion.WSRecepcionPOST.Find(clave);
+                    string clave = e.NewValues["numero"] != null ? e.NewValues["numero"].ToString().ToUpper() : "";
+                    WSRecepcionPOST documento = null;
 
-                    dato.fechaEmision = ((DateTime) documento.fecha).ToString("yyyy-MM-ddTHH:mm:ss-06:00");
-                    dato.tipoDocumento = documento.tipoDocumento;
+                    if (clave.Length == 20)
+                    {
+                        documento = conexion.WSRecepcionPOST.Where(x=>x.numeroConsecutivo == clave).FirstOrDefault();
+                    }
+                    else
+                    {
+                        documento = conexion.WSRecepcionPOST.Find(clave); 
+                    }
+
+                    if (documento != null)
+                    {
+                        dato.fechaEmision = ((DateTime)documento.fecha).ToString("yyyy-MM-ddTHH:mm:ss-06:00");
+                        dato.tipoDocumento = documento.tipoDocumento;
+                    }
+                    else
+                    {
+                        dato.fechaEmision = e.NewValues["fechaEmision"] != null ? e.NewValues["fechaEmision"].ToString() : ""; ;
+                        dato.tipoDocumento = e.NewValues["tipoDocumento"] != null ? e.NewValues["tipoDocumento"].ToString().ToUpper() : ""; ;
+                    }
 
                     dato.razon = e.NewValues["razon"] != null ? e.NewValues["razon"].ToString().ToUpper() : null;
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
@@ -919,6 +936,7 @@ namespace Web.Pages.Facturacion
                     //agrega el objeto
                     informacionReferencia.Add(dato);
                     Session["informacionReferencia"] = detalleServicio;
+                    
                 }
 
                 //esto es para el manero del devexpress
@@ -959,8 +977,8 @@ namespace Web.Pages.Facturacion
 
         protected void ASPxGridView2_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
         {
-            if (e.Column.FieldName == "tipoDocumento") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
-            if (e.Column.FieldName == "fechaEmision") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+            if (e.Column.FieldName == "tipoDocumento") { e.Editor.Value = 1; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+            if (e.Column.FieldName == "fechaEmision") {  e.Editor.BackColor = System.Drawing.Color.LightGray; }
         }
     }
 }
