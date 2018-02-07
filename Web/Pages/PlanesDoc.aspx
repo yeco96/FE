@@ -1,7 +1,7 @@
 <%@ Page Title="" Language="C#" AutoEventWireup="true" MasterPageFile="~/Layout.master" CodeBehind="PlanesDoc.aspx.cs" Inherits="Web.PlanesDoc" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
-    <div class="container-fluid">
+     <div class="container-fluid">
         <div class="row">
             <dx:ASPxImageSlider ID="ImageSlider" runat="server" Width="100%" Height="400px" ImageSourceFolder="~/Content/Images/Components">
                 <SettingsImageArea ImageSizeMode="FillAndCrop" NavigationButtonVisibility="Always" EnableLoopNavigation="true" />
@@ -23,8 +23,8 @@
                 
                 <div class="span4">
                     <div class="text-box">
-                        <div class="text-box-heading">PLAN PREPAGO 1</div>
-                        <div class="text-box-heading">¢10,000.00 anual</div>
+                        <div style="text-align: center"; class="text-box-heading">PLAN PREPAGO 1</div>
+                        <div style="text-align: center"; class="text-box-heading">¢10,000.00 ANUAL</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
                            <p><ul>  
                             <li>20 Documentos electrónicos</li>                         
@@ -43,8 +43,8 @@
                 
                 <div class="span4">
                     <div class="text-box">
-                        <div class="text-box-heading">PLAN PREPAGO 2</div>
-                        <div class="text-box-heading">¢15,000.00 anual</div>
+                        <div style="text-align: center"; class="text-box-heading">PLAN PREPAGO 2</div>
+                        <div style="text-align: center"; class="text-box-heading">¢15,000.00 ANUAL</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
                            <p><ul>  
                             <li>50 Documentos electrónicos</li>                         
@@ -61,8 +61,8 @@
              <div class="col-md-4 media">                
                 <div class="span4">
                     <div class="text-box">
-                        <div class="text-box-heading">PLAN PREPAGO 3</div>
-                        <div class="text-box-heading">¢20,000.00 anual</div>
+                        <div style="text-align: center"; class="text-box-heading">PLAN PREPAGO 3</div>
+                        <div style="text-align: center"; class="text-box-heading">¢20,000.00 ANUAL</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
                            <p><ul>  
                             <li>100 Documentos electrónicos</li>                         
@@ -72,14 +72,14 @@
                             <p>Enfocado en Profesionales independientes y pequeños empresarios que facturen como persona Física</p>
                             <li>Válido por año desde la compra o hasta agotar la cantidad de documentos</li> 
                         </ul></p> <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="http://msasoft.net" style="pull-right">Comprar</a></p>              
-                    </div>
+                    </div> 
                 </div>
             </div>
                <div class="col-md-4 media">                
                 <div class="span4">
                     <div class="text-box">
-                        <div class="text-box-heading">PLAN PROFESIONAL ILIMITADO</div>
-                        <div class="text-box-heading">¢6,000.00 Mensual-¢50,000.00 anual</div>
+                        <div style="text-align: center"; class="text-box-heading">PLAN PROFESIONAL ILIMITADO</div>
+                        <div style="text-align: center"; class="text-box-heading">¢6,000.00 MENSUAL- ¢50,000.00 ANUAL</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
                            <p><ul>  
                             <li>Documentos Sin Límite</li>                         
@@ -96,8 +96,8 @@
               <div class="col-md-4 media">                
                 <div class="span4">
                     <div class="text-box">
-                        <div class="text-box-heading">PLAN PYMES</div>
-                        <div class="text-box-heading">¢10,000.00 Mensual-¢100,000.00 anual</div>
+                        <div style="text-align: center"; class="text-box-heading">PLAN PYMES</div>
+                        <div style="text-align: center"; class="text-box-heading">¢10,000.00 MENSUAL-¢100,000.00 ANUAL</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
                            <p><ul>  
                             <li> 250 Documentose mensuales</li>                         
@@ -114,8 +114,8 @@
              <div class="col-md-4 media">                
                 <div class="span4">
                     <div class="text-box">
-                        <div class="text-box-heading">PLAN CLIENTE JURÍDICO 1</div>
-                        <div class="text-box-heading">¢20,000.00 Mensual-¢200,000.00 anual</div>
+                        <div style="text-align: center"; class="text-box-heading">PLAN CLIENTE JURÍDICO 1</div>
+                        <div style="text-align: center"; class="text-box-heading">¢20,000.00 MENSUAL-¢200,000.00 ANUAL</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
                            <p><ul>  
                             <li> 500 Documentos mensuales</li>                         
@@ -132,8 +132,8 @@
              <div class="col-md-4 media">                
                 <div class="span4">
                     <div class="text-box">
-                        <div class="text-box-heading">PLAN CLIENTE JURÍDICO 2</div>
-                        <div class="text-box-heading">¢30,000.00 Mensual-¢300,000.00 anual</div>
+                        <div style="text-align: center"; class="text-box-heading">PLAN CLIENTE JURÍDICO 2</div>
+                        <div style="text-align: center"; class="text-box-heading">¢30,000.00 MENSUAL-¢300,000.00 ANUAL</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
                            <p><ul>  
                             <li> 1000 Documentos mensuales</li>                         
@@ -151,7 +151,7 @@
         <section>
             <div class="row marginTop20">
                 <div class="col-md-12">
-                    <h3>Para aquellos clientes que facturan una cantidad superior indicada antes existen planes por documento emitido, por favor comunicarse con MSASOFT + (506) 8872 9065 o escribamos al correo msalamanca@msasoft.net</h3>
+                    <h3>Para aquellos clientes que facturan una cantidad superior a la indicada en los planes, por favor comunicarse con MSASOFT + (506) 8872 9065 o escribamos al correo msalamanca@msasoft.net</h3>
                     <p></p>
                 </div>
             </div>
