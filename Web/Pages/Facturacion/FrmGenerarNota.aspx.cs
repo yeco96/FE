@@ -84,6 +84,7 @@ namespace Web.Pages.Facturacion
                     // deja el monto neto facturado
                     foreach (var item in factura.detalleServicio.lineaDetalle)
                     {
+                        item.precioUnitario = item.precioUnitario - item.montoDescuento;
                         item.montoDescuento = 0;
                         item.calcularMontos();
                     }

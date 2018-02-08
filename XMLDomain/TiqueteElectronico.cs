@@ -144,6 +144,12 @@ namespace XMLDomain
                 this.receptor.ubicacion = null;
             }
 
+            /* INFORMACION DE REFERENCIA */
+            if (string.IsNullOrWhiteSpace(this.informacionReferencia.numero))
+            {
+                this.informacionReferencia = null;
+            }
+
             /* LINEA DE DETALLES (IMPUESTOS) */
             int numeroLinea = 1;
             foreach (var item in this.detalleServicio.lineaDetalle)

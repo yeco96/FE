@@ -148,6 +148,8 @@ namespace Web.Pages.Facturacion
                             dato.montoTotalImpuesto = mensajeHacienda.montoTotalImpuesto;
                             conexionWS.Entry(dato).State = EntityState.Modified;
                             conexionWS.SaveChanges();
+
+                            Session["indEstado"] = dato.indEstado;
                         }
                     }
                     else

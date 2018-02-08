@@ -35,11 +35,11 @@ header.shrink {
 .title a {
     font-weight:600;
     font-size: 1.8em;
-    color: #c7c7c7;
+    color: #8f8686;
     text-decoration: none;
 }
 .title p {
-    color: #b2b2b2;
+    color: #8f8686;
     margin: 0;
 }
 .expandBar {
@@ -120,7 +120,7 @@ header.shrink {
 }
 .btnBackToTop i {
     font-size: 60px;
-    color: #c7c7c7;
+    color: #8f8686;
 }
 .btnBackToTop i:hover {
     color: #e0e0e0;
@@ -425,12 +425,12 @@ footer h4 {
     float: none;
     margin: 0px 0px -23px 101px;
     font-size: 12px;
-    color: #c7c7c7;
+    color: #8f8686;
 }
 .loginControl a 
 {
-     /*color: black; */
-    color: #c7c7c7;
+     /*color: black;  c7c7c7*/
+    color: #8f8686 ;
     text-decoration: none;
     border-bottom: dashed 1px black;
     display: inline-block;

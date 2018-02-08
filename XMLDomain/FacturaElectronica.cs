@@ -19,8 +19,8 @@ namespace XMLDomain
             this.receptor = new Receptor();
             this.detalleServicio = new DetalleServicio();
             this.resumenFactura = new ResumenFactura();
-            this.normativa = new Normativa(); 
-
+            this.normativa = new Normativa();
+            this.informacionReferencia = new InformacionReferencia();
             this.otros = new Otros();
         }
 
@@ -142,6 +142,12 @@ namespace XMLDomain
                 )
             {
                 this.receptor.ubicacion = null;
+            }
+
+            /* INFORMACION DE REFERENCIA */
+            if (string.IsNullOrWhiteSpace(this.informacionReferencia.numero))
+            {
+                this.informacionReferencia = null;
             }
 
             /* LINEA DE DETALLES (IMPUESTOS) */

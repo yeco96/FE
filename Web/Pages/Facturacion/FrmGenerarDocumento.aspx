@@ -365,15 +365,15 @@
                                         <dx:GridViewCommandColumn Width="100px" ButtonType="Image" ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
                                         </dx:GridViewCommandColumn>
 
-                                         <dx:GridViewDataComboBoxColumn Caption="Tipo Documento" FieldName="tipoDocumento" VisibleIndex="1" PropertiesComboBox-ClientSideEvents-ValueChanged="function(s,e){cambioPrecio(s,e);}"
+                                        <dx:GridViewDataComboBoxColumn Caption="Tipo Documento" FieldName="tipoDocumento" VisibleIndex="1" PropertiesComboBox-ClientSideEvents-ValueChanged="function(s,e){cambioPrecio(s,e);}"
                                             PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                                         </dx:GridViewDataComboBoxColumn>
 
-                                        <dx:GridViewDataSpinEditColumn Caption="Número" FieldName="numero" VisibleIndex="2" PropertiesSpinEdit-MaxLength="50" 
-                                            PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
-                                        </dx:GridViewDataSpinEditColumn>
+                                        <dx:GridViewDataTextColumn Caption="Número" FieldName="numero" VisibleIndex="2" PropertiesTextEdit-MaxLength="50"  PropertiesTextEdit-MaskSettings-Mask="##################################################"
+                                            PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                        </dx:GridViewDataTextColumn>
                                          
-                                       <dx:GridViewDataDateColumn Caption="Fecha Emisión" FieldName="fechaEmision" VisibleIndex="3"  PropertiesDateEdit-DisplayFormatString="yyyy-MM-ddTHH:mm:ss-06:00"
+                                       <dx:GridViewDataDateColumn Caption="Fecha Emisión" FieldName="fechaEmision" VisibleIndex="3"  PropertiesDateEdit-DisplayFormatString="yyyy-MM-ddTHH:mm:ss-06:00"  PropertiesDateEdit-DisplayFormatInEditMode="true"
                                             PropertiesDateEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesDateEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                                         </dx:GridViewDataDateColumn>
                                          
@@ -617,12 +617,21 @@
                                             <PropertiesSpinEdit DisplayFormatString="c2" NumberFormat="Custom" DecimalPlaces="2" MaxValue="999999999999" MaxLength="10">
                                             </PropertiesSpinEdit>
                                         </dx:GridViewDataSpinEditColumn>
+
+
+                                          <dx:GridViewDataSpinEditColumn Caption="Total + Impuestos" FieldName="montoTotalLinea" VisibleIndex="8" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
+                                            PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="c2"
+                                            PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                            <PropertiesSpinEdit DisplayFormatString="c2" NumberFormat="Custom" DecimalPlaces="2" MaxValue="999999999999" MaxLength="10">
+                                            </PropertiesSpinEdit>
+                                        </dx:GridViewDataSpinEditColumn>
                                          
                                     </Columns>
                                     <TotalSummary>
                                         <dx:ASPxSummaryItem FieldName="subTotal" SummaryType="Sum" />
                                         <dx:ASPxSummaryItem FieldName="montoDescuento" SummaryType="Sum" />
                                         <dx:ASPxSummaryItem FieldName="montoTotal" SummaryType="Sum" />
+                                        <dx:ASPxSummaryItem FieldName="montoTotalLinea" SummaryType="Sum" />
                                     </TotalSummary>
 
                                     <SettingsBehavior ColumnResizeMode="NextColumn" />

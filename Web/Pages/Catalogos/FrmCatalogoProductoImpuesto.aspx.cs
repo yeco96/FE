@@ -159,12 +159,7 @@ namespace Web.Pages.Catalogos
 
                 // Join the list to a single string.
                 var fullErrorMessage = string.Join("; ", errorMessages);
-
                 
-                
-
-               // conexion.ProductoImpuesto..Remove(conexion.ProductoImpuesto..Last() );
-
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
 
@@ -199,7 +194,7 @@ namespace Web.Pages.Catalogos
 
                     object[] key = new object[] { dato.idProducto, dato.tipoImpuesto};
                     //busca el objeto 
-                    dato = conexion.ProductoImpuesto.Find(key);
+                    dato = conexion.ProductoImpuesto.Where(x=>x.idProducto == dato.idProducto).Where(x => x.tipoImpuesto == dato.tipoImpuesto).FirstOrDefault();
                    
                     dato.porcentaje = e.NewValues["porcentaje"] != null ? decimal.Parse(e.NewValues["porcentaje"].ToString()) : 0;
                     dato.emisor = ((EmisorReceptorIMEC)Session["emisor"]).identificacion;
@@ -216,6 +211,20 @@ namespace Web.Pages.Catalogos
                     this.ASPxGridView1.CancelEdit();
                     ((ASPxGridView)sender).JSProperties["cpUpdatedMessage"] = "Los datos se modificaron correctamente, puede continuar.";
                 }
+
+            }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
 
             }
             catch (Exception ex)
@@ -248,7 +257,7 @@ namespace Web.Pages.Catalogos
 
 
                     //busca objeto
-                    var itemToRemove = conexion.ProductoImpuesto.Find(key);
+                    var itemToRemove = conexion.ProductoImpuesto.Where(x => x.idProducto == idProducto).Where(x => x.tipoImpuesto == tipoImpuesto).FirstOrDefault(); 
                     conexion.ProductoImpuesto.Remove(itemToRemove);
                     conexion.SaveChanges();
 
@@ -258,6 +267,20 @@ namespace Web.Pages.Catalogos
 
                     ((ASPxGridView)sender).JSProperties["cpUpdatedMessage"] = "Los datos se eliminaron correctamente, puede continuar.";
                 }
+
+            }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
 
             }
             catch (Exception ex)

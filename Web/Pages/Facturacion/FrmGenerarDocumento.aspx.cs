@@ -49,7 +49,7 @@ namespace Web.Pages.Facturacion
                 {
                     this.txtFechaEmision.Date = Date.DateTimeNow();
                     this.cmbTipoMoneda.Value = TipoMoneda.CRC;
-                    this.txtTipoCambio.Text = "0";
+                    this.txtTipoCambio.Text = "1";
                     this.loadComboBox();
 
                     this.detalleServicio = new DetalleServicio();
@@ -391,7 +391,7 @@ namespace Web.Pages.Facturacion
             if (TipoMoneda.CRC.Equals(this.cmbTipoMoneda.Value.ToString()))
             {
                 this.txtTipoCambio.Enabled = false;
-                this.txtTipoCambio.Value = 0;
+                this.txtTipoCambio.Value = 1;
             }
             else
             {
@@ -429,12 +429,14 @@ namespace Web.Pages.Facturacion
             {
                 if (e.Column.FieldName == "subTotal") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
                 if (e.Column.FieldName == "montoTotal") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+                if (e.Column.FieldName == "montoTotalLinea") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
                 if (e.Column.FieldName == "montoDescuento") { e.Editor.Value = 0; }
-                if (e.Column.FieldName == "precioUnitario") { e.Editor.Value = 0; }
+                if (e.Column.FieldName == "precioUnitario") { e.Editor.Value = 0; } 
                 if (e.Column.FieldName == "naturalezaDescuento") { e.Editor.Value = "N/A"; }
             }
             else
             {
+                if (e.Column.FieldName == "montoTotalLinea") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
                 if (e.Column.FieldName == "subTotal") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
                 if (e.Column.FieldName == "montoTotal") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
                 if (e.Column.FieldName == "producto") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
@@ -503,13 +505,14 @@ namespace Web.Pages.Facturacion
                         throw new Exception("El descuento no puede ser mayor al total de la linea");
                     }
 
+                    dato.calcularMontos();
                     dato.impuestos.Clear();
                     foreach (var item in conexion.ProductoImpuesto.Where(x=>x.idProducto== producto.id))
                     { 
-                        dato.impuestos.Add(new Impuesto(item.tipoImpuesto,item.porcentaje,dato.montoTotal));
-                    } 
-
+                        dato.impuestos.Add(new Impuesto(item.tipoImpuesto,item.porcentaje,dato.subTotal));
+                    }
                     dato.calcularMontos();
+
 
                     dato.naturalezaDescuento = e.NewValues["naturalezaDescuento"] != null ? e.NewValues["naturalezaDescuento"].ToString().ToUpper() : null;
                     dato.naturalezaDescuento = dato.naturalezaDescuento;
@@ -577,8 +580,15 @@ namespace Web.Pages.Facturacion
                     dato.producto = producto.codigo;/*solo para uso del grid*/
                     dato.precioUnitario = precio;
                     dato.montoDescuento = e.NewValues["montoDescuento"] != null ? decimal.Parse(e.NewValues["montoDescuento"].ToString()) : 0;
-                    dato.montoTotal = dato.subTotal - dato.montoDescuento;
+                   
                     dato.calcularMontos();
+                    dato.impuestos.Clear();
+                    foreach (var item in conexion.ProductoImpuesto.Where(x => x.idProducto == producto.id))
+                    {
+                        dato.impuestos.Add(new Impuesto(item.tipoImpuesto, item.porcentaje, dato.subTotal));
+                    }
+                    dato.calcularMontos();
+
 
                     dato.naturalezaDescuento = e.NewValues["naturalezaDescuento"] != null ? e.NewValues["naturalezaDescuento"].ToString().ToUpper() : null;
                     dato.naturalezaDescuento = dato.naturalezaDescuento;
@@ -715,6 +725,12 @@ namespace Web.Pages.Facturacion
                     dato.resumenFactura.tipoCambio = decimal.Parse(this.txtTipoCambio.Text); 
                     dato.resumenFactura.codigoMoneda = this.cmbTipoMoneda.Value.ToString();
                     dato.resumenFactura.calcularResumenFactura(dato.detalleServicio.lineaDetalle);
+
+                    /* INFORMACION DE REFERENCIA */
+                    this.informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
+                    if (this.informacionReferencia.Count > 0) {
+                        dato.informacionReferencia = this.informacionReferencia[0];
+                    }
 
                     /* VERIFICA VACIOS PARA XML */
                     dato.verificaDatosParaXML();
@@ -880,6 +896,9 @@ namespace Web.Pages.Facturacion
                         string elReceptor = this.txtReceptorIdentificacion.Text;
                         EmisorReceptorIMEC receptor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == elReceptor).FirstOrDefault();
                         this.loadReceptor(receptor);
+
+                        this.alertMessages.Attributes["class"] = "alert alert-info";
+                        this.alertMessages.InnerText = "Datos del receptor cargados correctamente";
                     }
 
                 }
@@ -893,7 +912,30 @@ namespace Web.Pages.Facturacion
 
         protected void ASPxGridView2_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)
         {
+            try
+            {
+                using (var conexion = new DataModelFE())
+                {
+                    List<InformacionReferencia> informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
+                    var id = e.Values["numero"].ToString();
+                    InformacionReferencia dato = informacionReferencia.Where(x => x.numero == id).FirstOrDefault();
+                    informacionReferencia.Remove(dato);
 
+                    //esto es para el manero del devexpress
+                    e.Cancel = true;
+                    this.ASPxGridView2.CancelEdit();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+            }
+            finally
+            {
+                //refescar los datos
+                this.refreshData();
+            }
         }
 
         protected void ASPxGridView2_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
@@ -912,7 +954,7 @@ namespace Web.Pages.Facturacion
 
                     if (clave.Length == 20)
                     {
-                        documento = conexion.WSRecepcionPOST.Where(x=>x.numeroConsecutivo == clave).FirstOrDefault();
+                        documento = conexion.WSRecepcionPOST.Where(x=>x.clave == clave.Substring(21,20)).FirstOrDefault();
                     }
                     else
                     {
@@ -926,22 +968,23 @@ namespace Web.Pages.Facturacion
                     }
                     else
                     {
-                        dato.fechaEmision = e.NewValues["fechaEmision"] != null ? e.NewValues["fechaEmision"].ToString() : ""; ;
+                        dato.fechaEmision = e.NewValues["fechaEmision"] != null ? DateTime.Parse(e.NewValues["fechaEmision"].ToString()).ToString("yyyy-MM-ddTHH:mm:ss-06:00") : "";
                         dato.tipoDocumento = e.NewValues["tipoDocumento"] != null ? e.NewValues["tipoDocumento"].ToString().ToUpper() : ""; ;
                     }
 
+                    dato.numero = clave;
                     dato.razon = e.NewValues["razon"] != null ? e.NewValues["razon"].ToString().ToUpper() : null;
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
 
                     //agrega el objeto
                     informacionReferencia.Add(dato);
-                    Session["informacionReferencia"] = detalleServicio;
+                    Session["informacionReferencia"] = informacionReferencia;
                     
                 }
 
                 //esto es para el manero del devexpress
                 e.Cancel = true;
-                this.ASPxGridView1.CancelEdit();
+                this.ASPxGridView2.CancelEdit();
 
 
             }
@@ -972,13 +1015,65 @@ namespace Web.Pages.Facturacion
 
         protected void ASPxGridView2_RowUpdating(object sender, DevExpress.Web.Data.ASPxDataUpdatingEventArgs e)
         {
+            try
+            {
+                using (var conexion = new DataModelWS())
+                {
+                    List<InformacionReferencia> informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
 
+                    //se declara el objeto a insertar
+                    InformacionReferencia dato = new InformacionReferencia();
+                    //llena el objeto con los valores de la pantalla
+                    string clave = e.NewValues["numero"] != null ? e.NewValues["numero"].ToString().ToUpper() : "";
+                    
+                    dato = informacionReferencia.Where(x => x.numero == clave).FirstOrDefault();
+                    
+                    dato.fechaEmision = e.NewValues["fechaEmision"] != null ?  DateTime.Parse(e.NewValues["fechaEmision"].ToString()).ToString("yyyy-MM-ddTHH:mm:ss-06:00") : ""; 
+                    dato.tipoDocumento = e.NewValues["tipoDocumento"] != null ? e.NewValues["tipoDocumento"].ToString().ToUpper() : ""; ;
+                    
+                    dato.razon = e.NewValues["razon"] != null ? e.NewValues["razon"].ToString().ToUpper() : null;
+                    dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
+
+                    //modifica el objeto
+                    Session["informacionReferencia"] = informacionReferencia;
+                }
+
+                //esto es para el manero del devexpress
+                e.Cancel = true;
+                this.ASPxGridView2.CancelEdit();
+
+
+            }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+            }
+            finally
+            {
+                //refescar los datos
+                this.refreshData();
+            }
         }
 
         protected void ASPxGridView2_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
         {
-            if (e.Column.FieldName == "tipoDocumento") { e.Editor.Value = 1; e.Editor.BackColor = System.Drawing.Color.LightGray; }
-            if (e.Column.FieldName == "fechaEmision") {  e.Editor.BackColor = System.Drawing.Color.LightGray; }
+            if (e.Column.FieldName == "tipoDocumento") { e.Editor.Value = "01"; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+            if (e.Column.FieldName == "fechaEmision") { e.Editor.Value = Date.DateTimeNow(); e.Editor.BackColor = System.Drawing.Color.LightGray; }
+            if (e.Column.FieldName == "razon") { e.Editor.Value = "DETALLE DE REFERENCIA"; e.Editor.BackColor = System.Drawing.Color.LightGray; }
         }
     }
 }

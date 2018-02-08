@@ -54,10 +54,12 @@ namespace XMLDomain
         /// <param name="montoDetalle">monto de la linea de detalle</param>
         public Impuesto(string codigo, decimal tarifa, decimal montoDetalle)
         {
+            this.codigo = codigo;
+            this.tarifa = tarifa;
             this.exoneracion = new Exoneracion();
             if (tarifa > 0)
             {
-                this.monto = (tarifa / 100) * montoDetalle;
+                this.monto = (this.tarifa / 100) * montoDetalle;
             }
             else
             {
