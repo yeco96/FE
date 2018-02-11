@@ -82,6 +82,9 @@ namespace XMLDomain
                 resumenFactura.tipoCambio = resumenFactura.tipoCambio / 100;
             }
 
+            /*CLAVE RESUMEN*/
+            resumenFactura.clave = clave;
+
         }
 
 

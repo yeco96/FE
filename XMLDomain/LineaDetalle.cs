@@ -107,18 +107,20 @@ namespace XMLDomain
         /// </summary>
         public void verificaDatosParaXML()
         {
-            if (this.impuestos.Count == 0)
+            if (this.impuestos != null)
             {
-                this.impuestos = null;
-            }
-            else
-            {
-                foreach (var item in this.impuestos)
+                if (this.impuestos.Count == 0)
                 {
-                    item.verificaDatosParaXML();
-                } 
+                    this.impuestos = null;
+                }
+                else
+                {
+                    foreach (var item in this.impuestos)
+                    {
+                        item.verificaDatosParaXML();
+                    }
+                }
             }
-
         }
     }
 }

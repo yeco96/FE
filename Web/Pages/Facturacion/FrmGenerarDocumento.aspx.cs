@@ -747,10 +747,9 @@ namespace Web.Pages.Facturacion
                     consecutivo.consecutivo += 1;
                     conexion.Entry(consecutivo).State = EntityState.Modified;
                     conexion.SaveChanges();
-
-                    string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
+                     
                     //string xmlSigned = FirmaXML.getXMLFirmadoWeb(xml, elEmisor.llaveCriptografica, elEmisor.claveLlaveCriptografica);
-                    string responsePost = await Services.enviarDocumentoElectronico(false, xml, elEmisor, this.cmbTipoDocumento.Value.ToString(), Session["usuario"].ToString());
+                    string responsePost = await Services.enviarDocumentoElectronico(false, dato, elEmisor, this.cmbTipoDocumento.Value.ToString(), Session["usuario"].ToString());
 
                     if (responsePost.Equals("Success"))
                     {
@@ -761,7 +760,7 @@ namespace Web.Pages.Facturacion
                         {
                             Utilidades.sendMail(dato.receptor.correoElectronico,
                                 string.Format("{0} - {1}", dato.numeroConsecutivo, elReceptor.nombre),
-                                Utilidades.mensageGenerico(), "Documento Electrónico", xml, dato.numeroConsecutivo, dato.clave);
+                                Utilidades.mensageGenerico(), "Documento Electrónico", EncodeXML.EncondeXML.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave);
                         }
                     }
                     else if (responsePost.Equals("Error"))

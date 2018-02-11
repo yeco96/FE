@@ -4,11 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace XMLDomain
 {
-   public class ResumenFactura
+
+
+    [Table("ws_resumen_factura")]
+    public class ResumenFactura
     {
+
+        [Key]
+        [XmlIgnore]
+        public string clave { set; get; }
+
         [XmlElement(ElementName = "CodigoMoneda", Order = 1)]
         public string codigoMoneda { set; get; }//tamaño 3  DGT
         [XmlElement(ElementName = "TipoCambio", Order = 2)]
@@ -83,7 +93,7 @@ namespace XMLDomain
         [XmlElement(ElementName = "TotalComprobante", Order = 13)]
         public decimal totalComprobante { set; get; }//tamaño 18,5  DGT
 
-        
+
         public ResumenFactura() { }
 
 
@@ -109,13 +119,13 @@ namespace XMLDomain
                     }
                     //sin IV
                     totalServExentos += linea.montoTotal;
-                } 
+                }
                 else//con IV
                 {
                     totalServGravados += linea.montoTotal;
                 }
                 totalDescuentos += linea.montoDescuento;
-                
+
             }
             totalGravado = totalServGravados + totalMercanciasGravadas;
             totalExento = totalServExentos + totalMercanciasExentas;

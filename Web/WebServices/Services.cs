@@ -17,6 +17,8 @@ using WSDomain;
 using FirmaXadesNet;
 using Newtonsoft.Json;
 using System.Data.Entity;
+using XMLDomain;
+using System.Data.Entity.Validation;
 
 namespace Web.WebServices
 {
@@ -151,14 +153,16 @@ namespace Web.WebServices
         /// 
         /// </summary>
         /// <param name="tieneFirma">determina si el XML esta firmado o no</param>
-        /// <param name="xmlFile">XML</param>
+        /// <param name="documento">puede ser cualquer tipo de documento electronico</param>
         /// <param name="responsePost">respuesta del webs ervices</param>
         /// <param name="tipoDocumento">Facura, Nota Crédito, Nota Débito</param> 
-        public static  async Task<string> enviarDocumentoElectronico(bool tieneFirma,string xmlFile, EmisorReceptorIMEC emisor, string tipoDocumento, string usuario)
+        public static  async Task<string> enviarDocumentoElectronico(bool tieneFirma,DocumentoElectronico documento, EmisorReceptorIMEC emisor, string tipoDocumento, string usuario)
         {
             String responsePost = "";
             try
             {
+                string xmlFile = EncodeXML.EncondeXML.getXMLFromObject(documento);
+
                 using (var conexion = new DataModelOAuth2())
                 {
                     string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
@@ -212,7 +216,9 @@ namespace Web.WebServices
                             trama.usuarioModificacion = usuario;
                             trama.indEstado = 0;
                             trama.cargarEmisorReceptor();
-                            conexionWS.Entry(tramaExiste).State = EntityState.Modified; 
+                            conexionWS.Entry(tramaExiste).State = EntityState.Modified;
+                            documento.resumenFactura.clave = documento.clave;
+                            conexionWS.Entry(documento.resumenFactura).State = EntityState.Modified; 
                         }
                         else//si no existe
                         {
@@ -220,11 +226,25 @@ namespace Web.WebServices
                             trama.usuarioCreacion = usuario;
                             trama.cargarEmisorReceptor();
                             conexionWS.WSRecepcionPOST.Add(trama);
+                            documento.resumenFactura.clave = documento.clave;
+                            conexionWS.ResumenFactura.Add(documento.resumenFactura); 
                         }
                         conexionWS.SaveChanges();
                     }
 
                 }
+            }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
             }
             catch (Exception ex)
             {

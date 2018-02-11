@@ -115,6 +115,7 @@ namespace XMLDomain
         /// </summary>
         public override void verificaDatosParaXML()
         {
+            
             /* RECEPTOR */
             if (string.IsNullOrWhiteSpace(this.emisor.fax.codigoPais) || string.IsNullOrWhiteSpace(this.emisor.fax.numTelefono))
             {
@@ -165,7 +166,8 @@ namespace XMLDomain
             {
                 resumenFactura.tipoCambio = resumenFactura.tipoCambio / 100;
             }
-
+            /*CLAVE RESUMEN*/
+            resumenFactura.clave = clave;
         }
 
     }

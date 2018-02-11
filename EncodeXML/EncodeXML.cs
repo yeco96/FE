@@ -155,6 +155,88 @@ namespace EncodeXML
 
 
 
+
+        /// <summary>
+        /// tranforma un XML a su objeto correspondiente mapeado
+        /// </summary>
+        /// <param name="xml">XML con la data</param> 
+        /// <returns></returns>
+        public static Object getObjetcFromXML(string xml)
+        {
+            StringReader strReader = null;
+            XmlSerializer serializer = null;
+            XmlTextReader xmlReader = null;
+            Object obj = null;
+            Type objectType = null;
+
+            try
+            {
+                string nodoInicial = "";
+                string nodoFinal = "";
+
+                if (xml.Contains("FacturaElectronica"))
+                {
+                    nodoInicial = "<FacturaElectronica>";
+                    nodoFinal = "</FacturaElectronica>";
+                    objectType = typeof(FacturaElectronica);
+                }
+                if (xml.Contains("NotaCreditoElectronica"))
+                {
+                    nodoInicial = "<NotaCreditoElectronica>";
+                    nodoFinal = "</NotaCreditoElectronica>";
+                    objectType = typeof(NotaCreditoElectronica);
+                }
+                if (xml.Contains("NotaDebitoElectronica"))
+                {
+                    nodoInicial = "<NotaDebitoElectronica>";
+                    nodoFinal = "</NotaDebitoElectronica>";
+                    objectType = typeof(NotaDebitoElectronica);
+                }
+                if (xml.Contains("TiqueteElectronico"))
+                {
+                    nodoInicial = "<TiqueteElectronico>";
+                    nodoFinal = "</TiqueteElectronico>";
+                    objectType = typeof(TiqueteElectronico);
+                }
+                if (xml.Contains("MensajeReceptor"))
+                {
+                    nodoInicial = "<MensajeReceptor>";
+                    nodoFinal = "</MensajeReceptor>";
+                    objectType = typeof(MensajeReceptor);
+                }
+
+                int start = xml.IndexOf("<Clave>");
+                int end = xml.IndexOf("<ds:Signature xmlns");
+                xml = xml.Substring(0, end) + nodoFinal;
+                xml = nodoInicial + xml.Substring(start);
+
+                strReader = new StringReader(xml);
+                serializer = new XmlSerializer(objectType);
+                xmlReader = new XmlTextReader(strReader);
+                obj = serializer.Deserialize(xmlReader);
+            }
+            catch (Exception exp)
+            {
+                //Handle Exception Code
+                return exp.Message;
+            }
+            finally
+            {
+                if (xmlReader != null)
+                {
+                    xmlReader.Close();
+                }
+                if (strReader != null)
+                {
+                    strReader.Close();
+                }
+            }
+            return obj;
+        }
+
+
+
+
         /// <summary>
         /// Optiene un XML del objeto enviado
         /// </summary>
