@@ -6,9 +6,9 @@
         <dx:LayoutItem Caption="Nombre">
             <LayoutItemNestedControlCollection>
                 <dx:LayoutItemNestedControlContainer>
-                    <dx:ASPxTextBox ID="Name" runat="server" Width="100%">
+                    <dx:ASPxTextBox ID="txtNombre" runat="server" Width="100%">
                         <ValidationSettings Display="Dynamic" ErrorDisplayMode="Text" ErrorTextPosition="Bottom">
-                            <RequiredField IsRequired="true" ErrorText="Name is required" />
+                            <RequiredField IsRequired="true" ErrorText="El nombre es requerido" />
                         </ValidationSettings>
                     </dx:ASPxTextBox>
                 </dx:LayoutItemNestedControlContainer>
@@ -17,10 +17,10 @@
         <dx:LayoutItem Caption="Correo electrónico">
             <LayoutItemNestedControlCollection>
                 <dx:LayoutItemNestedControlContainer>
-                    <dx:ASPxTextBox ID="Email" runat="server" Width="100%">
+                    <dx:ASPxTextBox ID="txtCorreo" runat="server" Width="100%">
                         <ValidationSettings Display="Dynamic" ErrorDisplayMode="Text" ErrorTextPosition="Bottom">
-                            <RegularExpression ErrorText="Invalid e-mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" />
-                            <RequiredField IsRequired="true" ErrorText="Email is required" />
+                            <RegularExpression ErrorText="Correo electrónico incorrecto" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" />
+                            <RequiredField IsRequired="true" ErrorText="El correo electrónico es requerido" />
                         </ValidationSettings>
                     </dx:ASPxTextBox>
                 </dx:LayoutItemNestedControlContainer>
@@ -29,9 +29,9 @@
         <dx:LayoutItem Caption="Consulta">
             <LayoutItemNestedControlCollection>
                 <dx:LayoutItemNestedControlContainer>
-                    <dx:ASPxMemo ID="Notes" runat="server" Width="100%" MaxLength="500" Rows="6">
+                    <dx:ASPxMemo ID="txtConsulta" runat="server" Width="100%" MaxLength="500" Rows="6">
                         <ValidationSettings Display="Dynamic" ErrorDisplayMode="Text" ErrorTextPosition="Bottom">
-                            <RequiredField IsRequired="true" ErrorText="Notes is required" />
+                            <RequiredField IsRequired="true" ErrorText="La consulta es requerida" />
                         </ValidationSettings>
                     </dx:ASPxMemo>
                 </dx:LayoutItemNestedControlContainer>
@@ -41,7 +41,7 @@
         <dx:LayoutItem ShowCaption="False">
             <LayoutItemNestedControlCollection>
                 <dx:LayoutItemNestedControlContainer>
-                    <dx:ASPxButton ID="Submit" runat="server" Text="Enviar" Width="100px" UseSubmitBehavior="true" />
+                    <dx:ASPxButton ID="btnEnviar" runat="server" Text="Enviar" Width="100px" UseSubmitBehavior="true" OnClick="btnEnviar_Click"/>
                 </dx:LayoutItemNestedControlContainer>
             </LayoutItemNestedControlCollection>
         </dx:LayoutItem>
