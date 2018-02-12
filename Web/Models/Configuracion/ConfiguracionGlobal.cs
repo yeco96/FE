@@ -9,7 +9,7 @@ using System.Web;
 namespace Web.Models.Configuracion
 {
     [Table("conf")]
-    public class ConfiguracionAPP
+    public class ConfiguracionGlobal
     {
         [Key]
         [Required]
@@ -41,7 +41,7 @@ namespace Web.Models.Configuracion
         /// <summary>
         /// CONSTRUCTOR
         /// </summary>
-        public ConfiguracionAPP()
+        public ConfiguracionGlobal()
         {
         }
 

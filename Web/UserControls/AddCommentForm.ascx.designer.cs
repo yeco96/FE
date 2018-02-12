@@ -22,39 +22,48 @@ namespace Web.UserControls {
         protected global::DevExpress.Web.ASPxFormLayout AddCommentFormLayout;
         
         /// <summary>
-        /// Control Name.
+        /// Control txtNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox Name;
+        protected global::DevExpress.Web.ASPxTextBox txtNombre;
         
         /// <summary>
-        /// Control Email.
+        /// Control txtCorreo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox Email;
+        protected global::DevExpress.Web.ASPxTextBox txtCorreo;
         
         /// <summary>
-        /// Control Notes.
+        /// Control txtConsulta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxMemo Notes;
+        protected global::DevExpress.Web.ASPxMemo txtConsulta;
         
         /// <summary>
-        /// Control Submit.
+        /// Control btnEnviar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxButton Submit;
+        protected global::DevExpress.Web.ASPxButton btnEnviar;
+        
+        /// <summary>
+        /// Control alertMessages.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertMessages;
     }
 }

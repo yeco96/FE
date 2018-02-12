@@ -198,9 +198,11 @@ namespace Class.Utilidades
                     correo.Subject = String.Format("{0}", asunto);
                     correo.Body = mensaje;
 
-                    correo.Attachments.Add( new Attachment(GenerateStreamFromMemoryStream(UtilidadesReporte.generarPDF(clave)), string.Format("{0}.pdf", consecutivo)));
-                    correo.Attachments.Add( new Attachment(GenerateStreamFromString(xml), string.Format("{0}.xml", consecutivo)));
-                  
+                    if (xml != null)
+                    {
+                        correo.Attachments.Add(new Attachment(GenerateStreamFromMemoryStream(UtilidadesReporte.generarPDF(clave)), string.Format("{0}.pdf", consecutivo)));
+                        correo.Attachments.Add(new Attachment(GenerateStreamFromString(xml), string.Format("{0}.xml", consecutivo)));
+                    }
                     correo.Priority = MailPriority.Normal;
                     correo.IsBodyHtml = true;
                     smtp.Credentials = new NetworkCredential(mailConfig.user, mailConfig.password);
