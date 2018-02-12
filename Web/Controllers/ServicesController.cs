@@ -30,6 +30,7 @@ namespace Web.Controllers
     {
          
         [HttpPost]
+        [Route("recepcionmesajehacienda")]
         public async Task<string> recepcionMesajeHacienda()
         {
             Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
@@ -56,31 +57,37 @@ namespace Web.Controllers
             return "";
         }
 
-        [HttpPost]
-        public  string recepcionMesajeHacienda2(string id)
+        [HttpPost] 
+        [Route("recepcionmesajehacienda2/{id}")]
+        public IHttpActionResult recepcionMesajeHacienda2(string id)
         {
-            Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
-            string respuestaJSON = id;
+            try {
+                Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
+                string respuestaJSON = id;
 
-            WSRecepcionGET respuesta = JsonConvert.DeserializeObject<WSRecepcionGET>(respuestaJSON);
-            string respuestaXML = EncodeXML.EncondeXML.base64Decode(respuesta.respuestaXml);
+                WSRecepcionGET respuesta = JsonConvert.DeserializeObject<WSRecepcionGET>(respuestaJSON);
+                string respuestaXML = EncodeXML.EncondeXML.base64Decode(respuesta.respuestaXml);
 
-            MensajeHacienda mensajeHacienda = new MensajeHacienda(respuestaXML);
+                MensajeHacienda mensajeHacienda = new MensajeHacienda(respuestaXML);
 
-            using (var conexionWS = new DataModelWS())
-            {
-                WSRecepcionPOST dato = conexionWS.WSRecepcionPOST.Find(mensajeHacienda.clave);
-                dato.mensaje = mensajeHacienda.mensajeDetalle;
-                dato.indEstado = mensajeHacienda.mensaje;
-                dato.fechaModificacion = Date.DateTimeNow();
-                //dato.usuarioModificacion = Session["usuario"].ToString();
-                dato.montoTotalFactura = mensajeHacienda.montoTotalFactura;
-                dato.montoTotalImpuesto = mensajeHacienda.montoTotalImpuesto;
-                conexionWS.Entry(dato).State = EntityState.Modified;
-                conexionWS.SaveChanges();
+                using (var conexionWS = new DataModelWS())
+                {
+                    WSRecepcionPOST dato = conexionWS.WSRecepcionPOST.Find(mensajeHacienda.clave);
+                    dato.mensaje = mensajeHacienda.mensajeDetalle;
+                    dato.indEstado = mensajeHacienda.mensaje;
+                    dato.fechaModificacion = Date.DateTimeNow();
+                    //dato.usuarioModificacion = Session["usuario"].ToString();
+                    dato.montoTotalFactura = mensajeHacienda.montoTotalFactura;
+                    dato.montoTotalImpuesto = mensajeHacienda.montoTotalImpuesto;
+                    conexionWS.Entry(dato).State = EntityState.Modified;
+                    conexionWS.SaveChanges();
+                }
             }
-
-            return "";
+            catch (Exception e)
+            {
+                return NotFound();
+            }
+            return Ok(""); 
         }
 
 

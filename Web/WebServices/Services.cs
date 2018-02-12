@@ -188,13 +188,15 @@ namespace Web.WebServices
                     trama.receptorIdentificacion = trama.receptor.numeroIdentificacion;
                     trama.tipoDocumento = tipoDocumento;
 
+                    trama.callbackUrl = ConfigurationManager.AppSettings["ENVIROMENT_URL"].ToString();
+
                     if (!tieneFirma)
                     {
                         xmlFile = FirmaXML.getXMLFirmadoWeb(xmlFile, emisor.llaveCriptografica, emisor.claveLlaveCriptografica.ToString());
                     }
 
                     trama.comprobanteXml = EncodeXML.EncondeXML.base64Encode(xmlFile);
-
+                    
                     string jsonTrama = JsonConvert.SerializeObject(trama);
                     
                     if (config.token.access_token != null)

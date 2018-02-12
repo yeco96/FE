@@ -222,6 +222,7 @@
     <Content Include="Scripts\site.js" />
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <Content Include="App_Data\180207081824.psc" />
+    <None Include="Properties\PublishProfiles\FE.pubxml" />
     <None Include="Service References\ServiceReferenceBCCR\wsIndicadoresEconomicos.disco" />
     <None Include="Service References\ServiceReferenceBCCR\configuration91.svcinfo" />
     <None Include="Service References\ServiceReferenceBCCR\configuration.svcinfo" />
@@ -251,7 +252,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="packages.config" />
     <None Include="Service References\ServiceReferenceBCCR\wsIndicadoresEconomicos.wsdl" />
     <Content Include="Site.Mobile.Master" />
