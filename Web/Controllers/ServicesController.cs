@@ -25,7 +25,7 @@ using XMLDomain;
 
 namespace Web.Controllers
 {
-    
+    [RoutePrefix("api/services")]
     public class ServicesController : ApiController
     {
          

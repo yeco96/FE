@@ -11,12 +11,12 @@ using System.Threading;
 using Web.Models;
 using System.Data.Entity;
 
-namespace Web.Pages.Seguridad
+namespace Web.Pages
 {
-    public partial class FrmLogin : System.Web.UI.Page {
+    public partial class Login : System.Web.UI.Page {
 
 
-        public FrmLogin()
+        public Login()
         {
         }
 

@@ -29,10 +29,10 @@ namespace Web {
                 {
                     if (Session["usuario"] == null)
                     {
-                        if (!Request.Url.ToString().Contains("FrmLogin")) {
+                        if (!Request.Url.ToString().Contains("Login")) {
                             Session.RemoveAll();
                             FormsAuthentication.SignOut();
-                            Response.Redirect("~/Pages/Seguridad/FrmLogin.aspx");
+                            Response.Redirect("~/Pages/Login.aspx");
                         }
                     }
                 } 

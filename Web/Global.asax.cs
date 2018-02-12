@@ -8,6 +8,7 @@ using DevExpress.Web;
 using Web.Pages.Error;
 using System.Web.Http;
 using Web.App_Start;
+using System.Web.Routing;
 
 namespace Web
 {
@@ -16,6 +17,7 @@ namespace Web
         void Application_Start(object sender, EventArgs e)
         {
             System.Web.Routing.RouteTable.Routes.MapPageRoute("defaultRoute", "", "~/Pages/Home.aspx");
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
             DevExpress.Web.ASPxWebControl.CallbackError += new EventHandler(Application_Error);
 
            GlobalConfiguration.Configure(WebApiConfig.Register);

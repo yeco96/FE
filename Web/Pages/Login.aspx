@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" CodeBehind="FrmLogin.aspx.cs" Inherits="Web.Pages.Seguridad.FrmLogin" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" CodeBehind="Login.aspx.cs" Inherits="Web.Pages.Login" %>
 
 <asp:Content ID="Content" ContentPlaceHolderID="Content" runat="server">
 

@@ -20,7 +20,7 @@ namespace Web.App_Start
              
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "hacienda/{controller}/{action}/{id}",
+                routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
 
