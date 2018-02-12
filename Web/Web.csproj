@@ -290,7 +290,7 @@
     <Compile Include="Models\Facturacion\ConsecutivoDocElectronico.cs" />
     <Compile Include="Models\Catalogos\Ubicacion.cs" />
     <Compile Include="Models\Catalogos\Producto.cs" />
-    <Compile Include="Models\Configuracion\ConfiguracionAPP.cs" />
+    <Compile Include="Models\Configuracion\ConfiguracionGlobal.cs" />
     <Compile Include="Models\DataModelOAuth2.cs" />
     <Compile Include="Models\DataModelWS.cs" />
     <Compile Include="Models\DataModelFE.cs" />

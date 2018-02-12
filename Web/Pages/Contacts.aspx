@@ -1,4 +1,4 @@
-<%@ Page Title="Contactenos" Language="C#" AutoEventWireup="true" MasterPageFile="~/Layout.master" CodeBehind="Contacts.aspx.cs" Inherits="Web.Contacts" %>
+<%@ Page Title="Contacto" Language="C#" AutoEventWireup="true" MasterPageFile="~/Layout.master" CodeBehind="Contacts.aspx.cs" Inherits="Web.Contacts" %>
 <%@ Register Src="~/UserControls/AddCommentForm.ascx" TagPrefix="dx" TagName="AddCommentForm" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 <div class="container-fluid">

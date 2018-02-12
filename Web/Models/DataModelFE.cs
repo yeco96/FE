@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using Web.Models.Catalogos;
+using Web.Models.Configuracion;
 using Web.Models.Facturacion;
 
 namespace Web.Models
@@ -22,7 +23,8 @@ namespace Web.Models
         public virtual DbSet<CodigoPais> CodigoPais { get; set; }
         public virtual DbSet<CodigoReferencia> CodigoReferencia { get; set; }
         public virtual DbSet<ConfiguracionCorreo> ConfiguracionCorreo { get; set; }
-        
+        public virtual DbSet<ConfiguracionGlobal> ConfiguracionGlobal { get; set; }
+
         //public virtual DbSet<Distrito> Distrito { get; set; }
         public virtual DbSet<ConsecutivoDocElectronico> ConsecutivoDocElectronico { get; set; } 
         public virtual DbSet<Exoneracion> Exoneracion { get; set; }

@@ -46,4 +46,6 @@
             </LayoutItemNestedControlCollection>
         </dx:LayoutItem>
     </Items>
+         
 </dx:ASPxFormLayout>
+<div id="alertMessages" role="alert" runat="server" />
