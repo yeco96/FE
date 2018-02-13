@@ -189,7 +189,7 @@ namespace Web.Pages.Catalogos
                     // se declara el objeto a insertar
                     Producto dato = new Producto();
                     //llena el objeto con los valores de la pantalla
-                    dato.id = e.NewValues["id"] != null ? long.Parse(e.NewValues["id"].ToString()) : 0;
+                    //dato.id = e.NewValues["id"] != null ? long.Parse(e.NewValues["id"].ToString()) : 0;
 
                     //busca el objeto 
                     dato = conexion.Producto.Find(dato.id);

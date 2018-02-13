@@ -81,7 +81,7 @@ namespace Web.Pages.Facturacion
         /// </summary>  
         private void refreshData()
         {
-            using (var conexion = new DataModelWS())
+            using (var conexion = new DataModelFE())
             {
                 this.ASPxGridView1.DataSource = conexion.WSRecepcionPOST.Where(x=> x.fecha >= txtFechaInicio.Date && x.fecha <= txtFechaFin.Date).OrderByDescending(x => x.fecha).ToList();
                 this.ASPxGridView1.DataBind();
@@ -116,7 +116,7 @@ namespace Web.Pages.Facturacion
         {
             try
             {
-                using (var conexion = new DataModelOAuth2())
+                using (var conexion = new DataModelFE())
                 {
                     EmisorReceptorIMEC emisor = (EmisorReceptorIMEC)base.Session["emisor"];
                     string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
@@ -129,34 +129,38 @@ namespace Web.Pages.Facturacion
                     string clave = Session["clave"].ToString();
                     string respuestaJSON = await Services.getRecepcion(config.token, clave);
 
-                    WSRecepcionGET respuesta = JsonConvert.DeserializeObject<WSRecepcionGET>(respuestaJSON);
-                    if (respuesta.respuestaXml != null)
+                    if (!string.IsNullOrWhiteSpace(respuestaJSON))
                     {
-                        string respuestaXML = EncodeXML.EncondeXML.base64Decode(respuesta.respuestaXml);
-
-                        MensajeHacienda mensajeHacienda = new MensajeHacienda(respuestaXML);
-
-                        using (var conexionWS = new DataModelWS())
+                        WSRecepcionGET respuesta = JsonConvert.DeserializeObject<WSRecepcionGET>(respuestaJSON);
+                        if (respuesta.respuestaXml != null)
                         {
-                            WSRecepcionPOST dato = conexionWS.WSRecepcionPOST.Find(clave);
-                            dato.mensaje = mensajeHacienda.mensajeDetalle;
-                            dato.indEstado = mensajeHacienda.mensaje;
-                            dato.fechaModificacion = Date.DateTimeNow();
-                            dato.usuarioModificacion = Session["usuario"].ToString();
-                            //dato.receptorIdentificacion = mensajeHacienda.receptorNumeroCedula;
-                            dato.montoTotalFactura = mensajeHacienda.montoTotalFactura;
-                            dato.montoTotalImpuesto = mensajeHacienda.montoTotalImpuesto;
-                            conexionWS.Entry(dato).State = EntityState.Modified;
-                            conexionWS.SaveChanges();
+                            string respuestaXML = EncodeXML.EncondeXML.base64Decode(respuesta.respuestaXml);
 
-                            Session["indEstado"] = dato.indEstado;
+                            MensajeHacienda mensajeHacienda = new MensajeHacienda(respuestaXML);
+
+                            using (var conexionWS = new DataModelFE())
+                            {
+                                WSRecepcionPOST dato = conexionWS.WSRecepcionPOST.Find(clave);
+                                dato.mensaje = mensajeHacienda.mensajeDetalle;
+                                dato.indEstado = mensajeHacienda.mensaje;
+                                dato.fechaModificacion = Date.DateTimeNow();
+                                dato.usuarioModificacion = Session["usuario"].ToString();
+                                //dato.receptorIdentificacion = mensajeHacienda.receptorNumeroCedula;
+                                dato.montoTotalFactura = mensajeHacienda.montoTotalFactura;
+                                dato.montoTotalImpuesto = mensajeHacienda.montoTotalImpuesto;
+                                conexionWS.Entry(dato).State = EntityState.Modified;
+                                conexionWS.SaveChanges();
+
+                                Session["indEstado"] = dato.indEstado;
+                            }
+                        }
+                        else
+                        {
+                            this.alertMessages.Attributes["class"] = "alert alert-info";
+                            this.alertMessages.InnerText = String.Format("Documento eléctronico se encuentra RECIBIDO pero aún pendiente de ser ACEPTADO");
                         }
                     }
-                    else
-                    {
-                        this.alertMessages.Attributes["class"] = "alert alert-info";
-                        this.alertMessages.InnerText = String.Format("Documento eléctronico se encuentra RECIBIDO pero aún pendiente de ser ACEPTADO");
-                    }
+                    
                 }
             }
             catch (Exception ex)
@@ -223,7 +227,7 @@ namespace Web.Pages.Facturacion
             { 
                     string xml = "";
 
-                    using (var conexion = new DataModelWS())
+                    using (var conexion = new DataModelFE())
                     {
                         string clave = Session["clave"].ToString();
                         WSRecepcionPOST dato = conexion.WSRecepcionPOST.Where(x => x.clave == clave).FirstOrDefault();
@@ -253,7 +257,7 @@ namespace Web.Pages.Facturacion
             {
                 if (TipoDocumento.ACEPTADO.ToString().Equals(Session["indEstado"].ToString()))
                 {
-                    using (var conexion = new DataModelWS())
+                    using (var conexion = new DataModelFE())
                     {
                         string clave = Session["clave"].ToString();
                         WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
@@ -298,7 +302,7 @@ namespace Web.Pages.Facturacion
                 {
                     Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
 
-                    using (var conexion = new DataModelWS())
+                    using (var conexion = new DataModelFE())
                     {
 
                         string clave = Session["clave"].ToString();

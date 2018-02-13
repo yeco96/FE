@@ -49,8 +49,11 @@ namespace Web.Models
 
         public virtual DbSet<EmisorReceptorIMEC> EmisorReceptorIMEC { get; set; }
 
+        public virtual DbSet<OAuth2.OAuth2Config> OAuth2Config { get; set; }
+        public virtual DbSet<WSDomain.WSRecepcionPOST> WSRecepcionPOST { get; set; }
+        public virtual DbSet<XMLDomain.ResumenFactura> ResumenFactura { get; set; }
+        
 
-         
 
         #region singletonInstance
         /// <summary>

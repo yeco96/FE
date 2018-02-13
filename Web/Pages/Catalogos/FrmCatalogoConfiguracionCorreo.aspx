@@ -18,7 +18,7 @@
             OnRowDeleting="ASPxGridView1_RowDeleting"
             OnRowInserting="ASPxGridView1_RowInserting"
             OnRowUpdating="ASPxGridView1_RowUpdating"> 
-            <ClientSideEvents  EndCallback="function(s, e) {if (s.cpUpdatedMessage) { alert(s.cpUpdatedMessage);  delete s.cpUpdatedMessage;  }}"/>
+             
             <Columns>
                 
                 <dx:GridViewCommandColumn Width="100px" ButtonType="Image" ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
@@ -27,20 +27,20 @@
                  <dx:GridViewDataTextColumn Caption="Código" FieldName="codigo"  VisibleIndex="1"  
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-                 <dx:GridViewDataTextColumn Caption="Servidor" FieldName="host" VisibleIndex="1"  PropertiesTextEdit-MaxLength="25"  Width="25%" 
+                 <dx:GridViewDataTextColumn Caption="Servidor" FieldName="host" VisibleIndex="2"  PropertiesTextEdit-MaxLength="25"  Width="25%" 
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataSpinEditColumn Caption="Puerto" FieldName="port" VisibleIndex="4"    
+                <dx:GridViewDataSpinEditColumn Caption="Puerto" FieldName="port" VisibleIndex="3"    
                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataSpinEditColumn> 
-                <dx:GridViewDataTextColumn Caption="Usuario" FieldName="user" VisibleIndex="3" PropertiesTextEdit-MaxLength="50"    Width="25%"
+                <dx:GridViewDataTextColumn Caption="Usuario" FieldName="user" VisibleIndex="4" PropertiesTextEdit-MaxLength="50"    Width="25%"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Contraseña" FieldName="password" VisibleIndex="4" PropertiesTextEdit-MaxLength="50"    PropertiesTextEdit-Password="true" 
+                <dx:GridViewDataTextColumn Caption="Contraseña" FieldName="password" VisibleIndex="5" PropertiesTextEdit-MaxLength="50"    PropertiesTextEdit-Password="true" 
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
 
-                <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="4"
+                <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="6"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
                 <dx:GridViewDataTextColumn Visible="false" Caption="Usuario Creación" FieldName="usuarioCreacion" VisibleIndex="5">

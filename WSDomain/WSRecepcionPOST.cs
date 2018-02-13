@@ -34,9 +34,9 @@ namespace WSDomain
         [JsonIgnore]
         public string tipoDocumento { set; get; }
 
-        [NotMapped]
-        [JsonProperty("callbackUrl", Order = 5)]
-        public string callbackUrl { set; get; }
+        //[NotMapped]
+        //[JsonProperty("callbackUrl", Order = 5)]
+        //public string callbackUrl { set; get; }
 
 
         [JsonProperty("comprobanteXml", Order = 6)]

@@ -130,7 +130,7 @@ namespace Web.Pages.Catalogos
                     //se declara el objeto a insertar
                     ProductoImpuesto dato = new ProductoImpuesto();
                     //llena el objeto con los valores de la pantalla
-                    dato.idProducto = e.NewValues["idProducto"] != null ? long.Parse(e.NewValues["idProducto"].ToString()) : 0 ;
+                    dato.idProducto = e.NewValues["idProducto"] != null ? int.Parse(e.NewValues["idProducto"].ToString()) : 0 ;
                     dato.tipoImpuesto = e.NewValues["tipoImpuesto"] != null ? e.NewValues["tipoImpuesto"].ToString().ToUpper() : null;
                     dato.porcentaje = e.NewValues["porcentaje"] != null ? decimal.Parse(e.NewValues["porcentaje"].ToString()) : 0;
                     dato.emisor = ((EmisorReceptorIMEC)Session["emisor"]).identificacion;
@@ -189,7 +189,7 @@ namespace Web.Pages.Catalogos
                     // se declara el objeto a insertar
                     ProductoImpuesto dato = new ProductoImpuesto();
                     //llena el objeto con los valores de la pantalla
-                    dato.idProducto = e.NewValues["idProducto"] != null ? long.Parse(e.NewValues["idProducto"].ToString()) : 0;
+                    dato.idProducto = e.NewValues["idProducto"] != null ? int.Parse(e.NewValues["idProducto"].ToString()) : 0;
                     dato.tipoImpuesto = e.NewValues["tipoImpuesto"] != null ? e.NewValues["tipoImpuesto"].ToString().ToUpper() : null;
 
                     object[] key = new object[] { dato.idProducto, dato.tipoImpuesto};

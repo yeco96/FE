@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace WSDomain
 {
-    [Table("fact_emisor_receptor")]
+    [Table("emisor_receptor")]
     public class EmisorReceptor
     {
 

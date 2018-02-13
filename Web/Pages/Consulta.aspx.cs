@@ -35,7 +35,7 @@ namespace Web.Pages
         
         RptFacturacionElectronica CreateReport(string clave)
         {
-            using (var conexion = new DataModelWS())
+            using (var conexion = new DataModelFE())
             {
                 WSRecepcionPOST dato = conexion.WSRecepcionPOST.Where(x => x.clave == clave).FirstOrDefault();
                 string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);

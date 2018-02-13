@@ -27,26 +27,6 @@
                         <div style="text-align: center"; class="text-box-heading">¢10,000.00 ANUAL</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
                            <p><ul>  
-                            <li>20 Documentos electrónicos</li>                         
-                            <li>Facturas, NC y ND</li> 
-                            <li>1 emisor</li>
-                            <p>¿Para quién es?</p>
-                            <p>Enfocado en Profesionales independientes y pequeños empresarios que facturen como persona Física</p>
-                            <li>Válido por año desde la compra o hasta agotar la cantidad de documentos</li> 
-                        </ul></p>
-                        <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="http://msasoft.net" style="pull-right">Comprar</a></p>              
-                    </div>
-                </div>
-
-            </div>
-             <div class="col-md-4 media">
-                
-                <div class="span4">
-                    <div class="text-box">
-                        <div style="text-align: center"; class="text-box-heading">PLAN PREPAGO 2</div>
-                        <div style="text-align: center"; class="text-box-heading">¢15,000.00 ANUAL</div>
-                        <div class="arrow-down" style="margin-bottom: 10px;"></div>
-                           <p><ul>  
                             <li>50 Documentos electrónicos</li>                         
                             <li>Facturas, NC y ND</li> 
                             <li>1 emisor</li>
@@ -54,14 +34,16 @@
                             <p>Enfocado en Profesionales independientes y pequeños empresarios que facturen como persona Física</p>
                             <li>Válido por año desde la compra o hasta agotar la cantidad de documentos</li> 
                         </ul></p>
-                        <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="http://msasoft.net" style="pull-right">Comprar</a></p>              
+                        <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="#" style="pull-right">Comprar</a></p>              
                     </div>
                 </div>
+
             </div>
-             <div class="col-md-4 media">                
+            <div class="col-md-4 media">
+                
                 <div class="span4">
                     <div class="text-box">
-                        <div style="text-align: center"; class="text-box-heading">PLAN PREPAGO 3</div>
+                        <div style="text-align: center"; class="text-box-heading">PLAN PREPAGO 2</div>
                         <div style="text-align: center"; class="text-box-heading">¢20,000.00 ANUAL</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
                            <p><ul>  
@@ -71,82 +53,86 @@
                             <p>¿Para quién es?</p>
                             <p>Enfocado en Profesionales independientes y pequeños empresarios que facturen como persona Física</p>
                             <li>Válido por año desde la compra o hasta agotar la cantidad de documentos</li> 
-                        </ul></p> <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="http://msasoft.net" style="pull-right">Comprar</a></p>              
-                    </div> 
+                        </ul></p>
+                        <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="#" style="pull-right">Comprar</a></p>              
+                    </div>
                 </div>
             </div>
-               <div class="col-md-4 media">                
+
+             <div class="col-md-4 media">
+                
                 <div class="span4">
                     <div class="text-box">
-                        <div style="text-align: center"; class="text-box-heading">PLAN PROFESIONAL ILIMITADO</div>
-                        <div style="text-align: center"; class="text-box-heading">¢6,000.00 MENSUAL- ¢50,000.00 ANUAL</div>
+                        <div style="text-align: center"; class="text-box-heading">PLAN PREPAGO 3</div>
+                        <div style="text-align: center"; class="text-box-heading">¢30,000.00 ANUAL</div>
+                        <div class="arrow-down" style="margin-bottom: 10px;"></div>
+                           <p><ul>  
+                            <li>200 Documentos electrónicos</li>                         
+                            <li>Facturas, NC y ND</li> 
+                            <li>1 emisor</li>
+                            <p>¿Para quién es?</p>
+                            <p>Enfocado en Profesionales independientes y pequeños empresarios que facturen como persona Física</p>
+                            <li>Válido por año desde la compra o hasta agotar la cantidad de documentos</li> 
+                        </ul></p>
+                        <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href=#" style="pull-right">Comprar</a></p>              
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 media">                
+                <div class="span4">
+                    <div class="text-box">
+                        <div style="text-align: center"; class="text-box-heading">PLAN PROFESIONAL</div>
+                        <div style="text-align: center"; class="text-box-heading">¢8,000.00 MES ¢80,000.00 ANUAL</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
                            <p><ul>  
                             <li>Documentos Sin Límite</li>                         
                             <li>Facturas, NC y ND</li> 
                             <li>1 emisor</li>
                             <p>¿Para quién es?</p>
-                            <p>Enfocado para todos los Profesionales independientes o PYMES</p>
+                            <p>Enfocado para todos los Profesionales independientes que facturen gran cantidad de documentos</p>
                             <li>Válido por año desde la compra</li> 
                         </ul></p>
-                        <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="http://msasoft.net" style="pull-right">Comprar</a></p>              
+                        <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="#" style="pull-right">Comprar</a></p>              
                     </div>
                 </div>
             </div>
-              <div class="col-md-4 media">                
+            <div class="col-md-4 media">                
                 <div class="span4">
                     <div class="text-box">
                         <div style="text-align: center"; class="text-box-heading">PLAN PYMES</div>
-                        <div style="text-align: center"; class="text-box-heading">¢10,000.00 MENSUAL-¢100,000.00 ANUAL</div>
+                        <div style="text-align: center"; class="text-box-heading">¢20,000.00 MES ¢200,000.00 ANUAL</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
                            <p><ul>  
-                            <li> 250 Documentose mensuales</li>                         
+                            <li>250 Documentos mensuales</li>                         
                             <li>Facturas, NC y ND</li> 
                             <li>1 emisor</li>
                             <p>¿Para quién es?</p>
                             <p>Para empresas que facturan aproximadamente 250 documentos mensuales</p>
                             <li>Válido por año desde la compra</li> 
                         </ul></p>
-                        <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="http://msasoft.net" style="pull-right">Comprar</a></p>              
+                        <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="#" style="pull-right">Comprar</a></p>              
                     </div>
                 </div>
             </div>
-             <div class="col-md-4 media">                
+            <div class="col-md-4 media">                
                 <div class="span4">
                     <div class="text-box">
-                        <div style="text-align: center"; class="text-box-heading">PLAN CLIENTE JURÍDICO 1</div>
-                        <div style="text-align: center"; class="text-box-heading">¢20,000.00 MENSUAL-¢200,000.00 ANUAL</div>
+                        <div style="text-align: center"; class="text-box-heading">PLAN EMPRESARIAL</div>
+                        <div style="text-align: center"; class="text-box-heading">¢30,000.00 MES ¢300,000.00 ANUAL</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
                            <p><ul>  
-                            <li> 500 Documentos mensuales</li>                         
+                            <li>500 Documentos mensuales</li>                         
                             <li>Facturas, NC y ND</li> 
                             <li>1 emisor</li>
                             <p>¿Para quién es?</p>
                             <p>Para empresas que facturan aproximadamente 500 documentos mensuales</p>
                             <li>Válido por año desde la compra</li> 
                         </ul></p>
-                        <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="http://msasoft.net" style="pull-right">Comprar</a></p>              
+                        <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="#" style="pull-right">Comprar</a></p>              
                     </div>
                 </div>
             </div>
-             <div class="col-md-4 media">                
-                <div class="span4">
-                    <div class="text-box">
-                        <div style="text-align: center"; class="text-box-heading">PLAN CLIENTE JURÍDICO 2</div>
-                        <div style="text-align: center"; class="text-box-heading">¢30,000.00 MENSUAL-¢300,000.00 ANUAL</div>
-                        <div class="arrow-down" style="margin-bottom: 10px;"></div>
-                           <p><ul>  
-                            <li> 1000 Documentos mensuales</li>                         
-                            <li>Facturas, NC y ND</li> 
-                            <li>1 emisor</li>
-                            <p>¿Para quién es?</p>
-                            <p>Para empresas que facturan aproximadamente 1000 documentos mensuales</p>
-                            <li>Válido por año desde la compra</li> 
-                        </ul></p>
-                        <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="http://msasoft.net" style="pull-right">Comprar</a></p>              
-                    </div>
-                </div>
-            </div>
+             
         </section>               
         <section>
             <div class="row marginTop20">

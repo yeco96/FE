@@ -207,7 +207,7 @@
             OnRowUpdating="ASPxGridView1_RowUpdating">
 
             <Columns>
-                <dx:GridViewCommandColumn Width="100px" ButtonType="Image" ShowSelectButton="true" ShowDeleteButton="True" ShowEditButton="false" ShowNewButtonInHeader="false" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
+                <dx:GridViewCommandColumn Width="50px" ButtonType="Image" ShowSelectButton="true" ShowDeleteButton="false" ShowEditButton="false" ShowNewButtonInHeader="false" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
                 </dx:GridViewCommandColumn>
 
                 <dx:GridViewDataComboBoxColumn Caption="Tipo" FieldName="identificacionTipo" VisibleIndex="2"

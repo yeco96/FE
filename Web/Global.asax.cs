@@ -9,6 +9,7 @@ using Web.Pages.Error;
 using System.Web.Http;
 using Web.App_Start;
 using System.Web.Routing;
+using HighSchoolWeb.ScheduledTask;
 
 namespace Web
 {
@@ -21,6 +22,8 @@ namespace Web
             DevExpress.Web.ASPxWebControl.CallbackError += new EventHandler(Application_Error);
 
            GlobalConfiguration.Configure(WebApiConfig.Register);
+
+           JobScheduler.Start();
         }
 
         void Application_End(object sender, EventArgs e)

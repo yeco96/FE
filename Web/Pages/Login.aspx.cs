@@ -44,8 +44,7 @@ namespace Web.Pages
                                 return;
                             }
                             if (usuario.Rol.estado.Equals(Estado.INACTIVO.ToString()))
-                            {
-
+                            { 
                                 this.alertMessages.InnerText = "El perfil al que pertenece el usuario, se encuentra inactivo, contacte al administrador";
                                 this.alertMessages.Attributes["class"] = "alert alert-danger";
                                 return;
@@ -53,26 +52,9 @@ namespace Web.Pages
 
                             Session["usuario"] = usuario.codigo;
                             Session["emisor"] = conexion.EmisorReceptorIMEC.Find(usuario.codigo);
-
-
-                            if (String.IsNullOrEmpty(Request.QueryString["ReturnUrl"]))
-                            {
-                                FormsAuthentication.SetAuthCookie(usuario.nombre, false);
-
-                                if (String.Compare(tbUserName.Text, tbPassword.Text) == 0)
-                                {
-                                    Response.Redirect("~/Account/ChangePassword.aspx");
-                                }
-                                else
-                                {
-                                    Response.Redirect("~/");
-                                }
-                            }
-                            else
-                            {
-                                FormsAuthentication.SetAuthCookie(usuario.nombre, false);
-                                Response.Redirect("~/");
-                            }
+                             
+                            FormsAuthentication.SetAuthCookie(usuario.nombre, false);
+                            Response.Redirect("~/"); 
                         }
                         else
                         {

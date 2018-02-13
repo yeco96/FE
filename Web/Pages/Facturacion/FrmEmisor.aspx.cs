@@ -101,7 +101,9 @@ namespace Web.Pages.Catalogos
         {
             using (var conexion = new DataModelFE())
             {
-                this.ASPxGridView1.DataSource = conexion.EmisorReceptorIMEC.ToList();
+                string usuario = Session["usuario"].ToString();
+                this.ASPxGridView1.DataSource = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == usuario).ToList();
+                
                 this.ASPxGridView1.DataBind();
             }
         }

@@ -24,7 +24,7 @@ namespace Web.WebServices
 {
     public class Services
     {
-          
+
         public static void AuthorizeUser(OAuth2Config authorization)
         {
             string Url = GetAuthorizationUrl(authorization);
@@ -79,13 +79,13 @@ namespace Web.WebServices
         /// <param name="token"></param>
         /// <param name="jsonData"></param>
         /// <returns></returns>
-        public static async Task<string>  postRecepcion(OAuth2Token token, string jsonData)
+        public static async Task<string> postRecepcion(OAuth2Token token, string jsonData)
         {
             HttpResponseMessage responseMessage;
             using (HttpClient httpClient = new HttpClient())
             {
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.access_token);
-                 
+
                 HttpContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 
                 responseMessage = await httpClient.PostAsync(URLServices.RECEPCION_POST(), content);
@@ -97,10 +97,10 @@ namespace Web.WebServices
                 else
                 {
                     return "Error";
-                } 
+                }
             }
 
-             string x =  await responseMessage.Content.ReadAsStringAsync();
+            string x = await responseMessage.Content.ReadAsStringAsync();
         }
 
 
@@ -156,14 +156,14 @@ namespace Web.WebServices
         /// <param name="documento">puede ser cualquer tipo de documento electronico</param>
         /// <param name="responsePost">respuesta del webs ervices</param>
         /// <param name="tipoDocumento">Facura, Nota Crédito, Nota Débito</param> 
-        public static  async Task<string> enviarDocumentoElectronico(bool tieneFirma,DocumentoElectronico documento, EmisorReceptorIMEC emisor, string tipoDocumento, string usuario)
+        public static async Task<string> enviarDocumentoElectronico(bool tieneFirma, DocumentoElectronico documento, EmisorReceptorIMEC emisor, string tipoDocumento, string usuario)
         {
             String responsePost = "";
             try
             {
                 string xmlFile = EncodeXML.EncondeXML.getXMLFromObject(documento);
 
-                using (var conexion = new DataModelOAuth2())
+                using (var conexion = new DataModelFE())
                 {
                     string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
                     OAuth2.OAuth2Config config = conexion.OAuth2Config.Where(x => x.enviroment == ambiente).FirstOrDefault();
@@ -188,7 +188,7 @@ namespace Web.WebServices
                     trama.receptorIdentificacion = trama.receptor.numeroIdentificacion;
                     trama.tipoDocumento = tipoDocumento;
 
-                    trama.callbackUrl = ConfigurationManager.AppSettings["ENVIROMENT_URL"].ToString();
+                    //trama.callbackUrl = ConfigurationManager.AppSettings["ENVIROMENT_URL"].ToString();
 
                     if (!tieneFirma)
                     {
@@ -196,9 +196,9 @@ namespace Web.WebServices
                     }
 
                     trama.comprobanteXml = EncodeXML.EncondeXML.base64Encode(xmlFile);
-                    
+
                     string jsonTrama = JsonConvert.SerializeObject(trama);
-                    
+
                     if (config.token.access_token != null)
                     {
                         responsePost = await Services.postRecepcion(config.token, jsonTrama);
@@ -209,30 +209,30 @@ namespace Web.WebServices
                         trama.indEstado = 9;
                     }
 
-                    using (var conexionWS = new DataModelWS())
-                    {
-                        WSRecepcionPOST tramaExiste = conexionWS.WSRecepcionPOST.Find(trama.clave);
 
-                        if (tramaExiste != null) {// si existe
-                            trama.fechaModificacion = Date.DateTimeNow();
-                            trama.usuarioModificacion = usuario;
-                            trama.indEstado = 0;
-                            trama.cargarEmisorReceptor();
-                            conexionWS.Entry(tramaExiste).State = EntityState.Modified;
-                            documento.resumenFactura.clave = documento.clave;
-                            conexionWS.Entry(documento.resumenFactura).State = EntityState.Modified; 
-                        }
-                        else//si no existe
-                        {
-                            trama.fechaCreacion = Date.DateTimeNow();
-                            trama.usuarioCreacion = usuario;
-                            trama.cargarEmisorReceptor();
-                            conexionWS.WSRecepcionPOST.Add(trama);
-                            documento.resumenFactura.clave = documento.clave;
-                            conexionWS.ResumenFactura.Add(documento.resumenFactura); 
-                        }
-                        conexionWS.SaveChanges();
+                    WSRecepcionPOST tramaExiste = conexion.WSRecepcionPOST.Find(trama.clave);
+
+                    if (tramaExiste != null)
+                    {// si existe
+                        trama.fechaModificacion = Date.DateTimeNow();
+                        trama.usuarioModificacion = usuario;
+                        trama.indEstado = 0;
+                        trama.cargarEmisorReceptor();
+                        conexion.Entry(tramaExiste).State = EntityState.Modified;
+                        documento.resumenFactura.clave = documento.clave;
+                        conexion.Entry(documento.resumenFactura).State = EntityState.Modified;
                     }
+                    else//si no existe
+                    {
+                        trama.fechaCreacion = Date.DateTimeNow();
+                        trama.usuarioCreacion = usuario;
+                        trama.cargarEmisorReceptor();
+                        conexion.WSRecepcionPOST.Add(trama);
+                        documento.resumenFactura.clave = documento.clave;
+                        conexion.ResumenFactura.Add(documento.resumenFactura);
+                    }
+                    conexion.SaveChanges();
+
 
                 }
             }
@@ -250,7 +250,7 @@ namespace Web.WebServices
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException); 
+                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
             return responsePost;
         }
@@ -269,7 +269,7 @@ namespace Web.WebServices
             String responsePost = "";
             try
             {
-                using (var conexion = new DataModelOAuth2())
+                using (var conexion = new DataModelFE())
                 {
                     string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
                     OAuth2.OAuth2Config config = conexion.OAuth2Config.Where(x => x.enviroment == ambiente).FirstOrDefault();
@@ -286,13 +286,13 @@ namespace Web.WebServices
 
                     trama.receptor.tipoIdentificacion = receptorTipoIdentificacion;
                     trama.receptor.numeroIdentificacion = EncondeXML.buscarValorEtiquetaXML("MensajeReceptor", "NumeroCedulaReceptor", xmlFile);
-                   
+
                     xmlFile = FirmaXML.getXMLFirmadoWeb(xmlFile, emisor.llaveCriptografica, emisor.claveLlaveCriptografica.ToString());
 
                     trama.comprobanteXml = EncodeXML.EncondeXML.base64Encode(xmlFile);
 
                     string jsonTrama = JsonConvert.SerializeObject(trama);
-                    
+
                     responsePost = await Services.postRecepcion(config.token, jsonTrama);
 
                 }

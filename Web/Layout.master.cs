@@ -19,7 +19,11 @@ namespace Web {
 
         protected void Page_Load(object sender, EventArgs e)
         {
+             
             try {
+                this.NavMenu.Visible = true;
+                this.NavMenuAdmin.Visible = false;
+
                 Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
                 
                 if (Request.Url.ToString().Contains("Facturacion") ||
@@ -34,7 +38,14 @@ namespace Web {
                             FormsAuthentication.SignOut();
                             Response.Redirect("~/Pages/Login.aspx");
                         }
-                    }
+                    } 
+                }
+
+
+                if (Session["usuario"] != null)
+                { 
+                    this.NavMenu.Visible = false;
+                    this.NavMenuAdmin.Visible = true;
                 } 
             }
             catch (Exception ex)

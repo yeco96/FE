@@ -71,7 +71,7 @@
                                 <div class="panelContent">
                                     <div class="pull-right">
                                         <div class="panelItem">
-                                            <dx:ASPxMenu ID="NavMenu" runat="server" ClientInstanceName="NavMenu" EnableAnimation="true" CssClass="navMenu" AllowSelectItem="true">
+                                            <dx:ASPxMenu ID="NavMenuAdmin" runat="server" ClientInstanceName="NavMenu" EnableAnimation="true" CssClass="navMenu" AllowSelectItem="true">
                                                 <ItemStyle Paddings-PaddingLeft="22" Paddings-PaddingRight="22" />
                                                 <Items>
                                                     <dx:MenuItem Text="INICIO" NavigateUrl="~/Pages/Home.aspx" />
@@ -127,6 +127,17 @@
                                                     <dx:MenuItem Text="CONTACTO" NavigateUrl="~/Pages/Contacts.aspx" />
                                                 </Items>
                                             </dx:ASPxMenu>
+
+                                             
+                                            <dx:ASPxMenu ID="NavMenu" runat="server" ClientInstanceName="NavMenu" EnableAnimation="true" CssClass="navMenu" AllowSelectItem="true">
+                                                <ItemStyle Paddings-PaddingLeft="22" Paddings-PaddingRight="22" />
+                                                <Items>
+                                                    <dx:MenuItem Text="INICIO" NavigateUrl="~/Pages/Home.aspx" />
+                                                    <dx:MenuItem Text="BLOG" NavigateUrl="~/Pages/BlogTimeline.aspx" Visible="false" />
+                                                    <dx:MenuItem Text="LOGIN" NavigateUrl="~/Pages/Login.aspx" />
+                                                    <dx:MenuItem Text="CONTACTO" NavigateUrl="~/Pages/Contacts.aspx" />
+                                                </Items>
+                                            </dx:ASPxMenu>
                                         </div>
 
                                         <%-- DXCOMMENT: 
@@ -166,15 +177,15 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <h4>¿Quienes Somos?</h4>
-                                <p>MSA SOFT es una empresa dedicada a soluciones de intercambio de documentos electrónicos y desarrollo de aplicaciones según la necesidad de nuestros clientes.</p>
+                                <p>MSA SOFT es una empresa dedicada a la implementación de soluciones a la medida, somos la mejor opción para el éxito de su proyecto.</p>
                             </div>
                             <div class="col-md-offset-1 col-md-4">
                                 <h4>Nuestros Productos</h4>
                                 <ul class="list-unstyled latestPosts">
                                     <li>Factura Electrónica</li>
-                                    <li>Sistema de matrícula</li>
-                                    <li>Sistema de reparación vehicular</li>
-                                    <li>Mantenimiento y Consultorías</li>
+                                    <li>Sistema de Matrícula</li>
+                                    <li>Sistema de Planillas</li>
+                                    <li>Soporte Técnico y Consultorías</li>
                                 </ul>
                             </div>
                             <div class="col-md-offset-1 col-md-3">

@@ -28,7 +28,7 @@
                         <div class="text-box-heading">Facturas Electrónicas </div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
                         <p>Realice su facturación desde internet. </p><p>¿Si eres trabajador independiente? ó ¿Tiene una PYME y no cuenta con un sistema de facturación o ERP?</p>
-                        <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="http://msasoft.net" style="pull-right" id="yui_3_17_2_1_1517459886390_165">Más Detalles</a></p>
+                        <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="#" style="pull-right" id="yui_3_17_2_1_1517459886390_165">Más Detalles</a></p>
                     </div>
                 </div>
 
@@ -46,7 +46,7 @@
                             <li>Plan Cliente Jurídico I y II</li>
                             <li>Planes Empresariales</li>
                         </ul></p>
-                        <p style="text-align: right; margin-bottom: 0;"><a href="/Pages/PlanesDoc.aspx" class="btn btn-primary">Planes</a></p>
+                        <p style="text-align: right; margin-bottom: 0;"><a href="/Pages/PlanesDoc.aspx" class="btn btn-primary">Más Detalles</a></p>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                             <li>Llenar nuestro formulario</li>
                             <li>Preguntas frecuentes</li> 
                         </ul></p>
-                        <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="http://msasoft.net" style="pull-right">Más Detalles</a></p>
+                        <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="#" style="pull-right">Más Detalles</a></p>
                     </div>
                 </div>
             </div>

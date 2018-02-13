@@ -941,7 +941,7 @@ namespace Web.Pages.Facturacion
         {
             try
             {
-                using (var conexion = new DataModelWS())
+                using (var conexion = new DataModelFE())
                 {
                     List<InformacionReferencia> informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
 
@@ -1016,7 +1016,7 @@ namespace Web.Pages.Facturacion
         {
             try
             {
-                using (var conexion = new DataModelWS())
+                using (var conexion = new DataModelFE())
                 {
                     List<InformacionReferencia> informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
 

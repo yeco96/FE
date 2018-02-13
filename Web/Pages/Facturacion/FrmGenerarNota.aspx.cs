@@ -64,7 +64,7 @@ namespace Web.Pages.Facturacion
             if (Session["clave"] != null)
             {
                 string clave = Session["clave"].ToString();
-                using (var conexionWS = new DataModelWS())
+                using (var conexionWS = new DataModelFE())
                 {
                     WSRecepcionPOST dato = conexionWS.WSRecepcionPOST.Find(clave);
                     this.txtClave.Text = dato.clave;
@@ -275,7 +275,7 @@ namespace Web.Pages.Facturacion
                 // datos de la factura original
                 FacturaElectronica factura = new FacturaElectronica();
                 string clave = Session["clave"].ToString();
-                using (var conexionWS = new DataModelWS())
+                using (var conexionWS = new DataModelFE())
                 {
                     WSRecepcionPOST dato = conexionWS.WSRecepcionPOST.Find(clave);
                     string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);

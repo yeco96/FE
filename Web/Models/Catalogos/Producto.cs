@@ -12,9 +12,9 @@ namespace Web.Models.Catalogos
     [Table("fact_producto")]
     public class Producto
     {
-        [Key]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Display(Name = "Id")]
-        public long id { set; get; }
+        public virtual int id { set; get; }
 
         [Required]
         [Column("codigo", Order = 1)]

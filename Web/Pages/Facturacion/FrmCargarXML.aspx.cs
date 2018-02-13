@@ -99,7 +99,7 @@ namespace Web.Pages.Facturacion
         {
             try
             {
-                using (var conexion = new DataModelOAuth2())
+                using (var conexion = new DataModelFE())
                 {
                     EmisorReceptorIMEC emisor = (EmisorReceptorIMEC)base.Session["emisor"];
                     string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
@@ -129,7 +129,7 @@ namespace Web.Pages.Facturacion
 
                     string jsonTrama = JsonConvert.SerializeObject(trama);
 
-                    using (var conexion2 = new DataModelWS())
+                    using (var conexion2 = new DataModelFE())
                     {
                         WSRecepcionPOST tramaObjeto = JsonConvert.DeserializeObject<WSRecepcionPOST>(jsonTrama);
                         conexion2.WSRecepcionPOST.Add(tramaObjeto);

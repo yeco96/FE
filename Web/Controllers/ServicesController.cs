@@ -41,7 +41,7 @@ namespace Web.Controllers
 
             MensajeHacienda mensajeHacienda = new MensajeHacienda(respuestaXML);
 
-            using (var conexionWS = new DataModelWS())
+            using (var conexionWS = new DataModelFE())
             {
                 WSRecepcionPOST dato = conexionWS.WSRecepcionPOST.Find(mensajeHacienda.clave);
                 dato.mensaje = mensajeHacienda.mensajeDetalle;
@@ -70,7 +70,7 @@ namespace Web.Controllers
 
                 MensajeHacienda mensajeHacienda = new MensajeHacienda(respuestaXML);
 
-                using (var conexionWS = new DataModelWS())
+                using (var conexionWS = new DataModelFE())
                 {
                     WSRecepcionPOST dato = conexionWS.WSRecepcionPOST.Find(mensajeHacienda.clave);
                     dato.mensaje = mensajeHacienda.mensajeDetalle;
@@ -110,7 +110,7 @@ namespace Web.Controllers
         {
             WSRecepcionPOST dato = null;
             string xml = "";
-            using (var conexion = new DataModelWS())
+            using (var conexion = new DataModelFE())
             {
                 dato = conexion.WSRecepcionPOST.Find(id);
             }

@@ -55,7 +55,8 @@ namespace Web.Pages.Catalogos
         {
             using (var conexion = new DataModelFE())
             {
-                this.ASPxGridView1.DataSource = conexion.ConfiguracionCorreo.ToList(); 
+                string usuario = Session["usuario"].ToString();
+                this.ASPxGridView1.DataSource = conexion.ConfiguracionCorreo.Where(x=>x.codigo== usuario).ToList(); 
                 this.ASPxGridView1.DataBind();
             }
         }
@@ -107,7 +108,7 @@ namespace Web.Pages.Catalogos
                     //se declara el objeto a insertar
                     ConfiguracionCorreo dato = new ConfiguracionCorreo();
                     //llena el objeto con los valores de la pantalla
-                    dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
+                    dato.codigo =  Session["usuario"].ToString();
                     dato.host = e.NewValues["host"] != null ? e.NewValues["host"].ToString().ToUpper() : null;
                     dato.port = e.NewValues["port"] != null ? e.NewValues["port"].ToString().ToUpper() : null;
                     dato.user = e.NewValues["user"] != null ? e.NewValues["user"].ToString() : null;
@@ -262,11 +263,13 @@ namespace Web.Pages.Catalogos
         {
             if (this.ASPxGridView1.IsNewRowEditing)
             {
-                if (e.Column.FieldName == "id") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; e.Editor.Value = 0; }
-            }
-            else
-            {
-                if (e.Column.FieldName == "id") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+                if (e.Column.FieldName.Equals("codigo"))
+                {
+                    e.Editor.ReadOnly = true;
+                    e.Column.ReadOnly = true;
+                    e.Editor.BackColor = System.Drawing.Color.LightGray;
+                    e.Editor.Value = Session["usuario"].ToString();
+                } 
             }
         }
 

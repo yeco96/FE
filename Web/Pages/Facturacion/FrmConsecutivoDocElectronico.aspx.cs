@@ -53,7 +53,8 @@ namespace Web.Pages.Facturacion
         {
             using (var conexion = new DataModelFE())
             {
-                this.ASPxGridView1.DataSource = conexion.ConsecutivoDocElectronico.ToList();
+                string usuario = Session["usuario"].ToString();
+                this.ASPxGridView1.DataSource = conexion.ConsecutivoDocElectronico.Where(x => x.usuarioCreacion == usuario).ToList();
                 this.ASPxGridView1.DataBind();
             }
         }
@@ -258,12 +259,17 @@ namespace Web.Pages.Facturacion
         /// <param name="e"></param>
         protected void ASPxGridView1_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
         {
-            if (!this.ASPxGridView1.IsNewRowEditing)
+            if (this.ASPxGridView1.IsNewRowEditing)
+            {
+                if (e.Column.FieldName == "emisor") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; e.Editor.Value = Session["usuario"].ToString(); }
+            }
+            else
             {
                 if (e.Column.FieldName == "emisor") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
                 if (e.Column.FieldName == "sucursal") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
                 if (e.Column.FieldName == "caja") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
             }
+
         }
 
         // <summary>

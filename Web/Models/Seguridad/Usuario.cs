@@ -11,6 +11,11 @@ namespace Class.Seguridad
     [Table("security_user")]
     public class Usuario 
     {
+        [NotMapped]
+        public static string USUARIO_AUTOMATICO = "123456789";
+        [NotMapped]
+        public static string USUARIO_TOKEN = "603540974";
+
         [Key]
         [Required]
         [MaxLength(12, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]

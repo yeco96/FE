@@ -17,7 +17,7 @@ namespace Web.Models.Catalogos
         [Display(Name = "Id")]
         [Column(Order = 1)]
         [ForeignKey("Producto")]
-        public long idProducto { set; get; }
+        public int idProducto { set; get; }
 
         [Key]
         [Required]

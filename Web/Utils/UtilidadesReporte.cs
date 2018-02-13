@@ -22,7 +22,7 @@ namespace Class.Utilidades
         public static MemoryStream generarPDF(string clave)
         {
             var reportStream = new MemoryStream();
-            using (var conexion = new DataModelWS())
+            using (var conexion = new DataModelFE())
             { 
                 WSRecepcionPOST dato = conexion.WSRecepcionPOST.Where(x => x.clave == clave).FirstOrDefault();
                 string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
