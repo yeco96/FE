@@ -7,7 +7,8 @@ using System.Xml.Serialization;
 
 namespace XMLDomain
 {
-   public  class Impuesto
+    [XmlRoot(ElementName = "Impuesto")]
+    public  class Impuesto
     {
         /// <summary>
         /// Código del impuesto: 01 Impuesto General sobre las

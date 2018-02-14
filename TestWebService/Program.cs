@@ -22,8 +22,9 @@ namespace TestWebService
         {
             OAuth2Token token = OAuth2.OAuth2Config.getToken();
 
-           // enviarDocumento(token);
-           // Console.ReadKey();
+            
+            //enviarDocumento(token);
+            //Console.ReadKey();
             consultarDocumento(token);
 
             //  consultarComprobantes(OAuth2.OAuth2Config.getToken());
@@ -39,7 +40,7 @@ namespace TestWebService
         /// </summary>
         public static void consultarDocumento(OAuth2Token token)
         { 
-            string clave = "50608011800060354097400100001010000000038188888888";
+            string clave = "50613021800060354097400100002010000000003188888888";
              
             //secured web api request
             string response = getRecepcion(token, clave)
@@ -75,19 +76,19 @@ namespace TestWebService
         {
             
             WSRecepcionPOST post = new WSRecepcionPOST();
-            post.clave = "50608011800060354097400100001010000000038188888888";
+            post.clave = "50613021800060354097400100002010000000003188888888";
             post.emisor.tipoIdentificacion = "01";
             post.emisor.numeroIdentificacion = "603540974";
             post.receptor.tipoIdentificacion = "01";
-            post.receptor.numeroIdentificacion = "207550498";
+            post.receptor.numeroIdentificacion = "601230863";
             
             FacturaElectronica fact = new FacturaElectronica();
             fact.iniciarParametros();
 
             string path = Path.Combine(Path.GetFullPath("fact.xml"));
 
-            //string xmlData = File.ReadAllText(path);
-            string xmlData = EncondeXML.getXMLFromObject(fact);   
+            string xmlData = File.ReadAllText(path);
+            //string xmlData = EncondeXML.getXMLFromObject(fact);   
 
             //EncondeXML.validadXMLXSD(xmlData);
 

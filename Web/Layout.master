@@ -79,9 +79,9 @@
 
                                                     <dx:MenuItem Text="DOCUMENTOS">
                                                         <Items>
-
+                                                             
                                                             <dx:MenuItem Text="EMISOR" NavigateUrl="~/Pages/Facturacion/FrmEmisor.aspx" />
-                                                            <dx:MenuItem Text="RECEPTOR" NavigateUrl="~/Pages/Facturacion/FrmReceptor.aspx" />
+                                                            <dx:MenuItem Text="RECEPTOR / CLIENTES" NavigateUrl="~/Pages/Facturacion/FrmReceptor.aspx" />
                                                             <dx:MenuItem Text="PRODUCTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProducto.aspx" />
                                                             <dx:MenuItem Text="PRODUCTO IMPUESTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProductoImpuesto.aspx" />
                                                             <dx:MenuItem Text="CONSULTA" NavigateUrl="~/Pages/Facturacion/FrmConsultaDocElectronico.aspx" />
