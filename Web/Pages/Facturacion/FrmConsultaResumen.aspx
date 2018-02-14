@@ -57,46 +57,49 @@
             <Columns>
                 <dx:GridViewCommandColumn Width="100px" ButtonType="Image" ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
                 </dx:GridViewCommandColumn>
-                <dx:GridViewDataTextColumn Caption="Clave" FieldName="clave" VisibleIndex="1" PropertiesTextEdit-MaxLength="12" UnboundType="String">
+                <dx:GridViewDataTextColumn Caption="Tipo Doc" FieldName="tipoDoc" VisibleIndex="1" PropertiesTextEdit-MaxLength="12" UnboundType="String">
+                    <PropertiesTextEdit MaxLength="12"></PropertiesTextEdit>
+                    </dx:GridViewDataTextColumn>
+                <dx:GridViewDataTextColumn Caption="Consecutivo" FieldName="clave" VisibleIndex="2" PropertiesTextEdit-MaxLength="12" UnboundType="String">
                     <PropertiesTextEdit MaxLength="12"></PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Codigo Moneda" FieldName="codigoMoneda" VisibleIndex="2" PropertiesTextEdit-MaxLength="3">
+                <dx:GridViewDataTextColumn Caption="Codigo Moneda" FieldName="codigoMoneda" VisibleIndex="3" PropertiesTextEdit-MaxLength="3">
                     <PropertiesTextEdit MaxLength="3"></PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Tipo Cambio" FieldName="tipoCambio" VisibleIndex="3" PropertiesTextEdit-MaxLength="10" PropertiesTextEdit-DisplayFormatString="c2">
+                <dx:GridViewDataTextColumn Caption="Tipo Cambio" FieldName="tipoCambio" VisibleIndex="4" PropertiesTextEdit-MaxLength="10" PropertiesTextEdit-DisplayFormatString="c2">
                     <PropertiesTextEdit MaxLength="10"></PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Total Servicios Gravados" FieldName="totalServGravados" VisibleIndex="4" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-DisplayFormatString="c2">
+                <dx:GridViewDataTextColumn Caption="Total Servicios Gravados" FieldName="totalServGravados" VisibleIndex="5" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-DisplayFormatString="c2">
                     <PropertiesTextEdit MaxLength="50"></PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Total Servicios Exentos" FieldName="totalServExentos" VisibleIndex="5" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-DisplayFormatString="c2">
+                <dx:GridViewDataTextColumn Caption="Total Servicios Exentos" FieldName="totalServExentos" VisibleIndex="6" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-DisplayFormatString="c2">
                     <PropertiesTextEdit MaxLength="50"></PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Total Mercancías Gravados" FieldName="totalMercanciasGravadas" VisibleIndex="6" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-DisplayFormatString="c2">
+                <dx:GridViewDataTextColumn Caption="Total Mercancías Gravados" FieldName="totalMercanciasGravadas" VisibleIndex="7" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-DisplayFormatString="c2">
                     <PropertiesTextEdit MaxLength="50"></PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Total Mercancías Exentas" FieldName="totalMercanciasExentas" VisibleIndex="7" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-DisplayFormatString="c2">
+                <dx:GridViewDataTextColumn Caption="Total Mercancías Exentas" FieldName="totalMercanciasExentas" VisibleIndex="8" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-DisplayFormatString="c2">
                     <PropertiesTextEdit MaxLength="50"></PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Total Gravado" FieldName="totalGravado" VisibleIndex="8" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-DisplayFormatString="c2">
+                <dx:GridViewDataTextColumn Caption="Total Gravado" FieldName="totalGravado" VisibleIndex="9" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-DisplayFormatString="c2">
                     <PropertiesTextEdit MaxLength="50"></PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Total Exento" FieldName="totalExento" VisibleIndex="9" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-DisplayFormatString="c2">
+                <dx:GridViewDataTextColumn Caption="Total Exento" FieldName="totalExento" VisibleIndex="10" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-DisplayFormatString="c2">
                     <PropertiesTextEdit MaxLength="50"></PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Total Venta" FieldName="totalVenta" VisibleIndex="10" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-DisplayFormatString="c2">
+                <dx:GridViewDataTextColumn Caption="Total Venta" FieldName="totalVenta" VisibleIndex="11" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-DisplayFormatString="c2">
                     <PropertiesTextEdit MaxLength="50"></PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Total Descuentos" FieldName="totalDescuentos" VisibleIndex="11" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-DisplayFormatString="c2">
+                <dx:GridViewDataTextColumn Caption="Total Descuentos" FieldName="totalDescuentos" VisibleIndex="12" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-DisplayFormatString="c2">
                     <PropertiesTextEdit MaxLength="50"></PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Total Venta Neta" FieldName="totalVentaNeta" VisibleIndex="12" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-DisplayFormatString="c2">
+                <dx:GridViewDataTextColumn Caption="Total Venta Neta" FieldName="totalVentaNeta" VisibleIndex="13" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-DisplayFormatString="c2">
                     <PropertiesTextEdit MaxLength="50"></PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Total Impuesto" FieldName="totalImpuesto" VisibleIndex="14" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-DisplayFormatString="c2">
                     <PropertiesTextEdit MaxLength="50"></PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Total Comprobante" FieldName="totalComprobante" VisibleIndex="13" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-DisplayFormatString="c2">
+                <dx:GridViewDataTextColumn Caption="Total Comprobante" FieldName="totalComprobante" VisibleIndex="15" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-DisplayFormatString="c2">
                     <PropertiesTextEdit MaxLength="50"></PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
             </Columns>

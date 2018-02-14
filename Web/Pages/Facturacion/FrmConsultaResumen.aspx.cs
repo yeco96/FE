@@ -43,15 +43,13 @@ namespace Web.Pages.Facturacion
         {
             using (var conexion = new DataModelFE())
             {
-                //this.ASPxGridView1.DataSource = conexion.WSRecepcionPOST.Where(x => x.fecha >= txtFechaInicio.Date && x.fecha <= txtFechaFin.Date).OrderByDescending(x => x.fecha).ToList();
-                this.ASPxGridView1.DataSource = conexion.ResumenFactura.Where(x => x.clave.Contains("%%")).OrderByDescending(x => x.clave).ToList();
-
-
                 string usuario = Session["usuario"].ToString();
                 this.ASPxGridView1.DataSource = (from ResumenFactura in conexion.ResumenFactura
                                                  from recepcioDocumento in conexion.WSRecepcionPOST
-                                                 where (recepcioDocumento.clave == ResumenFactura.clave && recepcioDocumento.emisorIdentificacion == usuario && recepcioDocumento.fecha >= txtFechaInicio.Date && recepcioDocumento.fecha <= txtFechaFin.Date)
+                                                 from tipoDocumento in conexion.TipoDocumento
+                                                 where (recepcioDocumento.clave == ResumenFactura.clave && recepcioDocumento.emisorTipo == tipoDocumento.codigo && recepcioDocumento.emisorIdentificacion == usuario && recepcioDocumento.fecha >= txtFechaInicio.Date && recepcioDocumento.fecha <= txtFechaFin.Date)
                                                  select new {
+                                                     tipoDoc = tipoDocumento.descripcion,
                                                      clave = ResumenFactura.clave.Substring(21, 20),
                                                      codigoMoneda = ResumenFactura.codigoMoneda,
                                                      tipoCambio=ResumenFactura.tipoCambio,
