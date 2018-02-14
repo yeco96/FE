@@ -56,6 +56,7 @@
         </dx:ASPxFormLayout>
 
         <div id="alertMessages" role="alert" runat="server" />
+        
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
             Width="100%" EnableTheming="True" KeyFieldName="clave" Theme="Moderno"
             OnDetailRowExpandedChanged="ASPxGridView1_DetailRowExpandedChanged"
