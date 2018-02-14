@@ -62,7 +62,7 @@ namespace XMLDomain
         /// </summary>
         /// <param name="xml">Genera un documento MensajeHacienda con los datos del XML</param>
         public MensajeHacienda(string xml)
-        {
+        { 
             Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalDigits = 2;
             Thread.CurrentThread.CurrentCulture.NumberFormat.NumberGroupSeparator = ",";
             Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator = ".";
@@ -83,13 +83,13 @@ namespace XMLDomain
             string totalFactura = buscarValorEtiquetaXML("MensajeHacienda", "TotalFactura", xml);
             if (!String.IsNullOrWhiteSpace(totalFactura))
             {
-                this.montoTotalFactura = decimal.Parse(totalFactura);
+                this.montoTotalFactura = decimal.Parse(totalFactura, System.Globalization.NumberStyles.Number, Thread.CurrentThread.CurrentCulture);
             }
             
             string totalImpueto = buscarValorEtiquetaXML("MensajeHacienda", "MontoTotalImpuesto", xml);
             if (!String.IsNullOrWhiteSpace(totalFactura))
             {
-                this.montoTotalImpuesto = decimal.Parse(totalImpueto,System.Globalization.NumberStyles.Number);
+                this.montoTotalImpuesto = decimal.Parse(totalImpueto,System.Globalization.NumberStyles.Number, Thread.CurrentThread.CurrentCulture);
             }
         }
          

@@ -31,7 +31,13 @@ namespace WSDomain
         [JsonIgnore]
         [Column("nombreComercial")]
         public string nombreComercial { set; get; }
-         
+
+
+        [JsonIgnore]
+        [NotMapped]
+        [Column("nombreCompleto")]
+        public string nombreCompleto { get { return this.ToString(); } }
+
 
         public EmisorReceptor() { }
 

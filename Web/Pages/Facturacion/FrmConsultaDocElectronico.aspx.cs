@@ -81,11 +81,9 @@ namespace Web.Pages.Facturacion
         /// </summary>  
         private void refreshData()
         {
-            using (var conexion = new DataModelFE())
-            {
-                this.ASPxGridView1.DataSource = conexion.WSRecepcionPOST.Where(x=> x.fecha >= txtFechaInicio.Date && x.fecha <= txtFechaFin.Date).OrderByDescending(x => x.fecha).ToList();
-                this.ASPxGridView1.DataBind();
-            }
+            string usuario = Session["usuario"].ToString();
+            this.ASPxGridView1.DataSource = new DataModelFE().WSRecepcionPOST.Where(x=> x.fecha >= txtFechaInicio.Date && x.fecha <= txtFechaFin.Date && x.emisorIdentificacion== usuario).OrderByDescending(x => x.fecha).ToList();
+            this.ASPxGridView1.DataBind();
         }
 
 
