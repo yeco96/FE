@@ -87,6 +87,7 @@
                                                             <dx:MenuItem Text="CONSULTA" NavigateUrl="~/Pages/Facturacion/FrmConsultaDocElectronico.aspx" />
                                                             <dx:MenuItem Text="CONFIRMAR XML" NavigateUrl="~/Pages/Facturacion/FrmValidarXML.aspx" />
                                                             <dx:MenuItem Text="CREAR DOCUMENTO" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumento.aspx" />
+                                                            <dx:MenuItem Text="CONSULTA DOCUMENTOS" NavigateUrl="~/Pages/Facturacion/FrmConsultaResumen.aspx" />
 
                                                         </Items>
                                                     </dx:MenuItem>

@@ -10,7 +10,7 @@
 namespace Web.Pages.Facturacion {
     
     
-    public partial class FrmConsultaDocElectronico {
+    public partial class FrmConsultaResumen {
         
         /// <summary>
         /// Control txtFechaInicio.
@@ -31,22 +31,13 @@ namespace Web.Pages.Facturacion {
         protected global::DevExpress.Web.ASPxDateEdit txtFechaFin;
         
         /// <summary>
-        /// Control txtCorreoReceptor.
+        /// Control btnConsultar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxButton txtCorreoReceptor;
-        
-        /// <summary>
-        /// Control alertMessages.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertMessages;
+        protected global::DevExpress.Web.ASPxButton btnConsultar;
         
         /// <summary>
         /// Control ASPxGridView1.
@@ -65,5 +56,14 @@ namespace Web.Pages.Facturacion {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxGridViewExporter ASPxGridViewExporter1;
+        
+        /// <summary>
+        /// Control alertMessages.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertMessages;
     }
 }
