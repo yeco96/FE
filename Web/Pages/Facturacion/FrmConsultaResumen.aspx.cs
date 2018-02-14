@@ -23,6 +23,8 @@ namespace Web.Pages.Facturacion
             {
                 if (!IsCallback && !IsPostBack)
                 {
+                    this.txtFechaInicio.Date = DateTime.Today;
+                    this.txtFechaFin.Date = Date.DateTimeNow();
                 }
                 this.refreshData();
             }
@@ -42,9 +44,40 @@ namespace Web.Pages.Facturacion
             using (var conexion = new DataModelFE())
             {
                 //this.ASPxGridView1.DataSource = conexion.WSRecepcionPOST.Where(x => x.fecha >= txtFechaInicio.Date && x.fecha <= txtFechaFin.Date).OrderByDescending(x => x.fecha).ToList();
-                this.ASPxGridView1.DataSource = conexion.ResumenFactura.Where(x => x.clave == "50611021800060354097400100001010000000095188888888").OrderByDescending(x => x.clave).ToList();
+                this.ASPxGridView1.DataSource = conexion.ResumenFactura.Where(x => x.clave.Contains("%%")).OrderByDescending(x => x.clave).ToList();
+
+
+                string usuario = Session["usuario"].ToString();
+                this.ASPxGridView1.DataSource = (from ResumenFactura in conexion.ResumenFactura
+                                                 from recepcioDocumento in conexion.WSRecepcionPOST
+                                                 where (recepcioDocumento.clave == ResumenFactura.clave && recepcioDocumento.emisorIdentificacion == usuario && recepcioDocumento.fecha >= txtFechaInicio.Date && recepcioDocumento.fecha <= txtFechaFin.Date)
+                                                 select new {
+                                                     clave = ResumenFactura.clave.Substring(21, 20),
+                                                     codigoMoneda = ResumenFactura.codigoMoneda,
+                                                     tipoCambio=ResumenFactura.tipoCambio,
+                                                     totalServGravados=ResumenFactura.totalServGravados,
+                                                     totalServExentos=ResumenFactura.totalServExentos,
+                                                     totalMercanciasGravadas=ResumenFactura.totalMercanciasGravadas,
+                                                     totalMercanciasExentas=ResumenFactura.totalMercanciasExentas,
+                                                     totalGravado = ResumenFactura.totalGravado,
+                                                     totalExento=ResumenFactura.totalExento,
+                                                     totalVenta=ResumenFactura.totalVenta,
+                                                     totalDescuentos=ResumenFactura.totalDescuentos,
+                                                     totalVentaNeta=ResumenFactura.totalVentaNeta,
+                                                     totalImpuesto=ResumenFactura.totalImpuesto,
+                                                     totalComprobante=ResumenFactura.totalComprobante
+                                                 }
+                                                 ).ToList();
+
+
+
                 this.ASPxGridView1.DataBind();
             }
+        }
+
+        protected void btnConsultar_Click(object sender, EventArgs e)
+        {
+            refreshData();
         }
     }
 }
