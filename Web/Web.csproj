@@ -204,6 +204,7 @@
     <Content Include="Pages\Facturacion\FrmCargarXML.aspx" />
     <Content Include="Pages\Consulta.aspx" />
     <Content Include="Pages\Facturacion\FrmConsultaDocElectronico.aspx" />
+    <Content Include="Pages\Facturacion\FrmConsultaResumen.aspx" />
     <Content Include="Pages\Facturacion\FrmGenerarNota.aspx" />
     <Content Include="Pages\Facturacion\FrmReceptor.aspx" />
     <Content Include="Pages\Facturacion\FrmEmisorReceptorAdministrador.aspx" />
@@ -473,6 +474,13 @@
     </Compile>
     <Compile Include="Pages\Facturacion\FrmConsultaDocElectronico.aspx.designer.cs">
       <DependentUpon>FrmConsultaDocElectronico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmConsultaResumen.aspx.cs">
+      <DependentUpon>FrmConsultaResumen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmConsultaResumen.aspx.designer.cs">
+      <DependentUpon>FrmConsultaResumen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Facturacion\FrmGenerarNota.aspx.cs">
       <DependentUpon>FrmGenerarNota.aspx</DependentUpon>
