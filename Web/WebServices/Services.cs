@@ -219,6 +219,7 @@ namespace Web.WebServices
                         trama.indEstado = 0;
                         trama.cargarEmisorReceptor();
                         conexion.Entry(tramaExiste).State = EntityState.Modified;
+
                         documento.resumenFactura.clave = documento.clave;
                         conexion.Entry(documento.resumenFactura).State = EntityState.Modified;
                     }
@@ -228,12 +229,22 @@ namespace Web.WebServices
                         trama.usuarioCreacion = usuario;
                         trama.cargarEmisorReceptor();
                         conexion.WSRecepcionPOST.Add(trama);
+
                         documento.resumenFactura.clave = documento.clave;
                         conexion.ResumenFactura.Add(documento.resumenFactura);
-                    }
+                    } 
                     conexion.SaveChanges();
 
-
+                    //guarda la relacion de clientes asociados al emisor
+                    Cliente cliente = conexion.Cliente.Where(x => x.emisor == trama.emisor.numeroIdentificacion).Where(x => x.receptor == trama.receptor.numeroIdentificacion).FirstOrDefault();
+                    if (cliente == null)
+                    {
+                        cliente = new Cliente();
+                        cliente.emisor = trama.emisor.numeroIdentificacion;
+                        cliente.receptor = trama.receptor.numeroIdentificacion;
+                        conexion.SaveChanges();
+                    }
+                   
                 }
             }
             catch (DbEntityValidationException ex)

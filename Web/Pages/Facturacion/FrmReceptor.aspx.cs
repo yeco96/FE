@@ -39,11 +39,6 @@ namespace Web.Pages.Catalogos
                 {
                     using (var conexion = new DataModelFE())
                     {
-                        Session["LlaveCriptograficap12"] = null;
-                        /* EMISOR */
-                        // string emisorUsuario = Session["usuario"].ToString();
-                        // ReceptorReceptor receptor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == emisorUsuario).FirstOrDefault();
-                        // this.loadReceptor(receptor);
                     }
 
                     this.loadComboBox();
@@ -86,11 +81,7 @@ namespace Web.Pages.Catalogos
             this.cmbReceptorDistrito_ValueChanged(null, null);
             this.cmbReceptorBarrio.Value = receptor.barrio;
             this.txtReceptorOtraSenas.Value = receptor.otraSena;
-            /*
-            this.txtUsernameOAuth2.Text = receptor.usernameOAuth2;
-            this.txtPasswordOAuth2.Text = receptor.passwordOAuth2; 
-            this.txtClaveLlaveCriptografica.Text = receptor.claveLlaveCriptografica != null ?  receptor.claveLlaveCriptografica.ToString() : null;
-            */
+            this.cmbEstado.Value = receptor.estado;
 
         }
 
@@ -101,7 +92,13 @@ namespace Web.Pages.Catalogos
         {
             using (var conexion = new DataModelFE())
             {
-                this.ASPxGridView1.DataSource = conexion.EmisorReceptorIMEC.ToList();
+                string usuario = Session["usuario"].ToString();
+                this.ASPxGridView1.DataSource = (from emisor in conexion.EmisorReceptorIMEC
+                                                 from cliente in conexion.Cliente
+                                                 where emisor.identificacion == cliente.receptor && cliente.emisor == usuario
+                                                 select emisor
+                                                 ).ToList();
+                    conexion.EmisorReceptorIMEC.ToList();
                 this.ASPxGridView1.DataBind();
             }
         }
@@ -117,6 +114,9 @@ namespace Web.Pages.Catalogos
                 GridViewDataComboBoxColumn comboEstado = this.ASPxGridView1.Columns["estado"] as GridViewDataComboBoxColumn;
                 comboEstado.PropertiesComboBox.Items.Clear();
                 comboEstado.PropertiesComboBox.Items.AddRange(Enum.GetValues(typeof(Estado)));
+
+                this.cmbEstado.Items.Clear();
+                this.cmbEstado.Items.AddRange(Enum.GetValues(typeof(Estado)));
 
                 /* IDENTIFICACION TIPO */
                 GridViewDataComboBoxColumn comboIdentificacionTipo = this.ASPxGridView1.Columns["identificacionTipo"] as GridViewDataComboBoxColumn;
@@ -142,7 +142,7 @@ namespace Web.Pages.Catalogos
                 this.cmbReceptorTelefonoCod.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
                 this.cmbReceptorFaxCod.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
-
+                
 
             }
         }
@@ -335,10 +335,13 @@ namespace Web.Pages.Catalogos
         {
             using (var conexion = new DataModelFE())
             {
-                this.cmbReceptorDistrito.SelectedItem = null;
-                this.cmbReceptorDistrito.Items.Clear();
+               
                 this.cmbReceptorCanton.SelectedItem = null;
                 this.cmbReceptorCanton.Items.Clear();
+                this.cmbReceptorDistrito.SelectedItem = null;
+                this.cmbReceptorDistrito.Items.Clear();
+                this.cmbReceptorBarrio.SelectedItem = null;
+                this.cmbReceptorBarrio.Items.Clear();
 
                 foreach (var item in conexion.Ubicacion.
                     Where(x => x.codProvincia == this.cmbReceptorProvincia.Value.ToString()).
@@ -352,9 +355,11 @@ namespace Web.Pages.Catalogos
         protected void cmbReceptorCanton_ValueChanged(object sender, EventArgs e)
         {
             using (var conexion = new DataModelFE())
-            {
+            { 
                 this.cmbReceptorDistrito.SelectedItem = null;
                 this.cmbReceptorDistrito.Items.Clear();
+                this.cmbReceptorBarrio.SelectedItem = null;
+                this.cmbReceptorBarrio.Items.Clear();
 
                 foreach (var item in conexion.Ubicacion.
                     Where(x => x.codProvincia == this.cmbReceptorProvincia.Value.ToString()).
@@ -386,23 +391,7 @@ namespace Web.Pages.Catalogos
             }
         }
 
-
-
-        protected void DocumentsUploadControl_FileUploadComplete(object sender, DevExpress.Web.FileUploadCompleteEventArgs e)
-        {
-            try
-            {
-                Session["LlaveCriptograficap12"] = e.UploadedFile.FileBytes;
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
-            }
-        }
-
-
-
+          
         protected void btnActualizar_Click(object sender, EventArgs e)
         {
             try
@@ -449,17 +438,8 @@ namespace Web.Pages.Catalogos
                         receptor.barrio = this.cmbReceptorBarrio.Value.ToString();
                     }
                     receptor.otraSena = this.txtReceptorOtraSenas.Text;
-                    /*
-                    receptor.usernameOAuth2 = this.txtUsernameOAuth2.Text;
-                    receptor.passwordOAuth2 = this.txtPasswordOAuth2.Text;
-                    receptor.claveLlaveCriptografica = this.txtClaveLlaveCriptografica.Text;
-                    */
+                    receptor.estado = this.cmbEstado.Text;
 
-                    if (Session["LlaveCriptograficap12"] != null)
-                    {
-                        receptor.llaveCriptografica = (byte[])Session["LlaveCriptograficap12"];
-                    }
-                    
                     //modifica objeto
                     conexion.Entry(receptor).State = EntityState.Modified;
                     conexion.SaveChanges();
@@ -478,12 +458,6 @@ namespace Web.Pages.Catalogos
 
                 // Join the list to a single string.
                 var fullErrorMessage = string.Join("; ", errorMessages);
-
-                
-                
-
-                
-
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
 
@@ -499,6 +473,7 @@ namespace Web.Pages.Catalogos
 
         }
 
+
         protected void ASPxGridView1_SelectionChanged(object sender, EventArgs e)
         {
             try
@@ -509,7 +484,7 @@ namespace Web.Pages.Catalogos
                     using (var conexion = new DataModelFE())
                     {
                         EmisorReceptorIMEC receptor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == emisorUsuario).FirstOrDefault();
-                        Session["LlaveCriptograficap12"] = null;
+                        
                         this.loadReceptor(receptor);
                         this.alertMessages.Attributes["class"] = "alert alert-info";
                         this.alertMessages.InnerText = "Los datos fueron cargados correctamente!!!";

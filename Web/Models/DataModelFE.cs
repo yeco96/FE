@@ -53,7 +53,7 @@ namespace Web.Models
         public virtual DbSet<WSDomain.WSRecepcionPOST> WSRecepcionPOST { get; set; }
         public virtual DbSet<XMLDomain.ResumenFactura> ResumenFactura { get; set; }
         
-
+        public virtual DbSet<Cliente> Cliente { get; set; }
 
         #region singletonInstance
         /// <summary>

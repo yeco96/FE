@@ -32,7 +32,7 @@ namespace Web {
                     Request.Url.ToString().Contains("Reportes"))
                 {
                     if (Session["usuario"] == null)
-                    {
+                    { 
                         if (!Request.Url.ToString().Contains("Login")) {
                             Session.RemoveAll();
                             FormsAuthentication.SignOut();
@@ -46,7 +46,11 @@ namespace Web {
                 { 
                     this.NavMenu.Visible = false;
                     this.NavMenuAdmin.Visible = true;
-                } 
+                }
+                else
+                {
+                    FormsAuthentication.SignOut();
+                }
             }
             catch (Exception ex)
             {

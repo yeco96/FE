@@ -58,6 +58,15 @@ namespace Web.Pages.Catalogos {
         protected global::DevExpress.Web.ASPxTextBox txtReceptorNombreComercial;
         
         /// <summary>
+        /// cmbEstado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxComboBox cmbEstado;
+        
+        /// <summary>
         /// cmbReceptorTelefonoCod control.
         /// </summary>
         /// <remarks>

@@ -36,20 +36,24 @@ namespace HighSchoolWeb.ScheduledTask
         {
             try
             {
-                EmisorReceptorIMEC emisor = null; 
+                EmisorReceptorIMEC emisor = null;
+                OAuth2.OAuth2Config config = null;
+
                 using (var conexion = new DataModelFE())
-                {
-                    emisor = conexion.EmisorReceptorIMEC.Find(Usuario.USUARIO_TOKEN);
-                    string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
-                    OAuth2.OAuth2Config config = conexion.OAuth2Config.Where(x => x.enviroment == ambiente).FirstOrDefault();
-                    config.username = emisor.usernameOAuth2;
-                    config.password = emisor.passwordOAuth2;
-
-                    await OAuth2.OAuth2Config.getTokenWeb(config);
-
+                { 
                     List<WSRecepcionPOST> lista = conexion.WSRecepcionPOST.Where(x => x.indEstado == 0).ToList();
                     foreach (var item in lista)
                     {
+
+                        if (config != null) { 
+                            emisor = conexion.EmisorReceptorIMEC.Find(Usuario.USUARIO_TOKEN);
+                            string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
+                            config = conexion.OAuth2Config.Where(x => x.enviroment == ambiente).FirstOrDefault();
+                            config.username = emisor.usernameOAuth2;
+                            config.password = emisor.passwordOAuth2;
+                            await OAuth2.OAuth2Config.getTokenWeb(config);
+                        }
+
                         string respuestaJSON = await Services.getRecepcion(config.token, item.clave);
 
                         if (!string.IsNullOrWhiteSpace(respuestaJSON))
@@ -84,7 +88,6 @@ namespace HighSchoolWeb.ScheduledTask
             }
             return true;
         }
-
-
+        
     }
 }

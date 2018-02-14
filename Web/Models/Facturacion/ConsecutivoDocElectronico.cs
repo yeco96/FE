@@ -107,7 +107,7 @@ namespace Web.Models.Facturacion
 
         public override string ToString()
         {
-            return string.Format("Sucursal: {0} - Caja: {1}",this.sucursal, caja);
+            return string.Format("Sucursal: {0} - Caja: {1} - Consecutivo: {2}",this.sucursal, caja, consecutivo);
         }
 
 
