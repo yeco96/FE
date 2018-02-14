@@ -13,6 +13,9 @@ namespace Web.Models.Catalogos
     [Table("xml_tipo_impuesto")]
     public class TipoImpuesto
     {
+        [NotMapped]
+        public static string IMPUESTO_VENTA = "01";
+
         [Key]
         [Required]
         [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]

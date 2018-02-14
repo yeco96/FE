@@ -507,9 +507,17 @@ namespace Web.Pages.Facturacion
 
                     dato.calcularMontos();
                     dato.impuestos.Clear();
-                    foreach (var item in conexion.ProductoImpuesto.Where(x=>x.idProducto== producto.id))
-                    { 
-                        dato.impuestos.Add(new Impuesto(item.tipoImpuesto,item.porcentaje,dato.subTotal));
+                    foreach (var item in conexion.ProductoImpuesto.Where(x=>x.idProducto== producto.id).OrderByDescending(x=>x.tipoImpuesto))
+                    {
+                        if (TipoImpuesto.IMPUESTO_VENTA.Equals(item.tipoImpuesto))
+                        {
+                            dato.impuestos.Add(new Impuesto(item.tipoImpuesto, item.porcentaje, dato.montoTotalLinea));
+                        }
+                        else
+                        {
+                            dato.impuestos.Add(new Impuesto(item.tipoImpuesto, item.porcentaje, dato.subTotal));
+                        }
+                        dato.calcularMontos();
                     }
                     dato.calcularMontos();
 
@@ -583,9 +591,17 @@ namespace Web.Pages.Facturacion
                    
                     dato.calcularMontos();
                     dato.impuestos.Clear();
-                    foreach (var item in conexion.ProductoImpuesto.Where(x => x.idProducto == producto.id))
+                    foreach (var item in conexion.ProductoImpuesto.Where(x => x.idProducto == producto.id).OrderByDescending(x => x.tipoImpuesto))
                     {
-                        dato.impuestos.Add(new Impuesto(item.tipoImpuesto, item.porcentaje, dato.subTotal));
+                        if (TipoImpuesto.IMPUESTO_VENTA.Equals(item.tipoImpuesto))
+                        {
+                            dato.impuestos.Add(new Impuesto(item.tipoImpuesto, item.porcentaje, dato.montoTotalLinea));
+                        }
+                        else
+                        {
+                            dato.impuestos.Add(new Impuesto(item.tipoImpuesto, item.porcentaje, dato.subTotal));
+                        }
+                        dato.calcularMontos();
                     }
                     dato.calcularMontos();
 
@@ -747,8 +763,8 @@ namespace Web.Pages.Facturacion
                     consecutivo.consecutivo += 1;
                     conexion.Entry(consecutivo).State = EntityState.Modified;
                     conexion.SaveChanges();
-                     
-                    //string xmlSigned = FirmaXML.getXMLFirmadoWeb(xml, elEmisor.llaveCriptografica, elEmisor.claveLlaveCriptografica);
+                    string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
+                    string xmlSigned = FirmaXML.getXMLFirmadoWeb(xml, elEmisor.llaveCriptografica, elEmisor.claveLlaveCriptografica);
                     string responsePost = await Services.enviarDocumentoElectronico(false, dato, elEmisor, this.cmbTipoDocumento.Value.ToString(), Session["usuario"].ToString());
 
                     if (responsePost.Equals("Success"))

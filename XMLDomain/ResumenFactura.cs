@@ -117,12 +117,12 @@ namespace XMLDomain
                     {
                         totalImpuesto += impuesto.monto;
                     }
-                    //sin IV
-                    totalServExentos += linea.montoTotal;
-                }
-                else//con IV
-                {
+                    //con IV
                     totalServGravados += linea.montoTotal;
+                }
+                else//sin IV
+                {
+                    totalServExentos += linea.montoTotal;
                 }
                 totalDescuentos += linea.montoDescuento;
 

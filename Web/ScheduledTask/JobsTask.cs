@@ -24,7 +24,7 @@ namespace HighSchoolWeb.ScheduledTask
     public class JobsTask : IJob
     {
         public async Task Execute(IJobExecutionContext context)
-        {
+        { 
             await this.actualizarMensajesHacienda();
         }
 
@@ -45,7 +45,7 @@ namespace HighSchoolWeb.ScheduledTask
                     foreach (var item in lista)
                     {
 
-                        if (config != null) { 
+                        if (config == null) { 
                             emisor = conexion.EmisorReceptorIMEC.Find(Usuario.USUARIO_TOKEN);
                             string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
                             config = conexion.OAuth2Config.Where(x => x.enviroment == ambiente).FirstOrDefault();
