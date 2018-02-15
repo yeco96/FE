@@ -26,7 +26,10 @@
                 <dx:GridViewDataTextColumn Caption="Id" FieldName="id" VisibleIndex="1"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataComboBoxColumn Caption="Tipo" FieldName="tipo" VisibleIndex="1" Width="23%"
+                <dx:GridViewDataComboBoxColumn Caption="Tipo Código" FieldName="tipo" VisibleIndex="1" Width="20%"
+                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataComboBoxColumn>
+                  <dx:GridViewDataComboBoxColumn Caption="Tipo Serv/Merc" FieldName="tipoServMerc" VisibleIndex="1" 
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
                 <dx:GridViewDataComboBoxColumn Caption="Unidad Medida" FieldName="unidadMedida" VisibleIndex="2" Width="20%"
@@ -35,7 +38,7 @@
                 <dx:GridViewDataTextColumn Caption="Código" FieldName="codigo" VisibleIndex="3" PropertiesTextEdit-MaxLength="20"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Descripción" FieldName="descripcion" VisibleIndex="4" PropertiesTextEdit-MaxLength="50" Width="27%"
+                <dx:GridViewDataTextColumn Caption="Descripción" FieldName="descripcion" VisibleIndex="4" PropertiesTextEdit-MaxLength="50" Width="25%"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
 

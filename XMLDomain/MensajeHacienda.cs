@@ -63,10 +63,6 @@ namespace XMLDomain
         /// <param name="xml">Genera un documento MensajeHacienda con los datos del XML</param>
         public MensajeHacienda(string xml)
         { 
-            Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalDigits = 2;
-            Thread.CurrentThread.CurrentCulture.NumberFormat.NumberGroupSeparator = ",";
-            Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator = ".";
-
             this.clave = buscarValorEtiquetaXML("MensajeHacienda", "Clave", xml);
 
             this.emisorNombre = buscarValorEtiquetaXML("MensajeHacienda", "NombreEmisor", xml);
@@ -83,16 +79,15 @@ namespace XMLDomain
             string totalFactura = buscarValorEtiquetaXML("MensajeHacienda", "TotalFactura", xml);
             if (!String.IsNullOrWhiteSpace(totalFactura))
             {
-                this.montoTotalFactura = decimal.Parse(totalFactura, System.Globalization.NumberStyles.Number, Thread.CurrentThread.CurrentCulture);
+                this.montoTotalFactura = decimal.Parse(totalFactura, CultureInfo.InvariantCulture);
             }
             
             string totalImpueto = buscarValorEtiquetaXML("MensajeHacienda", "MontoTotalImpuesto", xml);
             if (!String.IsNullOrWhiteSpace(totalFactura))
             {
-                this.montoTotalImpuesto = decimal.Parse(totalImpueto,System.Globalization.NumberStyles.Number, Thread.CurrentThread.CurrentCulture);
+                this.montoTotalImpuesto = decimal.Parse(totalImpueto, CultureInfo.InvariantCulture);
             }
         }
-         
 
         /// <summary>
         /// Busca el valor de una etiqueta dentro de un XML

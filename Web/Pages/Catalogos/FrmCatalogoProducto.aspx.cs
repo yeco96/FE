@@ -24,7 +24,7 @@ namespace Web.Pages.Catalogos
         /// constructor
         /// </summary>
         public FrmCatalogoProducto()
-        { 
+        {
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace Web.Pages.Catalogos
                 Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
                 if (!IsCallback && !IsPostBack)
                 {
-                    this.cargarCombos(); 
+                    this.cargarCombos();
                 }
                 this.refreshData();
             }
@@ -55,7 +55,7 @@ namespace Web.Pages.Catalogos
         {
             using (var conexion = new DataModelFE())
             {
-                this.ASPxGridView1.DataSource = conexion.Producto.ToList(); 
+                this.ASPxGridView1.DataSource = conexion.Producto.ToList();
                 this.ASPxGridView1.DataBind();
             }
         }
@@ -65,31 +65,34 @@ namespace Web.Pages.Catalogos
         /// </summary>
         private void cargarCombos()
         {
-            /* ESTADO */
-            GridViewDataComboBoxColumn comboEstado = this.ASPxGridView1.Columns["estado"] as GridViewDataComboBoxColumn;
-            comboEstado.PropertiesComboBox.Items.Clear();
-            comboEstado.PropertiesComboBox.Items.AddRange(Enum.GetValues(typeof(Estado)));
-
-            /* TIPO */
-            GridViewDataComboBoxColumn comboTipo = this.ASPxGridView1.Columns["tipo"] as GridViewDataComboBoxColumn;
-            comboTipo.PropertiesComboBox.Items.Clear();
-            using (var conexion = new DataModelFE())
-            { 
-                foreach (var item in conexion.TipoProductoServicio.Where(x=>x.estado==Estado.ACTIVO.ToString()).ToList())
-                {
-                    comboTipo.PropertiesComboBox.Items.Add(item.descripcion, item.codigo); 
-                }
-            }
-
-            /* UNIDAD MEDIDA */
-            GridViewDataComboBoxColumn comboUnidadMedida = this.ASPxGridView1.Columns["unidadMedida"] as GridViewDataComboBoxColumn;
-            comboUnidadMedida.PropertiesComboBox.Items.Clear();
             using (var conexion = new DataModelFE())
             {
+                /* ESTADO */
+                GridViewDataComboBoxColumn comboEstado = this.ASPxGridView1.Columns["estado"] as GridViewDataComboBoxColumn;
+                comboEstado.PropertiesComboBox.Items.Clear();
+                comboEstado.PropertiesComboBox.Items.AddRange(Enum.GetValues(typeof(Estado)));
+
+                /* UNIDAD MEDIDA */
+                GridViewDataComboBoxColumn comboUnidadMedida = this.ASPxGridView1.Columns["unidadMedida"] as GridViewDataComboBoxColumn;
+                comboUnidadMedida.PropertiesComboBox.Items.Clear();
                 foreach (var item in conexion.UnidadMedida.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
                 {
                     comboUnidadMedida.PropertiesComboBox.Items.Add(item.ToString(), item.codigo);
                 }
+
+                /* TIPO */
+                GridViewDataComboBoxColumn comboTipo = this.ASPxGridView1.Columns["tipo"] as GridViewDataComboBoxColumn;
+                comboTipo.PropertiesComboBox.Items.Clear();
+                foreach (var item in conexion.TipoProductoServicio.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                {
+                    comboTipo.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
+                }
+
+                /* TIPO SERVICIO / MERCANCIA */
+                GridViewDataComboBoxColumn comboTipoServ = this.ASPxGridView1.Columns["tipoServMerc"] as GridViewDataComboBoxColumn;
+                comboTipoServ.PropertiesComboBox.Items.Clear();
+                comboTipoServ.PropertiesComboBox.Items.Add(new ListEditItem(TipoServMerc.MERCANCIA.ToString(), "ME"));
+                comboTipoServ.PropertiesComboBox.Items.Add(new ListEditItem(TipoServMerc.SERVICIO.ToString(), "SE"));
             }
 
         }
@@ -131,6 +134,7 @@ namespace Web.Pages.Catalogos
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
                     dato.tipo = e.NewValues["tipo"] != null ? e.NewValues["tipo"].ToString().ToUpper() : null;
+                    dato.tipoServMerc = e.NewValues["tipoServMerc"] != null ? e.NewValues["tipoServMerc"].ToString().ToUpper() : null;
                     dato.unidadMedida = e.NewValues["unidadMedida"] != null ? e.NewValues["unidadMedida"].ToString() : null;
                     dato.precio = e.NewValues["precio"] != null ? decimal.Parse(e.NewValues["precio"].ToString()) : 0;
                     dato.emisor = ((EmisorReceptorIMEC)Session["emisor"]).identificacion;
@@ -159,13 +163,13 @@ namespace Web.Pages.Catalogos
 
                 // Join the list to a single string.
                 var fullErrorMessage = string.Join("; ", errorMessages);
-                
+
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
 
             }
             catch (Exception ex)
-            { 
+            {
                 throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
             }
             finally
@@ -185,27 +189,23 @@ namespace Web.Pages.Catalogos
             try
             {
                 using (var conexion = new DataModelFE())
-                {
-                    // se declara el objeto a insertar
-                    Producto dato = new Producto();
-                    //llena el objeto con los valores de la pantalla
-                    //dato.id = e.NewValues["id"] != null ? long.Parse(e.NewValues["id"].ToString()) : 0;
-
+                {  
                     //busca el objeto 
-                    dato = conexion.Producto.Find(dato.id);
+                    Producto dato = conexion.Producto.Find(long.Parse(e.NewValues["id"].ToString()));
 
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
                     dato.precio = e.NewValues["precio"] != null ? decimal.Parse(e.NewValues["precio"].ToString()) : 0;
                     dato.emisor = ((EmisorReceptorIMEC)Session["emisor"]).identificacion;
                     dato.tipo = e.NewValues["tipo"] != null ? e.NewValues["tipo"].ToString().ToUpper() : null;
-                    dato.unidadMedida = e.NewValues["unidadMedida"] != null ? e.NewValues["unidadMedida"].ToString(): null;
+                    dato.tipoServMerc = e.NewValues["tipoServMerc"] != null ? e.NewValues["tipoServMerc"].ToString().ToUpper() : null;
+                    dato.unidadMedida = e.NewValues["unidadMedida"] != null ? e.NewValues["unidadMedida"].ToString() : null;
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioModificacion = Session["usuario"].ToString();
                     dato.fechaModificacion = Date.DateTimeNow();
 
                     //modifica objeto
-                    conexion.Entry(dato).State = EntityState.Modified; 
+                    conexion.Entry(dato).State = EntityState.Modified;
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress
@@ -340,10 +340,10 @@ namespace Web.Pages.Catalogos
             {
                 long idProducto = long.Parse((sender as ASPxGridView).GetMasterRowKeyValue().ToString());
 
-               
+
                 ASPxGridView detailGird = ASPxGridView1.FindDetailRowTemplateControl(ASPxGridView1.FocusedRowIndex, "ASPxGridView2") as ASPxGridView;
                 //detailGird.DataSource = conexion.ProductoImpuesto.Where(x => x.idProducto == idProducto).ToList();
-               // detailGird.DataBind();
+                // detailGird.DataBind();
             }
         }
 
@@ -352,7 +352,7 @@ namespace Web.Pages.Catalogos
             using (var conexion = new DataModelFE())
             {
                 long idProducto = long.Parse(ASPxGridView1.GetRowValues(e.VisibleIndex, "id").ToString());
-                 
+
                 ASPxGridView detailGird = ASPxGridView1.FindDetailRowTemplateControl(e.VisibleIndex, "ASPxGridView2") as ASPxGridView;
                 if (detailGird != null)
                 {

@@ -1,4 +1,4 @@
-﻿<%@ Page Async="true" Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmConsultaDocElectronico.aspx.cs" Inherits="Web.Pages.Facturacion.FrmConsultaDocElectronico" %>
+﻿<%@ Page Async="true" Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmAdministracionDocElectronico.aspx.cs" Inherits="Web.Pages.Facturacion.FrmAdministracionDocElectronico" %>
 
 <%@ Register Src="~/UserControls/AddAuditoriaForm.ascx" TagPrefix="user" TagName="AddAuditoriaForm" %>
 
@@ -6,7 +6,7 @@
 
     <section class="featured">
         <div class="content-wrapper">
-            Documentos Electrónicos
+            Administración Documentos Electrónicos
         </div>
     </section>
     <div class="borde_redondo_tabla">
@@ -44,7 +44,7 @@
                         <dx:LayoutItem Caption="">
                             <LayoutItemNestedControlCollection>
                                 <dx:LayoutItemNestedControlContainer>
-                                    <dx:ASPxButton ID="txtCorreoReceptor" runat="server" Text="Consultar" Width="80px" Image-Url="~/Content/Images/search1.png" CausesValidation="true">
+                                    <dx:ASPxButton ID="txtConsultar" runat="server" Text="Consultar" Width="80px" Image-Url="~/Content/Images/search1.png" CausesValidation="true"  Image-Height="20px">
                                     </dx:ASPxButton>
                                 </dx:LayoutItemNestedControlContainer>
                             </LayoutItemNestedControlCollection>
@@ -79,9 +79,9 @@
 
                 <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="indEstado" VisibleIndex="7">
                 </dx:GridViewDataComboBoxColumn>
-                <dx:GridViewDataTextColumn Caption="Monto Impuesto" FieldName="montoTotalImpuesto" VisibleIndex="8" PropertiesTextEdit-DisplayFormatString="c2">
+                <dx:GridViewDataTextColumn Caption="Monto Impuesto" FieldName="montoTotalImpuesto" VisibleIndex="8" PropertiesTextEdit-DisplayFormatString="n2">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Monto Factura" FieldName="montoTotalFactura" VisibleIndex="9" PropertiesTextEdit-DisplayFormatString="c2">
+                <dx:GridViewDataTextColumn Caption="Monto Factura" FieldName="montoTotalFactura" VisibleIndex="9" PropertiesTextEdit-DisplayFormatString="n2">
                 </dx:GridViewDataTextColumn>
 
                 <dx:GridViewDataComboBoxColumn Caption="Tipo" FieldName="tipoDocumento" VisibleIndex="10">
@@ -99,8 +99,8 @@
                 </dx:GridViewDataDateColumn>
             </Columns>
             <TotalSummary>
-                <dx:ASPxSummaryItem FieldName="montoTotalImpuesto" SummaryType="Sum" />
-                <dx:ASPxSummaryItem FieldName="montoTotalFactura" SummaryType="Sum" />
+                <dx:ASPxSummaryItem FieldName="montoTotalImpuesto" SummaryType="Sum" DisplayFormat="{0:n2}"/>
+                <dx:ASPxSummaryItem FieldName="montoTotalFactura" SummaryType="Sum" DisplayFormat="{0:n2}"/>
             </TotalSummary>
 
             <SettingsBehavior ColumnResizeMode="NextColumn" />

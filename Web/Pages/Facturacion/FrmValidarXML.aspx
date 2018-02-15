@@ -119,7 +119,7 @@
                             <dx:LayoutItem Caption="Monto Total Impuesto">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
-                                        <dx:ASPxTextBox ID="txtMontoTotalImpuesto" runat="server" Width="100%" AutoResizeWithContainer="true" Enabled="false" PropertiesTextEdit-DisplayFormatString="c2">
+                                        <dx:ASPxTextBox ID="txtMontoTotalImpuesto" runat="server" Width="100%" AutoResizeWithContainer="true" Enabled="false" PropertiesTextEdit-DisplayFormatString="n2">
                                             <ValidationSettings>
                                                 <RequiredField IsRequired="true" />
                                             </ValidationSettings>
@@ -131,7 +131,7 @@
                             <dx:LayoutItem Caption="Total Factura">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
-                                        <dx:ASPxTextBox ID="txtTotalFactura" runat="server" Width="100%" AutoResizeWithContainer="true" Enabled="false" PropertiesTextEdit-DisplayFormatString="c2">
+                                        <dx:ASPxTextBox ID="txtTotalFactura" runat="server" Width="100%" AutoResizeWithContainer="true" Enabled="false" PropertiesTextEdit-DisplayFormatString="n2">
                                             <ValidationSettings>
                                                 <RequiredField IsRequired="true" />
                                             </ValidationSettings>

@@ -54,7 +54,7 @@ namespace HighSchoolWeb.ScheduledTask
                             await OAuth2.OAuth2Config.getTokenWeb(config);
                         }
 
-                        string respuestaJSON = await Services.getRecepcion(config.token, item.clave);
+                      string respuestaJSON = await Services.getRecepcion(config.token, item.clave);
 
                         if (!string.IsNullOrWhiteSpace(respuestaJSON))
                         {

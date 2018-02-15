@@ -19,6 +19,12 @@ namespace XMLDomain
         [XmlIgnore]
         public string clave { set; get; }
 
+        [XmlIgnore]
+        public string consecutivo { get { return clave.Substring(21, 20); } }
+        [XmlIgnore]
+        public string tipoDocumento { get { return clave.Substring(29, 2); } }
+
+
         [XmlElement(ElementName = "CodigoMoneda", Order = 1)]
         public string codigoMoneda { set; get; }//tamaño 3  DGT
         [XmlElement(ElementName = "TipoCambio", Order = 2)]

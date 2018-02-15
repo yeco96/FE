@@ -84,10 +84,11 @@
                                                             <dx:MenuItem Text="RECEPTOR / CLIENTES" NavigateUrl="~/Pages/Facturacion/FrmReceptor.aspx" />
                                                             <dx:MenuItem Text="PRODUCTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProducto.aspx" />
                                                             <dx:MenuItem Text="PRODUCTO IMPUESTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProductoImpuesto.aspx" />
-                                                            <dx:MenuItem Text="CONSULTA" NavigateUrl="~/Pages/Facturacion/FrmConsultaDocElectronico.aspx" />
                                                             <dx:MenuItem Text="CONFIRMAR XML" NavigateUrl="~/Pages/Facturacion/FrmValidarXML.aspx" />
-                                                            <dx:MenuItem Text="CREAR DOCUMENTO" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumento.aspx" />
-                                                            <dx:MenuItem Text="CONSULTA DOCUMENTOS" NavigateUrl="~/Pages/Facturacion/FrmConsultaResumen.aspx" />
+
+                                                            <dx:MenuItem Text="ADMINISTRACIÓN" NavigateUrl="~/Pages/Facturacion/FrmAdministracionDocElectronico.aspx" />
+                                                            <dx:MenuItem Text="CONSULTA" NavigateUrl="~/Pages/Facturacion/FrmConsultaResumen.aspx" />
+                                                            <dx:MenuItem Text="FACTURAR" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumento.aspx" />
 
                                                         </Items>
                                                     </dx:MenuItem>

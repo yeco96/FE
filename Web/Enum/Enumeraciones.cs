@@ -22,7 +22,14 @@ public enum Sexo
     MASCULINO
 }
 
- 
+
+public enum TipoServMerc
+{
+    SERVICIO,
+    MERCANCIA
+}
+
+
 
 public class EstadoMensajeHaciendaClass
 { 

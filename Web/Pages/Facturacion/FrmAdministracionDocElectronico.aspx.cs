@@ -26,7 +26,7 @@ using XMLDomain;
 
 namespace Web.Pages.Facturacion
 {
-    public partial class FrmConsultaDocElectronico : System.Web.UI.Page
+    public partial class FrmAdministracionDocElectronico : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

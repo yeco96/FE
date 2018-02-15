@@ -1,4 +1,5 @@
 ﻿using Class.Utilidades;
+using DevExpress.Web;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,7 @@ namespace Web.Pages.Facturacion
                 {
                     this.txtFechaInicio.Date = DateTime.Today;
                     this.txtFechaFin.Date = Date.DateTimeNow();
+                    this.loadComboBox();
                 }
                 this.refreshData();
             }
@@ -37,6 +39,24 @@ namespace Web.Pages.Facturacion
         }
 
         /// <summary>
+        /// carga solo una vez para ahorar tiempo 
+        /// </summary>
+        private void loadComboBox()
+        {
+            using (var conexion = new DataModelFE())
+            {
+                /* TIPO DOCUMENTO */
+                GridViewDataComboBoxColumn comboTipoDocumento = this.ASPxGridView1.Columns["tipoDocumento"] as GridViewDataComboBoxColumn;
+                foreach (var item in conexion.TipoDocumento.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                {
+                    comboTipoDocumento.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
+                }
+
+
+            }
+        }
+
+        /// <summary>
         /// carga inicial de todos los registros
         /// </summary>  
         private void refreshData()
@@ -44,38 +64,23 @@ namespace Web.Pages.Facturacion
             using (var conexion = new DataModelFE())
             {
                 string usuario = Session["usuario"].ToString();
-                this.ASPxGridView1.DataSource = (from ResumenFactura in conexion.ResumenFactura
+                this.ASPxGridView1.DataSource = (from resumenFactura in conexion.ResumenFactura
                                                  from recepcioDocumento in conexion.WSRecepcionPOST
-                                                 from tipoDocumento in conexion.TipoDocumento
-                                                 where (recepcioDocumento.clave == ResumenFactura.clave && recepcioDocumento.emisorTipo == tipoDocumento.codigo && recepcioDocumento.emisorIdentificacion == usuario && recepcioDocumento.fecha >= txtFechaInicio.Date && recepcioDocumento.fecha <= txtFechaFin.Date)
-                                                 select new {
-                                                     tipoDoc = tipoDocumento.descripcion,
-                                                     clave = ResumenFactura.clave.Substring(21, 20),
-                                                     codigoMoneda = ResumenFactura.codigoMoneda,
-                                                     tipoCambio=ResumenFactura.tipoCambio,
-                                                     totalServGravados=ResumenFactura.totalServGravados,
-                                                     totalServExentos=ResumenFactura.totalServExentos,
-                                                     totalMercanciasGravadas=ResumenFactura.totalMercanciasGravadas,
-                                                     totalMercanciasExentas=ResumenFactura.totalMercanciasExentas,
-                                                     totalGravado = ResumenFactura.totalGravado,
-                                                     totalExento=ResumenFactura.totalExento,
-                                                     totalVenta=ResumenFactura.totalVenta,
-                                                     totalDescuentos=ResumenFactura.totalDescuentos,
-                                                     totalVentaNeta=ResumenFactura.totalVentaNeta,
-                                                     totalImpuesto=ResumenFactura.totalImpuesto,
-                                                     totalComprobante=ResumenFactura.totalComprobante
-                                                 }
+                                                 where recepcioDocumento.clave == resumenFactura.clave 
+                                                 && recepcioDocumento.emisorIdentificacion == usuario
+                                                 && recepcioDocumento.fecha >= txtFechaInicio.Date 
+                                                 && recepcioDocumento.fecha <= txtFechaFin.Date
+                                                 && recepcioDocumento.indEstado == 1
+                                                 select resumenFactura
                                                  ).ToList();
-
-
-
+                
                 this.ASPxGridView1.DataBind();
             }
         }
 
         protected void btnConsultar_Click(object sender, EventArgs e)
         {
-            refreshData();
+            this.refreshData();
         }
     }
 }
