@@ -124,11 +124,17 @@ namespace XMLDomain
                         totalImpuesto += impuesto.monto;
                     }
                     //con IV
-                    totalServGravados += linea.montoTotal;
+                    if(linea.tipoServMerc.Equals("SE"))
+                        totalServGravados += linea.montoTotal;
+                    else
+                        totalMercanciasGravadas += linea.montoTotal;
                 }
                 else//sin IV
                 {
-                    totalServExentos += linea.montoTotal;
+                    if (linea.tipoServMerc.Equals("SE"))
+                        totalServExentos += linea.montoTotal;
+                    else
+                        totalMercanciasGravadas += linea.montoTotal;
                 }
                 totalDescuentos += linea.montoDescuento;
 

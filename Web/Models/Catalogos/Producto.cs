@@ -12,6 +12,11 @@ namespace Web.Models.Catalogos
     [Table("fact_producto")]
     public class Producto
     {
+        [NotMapped]
+        public static string TIPO_SERVICIO = "SE";
+        [NotMapped]
+        public static string TIPO_MERCANCIA = "ME";
+
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Display(Name = "Id")]
         public virtual int id { set; get; }

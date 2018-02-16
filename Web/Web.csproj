@@ -194,6 +194,7 @@
     <Content Include="Pages\Catalogos\FrmCatalogoTipoProductoServicio.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoUbicacion.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoProducto.aspx" />
+    <Content Include="Pages\Catalogos\FrmCatalogoEmpresa.aspx" />
     <Content Include="Pages\Facturacion\FrmConsecutivoDocElectronico.aspx" />
     <Content Include="Pages\Contacts.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoCodigoReferencia.aspx" />
@@ -211,7 +212,7 @@
     <Content Include="Pages\Facturacion\FrmConsultaResumen.aspx" />
     <Content Include="Pages\Facturacion\FrmGenerarNota.aspx" />
     <Content Include="Pages\Facturacion\FrmReceptor.aspx" />
-    <Content Include="Pages\Facturacion\FrmEmisorReceptorAdministrador.aspx" />
+    <Content Include="Pages\Facturacion\FrmClienteAdministrador.aspx" />
     <Content Include="Pages\Facturacion\FrmEmisor.aspx" />
     <Content Include="Pages\Facturacion\FrmGenerarDocumento.aspx" />
     <Content Include="Pages\Facturacion\FrmValidarXML.aspx" />
@@ -300,6 +301,7 @@
     <Compile Include="Models\Catalogos\ConfiguracionCorreo.cs" />
     <Compile Include="Models\Catalogos\ProductoImpuesto.cs" />
     <Compile Include="Models\Catalogos\TipoImpuesto.cs" />
+    <Compile Include="Models\Catalogos\Empresa.cs" />
     <Compile Include="Models\Facturacion\Cliente.cs" />
     <Compile Include="Models\Facturacion\ConsecutivoDocElectronico.cs" />
     <Compile Include="Models\Catalogos\Ubicacion.cs" />
@@ -380,6 +382,13 @@
     </Compile>
     <Compile Include="Pages\Catalogos\FrmCatalogoProducto.aspx.designer.cs">
       <DependentUpon>FrmCatalogoProducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoEmpresa.aspx.cs">
+      <DependentUpon>FrmCatalogoEmpresa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoEmpresa.aspx.designer.cs">
+      <DependentUpon>FrmCatalogoEmpresa.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Facturacion\FrmConsecutivoDocElectronico.aspx.cs">
       <DependentUpon>FrmConsecutivoDocElectronico.aspx</DependentUpon>
@@ -501,12 +510,12 @@
     <Compile Include="Pages\Facturacion\FrmReceptor.aspx.designer.cs">
       <DependentUpon>FrmReceptor.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Facturacion\FrmEmisorReceptorAdministrador.aspx.cs">
-      <DependentUpon>FrmEmisorReceptorAdministrador.aspx</DependentUpon>
+    <Compile Include="Pages\Facturacion\FrmClienteAdministrador.aspx.cs">
+      <DependentUpon>FrmClienteAdministrador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Facturacion\FrmEmisorReceptorAdministrador.aspx.designer.cs">
-      <DependentUpon>FrmEmisorReceptorAdministrador.aspx</DependentUpon>
+    <Compile Include="Pages\Facturacion\FrmClienteAdministrador.aspx.designer.cs">
+      <DependentUpon>FrmClienteAdministrador.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Facturacion\FrmEmisor.aspx.cs">
       <DependentUpon>FrmEmisor.aspx</DependentUpon>
@@ -567,10 +576,10 @@
     <Compile Include="Pages\Reportes\RptFactDetRollPaper.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Pages\Reportes\RptFacturacionDetalle.cs">
+    <Compile Include="Pages\Reportes\RptComprobanteDetalle.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Pages\Reportes\RptFacturacionElectronica.cs">
+    <Compile Include="Pages\Reportes\RptComprobante.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Pages\Reportes\RptFacturacionElectronicaRollPaper.cs">
@@ -675,11 +684,11 @@
     <EmbeddedResource Include="Pages\Reportes\RptFactDetRollPaper.resx">
       <DependentUpon>RptFactDetRollPaper.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\Reportes\RptFacturacionDetalle.resx">
-      <DependentUpon>RptFacturacionDetalle.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\Reportes\RptComprobanteDetalle.resx">
+      <DependentUpon>RptComprobanteDetalle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\Reportes\RptFacturacionElectronica.resx">
-      <DependentUpon>RptFacturacionElectronica.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\Reportes\RptComprobante.resx">
+      <DependentUpon>RptComprobante.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Reportes\RptFacturacionElectronicaRollPaper.resx">
       <DependentUpon>RptFacturacionElectronicaRollPaper.cs</DependentUpon>

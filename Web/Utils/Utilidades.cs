@@ -109,7 +109,23 @@ namespace Class.Utilidades
         }
 
 
-        public static string validarExepcionSQL(string message)  {
+        public static string validarExepcionSQL(Exception exception) { 
+
+            string message = "";
+
+            if (exception.InnerException != null)
+            {
+                message += exception.InnerException.Message;
+                if (exception.InnerException.InnerException != null)
+                {
+                    message += exception.InnerException.InnerException.Message;
+                }
+            }
+            else
+            {
+                message += exception.Message;
+            }
+
             if(message.ToUpper().Contains("DUPLICATE ENTRY") ){
                 return "El registro a insertar ya se encuentra en el sistema. " +  
                         "Cambiar el o los códigos que desea guardar por otros que no existan en el sistema.";
@@ -208,7 +224,15 @@ namespace Class.Utilidades
                     smtp.Credentials = new NetworkCredential(mailConfig.user, mailConfig.password);
                     smtp.Host = mailConfig.host;
                     smtp.Port = int.Parse(mailConfig.port);
-                    smtp.EnableSsl = true;
+
+                    if (Confirmacion.SI.ToString().Equals(mailConfig.ssl))
+                    {
+                        smtp.EnableSsl = true;
+                    }
+                    else { 
+                        smtp.EnableSsl = false;
+                    }
+
                     smtp.Send(correo);
                     correo.Dispose();
                 } 

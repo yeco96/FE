@@ -33,7 +33,7 @@ namespace Web.Pages.Facturacion
             catch (Exception ex)
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
-                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
             }
 
         }
@@ -63,11 +63,11 @@ namespace Web.Pages.Facturacion
         {
             using (var conexion = new DataModelFE())
             {
-                string usuario = Session["usuario"].ToString();
+                string emisor = Session["emisor"].ToString();
                 this.ASPxGridView1.DataSource = (from resumenFactura in conexion.ResumenFactura
                                                  from recepcioDocumento in conexion.WSRecepcionPOST
                                                  where recepcioDocumento.clave == resumenFactura.clave 
-                                                 && recepcioDocumento.emisorIdentificacion == usuario
+                                                 && recepcioDocumento.emisorIdentificacion == emisor
                                                  && recepcioDocumento.fecha >= txtFechaInicio.Date 
                                                  && recepcioDocumento.fecha <= txtFechaFin.Date
                                                  && recepcioDocumento.indEstado == 1

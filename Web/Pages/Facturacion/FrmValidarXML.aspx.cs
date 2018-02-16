@@ -93,7 +93,7 @@ namespace Web.Pages.Facturacion
             catch (Exception ex)
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
-                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
             }
         }
 
@@ -122,7 +122,7 @@ namespace Web.Pages.Facturacion
                 dato.montoTotalImpuesto = decimal.Parse(this.txtMontoTotalImpuesto.Text);
                 dato.montoTotalFactura = decimal.Parse(this.txtTotalFactura.Text);
                  
-                EmisorReceptorIMEC elEmisor = (EmisorReceptorIMEC) Session["emisor"];
+                EmisorReceptorIMEC elEmisor = (EmisorReceptorIMEC) Session["elEmisor"];
                 string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
                 //string xmlSigned = FirmaXML.getXMLFirmadoWeb(xml, elEmisor.llaveCriptografica, elEmisor.claveLlaveCriptografica);
                 string responsePost = await Services.enviarMensajeReceptor(xml, elEmisor, Session["receptor.tipoIdentificacion"].ToString() );
@@ -152,7 +152,7 @@ namespace Web.Pages.Facturacion
             catch (Exception ex)
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
-                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
             }
         }
     }

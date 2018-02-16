@@ -28,9 +28,9 @@ namespace Web.Pages.Reportes
 
         }
 
-        RptFacturacionElectronica CreateReport()
+        RptComprobante CreateReport()
         {
-            RptFacturacionElectronica report = new RptFacturacionElectronica();
+            RptComprobante report = new RptComprobante();
             XMLDomain.Impresion fe = new XMLDomain.Impresion();
             //fe.iniciarParametros();
             object dataSource = fe;

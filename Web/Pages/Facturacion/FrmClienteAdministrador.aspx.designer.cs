@@ -10,7 +10,7 @@
 namespace Web.Pages.Catalogos {
     
     
-    public partial class FrmEmisorReceptorAdministrador {
+    public partial class FrmClienteAdministrador {
         
         /// <summary>
         /// cmbEmisorTipo control.

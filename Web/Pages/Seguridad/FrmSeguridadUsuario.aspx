@@ -21,7 +21,7 @@
             <Columns>
                 <dx:GridViewCommandColumn Width="60px" ButtonType="Image" ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
                 </dx:GridViewCommandColumn>
-                <dx:GridViewDataTextColumn Caption="Código" FieldName="codigo" ReadOnly="True" VisibleIndex="2" PropertiesTextEdit-MaxLength="12" 
+                <dx:GridViewDataTextColumn Caption="Código" FieldName="codigo"  VisibleIndex="2" PropertiesTextEdit-MaxLength="12" 
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
 
@@ -40,6 +40,10 @@
                 <dx:GridViewDataTextColumn Caption="Contraseña" FieldName="contrasena" VisibleIndex="6" PropertiesTextEdit-MaxLength="100"  
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
+
+                  <dx:GridViewDataSpinEditColumn Caption="Emisor" FieldName="emisor" VisibleIndex="7" 
+                    PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataSpinEditColumn>
 
                 <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="16"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">

@@ -41,7 +41,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
         }
         /// <summary>
@@ -127,19 +127,13 @@ namespace Web.Pages.Catalogos
 
                 // Join the list to a single string.
                 var fullErrorMessage = string.Join("; ", errorMessages);
-
-                
-                
-
-                // conexion.TipoIdentificacion.Remove(conexion.TipoIdentificacion.Last() );
-
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
 
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -182,9 +176,22 @@ namespace Web.Pages.Catalogos
                 }
 
             }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
+
+            }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -217,9 +224,22 @@ namespace Web.Pages.Catalogos
                 }
 
             }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
+
+            }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {

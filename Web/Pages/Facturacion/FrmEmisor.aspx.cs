@@ -53,7 +53,7 @@ namespace Web.Pages.Catalogos
             catch (Exception ex)
             {
 
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
         }
 
@@ -101,8 +101,8 @@ namespace Web.Pages.Catalogos
         {
             using (var conexion = new DataModelFE())
             {
-                string usuario = Session["usuario"].ToString();
-                this.ASPxGridView1.DataSource = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == usuario).ToList();
+                string emisor = Session["emisor"].ToString();
+                this.ASPxGridView1.DataSource = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == emisor).ToList();
                 
                 this.ASPxGridView1.DataBind();
             }
@@ -206,7 +206,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -249,7 +249,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -284,7 +284,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -400,7 +400,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
         }
 
@@ -480,7 +480,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally{
                 this.refreshData();
@@ -510,7 +510,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
         }
     }

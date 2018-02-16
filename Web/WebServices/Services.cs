@@ -242,6 +242,7 @@ namespace Web.WebServices
                         cliente = new Cliente();
                         cliente.emisor = trama.emisor.numeroIdentificacion;
                         cliente.receptor = trama.receptor.numeroIdentificacion;
+                        conexion.Cliente.Add(cliente);
                         conexion.SaveChanges();
                     }
                    
@@ -261,7 +262,7 @@ namespace Web.WebServices
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             return responsePost;
         }
@@ -310,7 +311,7 @@ namespace Web.WebServices
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             return responsePost;
         }

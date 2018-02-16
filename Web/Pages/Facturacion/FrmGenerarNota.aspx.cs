@@ -39,7 +39,7 @@ namespace Web.Pages.Facturacion
             catch (Exception ex)
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
-                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
             }
         }
 
@@ -119,7 +119,7 @@ namespace Web.Pages.Facturacion
             using (var conexion = new DataModelFE())
             {
                 /* SUCURSAL CAJA */
-                string elEmisor = ((EmisorReceptorIMEC)Session["emisor"]).identificacion;
+                string elEmisor =Session["emisor"].ToString();
                 foreach (var item in conexion.ConsecutivoDocElectronico.Where(x => x.emisor == elEmisor).Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
                 {
                     this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}", item.sucursal, item.caja));
@@ -183,7 +183,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -248,7 +248,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -331,7 +331,7 @@ namespace Web.Pages.Facturacion
                     conexion.SaveChanges();
 
                      
-                    EmisorReceptorIMEC elEmisor = (EmisorReceptorIMEC)base.Session["emisor"];
+                    EmisorReceptorIMEC elEmisor = (EmisorReceptorIMEC)Session["elEmisor"];
                     string responsePost = await Services.enviarDocumentoElectronico(false, dato, elEmisor, this.cmbTipoDocumento.Value.ToString(), Session["usuario"].ToString());
 
                     if (responsePost.Equals("Success"))
@@ -364,7 +364,7 @@ namespace Web.Pages.Facturacion
             catch (Exception ex)
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
-                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
             }
             finally
             {

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -27,22 +29,32 @@ namespace Class.Utilidades
                 WSRecepcionPOST dato = conexion.WSRecepcionPOST.Where(x => x.clave == clave).FirstOrDefault();
                 string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
                  
-                using (RptFacturacionElectronica report = new RptFacturacionElectronica())
+                using (RptComprobante report = new RptComprobante())
                 { 
                     DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xml, typeof(FacturaElectronica));
                     object dataSource = UtilidadesReporte.cargarObjetoImpresion(documento, dato.mensaje);
                     report.objectDataSource1.DataSource = dataSource;
                     string enviroment_url = ConfigurationManager.AppSettings["ENVIROMENT_URL"].ToString();
-                    report.xrBarCode1.Text = (enviroment_url + documento.clave).ToUpper(); 
+                    report.xrBarCode1.Text = (enviroment_url + documento.clave).ToUpper();
+                    Empresa empresa = conexion.Empresa.Find(documento.emisor.identificacion.numero);
+                    if (empresa != null && empresa.logo != null) {
+
+                        report.pbLogo.Image = byteArrayToImage(empresa.logo);
+                     }
                     report.CreateDocument();
                     report.ExportToPdf(reportStream); 
                 }
             }
             return reportStream;
         }
-       
-        
 
+        public static Image byteArrayToImage(byte[] imgBytes)
+        {
+            using (MemoryStream imgStream = new MemoryStream(imgBytes))
+            {
+                return Image.FromStream(imgStream);
+            }
+        }
 
 
         public static Impresion cargarObjetoImpresion(DocumentoElectronico dato, string mensaje)

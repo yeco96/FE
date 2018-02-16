@@ -43,7 +43,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
         }
         /// <summary>
@@ -144,7 +144,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -207,7 +207,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -242,7 +242,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {

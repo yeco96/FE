@@ -43,6 +43,12 @@ namespace Class.Seguridad
         [ForeignKey("Rol")]
         public string rol { set; get; }
 
+        [Required]
+        [MaxLength(12, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [Display(Name = "Emisor")]
+        public string emisor { set; get; }
+
+
 
         /// <summary>
         /// AUDIOTORIA

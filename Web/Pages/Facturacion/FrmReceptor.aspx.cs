@@ -48,7 +48,7 @@ namespace Web.Pages.Catalogos
             catch (Exception ex)
             {
 
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
         }
 
@@ -92,11 +92,11 @@ namespace Web.Pages.Catalogos
         {
             using (var conexion = new DataModelFE())
             {
-                string usuario = Session["usuario"].ToString();
-                this.ASPxGridView1.DataSource = (from emisor in conexion.EmisorReceptorIMEC
+                string emisor = Session["emisor"].ToString();
+                this.ASPxGridView1.DataSource = (from Emisor in conexion.EmisorReceptorIMEC
                                                  from cliente in conexion.Cliente
-                                                 where emisor.identificacion == cliente.receptor && cliente.emisor == usuario
-                                                 select emisor
+                                                 where Emisor.identificacion == cliente.receptor && cliente.emisor == emisor
+                                                 select Emisor
                                                  ).ToList();
                     conexion.EmisorReceptorIMEC.ToList();
                 this.ASPxGridView1.DataBind();
@@ -203,7 +203,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -246,7 +246,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -281,7 +281,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -464,7 +464,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -496,7 +496,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
         }
     }

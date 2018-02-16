@@ -32,15 +32,15 @@ namespace Web.Pages
                 }
             }
         }
-        
-        RptFacturacionElectronica CreateReport(string clave)
+
+        RptComprobante CreateReport(string clave)
         {
             using (var conexion = new DataModelFE())
             {
                 WSRecepcionPOST dato = conexion.WSRecepcionPOST.Where(x => x.clave == clave).FirstOrDefault();
                 string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
-                 
-                RptFacturacionElectronica report = new RptFacturacionElectronica();
+
+                RptComprobante report = new RptComprobante();
                  
                 DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xml);
                 object dataSource = UtilidadesReporte.cargarObjetoImpresion(documento, dato.mensaje);
