@@ -85,5 +85,10 @@ namespace Web.Pages.Facturacion
         {
             this.refreshData();
         }
+
+        protected void btnReporte_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Pages/Reportes/FrmReporteDocumentoResumen.aspx");
+        }
     }
 }

@@ -40,6 +40,15 @@ namespace Web.Pages.Facturacion {
         protected global::DevExpress.Web.ASPxButton txtConsultar;
         
         /// <summary>
+        /// Control btnReporte.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnReporte;
+        
+        /// <summary>
         /// Control ASPxGridView1.
         /// </summary>
         /// <remarks>
