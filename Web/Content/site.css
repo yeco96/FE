@@ -281,6 +281,10 @@ footer h4 {
     #banner { 
         background: none;
     } 
+    .loginControl { 
+        margin: 0px auto !important;
+    } 
+    
 }
 
 
