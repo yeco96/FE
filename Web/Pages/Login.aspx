@@ -3,7 +3,7 @@
 <asp:Content ID="Content" ContentPlaceHolderID="Content" runat="server">
 
     <style>
-        .borde_redondo {
+        .borde {
             -moz-border-radius: 10px;
             -webkit-border-radius: 10px;
             border-radius: 10px;
@@ -11,10 +11,17 @@
             width: 500px;
             margin: 0 auto;
         }
+
+        @media only screen and (max-width: 800px) { 
+            .borde { 
+                width: 100%;
+            }  
+        }
+
     </style>
 
 
-    <div class="borde_redondo">
+    <div class="borde">
         <dx:ASPxFormLayout runat="server" >
             <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
             <Items>
