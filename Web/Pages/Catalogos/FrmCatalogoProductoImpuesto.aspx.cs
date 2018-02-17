@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Security.Permissions;
 using System.Threading;
 using System.Web;
 using System.Web.UI;
@@ -17,6 +18,8 @@ using Web.Models.Facturacion;
 
 namespace Web.Pages.Catalogos
 {
+    [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
+    [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
     public partial class FrmCatalogoProductoImpuesto : System.Web.UI.Page
     {
 
@@ -45,7 +48,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
         }
         /// <summary>
@@ -55,7 +58,11 @@ namespace Web.Pages.Catalogos
         {
             using (var conexion = new DataModelFE())
             {
-                this.ASPxGridView1.DataSource = conexion.ProductoImpuesto.ToList(); 
+                string emisor = Session["emisor"].ToString();
+                this.ASPxGridView1.DataSource = (from impuesto in conexion.ProductoImpuesto
+                                                 from producto in conexion.Producto
+                                                 where producto.codigo == impuesto.idProducto.ToString() && producto.emisor == emisor
+                                                 select impuesto).ToList(); 
                 this.ASPxGridView1.DataBind();
             }
         }
@@ -75,7 +82,7 @@ namespace Web.Pages.Catalogos
             comboProducto.PropertiesComboBox.Items.Clear();
             using (var conexion = new DataModelFE())
             {
-                string emisor = ((EmisorReceptorIMEC)Session["emisor"]).identificacion;
+                string emisor =Session["emisor"].ToString();
                 foreach (var item in conexion.Producto.Where(x=>x.emisor == emisor).Where(x=>x.estado==Estado.ACTIVO.ToString()).ToList())
                 {
                     comboProducto.PropertiesComboBox.Items.Add(item.descripcion, item.id); 
@@ -133,7 +140,7 @@ namespace Web.Pages.Catalogos
                     dato.idProducto = e.NewValues["idProducto"] != null ? int.Parse(e.NewValues["idProducto"].ToString()) : 0 ;
                     dato.tipoImpuesto = e.NewValues["tipoImpuesto"] != null ? e.NewValues["tipoImpuesto"].ToString().ToUpper() : null;
                     dato.porcentaje = e.NewValues["porcentaje"] != null ? decimal.Parse(e.NewValues["porcentaje"].ToString()) : 0;
-                    dato.emisor = ((EmisorReceptorIMEC)Session["emisor"]).identificacion;
+                    dato.emisor =Session["emisor"].ToString();
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioCreacion = Session["usuario"].ToString();
                     dato.fechaCreacion = Date.DateTimeNow();
@@ -166,7 +173,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             { 
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -197,7 +204,7 @@ namespace Web.Pages.Catalogos
                     dato = conexion.ProductoImpuesto.Where(x=>x.idProducto == dato.idProducto).Where(x => x.tipoImpuesto == dato.tipoImpuesto).FirstOrDefault();
                    
                     dato.porcentaje = e.NewValues["porcentaje"] != null ? decimal.Parse(e.NewValues["porcentaje"].ToString()) : 0;
-                    dato.emisor = ((EmisorReceptorIMEC)Session["emisor"]).identificacion;
+                    dato.emisor =Session["emisor"].ToString();
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioModificacion = Session["usuario"].ToString();
                     dato.fechaModificacion = Date.DateTimeNow();
@@ -229,7 +236,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -285,7 +292,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {

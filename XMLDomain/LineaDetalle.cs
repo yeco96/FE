@@ -64,6 +64,9 @@ namespace XMLDomain
         [XmlIgnoreAttribute]
         public string producto { set; get; }
 
+        [XmlIgnoreAttribute]
+        public string tipoServMerc { set; get; }
+
         /// <summary>
         /// 
         /// </summary>

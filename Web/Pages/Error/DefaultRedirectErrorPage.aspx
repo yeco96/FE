@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="DefaultRedirectErrorPage.aspx.cs" Inherits="Web.Pages.Error.DefaultRedirectErrorPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LayoutError.master" AutoEventWireup="true" CodeBehind="DefaultRedirectErrorPage.aspx.cs" Inherits="Web.Pages.Error.DefaultRedirectErrorPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 
     

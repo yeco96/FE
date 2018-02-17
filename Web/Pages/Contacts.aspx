@@ -6,52 +6,28 @@
 </div>
 <script src="http://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
 <script src="http://openlayers.org/en/v3.18.2/build/ol.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript">
-    (function () { 
-        var location = ol.proj.fromLonLat([9.998352, -84.1307602]);
+    function InitializeMap() {
+        var latlng = new google.maps.LatLng(10.0030143, -84.1160851);
+        var myOptions = {
+            zoom: 15,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map"), myOptions);
 
-    var map = new ol.Map({
-        layers: [
-            new ol.layer.Tile({
-                source: new ol.source.OSM()
-            }),
-            getMarkerLayer()
-        ],
-        target: 'map',
-        controls: ol.control.defaults(),
-        interactions: ol.interaction.defaults({
-            mouseWheelZoom: false
-        }),
-        view: new ol.View({
-            center: location,
-            zoom: 16
-        })
-    });
-
-    function getMarkerLayer() {
-        var iconFeature = new ol.Feature({
-            geometry: new ol.geom.Point(location),
-        });
-
-        var iconStyle = new ol.style.Style({
-            image: new ol.style.Circle({
-                radius: 5,
-                fill: new ol.style.Fill({
-                    color: 'rgba(255,51,0,0.9)'
-                })
-            })
-        });
-        iconFeature.setStyle(iconStyle);
-
-        var vectorSource = new ol.source.Vector({
-            features: [iconFeature]
-        });
-
-        return new ol.layer.Vector({
-            source: vectorSource
-        });
+        var marker = new google.maps.Marker
+        (
+            {
+                position: new google.maps.LatLng(10.0030143, -84.1160851),
+                map: map,
+                title: 'MSA Soft'
+            }
+        );
     }
-})();
+
+    window.onload = InitializeMap;
 </script>
 <div class="container">
     <div class="row">

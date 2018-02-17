@@ -20,7 +20,7 @@ namespace Web.UserControls {
             catch (Exception ex)
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
-                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
             }
         }
 
@@ -61,7 +61,7 @@ namespace Web.UserControls {
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {

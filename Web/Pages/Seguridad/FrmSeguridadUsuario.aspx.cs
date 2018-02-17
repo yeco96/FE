@@ -8,7 +8,9 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Security.Permissions;
 using System.Web;
+using System.Web.Http;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Web.Models;
@@ -16,6 +18,9 @@ using Web.Models.Catalogos;
 
 namespace Web.Pages.Seguridad
 {
+
+    [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
+    [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
     public partial class FrmSeguridadUsuario : System.Web.UI.Page
     {
 
@@ -30,11 +35,15 @@ namespace Web.Pages.Seguridad
         /// este metodo si inicializa al cada vez que se renderiza la pagina
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="e"></param> 
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
+                if (!Request.IsAuthenticated)
+                {
+                    Response.Redirect("~/Pages/Login.aspx");
+                }
                 if (!IsCallback && !IsPostBack)
                 {
                     this.cargarCombos();
@@ -43,7 +52,7 @@ namespace Web.Pages.Seguridad
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
         }
         /// <summary>
@@ -53,7 +62,8 @@ namespace Web.Pages.Seguridad
         {
             using (var conexion = new DataModelFE())
             {
-                this.ASPxGridView1.DataSource = conexion.Usuario.ToList();
+                string emisor = Session["emisor"].ToString();
+                this.ASPxGridView1.DataSource = conexion.Usuario.Where(x=>x.emisor== emisor).ToList();
                 this.ASPxGridView1.DataBind();
             }
         }
@@ -128,7 +138,7 @@ namespace Web.Pages.Seguridad
                     dato.rol = e.NewValues["rol"] != null ? e.NewValues["rol"].ToString().ToUpper() : null;
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
                     dato.nombre = e.NewValues["nombre"] != null ? e.NewValues["nombre"].ToString().ToUpper() : null;
-
+                    dato.emisor = e.NewValues["emisor"] != null ? e.NewValues["emisor"].ToString().ToUpper() : null;
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioCreacion = Session["usuario"].ToString();
                     dato.fechaCreacion = Date.DateTimeNow();
@@ -159,7 +169,7 @@ namespace Web.Pages.Seguridad
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -195,7 +205,7 @@ namespace Web.Pages.Seguridad
                             dato.contrasena = MD5Util.getMd5Hash(dato.contrasena);
                         }
                     }
-
+                    dato.emisor = e.NewValues["emisor"] != null ? e.NewValues["emisor"].ToString().ToUpper() : null;
                     dato.rol = e.NewValues["rol"] != null ? e.NewValues["rol"].ToString().ToUpper() : null;
                     dato.nombre = e.NewValues["nombre"] != null ? e.NewValues["nombre"].ToString().ToUpper() : null;
                     dato.estado = e.NewValues["estado"].ToString();
@@ -228,7 +238,7 @@ namespace Web.Pages.Seguridad
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -261,9 +271,22 @@ namespace Web.Pages.Seguridad
                 }
 
             }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
+
+            }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -284,6 +307,14 @@ namespace Web.Pages.Seguridad
             {
                 if (e.Column.FieldName == "codigo") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
             }
+            if (e.Column.FieldName.Equals("emisor"))
+            {
+                e.Editor.ReadOnly = true;
+                e.Column.ReadOnly = true;
+                e.Editor.BackColor = System.Drawing.Color.LightGray;
+                e.Editor.Value = Session["usuario"].ToString();
+            }
+
         }
 
         // <summary>

@@ -1,11 +1,14 @@
 ﻿using Class.Utilidades;
 using DevExpress.Export;
 using DevExpress.Web;
+using DevExpress.Web.Internal;
 using DevExpress.XtraPrinting;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Permissions;
 using System.Web;
@@ -16,14 +19,15 @@ using Web.Models.Catalogos;
 
 namespace Web.Pages.Catalogos
 {
+    [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
     [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
-    public partial class FrmCatalogoUbicacion : System.Web.UI.Page
+    public partial class FrmCatalogoEmpresa : System.Web.UI.Page
     {
 
         /// <summary>
         /// constructor
         /// </summary>
-        public FrmCatalogoUbicacion()
+        public FrmCatalogoEmpresa()
         { 
         }
 
@@ -37,7 +41,8 @@ namespace Web.Pages.Catalogos
             try
             {
                 if (!IsCallback && !IsPostBack)
-                { 
+                {
+                    Session["logo"] = null;
                     this.cargarCombos(); 
                 }
                 this.refreshData();
@@ -54,7 +59,8 @@ namespace Web.Pages.Catalogos
         {
             using (var conexion = new DataModelFE())
             {
-                this.ASPxGridView1.DataSource = conexion.Ubicacion.ToList(); 
+                string emisor = Session["emisor"].ToString();
+                this.ASPxGridView1.DataSource = conexion.Empresa.Where(x => x.codigo == emisor).ToList(); 
                 this.ASPxGridView1.DataBind();
             }
         }
@@ -102,24 +108,21 @@ namespace Web.Pages.Catalogos
                 using (var conexion = new DataModelFE())
                 {
                     //se declara el objeto a insertar
-                    Ubicacion dato = new Ubicacion();
-                    //llena el objeto con los valores de la pantalla 
-                    dato.codProvincia = e.NewValues["codProvincia"] != null ? e.NewValues["codProvincia"].ToString().ToUpper() : null;
-                    dato.codCanton = e.NewValues["codCanton"] != null ? e.NewValues["codCanton"].ToString().ToUpper() : null;
-                    dato.codDistrito = e.NewValues["codDistrito"] != null ? e.NewValues["codDistrito"].ToString().ToUpper() : null;
-                    dato.codBarrio = e.NewValues["codBarrio"] != null ? e.NewValues["codBarrio"].ToString().ToUpper() : null;
-
-                    dato.nombreProvincia = e.NewValues["nombreProvincia"] != null ? e.NewValues["nombreProvincia"].ToString().ToUpper() : null;
-                    dato.nombreCanton = e.NewValues["nombreCanton"] != null ? e.NewValues["nombreCanton"].ToString().ToUpper() : null;
-                    dato.nombreDistrito = e.NewValues["nombreDistrito"] != null ? e.NewValues["nombreDistrito"].ToString().ToUpper() : null;
-                    dato.nombreBarrio = e.NewValues["nombreBarrio"] != null ? e.NewValues["nombreBarrio"].ToString().ToUpper() : null;
+                    Empresa dato = new Empresa();
+                    //llena el objeto con los valores de la pantalla
+                    dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
+                    dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
 
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioCreacion = Session["usuario"].ToString();
                     dato.fechaCreacion = Date.DateTimeNow();
 
+                    if (Session["logo"] != null)
+                    {
+                        dato.logo = (byte[])Session["logo"];
+                    } 
                     //agrega el objeto
-                    conexion.Ubicacion.Add(dato);
+                    conexion.Empresa.Add(dato);
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress
@@ -136,7 +139,9 @@ namespace Web.Pages.Catalogos
                         .Select(x => x.ErrorMessage);
 
                 // Join the list to a single string.
-                var fullErrorMessage = string.Join("; ", errorMessages);
+                var fullErrorMessage = string.Join("; ", errorMessages); 
+               // conexion.Empresa.Remove(conexion.Empresa.Last() );
+
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
 
@@ -164,26 +169,22 @@ namespace Web.Pages.Catalogos
                 using (var conexion = new DataModelFE())
                 {
                     // se declara el objeto a insertar
-                    Ubicacion dato = new Ubicacion();
+                    Empresa dato = new Empresa();
                     //llena el objeto con los valores de la pantalla
-                    dato.codigo = Int32.Parse(e.NewValues["codigo"].ToString());
+                    dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
 
                     //busca el objeto 
-                    dato = conexion.Ubicacion.Find(dato.codigo);
-                    
-                    dato.codProvincia = e.NewValues["codProvincia"] != null ? e.NewValues["codProvincia"].ToString().ToUpper() : null;
-                    dato.codCanton = e.NewValues["codCanton"] != null ? e.NewValues["codCanton"].ToString().ToUpper() : null;
-                    dato.codDistrito = e.NewValues["codDistrito"] != null ? e.NewValues["codDistrito"].ToString().ToUpper() : null;
-                    dato.codBarrio = e.NewValues["codBarrio"] != null ? e.NewValues["codBarrio"].ToString().ToUpper() : null;
+                    dato = conexion.Empresa.Find(dato.codigo); 
 
-                    dato.nombreProvincia = e.NewValues["nombreProvincia"] != null ? e.NewValues["nombreProvincia"].ToString().ToUpper() : null;
-                    dato.nombreCanton = e.NewValues["nombreCanton"] != null ? e.NewValues["nombreCanton"].ToString().ToUpper() : null;
-                    dato.nombreDistrito = e.NewValues["nombreDistrito"] != null ? e.NewValues["nombreDistrito"].ToString().ToUpper() : null;
-                    dato.nombreBarrio = e.NewValues["nombreBarrio"] != null ? e.NewValues["nombreBarrio"].ToString().ToUpper() : null;
-                    
+                    dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioModificacion = Session["usuario"].ToString();
                     dato.fechaModificacion = Date.DateTimeNow();
+
+                    if (Session["logo"] != null)
+                    {
+                        dato.logo = (byte[])Session["logo"];
+                    }
 
                     //modifica objeto
                     conexion.Entry(dato).State = EntityState.Modified;
@@ -204,6 +205,8 @@ namespace Web.Pages.Catalogos
 
                 // Join the list to a single string.
                 var fullErrorMessage = string.Join("; ", errorMessages);
+                // conexion.Empresa.Remove(conexion.Empresa.Last() );
+
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
 
@@ -230,11 +233,11 @@ namespace Web.Pages.Catalogos
             {
                 using (var conexion = new DataModelFE())
                 {
-                    var codigo = Int32.Parse(e.Values["codigo"].ToString());
+                    var id = e.Values["codigo"].ToString();
 
                     //busca objeto
-                    var itemToRemove = conexion.Ubicacion.SingleOrDefault(x => x.codigo == codigo);
-                    conexion.Ubicacion.Remove(itemToRemove);
+                    var itemToRemove = conexion.Empresa.SingleOrDefault(x => x.codigo == id);
+                    conexion.Empresa.Remove(itemToRemove);
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress
@@ -252,6 +255,8 @@ namespace Web.Pages.Catalogos
 
                 // Join the list to a single string.
                 var fullErrorMessage = string.Join("; ", errorMessages);
+                // conexion.Empresa.Remove(conexion.Empresa.Last() );
+
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
 
@@ -275,9 +280,11 @@ namespace Web.Pages.Catalogos
         /// <param name="e"></param>
         protected void ASPxGridView1_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
         {
-            if (!this.ASPxGridView1.IsNewRowEditing)
-            {
-                if (e.Column.FieldName == "codigo") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+            if (e.Column.FieldName == "codigo") {
+                e.Editor.ReadOnly = true;
+                e.Column.ReadOnly = true;
+                e.Editor.BackColor = System.Drawing.Color.LightGray;
+                e.Editor.Value = Session["usuario"].ToString();
             }
         }
 
@@ -304,6 +311,28 @@ namespace Web.Pages.Catalogos
         protected void exportarCSV_Click(object sender, ImageClickEventArgs e)
         {
             this.ASPxGridViewExporter1.WriteCsvToResponse();
+        }
+
+        protected void fileUpload_FileUploadComplete(object sender, FileUploadCompleteEventArgs e)
+        {
+            try
+            {
+                using (System.Drawing.Image original = System.Drawing.Image.FromStream(e.UploadedFile.FileContent))
+                using (System.Drawing.Image thumbnail = new ImageThumbnailCreator(original).CreateImageThumbnail(new Size(100, 100))) 
+                Session["logo"] = imageToByteArray(thumbnail);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
+            }
+        }
+
+        public byte[] imageToByteArray(System.Drawing.Image imageIn)
+        {
+            MemoryStream ms = new MemoryStream();
+            imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
+            return ms.ToArray();
         }
 
     }

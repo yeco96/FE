@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Reflection;
+using System.Security.Permissions;
 using System.Threading;
 using System.Web;
 using System.Web.UI;
@@ -19,6 +20,8 @@ using XMLDomain;
 
 namespace Web.Pages.Facturacion
 {
+    [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
+    [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
     public partial class FrmGenerarNota : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -39,7 +42,7 @@ namespace Web.Pages.Facturacion
             catch (Exception ex)
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
-                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
             }
         }
 
@@ -119,7 +122,7 @@ namespace Web.Pages.Facturacion
             using (var conexion = new DataModelFE())
             {
                 /* SUCURSAL CAJA */
-                string elEmisor = ((EmisorReceptorIMEC)Session["emisor"]).identificacion;
+                string elEmisor =Session["emisor"].ToString();
                 foreach (var item in conexion.ConsecutivoDocElectronico.Where(x => x.emisor == elEmisor).Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
                 {
                     this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}", item.sucursal, item.caja));
@@ -183,7 +186,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -248,7 +251,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -275,22 +278,28 @@ namespace Web.Pages.Facturacion
                 // datos de la factura original
                 FacturaElectronica factura = new FacturaElectronica();
                 string clave = Session["clave"].ToString();
-                using (var conexionWS = new DataModelFE())
-                {
-                    WSRecepcionPOST dato = conexionWS.WSRecepcionPOST.Find(clave);
-                    string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
-                    factura = (FacturaElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml, typeof(FacturaElectronica));
-                }
-
                 using (var conexion = new DataModelFE())
                 {
-                    NotaCreditoElectronica dato = new NotaCreditoElectronica();
+                    WSRecepcionPOST datoPost = conexion.WSRecepcionPOST.Find(clave);
+                    string xmlFactura = EncodeXML.EncondeXML.base64Decode(datoPost.comprobanteXml);
+                    factura = (FacturaElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xmlFactura, typeof(FacturaElectronica));
+                     
+                    DocumentoElectronico dato = null;
+                    if (TipoDocumento.NOTA_CREDITO.Equals(Session["tipoNota"].ToString()))
+                    {
+                        dato = new NotaCreditoElectronica(); 
+                    }
+                    else
+                    {
+                        dato = new NotaDebitoElectronica(); 
+                    }
+                    
 
                     /* ENCABEZADO */
                     dato.medioPago = factura.medioPago;
                     dato.plazoCredito = factura.plazoCredito;
                     dato.condicionVenta = factura.condicionVenta; 
-                    dato.fechaEmision = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss") + "-06:00";
+                    dato.fechaEmision = Date.DateTimeNow().ToString("yyyy-MM-ddTHH:mm:ss") + "-06:00";
                     /* DETALLE */
                     dato.detalleServicio = detalle;
 
@@ -302,16 +311,24 @@ namespace Web.Pages.Facturacion
                     dato.receptor = factura.receptor;
 
                     /* INFORMACION DE REFERENCIA */
-                    dato.informacionReferencia.tipoDocumento = TipoDocumento.FACTURA_ELECTRONICA;
                     dato.informacionReferencia.numero = factura.clave;
                     dato.informacionReferencia.fechaEmision = factura.fechaEmision;
                     dato.informacionReferencia.codigo = this.cmbCodigoReferencia.Value.ToString();
                     dato.informacionReferencia.razon = this.txtRazón.Text;
+                    dato.informacionReferencia.tipoDocumento = TipoDocumento.FACTURA_ELECTRONICA;
 
 
                     /* RESUMEN */
                     dato.resumenFactura.tipoCambio = factura.resumenFactura.tipoCambio; 
                     dato.resumenFactura.codigoMoneda = factura.resumenFactura.codigoMoneda;
+                    foreach (var item in dato.detalleServicio.lineaDetalle)
+                    {
+                        if (item.tipoServMerc==null) {
+                            Producto producto = conexion.Producto.Where(x=>x.codigo==item.codigo.codigo && x.emisor == dato.emisor.identificacion.numero).FirstOrDefault();
+                            item.tipoServMerc = producto.tipoServMerc;
+                            item.producto = producto.codigo;
+                        }
+                    } 
                     dato.resumenFactura.calcularResumenFactura(dato.detalleServicio.lineaDetalle);
 
                     /* VERIFICA VACIOS PARA XML */
@@ -331,7 +348,7 @@ namespace Web.Pages.Facturacion
                     conexion.SaveChanges();
 
                      
-                    EmisorReceptorIMEC elEmisor = (EmisorReceptorIMEC)base.Session["emisor"];
+                    EmisorReceptorIMEC elEmisor = (EmisorReceptorIMEC)Session["elEmisor"];
                     string responsePost = await Services.enviarDocumentoElectronico(false, dato, elEmisor, this.cmbTipoDocumento.Value.ToString(), Session["usuario"].ToString());
 
                     if (responsePost.Equals("Success"))
@@ -364,7 +381,7 @@ namespace Web.Pages.Facturacion
             catch (Exception ex)
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
-                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
             }
             finally
             {

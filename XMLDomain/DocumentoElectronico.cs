@@ -7,10 +7,10 @@ using System.Xml.Serialization;
 
 namespace XMLDomain
 {
-    public  class DocumentoElectronico
+    public class DocumentoElectronico
     {
         [XmlIgnore]
-        public static string TIPO = "01";
+        public string tipoDocumento { get { return numeroConsecutivo.Substring(8, 2); } }    
 
         [XmlElement(ElementName = "Clave", Order = 1)]
         public string clave { set; get; }

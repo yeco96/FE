@@ -7,7 +7,7 @@ using DevExpress.XtraReports.UI;
 /// <summary>
 /// Summary description for RptFacturacionDetalle
 /// </summary>
-public class RptFacturacionDetalle : DevExpress.XtraReports.UI.XtraReport
+public class RptComprobanteDetalle : DevExpress.XtraReports.UI.XtraReport
 {
     private DevExpress.XtraReports.UI.DetailBand Detail;
     public DevExpress.DataAccess.ObjectBinding.ObjectDataSource objectDataSource1;
@@ -41,7 +41,7 @@ public class RptFacturacionDetalle : DevExpress.XtraReports.UI.XtraReport
     /// </summary>
     private System.ComponentModel.IContainer components = null;
 
-    public RptFacturacionDetalle()
+    public RptComprobanteDetalle()
     {
         InitializeComponent();
         //
@@ -198,7 +198,7 @@ public class RptFacturacionDetalle : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel4.BorderWidth = 1F;
             this.xrLabel4.CanGrow = false;
             this.xrLabel4.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "monto", "{0:c2}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "monto", "{0:N2}")});
             this.xrLabel4.Font = new System.Drawing.Font("Arial", 9F);
             this.xrLabel4.ForeColor = System.Drawing.Color.Black;
             this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(520.6157F, 0F);
@@ -435,7 +435,7 @@ public class RptFacturacionDetalle : DevExpress.XtraReports.UI.XtraReport
             this.DataField.Name = "DataField";
             this.DataField.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             // 
-            // RptFacturacionDetalle
+            // RptComprobanteDetalle
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail,

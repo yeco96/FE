@@ -3,6 +3,7 @@ using DevExpress.Web;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Permissions;
 using System.Threading;
 using System.Web;
 using System.Web.UI;
@@ -13,6 +14,8 @@ namespace Web.Pages.Facturacion
 {
     public partial class FrmConsultaResumen : System.Web.UI.Page
     {
+        [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
+        [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
         protected void Page_Load(object sender, EventArgs e)
         {
             Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
@@ -33,7 +36,7 @@ namespace Web.Pages.Facturacion
             catch (Exception ex)
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
-                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
             }
 
         }
@@ -63,11 +66,11 @@ namespace Web.Pages.Facturacion
         {
             using (var conexion = new DataModelFE())
             {
-                string usuario = Session["usuario"].ToString();
+                string emisor = Session["emisor"].ToString();
                 this.ASPxGridView1.DataSource = (from resumenFactura in conexion.ResumenFactura
                                                  from recepcioDocumento in conexion.WSRecepcionPOST
                                                  where recepcioDocumento.clave == resumenFactura.clave 
-                                                 && recepcioDocumento.emisorIdentificacion == usuario
+                                                 && recepcioDocumento.emisorIdentificacion == emisor
                                                  && recepcioDocumento.fecha >= txtFechaInicio.Date 
                                                  && recepcioDocumento.fecha <= txtFechaFin.Date
                                                  && recepcioDocumento.indEstado == 1

@@ -41,7 +41,13 @@ namespace Web.Models.Catalogos
         [Display(Name = "Contraseña")]  
         public string password { set; get; }
 
-        
+
+        [Required]
+        [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [Display(Name = "ssl")]
+        public string ssl { set; get; }
+
+
         /// <summary>
         /// AUDIOTORIA
         /// </summary>

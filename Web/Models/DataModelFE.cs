@@ -54,6 +54,7 @@ namespace Web.Models
         public virtual DbSet<XMLDomain.ResumenFactura> ResumenFactura { get; set; }
         
         public virtual DbSet<Cliente> Cliente { get; set; }
+        public virtual DbSet<Empresa> Empresa { get; set; }
 
         #region singletonInstance
         /// <summary>

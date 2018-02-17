@@ -10,6 +10,7 @@ using Class.Utilidades;
 using System.Threading;
 using Web.Models;
 using System.Data.Entity;
+using Web.Models.Facturacion;
 
 namespace Web.Pages
 {
@@ -50,10 +51,19 @@ namespace Web.Pages
                                 return;
                             }
 
+                            EmisorReceptorIMEC emisor = conexion.EmisorReceptorIMEC.Find(usuario.emisor);
                             Session["usuario"] = usuario.codigo;
-                            Session["emisor"] = conexion.EmisorReceptorIMEC.Find(usuario.codigo);
-                             
-                            FormsAuthentication.SetAuthCookie(usuario.nombre, false);
+                            Session["elUsuario"] = usuario;
+                            Session["emisor"] = emisor.identificacion;
+                            Session["elEmisor"] = emisor;
+
+
+
+                            usuario.intentos = 0;
+                            conexion.Entry(usuario).State = EntityState.Modified;
+                            conexion.SaveChanges();
+
+                            FormsAuthentication.SetAuthCookie(usuario.nombre, false); 
                             Response.Redirect("~/"); 
                         }
                         else
@@ -84,7 +94,7 @@ namespace Web.Pages
             }
             catch (Exception ex)
             {
-                this.alertMessages.InnerText = Utilidades.validarExepcionSQL (ex.Message);
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
             }
         }

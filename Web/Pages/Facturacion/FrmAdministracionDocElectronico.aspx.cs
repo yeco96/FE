@@ -12,6 +12,7 @@ using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.IO;
 using System.Linq;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading;
 using System.Web;
@@ -26,6 +27,8 @@ using XMLDomain;
 
 namespace Web.Pages.Facturacion
 {
+    [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
+    [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
     public partial class FrmAdministracionDocElectronico : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -48,7 +51,7 @@ namespace Web.Pages.Facturacion
             catch (Exception ex)
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
-                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
             }
         }
 
@@ -81,8 +84,8 @@ namespace Web.Pages.Facturacion
         /// </summary>  
         private void refreshData()
         {
-            string usuario = Session["usuario"].ToString();
-            this.ASPxGridView1.DataSource = new DataModelFE().WSRecepcionPOST.Where(x=> x.fecha >= txtFechaInicio.Date && x.fecha <= txtFechaFin.Date && x.emisorIdentificacion== usuario).OrderByDescending(x => x.fecha).ToList();
+            string emisor = Session["emisor"].ToString();
+            this.ASPxGridView1.DataSource = new DataModelFE().WSRecepcionPOST.Where(x=> x.fecha >= txtFechaInicio.Date && x.fecha <= txtFechaFin.Date && x.emisorIdentificacion== emisor).OrderByDescending(x => x.fecha).ToList();
             this.ASPxGridView1.DataBind();
         }
 
@@ -116,7 +119,7 @@ namespace Web.Pages.Facturacion
             {
                 using (var conexion = new DataModelFE())
                 {
-                    EmisorReceptorIMEC emisor = (EmisorReceptorIMEC)base.Session["emisor"];
+                    EmisorReceptorIMEC emisor = (EmisorReceptorIMEC)Session["elEmisor"];
                     string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
                     OAuth2.OAuth2Config config = conexion.OAuth2Config.Where(x => x.enviroment == ambiente).FirstOrDefault();
                     config.username = emisor.usernameOAuth2;
@@ -163,7 +166,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -244,7 +247,7 @@ namespace Web.Pages.Facturacion
             catch (Exception ex)
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
-                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
             }
 
         }
@@ -288,7 +291,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
             }
         }
 
@@ -308,7 +311,7 @@ namespace Web.Pages.Facturacion
                         string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
                         DocumentoElectronico documento = (DocumentoElectronico) EncodeXML.EncondeXML.getObjetcFromXML(xml);
 
-                        EmisorReceptorIMEC elEmisor = ((EmisorReceptorIMEC)Session["emisor"]);
+                        EmisorReceptorIMEC elEmisor = ((EmisorReceptorIMEC)Session["elEmisor"]);
                         string responsePost = await Services.enviarDocumentoElectronico(true, documento, elEmisor, dato.tipoDocumento, Session["usuario"].ToString());
                         string correoElectronico = EncondeXML.buscarValorEtiquetaXML("Receptor", "CorreoElectronico", xml);
 
@@ -345,7 +348,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
             }
         }
 
@@ -380,7 +383,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
             }
         }
 
@@ -416,7 +419,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
             }
         }
 
@@ -447,7 +450,7 @@ namespace Web.Pages.Facturacion
             catch (Exception ex)
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
-                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
             }
         }
     }

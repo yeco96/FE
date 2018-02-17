@@ -13,7 +13,7 @@ namespace Web.Pages.Error
         {
             // Get the last error from the server
             Exception ex = Server.GetLastError();
-
+            
             // Create a safe message
             string safeMsg = "A problem has occurred in the web site. ";
 
@@ -46,11 +46,10 @@ namespace Web.Pages.Error
                     exMessage.Text = Session["error"].ToString();
                 }
             }
-
-           
+            
 
             // Clear the error from the server
-           // Server.ClearError();
+           Server.ClearError();
         }
     }
 }

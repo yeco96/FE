@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Security.Permissions;
 using System.Threading;
 using System.Web;
 using System.Web.UI;
@@ -17,6 +18,8 @@ using Web.Models.Facturacion;
 
 namespace Web.Pages.Catalogos
 {
+    [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
+    [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
     public partial class FrmCatalogoConfiguracionCorreo : System.Web.UI.Page
     {
 
@@ -45,7 +48,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
         }
         /// <summary>
@@ -55,8 +58,8 @@ namespace Web.Pages.Catalogos
         {
             using (var conexion = new DataModelFE())
             {
-                string usuario = Session["usuario"].ToString();
-                this.ASPxGridView1.DataSource = conexion.ConfiguracionCorreo.Where(x=>x.codigo== usuario).ToList(); 
+                string emisor = Session["emisor"].ToString();
+                this.ASPxGridView1.DataSource = conexion.ConfiguracionCorreo.Where(x=>x.codigo== emisor).ToList(); 
                 this.ASPxGridView1.DataBind();
             }
         }
@@ -70,7 +73,11 @@ namespace Web.Pages.Catalogos
             GridViewDataComboBoxColumn comboEstado = this.ASPxGridView1.Columns["estado"] as GridViewDataComboBoxColumn;
             comboEstado.PropertiesComboBox.Items.Clear();
             comboEstado.PropertiesComboBox.Items.AddRange(Enum.GetValues(typeof(Estado)));
-            
+
+            /* SSL */
+            GridViewDataComboBoxColumn comboSSL= this.ASPxGridView1.Columns["ssl"] as GridViewDataComboBoxColumn;
+            comboSSL.PropertiesComboBox.Items.Clear();
+            comboSSL.PropertiesComboBox.Items.AddRange(Enum.GetValues(typeof(Confirmacion)));
 
         }
 
@@ -112,7 +119,8 @@ namespace Web.Pages.Catalogos
                     dato.host = e.NewValues["host"] != null ? e.NewValues["host"].ToString().ToUpper() : null;
                     dato.port = e.NewValues["port"] != null ? e.NewValues["port"].ToString().ToUpper() : null;
                     dato.user = e.NewValues["user"] != null ? e.NewValues["user"].ToString() : null;
-                    dato.password = e.NewValues["password"] != null ? e.NewValues["password"].ToString() : null;
+                    dato.ssl = e.NewValues["ssl"] != null ? e.NewValues["ssl"].ToString() : null;
+                    dato.password = e.NewValues["password"] != null ? MD5Util.getMd5Hash( e.NewValues["password"].ToString()) : null;
                     
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioCreacion = Session["usuario"].ToString();
@@ -144,7 +152,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             { 
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -174,7 +182,7 @@ namespace Web.Pages.Catalogos
 
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
                     dato.password = e.NewValues["password"] != null ? e.NewValues["password"].ToString() : null;
-                   
+                    dato.ssl = e.NewValues["ssl"] != null ? e.NewValues["ssl"].ToString() : null;
                     dato.port = e.NewValues["port"] != null ? e.NewValues["port"].ToString().ToUpper() : null;
                     dato.user = e.NewValues["user"] != null ? e.NewValues["user"].ToString(): null;
                     dato.host = e.NewValues["host"] != null ? e.NewValues["host"].ToString().ToUpper() : null;
@@ -207,7 +215,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -244,7 +252,7 @@ namespace Web.Pages.Catalogos
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {

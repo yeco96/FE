@@ -8,8 +8,10 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using System.Security.Permissions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
@@ -25,6 +27,8 @@ using XMLDomain;
 
 namespace Web.Pages.Facturacion
 {
+    [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
+    [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
     public partial class FrmGenerarDocumento : System.Web.UI.Page
     {
         private DetalleServicio detalleServicio;
@@ -63,7 +67,7 @@ namespace Web.Pages.Facturacion
             catch (Exception ex)
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
-                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
             }
         }
 
@@ -108,7 +112,7 @@ namespace Web.Pages.Facturacion
             {
 
                 /* EMISOR */
-                string elEmisor = ((EmisorReceptorIMEC)Session["emisor"]).identificacion;
+                string elEmisor =Session["emisor"].ToString();
                 EmisorReceptorIMEC emisor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == elEmisor).FirstOrDefault();
                 this.loadEmisor(emisor);
 
@@ -462,7 +466,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -496,6 +500,7 @@ namespace Web.Pages.Facturacion
 
                     decimal precio = "0".Equals(e.NewValues["precioUnitario"].ToString()) ? producto.precio : decimal.Parse(e.NewValues["precioUnitario"].ToString());
 
+                    dato.tipoServMerc = producto.tipoServMerc;
                     dato.producto = producto.codigo;/*solo para uso del grid*/
                     dato.precioUnitario = precio;
                     dato.montoDescuento = e.NewValues["montoDescuento"] != null ? decimal.Parse(e.NewValues["montoDescuento"].ToString()) : 0;
@@ -552,7 +557,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -585,6 +590,7 @@ namespace Web.Pages.Facturacion
 
                     decimal precio = "0".Equals(e.NewValues["precioUnitario"].ToString()) ? producto.precio : decimal.Parse(e.NewValues["precioUnitario"].ToString());
 
+                    dato.tipoServMerc = producto.tipoServMerc;
                     dato.producto = producto.codigo;/*solo para uso del grid*/
                     dato.precioUnitario = precio;
                     dato.montoDescuento = e.NewValues["montoDescuento"] != null ? decimal.Parse(e.NewValues["montoDescuento"].ToString()) : 0;
@@ -622,7 +628,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -738,7 +744,7 @@ namespace Web.Pages.Facturacion
                     dato.receptor.ubicacion.otrassenas = elReceptor.otraSena;
 
                     /* RESUMEN */
-                    dato.resumenFactura.tipoCambio = decimal.Parse(this.txtTipoCambio.Text); 
+                    dato.resumenFactura.tipoCambio = decimal.Parse(this.txtTipoCambio.Text, CultureInfo.InvariantCulture); 
                     dato.resumenFactura.codigoMoneda = this.cmbTipoMoneda.Value.ToString();
                     dato.resumenFactura.calcularResumenFactura(dato.detalleServicio.lineaDetalle);
 
@@ -795,7 +801,7 @@ namespace Web.Pages.Facturacion
             catch (Exception ex)
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
-                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
             }
             finally
             {
@@ -884,14 +890,14 @@ namespace Web.Pages.Facturacion
                 var fullErrorMessage = string.Join("; ", errorMessages);
 
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
-                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(fullErrorMessage);
+                this.alertMessages.InnerText =fullErrorMessage;
                 Server.ClearError();
 
             }
             catch (Exception ex)
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
-                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
             }
             return receptor;
         }
@@ -921,7 +927,7 @@ namespace Web.Pages.Facturacion
             catch (Exception ex)
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
-                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex.Message);
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
             }
         }
 
@@ -944,7 +950,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -1019,7 +1025,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
@@ -1075,7 +1081,7 @@ namespace Web.Pages.Facturacion
             }
             catch (Exception ex)
             {
-                throw new Exception(Utilidades.validarExepcionSQL(ex.Message), ex.InnerException);
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
             finally
             {
