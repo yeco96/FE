@@ -10,6 +10,7 @@ using System.Data.Entity.Validation;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Permissions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -18,6 +19,8 @@ using Web.Models.Catalogos;
 
 namespace Web.Pages.Catalogos
 {
+    [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
+    [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
     public partial class FrmCatalogoEmpresa : System.Web.UI.Page
     {
 

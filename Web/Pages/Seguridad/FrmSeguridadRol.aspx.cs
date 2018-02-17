@@ -8,7 +8,9 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Security.Permissions;
 using System.Web;
+using System.Web.Http;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Web.Models;
@@ -16,6 +18,8 @@ using Web.Models.Catalogos;
 
 namespace Web.Pages.Seguridad
 {
+    
+    [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
     public partial class FrmSeguridadRol : System.Web.UI.Page
     {
 
@@ -35,6 +39,10 @@ namespace Web.Pages.Seguridad
         {
             try
             {
+                if (!Request.IsAuthenticated)
+                {
+                    Response.Redirect("~/Pages/Login.aspx");
+                }
                 if (!IsCallback && !IsPostBack)
                 {
                     this.cargarCombos();

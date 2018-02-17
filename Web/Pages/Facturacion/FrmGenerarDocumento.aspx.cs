@@ -11,6 +11,7 @@ using System.Data.Entity.Validation;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using System.Security.Permissions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
@@ -26,6 +27,8 @@ using XMLDomain;
 
 namespace Web.Pages.Facturacion
 {
+    [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
+    [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
     public partial class FrmGenerarDocumento : System.Web.UI.Page
     {
         private DetalleServicio detalleServicio;

@@ -31,7 +31,7 @@ namespace Class.Utilidades
                  
                 using (RptComprobante report = new RptComprobante())
                 { 
-                    DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xml, typeof(FacturaElectronica));
+                    DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xml);
                     object dataSource = UtilidadesReporte.cargarObjetoImpresion(documento, dato.mensaje);
                     report.objectDataSource1.DataSource = dataSource;
                     string enviroment_url = ConfigurationManager.AppSettings["ENVIROMENT_URL"].ToString();
@@ -82,7 +82,7 @@ namespace Class.Utilidades
 
             using (var conexion = new DataModelFE())
             {
-                impresion.tipoDocumento = conexion.TipoDocumento.Find(TipoDocumento.FACTURA_ELECTRONICA).descripcion;
+                impresion.tipoDocumento = conexion.TipoDocumento.Find(dato.tipoDocumento).descripcion;
                 impresion.CondicionVenta = conexion.CondicionVenta.Find(dato.condicionVenta).descripcion;
                 impresion.MedioPago = conexion.MedioPago.Find(dato.medioPago).descripcion;
             }
@@ -110,8 +110,6 @@ namespace Class.Utilidades
 
             return impresion;
         }
-
-
-
+         
     }
 }

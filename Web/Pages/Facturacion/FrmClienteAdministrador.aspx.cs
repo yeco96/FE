@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Security.Permissions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -16,6 +17,8 @@ using Web.Models.Facturacion;
 
 namespace Web.Pages.Catalogos
 {
+    [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
+    [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
     public partial class FrmClienteAdministrador : System.Web.UI.Page
     {
 

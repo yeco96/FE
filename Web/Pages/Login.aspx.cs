@@ -53,15 +53,17 @@ namespace Web.Pages
 
                             EmisorReceptorIMEC emisor = conexion.EmisorReceptorIMEC.Find(usuario.emisor);
                             Session["usuario"] = usuario.codigo;
+                            Session["elUsuario"] = usuario;
                             Session["emisor"] = emisor.identificacion;
                             Session["elEmisor"] = emisor;
+
 
 
                             usuario.intentos = 0;
                             conexion.Entry(usuario).State = EntityState.Modified;
                             conexion.SaveChanges();
 
-                            FormsAuthentication.SetAuthCookie(usuario.nombre, false);
+                            FormsAuthentication.SetAuthCookie(usuario.nombre, false); 
                             Response.Redirect("~/"); 
                         }
                         else

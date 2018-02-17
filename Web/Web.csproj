@@ -235,6 +235,7 @@
     <Content Include="Scripts\site.js" />
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <Content Include="App_Data\180207081824.psc" />
+    <Content Include="LayoutError.master" />
     <None Include="Properties\PublishProfiles\FE.pubxml" />
     <None Include="Service References\ServiceReferenceBCCR\wsIndicadoresEconomicos.disco" />
     <None Include="Service References\ServiceReferenceBCCR\configuration91.svcinfo" />
@@ -286,6 +287,13 @@
     <Compile Include="Enum\Enumeraciones.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="LayoutError.master.cs">
+      <DependentUpon>LayoutError.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LayoutError.master.designer.cs">
+      <DependentUpon>LayoutError.master</DependentUpon>
     </Compile>
     <Compile Include="Layout.master.cs">
       <DependentUpon>Layout.master</DependentUpon>

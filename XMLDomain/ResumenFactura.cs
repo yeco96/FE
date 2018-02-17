@@ -117,6 +117,7 @@ namespace XMLDomain
 
             foreach (var linea in lineaDetalle)
             {
+                 
                 if (linea.impuestos != null)
                 {
                     foreach (var impuesto in linea.impuestos)

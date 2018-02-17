@@ -8,7 +8,9 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Security.Permissions;
 using System.Web;
+using System.Web.Http;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Web.Models;
@@ -16,6 +18,9 @@ using Web.Models.Catalogos;
 
 namespace Web.Pages.Seguridad
 {
+
+    [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
+    [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
     public partial class FrmSeguridadUsuario : System.Web.UI.Page
     {
 
@@ -30,11 +35,15 @@ namespace Web.Pages.Seguridad
         /// este metodo si inicializa al cada vez que se renderiza la pagina
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="e"></param> 
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
+                if (!Request.IsAuthenticated)
+                {
+                    Response.Redirect("~/Pages/Login.aspx");
+                }
                 if (!IsCallback && !IsPostBack)
                 {
                     this.cargarCombos();

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading;
 using System.Web;
@@ -19,6 +20,8 @@ using XMLDomain;
 
 namespace Web.Pages.Facturacion
 {
+    [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
+    [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
     public partial class FrmValidarXML : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)

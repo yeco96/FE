@@ -10,6 +10,7 @@ using System.Threading;
 using Web.Models;
 using Web.Models.Facturacion;
 using System.Web.Security;
+using Class.Seguridad;
 
 namespace Web {
     public partial class Layout : System.Web.UI.MasterPage
@@ -21,8 +22,21 @@ namespace Web {
         {
              
             try {
+
+                if (Request.Url.ToString().Contains("Error")){
+
+                    return;
+                }
+
                 this.NavMenu.Visible = true;
                 this.NavMenuAdmin.Visible = false;
+                this.NavMenuFacturador.Visible = false;
+
+                
+                Usuario usuario = null;
+                if (Session["elUsuario"] !=null) {
+                    usuario = (Usuario) Session["elUsuario"];
+                } 
 
                 Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
                 
@@ -31,7 +45,11 @@ namespace Web {
                     Request.Url.ToString().Contains("Seguridad") ||
                     Request.Url.ToString().Contains("Reportes"))
                 {
-                    if (Session["usuario"] == null)
+                    if (!Request.IsAuthenticated)
+                    {
+                        Response.Redirect("~/Pages/Login.aspx");
+                    }
+                    if (usuario == null)
                     { 
                         if (!Request.Url.ToString().Contains("Login")) {
                             Session.RemoveAll();
@@ -42,10 +60,26 @@ namespace Web {
                 }
 
 
-                if (Session["usuario"] != null)
-                { 
-                    this.NavMenu.Visible = false;
-                    this.NavMenuAdmin.Visible = true;
+                if (usuario != null)
+                {
+                    switch (usuario.rol)
+                    {
+                        case Rol.ADMINISTRADOR:
+                            this.NavMenu.Visible = false;
+                            this.NavMenuAdmin.Visible = true;
+                            this.NavMenuFacturador.Visible = false;
+                            break;
+                        case Rol.FACTURADOR:
+                            this.NavMenu.Visible = false;
+                            this.NavMenuAdmin.Visible = false;
+                            this.NavMenuFacturador.Visible = true;
+                            break;
+                        default:
+                            this.NavMenu.Visible = true;
+                            this.NavMenuAdmin.Visible = false;
+                            this.NavMenuFacturador.Visible = false;
+                            break;
+                    } 
                 }
                 else
                 {

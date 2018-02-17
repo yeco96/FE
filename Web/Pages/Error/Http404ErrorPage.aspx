@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="Http404ErrorPage.aspx.cs" Inherits="Web.Pages.Error.Http404ErrorPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LayoutError.master" AutoEventWireup="true" CodeBehind="Http404ErrorPage.aspx.cs" Inherits="Web.Pages.Error.Http404ErrorPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 
  <div>
