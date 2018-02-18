@@ -47,6 +47,15 @@
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
 
+                    <dx:LayoutItem Caption=" ">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
+                                 <dx:ASPxButton ID="btnReporte" runat="server" Text="Reporte" Width="80px" Image-Url="~/Content/Images/search1.png" Image-Height="20px"
+                                      CausesValidation="true"  OnClick="btnReporte_Click" /> >
+                                    </dx:ASPxButton>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
 
                 </Items>
             </dx:LayoutGroup>
