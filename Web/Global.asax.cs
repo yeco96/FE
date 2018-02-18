@@ -32,8 +32,21 @@ namespace Web
         }
 
         void Application_Error(object sender, EventArgs e)
-        { 
-           Server.Transfer("/Pages/Error/DefaultRedirectErrorPage.aspx");
+        {
+            if (sender.GetType() == typeof(ASPxGridView))
+            {
+                if( ((ASPxGridView)sender).AppRelativeTemplateSourceDirectory.Contains("Catalogo"))
+                {
+                    // el erro lo maneja el grid
+                    return;
+                }else{
+                    Server.Transfer("/Pages/Error/DefaultRedirectErrorPage.aspx");
+                }
+            }
+            else
+            {
+                Server.Transfer("/Pages/Error/DefaultRedirectErrorPage.aspx");
+            }
         }
 
         void Session_Start(object sender, EventArgs e)

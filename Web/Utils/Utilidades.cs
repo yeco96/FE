@@ -184,6 +184,12 @@ namespace Class.Utilidades
             //Micultura.NumberFormat.NumberGroupSeparator = ",";
             //Micultura.NumberFormat.NumberDecimalSeparator = ".";
             Micultura.NumberFormat.NumberGroupSizes = grupo;
+            Micultura.DateTimeFormat.ShortTimePattern= "HH:mm:ss";
+            Micultura.DateTimeFormat.ShortDatePattern= "yyyy-MM-dd";
+            Micultura.DateTimeFormat.FullDateTimePattern = "yyyy-MM-dd HH:mm:ss";
+            Micultura.DateTimeFormat.TimeSeparator = ":";
+            Micultura.DateTimeFormat.DateSeparator = "-";
+
             return Micultura;
             
         }

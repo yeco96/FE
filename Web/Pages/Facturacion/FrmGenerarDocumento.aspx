@@ -1,4 +1,4 @@
-﻿<%@ Page Async="true" Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmGenerarDocumento.aspx.cs" Inherits="Web.Pages.Facturacion.FrmGenerarDocumento" %>
+﻿<%@ Page Async="true" Title="" Culture="es-CR" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmGenerarDocumento.aspx.cs" Inherits="Web.Pages.Facturacion.FrmGenerarDocumento" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 
@@ -373,9 +373,9 @@
                                             PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                                         </dx:GridViewDataTextColumn>
                                          
-                                       <dx:GridViewDataDateColumn Caption="Fecha Emisión" FieldName="fechaEmision" VisibleIndex="3"  PropertiesDateEdit-DisplayFormatString="yyyy-MM-ddTHH:mm:ss-06:00"  PropertiesDateEdit-DisplayFormatInEditMode="true"
-                                            PropertiesDateEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesDateEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
-                                        </dx:GridViewDataDateColumn>
+                                       <dx:GridViewDataTextColumn Caption="Fecha Emisión" FieldName="fechaEmision" VisibleIndex="3"  PropertiesTextEdit-MaskSettings-Mask="####-##-##"
+                                             PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                        </dx:GridViewDataTextColumn>
                                          
                                          <dx:GridViewDataComboBoxColumn Caption="Código" FieldName="codigo" VisibleIndex="4" 
                                             PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
@@ -538,9 +538,9 @@
                                                 <dx:LayoutItem Caption="Tipo Cambio">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
-                                                            <dx:ASPxSpinEdit ID="txtTipoCambio" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" MinValue="0" MaxValue="999999" Enabled="false" DecimalPlaces="2" 
-                                                                ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" DisplayFormatString="n2">
-                                                            </dx:ASPxSpinEdit>
+                                                            <dx:ASPxTextBox ID="txtTipoCambio" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" Enabled="false" MaskSettings-Mask="###.0#" 
+                                                                ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido"  >
+                                                            </dx:ASPxTextBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
@@ -556,7 +556,7 @@
 
                                 <script type="text/javascript">
                                     function cambioPrecio(s, e) {
-                                        var monto = s.GetText().split("₵")[1];
+                                        var monto = s.GetText().split("-")[1];
                                         monto = monto.replace(",", "").replace(".", "");
                                         if (isNaN(monto)) {
                                             ASPxGridView1.SetEditValue("precioUnitario", 0);

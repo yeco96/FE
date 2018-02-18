@@ -7,7 +7,8 @@ using System.Xml.Serialization;
 
 namespace XMLDomain
 {
-   public  class InformacionReferencia
+    [XmlRoot(ElementName = "InformacionReferencia")]
+    public  class InformacionReferencia
 
     {
 
@@ -25,7 +26,11 @@ namespace XMLDomain
         public string numero { set; get; }//tamaño 50 DGT
 
         [XmlElement(ElementName = "FechaEmision", Order = 3)]
-        public string fechaEmision { set; get; }//tamaño 2 DGT
+        public string fechaEmision { set; get; }
+
+        [XmlIgnore]
+        public string fechaEmisionTotal { set; get; }
+        
 
         /// <summary>
         /// Código de referencia. 01 Anula documento de referencia, 02 Corrige texto de documento de referencia, 03 Corrige monto, 04

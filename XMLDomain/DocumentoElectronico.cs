@@ -43,7 +43,7 @@ namespace XMLDomain
         public ResumenFactura resumenFactura { set; get; }
 
         [XmlElement(ElementName = "InformacionReferencia", Order = 11)]
-        public InformacionReferencia informacionReferencia { set; get; }
+        public List<InformacionReferencia> informacionReferencia { set; get; }
 
 
         [XmlElement(ElementName = "Normativa", Order = 12)]
@@ -55,7 +55,64 @@ namespace XMLDomain
 
         public virtual void verificaDatosParaXML()
         {
+            /* EMISOR */
+            if (this.emisor.telefono != null)
+            {
+                if (string.IsNullOrWhiteSpace(this.emisor.telefono.codigoPais) || string.IsNullOrWhiteSpace(this.emisor.telefono.numTelefono))
+                {
+                    this.emisor.telefono = null;
+                }
+            }
+            if (this.emisor.fax != null)
+            {
+                if (string.IsNullOrWhiteSpace(this.emisor.fax.codigoPais) || string.IsNullOrWhiteSpace(this.emisor.fax.numTelefono))
+                {
+                    this.emisor.fax = null;
+                }
+            }
+            /* RECEPTOR */
+            if (this.receptor.telefono != null)
+            {
+                if (string.IsNullOrWhiteSpace(this.receptor.telefono.codigoPais) || string.IsNullOrWhiteSpace(this.receptor.telefono.numTelefono))
+                {
+                    this.receptor.telefono = null;
+                }
+            }
+            if (this.receptor.fax != null)
+            {
+                if (string.IsNullOrWhiteSpace(this.receptor.fax.codigoPais) || string.IsNullOrWhiteSpace(this.receptor.fax.numTelefono))
+                {
+                    this.receptor.fax = null;
+                }
+            }
 
+            if (string.IsNullOrWhiteSpace(this.receptor.ubicacion.barrio) ||
+                string.IsNullOrWhiteSpace(this.receptor.ubicacion.distrito) ||
+                string.IsNullOrWhiteSpace(this.receptor.ubicacion.canton) ||
+                string.IsNullOrWhiteSpace(this.receptor.ubicacion.provincia) ||
+                 string.IsNullOrWhiteSpace(this.receptor.ubicacion.otrassenas)
+                )
+            {
+                this.receptor.ubicacion = null;
+            }
+
+            /* INFORMACION DE REFERENCIA */
+            if (this.informacionReferencia.Count == 0)
+            {
+                this.informacionReferencia = null;
+            }
+
+            /* LINEA DE DETALLES (IMPUESTOS) */
+            int numeroLinea = 1;
+            foreach (var item in this.detalleServicio.lineaDetalle)
+            {
+                item.verificaDatosParaXML();
+                item.numeroLinea = numeroLinea;
+                numeroLinea = numeroLinea + 1;
+            }
+             
+            /*CLAVE RESUMEN*/
+            resumenFactura.clave = clave;
         }
 
     }

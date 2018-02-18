@@ -744,14 +744,18 @@ namespace Web.Pages.Facturacion
                     dato.receptor.ubicacion.otrassenas = elReceptor.otraSena;
 
                     /* RESUMEN */
-                    dato.resumenFactura.tipoCambio = decimal.Parse(this.txtTipoCambio.Text, CultureInfo.InvariantCulture); 
                     dato.resumenFactura.codigoMoneda = this.cmbTipoMoneda.Value.ToString();
+                    if (!TipoMoneda.CRC.Equals(dato.resumenFactura.codigoMoneda))
+                    {
+                        dato.resumenFactura.tipoCambio = decimal.Parse(this.txtTipoCambio.Text.Replace(",", "").Replace(".", "")) / 100;
+                    }
                     dato.resumenFactura.calcularResumenFactura(dato.detalleServicio.lineaDetalle);
 
                     /* INFORMACION DE REFERENCIA */
-                    this.informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
-                    if (this.informacionReferencia.Count > 0) {
-                        dato.informacionReferencia = this.informacionReferencia[0];
+                    dato.informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
+                    foreach (var item in dato.informacionReferencia)
+                    {
+                        item.fechaEmision = item.fechaEmisionTotal;
                     }
 
                     /* VERIFICA VACIOS PARA XML */
@@ -975,7 +979,7 @@ namespace Web.Pages.Facturacion
 
                     if (clave.Length == 20)
                     {
-                        documento = conexion.WSRecepcionPOST.Where(x=>x.clave == clave.Substring(21,20)).FirstOrDefault();
+                        documento = conexion.WSRecepcionPOST.Where(x=>x.clave.Substring(21,20) == clave).FirstOrDefault();
                     }
                     else
                     {
@@ -984,16 +988,25 @@ namespace Web.Pages.Facturacion
 
                     if (documento != null)
                     {
-                        dato.fechaEmision = ((DateTime)documento.fecha).ToString("yyyy-MM-ddTHH:mm:ss-06:00");
+                        dato.fechaEmision = ((DateTime)documento.fecha).ToString("yyyy-MM-dd") ;
+                        dato.fechaEmisionTotal = ((DateTime)documento.fecha).ToString("yyyy-MM-ddTHH:mm:dd-06:00");
+                        DateTime date = DateTime.Now;
+                        if (!DateTime.TryParse(dato.fechaEmision, out date))
+                        {
+                            throw new Exception("Fecha invalida, favor verifique el formato yyyy-MM-dd (año-mes-día)");
+                        }
                         dato.tipoDocumento = documento.tipoDocumento;
-                    }
+                        dato.numero = documento.clave;
+                    } 
                     else
-                    {
-                        dato.fechaEmision = e.NewValues["fechaEmision"] != null ? DateTime.Parse(e.NewValues["fechaEmision"].ToString()).ToString("yyyy-MM-ddTHH:mm:ss-06:00") : "";
-                        dato.tipoDocumento = e.NewValues["tipoDocumento"] != null ? e.NewValues["tipoDocumento"].ToString().ToUpper() : ""; ;
+                    { 
+                        dato.fechaEmision =e.NewValues["fechaEmision"].ToString();
+                        dato.fechaEmisionTotal = e.NewValues["fechaEmision"].ToString() + DateTime.Now.ToString("THH:mm:dd-06:00");
+                        dato.tipoDocumento = e.NewValues["tipoDocumento"] != null ? e.NewValues["tipoDocumento"].ToString().ToUpper() : "";
+                        dato.numero = clave;
                     }
 
-                    dato.numero = clave;
+                    
                     dato.razon = e.NewValues["razon"] != null ? e.NewValues["razon"].ToString().ToUpper() : null;
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
 
@@ -1048,13 +1061,19 @@ namespace Web.Pages.Facturacion
                     string clave = e.NewValues["numero"] != null ? e.NewValues["numero"].ToString().ToUpper() : "";
                     
                     dato = informacionReferencia.Where(x => x.numero == clave).FirstOrDefault();
-                    
-                    dato.fechaEmision = e.NewValues["fechaEmision"] != null ?  DateTime.Parse(e.NewValues["fechaEmision"].ToString()).ToString("yyyy-MM-ddTHH:mm:ss-06:00") : ""; 
-                    dato.tipoDocumento = e.NewValues["tipoDocumento"] != null ? e.NewValues["tipoDocumento"].ToString().ToUpper() : ""; ;
-                    
+                    if (dato != null)
+                    { 
+                        dato.fechaEmision = e.NewValues["fechaEmision"].ToString();
+                        DateTime date = DateTime.Now; 
+                        if(!DateTime.TryParse(dato.fechaEmision, out date))
+                        {
+                            throw new Exception("Fecha invalida, favor verifique el formato yyyy-MM-dd (año-mes-día)");
+                        }
+                        dato.tipoDocumento = e.NewValues["tipoDocumento"] != null ? e.NewValues["tipoDocumento"].ToString().ToUpper() : ""; 
+                    }
                     dato.razon = e.NewValues["razon"] != null ? e.NewValues["razon"].ToString().ToUpper() : null;
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
-
+                    
                     //modifica el objeto
                     Session["informacionReferencia"] = informacionReferencia;
                 }
@@ -1092,9 +1111,12 @@ namespace Web.Pages.Facturacion
 
         protected void ASPxGridView2_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
         {
-            if (e.Column.FieldName == "tipoDocumento") { e.Editor.Value = "01"; e.Editor.BackColor = System.Drawing.Color.LightGray; }
-            if (e.Column.FieldName == "fechaEmision") { e.Editor.Value = Date.DateTimeNow(); e.Editor.BackColor = System.Drawing.Color.LightGray; }
-            if (e.Column.FieldName == "razon") { e.Editor.Value = "DETALLE DE REFERENCIA"; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+            if(ASPxGridView2.IsNewRowEditing)
+            {
+                if (e.Column.FieldName == "tipoDocumento") { e.Editor.Value = "01"; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+                if (e.Column.FieldName == "fechaEmision") { e.Editor.Value = Date.DateTimeNow().ToString("yyyy-MM-dd"); e.Editor.BackColor = System.Drawing.Color.LightGray; }
+                if (e.Column.FieldName == "razon") { e.Editor.Value = "DETALLE DE REFERENCIA"; e.Editor.BackColor = System.Drawing.Color.White; }
+            }
         }
     }
 }

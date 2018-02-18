@@ -45,6 +45,8 @@
                                 </LoggedInTemplate>
                             </asp:LoginView>
                         </div>
+                        <button type="button" class="help" data-toggle="modal" data-target="#myModal">
+                            <img src="/Content/Images/help.png" /></button>
                     </div>
                     <dx:ASPxPanel ID="TopPanel" runat="server" ClientInstanceName="TopPanel" Width="100%" Collapsible="true">
                         <SettingsAdaptivity CollapseAtWindowInnerWidth="680" />
@@ -79,11 +81,11 @@
 
                                                     <dx:MenuItem Text="DOCUMENTOS">
                                                         <Items>
-                                                             
+
                                                             <dx:MenuItem Text="EMISOR" NavigateUrl="~/Pages/Facturacion/FrmEmisor.aspx" />
                                                             <dx:MenuItem Text="RECEPTOR / CLIENTES" NavigateUrl="~/Pages/Facturacion/FrmReceptor.aspx" />
                                                             <dx:MenuItem Text="EMPRESA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoEmpresa.aspx" />
-                                                            <dx:MenuItem Text="PRODUCTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProducto.aspx" />
+                                                            <dx:MenuItem Text="PRODUCTO / SERVICIO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProducto.aspx" />
                                                             <dx:MenuItem Text="PRODUCTO IMPUESTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProductoImpuesto.aspx" />
                                                             <dx:MenuItem Text="CONFIRMAR XML" NavigateUrl="~/Pages/Facturacion/FrmValidarXML.aspx" />
 
@@ -140,7 +142,7 @@
                                                     <dx:MenuItem Text="BLOG" NavigateUrl="~/Pages/BlogTimeline.aspx" Visible="false" />
 
                                                     <dx:MenuItem Text="DOCUMENTOS">
-                                                        <Items>  
+                                                        <Items>
                                                             <dx:MenuItem Text="ADMINISTRACIÓN" NavigateUrl="~/Pages/Facturacion/FrmAdministracionDocElectronico.aspx" />
                                                             <dx:MenuItem Text="CONFIRMAR XML" NavigateUrl="~/Pages/Facturacion/FrmValidarXML.aspx" />
                                                             <dx:MenuItem Text="CONSULTA" NavigateUrl="~/Pages/Facturacion/FrmConsultaResumen.aspx" />
@@ -157,8 +159,8 @@
                                                                     <dx:MenuItem Text="EMISOR" NavigateUrl="~/Pages/Facturacion/FrmEmisor.aspx" />
                                                                     <dx:MenuItem Text="CLIENTES" NavigateUrl="~/Pages/Facturacion/FrmReceptor.aspx" />
                                                                     <dx:MenuItem Text="EMPRESA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoEmpresa.aspx" />
-                                                                    <dx:MenuItem Text="PRODUCTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProducto.aspx" />
-                                                                    <dx:MenuItem Text="PRODUCTO IMPUESTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProductoImpuesto.aspx" /> 
+                                                                    <dx:MenuItem Text="PRODUCTO / SERVICIO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProducto.aspx" />
+                                                                    <dx:MenuItem Text="PRODUCTO IMPUESTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProductoImpuesto.aspx" />
                                                                 </Items>
                                                             </dx:MenuItem>
                                                             <dx:MenuItem Text="SEGURIDAD">
@@ -173,7 +175,7 @@
                                             </dx:ASPxMenu>
 
 
-                                             
+
                                             <dx:ASPxMenu ID="NavMenu" runat="server" ClientInstanceName="NavMenu" EnableAnimation="true" CssClass="navMenu" AllowSelectItem="true">
                                                 <ItemStyle Paddings-PaddingLeft="22" Paddings-PaddingRight="22" />
                                                 <Items>
@@ -183,25 +185,10 @@
                                                     <dx:MenuItem Text="CONTACTO" NavigateUrl="~/Pages/Contacts.aspx" />
                                                 </Items>
                                             </dx:ASPxMenu>
+
+
                                         </div>
 
-                                        <%-- DXCOMMENT: 
-                                            <div id="SearchBlock" runat="server" class="panelItem" visible="false">
-                                                <script>
-                                                    function DoSearch(s){
-                                                        hfAction.Set("search", true);
-                                                    }
-                                                </script>
-                                                <dx:ASPxButtonEdit ID="Search" runat="server" NullText="Search in blog" CssClass="searchBox" AutoPostBack="True">
-                                                    <ButtonStyle CssClass="glyphicon glyphicon-search searchBoxButton" />
-                                                    <Buttons>
-                                                        <dx:EditButton />
-                                                    </Buttons>
-                                                    <ClientSideEvents KeyUp="DoSearch" ButtonClick="DoSearch" />
-                                                </dx:ASPxButtonEdit>
-                                                <dx:ASPxHiddenField ID="hfAction" runat="server" ClientInstanceName="hfAction"></dx:ASPxHiddenField>
-                                            </div>
-                                        --%>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -254,6 +241,64 @@
         </div>
         <dx:ASPxGlobalEvents runat="server" ClientSideEvents-ControlsInitialized="adjustNavMenu" />
     </form>
+
+
+
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">MSA Soft (Manual de usuario)</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+
+                    <p>Pasos antes de iniciar su facturación </p>
+                    <p>Configuración</p>
+                    <ul>
+                        <li>Configure el emisor</li>
+                        <li>Datos personales</li>
+                        <li>Contacto</li>
+                        <li>Ubicación</li>
+                        <li>Hacienda</li>
+                        <li>Productos / Servicios</li>
+                        <li>Impuestos por producto (solo si aplica impuesto)</li>
+                        <li>Empresa (si desea un logo en su factura)</li>
+                        <li>Numero de consecutivo</li>
+                        <li>Configuración de correo (si desea enviar de su propio correo)</li>
+                    </ul>
+                    <p>Facturar Productos / Servicios</p>
+                    <ul>
+                        <li>Documentos -> Facturación</li>
+                        <li>Emisor</li>
+                        <li>Receptor</li>
+                        <li>Datos de referencia (opcional)</li>
+                        <li>Facturar</li>
+                    </ul>
+                    <p>Documentos -> Administración</p>
+                    <ul>
+                        <li>Crear notas de crédito</li>
+                        <li>Crear notas de debito</li>
+                        <li>Reenvió de correo</li>
+                        <li>Reenvió manual</li>
+                        <li>Consulta</li>
+                    </ul>
+                    <p>Seguridad</p>
+                    <ul>
+                        <li>Usuarios</li>
+                    </ul> 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 </body>
 </html>
