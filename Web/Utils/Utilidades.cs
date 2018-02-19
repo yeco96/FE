@@ -194,8 +194,7 @@ namespace Class.Utilidades
             
         }
 
-
-
+         
         #region sendMail 
         /// <summary>
         /// 
@@ -203,8 +202,11 @@ namespace Class.Utilidades
         /// <param name="destinatario">direccion de correo</param>
         /// <param name="asunto">asunto de correo</param>
         /// <param name="mensaje">contenido del correo</param>
-        /// /// <param name="alias">nombre para enmascar el correo</param>
-        /// <returns></returns>
+        /// <param name="alias">nombre para enmascar el correo</param>
+        /// <param name="xml">XML para adjunto</param>
+        /// <param name="consecutivo">numero de consecutivo</param>
+        /// <param name="clave"></param>
+        /// <returns>TRUE envaido FALSE no eviado</returns>
         public static bool sendMail(string destinatario, string asunto, string mensaje, string alias, string xml, string consecutivo, string clave)
         {
             try
@@ -250,10 +252,62 @@ namespace Class.Utilidades
                 return false;
             }
         }
+
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="destinatario">direccion de correo</param>
+        /// <param name="asunto">asunto de correo</param>
+        /// <param name="mensaje">contenido del correo</param>
+        /// <param name="alias">nombre para enmascar el correo</param> 
+        /// <returns>TRUE envaido FALSE no eviado</returns>
+        public static bool sendMail(string destinatario, string asunto, string mensaje, string alias)
+        {
+            try
+            {
+                using (var conexion = new DataModelFE())
+                {
+                    ConfiguracionCorreo mailConfig = conexion.ConfiguracionCorreo.Where(x => x.estado == Estado.ACTIVO.ToString()).FirstOrDefault();
+
+                    MailMessage correo = new MailMessage();
+                    SmtpClient smtp = new SmtpClient();
+                    correo.From = new MailAddress(mailConfig.user, alias);
+                    correo.To.Add(destinatario);
+                    correo.Subject = String.Format("{0}", asunto);
+                    correo.Body = mensaje;
+                    correo.Priority = MailPriority.Normal;
+                    correo.IsBodyHtml = true;
+                    smtp.Credentials = new NetworkCredential(mailConfig.user, mailConfig.password);
+                    smtp.Host = mailConfig.host;
+                    smtp.Port = int.Parse(mailConfig.port);
+
+                    if (Confirmacion.SI.ToString().Equals(mailConfig.ssl))
+                    {
+                        smtp.EnableSsl = true;
+                    }
+                    else
+                    {
+                        smtp.EnableSsl = false;
+                    }
+
+                    smtp.Send(correo);
+                    correo.Dispose();
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                e.ToString();
+                return false;
+            }
+        }
         #endregion
 
-        
-         public static string mensageGenerico()
+
+        public static string mensageGenerico()
         {
             String mensaje = "";
             mensaje += "<p>Estimado Cliente:</p>";
@@ -285,6 +339,23 @@ namespace Class.Utilidades
             return stream;
         }
 
+
+        /// <summary>
+        /// Genera una contraseña de valores de a-z A-Z  0-0 !@#$%*_+-/
+        /// </summary>
+        /// <param name="longitud">Cantidad de digitos que va a tener la contraseña</param>
+        /// <returns></returns>
+        public static string generarContrasena(int longitud)
+        {
+            const string valido = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%*_+-/";
+            StringBuilder res = new StringBuilder();
+            Random rnd = new Random();
+            while (0 < longitud--)
+            {
+                res.Append(valido[rnd.Next(valido.Length)]);
+            }
+            return res.ToString();
+        }
 
 
 

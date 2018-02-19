@@ -90,7 +90,7 @@
                                                     <dx:MenuItem Text="CONFIGURACIÓN">
                                                         <Items>
                                                             <dx:MenuItem Text="NÚMERO DE CONSECUTIVO" NavigateUrl="~/Pages/Facturacion/FrmConsecutivoDocElectronico.aspx" />
-                                                            <dx:MenuItem Text="CORREO ELECTRÓNICO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoConfiguracionCorreo.aspx" />
+                                                            <dx:MenuItem Text="CORREO ELECTRÓNICO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoConfiguracionCorreoAdmin.aspx" />
                                                             <dx:MenuItem Text="CATÁLOGOS">
                                                                 <Items>
                                                                     <dx:MenuItem Text="MEDIO PAGO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoMedioPago.aspx" />
@@ -110,14 +110,14 @@
                                                                 <Items>
                                                                     <dx:MenuItem Text="EMISOR" NavigateUrl="~/Pages/Facturacion/FrmEmisor.aspx" />
                                                                     <dx:MenuItem Text="RECEPTOR / CLIENTES" NavigateUrl="~/Pages/Facturacion/FrmReceptor.aspx" />
-                                                                    <dx:MenuItem Text="EMPRESA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoEmpresa.aspx" />
+                                                                    <dx:MenuItem Text="EMPRESA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoEmpresaAdmin.aspx" />
                                                                     <dx:MenuItem Text="PRODUCTO / SERVICIO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProducto.aspx" />
                                                                     <dx:MenuItem Text="PRODUCTO IMPUESTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProductoImpuesto.aspx" />
                                                                 </Items>
                                                             </dx:MenuItem> 
                                                             <dx:MenuItem Text="SEGURIDAD">
                                                                 <Items>
-                                                                    <dx:MenuItem Text="USUARIO" NavigateUrl="~/Pages/Seguridad/FrmSeguridadUsuario.aspx" />
+                                                                    <dx:MenuItem Text="USUARIO" NavigateUrl="~/Pages/Seguridad/FrmSeguridadUsuarioAdmin.aspx" />
                                                                     <dx:MenuItem Text="ROL " NavigateUrl="~/Pages/Seguridad/FrmSeguridadRol.aspx" />
                                                                 </Items>
                                                             </dx:MenuItem>
@@ -246,34 +246,38 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">MSA Soft (Manual de usuario)</h4>
+                    <h4 class="modal-title">MSA Soft (Instrucciones)</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
 
-                    <p>Pasos antes de iniciar su facturación </p>
+                    <p>Pasos antes de iniciar su facturación</p>
                     <p>Configuración</p>
                     <ul>
-                        <li>Configure el emisor</li>
-                        <li>Datos personales</li>
-                        <li>Contacto</li>
-                        <li>Ubicación</li>
-                        <li>Hacienda</li>
-                        <li>Productos / Servicios</li>
-                        <li>Impuestos por producto (solo si aplica impuesto)</li>
-                        <li>Empresa (si desea un logo en su factura)</li>
-                        <li>Numero de consecutivo</li>
-                        <li>Configuración de correo (si desea enviar de su propio correo)</li>
+                        <li>Configure el emisor <a href="/Pages/Facturacion/FrmEmisor.aspx"><img src="/Content/Images/edit.png" /></a></li>
+                        <ul>
+                            <li>Datos personales</li>
+                            <li>Contacto</li>
+                            <li>Ubicación</li>
+                            <li>Hacienda</li>
+                        </ul>
+                        <li>Productos / Servicios <a href="/Pages/Catalogos/FrmCatalogoProducto.aspx"><img src="/Content/Images/edit.png" /></a></li>
+                        <li>Impuestos por producto (solo si aplica impuesto) <a href="/Pages/Catalogos/FrmCatalogoProductoImpuesto.aspx"><img src="/Content/Images/edit.png" /></a></li>
+                        <li>Empresa (si desea un logo en su factura)<a href="/Pages/Catalogos/FrmCatalogoEmpresa.aspx"><img src="/Content/Images/edit.png" /></a></li>
+                        <li>Numero de consecutivo <a href="/Pages/Facturacion/FrmConsecutivoDocElectronico.aspx"><img src="/Content/Images/edit.png" /></a></li>
+                        <li>Configuración de correo (si desea enviar de su propio correo) <a href="/Pages/Catalogos/FrmCatalogoConfiguracionCorreo.aspx"><img src="/Content/Images/edit.png" /></a></li>
                     </ul>
                     <p>Facturar Productos / Servicios</p>
                     <ul>
-                        <li>Documentos -> Facturación</li>
-                        <li>Emisor</li>
-                        <li>Receptor</li>
-                        <li>Datos de referencia (opcional)</li>
-                        <li>Facturar</li>
+                        <li>Documentos -> Facturación <a href="/Pages/Facturacion/FrmGenerarDocumento.aspx"><img src="/Content/Images/edit.png" /></a></li>
+                        <ul>
+                            <li>Emisor</li>
+                            <li>Receptor</li>
+                            <li>Datos de referencia (opcional)</li>
+                            <li>Facturar</li>
+                        </ul>
                     </ul>
-                    <p>Documentos -> Administración</p>
+                    <p>Documentos -> Administración<a href="/Pages/Facturacion/FrmAdministracionDocElectronico.aspx"><img src="/Content/Images/edit.png" /></a></p>
                     <ul>
                         <li>Crear notas de crédito</li>
                         <li>Crear notas de debito</li>
@@ -283,11 +287,11 @@
                     </ul>
                     <p>Seguridad</p>
                     <ul>
-                        <li>Usuarios</li>
+                        <li>Usuarios <a href="/Pages/Seguridad/FrmSeguridadUsuario.aspx"><img src="/Content/Images/edit.png" /></a></li>
                     </ul>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
 

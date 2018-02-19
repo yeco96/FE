@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmSeguridadUsuario.aspx.cs" Inherits="Web.Pages.Seguridad.FrmSeguridadUsuario" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmSeguridadUsuarioAdmin.aspx.cs" Inherits="Web.Pages.Seguridad.FrmSeguridadUsuarioAdmin" %>
 <%@ Register Src="~/UserControls/AddAuditoriaForm.ascx" TagPrefix="user" TagName="AddAuditoriaForm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
@@ -33,7 +33,7 @@
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido"> 
                 </dx:GridViewDataComboBoxColumn>
 
-                <dx:GridViewDataTextColumn  Caption="Correo" FieldName="correo"   VisibleIndex="4"  PropertiesTextEdit-MaxLength="50"
+                 <dx:GridViewDataTextColumn  Caption="Correo" FieldName="correo"   VisibleIndex="4"  PropertiesTextEdit-MaxLength="50"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido"> 
                 </dx:GridViewDataTextColumn>
 
@@ -48,6 +48,7 @@
                   <dx:GridViewDataSpinEditColumn Caption="Emisor" FieldName="emisor" VisibleIndex="7"  PropertiesSpinEdit-MaxLength="12"
                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataSpinEditColumn>
+
 
                 <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="16"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">

@@ -1,55 +1,47 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmSeguridadUsuario.aspx.cs" Inherits="Web.Pages.Seguridad.FrmSeguridadUsuario" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmCatalogoEmpresaAdmin.aspx.cs" Inherits="Web.Pages.Catalogos.FrmCatalogoEmpresaAdmin" %>
+
 <%@ Register Src="~/UserControls/AddAuditoriaForm.ascx" TagPrefix="user" TagName="AddAuditoriaForm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 
     <section class="featured">
         <div class="content-wrapper">
-            Mantenimiento Usuario 
+            Mantenimiento Empresa
         </div>
     </section>
- 
     <div class="borde_redondo_tabla">
-      
+
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
-            Width="100%" EnableTheming="True" KeyFieldName="codigo" Theme="Moderno" 
-            OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize" 
+            Width="100%" EnableTheming="True" KeyFieldName="codigo" Theme="Moderno"
+            OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize"
+             
             OnRowDeleting="ASPxGridView1_RowDeleting"
-            OnRowUpdating="ASPxGridView1_RowUpdating"
-            OnRowInserting="ASPxGridView1_RowInserting" >
-            
+            OnRowInserting="ASPxGridView1_RowInserting"
+            OnRowUpdating="ASPxGridView1_RowUpdating">
             <Columns>
-                <dx:GridViewCommandColumn Width="60px" ButtonType="Image" ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
+                <dx:GridViewCommandColumn Width="100px" ButtonType="Image" ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
                 </dx:GridViewCommandColumn>
-                <dx:GridViewDataTextColumn Caption="Código" FieldName="codigo"  VisibleIndex="2" PropertiesTextEdit-MaxLength="12" 
+                <dx:GridViewDataTextColumn Caption="Código" FieldName="codigo" VisibleIndex="2" PropertiesTextEdit-MaxLength="10"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-
-                <dx:GridViewDataTextColumn Caption="Nombre" FieldName="nombre" VisibleIndex="3" PropertiesTextEdit-MaxLength="100"  Width="25%"
+                <dx:GridViewDataTextColumn Caption="Nombre" FieldName="descripcion" VisibleIndex="3" PropertiesTextEdit-MaxLength="50" 
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-
-                <dx:GridViewDataComboBoxColumn  Caption="Rol" FieldName="rol" Settings-AutoFilterCondition="Contains" VisibleIndex="4" 
-                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido"> 
-                </dx:GridViewDataComboBoxColumn>
-
-                <dx:GridViewDataTextColumn  Caption="Correo" FieldName="correo"   VisibleIndex="4"  PropertiesTextEdit-MaxLength="50"
-                    PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido"> 
-                </dx:GridViewDataTextColumn>
-
-                <dx:GridViewDataSpinEditColumn Caption="Intentos" FieldName="intentos" VisibleIndex="5" 
-                    PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
-                </dx:GridViewDataSpinEditColumn>
-
-                <dx:GridViewDataTextColumn Caption="Contraseña" FieldName="contrasena" VisibleIndex="6" PropertiesTextEdit-MaxLength="100"  
-                    PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
-                </dx:GridViewDataTextColumn>
-
-                  <dx:GridViewDataSpinEditColumn Caption="Emisor" FieldName="emisor" VisibleIndex="7"  PropertiesSpinEdit-MaxLength="12"
-                    PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
-                </dx:GridViewDataSpinEditColumn>
-
-                <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="16"
+                <dx:GridViewDataBinaryImageColumn Caption="Logo" FieldName="logo" VisibleIndex="5"  
+                    PropertiesBinaryImage-ValidationSettings-RequiredField-IsRequired="true" PropertiesBinaryImage-ValidationSettings-RequiredField-ErrorText="Requerido">
+                    <EditItemTemplate>
+                        <dx:ASPxBinaryImage ID="imgPreview" runat="server" Value='<%# Bind("logo") %>' Width="100px" Height="100px">
+                        </dx:ASPxBinaryImage>
+                        <dx:ASPxUploadControl ID="fileUpload" OnFileUploadComplete="fileUpload_FileUploadComplete" ShowUploadButton="true" runat="server">
+                              <ValidationSettings
+                                    AllowedFileExtensions=".jpg,.jpeg,.png"
+                                    MaxFileSize="512304">
+                                </ValidationSettings>
+                        </dx:ASPxUploadControl>
+                    </EditItemTemplate>
+                </dx:GridViewDataBinaryImageColumn>
+                  
+                <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="4"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
                 <dx:GridViewDataTextColumn Visible="false" Caption="Usuario Creación" FieldName="usuarioCreacion" VisibleIndex="17">
@@ -63,7 +55,7 @@
                     <PropertiesDateEdit EditFormat="DateTime" DisplayFormatstring="" EditFormatstring="dd/MM/yyyy hh:mm:ss"></PropertiesDateEdit>
                 </dx:GridViewDataDateColumn>
             </Columns>
-
+            
              <SettingsBehavior ColumnResizeMode="NextColumn" />
             <Settings ShowFooter="True" ShowFilterBar="Visible" ShowFilterRow="true" />
             <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="True" ConfirmDelete="True" />
@@ -126,18 +118,17 @@
             <BorderBottom BorderWidth="1px" />
 
         </dx:ASPxGridView>
-         
-         <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="ASPxGridView1" FileName="Catálogo Usuario">
+        <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="ASPxGridView1" FileName="Catálogo Empresa">
             <Styles>
                 <Default Font-Names="Arial" Font-Size="Small" />
             </Styles>
-            <PageHeader Center="Facturación Web - Catálogo Usuario">
+            <PageHeader Center="Facturación Web - Catálogo Empresa">
                 <Font Bold="True" Names="Arial" Size="Large" />
             </PageHeader>
             <PageFooter Left="[Page # of Pages #]" Right="[Date Printed][Time Printed]">
                 <Font Names="Arial" Size="Small" />
             </PageFooter>
-        </dx:ASPxGridViewExporter>
-
+        </dx:ASPxGridViewExporter> 
     </div>
+
 </asp:Content>

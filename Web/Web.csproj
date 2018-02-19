@@ -198,7 +198,9 @@
     <Content Include="Global.asax" />
     <Content Include="Pages\BlogPost.aspx" />
     <Content Include="Pages\BlogTimeline.aspx" />
+    <Content Include="Pages\Catalogos\FrmCatalogoConfiguracionCorreoAdmin.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoConfiguracionCorreo.aspx" />
+    <Content Include="Pages\Catalogos\FrmCatalogoEmpresaAdmin.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoProductoImpuesto.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoTipoImpuesto.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoTipoIdentificacion.aspx" />
@@ -234,8 +236,9 @@
     <Content Include="Pages\Reportes\FrmReporteFactura.aspx" />
     <Content Include="Pages\Reportes\FrmReporteFacturaRollPaper.aspx" />
     <Content Include="Pages\Search.aspx" />
-    <Content Include="Pages\Seguridad\FrmRestaurarContrasena.aspx" />
+    <Content Include="Pages\RestaurarContrasena.aspx" />
     <Content Include="Pages\Seguridad\FrmSeguridadRol.aspx" />
+    <Content Include="Pages\Seguridad\FrmSeguridadUsuarioAdmin.aspx" />
     <Content Include="Pages\Seguridad\FrmSeguridadUsuario.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -354,12 +357,26 @@
     <Compile Include="Pages\BlogTimeline.aspx.designer.cs">
       <DependentUpon>BlogTimeline.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoConfiguracionCorreoAdmin.aspx.cs">
+      <DependentUpon>FrmCatalogoConfiguracionCorreoAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoConfiguracionCorreoAdmin.aspx.designer.cs">
+      <DependentUpon>FrmCatalogoConfiguracionCorreoAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Catalogos\FrmCatalogoConfiguracionCorreo.aspx.cs">
       <DependentUpon>FrmCatalogoConfiguracionCorreo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Catalogos\FrmCatalogoConfiguracionCorreo.aspx.designer.cs">
       <DependentUpon>FrmCatalogoConfiguracionCorreo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoEmpresaAdmin.aspx.cs">
+      <DependentUpon>FrmCatalogoEmpresaAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoEmpresaAdmin.aspx.designer.cs">
+      <DependentUpon>FrmCatalogoEmpresaAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Catalogos\FrmCatalogoProductoImpuesto.aspx.cs">
       <DependentUpon>FrmCatalogoProductoImpuesto.aspx</DependentUpon>
@@ -622,12 +639,12 @@
     <Compile Include="Pages\Search.aspx.designer.cs">
       <DependentUpon>Search.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Seguridad\FrmRestaurarContrasena.aspx.cs">
-      <DependentUpon>FrmRestaurarContrasena.aspx</DependentUpon>
+    <Compile Include="Pages\RestaurarContrasena.aspx.cs">
+      <DependentUpon>RestaurarContrasena.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Seguridad\FrmRestaurarContrasena.aspx.designer.cs">
-      <DependentUpon>FrmRestaurarContrasena.aspx</DependentUpon>
+    <Compile Include="Pages\RestaurarContrasena.aspx.designer.cs">
+      <DependentUpon>RestaurarContrasena.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Seguridad\FrmSeguridadRol.aspx.cs">
       <DependentUpon>FrmSeguridadRol.aspx</DependentUpon>
@@ -635,6 +652,13 @@
     </Compile>
     <Compile Include="Pages\Seguridad\FrmSeguridadRol.aspx.designer.cs">
       <DependentUpon>FrmSeguridadRol.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Seguridad\FrmSeguridadUsuarioAdmin.aspx.cs">
+      <DependentUpon>FrmSeguridadUsuarioAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Seguridad\FrmSeguridadUsuarioAdmin.aspx.designer.cs">
+      <DependentUpon>FrmSeguridadUsuarioAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Seguridad\FrmSeguridadUsuario.aspx.cs">
       <DependentUpon>FrmSeguridadUsuario.aspx</DependentUpon>
