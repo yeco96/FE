@@ -81,18 +81,10 @@
 
                                                     <dx:MenuItem Text="DOCUMENTOS">
                                                         <Items>
-
-                                                            <dx:MenuItem Text="EMISOR" NavigateUrl="~/Pages/Facturacion/FrmEmisor.aspx" />
-                                                            <dx:MenuItem Text="RECEPTOR / CLIENTES" NavigateUrl="~/Pages/Facturacion/FrmReceptor.aspx" />
-                                                            <dx:MenuItem Text="EMPRESA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoEmpresa.aspx" />
-                                                            <dx:MenuItem Text="PRODUCTO / SERVICIO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProducto.aspx" />
-                                                            <dx:MenuItem Text="PRODUCTO IMPUESTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProductoImpuesto.aspx" />
-                                                            <dx:MenuItem Text="CONFIRMAR XML" NavigateUrl="~/Pages/Facturacion/FrmValidarXML.aspx" />
-
                                                             <dx:MenuItem Text="ADMINISTRACIÓN" NavigateUrl="~/Pages/Facturacion/FrmAdministracionDocElectronico.aspx" />
+                                                            <dx:MenuItem Text="CONFIRMAR XML" NavigateUrl="~/Pages/Facturacion/FrmValidarXML.aspx" />
                                                             <dx:MenuItem Text="CONSULTA" NavigateUrl="~/Pages/Facturacion/FrmConsultaResumen.aspx" />
                                                             <dx:MenuItem Text="FACTURAR" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumento.aspx" />
-
                                                         </Items>
                                                     </dx:MenuItem>
                                                     <dx:MenuItem Text="CONFIGURACIÓN">
@@ -101,26 +93,28 @@
                                                             <dx:MenuItem Text="CORREO ELECTRÓNICO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoConfiguracionCorreo.aspx" />
                                                             <dx:MenuItem Text="CATÁLOGOS">
                                                                 <Items>
-
                                                                     <dx:MenuItem Text="MEDIO PAGO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoMedioPago.aspx" />
-
                                                                     <dx:MenuItem Text="CÓDIGO VENTA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoCondicionVenta.aspx" />
                                                                     <dx:MenuItem Text="CÓDIGO REFERENCIA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoCodigoReferencia.aspx" />
-
                                                                     <dx:MenuItem Text="EXONERACION" NavigateUrl="~/Pages/Catalogos/FrmCatalogoExoneracion.aspx" />
-
                                                                     <dx:MenuItem Text="TIPO DOCUMENTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoDocumento.aspx" />
                                                                     <dx:MenuItem Text="TIPO IDENTIFICACIÓN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoIdentificacion.aspx" />
                                                                     <dx:MenuItem Text="TIPO IMPUESTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoImpuesto.aspx" />
                                                                     <dx:MenuItem Text="TIPO MONEDA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoMoneda.aspx" />
                                                                     <dx:MenuItem Text="TIPO PRODUCTO SERVICIO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoProductoServicio.aspx" />
-
                                                                     <dx:MenuItem Text="UBICACIÓN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoUbicacion.aspx" />
                                                                     <dx:MenuItem Text="UNIDAD MEDIDA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoUnidadMedida.aspx" />
-
-
                                                                 </Items>
                                                             </dx:MenuItem>
+                                                            <dx:MenuItem Text="FACTURACIÓN">
+                                                                <Items>
+                                                                    <dx:MenuItem Text="EMISOR" NavigateUrl="~/Pages/Facturacion/FrmEmisor.aspx" />
+                                                                    <dx:MenuItem Text="RECEPTOR / CLIENTES" NavigateUrl="~/Pages/Facturacion/FrmReceptor.aspx" />
+                                                                    <dx:MenuItem Text="EMPRESA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoEmpresa.aspx" />
+                                                                    <dx:MenuItem Text="PRODUCTO / SERVICIO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProducto.aspx" />
+                                                                    <dx:MenuItem Text="PRODUCTO IMPUESTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProductoImpuesto.aspx" />
+                                                                </Items>
+                                                            </dx:MenuItem> 
                                                             <dx:MenuItem Text="SEGURIDAD">
                                                                 <Items>
                                                                     <dx:MenuItem Text="USUARIO" NavigateUrl="~/Pages/Seguridad/FrmSeguridadUsuario.aspx" />
@@ -290,7 +284,7 @@
                     <p>Seguridad</p>
                     <ul>
                         <li>Usuarios</li>
-                    </ul> 
+                    </ul>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
