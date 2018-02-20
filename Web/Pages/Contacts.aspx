@@ -4,9 +4,9 @@
 <div class="container-fluid">
     <div id="map" class="map row"></div>
 </div>
-<script src="http://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
-<script src="http://openlayers.org/en/v3.18.2/build/ol.js"></script>
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+<script src="https://openlayers.org/en/v3.18.2/build/ol.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript">
     function InitializeMap() {
         var latlng = new google.maps.LatLng(10.0030143, -84.1160851);
