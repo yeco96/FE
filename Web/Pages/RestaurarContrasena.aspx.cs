@@ -54,10 +54,12 @@ namespace Web.Pages
                         usuario = conexion.Usuario.Where(x=>x.codigo == usuario.codigo && x.correo == usuario.correo).FirstOrDefault();
                         if (usuario != null)
                         {
-                            usuario.contrasena = MD5Util.getMd5Hash( Utilidades.generarContrasena(10) );
+                            string password = Utilidades.generarContrasena(10);
+                            usuario.contrasena = MD5Util.getMd5Hash(password);
                             conexion.Entry(usuario).State = EntityState.Modified;
                             conexion.SaveChanges();
 
+                            usuario.contrasena = password;
                             if (enviaCorreoCambioContrasena(usuario)) {  
                                 this.alertMessages.Attributes["class"] = "alert alert-info";
                                 this.alertMessages.InnerText = "La nueva contraseña ha sido enviada a la cuenta registrada";
@@ -118,7 +120,7 @@ namespace Web.Pages
                 mensaje += "</tr>";
                 mensaje += "</table>";
                  
-                return Utilidades.sendMail(usuario.correo,
+                return Utilidades.sendMail(Usuario.USUARIO_AUTOMATICO, usuario.correo,
                   "MSA SOFT Facturación  | Olvido de Contraseña",
                     mensaje, "MSA SOFT");
 

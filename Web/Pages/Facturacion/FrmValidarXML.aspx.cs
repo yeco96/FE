@@ -140,7 +140,7 @@ namespace Web.Pages.Facturacion
                     {
                         string nombre = Session["receptor.Nombre"].ToString();
 
-                        Utilidades.sendMail(correo,
+                        Utilidades.sendMail(Session["emisor"].ToString(), correo,
                             string.Format("{0} - {1}", dato.clave.Substring(21,20), nombre),
                             Utilidades.mensageGenerico(), "Factura Electrónica", xml, dato.clave.Substring(21,20), dato.clave);
                     }

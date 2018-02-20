@@ -60,9 +60,8 @@ namespace Web.Pages.Seguridad
         private void refreshData()
         {
             using (var conexion = new DataModelFE())
-            {
-                string emisor = Session["emisor"].ToString();
-                this.ASPxGridView1.DataSource = conexion.Usuario.Where(x=>x.emisor== emisor).ToList();
+            { 
+                this.ASPxGridView1.DataSource = conexion.Usuario.ToList();
                 this.ASPxGridView1.DataBind();
             }
         }
@@ -308,13 +307,7 @@ namespace Web.Pages.Seguridad
             {
                 if (e.Column.FieldName == "codigo") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
             }
-            if (e.Column.FieldName.Equals("emisor"))
-            {
-                e.Editor.ReadOnly = true;
-                e.Column.ReadOnly = true;
-                e.Editor.BackColor = System.Drawing.Color.LightGray;
-                e.Editor.Value = Session["usuario"].ToString();
-            }
+          
 
         }
 

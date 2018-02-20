@@ -361,7 +361,7 @@ namespace Web.Pages.Facturacion
                         {
                             string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
 
-                            Utilidades.sendMail(dato.receptor.correoElectronico,
+                            Utilidades.sendMail(Session["emisor"].ToString(),dato.receptor.correoElectronico,
                                 string.Format("{0} - {1}", dato.numeroConsecutivo, factura.receptor.nombre),
                                 Utilidades.mensageGenerico(), "Documento Electrónico", xml, dato.numeroConsecutivo, dato.clave);
                         }

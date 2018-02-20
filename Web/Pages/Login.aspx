@@ -38,7 +38,7 @@
                         <dx:LayoutItem Caption="Usuario">
                             <LayoutItemNestedControlCollection>
                                 <dx:LayoutItemNestedControlContainer>
-                                    <dx:ASPxTextBox ID="tbUserName" runat="server" HelpText="Favor, ingrese el usuario">
+                                    <dx:ASPxTextBox ID="tbUserName" runat="server" HelpText="Favor, ingrese el usuario" MaxLength="12"  >
                                         <ValidationSettings ValidationGroup="LoginUserValidationGroup" ErrorDisplayMode="ImageWithTooltip">
                                             <RequiredField ErrorText="El usuario es requerido" IsRequired="true" />
                                         </ValidationSettings>
@@ -49,7 +49,7 @@
                         <dx:LayoutItem Caption="Contraseña">
                             <LayoutItemNestedControlCollection>
                                 <dx:LayoutItemNestedControlContainer>
-                                    <dx:ASPxTextBox ID="tbPassword" runat="server" Password="true" HelpText="Favor, ingrese la contraseña">
+                                    <dx:ASPxTextBox ID="tbPassword" runat="server" Password="true" HelpText="Favor, ingrese la contraseña" MaxLength="50">
                                         <ValidationSettings ValidationGroup="LoginUserValidationGroup" ErrorDisplayMode="ImageWithTooltip">
                                             <RequiredField ErrorText="La contrase&ntilde;a es requerida" IsRequired="true" />
                                         </ValidationSettings>

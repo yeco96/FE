@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Class.Seguridad;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -194,11 +195,12 @@ namespace Class.Utilidades
             
         }
 
-         
+
         #region sendMail 
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="emisor">pasara buscar el proveedor de correo</param>
         /// <param name="destinatario">direccion de correo</param>
         /// <param name="asunto">asunto de correo</param>
         /// <param name="mensaje">contenido del correo</param>
@@ -207,14 +209,19 @@ namespace Class.Utilidades
         /// <param name="consecutivo">numero de consecutivo</param>
         /// <param name="clave"></param>
         /// <returns>TRUE envaido FALSE no eviado</returns>
-        public static bool sendMail(string destinatario, string asunto, string mensaje, string alias, string xml, string consecutivo, string clave)
+        public static bool sendMail(string emisor, string destinatario, string asunto, string mensaje, string alias, string xml, string consecutivo, string clave)
         {
             try
             {
                 using (var conexion = new DataModelFE())
                 {
                     ConfiguracionCorreo mailConfig = conexion.ConfiguracionCorreo.Where(x => x.estado == Estado.ACTIVO.ToString()).FirstOrDefault();
-                     
+                    if (mailConfig == null)
+                    {
+                        emisor = Usuario.USUARIO_AUTOMATICO;
+                        mailConfig = conexion.ConfiguracionCorreo.Where(x => x.estado == Estado.ACTIVO.ToString() && x.codigo == emisor).FirstOrDefault();
+                    }
+
                     MailMessage correo = new MailMessage();
                     SmtpClient smtp = new SmtpClient(); 
                     correo.From = new MailAddress(mailConfig.user, alias);
@@ -259,19 +266,25 @@ namespace Class.Utilidades
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="emisor">pasara buscar el proveedor de correo</param>
         /// <param name="destinatario">direccion de correo</param>
         /// <param name="asunto">asunto de correo</param>
         /// <param name="mensaje">contenido del correo</param>
         /// <param name="alias">nombre para enmascar el correo</param> 
         /// <returns>TRUE envaido FALSE no eviado</returns>
-        public static bool sendMail(string destinatario, string asunto, string mensaje, string alias)
+        public static bool sendMail(string emisor,string destinatario, string asunto, string mensaje, string alias)
         {
             try
             {
                 using (var conexion = new DataModelFE())
-                {
-                    ConfiguracionCorreo mailConfig = conexion.ConfiguracionCorreo.Where(x => x.estado == Estado.ACTIVO.ToString()).FirstOrDefault();
-
+                { 
+                    ConfiguracionCorreo mailConfig = conexion.ConfiguracionCorreo.Where(x => x.estado == Estado.ACTIVO.ToString() && x.codigo==emisor).FirstOrDefault();
+                    if (mailConfig == null)
+                    {
+                        emisor = Usuario.USUARIO_AUTOMATICO;
+                        mailConfig = conexion.ConfiguracionCorreo.Where(x => x.estado == Estado.ACTIVO.ToString() && x.codigo == emisor).FirstOrDefault();
+                    }
+                    
                     MailMessage correo = new MailMessage();
                     SmtpClient smtp = new SmtpClient();
                     correo.From = new MailAddress(mailConfig.user, alias);

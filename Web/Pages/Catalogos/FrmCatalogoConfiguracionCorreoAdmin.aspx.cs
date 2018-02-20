@@ -115,7 +115,7 @@ namespace Web.Pages.Catalogos
                     ConfiguracionCorreo dato = new ConfiguracionCorreo();
                     //llena el objeto con los valores de la pantalla
                     dato.codigo =  Session["usuario"].ToString();
-                    dato.host = e.NewValues["host"] != null ? e.NewValues["host"].ToString().ToUpper() : null;
+                    dato.host = e.NewValues["host"] != null ? e.NewValues["host"].ToString() : null;
                     dato.port = e.NewValues["port"] != null ? e.NewValues["port"].ToString().ToUpper() : null;
                     dato.user = e.NewValues["user"] != null ? e.NewValues["user"].ToString() : null;
                     dato.ssl = e.NewValues["ssl"] != null ? e.NewValues["ssl"].ToString() : null;
@@ -179,12 +179,14 @@ namespace Web.Pages.Catalogos
                     //busca el objeto 
                     dato = conexion.ConfiguracionCorreo.Find(dato.codigo);
 
+                    if (e.NewValues["password"] != null)
+                        dato.password = e.NewValues["password"] != null ? e.NewValues["password"].ToString() : null;
+
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
-                    dato.password = e.NewValues["password"] != null ? e.NewValues["password"].ToString() : null;
                     dato.ssl = e.NewValues["ssl"] != null ? e.NewValues["ssl"].ToString() : null;
                     dato.port = e.NewValues["port"] != null ? e.NewValues["port"].ToString().ToUpper() : null;
                     dato.user = e.NewValues["user"] != null ? e.NewValues["user"].ToString(): null;
-                    dato.host = e.NewValues["host"] != null ? e.NewValues["host"].ToString().ToUpper() : null;
+                    dato.host = e.NewValues["host"] != null ? e.NewValues["host"].ToString() : null;
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioModificacion = Session["usuario"].ToString();
                     dato.fechaModificacion = Date.DateTimeNow();

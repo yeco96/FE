@@ -1,3 +1,4 @@
+using Class.Seguridad;
 using Class.Utilidades;
 using System;
 using System.Collections.Generic;
@@ -48,7 +49,7 @@ namespace Web.UserControls {
                     dato = conexion.ConfiguracionGlobal.Find(dato.codigo);
                     //string pCorreo = "roswel030@gmail.com";
                     //string a = dato.descripcion;
-                    Utilidades.sendMail(dato.descripcion, "Consulta de : " + txtNombre.Text.ToUpper(), mensajeConsulta, "", null, "", "");
+                    Utilidades.sendMail(Usuario.USUARIO_AUTOMATICO,dato.descripcion, "Consulta de : " + txtNombre.Text.ToUpper(), mensajeConsulta, "", null, "", "");
 
                 }
 

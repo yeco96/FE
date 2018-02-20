@@ -36,8 +36,8 @@
                 <dx:GridViewDataTextColumn Caption="Usuario" FieldName="user" VisibleIndex="4" PropertiesTextEdit-MaxLength="50"    Width="25%"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Contraseña" FieldName="password" VisibleIndex="5" PropertiesTextEdit-MaxLength="50"     
-                    PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                <dx:GridViewDataTextColumn Caption="Contraseña" FieldName="password" VisibleIndex="5" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-Password="true"   
+                    PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="false" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
                  <dx:GridViewDataComboBoxColumn Caption="SSL" FieldName="ssl" VisibleIndex="6"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">

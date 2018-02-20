@@ -269,7 +269,7 @@ namespace Web.Pages.Facturacion
 
                         if (!string.IsNullOrWhiteSpace(correoElectronico))
                         {
-                            Utilidades.sendMail(correoElectronico,
+                            Utilidades.sendMail(Session["emisor"].ToString(), correoElectronico,
                                 string.Format("{0} - {1}", numeroConsecutivo, dato.Receptor.nombre),
                                 Utilidades.mensageGenerico(), "Documento Electrónico", xml, numeroConsecutivo, dato.clave);
 
@@ -322,7 +322,7 @@ namespace Web.Pages.Facturacion
 
                             if (!string.IsNullOrWhiteSpace(correoElectronico))
                             {
-                                Utilidades.sendMail(correoElectronico,
+                                Utilidades.sendMail(Session["emisor"].ToString(),correoElectronico,
                                     string.Format("{0} - {1}", dato.numeroConsecutivo, dato.receptor.nombre),
                                     Utilidades.mensageGenerico(), "Documento Electrónico", xml, dato.numeroConsecutivo, dato.clave);
                             }
