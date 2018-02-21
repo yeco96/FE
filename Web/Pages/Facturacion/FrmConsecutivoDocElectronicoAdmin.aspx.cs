@@ -16,15 +16,15 @@ using Web.Models.Facturacion;
 
 namespace Web.Pages.Facturacion
 {
-    [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
+ 
     [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
-    public partial class FrmConsecutivoDocElectronico : System.Web.UI.Page
+    public partial class FrmConsecutivoDocElectronicoAdmin : System.Web.UI.Page
     {
 
         /// <summary>
         /// constructor
         /// </summary>
-        public FrmConsecutivoDocElectronico()
+        public FrmConsecutivoDocElectronicoAdmin()
         {
         }
 
@@ -56,8 +56,7 @@ namespace Web.Pages.Facturacion
         {
             using (var conexion = new DataModelFE())
             {
-                string usuario = Session["usuario"].ToString();
-                this.ASPxGridView1.DataSource = conexion.ConsecutivoDocElectronico.Where(x => x.emisor == usuario).ToList();
+                this.ASPxGridView1.DataSource = conexion.ConsecutivoDocElectronico.ToList();
                 this.ASPxGridView1.DataBind();
             }
         }

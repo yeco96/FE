@@ -42,10 +42,8 @@ public class EstadoMensajeHaciendaClass
         lista.Add(new ListEditItem("RECHAZADO", 3)); 
         lista.Add(new ListEditItem("PENDIENTE", 9));
 
-        return lista;
-       
-    }
-     
+        return lista; 
+    } 
 }
 
 

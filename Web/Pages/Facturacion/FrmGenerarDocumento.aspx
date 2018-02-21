@@ -139,7 +139,7 @@
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
-                                                <dx:LayoutItem Caption="Canton">
+                                                <dx:LayoutItem Caption="Cantón">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxComboBox ID="cmbEmisorCanton" runat="server" Width="100%" AutoResizeWithContainer="true" OnValueChanged="cmbEmisorCanton_ValueChanged" AutoPostBack="true"
@@ -310,7 +310,7 @@
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
-                                                <dx:LayoutItem Caption="Canton">
+                                                <dx:LayoutItem Caption="Cantón">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxComboBox ID="cmbReceptorCanton" runat="server" Width="100%" AutoResizeWithContainer="true" OnValueChanged="cmbReceptorCanton_ValueChanged" AutoPostBack="true"
@@ -351,7 +351,7 @@
                         </ContentCollection>
                     </dx:TabPage>
 
-                     <dx:TabPage Text="Documentos de Referencia">
+                     <dx:TabPage Text="Referencias">
                         <ContentCollection>
                             <dx:ContentControl runat="server">
 

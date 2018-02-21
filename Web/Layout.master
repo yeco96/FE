@@ -81,7 +81,7 @@
 
                                                     <dx:MenuItem Text="DOCUMENTOS">
                                                         <Items>
-                                                            <dx:MenuItem Text="ADMINISTRACIÓN" NavigateUrl="~/Pages/Facturacion/FrmAdministracionDocElectronico" />
+                                                            <dx:MenuItem Text="ADMINISTRACIÓN" NavigateUrl="~/Pages/Facturacion/FrmAdministracionDocElectronicoAdmin" />
                                                             <dx:MenuItem Text="CONFIRMAR XML" NavigateUrl="~/Pages/Facturacion/FrmValidarXML" />
                                                             <dx:MenuItem Text="CONSULTA" NavigateUrl="~/Pages/Facturacion/FrmConsultaResumen" />
                                                             <dx:MenuItem Text="FACTURAR" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumento" />
@@ -89,7 +89,7 @@
                                                     </dx:MenuItem>
                                                     <dx:MenuItem Text="CONFIGURACIÓN">
                                                         <Items>
-                                                            <dx:MenuItem Text="NÚMERO DE CONSECUTIVO" NavigateUrl="~/Pages/Facturacion/FrmConsecutivoDocElectronico" />
+                                                            <dx:MenuItem Text="NÚMERO DE CONSECUTIVO" NavigateUrl="~/Pages/Facturacion/FrmConsecutivoDocElectronicoAdmin" />
                                                             <dx:MenuItem Text="CORREO ELECTRÓNICO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoConfiguracionCorreoAdmin" />
                                                             <dx:MenuItem Text="CATÁLOGOS">
                                                                 <Items>
@@ -101,6 +101,7 @@
                                                                     <dx:MenuItem Text="TIPO IDENTIFICACIÓN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoIdentificacion" />
                                                                     <dx:MenuItem Text="TIPO IMPUESTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoImpuesto" />
                                                                     <dx:MenuItem Text="TIPO MONEDA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoMoneda" />
+                                                                    <dx:MenuItem Text="TIPO PLAN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoPlan" />
                                                                     <dx:MenuItem Text="TIPO PRODUCTO SERVICIO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoProductoServicio" />
                                                                     <dx:MenuItem Text="UBICACIÓN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoUbicacion" />
                                                                     <dx:MenuItem Text="UNIDAD MEDIDA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoUnidadMedida" />
@@ -108,13 +109,14 @@
                                                             </dx:MenuItem>
                                                             <dx:MenuItem Text="FACTURACIÓN">
                                                                 <Items>
-                                                                    <dx:MenuItem Text="EMISOR" NavigateUrl="~/Pages/Facturacion/FrmEmisor" />
+                                                                    <dx:MenuItem Text="EMISOR" NavigateUrl="~/Pages/Facturacion/FrmEmisorAdmin" />
                                                                     <dx:MenuItem Text="RECEPTOR / CLIENTES" NavigateUrl="~/Pages/Facturacion/FrmReceptor" />
                                                                     <dx:MenuItem Text="EMPRESA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoEmpresaAdmin" />
                                                                     <dx:MenuItem Text="PRODUCTO / SERVICIO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProducto" />
                                                                     <dx:MenuItem Text="PRODUCTO IMPUESTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProductoImpuesto" />
                                                                 </Items>
-                                                            </dx:MenuItem> 
+                                                            </dx:MenuItem>
+                                                            <dx:MenuItem Text="PLAN" NavigateUrl="~/Pages/Administracion/FrmPlanAdmin" />  
                                                             <dx:MenuItem Text="SEGURIDAD">
                                                                 <Items>
                                                                     <dx:MenuItem Text="USUARIO" NavigateUrl="~/Pages/Seguridad/FrmSeguridadUsuarioAdmin" />
@@ -157,6 +159,7 @@
                                                                     <dx:MenuItem Text="PRODUCTO IMPUESTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProductoImpuesto" />
                                                                 </Items>
                                                             </dx:MenuItem>
+                                                            <dx:MenuItem Text="PLAN" NavigateUrl="~/Pages/Administracion/FrmPlan" />  
                                                             <dx:MenuItem Text="SEGURIDAD">
                                                                 <Items>
                                                                     <dx:MenuItem Text="USUARIO" NavigateUrl="~/Pages/Seguridad/FrmSeguridadUsuario" />

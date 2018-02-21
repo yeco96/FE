@@ -196,8 +196,11 @@
     <Content Include="Content\site.css" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Pages\Administracion\FrmPlan.aspx" />
+    <Content Include="Pages\Administracion\FrmPlanAdmin.aspx" />
     <Content Include="Pages\BlogPost.aspx" />
     <Content Include="Pages\BlogTimeline.aspx" />
+    <Content Include="Pages\Catalogos\FrmCatalogoTipoPlan.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoConfiguracionCorreoAdmin.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoConfiguracionCorreo.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoEmpresaAdmin.aspx" />
@@ -208,6 +211,8 @@
     <Content Include="Pages\Catalogos\FrmCatalogoUbicacion.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoProducto.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoEmpresa.aspx" />
+    <Content Include="Pages\Facturacion\FrmAdministracionDocElectronicoAdmin.aspx" />
+    <Content Include="Pages\Facturacion\FrmConsecutivoDocElectronicoAdmin.aspx" />
     <Content Include="Pages\Facturacion\FrmConsecutivoDocElectronico.aspx" />
     <Content Include="Pages\Contacts.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoCodigoReferencia.aspx" />
@@ -223,6 +228,7 @@
     <Content Include="Pages\Consulta.aspx" />
     <Content Include="Pages\Facturacion\FrmAdministracionDocElectronico.aspx" />
     <Content Include="Pages\Facturacion\FrmConsultaResumen.aspx" />
+    <Content Include="Pages\Facturacion\FrmEmisorAdmin.aspx" />
     <Content Include="Pages\Facturacion\FrmGenerarNota.aspx" />
     <Content Include="Pages\Facturacion\FrmReceptor.aspx" />
     <Content Include="Pages\Facturacion\FrmClienteAdministrador.aspx" />
@@ -317,7 +323,8 @@
     <Compile Include="Layout.master.designer.cs">
       <DependentUpon>Layout.master</DependentUpon>
     </Compile>
-    <Compile Include="Models\Catalogos\Canton.cs" />
+    <Compile Include="Models\Administracion\Plan.cs" />
+    <Compile Include="Models\Catalogos\TipoPlan.cs" />
     <Compile Include="Models\Catalogos\CodigoReferencia.cs" />
     <Compile Include="Models\Catalogos\CondicionVenta.cs" />
     <Compile Include="Models\Catalogos\CodigoPais.cs" />
@@ -331,11 +338,9 @@
     <Compile Include="Models\Catalogos\Producto.cs" />
     <Compile Include="Models\Configuracion\ConfiguracionGlobal.cs" />
     <Compile Include="Models\DataModelFE.cs" />
-    <Compile Include="Models\Catalogos\Distrito.cs" />
     <Compile Include="Models\Catalogos\Exoneracion.cs" />
     <Compile Include="Models\Catalogos\MedioPago.cs" />
     <Compile Include="Models\Catalogos\TipoProductoServicio.cs" />
-    <Compile Include="Models\Catalogos\Provincia.cs" />
     <Compile Include="Models\Catalogos\TipoDocumento.cs" />
     <Compile Include="Models\Catalogos\TipoIdentificacion.cs" />
     <Compile Include="Models\Catalogos\UnidadMedida.cs" />
@@ -343,6 +348,20 @@
     <Compile Include="Models\Seguridad\Rol.cs" />
     <Compile Include="Models\Seguridad\Usuario.cs" />
     <Compile Include="Models\Catalogos\TipoMoneda.cs" />
+    <Compile Include="Pages\Administracion\FrmPlan.aspx.cs">
+      <DependentUpon>FrmPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Administracion\FrmPlan.aspx.designer.cs">
+      <DependentUpon>FrmPlan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Administracion\FrmPlanAdmin.aspx.cs">
+      <DependentUpon>FrmPlanAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Administracion\FrmPlanAdmin.aspx.designer.cs">
+      <DependentUpon>FrmPlanAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\BlogPost.aspx.cs">
       <DependentUpon>BlogPost.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -356,6 +375,13 @@
     </Compile>
     <Compile Include="Pages\BlogTimeline.aspx.designer.cs">
       <DependentUpon>BlogTimeline.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoTipoPlan.aspx.cs">
+      <DependentUpon>FrmCatalogoTipoPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoTipoPlan.aspx.designer.cs">
+      <DependentUpon>FrmCatalogoTipoPlan.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Catalogos\FrmCatalogoConfiguracionCorreoAdmin.aspx.cs">
       <DependentUpon>FrmCatalogoConfiguracionCorreoAdmin.aspx</DependentUpon>
@@ -426,6 +452,20 @@
     </Compile>
     <Compile Include="Pages\Catalogos\FrmCatalogoEmpresa.aspx.designer.cs">
       <DependentUpon>FrmCatalogoEmpresa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmAdministracionDocElectronicoAdmin.aspx.cs">
+      <DependentUpon>FrmAdministracionDocElectronicoAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmAdministracionDocElectronicoAdmin.aspx.designer.cs">
+      <DependentUpon>FrmAdministracionDocElectronicoAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmConsecutivoDocElectronicoAdmin.aspx.cs">
+      <DependentUpon>FrmConsecutivoDocElectronicoAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmConsecutivoDocElectronicoAdmin.aspx.designer.cs">
+      <DependentUpon>FrmConsecutivoDocElectronicoAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Facturacion\FrmConsecutivoDocElectronico.aspx.cs">
       <DependentUpon>FrmConsecutivoDocElectronico.aspx</DependentUpon>
@@ -532,6 +572,13 @@
     </Compile>
     <Compile Include="Pages\Facturacion\FrmConsultaResumen.aspx.designer.cs">
       <DependentUpon>FrmConsultaResumen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmEmisorAdmin.aspx.cs">
+      <DependentUpon>FrmEmisorAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmEmisorAdmin.aspx.designer.cs">
+      <DependentUpon>FrmEmisorAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Facturacion\FrmGenerarNota.aspx.cs">
       <DependentUpon>FrmGenerarNota.aspx</DependentUpon>

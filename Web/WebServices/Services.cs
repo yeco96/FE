@@ -19,6 +19,7 @@ using Newtonsoft.Json;
 using System.Data.Entity;
 using XMLDomain;
 using System.Data.Entity.Validation;
+using Web.Models.Administracion;
 
 namespace Web.WebServices
 {
@@ -89,6 +90,7 @@ namespace Web.WebServices
                 HttpContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 
                 responseMessage = await httpClient.PostAsync(URLServices.RECEPCION_POST(), content);
+                string x = await responseMessage.Content.ReadAsStringAsync();
 
                 if (responseMessage.IsSuccessStatusCode)
                 {
@@ -100,7 +102,7 @@ namespace Web.WebServices
                 }
             }
 
-            string x = await responseMessage.Content.ReadAsStringAsync();
+
         }
 
 
@@ -232,6 +234,13 @@ namespace Web.WebServices
 
                         documento.resumenFactura.clave = documento.clave;
                         conexion.ResumenFactura.Add(documento.resumenFactura);
+
+                        Plan plan = conexion.Plan.Find(emisor.identificacion);
+                        if (plan != null)
+                        {
+                            plan.cantidadDocEmitido += 1;
+                            conexion.Entry(plan).State = EntityState.Modified;
+                        }
                     } 
                     conexion.SaveChanges();
 

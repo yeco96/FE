@@ -121,7 +121,7 @@
                                 </dx:LayoutItemNestedControlContainer>
                             </LayoutItemNestedControlCollection>
                         </dx:LayoutItem>
-                        <dx:LayoutItem Caption="Canton">
+                        <dx:LayoutItem Caption="Cantón">
                             <LayoutItemNestedControlCollection>
                                 <dx:LayoutItemNestedControlContainer>
                                     <dx:ASPxComboBox ID="cmbEmisorCanton" runat="server" Width="100%" AutoResizeWithContainer="true" OnValueChanged="cmbEmisorCanton_ValueChanged" AutoPostBack="true"

@@ -7,10 +7,37 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Web.Pages.Catalogos {
+namespace Web.Pages.Facturacion {
     
     
-    public partial class FrmEmisor {
+    public partial class FrmAdministracionDocElectronicoAdmin {
+        
+        /// <summary>
+        /// txtFechaInicio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxDateEdit txtFechaInicio;
+        
+        /// <summary>
+        /// txtFechaFin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxDateEdit txtFechaFin;
+        
+        /// <summary>
+        /// txtConsultar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton txtConsultar;
         
         /// <summary>
         /// alertMessages control.

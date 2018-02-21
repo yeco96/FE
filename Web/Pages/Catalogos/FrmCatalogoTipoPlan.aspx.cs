@@ -12,20 +12,19 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Web.Models;
-using Web.Models.Facturacion;
+using Web.Models.Catalogos;
 
-namespace Web.Pages.Facturacion
+namespace Web.Pages.Catalogos
 {
-    [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
     [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
-    public partial class FrmConsecutivoDocElectronico : System.Web.UI.Page
+    public partial class FrmCatalogoTipoPlan : System.Web.UI.Page
     {
-
+        
         /// <summary>
         /// constructor
         /// </summary>
-        public FrmConsecutivoDocElectronico()
-        {
+        public FrmCatalogoTipoPlan()
+        { 
         }
 
 
@@ -56,8 +55,7 @@ namespace Web.Pages.Facturacion
         {
             using (var conexion = new DataModelFE())
             {
-                string usuario = Session["usuario"].ToString();
-                this.ASPxGridView1.DataSource = conexion.ConsecutivoDocElectronico.Where(x => x.emisor == usuario).ToList();
+                this.ASPxGridView1.DataSource = conexion.TipoPlan.ToList();
                 this.ASPxGridView1.DataBind();
             }
         }
@@ -105,19 +103,17 @@ namespace Web.Pages.Facturacion
                 using (var conexion = new DataModelFE())
                 {
                     //se declara el objeto a insertar
-                    ConsecutivoDocElectronico dato = new ConsecutivoDocElectronico();
+                    TipoPlan dato = new TipoPlan();
                     //llena el objeto con los valores de la pantalla
-                    dato.emisor = e.NewValues["emisor"] != null ? e.NewValues["emisor"].ToString().ToUpper() : null;
-                    dato.sucursal = e.NewValues["sucursal"] != null ? e.NewValues["sucursal"].ToString().PadLeft(3, '0') : "001";
-                    dato.caja = e.NewValues["caja"] != null ? e.NewValues["caja"].ToString().PadLeft(3, '0') : "00001";
-                    dato.consecutivo = e.NewValues["consecutivo"] != null ? long.Parse(e.NewValues["consecutivo"].ToString()) : 0 ;
-                    dato.digitoVerificador= e.NewValues["digitoVerificador"].ToString();
+                    dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
+                    dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
+
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioCreacion = Session["usuario"].ToString();
                     dato.fechaCreacion = Date.DateTimeNow();
 
                     //agrega el objeto
-                    conexion.ConsecutivoDocElectronico.Add(dato);
+                    conexion.TipoPlan.Add(dato);
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress
@@ -135,11 +131,6 @@ namespace Web.Pages.Facturacion
 
                 // Join the list to a single string.
                 var fullErrorMessage = string.Join("; ", errorMessages);
-
-                
-                
-
-                
 
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
@@ -168,18 +159,14 @@ namespace Web.Pages.Facturacion
                 using (var conexion = new DataModelFE())
                 {
                     // se declara el objeto a insertar
-                    ConsecutivoDocElectronico dato = new ConsecutivoDocElectronico();
+                    TipoPlan dato = new TipoPlan();
                     //llena el objeto con los valores de la pantalla
-                    dato.emisor = e.NewValues["emisor"] != null ? e.NewValues["emisor"].ToString().ToUpper() : null;
-                    dato.sucursal = e.NewValues["sucursal"] != null ? e.NewValues["sucursal"].ToString().PadLeft(3, '0') : "001";
-                    dato.caja = e.NewValues["caja"] != null ? e.NewValues["caja"].ToString().PadLeft(3,'0') : "00001";
-                     
-                    //busca el objeto  
-                    object[] key = new object[] { dato.emisor, dato.sucursal, dato.caja };
-                    dato = conexion.ConsecutivoDocElectronico.Find(key);
+                    dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
 
-                    dato.digitoVerificador = e.NewValues["digitoVerificador"].ToString();
-                    dato.consecutivo = e.NewValues["consecutivo"] != null ? long.Parse(e.NewValues["consecutivo"].ToString()) : 0;
+                    //busca el objeto 
+                    dato = conexion.TipoPlan.Find(dato.codigo);
+
+                    dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioModificacion = Session["usuario"].ToString();
                     dato.fechaModificacion = Date.DateTimeNow();
@@ -203,7 +190,7 @@ namespace Web.Pages.Facturacion
 
                 // Join the list to a single string.
                 var fullErrorMessage = string.Join("; ", errorMessages);
-                 
+
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
 
@@ -230,22 +217,31 @@ namespace Web.Pages.Facturacion
             {
                 using (var conexion = new DataModelFE())
                 {
-                    ConsecutivoDocElectronico dato = new ConsecutivoDocElectronico(); 
+                    var id = e.Values["codigo"].ToString();
 
-                    dato.emisor = e.Values["emisor"] != null ? e.Values["emisor"].ToString().ToUpper() : null;
-                    dato.sucursal = e.Values["sucursal"] != null ? e.Values["sucursal"].ToString().PadLeft(3, '0') : "001";
-                    dato.caja = e.Values["caja"] != null ? e.Values["caja"].ToString().PadLeft(3, '0') : "00001";
-
-                    //busca el objeto  
-                    object[] key = new object[] { dato.emisor, dato.sucursal, dato.caja };
-                    dato = conexion.ConsecutivoDocElectronico.Find(key); 
-                    conexion.ConsecutivoDocElectronico.Remove(dato);
+                    //busca objeto
+                    var itemToRemove = conexion.TipoPlan.SingleOrDefault(x => x.codigo == id);
+                    conexion.TipoPlan.Remove(itemToRemove);
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress
                     e.Cancel = true;
                     this.ASPxGridView1.CancelEdit();
                 }
+
+            }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
 
             }
             catch (Exception ex)
@@ -267,17 +263,10 @@ namespace Web.Pages.Facturacion
         /// <param name="e"></param>
         protected void ASPxGridView1_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
         {
-            if (this.ASPxGridView1.IsNewRowEditing)
+            if (!this.ASPxGridView1.IsNewRowEditing)
             {
-                if (e.Column.FieldName == "emisor") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; e.Editor.Value = Session["usuario"].ToString(); }
+                if (e.Column.FieldName == "codigo") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
             }
-            else
-            {
-                if (e.Column.FieldName == "emisor") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
-                if (e.Column.FieldName == "sucursal") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
-                if (e.Column.FieldName == "caja") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
-            }
-
         }
 
         // <summary>
@@ -305,9 +294,6 @@ namespace Web.Pages.Facturacion
             this.ASPxGridViewExporter1.WriteCsvToResponse();
         }
 
-       
+        
     }
 }
-
-
- 
