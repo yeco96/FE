@@ -622,8 +622,10 @@
                                           <dx:GridViewDataSpinEditColumn Caption="Total + Impuestos" FieldName="montoTotalLinea" VisibleIndex="8" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
                                             PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="n2"
                                             PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
-                                            <PropertiesSpinEdit DisplayFormatString="n2" NumberFormat="Custom" DecimalPlaces="2" MaxValue="999999999999" MaxLength="10">
+                                         
+                                              <PropertiesSpinEdit DisplayFormatString="n2" NumberFormat="Custom" DecimalPlaces="2" MaxValue="999999999999" MaxLength="10">
                                             </PropertiesSpinEdit>
+
                                         </dx:GridViewDataSpinEditColumn>
                                          
                                     </Columns>
@@ -673,6 +675,70 @@
                                                                 </dx:ContentControl>
                                                             </ContentCollection>
                                                         </dx:TabPage>
+
+
+                                                        <dx:TabPage Text="Exoneración" Visible="true">
+                                                            <ContentCollection>
+                                                                <dx:ContentControl runat="server">
+                                                                   
+                                                                      <dx:ASPxFormLayout runat="server" ID="FormLayoutExoneracion">
+                                                                            <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
+                                                                            <Items>
+                                                                                <dx:LayoutGroup Caption="Exoneración" ColCount="3" GroupBoxDecoration="Box" UseDefaultPaddings="false">
+                                                                                    <Items>
+                                                                                        <dx:LayoutItem Caption="Tipo Documento">
+                                                                                            <LayoutItemNestedControlCollection>
+                                                                                                <dx:LayoutItemNestedControlContainer>
+                                                                                                    <dx:ASPxComboBox ID="cmbTipoDocumento" runat="server" Width="100%" AutoResizeWithContainer="true" 
+                                                                                                        ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                                                                </dx:LayoutItemNestedControlContainer>
+                                                                                            </LayoutItemNestedControlCollection>
+                                                                                        </dx:LayoutItem>
+                                                                                        <dx:LayoutItem Caption="Número Documento">
+                                                                                            <LayoutItemNestedControlCollection>
+                                                                                                <dx:LayoutItemNestedControlContainer>
+                                                                                                     <dx:ASPxTextBox ID="numeroDocumento" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                                                                </dx:LayoutItemNestedControlContainer>
+                                                                                            </LayoutItemNestedControlCollection>
+                                                                                        </dx:LayoutItem>
+                                                                                        <dx:LayoutItem Caption="Nombre Institución">
+                                                                                            <LayoutItemNestedControlCollection>
+                                                                                                <dx:LayoutItemNestedControlContainer>
+                                                                                                     <dx:ASPxTextBox ID="nombreInstitucion" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                                                                </dx:LayoutItemNestedControlContainer>
+                                                                                            </LayoutItemNestedControlCollection>
+                                                                                        </dx:LayoutItem>
+                                                                                        <dx:LayoutItem Caption="Fecha Emisión">
+                                                                                            <LayoutItemNestedControlCollection>
+                                                                                                <dx:LayoutItemNestedControlContainer>
+                                                                                                     <dx:ASPxDateEdit ID="fechaEmision" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" EditFormatString="yyyy-MM-dd" />
+                                                                                                </dx:LayoutItemNestedControlContainer>
+                                                                                            </LayoutItemNestedControlCollection>
+                                                                                        </dx:LayoutItem> 
+                                                                                         <dx:LayoutItem Caption="Porcentaje Compra">
+                                                                                            <LayoutItemNestedControlCollection>
+                                                                                                <dx:LayoutItemNestedControlContainer>
+                                                                                                     <dx:ASPxSpinEdit ID="porcentajeCompra" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"  DecimalPlaces="2" MaxValue="100" />
+                                                                                                </dx:LayoutItemNestedControlContainer>
+                                                                                            </LayoutItemNestedControlCollection>
+                                                                                        </dx:LayoutItem>
+                                                                                        <dx:LayoutItem Caption="Monto Impuesto" >
+                                                                                            <LayoutItemNestedControlCollection>
+                                                                                                <dx:LayoutItemNestedControlContainer>
+                                                                                                     <dx:ASPxSpinEdit ID="montoImpuesto" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" DecimalPlaces="2" />
+                                                                                                </dx:LayoutItemNestedControlContainer>
+                                                                                            </LayoutItemNestedControlCollection>
+                                                                                        </dx:LayoutItem>
+                                                                                    </Items>
+                                                                                </dx:LayoutGroup>
+
+                                                                            </Items>
+                                                                        </dx:ASPxFormLayout>
+
+                                                                </dx:ContentControl>
+                                                            </ContentCollection>
+                                                        </dx:TabPage>
+ 
                                                     </TabPages>
                                                 </dx:ASPxPageControl>
                                             </div>

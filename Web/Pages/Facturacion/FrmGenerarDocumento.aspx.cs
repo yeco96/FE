@@ -115,10 +115,7 @@ namespace Web.Pages.Facturacion
                 string elEmisor =Session["emisor"].ToString();
                 EmisorReceptorIMEC emisor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == elEmisor).FirstOrDefault();
                 this.loadEmisor(emisor);
-
-                //string elReceptor = "601230863";
-                //EmisorReceptorIMEC receptor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == elReceptor).FirstOrDefault();
-                //this.loadReceptor(receptor);
+                
 
                 /* IDENTIFICACION TIPO */
                 foreach (var item in conexion.TipoIdentificacion.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
@@ -207,8 +204,7 @@ namespace Web.Pages.Facturacion
                 this.cmbTipoDocumento.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
                 comboTipoDocumento.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
                 this.cmbTipoDocumento.SelectedIndex = 0;
-
-
+                
 
                 /* CODIGO REFERENCIA */
                 GridViewDataComboBoxColumn comboCodigo = this.ASPxGridView2.Columns["codigo"] as GridViewDataComboBoxColumn;
@@ -217,6 +213,8 @@ namespace Web.Pages.Facturacion
                     comboCodigo.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
                 }
                 comboCodigo.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+
+               
 
             }
         }
@@ -435,7 +433,8 @@ namespace Web.Pages.Facturacion
                 if (e.Column.FieldName == "montoTotal") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
                 if (e.Column.FieldName == "montoTotalLinea") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
                 if (e.Column.FieldName == "montoDescuento") { e.Editor.Value = 0; }
-                if (e.Column.FieldName == "precioUnitario") { e.Editor.Value = 0; } 
+                if (e.Column.FieldName == "precioUnitario") { e.Editor.Value = 0; }
+                if (e.Column.FieldName == "cantidad") { e.Editor.Value = 1; }
                 if (e.Column.FieldName == "naturalezaDescuento") { e.Editor.Value = "N/A"; }
             }
             else
@@ -444,6 +443,22 @@ namespace Web.Pages.Facturacion
                 if (e.Column.FieldName == "subTotal") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
                 if (e.Column.FieldName == "montoTotal") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
                 if (e.Column.FieldName == "producto") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+            }
+
+            if (e.Column.FieldName == "producto")
+            {
+                /* TIPO EXONERACIÓN */
+                ASPxPageControl tabs = (ASPxPageControl)ASPxGridView1.FindEditFormTemplateControl("pageControl");
+                ASPxFormLayout form = (ASPxFormLayout)tabs.FindControl("FormLayoutExoneracion"); 
+                ASPxComboBox cmbTipoDocumento = (ASPxComboBox)form.FindControl("cmbTipoDocumento");
+                using (var conexion = new DataModelFE())
+                {
+                    foreach (var item in conexion.Exoneracion.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                    {
+                        cmbTipoDocumento.Items.Add(item.descripcion, item.codigo);
+                    }
+                }
+                cmbTipoDocumento.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             }
         }
 
