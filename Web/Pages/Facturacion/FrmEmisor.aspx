@@ -11,16 +11,16 @@
         </div>
     </section>
     <div class="borde_redondo_tabla">
-         
-       
+
+
         <div id="alertMessages" role="alert" runat="server" />
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
-            Width="100%" EnableTheming="True" KeyFieldName="identificacionTipo;identificacion" Theme="Moderno" EnableCallBacks="false"
+            Width="100%" EnableTheming="True" KeyFieldName="identificacion" Theme="Moderno" EnableCallBacks="false"
             OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize"
-            OnRowDeleting="ASPxGridView1_RowDeleting"
-            OnRowInserting="ASPxGridView1_RowInserting"
+            OnRowValidating="ASPxGridView1_RowValidating"
+            OnCancelRowEditing="ASPxGridView1_CancelRowEditing"
             OnRowUpdating="ASPxGridView1_RowUpdating">
-
+             <ClientSideEvents EndCallback="function(s, e) {if (s.cpUpdatedMessage) { alert(s.cpUpdatedMessage);  delete s.cpUpdatedMessage;  }}" />
             <Columns>
                 <dx:GridViewCommandColumn Width="50px" ButtonType="Image" ShowSelectButton="false" ShowDeleteButton="false" ShowEditButton="true" ShowNewButtonInHeader="false" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
                 </dx:GridViewCommandColumn>
@@ -44,51 +44,17 @@
                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataSpinEditColumn>
 
-                <dx:GridViewDataSpinEditColumn Caption="Fax" FieldName="fax" VisibleIndex="7" PropertiesSpinEdit-MaxLength="20"
-                    PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                <dx:GridViewDataSpinEditColumn Caption="Fax" FieldName="fax" VisibleIndex="7" PropertiesSpinEdit-MaxLength="20">
                 </dx:GridViewDataSpinEditColumn>
 
-                <dx:GridViewDataComboBoxColumn Caption="Cod Teléfono" FieldName="telefonoCodigoPais" Visible="false"/>
-                <dx:GridViewDataComboBoxColumn Caption="Cod Fax" FieldName="faxCodigoPais" Visible="false"/>
+                <dx:GridViewDataComboBoxColumn Caption="Cod Teléfono" FieldName="telefonoCodigoPais" Visible="false" />
+                <dx:GridViewDataComboBoxColumn Caption="Cod Fax" FieldName="faxCodigoPais" Visible="false" />
 
                 <dx:GridViewDataTextColumn Caption="Correo" FieldName="correoElectronico" VisibleIndex="8" PropertiesTextEdit-MaxLength="80" Width="20%"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
 
-
-                <dx:GridViewDataComboBoxColumn Caption="Provincia" FieldName="provincia" Visible="false" EditFormSettings-Visible="True" VisibleIndex="15"
-                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
-                    <EditItemTemplate>
-                        <dx:ASPxComboBox ID="cmbProvincia" runat="server" Width="100%" AutoResizeWithContainer="true" OnValueChanged="cmbProvincia_ValueChanged" AutoPostBack="true"
-                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
-                    </EditItemTemplate>
-                </dx:GridViewDataComboBoxColumn>
-                <dx:GridViewDataComboBoxColumn Caption="Cantón" FieldName="canton" Visible="false" EditFormSettings-Visible="True" VisibleIndex="15"
-                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido" >
-                     <EditItemTemplate>
-                           <dx:ASPxComboBox ID="cmbCanton" runat="server" Width="100%" AutoResizeWithContainer="true" OnValueChanged="cmbCanton_ValueChanged" AutoPostBack="true"
-                                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
-                         </EditItemTemplate>
-                    </dx:GridViewDataComboBoxColumn>
-                <dx:GridViewDataComboBoxColumn Caption="Distrito" FieldName="distrito" Visible="false" EditFormSettings-Visible="True" VisibleIndex="15"
-                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido" >
-                    <EditItemTemplate>
-                     <dx:ASPxComboBox ID="cmbDistrito" Width="100%" AutoResizeWithContainer="true" runat="server" OnValueChanged="cmbDistrito_ValueChanged" AutoPostBack="true"
-                                ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
-                    </EditItemTemplate>
-                        </dx:GridViewDataComboBoxColumn>
-                <dx:GridViewDataComboBoxColumn Caption="Barrio" FieldName="barrio" Visible="false" EditFormSettings-Visible="True" VisibleIndex="15"
-                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido" >
-                    <EditItemTemplate>
-                         <dx:ASPxComboBox ID="cmbBarrio" runat="server" Width="100%" AutoResizeWithContainer="true"
-                                ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
-                    </EditItemTemplate>
-                    </dx:GridViewDataComboBoxColumn>
-                <dx:GridViewDataMemoColumn Caption="Otras Señas" FieldName="otraSena" Visible="false" EditFormSettings-Visible="True" VisibleIndex="15"
-                    PropertiesMemoEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesMemoEdit-ValidationSettings-RequiredField-ErrorText="Requerido" />
-
-
-                <dx:GridViewDataBinaryImageColumn Caption="Clave Criptográfica" FieldName="llaveCriptografica" VisibleIndex="20" Visible="false" EditFormSettings-Visible="True"
+                <dx:GridViewDataBinaryImageColumn Caption="Llave Criptográfica" FieldName="llaveCriptografica" VisibleIndex="20" Visible="false" EditFormSettings-Visible="True"
                     PropertiesBinaryImage-ValidationSettings-RequiredField-IsRequired="true" PropertiesBinaryImage-ValidationSettings-RequiredField-ErrorText="Requerido">
                     <EditItemTemplate>
                         <dx:ASPxUploadControl ID="fileUpload" OnFileUploadComplete="DocumentsUploadControl_FileUploadComplete" ShowUploadButton="false" runat="server">
@@ -103,15 +69,12 @@
                 <dx:GridViewDataSpinEditColumn Caption="Llave Criptográfica" FieldName="claveLlaveCriptografica" VisibleIndex="20" Visible="false" EditFormSettings-Visible="True" PropertiesSpinEdit-MaxLength="4"
                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataSpinEditColumn>
-
                 <dx:GridViewDataTextColumn Caption="Usuario Comprobantes" FieldName="usernameOAuth2" VisibleIndex="20" Visible="false" EditFormSettings-Visible="True" PropertiesTextEdit-MaxLength="100"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-
                 <dx:GridViewDataTextColumn Caption="Contraseña Comprobantes" FieldName="passwordOAuth2" VisibleIndex="20" Visible="false" EditFormSettings-Visible="True" PropertiesTextEdit-MaxLength="50"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-
 
                 <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="50"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
@@ -163,6 +126,60 @@
                                     <ContentCollection>
                                         <dx:ContentControl runat="server">
                                             <dx:ASPxGridViewTemplateReplacement ID="Editors" ReplacementType="EditFormEditors" runat="server" />
+
+                                            <dx:ASPxFormLayout runat="server" ID="formLayoutUbicacion">
+                                                <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
+                                                <Items>
+                                                    <dx:LayoutGroup Caption="Ubicación" ColCount="4" GroupBoxDecoration="HeadingLine" UseDefaultPaddings="false">
+                                                        <Items>
+                                                            <dx:LayoutItem Caption="Provincia">
+                                                                <LayoutItemNestedControlCollection>
+                                                                    <dx:LayoutItemNestedControlContainer>
+                                                                        <dx:ASPxComboBox ID="cmbProvincia" runat="server" Width="100%" AutoResizeWithContainer="true" OnValueChanged="cmbProvincia_ValueChanged" AutoPostBack="true"
+                                                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                                    </dx:LayoutItemNestedControlContainer>
+                                                                </LayoutItemNestedControlCollection>
+                                                            </dx:LayoutItem>
+                                                            <dx:LayoutItem Caption="Cantón">
+                                                                <LayoutItemNestedControlCollection>
+                                                                    <dx:LayoutItemNestedControlContainer>
+                                                                        <dx:ASPxComboBox ID="cmbCanton" runat="server" Width="100%" AutoResizeWithContainer="true" OnValueChanged="cmbCanton_ValueChanged" AutoPostBack="true"
+                                                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                                    </dx:LayoutItemNestedControlContainer>
+                                                                </LayoutItemNestedControlCollection>
+                                                            </dx:LayoutItem>
+                                                            <dx:LayoutItem Caption="Distrito">
+                                                                <LayoutItemNestedControlCollection>
+                                                                    <dx:LayoutItemNestedControlContainer>
+                                                                        <dx:ASPxComboBox ID="cmbDistrito" Width="100%" AutoResizeWithContainer="true" runat="server" OnValueChanged="cmbDistrito_ValueChanged" AutoPostBack="true"
+                                                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                                    </dx:LayoutItemNestedControlContainer>
+                                                                </LayoutItemNestedControlCollection>
+                                                            </dx:LayoutItem>
+                                                            <dx:LayoutItem Caption="Barrio">
+                                                                <LayoutItemNestedControlCollection>
+                                                                    <dx:LayoutItemNestedControlContainer>
+                                                                        <dx:ASPxComboBox ID="cmbBarrio" runat="server" Width="100%" AutoResizeWithContainer="true"
+                                                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                                    </dx:LayoutItemNestedControlContainer>
+                                                                </LayoutItemNestedControlCollection>
+                                                            </dx:LayoutItem>
+                                                            <dx:LayoutItem Caption="Otras Señas" ColSpan="4" Width="100%">
+                                                                <LayoutItemNestedControlCollection>
+                                                                    <dx:LayoutItemNestedControlContainer>
+                                                                        <dx:ASPxMemo ID="txtOtraSenas" runat="server" Width="100%" AutoResizeWithContainer="true"
+                                                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                                    </dx:LayoutItemNestedControlContainer>
+                                                                </LayoutItemNestedControlCollection>
+                                                            </dx:LayoutItem>
+
+                                                        </Items>
+                                                    </dx:LayoutGroup>
+
+                                                </Items>
+                                            </dx:ASPxFormLayout>
+
+
                                         </dx:ContentControl>
                                     </ContentCollection>
                                 </dx:TabPage>
