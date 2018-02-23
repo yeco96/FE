@@ -15,7 +15,7 @@
 
         <div id="alertMessages" role="alert" runat="server" />
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
-            Width="100%" EnableTheming="True" KeyFieldName="identificacion" Theme="Moderno" EnableCallBacks="false"
+            Width="100%" EnableTheming="True" KeyFieldName="identificacion" Theme="Moderno" 
             OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize"
             OnRowValidating="ASPxGridView1_RowValidating"
             OnCancelRowEditing="ASPxGridView1_CancelRowEditing"

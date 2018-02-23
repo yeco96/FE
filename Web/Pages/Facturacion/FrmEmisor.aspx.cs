@@ -154,7 +154,7 @@ namespace Web.Pages.Catalogos
                         dato.telefono = e.NewValues["telefono"].ToString();
                     }
 
-                    dato.correoElectronico = e.NewValues["correoElectronico"] != null ? e.NewValues["correoElectronico"].ToString().ToUpper() : null;
+                    dato.correoElectronico = e.NewValues["correoElectronico"] != null ? e.NewValues["correoElectronico"].ToString()  : null;
 
                     if (e.NewValues["fax"] != null)
                     {
@@ -181,9 +181,9 @@ namespace Web.Pages.Catalogos
                     dato.barrio = comboBarrio.Value.ToString();
                     dato.otraSena = otraSena.Text;
 
-                    dato.usernameOAuth2 = e.NewValues["usernameOAuth2"].ToString();
-                    dato.passwordOAuth2 = e.NewValues["passwordOAuth2"].ToString();
-                    dato.claveLlaveCriptografica = e.NewValues["claveLlaveCriptografica"].ToString();
+                    dato.usernameOAuth2 = e.NewValues["usernameOAuth2"] != null ? e.NewValues["usernameOAuth2"].ToString() : null;
+                    dato.passwordOAuth2 = e.NewValues["passwordOAuth2"] != null ? e.NewValues["passwordOAuth2"].ToString() : null;
+                    dato.claveLlaveCriptografica = e.NewValues["claveLlaveCriptografica"] != null ? e.NewValues["claveLlaveCriptografica"].ToString() : null;
 
                     if (Session["LlaveCriptograficap12"] != null)
                     {

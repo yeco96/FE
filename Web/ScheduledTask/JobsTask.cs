@@ -63,7 +63,7 @@ namespace HighSchoolWeb.ScheduledTask
                             {
                                 string respuestaXML = EncodeXML.EncondeXML.base64Decode(respuesta.respuestaXml);
                                 MensajeHacienda mensajeHacienda = new MensajeHacienda(respuestaXML);
-
+                                  
                                 using (var conexionWS = new DataModelFE())
                                 {
                                     WSRecepcionPOST dato = conexionWS.WSRecepcionPOST.Find(item.clave);
@@ -77,6 +77,23 @@ namespace HighSchoolWeb.ScheduledTask
                                     conexionWS.SaveChanges();
 
                                 }
+                            }
+                            else
+                            {
+                                if (respuesta.indEstado.Equals("recibido"))
+                                {
+                                    using (var conexionWS = new DataModelFE())
+                                    {
+                                        WSRecepcionPOST dato = conexionWS.WSRecepcionPOST.Find(item.clave); 
+                                        dato.indEstado = 8/*recibido por hacienda*/;
+                                        dato.fechaModificacion = Date.DateTimeNow();
+                                        dato.usuarioModificacion = Usuario.USUARIO_AUTOMATICO; 
+                                        conexionWS.Entry(dato).State = EntityState.Modified;
+                                        conexionWS.SaveChanges();
+
+                                    }
+                                }
+                                 
                             }
                         }
                     } 

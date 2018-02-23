@@ -1,4 +1,5 @@
-﻿using Class.Utilidades;
+﻿using Class.Seguridad;
+using Class.Utilidades;
 using DevExpress.Export;
 using DevExpress.Web;
 using DevExpress.XtraPrinting;
@@ -157,6 +158,19 @@ namespace Web.Pages.Facturacion
                         }
                         else
                         {
+                            if (respuesta.indEstado.Equals("recibido"))
+                            {
+                                using (var conexionWS = new DataModelFE())
+                                {
+                                    WSRecepcionPOST dato = conexionWS.WSRecepcionPOST.Find(clave);
+                                    dato.indEstado = 8/*recibido por hacienda*/;
+                                    dato.fechaModificacion = Date.DateTimeNow();
+                                    dato.usuarioModificacion = Usuario.USUARIO_AUTOMATICO;
+                                    conexionWS.Entry(dato).State = EntityState.Modified;
+                                    conexionWS.SaveChanges();
+                                }
+                            }
+
                             this.alertMessages.Attributes["class"] = "alert alert-info";
                             this.alertMessages.InnerText = String.Format("Documento eléctronico se encuentra RECIBIDO pero aún pendiente de ser ACEPTADO");
                         }

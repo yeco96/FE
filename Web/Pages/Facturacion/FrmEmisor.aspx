@@ -15,7 +15,7 @@
 
         <div id="alertMessages" role="alert" runat="server" />
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
-            Width="100%" EnableTheming="True" KeyFieldName="identificacion" Theme="Moderno" EnableCallBacks="false"
+            Width="100%" EnableTheming="True" KeyFieldName="identificacion" Theme="Moderno"
             OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize"
             OnRowValidating="ASPxGridView1_RowValidating"
             OnCancelRowEditing="ASPxGridView1_CancelRowEditing"
@@ -37,7 +37,7 @@
                 </dx:GridViewDataTextColumn>
 
                 <dx:GridViewDataTextColumn Caption="Nombre Comercial" FieldName="nombreComercial" VisibleIndex="6" PropertiesTextEdit-MaxLength="80"
-                    PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                    PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="false" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
 
                 <dx:GridViewDataSpinEditColumn Caption="Teléfono" FieldName="telefono" VisibleIndex="7" PropertiesSpinEdit-MaxLength="20"

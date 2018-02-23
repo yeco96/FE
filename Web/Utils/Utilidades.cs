@@ -215,41 +215,48 @@ namespace Class.Utilidades
             {
                 using (var conexion = new DataModelFE())
                 {
-                    ConfiguracionCorreo mailConfig = conexion.ConfiguracionCorreo.Where(x => x.estado == Estado.ACTIVO.ToString()).FirstOrDefault();
+                    ConfiguracionCorreo mailConfig = conexion.ConfiguracionCorreo.Where(x => x.estado == Estado.ACTIVO.ToString() && x.codigo == emisor).FirstOrDefault();
                     if (mailConfig == null)
                     {
                         emisor = Usuario.USUARIO_AUTOMATICO;
-                        mailConfig = conexion.ConfiguracionCorreo.Where(x => x.estado == Estado.ACTIVO.ToString() && x.codigo == emisor).FirstOrDefault();
+                        mailConfig = conexion.ConfiguracionCorreo.Where(x => x.estado == Estado.ACTIVO.ToString() && x.codigo == Usuario.USUARIO_TOKEN).FirstOrDefault();
                     }
-
-                    MailMessage correo = new MailMessage();
-                    SmtpClient smtp = new SmtpClient(); 
-                    correo.From = new MailAddress(mailConfig.user, alias);
-                    correo.To.Add(destinatario);
-                    correo.Subject = String.Format("{0}", asunto);
-                    correo.Body = mensaje;
-
-                    if (xml != null)
+                    if (mailConfig != null)
                     {
-                        correo.Attachments.Add(new Attachment(GenerateStreamFromMemoryStream(UtilidadesReporte.generarPDF(clave)), string.Format("{0}.pdf", consecutivo)));
-                        correo.Attachments.Add(new Attachment(GenerateStreamFromString(xml), string.Format("{0}.xml", consecutivo)));
-                    }
-                    correo.Priority = MailPriority.Normal;
-                    correo.IsBodyHtml = true;
-                    smtp.Credentials = new NetworkCredential(mailConfig.user, mailConfig.password);
-                    smtp.Host = mailConfig.host;
-                    smtp.Port = int.Parse(mailConfig.port);
+                        MailMessage correo = new MailMessage();
+                        SmtpClient smtp = new SmtpClient();
+                        correo.From = new MailAddress(mailConfig.user, alias);
+                        correo.To.Add(destinatario);
+                        correo.Subject = String.Format("{0}", asunto);
+                        correo.Body = mensaje;
 
-                    if (Confirmacion.SI.ToString().Equals(mailConfig.ssl))
+                        if (xml != null)
+                        {
+                            correo.Attachments.Add(new Attachment(GenerateStreamFromMemoryStream(UtilidadesReporte.generarPDF(clave)), string.Format("{0}.pdf", consecutivo)));
+                            correo.Attachments.Add(new Attachment(GenerateStreamFromString(xml), string.Format("{0}.xml", consecutivo)));
+                        }
+                        correo.Priority = MailPriority.Normal;
+                        correo.IsBodyHtml = true;
+                        smtp.Credentials = new NetworkCredential(mailConfig.user, mailConfig.password);
+                        smtp.Host = mailConfig.host;
+                        smtp.Port = int.Parse(mailConfig.port);
+
+                        if (Confirmacion.SI.ToString().Equals(mailConfig.ssl))
+                        {
+                            smtp.EnableSsl = true;
+                        }
+                        else
+                        {
+                            smtp.EnableSsl = false;
+                        }
+
+                        smtp.Send(correo);
+                        correo.Dispose();
+                    }
+                    else
                     {
-                        smtp.EnableSsl = true;
+                        return false;
                     }
-                    else { 
-                        smtp.EnableSsl = false;
-                    }
-
-                    smtp.Send(correo);
-                    correo.Dispose();
                 } 
                 return true;
             }
