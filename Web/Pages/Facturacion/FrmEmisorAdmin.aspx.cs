@@ -382,7 +382,6 @@ namespace Web.Pages.Catalogos
                 if (e.Column.FieldName == "identificacion")
                 {
                     this.cargarProvincias();
-                    e.Editor.Value = "ACTIVO";
                 }
 
                 if (e.Column.FieldName == "estado")

@@ -390,24 +390,24 @@ namespace Web.Pages.Facturacion
 
         protected void cmbMoneda_ValueChanged(object sender, EventArgs e)
         {
-            if (TipoMoneda.CRC.Equals(this.cmbTipoMoneda.Value.ToString()))
+            try
             {
-                this.txtTipoCambio.Enabled = false;
-                this.txtTipoCambio.Value = 1;
-            }
-            else
-            {
-
-                if (Session["tipoCambio"] != null)
+                if (TipoMoneda.CRC.Equals(this.cmbTipoMoneda.Value.ToString()))
                 {
-                    this.txtTipoCambio.Value = Session["tipoCambio"];
+                    this.txtTipoCambio.Enabled = false;
+                    this.txtTipoCambio.Value = 1;
                 }
                 else
                 {
+                    this.txtTipoCambio.Enabled = true;
                     this.txtTipoCambio.Value = BCCR.tipoCambioDOLAR();
-                    Session["tipoCambio"] = this.txtTipoCambio.Value;
                 }
-                this.txtTipoCambio.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                this.alertMessages.Attributes["class"] = "alert alert-danger";
+                this.alertMessages.InnerText = "En este momento no se puede establecer comunicación con el BANCO CENTRAL DE CR, favor digite el tipo de cambio a utilizar";
+                
             }
         }
 
@@ -449,7 +449,7 @@ namespace Web.Pages.Facturacion
             {
                 /* TIPO EXONERACIÓN */
                 ASPxPageControl tabs = (ASPxPageControl)ASPxGridView1.FindEditFormTemplateControl("pageControl");
-                ASPxFormLayout form = (ASPxFormLayout)tabs.FindControl("FormLayoutExoneracion"); 
+                ASPxFormLayout form = (ASPxFormLayout)tabs.FindControl("formLayoutExoneracion"); 
                 ASPxComboBox cmbTipoDocumento = (ASPxComboBox)form.FindControl("cmbTipoDocumento");
                 using (var conexion = new DataModelFE())
                 {
@@ -512,7 +512,7 @@ namespace Web.Pages.Facturacion
                     dato.detalle = producto.descripcion;
                     dato.unidadMedida = producto.unidadMedida;
                     dato.unidadMedidaComercial = "";
-
+                      
                     decimal precio = "0".Equals(e.NewValues["precioUnitario"].ToString()) ? producto.precio : decimal.Parse(e.NewValues["precioUnitario"].ToString());
 
                     dato.tipoServMerc = producto.tipoServMerc;
@@ -525,13 +525,14 @@ namespace Web.Pages.Facturacion
                         throw new Exception("El descuento no puede ser mayor al total de la linea");
                     }
 
+                    
                     dato.calcularMontos();
                     dato.impuestos.Clear();
                     foreach (var item in conexion.ProductoImpuesto.Where(x=>x.idProducto== producto.id).OrderByDescending(x=>x.tipoImpuesto))
                     {
                         if (TipoImpuesto.IMPUESTO_VENTA.Equals(item.tipoImpuesto))
                         {
-                            dato.impuestos.Add(new Impuesto(item.tipoImpuesto, item.porcentaje, dato.montoTotalLinea));
+                            dato.impuestos.Add(new Impuesto(item.tipoImpuesto, item.porcentaje, dato.montoTotalLinea)); 
                         }
                         else
                         {
@@ -539,7 +540,10 @@ namespace Web.Pages.Facturacion
                         }
                         dato.calcularMontos();
                     }
+                    /*EXONERACION*/
+                    dato = this.verificaExoneracion(dato);
                     dato.calcularMontos();
+                     
 
 
                     dato.naturalezaDescuento = e.NewValues["naturalezaDescuento"] != null ? e.NewValues["naturalezaDescuento"].ToString().ToUpper() : null;
@@ -580,6 +584,40 @@ namespace Web.Pages.Facturacion
                 this.refreshData();
             }
         }
+
+
+        public LineaDetalle verificaExoneracion(LineaDetalle dato)
+        {
+            ASPxPageControl tabs = (ASPxPageControl)ASPxGridView1.FindEditFormTemplateControl("pageControl");
+            ASPxFormLayout form = (ASPxFormLayout)tabs.FindControl("formLayoutExoneracion");
+            /* EXONERACION */
+            ASPxComboBox cmbTipoDocumento = (ASPxComboBox)form.FindControl("cmbTipoDocumento");
+            ASPxTextBox numeroDocumento = (ASPxTextBox)form.FindControl("numeroDocumento");
+            ASPxTextBox nombreInstitucion = (ASPxTextBox)form.FindControl("nombreInstitucion");
+            ASPxDateEdit fechaEmision = (ASPxDateEdit)form.FindControl("fechaEmision");
+            ASPxSpinEdit porcentajeCompra = (ASPxSpinEdit)form.FindControl("porcentajeCompra");
+            ASPxSpinEdit montoImpuesto = (ASPxSpinEdit)form.FindControl("montoImpuesto");
+
+            if (cmbTipoDocumento.Value !=null && !string.IsNullOrWhiteSpace(numeroDocumento.Text) && !string.IsNullOrWhiteSpace(nombreInstitucion.Text)
+                && !string.IsNullOrWhiteSpace(porcentajeCompra.Text) && !string.IsNullOrWhiteSpace(fechaEmision.Text)) {
+                foreach (var item in dato.impuestos)
+                {
+                    item.exoneracion.tipoDocumento = cmbTipoDocumento.Value.ToString();
+                    item.exoneracion.numeroDocumento = numeroDocumento.Text;
+                    item.exoneracion.nombreInstitucion = nombreInstitucion.Text;
+                    item.exoneracion.fechaEmision = fechaEmision.Date.ToString("yyyy-MM-ddTHH:mm:ss-06:00");
+                    item.exoneracion.porcentajeCompra = int.Parse(porcentajeCompra.Text);
+                    item.exoneracion.montoImpuesto =  item.monto * (item.exoneracion.porcentajeCompra / new decimal(100.0));
+
+                    //modifica el monto
+                    item.monto = item.monto - item.exoneracion.montoImpuesto;
+                }
+            }
+            
+            return dato;
+
+        }
+
 
         protected void ASPxGridView1_RowUpdating(object sender, DevExpress.Web.Data.ASPxDataUpdatingEventArgs e)
         {
@@ -624,6 +662,8 @@ namespace Web.Pages.Facturacion
                         }
                         dato.calcularMontos();
                     }
+                    /*EXONERACION*/
+                    dato = this.verificaExoneracion(dato);
                     dato.calcularMontos();
 
 

@@ -681,7 +681,7 @@
                                                             <ContentCollection>
                                                                 <dx:ContentControl runat="server">
                                                                    
-                                                                      <dx:ASPxFormLayout runat="server" ID="FormLayoutExoneracion">
+                                                                      <dx:ASPxFormLayout runat="server" ID="formLayoutExoneracion">
                                                                             <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
                                                                             <Items>
                                                                                 <dx:LayoutGroup Caption="Exoneración" ColCount="3" GroupBoxDecoration="Box" UseDefaultPaddings="false">
@@ -718,14 +718,14 @@
                                                                                          <dx:LayoutItem Caption="Porcentaje Compra">
                                                                                             <LayoutItemNestedControlCollection>
                                                                                                 <dx:LayoutItemNestedControlContainer>
-                                                                                                     <dx:ASPxSpinEdit ID="porcentajeCompra" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"  DecimalPlaces="2" MaxValue="100" />
+                                                                                                     <dx:ASPxSpinEdit ID="porcentajeCompra" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"  MaxValue="100" />
                                                                                                 </dx:LayoutItemNestedControlContainer>
                                                                                             </LayoutItemNestedControlCollection>
                                                                                         </dx:LayoutItem>
                                                                                         <dx:LayoutItem Caption="Monto Impuesto" >
                                                                                             <LayoutItemNestedControlCollection>
                                                                                                 <dx:LayoutItemNestedControlContainer>
-                                                                                                     <dx:ASPxSpinEdit ID="montoImpuesto" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" DecimalPlaces="2" />
+                                                                                                     <dx:ASPxSpinEdit ID="montoImpuesto" Enabled="false" BackColor="LightGray" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" DecimalPlaces="2" />
                                                                                                 </dx:LayoutItemNestedControlContainer>
                                                                                             </LayoutItemNestedControlCollection>
                                                                                         </dx:LayoutItem>

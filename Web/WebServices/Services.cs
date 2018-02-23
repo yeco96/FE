@@ -184,8 +184,18 @@ namespace Web.WebServices
                     trama.emisorIdentificacion = trama.emisor.numeroIdentificacion;
 
                     string receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xmlFile);
-                    trama.receptor.tipoIdentificacion = receptorIdentificacion.Substring(0, 2);
-                    trama.receptor.numeroIdentificacion = receptorIdentificacion.Substring(2);
+
+                    if (!string.IsNullOrWhiteSpace(receptorIdentificacion))
+                    {
+                        trama.receptor.tipoIdentificacion = receptorIdentificacion.Substring(0, 2);
+                        trama.receptor.numeroIdentificacion = receptorIdentificacion.Substring(2);
+                    }
+                    else
+                    {
+                        trama.receptor.tipoIdentificacion = "99";
+                        trama.receptor.numeroIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "IdentificacionExtranjero", xmlFile);
+                    }
+                     
                     trama.receptorTipo = trama.receptor.tipoIdentificacion;
                     trama.receptorIdentificacion = trama.receptor.numeroIdentificacion;
                     trama.tipoDocumento = tipoDocumento;

@@ -10,6 +10,9 @@ namespace XMLDomain
     public class DocumentoElectronico
     {
         [XmlIgnore]
+        public static string TIPO_IDENTIFICACION_EXTRANGERO = "99";
+
+        [XmlIgnore]
         public string tipoDocumento { get { return numeroConsecutivo.Substring(8, 2); } }    
 
         [XmlElement(ElementName = "Clave", Order = 1)]
@@ -85,6 +88,12 @@ namespace XMLDomain
                     this.receptor.fax = null;
                 }
             }
+            if (TIPO_IDENTIFICACION_EXTRANGERO.Equals(this.receptor.identificacion.tipo))
+            {
+                this.receptor.identificacionExtranjero = this.receptor.identificacion.numero;
+                this.receptor.identificacion = null;
+            }
+
 
             if (string.IsNullOrWhiteSpace(this.receptor.ubicacion.barrio) ||
                 string.IsNullOrWhiteSpace(this.receptor.ubicacion.distrito) ||

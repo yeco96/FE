@@ -68,14 +68,11 @@
                     </EditItemTemplate>
                 </dx:GridViewDataBinaryImageColumn>
 
-                <dx:GridViewDataSpinEditColumn Caption="Llave Criptográfica" FieldName="claveLlaveCriptografica" VisibleIndex="20" Visible="false" EditFormSettings-Visible="True" PropertiesSpinEdit-MaxLength="4"
-                    PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                <dx:GridViewDataSpinEditColumn Caption="Llave Criptográfica" FieldName="claveLlaveCriptografica" VisibleIndex="20" Visible="false" EditFormSettings-Visible="True" PropertiesSpinEdit-MaxLength="4">
                 </dx:GridViewDataSpinEditColumn>
-                <dx:GridViewDataTextColumn Caption="Usuario Comprobantes" FieldName="usernameOAuth2" VisibleIndex="20" Visible="false" EditFormSettings-Visible="True" PropertiesTextEdit-MaxLength="100"
-                    PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                <dx:GridViewDataTextColumn Caption="Usuario Comprobantes" FieldName="usernameOAuth2" VisibleIndex="20" Visible="false" EditFormSettings-Visible="True" PropertiesTextEdit-MaxLength="100">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Contraseña Comprobantes" FieldName="passwordOAuth2" VisibleIndex="20" Visible="false" EditFormSettings-Visible="True" PropertiesTextEdit-MaxLength="50"
-                    PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                <dx:GridViewDataTextColumn Caption="Contraseña Comprobantes" FieldName="passwordOAuth2" VisibleIndex="20" Visible="false" EditFormSettings-Visible="True" PropertiesTextEdit-MaxLength="50">
                 </dx:GridViewDataTextColumn>
 
                 <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="50"
