@@ -18,20 +18,24 @@ namespace XMLDomain
         [XmlElement(ElementName = "Identificacion", Order = 2)]
         public Identificacion identificacion { set; get; }
 
-        [XmlElement(ElementName = "NombreComercial", Order = 3)]
+        [XmlElement(ElementName = "IdentificacionExtranjero", Order = 3)]
+        public string identificacionExtranjero { set; get; }
+         
+
+        [XmlElement(ElementName = "NombreComercial", Order = 4)]
         public string nombreComercial { set; get; }//tamaño 80 DGT
 
-        [XmlElement(ElementName = "Ubicacion", Order = 4)]
+        [XmlElement(ElementName = "Ubicacion", Order = 5)]
         public Ubicacion ubicacion { set; get; }
 
-        [XmlElement(ElementName = "Telefono", Order = 5)]
+        [XmlElement(ElementName = "Telefono", Order = 6)]
         public Telefono telefono { set; get; }
 
 
-        [XmlElement(ElementName = "Fax", Order = 6)]
+        [XmlElement(ElementName = "Fax", Order = 7)]
         public Fax fax { set; get; }
 
-        [XmlElement(ElementName = "CorreoElectronico", Order = 7)]
+        [XmlElement(ElementName = "CorreoElectronico", Order = 8)]
         public string correoElectronico { set; get; }//tamaño 60  DGT
 
         public Receptor() {

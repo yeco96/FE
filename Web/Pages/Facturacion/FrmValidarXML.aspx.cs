@@ -89,10 +89,19 @@ namespace Web.Pages.Facturacion
 
                 //Receptor
                 string receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xml);
-                Session["receptor.tipoIdentificacion"] = receptorIdentificacion.Substring(0,2);
+                if (!string.IsNullOrWhiteSpace(receptorIdentificacion))
+                {
+                    Session["receptor.tipoIdentificacion"] = receptorIdentificacion.Substring(0, 2);
+                    txtNumCedReceptor.Text = receptorIdentificacion.Substring(2);
+                }
+                else
+                {
+                    txtNumCedReceptor.Text = EncondeXML.buscarValorEtiquetaXML("Receptor", "IdentificacionExtranjero", xml);
+
+                }
                 Session["receptor.CorreoElectronico"] = EncondeXML.buscarValorEtiquetaXML("Receptor", "CorreoElectronico", xml);
                 Session["receptor.Nombre"] = EncondeXML.buscarValorEtiquetaXML("Receptor", "Nombre", xml);
-                txtNumCedReceptor.Text = receptorIdentificacion.Substring(2);
+                    
                 
 
                 this.alertMessages.Attributes["class"] = "alert alert-info";
