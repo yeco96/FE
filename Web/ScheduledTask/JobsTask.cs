@@ -41,7 +41,7 @@ namespace HighSchoolWeb.ScheduledTask
 
                 using (var conexion = new DataModelFE())
                 { 
-                    List<WSRecepcionPOST> lista = conexion.WSRecepcionPOST.Where(x => x.indEstado == 0).ToList();
+                    List<WSRecepcionPOST> lista = conexion.WSRecepcionPOST.Where(x => x.indEstado == 0 || x.indEstado == 8 ).ToList();
                     foreach (var item in lista)
                     {
 
