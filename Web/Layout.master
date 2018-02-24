@@ -96,6 +96,7 @@
                                                                     <dx:MenuItem Text="MEDIO PAGO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoMedioPago" />
                                                                     <dx:MenuItem Text="CÓDIGO VENTA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoCondicionVenta" />
                                                                     <dx:MenuItem Text="CÓDIGO REFERENCIA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoCodigoReferencia" />
+                                                                    <dx:MenuItem Text="CÓDIGO PAÍS" NavigateUrl="~/Pages/Catalogos/FrmCatalogoCodigoPais" />
                                                                     <dx:MenuItem Text="EXONERACION" NavigateUrl="~/Pages/Catalogos/FrmCatalogoExoneracion" />
                                                                     <dx:MenuItem Text="TIPO DOCUMENTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoDocumento" />
                                                                     <dx:MenuItem Text="TIPO IDENTIFICACIÓN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoTipoIdentificacion" />

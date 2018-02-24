@@ -44,5 +44,96 @@ namespace XMLDomain
             this.telefono = new Telefono();
             this.fax = new Fax();
         }
+        
+        public void verificar()
+        {
+
+            if (identificacion != null) {
+                if (string.IsNullOrWhiteSpace(identificacion.tipo))
+                {
+                    identificacion.tipo = null;
+                }
+                if (string.IsNullOrWhiteSpace(identificacion.numero))
+                {
+                    identificacion.numero = null;
+                }
+            }
+
+            if (string.IsNullOrWhiteSpace(nombre))
+            {
+                nombre = null;
+            }
+
+
+            if (string.IsNullOrWhiteSpace(nombreComercial))
+            {
+                nombreComercial = null;
+            }
+
+            if (telefono != null)
+            {
+                if (string.IsNullOrWhiteSpace(telefono.codigoPais))
+                {
+                    telefono.codigoPais = null;
+                }
+
+                if (string.IsNullOrWhiteSpace(telefono.numTelefono))
+                {
+                    telefono.numTelefono = null;
+                }
+            }
+
+
+            if (fax != null)
+            {
+                if (string.IsNullOrWhiteSpace(fax.codigoPais))
+                {
+                    fax.codigoPais = null;
+                }
+
+                if (string.IsNullOrWhiteSpace(fax.numTelefono))
+                {
+                    fax.numTelefono = null;
+                }
+            }
+
+            if (string.IsNullOrWhiteSpace(correoElectronico))
+            {
+                correoElectronico = null;
+            }
+
+
+
+
+            if (ubicacion != null)
+            {
+                if (string.IsNullOrWhiteSpace(ubicacion.provincia))
+                {
+                    ubicacion.provincia = null;
+                }
+
+                if (string.IsNullOrWhiteSpace(ubicacion.canton))
+                {
+                    ubicacion.canton = null;
+                }
+                if (string.IsNullOrWhiteSpace(ubicacion.distrito))
+                {
+                    ubicacion.distrito = null;
+                }
+
+                if (string.IsNullOrWhiteSpace(ubicacion.barrio))
+                {
+                    ubicacion.barrio = null;
+                }
+
+                if (string.IsNullOrWhiteSpace(ubicacion.otrassenas))
+                {
+                    ubicacion.otrassenas = null;
+                }
+
+            } 
+
+        }
+
     }
 }

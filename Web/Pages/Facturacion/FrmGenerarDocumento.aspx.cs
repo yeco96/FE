@@ -114,30 +114,24 @@ namespace Web.Pages.Facturacion
                 /* EMISOR */
                 string elEmisor =Session["emisor"].ToString();
                 EmisorReceptorIMEC emisor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == elEmisor).FirstOrDefault();
-                this.loadEmisor(emisor);
                 
 
                 /* IDENTIFICACION TIPO */
                 foreach (var item in conexion.TipoIdentificacion.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
                 {
-                    this.cmbEmisorTipo.Items.Add(item.descripcion, item.codigo);
                     this.cmbReceptorTipo.Items.Add(item.descripcion, item.codigo);
                 }
-                this.cmbEmisorTipo.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
                 this.cmbReceptorTipo.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
 
                 /* CODIGO PAIS */
                 foreach (var item in conexion.CodigoPais.Where(x=>x.estado==Estado.ACTIVO.ToString()).ToList())
                 {
-                    this.cmbEmisorTelefonoCod.Items.Add(item.descripcion, item.codigo);
-                    this.cmbEmisorFaxCod.Items.Add(item.descripcion, item.codigo);
-
+                  
                     this.cmbReceptorTelefonoCod.Items.Add(item.descripcion, item.codigo);
                     this.cmbReceptorFaxCod.Items.Add(item.descripcion, item.codigo);
                 }
-                this.cmbEmisorTelefonoCod.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-                this.cmbEmisorFaxCod.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+            
                 this.cmbReceptorTelefonoCod.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
                 this.cmbReceptorFaxCod.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
@@ -145,10 +139,8 @@ namespace Web.Pages.Facturacion
                 /* PROVINCIA*/
                 foreach (var item in conexion.Ubicacion.Select(x => new { x.codProvincia, x.nombreProvincia }).Distinct())
                 {
-                    this.cmbEmisorProvincia.Items.Add(item.nombreProvincia, item.codProvincia);
                     this.cmbReceptorProvincia.Items.Add(item.nombreProvincia, item.codProvincia);
                 }
-                this.cmbEmisorProvincia.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
                 this.cmbReceptorProvincia.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
                 /* MEDIO PAGO */
@@ -218,38 +210,7 @@ namespace Web.Pages.Facturacion
 
             }
         }
-
-        /// <summary>
-        /// carga datos del emisor
-        /// </summary>
-        /// <param name="emisor"></param>
-        private void loadEmisor(EmisorReceptorIMEC emisor)
-        {
-            this.cmbEmisorTipo.Value = emisor.identificacionTipo;
-            this.txtEmisorIdentificacion.Text = emisor.identificacion;
-            this.txtEmisorNombre.Text = emisor.nombre;
-            this.txtEmisorNombreComercial.Text = emisor.nombreComercial;
-
-            this.cmbEmisorTelefonoCod.Value = emisor.telefonoCodigoPais;
-            this.cmbEmisorFaxCod.Value = emisor.faxCodigoPais;
-            this.txtEmisorTelefono.Value = emisor.telefono;
-            this.txtEmisorFax.Value = emisor.fax;
-            this.txtEmisorCorreo.Text = emisor.correoElectronico;
-
-            this.cmbEmisorProvincia.Value = emisor.provincia;
-
-            this.cmbEmisorProvincia_ValueChanged(null, null);
-            this.cmbEmisorCanton.Value = emisor.canton;
-
-            this.cmbEmisorCanton_ValueChanged(null, null);
-            this.cmbEmisorDistrito.Value = emisor.distrito;
-
-            this.cmbEmisorDistrito_ValueChanged(null, null);
-            this.cmbEmisorBarrio.Value = emisor.barrio;
-            this.txtEmisorOtraSenas.Value = emisor.otraSena;
-
-        }
-
+        
 
         private void loadReceptor(EmisorReceptorIMEC emisor)
         {
@@ -266,54 +227,20 @@ namespace Web.Pages.Facturacion
 
             this.cmbReceptorProvincia.Value = emisor.provincia;
 
-            this.cmbReceptorProvincia_ValueChanged(null, null);
-            this.cmbReceptorCanton.Value = emisor.canton;
+            if (emisor.provincia != null)
+            {
+                this.cmbReceptorProvincia_ValueChanged(null, null);
+                this.cmbReceptorCanton.Value = emisor.canton;
 
-            this.cmbReceptorCanton_ValueChanged(null, null);
-            this.cmbReceptorDistrito.Value = emisor.distrito;
+                this.cmbReceptorCanton_ValueChanged(null, null);
+                this.cmbReceptorDistrito.Value = emisor.distrito;
 
-            this.cmbReceptorDistrito_ValueChanged(null, null);
-            this.cmbReceptorBarrio.Value = emisor.barrio;
+                this.cmbReceptorDistrito_ValueChanged(null, null);
+                this.cmbReceptorBarrio.Value = emisor.barrio;
+            }
             this.txtReceptorOtraSenas.Value = emisor.otraSena;
 
         }
-
-        protected void cmbEmisorProvincia_ValueChanged(object sender, EventArgs e)
-        {
-            using (var conexion = new DataModelFE())
-            {
-                this.cmbEmisorDistrito.SelectedItem = null;
-                this.cmbEmisorDistrito.Items.Clear();
-                this.cmbEmisorCanton.SelectedItem = null;
-                this.cmbEmisorCanton.Items.Clear();
-
-                foreach (var item in conexion.Ubicacion.
-                    Where(x => x.codProvincia == this.cmbEmisorProvincia.Value.ToString()).
-                    Select(x => new { x.codCanton, x.nombreCanton }).Distinct())
-                {
-                    this.cmbEmisorCanton.Items.Add(item.nombreCanton, item.codCanton);
-                }
-                this.cmbEmisorCanton.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-            }
-        }
-        protected void cmbEmisorCanton_ValueChanged(object sender, EventArgs e)
-        {
-            using (var conexion = new DataModelFE())
-            {
-                this.cmbEmisorDistrito.SelectedItem = null;
-                this.cmbEmisorDistrito.Items.Clear();
-
-                foreach (var item in conexion.Ubicacion.
-                    Where(x => x.codProvincia == this.cmbEmisorProvincia.Value.ToString()).
-                    Where(x => x.codCanton == this.cmbEmisorCanton.Value.ToString()).
-                    Select(x => new { x.codDistrito, x.nombreDistrito }).Distinct())
-                {
-                    this.cmbEmisorDistrito.Items.Add(item.nombreDistrito, item.codDistrito);
-                }
-                this.cmbEmisorDistrito.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-            }
-        }
-
 
         protected void cmbReceptorProvincia_ValueChanged(object sender, EventArgs e)
         {
@@ -350,23 +277,6 @@ namespace Web.Pages.Facturacion
         }
 
 
-        protected void cmbEmisorDistrito_ValueChanged(object sender, EventArgs e)
-        {
-            using (var conexion = new DataModelFE())
-            {
-                this.cmbEmisorBarrio.SelectedItem = null;
-                this.cmbEmisorBarrio.Items.Clear();
-                foreach (var item in conexion.Ubicacion.
-                    Where(x => x.codProvincia == this.cmbEmisorProvincia.Value.ToString()).
-                    Where(x => x.codCanton == this.cmbEmisorCanton.Value.ToString()).
-                     Where(x => x.codDistrito == this.cmbEmisorDistrito.Value.ToString()).
-                    Select(x => new { x.codBarrio, x.nombreBarrio }).Distinct())
-                {
-                    this.cmbEmisorBarrio.Items.Add(item.nombreBarrio, item.codBarrio);
-                }
-                this.cmbEmisorBarrio.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-            }
-        }
 
         protected void cmbReceptorDistrito_ValueChanged(object sender, EventArgs e)
         {
@@ -710,14 +620,9 @@ namespace Web.Pages.Facturacion
                     this.alertMessages.InnerText = "Debe agregar almenos una linea de detalle a la factura";
                     return;
                 }
-                if (string.IsNullOrWhiteSpace(this.txtReceptorIdentificacion.Text))
-                {
-                    this.alertMessages.Attributes["class"] = "alert alert-danger";
-                    this.alertMessages.InnerText = "Debe agregar un emisor";
-                    return;
-                }
-                if (string.IsNullOrWhiteSpace(this.txtEmisorIdentificacion.Text))
-                {
+               
+                if (string.IsNullOrWhiteSpace(this.txtReceptorNombre.Text) && string.IsNullOrWhiteSpace(this.txtReceptorNombreComercial.Text))
+                    {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
                     this.alertMessages.InnerText = "Debe agregar un receptor";
                     return;
@@ -755,7 +660,7 @@ namespace Web.Pages.Facturacion
                     dato.detalleServicio = detalle;
 
                     /* EMISOR */
-                    EmisorReceptorIMEC elEmisor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == txtEmisorIdentificacion.Text).FirstOrDefault();
+                    EmisorReceptorIMEC elEmisor = (EmisorReceptorIMEC) Session["elEmisor"]; 
 
                     dato.emisor.identificacion.tipo = elEmisor.identificacionTipo;
                     dato.emisor.identificacion.numero = elEmisor.identificacion;
@@ -774,11 +679,20 @@ namespace Web.Pages.Facturacion
                     dato.emisor.ubicacion.barrio = elEmisor.barrio;
                     dato.emisor.ubicacion.otrassenas = elEmisor.otraSena;
 
-                    conexion.Entry(elEmisor).State = EntityState.Modified;
-                    conexion.SaveChanges();
 
                     /* RECEPTOR */
-                    EmisorReceptorIMEC elReceptor = this.crearModificarReceptor();
+                    bool nuevo = true;
+                    EmisorReceptorIMEC elReceptor =  conexion.EmisorReceptorIMEC.Find(txtReceptorIdentificacion.Text);
+                    if (elReceptor != null)
+                    {
+                        nuevo = false;
+                       
+                    }else
+                    {
+                        elReceptor = new EmisorReceptorIMEC();
+                        nuevo = true; 
+                    }
+                    elReceptor = this.crearModificarReceptor(elReceptor);
 
                     dato.receptor.identificacion.tipo = elReceptor.identificacionTipo;
                     dato.receptor.identificacion.numero = elReceptor.identificacion;
@@ -797,6 +711,23 @@ namespace Web.Pages.Facturacion
                     dato.receptor.ubicacion.distrito = elReceptor.distrito;
                     dato.receptor.ubicacion.barrio = elReceptor.barrio;
                     dato.receptor.ubicacion.otrassenas = elReceptor.otraSena;
+
+                    dato.receptor.verificar();
+                    if (!string.IsNullOrWhiteSpace(elReceptor.identificacion))
+                    {
+                        
+                        if (nuevo == false)
+                        {
+                            conexion.Entry(elReceptor).State = EntityState.Modified; 
+                        }
+                        else
+                        {
+                            conexion.EmisorReceptorIMEC.Add(elReceptor);
+                        }
+                        conexion.SaveChanges();
+                    }
+
+                    
 
                     /* RESUMEN */
                     dato.resumenFactura.codigoMoneda = this.cmbTipoMoneda.Value.ToString();
@@ -857,6 +788,21 @@ namespace Web.Pages.Facturacion
 
                 }
             }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
+                this.alertMessages.Attributes["class"] = "alert alert-danger";
+                this.alertMessages.InnerText = fullErrorMessage;
+                Server.ClearError();
+
+            }
             catch (Exception ex)
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
@@ -871,24 +817,16 @@ namespace Web.Pages.Facturacion
         }
 
 
-        public EmisorReceptorIMEC crearModificarReceptor()
+        public EmisorReceptorIMEC crearModificarReceptor(EmisorReceptorIMEC receptor)
         {
-            EmisorReceptorIMEC receptor = null;
             try
             {
-                using (var conexion = new DataModelFE())
-                {
-
-                    string identificacion = this.txtReceptorIdentificacion.Text;
-                    receptor = conexion.EmisorReceptorIMEC.Find(identificacion);
-
-                    if (receptor == null)
+                    
+                    if (this.cmbReceptorTipo.Value != null)
                     {
-                        receptor = new EmisorReceptorIMEC();
+                        receptor.identificacionTipo = this.cmbReceptorTipo.Value.ToString();
                     }
-
-                    receptor.identificacionTipo = this.cmbReceptorTipo.Value.ToString();
-                    receptor.identificacion = this.txtReceptorIdentificacion.Text;
+                    //receptor.identificacion = this.txtReceptorIdentificacion.Text;
                     receptor.nombre = this.txtReceptorNombre.Text;
                     receptor.nombreComercial = this.txtReceptorNombreComercial.Text;
 
@@ -924,33 +862,6 @@ namespace Web.Pages.Facturacion
                     }
                     receptor.otraSena = this.txtReceptorOtraSenas.Text;
 
-                    //modifica el recetor
-                    if (receptor.existe())
-                    {
-                        conexion.Entry(receptor).State = EntityState.Modified;
-                    }
-                    else//crea el receptor
-                    {
-                        conexion.EmisorReceptorIMEC.Add(receptor);
-                    }
-                    conexion.SaveChanges();
-                }
-
-
-            }
-            catch (DbEntityValidationException ex)
-            {
-                // Retrieve the error messages as a list of strings.
-                var errorMessages = ex.EntityValidationErrors
-                        .SelectMany(x => x.ValidationErrors)
-                        .Select(x => x.ErrorMessage);
-
-                // Join the list to a single string.
-                var fullErrorMessage = string.Join("; ", errorMessages);
-
-                this.alertMessages.Attributes["class"] = "alert alert-danger";
-                this.alertMessages.InnerText =fullErrorMessage;
-                Server.ClearError();
 
             }
             catch (Exception ex)

@@ -93,6 +93,12 @@ namespace XMLDomain
                 this.receptor.identificacionExtranjero = this.receptor.identificacion.numero;
                 this.receptor.identificacion = null;
             }
+            if (this.receptor.identificacion!=null) {
+                if (String.IsNullOrWhiteSpace(this.receptor.identificacion.numero))
+                {
+                    this.receptor.identificacion = null;
+                }
+            }
 
 
             if (string.IsNullOrWhiteSpace(this.receptor.ubicacion.barrio) ||

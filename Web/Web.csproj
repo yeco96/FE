@@ -200,6 +200,7 @@
     <Content Include="Pages\Administracion\FrmPlanAdmin.aspx" />
     <Content Include="Pages\BlogPost.aspx" />
     <Content Include="Pages\BlogTimeline.aspx" />
+    <Content Include="Pages\Catalogos\FrmCatalogoCodigoPais.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoTipoPlan.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoConfiguracionCorreoAdmin.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoConfiguracionCorreo.aspx" />
@@ -375,6 +376,13 @@
     </Compile>
     <Compile Include="Pages\BlogTimeline.aspx.designer.cs">
       <DependentUpon>BlogTimeline.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoCodigoPais.aspx.cs">
+      <DependentUpon>FrmCatalogoCodigoPais.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Catalogos\FrmCatalogoCodigoPais.aspx.designer.cs">
+      <DependentUpon>FrmCatalogoCodigoPais.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Catalogos\FrmCatalogoTipoPlan.aspx.cs">
       <DependentUpon>FrmCatalogoTipoPlan.aspx</DependentUpon>

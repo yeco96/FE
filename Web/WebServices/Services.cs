@@ -256,7 +256,7 @@ namespace Web.WebServices
 
                     //guarda la relacion de clientes asociados al emisor
                     Cliente cliente = conexion.Cliente.Where(x => x.emisor == trama.emisor.numeroIdentificacion).Where(x => x.receptor == trama.receptor.numeroIdentificacion).FirstOrDefault();
-                    if (cliente == null)
+                    if (cliente == null && !string.IsNullOrWhiteSpace(trama.receptor.numeroIdentificacion))
                     {
                         cliente = new Cliente();
                         cliente.emisor = trama.emisor.numeroIdentificacion;

@@ -112,6 +112,7 @@ namespace Web.Models.Facturacion
         /// </summary>
         public EmisorReceptorIMEC()
         {
+            this.estado = Estado.ACTIVO.ToString();
         }
 
         /// <summary>
