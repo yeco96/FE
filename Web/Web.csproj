@@ -227,6 +227,7 @@
     <Content Include="Pages\Recepcion\FrmRecepcionEmail.aspx" />
     <Content Include="Pages\Reportes\FrmReporteDocumentoResumen.aspx" />
     <Content Include="Pages\Reportes\FrmReporteFactura.aspx" />
+    <Content Include="Pages\Reportes\FrmReporteFacturaEN.aspx" />
     <Content Include="Pages\Reportes\FrmReporteFacturaRollPaper.aspx" />
     <Content Include="Pages\Search.aspx" />
     <Content Include="Pages\Seguridad\FrmRestaurarContrasena.aspx" />
@@ -297,6 +298,7 @@
     </Compile>
     <Compile Include="LayoutError.master.cs">
       <DependentUpon>LayoutError.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="LayoutError.master.designer.cs">
       <DependentUpon>LayoutError.master</DependentUpon>
@@ -586,6 +588,13 @@
     </Compile>
     <Compile Include="Pages\Reportes\FrmReporteFactura.aspx.designer.cs">
       <DependentUpon>FrmReporteFactura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reportes\FrmReporteFacturaEN.aspx.cs">
+      <DependentUpon>FrmReporteFacturaEN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reportes\FrmReporteFacturaEN.aspx.designer.cs">
+      <DependentUpon>FrmReporteFacturaEN.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Reportes\FrmReporteFacturaRollPaper.aspx.cs">
       <DependentUpon>FrmReporteFacturaRollPaper.aspx</DependentUpon>
