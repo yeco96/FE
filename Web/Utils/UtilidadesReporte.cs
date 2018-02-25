@@ -25,23 +25,18 @@ namespace Class.Utilidades
         {
             var reportStream = new MemoryStream();
             using (var conexion = new DataModelFE())
-            { 
+            {
                 WSRecepcionPOST dato = conexion.WSRecepcionPOST.Where(x => x.clave == clave).FirstOrDefault();
                 string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
 
                 DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xml);
                 Empresa empresa = conexion.Empresa.Find(documento.emisor.identificacion.numero);
-                if (empresa != null)
-                {
-                    dato.mensaje += String.Format(" {0}", empresa.leyenda);
-                }
-                
+
                 if (empresa != null && "EN".Equals(empresa.idioma))
                 {
                     using (RptComprobanteEN report = new RptComprobanteEN())
                     {
-                        dato.mensaje = empresa.leyenda;
-                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(documento, dato.mensaje);
+                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(documento, dato.mensaje, empresa);
                         report.objectDataSource1.DataSource = dataSource;
                         string enviroment_url = ConfigurationManager.AppSettings["ENVIROMENT_URL"].ToString();
                         report.xrBarCode1.Text = (enviroment_url + documento.clave).ToUpper();
@@ -57,7 +52,7 @@ namespace Class.Utilidades
                 {
                     using (RptComprobante report = new RptComprobante())
                     {
-                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(documento, dato.mensaje);
+                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(documento, dato.mensaje, empresa);
                         report.objectDataSource1.DataSource = dataSource;
                         string enviroment_url = ConfigurationManager.AppSettings["ENVIROMENT_URL"].ToString();
                         report.xrBarCode1.Text = (enviroment_url + documento.clave).ToUpper();
@@ -82,7 +77,7 @@ namespace Class.Utilidades
         }
 
 
-        public static Impresion cargarObjetoImpresion(DocumentoElectronico dato, string mensaje)
+        public static Impresion cargarObjetoImpresion(DocumentoElectronico dato, string mensaje, Empresa empresa)
         {
             Impresion impresion = new Impresion();
 
@@ -102,16 +97,31 @@ namespace Class.Utilidades
             impresion.fecha = Convert.ToDateTime(dato.fechaEmision);
             impresion.moneda = dato.resumenFactura.codigoMoneda;
             impresion.tipoCambio = dato.resumenFactura.tipoCambio.ToString();
-            
-            mensaje = mensaje.Replace("Este comprobante fue procesado en el ambiente de pruebas, por lo cual no tiene validez para fines tributarios.","");
+
+
+            if (empresa != null)
+            {
+                mensaje += String.Format(" {0}", empresa.leyenda);
+            }
+            mensaje = mensaje.Replace("Este comprobante fue procesado en el ambiente de pruebas, por lo cual no tiene validez para fines tributarios.", "");
             impresion.leyenda = mensaje;
 
             using (var conexion = new DataModelFE())
             {
-                impresion.tipoDocumento = conexion.TipoDocumento.Find(dato.tipoDocumento).descripcion;
                 impresion.CondicionVenta = conexion.CondicionVenta.Find(dato.condicionVenta).descripcion;
                 impresion.MedioPago = conexion.MedioPago.Find(dato.medioPago).descripcion;
+
+                if (empresa != null && "EN".Equals(empresa.idioma))
+                {
+                    mensaje = empresa.leyenda;
+                    impresion.tipoDocumento = conexion.TipoDocumento.Find(dato.tipoDocumento).descripcionEN;
+                }
+                else
+                {
+                    impresion.tipoDocumento = conexion.TipoDocumento.Find(dato.tipoDocumento).descripcion;
+                }
             }
+
 
             impresion.detalles = new List<ImpresionDetalle>();
 
@@ -126,16 +136,14 @@ namespace Class.Utilidades
                 impresion.detalles.Add(detalle);
             }
 
-
             impresion.montoSubTotal = dato.resumenFactura.totalVenta;
             impresion.montoDescuento = dato.resumenFactura.totalDescuentos;
             impresion.montoImpuestoVenta = dato.resumenFactura.totalImpuesto;
             impresion.montoTotal = dato.resumenFactura.totalComprobante;
 
-            //impresion.Normativa = "Autorizada mediante resolución No DGT-R-48-2016 del 7 de Octubre de 2016";
 
             return impresion;
         }
-         
+
     }
 }
