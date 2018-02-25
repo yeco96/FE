@@ -78,6 +78,7 @@ namespace Web.Pages.Facturacion
                             dato.producto = producto.codigo;/*solo para uso del grid*/
                             dato.precioUnitario = producto.precio;
                             dato.montoDescuento = 0;
+                            dato.naturalezaDescuento = "N/A";
                             dato.calcularMontos();
                             int idProducto = producto.id;
                             using (var conexion2 = new DataModelFE())
