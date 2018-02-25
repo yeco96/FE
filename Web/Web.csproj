@@ -259,6 +259,7 @@
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <Content Include="App_Data\180207081824.psc" />
     <Content Include="LayoutError.master" />
+    <Content Include="Help\MSAFactura.chm" />
     <None Include="Properties\PublishProfiles\FE.pubxml" />
     <None Include="Service References\ServiceReferenceBCCR\wsIndicadoresEconomicos.disco" />
     <None Include="Service References\ServiceReferenceBCCR\configuration91.svcinfo" />
