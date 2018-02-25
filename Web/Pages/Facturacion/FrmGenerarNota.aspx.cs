@@ -341,7 +341,7 @@ namespace Web.Pages.Facturacion
                     object[] key = new object[] { dato.emisor.identificacion.numero, sucursal, caja };
                     ConsecutivoDocElectronico consecutivo = conexion.ConsecutivoDocElectronico.Find(key);
 
-                    dato.clave = consecutivo.getClave(this.cmbTipoDocumento.Value.ToString());
+                    dato.clave = consecutivo.getClave(this.cmbTipoDocumento.Value.ToString(), Date.DateTimeNow().ToString("yyyyMMdd"));
                     dato.numeroConsecutivo = consecutivo.getConsecutivo(this.cmbTipoDocumento.Value.ToString());
 
                     consecutivo.consecutivo += 1;

@@ -176,6 +176,9 @@ namespace Web.WebServices
 
                     WSDomain.WSRecepcionPOST trama = new WSDomain.WSRecepcionPOST();
                     trama.clave = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "Clave", xmlFile);
+                    trama.fecha = DateTime.ParseExact(EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "FechaEmision", xmlFile), "yyyy-MM-ddTHH:mm:ss-06:00",
+                                       System.Globalization.CultureInfo.InvariantCulture);
+                     
 
                     string emisorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Emisor", "Identificacion", xmlFile);
                     trama.emisor.tipoIdentificacion = emisorIdentificacion.Substring(0, 2);

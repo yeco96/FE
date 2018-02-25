@@ -82,17 +82,22 @@ namespace Web.Models.Facturacion
         public virtual Usuario UsuarioModificacion { get; set; }
 
 
-        /// <summary>
-        /// Número de 50 digitos que representa el documento
-        /// </summary>
-        /// <param name="tipoDocumento">factura, nota credito, nota debito, tiquete</param>
-        /// <returns></returns>
-        public string getClave(string tipoDocumento)
+        public string getClave(string tipoDocumento, string fechaDocumento)
         {
+            string tipoEnvio = "";
+            if ( fechaDocumento.CompareTo( Date.DateTimeNow().ToString("yyyyMMdd") ) < 0 )
+            {
+                tipoEnvio = "3";
+            }else
+            {
+                tipoEnvio = "1";
+            }
+           
             string fecha = Date.DateTimeNow().ToString("ddMMyy");
             //506 080118 000603540974 001 00001 01 0000000018 1 88888888
-            return String.Format("506{0}{1}{2}{3}{4}{5}188888888", fecha, this.emisor.PadLeft(12,'0'),this.sucursal, this.caja, tipoDocumento, this.consecutivo.ToString().PadLeft(10, '0'), tipoDocumento);
+            return String.Format("506{0}{1}{2}{3}{4}{5}{6}88888888", fecha, this.emisor.PadLeft(12, '0'), this.sucursal, this.caja, tipoDocumento, this.consecutivo.ToString().PadLeft(10, '0'), tipoEnvio);
         }
+
         /// <summary>
         /// Número de 20 digitos que representa el consecutivo
         /// </summary>

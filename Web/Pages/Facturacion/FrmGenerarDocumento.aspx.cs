@@ -52,6 +52,9 @@ namespace Web.Pages.Facturacion
                 if (!IsCallback && !IsPostBack)
                 {
                     this.txtFechaEmision.Date = Date.DateTimeNow();
+                    this.txtFechaEmision.MinDate = Date.DateTimeNow().AddHours(-48);
+                    this.txtFechaEmision.MaxDate = Date.DateTimeNow();
+                    
                     this.cmbTipoMoneda.Value = TipoMoneda.CRC;
                     this.txtTipoCambio.Text = "1";
                     this.loadComboBox();
@@ -517,7 +520,7 @@ namespace Web.Pages.Facturacion
                     item.exoneracion.nombreInstitucion = nombreInstitucion.Text;
                     item.exoneracion.fechaEmision = fechaEmision.Date.ToString("yyyy-MM-ddTHH:mm:ss-06:00");
                     item.exoneracion.porcentajeCompra = int.Parse(porcentajeCompra.Text);
-                    item.exoneracion.montoImpuesto =  item.monto * (item.exoneracion.porcentajeCompra / new decimal(100.0));
+                   // item.exoneracion.montoImpuesto =  item.monto * (item.exoneracion.porcentajeCompra / new decimal(100.0));
 
                     //modifica el monto
                     item.monto = item.monto - item.exoneracion.montoImpuesto;
@@ -653,7 +656,7 @@ namespace Web.Pages.Facturacion
                     dato.medioPago = this.cmbMedioPago.Value.ToString();
                     dato.plazoCredito = this.txtPlazoCredito.Text;
                     dato.condicionVenta = this.cmbCondicionVenta.Value.ToString();
-                    dato.fechaEmision = Date.DateTimeNow().ToString("yyyy-MM-ddTHH:mm:ss-06:00");
+                    dato.fechaEmision = this.txtFechaEmision.Date.ToString("yyyy-MM-ddTHH:mm:ss-06:00");
                     dato.medioPago = this.cmbMedioPago.Value.ToString();
 
                     /* DETALLE */
@@ -690,6 +693,7 @@ namespace Web.Pages.Facturacion
                     }else
                     {
                         elReceptor = new EmisorReceptorIMEC();
+                        elReceptor.identificacion = txtReceptorIdentificacion.Text;
                         nuevo = true; 
                     }
                     elReceptor = this.crearModificarReceptor(elReceptor);
@@ -727,8 +731,6 @@ namespace Web.Pages.Facturacion
                         conexion.SaveChanges();
                     }
 
-                    
-
                     /* RESUMEN */
                     dato.resumenFactura.codigoMoneda = this.cmbTipoMoneda.Value.ToString();
                     if (!TipoMoneda.CRC.Equals(dato.resumenFactura.codigoMoneda))
@@ -753,7 +755,7 @@ namespace Web.Pages.Facturacion
                     object[] key = new object[] { dato.emisor.identificacion.numero, sucursal, caja };
                     ConsecutivoDocElectronico consecutivo = conexion.ConsecutivoDocElectronico.Find(key);
 
-                    dato.clave = consecutivo.getClave(this.cmbTipoDocumento.Value.ToString());
+                    dato.clave = consecutivo.getClave(this.cmbTipoDocumento.Value.ToString(), this.txtFechaEmision.Date.ToString("yyyyMMdd"));
                     dato.numeroConsecutivo = consecutivo.getConsecutivo(this.cmbTipoDocumento.Value.ToString());
 
                     consecutivo.consecutivo += 1;
@@ -826,9 +828,11 @@ namespace Web.Pages.Facturacion
                     {
                         receptor.identificacionTipo = this.cmbReceptorTipo.Value.ToString();
                     }
-                    //receptor.identificacion = this.txtReceptorIdentificacion.Text;
-                    receptor.nombre = this.txtReceptorNombre.Text;
-                    receptor.nombreComercial = this.txtReceptorNombreComercial.Text;
+                    if (!string.IsNullOrWhiteSpace(this.txtReceptorNombre.Text))
+                        receptor.nombre = this.txtReceptorNombre.Text.ToUpper();
+
+                    if (!string.IsNullOrWhiteSpace(this.txtReceptorNombreComercial.Text))
+                        receptor.nombreComercial = this.txtReceptorNombreComercial.Text.ToUpper();
 
                     if (this.cmbReceptorTelefonoCod != null)
                     {
