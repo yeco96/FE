@@ -198,6 +198,8 @@ namespace Web.Pages.Catalogos
                     conexion.Entry(dato).State = EntityState.Modified;
                     conexion.SaveChanges();
 
+                    Session["elEmisor"] = dato;
+
                     //esto es para el manero del devexpress
                     e.Cancel = true;
                     this.ASPxGridView1.CancelEdit();
