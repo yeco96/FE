@@ -1,4 +1,5 @@
-﻿using Class.Utilidades;
+﻿using Class.Seguridad;
+using Class.Utilidades;
 using DevExpress.Export;
 using DevExpress.Web;
 using DevExpress.XtraPrinting;
@@ -85,7 +86,7 @@ namespace Web.Pages.Facturacion
         private void refreshData()
         {
             string emisor = Session["emisor"].ToString();
-            this.ASPxGridView1.DataSource = new DataModelFE().WSRecepcionPOST.Where(x=> x.fecha >= txtFechaInicio.Date && x.fecha <= txtFechaFin.Date && x.emisorIdentificacion== emisor).OrderByDescending(x => x.fecha).ToList();
+            this.ASPxGridView1.DataSource = new DataModelFE().WSRecepcionPOST.Where(x=> x.fecha >= txtFechaInicio.Date && x.fecha <= txtFechaFin.Date && x.emisorIdentificacion== emisor).OrderByDescending(x => x.fecha).OrderByDescending(x=>x.fechaCreacion).ToList();
             this.ASPxGridView1.DataBind();
         }
 
@@ -157,6 +158,19 @@ namespace Web.Pages.Facturacion
                         }
                         else
                         {
+                            if (respuesta.indEstado.Equals("recibido"))
+                            {
+                                using (var conexionWS = new DataModelFE())
+                                {
+                                    WSRecepcionPOST dato = conexionWS.WSRecepcionPOST.Find(clave);
+                                    dato.indEstado = 8/*recibido por hacienda*/;
+                                    dato.fechaModificacion = Date.DateTimeNow();
+                                    dato.usuarioModificacion = Usuario.USUARIO_AUTOMATICO;
+                                    conexionWS.Entry(dato).State = EntityState.Modified;
+                                    conexionWS.SaveChanges();
+                                }
+                            }
+
                             this.alertMessages.Attributes["class"] = "alert alert-info";
                             this.alertMessages.InnerText = String.Format("Documento eléctronico se encuentra RECIBIDO pero aún pendiente de ser ACEPTADO");
                         }
@@ -269,7 +283,7 @@ namespace Web.Pages.Facturacion
 
                         if (!string.IsNullOrWhiteSpace(correoElectronico))
                         {
-                            Utilidades.sendMail(correoElectronico,
+                            Utilidades.sendMail(Session["emisor"].ToString(), correoElectronico,
                                 string.Format("{0} - {1}", numeroConsecutivo, dato.Receptor.nombre),
                                 Utilidades.mensageGenerico(), "Documento Electrónico", xml, numeroConsecutivo, dato.clave);
 
@@ -322,7 +336,7 @@ namespace Web.Pages.Facturacion
 
                             if (!string.IsNullOrWhiteSpace(correoElectronico))
                             {
-                                Utilidades.sendMail(correoElectronico,
+                                Utilidades.sendMail(Session["emisor"].ToString(),correoElectronico,
                                     string.Format("{0} - {1}", dato.numeroConsecutivo, dato.receptor.nombre),
                                     Utilidades.mensageGenerico(), "Documento Electrónico", xml, dato.numeroConsecutivo, dato.clave);
                             }

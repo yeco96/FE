@@ -52,6 +52,9 @@ namespace Web.Pages.Facturacion
                 if (!IsCallback && !IsPostBack)
                 {
                     this.txtFechaEmision.Date = Date.DateTimeNow();
+                    this.txtFechaEmision.MinDate = Date.DateTimeNow().AddHours(-48);
+                    this.txtFechaEmision.MaxDate = Date.DateTimeNow();
+                    
                     this.cmbTipoMoneda.Value = TipoMoneda.CRC;
                     this.txtTipoCambio.Text = "1";
                     this.loadComboBox();
@@ -114,33 +117,24 @@ namespace Web.Pages.Facturacion
                 /* EMISOR */
                 string elEmisor =Session["emisor"].ToString();
                 EmisorReceptorIMEC emisor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == elEmisor).FirstOrDefault();
-                this.loadEmisor(emisor);
-
-                //string elReceptor = "601230863";
-                //EmisorReceptorIMEC receptor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == elReceptor).FirstOrDefault();
-                //this.loadReceptor(receptor);
+                
 
                 /* IDENTIFICACION TIPO */
                 foreach (var item in conexion.TipoIdentificacion.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
                 {
-                    this.cmbEmisorTipo.Items.Add(item.descripcion, item.codigo);
                     this.cmbReceptorTipo.Items.Add(item.descripcion, item.codigo);
                 }
-                this.cmbEmisorTipo.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
                 this.cmbReceptorTipo.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
 
                 /* CODIGO PAIS */
                 foreach (var item in conexion.CodigoPais.Where(x=>x.estado==Estado.ACTIVO.ToString()).ToList())
                 {
-                    this.cmbEmisorTelefonoCod.Items.Add(item.descripcion, item.codigo);
-                    this.cmbEmisorFaxCod.Items.Add(item.descripcion, item.codigo);
-
+                  
                     this.cmbReceptorTelefonoCod.Items.Add(item.descripcion, item.codigo);
                     this.cmbReceptorFaxCod.Items.Add(item.descripcion, item.codigo);
                 }
-                this.cmbEmisorTelefonoCod.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-                this.cmbEmisorFaxCod.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+            
                 this.cmbReceptorTelefonoCod.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
                 this.cmbReceptorFaxCod.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
@@ -148,10 +142,8 @@ namespace Web.Pages.Facturacion
                 /* PROVINCIA*/
                 foreach (var item in conexion.Ubicacion.Select(x => new { x.codProvincia, x.nombreProvincia }).Distinct())
                 {
-                    this.cmbEmisorProvincia.Items.Add(item.nombreProvincia, item.codProvincia);
                     this.cmbReceptorProvincia.Items.Add(item.nombreProvincia, item.codProvincia);
                 }
-                this.cmbEmisorProvincia.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
                 this.cmbReceptorProvincia.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
                 /* MEDIO PAGO */
@@ -207,8 +199,7 @@ namespace Web.Pages.Facturacion
                 this.cmbTipoDocumento.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
                 comboTipoDocumento.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
                 this.cmbTipoDocumento.SelectedIndex = 0;
-
-
+                
 
                 /* CODIGO REFERENCIA */
                 GridViewDataComboBoxColumn comboCodigo = this.ASPxGridView2.Columns["codigo"] as GridViewDataComboBoxColumn;
@@ -218,40 +209,11 @@ namespace Web.Pages.Facturacion
                 }
                 comboCodigo.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
+               
+
             }
         }
-
-        /// <summary>
-        /// carga datos del emisor
-        /// </summary>
-        /// <param name="emisor"></param>
-        private void loadEmisor(EmisorReceptorIMEC emisor)
-        {
-            this.cmbEmisorTipo.Value = emisor.identificacionTipo;
-            this.txtEmisorIdentificacion.Text = emisor.identificacion;
-            this.txtEmisorNombre.Text = emisor.nombre;
-            this.txtEmisorNombreComercial.Text = emisor.nombreComercial;
-
-            this.cmbEmisorTelefonoCod.Value = emisor.telefonoCodigoPais;
-            this.cmbEmisorFaxCod.Value = emisor.faxCodigoPais;
-            this.txtEmisorTelefono.Value = emisor.telefono;
-            this.txtEmisorFax.Value = emisor.fax;
-            this.txtEmisorCorreo.Text = emisor.correoElectronico;
-
-            this.cmbEmisorProvincia.Value = emisor.provincia;
-
-            this.cmbEmisorProvincia_ValueChanged(null, null);
-            this.cmbEmisorCanton.Value = emisor.canton;
-
-            this.cmbEmisorCanton_ValueChanged(null, null);
-            this.cmbEmisorDistrito.Value = emisor.distrito;
-
-            this.cmbEmisorDistrito_ValueChanged(null, null);
-            this.cmbEmisorBarrio.Value = emisor.barrio;
-            this.txtEmisorOtraSenas.Value = emisor.otraSena;
-
-        }
-
+        
 
         private void loadReceptor(EmisorReceptorIMEC emisor)
         {
@@ -268,54 +230,20 @@ namespace Web.Pages.Facturacion
 
             this.cmbReceptorProvincia.Value = emisor.provincia;
 
-            this.cmbReceptorProvincia_ValueChanged(null, null);
-            this.cmbReceptorCanton.Value = emisor.canton;
+            if (emisor.provincia != null)
+            {
+                this.cmbReceptorProvincia_ValueChanged(null, null);
+                this.cmbReceptorCanton.Value = emisor.canton;
 
-            this.cmbReceptorCanton_ValueChanged(null, null);
-            this.cmbReceptorDistrito.Value = emisor.distrito;
+                this.cmbReceptorCanton_ValueChanged(null, null);
+                this.cmbReceptorDistrito.Value = emisor.distrito;
 
-            this.cmbReceptorDistrito_ValueChanged(null, null);
-            this.cmbReceptorBarrio.Value = emisor.barrio;
+                this.cmbReceptorDistrito_ValueChanged(null, null);
+                this.cmbReceptorBarrio.Value = emisor.barrio;
+            }
             this.txtReceptorOtraSenas.Value = emisor.otraSena;
 
         }
-
-        protected void cmbEmisorProvincia_ValueChanged(object sender, EventArgs e)
-        {
-            using (var conexion = new DataModelFE())
-            {
-                this.cmbEmisorDistrito.SelectedItem = null;
-                this.cmbEmisorDistrito.Items.Clear();
-                this.cmbEmisorCanton.SelectedItem = null;
-                this.cmbEmisorCanton.Items.Clear();
-
-                foreach (var item in conexion.Ubicacion.
-                    Where(x => x.codProvincia == this.cmbEmisorProvincia.Value.ToString()).
-                    Select(x => new { x.codCanton, x.nombreCanton }).Distinct())
-                {
-                    this.cmbEmisorCanton.Items.Add(item.nombreCanton, item.codCanton);
-                }
-                this.cmbEmisorCanton.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-            }
-        }
-        protected void cmbEmisorCanton_ValueChanged(object sender, EventArgs e)
-        {
-            using (var conexion = new DataModelFE())
-            {
-                this.cmbEmisorDistrito.SelectedItem = null;
-                this.cmbEmisorDistrito.Items.Clear();
-
-                foreach (var item in conexion.Ubicacion.
-                    Where(x => x.codProvincia == this.cmbEmisorProvincia.Value.ToString()).
-                    Where(x => x.codCanton == this.cmbEmisorCanton.Value.ToString()).
-                    Select(x => new { x.codDistrito, x.nombreDistrito }).Distinct())
-                {
-                    this.cmbEmisorDistrito.Items.Add(item.nombreDistrito, item.codDistrito);
-                }
-                this.cmbEmisorDistrito.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-            }
-        }
-
 
         protected void cmbReceptorProvincia_ValueChanged(object sender, EventArgs e)
         {
@@ -352,23 +280,6 @@ namespace Web.Pages.Facturacion
         }
 
 
-        protected void cmbEmisorDistrito_ValueChanged(object sender, EventArgs e)
-        {
-            using (var conexion = new DataModelFE())
-            {
-                this.cmbEmisorBarrio.SelectedItem = null;
-                this.cmbEmisorBarrio.Items.Clear();
-                foreach (var item in conexion.Ubicacion.
-                    Where(x => x.codProvincia == this.cmbEmisorProvincia.Value.ToString()).
-                    Where(x => x.codCanton == this.cmbEmisorCanton.Value.ToString()).
-                     Where(x => x.codDistrito == this.cmbEmisorDistrito.Value.ToString()).
-                    Select(x => new { x.codBarrio, x.nombreBarrio }).Distinct())
-                {
-                    this.cmbEmisorBarrio.Items.Add(item.nombreBarrio, item.codBarrio);
-                }
-                this.cmbEmisorBarrio.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-            }
-        }
 
         protected void cmbReceptorDistrito_ValueChanged(object sender, EventArgs e)
         {
@@ -392,24 +303,24 @@ namespace Web.Pages.Facturacion
 
         protected void cmbMoneda_ValueChanged(object sender, EventArgs e)
         {
-            if (TipoMoneda.CRC.Equals(this.cmbTipoMoneda.Value.ToString()))
+            try
             {
-                this.txtTipoCambio.Enabled = false;
-                this.txtTipoCambio.Value = 1;
-            }
-            else
-            {
-
-                if (Session["tipoCambio"] != null)
+                if (TipoMoneda.CRC.Equals(this.cmbTipoMoneda.Value.ToString()))
                 {
-                    this.txtTipoCambio.Value = Session["tipoCambio"];
+                    this.txtTipoCambio.Enabled = false;
+                    this.txtTipoCambio.Value = 1;
                 }
                 else
                 {
+                    this.txtTipoCambio.Enabled = true;
                     this.txtTipoCambio.Value = BCCR.tipoCambioDOLAR();
-                    Session["tipoCambio"] = this.txtTipoCambio.Value;
                 }
-                this.txtTipoCambio.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                this.alertMessages.Attributes["class"] = "alert alert-danger";
+                this.alertMessages.InnerText = "En este momento no se puede establecer comunicación con el BANCO CENTRAL DE CR, favor digite el tipo de cambio a utilizar";
+                
             }
         }
 
@@ -435,7 +346,8 @@ namespace Web.Pages.Facturacion
                 if (e.Column.FieldName == "montoTotal") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
                 if (e.Column.FieldName == "montoTotalLinea") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
                 if (e.Column.FieldName == "montoDescuento") { e.Editor.Value = 0; }
-                if (e.Column.FieldName == "precioUnitario") { e.Editor.Value = 0; } 
+                if (e.Column.FieldName == "precioUnitario") { e.Editor.Value = 0; }
+                if (e.Column.FieldName == "cantidad") { e.Editor.Value = 1; }
                 if (e.Column.FieldName == "naturalezaDescuento") { e.Editor.Value = "N/A"; }
             }
             else
@@ -444,6 +356,22 @@ namespace Web.Pages.Facturacion
                 if (e.Column.FieldName == "subTotal") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
                 if (e.Column.FieldName == "montoTotal") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
                 if (e.Column.FieldName == "producto") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+            }
+
+            if (e.Column.FieldName == "producto")
+            {
+                /* TIPO EXONERACIÓN */
+                ASPxPageControl tabs = (ASPxPageControl)ASPxGridView1.FindEditFormTemplateControl("pageControl");
+                ASPxFormLayout form = (ASPxFormLayout)tabs.FindControl("formLayoutExoneracion"); 
+                ASPxComboBox cmbTipoDocumento = (ASPxComboBox)form.FindControl("cmbTipoDocumento");
+                using (var conexion = new DataModelFE())
+                {
+                    foreach (var item in conexion.Exoneracion.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                    {
+                        cmbTipoDocumento.Items.Add(item.descripcion, item.codigo);
+                    }
+                }
+                cmbTipoDocumento.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             }
         }
 
@@ -497,7 +425,7 @@ namespace Web.Pages.Facturacion
                     dato.detalle = producto.descripcion;
                     dato.unidadMedida = producto.unidadMedida;
                     dato.unidadMedidaComercial = "";
-
+                      
                     decimal precio = "0".Equals(e.NewValues["precioUnitario"].ToString()) ? producto.precio : decimal.Parse(e.NewValues["precioUnitario"].ToString());
 
                     dato.tipoServMerc = producto.tipoServMerc;
@@ -510,13 +438,14 @@ namespace Web.Pages.Facturacion
                         throw new Exception("El descuento no puede ser mayor al total de la linea");
                     }
 
+                    
                     dato.calcularMontos();
                     dato.impuestos.Clear();
                     foreach (var item in conexion.ProductoImpuesto.Where(x=>x.idProducto== producto.id).OrderByDescending(x=>x.tipoImpuesto))
                     {
                         if (TipoImpuesto.IMPUESTO_VENTA.Equals(item.tipoImpuesto))
                         {
-                            dato.impuestos.Add(new Impuesto(item.tipoImpuesto, item.porcentaje, dato.montoTotalLinea));
+                            dato.impuestos.Add(new Impuesto(item.tipoImpuesto, item.porcentaje, dato.montoTotalLinea)); 
                         }
                         else
                         {
@@ -524,7 +453,10 @@ namespace Web.Pages.Facturacion
                         }
                         dato.calcularMontos();
                     }
+                    /*EXONERACION*/
+                    dato = this.verificaExoneracion(dato);
                     dato.calcularMontos();
+                     
 
 
                     dato.naturalezaDescuento = e.NewValues["naturalezaDescuento"] != null ? e.NewValues["naturalezaDescuento"].ToString().ToUpper() : null;
@@ -565,6 +497,40 @@ namespace Web.Pages.Facturacion
                 this.refreshData();
             }
         }
+
+
+        public LineaDetalle verificaExoneracion(LineaDetalle dato)
+        {
+            ASPxPageControl tabs = (ASPxPageControl)ASPxGridView1.FindEditFormTemplateControl("pageControl");
+            ASPxFormLayout form = (ASPxFormLayout)tabs.FindControl("formLayoutExoneracion");
+            /* EXONERACION */
+            ASPxComboBox cmbTipoDocumento = (ASPxComboBox)form.FindControl("cmbTipoDocumento");
+            ASPxTextBox numeroDocumento = (ASPxTextBox)form.FindControl("numeroDocumento");
+            ASPxTextBox nombreInstitucion = (ASPxTextBox)form.FindControl("nombreInstitucion");
+            ASPxDateEdit fechaEmision = (ASPxDateEdit)form.FindControl("fechaEmision");
+            ASPxSpinEdit porcentajeCompra = (ASPxSpinEdit)form.FindControl("porcentajeCompra");
+            ASPxSpinEdit montoImpuesto = (ASPxSpinEdit)form.FindControl("montoImpuesto");
+
+            if (cmbTipoDocumento.Value !=null && !string.IsNullOrWhiteSpace(numeroDocumento.Text) && !string.IsNullOrWhiteSpace(nombreInstitucion.Text)
+                && !string.IsNullOrWhiteSpace(porcentajeCompra.Text) && !string.IsNullOrWhiteSpace(fechaEmision.Text)) {
+                foreach (var item in dato.impuestos)
+                {
+                    item.exoneracion.tipoDocumento = cmbTipoDocumento.Value.ToString();
+                    item.exoneracion.numeroDocumento = numeroDocumento.Text;
+                    item.exoneracion.nombreInstitucion = nombreInstitucion.Text;
+                    item.exoneracion.fechaEmision = fechaEmision.Date.ToString("yyyy-MM-ddTHH:mm:ss-06:00");
+                    item.exoneracion.porcentajeCompra = int.Parse(porcentajeCompra.Text);
+                   // item.exoneracion.montoImpuesto =  item.monto * (item.exoneracion.porcentajeCompra / new decimal(100.0));
+
+                    //modifica el monto
+                    item.monto = item.monto - item.exoneracion.montoImpuesto;
+                }
+            }
+            
+            return dato;
+
+        }
+
 
         protected void ASPxGridView1_RowUpdating(object sender, DevExpress.Web.Data.ASPxDataUpdatingEventArgs e)
         {
@@ -609,6 +575,8 @@ namespace Web.Pages.Facturacion
                         }
                         dato.calcularMontos();
                     }
+                    /*EXONERACION*/
+                    dato = this.verificaExoneracion(dato);
                     dato.calcularMontos();
 
 
@@ -655,14 +623,9 @@ namespace Web.Pages.Facturacion
                     this.alertMessages.InnerText = "Debe agregar almenos una linea de detalle a la factura";
                     return;
                 }
-                if (string.IsNullOrWhiteSpace(this.txtReceptorIdentificacion.Text))
-                {
-                    this.alertMessages.Attributes["class"] = "alert alert-danger";
-                    this.alertMessages.InnerText = "Debe agregar un emisor";
-                    return;
-                }
-                if (string.IsNullOrWhiteSpace(this.txtEmisorIdentificacion.Text))
-                {
+               
+                if (string.IsNullOrWhiteSpace(this.txtReceptorNombre.Text) && string.IsNullOrWhiteSpace(this.txtReceptorNombreComercial.Text))
+                    {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
                     this.alertMessages.InnerText = "Debe agregar un receptor";
                     return;
@@ -693,14 +656,14 @@ namespace Web.Pages.Facturacion
                     dato.medioPago = this.cmbMedioPago.Value.ToString();
                     dato.plazoCredito = this.txtPlazoCredito.Text;
                     dato.condicionVenta = this.cmbCondicionVenta.Value.ToString();
-                    dato.fechaEmision = Date.DateTimeNow().ToString("yyyy-MM-ddTHH:mm:ss-06:00");
+                    dato.fechaEmision = this.txtFechaEmision.Date.ToString("yyyy-MM-ddTHH:mm:ss-06:00");
                     dato.medioPago = this.cmbMedioPago.Value.ToString();
 
                     /* DETALLE */
                     dato.detalleServicio = detalle;
 
                     /* EMISOR */
-                    EmisorReceptorIMEC elEmisor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == txtEmisorIdentificacion.Text).FirstOrDefault();
+                    EmisorReceptorIMEC elEmisor = (EmisorReceptorIMEC) Session["elEmisor"]; 
 
                     dato.emisor.identificacion.tipo = elEmisor.identificacionTipo;
                     dato.emisor.identificacion.numero = elEmisor.identificacion;
@@ -719,11 +682,21 @@ namespace Web.Pages.Facturacion
                     dato.emisor.ubicacion.barrio = elEmisor.barrio;
                     dato.emisor.ubicacion.otrassenas = elEmisor.otraSena;
 
-                    conexion.Entry(elEmisor).State = EntityState.Modified;
-                    conexion.SaveChanges();
 
                     /* RECEPTOR */
-                    EmisorReceptorIMEC elReceptor = this.crearModificarReceptor();
+                    bool nuevo = true;
+                    EmisorReceptorIMEC elReceptor =  conexion.EmisorReceptorIMEC.Find(txtReceptorIdentificacion.Text);
+                    if (elReceptor != null)
+                    {
+                        nuevo = false;
+                       
+                    }else
+                    {
+                        elReceptor = new EmisorReceptorIMEC();
+                        elReceptor.identificacion = txtReceptorIdentificacion.Text;
+                        nuevo = true; 
+                    }
+                    elReceptor = this.crearModificarReceptor(elReceptor);
 
                     dato.receptor.identificacion.tipo = elReceptor.identificacionTipo;
                     dato.receptor.identificacion.numero = elReceptor.identificacion;
@@ -743,15 +716,34 @@ namespace Web.Pages.Facturacion
                     dato.receptor.ubicacion.barrio = elReceptor.barrio;
                     dato.receptor.ubicacion.otrassenas = elReceptor.otraSena;
 
+                    dato.receptor.verificar();
+                    if (!string.IsNullOrWhiteSpace(elReceptor.identificacion))
+                    {
+                        
+                        if (nuevo == false)
+                        {
+                            conexion.Entry(elReceptor).State = EntityState.Modified; 
+                        }
+                        else
+                        {
+                            conexion.EmisorReceptorIMEC.Add(elReceptor);
+                        }
+                        conexion.SaveChanges();
+                    }
+
                     /* RESUMEN */
-                    dato.resumenFactura.tipoCambio = decimal.Parse(this.txtTipoCambio.Text, CultureInfo.InvariantCulture); 
                     dato.resumenFactura.codigoMoneda = this.cmbTipoMoneda.Value.ToString();
+                    if (!TipoMoneda.CRC.Equals(dato.resumenFactura.codigoMoneda))
+                    {
+                        dato.resumenFactura.tipoCambio = decimal.Parse(this.txtTipoCambio.Text.Replace(",", "").Replace(".", "")) / 100;
+                    }
                     dato.resumenFactura.calcularResumenFactura(dato.detalleServicio.lineaDetalle);
 
                     /* INFORMACION DE REFERENCIA */
-                    this.informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
-                    if (this.informacionReferencia.Count > 0) {
-                        dato.informacionReferencia = this.informacionReferencia[0];
+                    dato.informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
+                    foreach (var item in dato.informacionReferencia)
+                    {
+                        item.fechaEmision = item.fechaEmisionTotal;
                     }
 
                     /* VERIFICA VACIOS PARA XML */
@@ -763,7 +755,7 @@ namespace Web.Pages.Facturacion
                     object[] key = new object[] { dato.emisor.identificacion.numero, sucursal, caja };
                     ConsecutivoDocElectronico consecutivo = conexion.ConsecutivoDocElectronico.Find(key);
 
-                    dato.clave = consecutivo.getClave(this.cmbTipoDocumento.Value.ToString());
+                    dato.clave = consecutivo.getClave(this.cmbTipoDocumento.Value.ToString(), this.txtFechaEmision.Date.ToString("yyyyMMdd"));
                     dato.numeroConsecutivo = consecutivo.getConsecutivo(this.cmbTipoDocumento.Value.ToString());
 
                     consecutivo.consecutivo += 1;
@@ -780,7 +772,7 @@ namespace Web.Pages.Facturacion
 
                         if (!string.IsNullOrWhiteSpace(dato.receptor.correoElectronico))
                         {
-                            Utilidades.sendMail(dato.receptor.correoElectronico,
+                            Utilidades.sendMail(Session["emisor"].ToString(),dato.receptor.correoElectronico,
                                 string.Format("{0} - {1}", dato.numeroConsecutivo, elReceptor.nombre),
                                 Utilidades.mensageGenerico(), "Documento Electrónico", EncodeXML.EncondeXML.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave);
                         }
@@ -798,6 +790,21 @@ namespace Web.Pages.Facturacion
 
                 }
             }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
+                this.alertMessages.Attributes["class"] = "alert alert-danger";
+                this.alertMessages.InnerText = fullErrorMessage;
+                Server.ClearError();
+
+            }
             catch (Exception ex)
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
@@ -812,26 +819,20 @@ namespace Web.Pages.Facturacion
         }
 
 
-        public EmisorReceptorIMEC crearModificarReceptor()
+        public EmisorReceptorIMEC crearModificarReceptor(EmisorReceptorIMEC receptor)
         {
-            EmisorReceptorIMEC receptor = null;
             try
             {
-                using (var conexion = new DataModelFE())
-                {
-
-                    string identificacion = this.txtReceptorIdentificacion.Text;
-                    receptor = conexion.EmisorReceptorIMEC.Find(identificacion);
-
-                    if (receptor == null)
+                    
+                    if (this.cmbReceptorTipo.Value != null)
                     {
-                        receptor = new EmisorReceptorIMEC();
+                        receptor.identificacionTipo = this.cmbReceptorTipo.Value.ToString();
                     }
+                    if (!string.IsNullOrWhiteSpace(this.txtReceptorNombre.Text))
+                        receptor.nombre = this.txtReceptorNombre.Text.ToUpper();
 
-                    receptor.identificacionTipo = this.cmbReceptorTipo.Value.ToString();
-                    receptor.identificacion = this.txtReceptorIdentificacion.Text;
-                    receptor.nombre = this.txtReceptorNombre.Text;
-                    receptor.nombreComercial = this.txtReceptorNombreComercial.Text;
+                    if (!string.IsNullOrWhiteSpace(this.txtReceptorNombreComercial.Text))
+                        receptor.nombreComercial = this.txtReceptorNombreComercial.Text.ToUpper();
 
                     if (this.cmbReceptorTelefonoCod != null)
                     {
@@ -865,33 +866,6 @@ namespace Web.Pages.Facturacion
                     }
                     receptor.otraSena = this.txtReceptorOtraSenas.Text;
 
-                    //modifica el recetor
-                    if (receptor.existe())
-                    {
-                        conexion.Entry(receptor).State = EntityState.Modified;
-                    }
-                    else//crea el receptor
-                    {
-                        conexion.EmisorReceptorIMEC.Add(receptor);
-                    }
-                    conexion.SaveChanges();
-                }
-
-
-            }
-            catch (DbEntityValidationException ex)
-            {
-                // Retrieve the error messages as a list of strings.
-                var errorMessages = ex.EntityValidationErrors
-                        .SelectMany(x => x.ValidationErrors)
-                        .Select(x => x.ErrorMessage);
-
-                // Join the list to a single string.
-                var fullErrorMessage = string.Join("; ", errorMessages);
-
-                this.alertMessages.Attributes["class"] = "alert alert-danger";
-                this.alertMessages.InnerText =fullErrorMessage;
-                Server.ClearError();
 
             }
             catch (Exception ex)
@@ -975,7 +949,7 @@ namespace Web.Pages.Facturacion
 
                     if (clave.Length == 20)
                     {
-                        documento = conexion.WSRecepcionPOST.Where(x=>x.clave == clave.Substring(21,20)).FirstOrDefault();
+                        documento = conexion.WSRecepcionPOST.Where(x=>x.clave.Substring(21,20) == clave).FirstOrDefault();
                     }
                     else
                     {
@@ -984,16 +958,25 @@ namespace Web.Pages.Facturacion
 
                     if (documento != null)
                     {
-                        dato.fechaEmision = ((DateTime)documento.fecha).ToString("yyyy-MM-ddTHH:mm:ss-06:00");
+                        dato.fechaEmision = ((DateTime)documento.fecha).ToString("yyyy-MM-dd") ;
+                        dato.fechaEmisionTotal = ((DateTime)documento.fecha).ToString("yyyy-MM-ddTHH:mm:dd-06:00");
+                        DateTime date = DateTime.Now;
+                        if (!DateTime.TryParse(dato.fechaEmision, out date))
+                        {
+                            throw new Exception("Fecha invalida, favor verifique el formato yyyy-MM-dd (año-mes-día)");
+                        }
                         dato.tipoDocumento = documento.tipoDocumento;
-                    }
+                        dato.numero = documento.clave;
+                    } 
                     else
-                    {
-                        dato.fechaEmision = e.NewValues["fechaEmision"] != null ? DateTime.Parse(e.NewValues["fechaEmision"].ToString()).ToString("yyyy-MM-ddTHH:mm:ss-06:00") : "";
-                        dato.tipoDocumento = e.NewValues["tipoDocumento"] != null ? e.NewValues["tipoDocumento"].ToString().ToUpper() : ""; ;
+                    { 
+                        dato.fechaEmision =e.NewValues["fechaEmision"].ToString();
+                        dato.fechaEmisionTotal = e.NewValues["fechaEmision"].ToString() + DateTime.Now.ToString("THH:mm:dd-06:00");
+                        dato.tipoDocumento = e.NewValues["tipoDocumento"] != null ? e.NewValues["tipoDocumento"].ToString().ToUpper() : "";
+                        dato.numero = clave;
                     }
 
-                    dato.numero = clave;
+                    
                     dato.razon = e.NewValues["razon"] != null ? e.NewValues["razon"].ToString().ToUpper() : null;
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
 
@@ -1048,13 +1031,19 @@ namespace Web.Pages.Facturacion
                     string clave = e.NewValues["numero"] != null ? e.NewValues["numero"].ToString().ToUpper() : "";
                     
                     dato = informacionReferencia.Where(x => x.numero == clave).FirstOrDefault();
-                    
-                    dato.fechaEmision = e.NewValues["fechaEmision"] != null ?  DateTime.Parse(e.NewValues["fechaEmision"].ToString()).ToString("yyyy-MM-ddTHH:mm:ss-06:00") : ""; 
-                    dato.tipoDocumento = e.NewValues["tipoDocumento"] != null ? e.NewValues["tipoDocumento"].ToString().ToUpper() : ""; ;
-                    
+                    if (dato != null)
+                    { 
+                        dato.fechaEmision = e.NewValues["fechaEmision"].ToString();
+                        DateTime date = DateTime.Now; 
+                        if(!DateTime.TryParse(dato.fechaEmision, out date))
+                        {
+                            throw new Exception("Fecha invalida, favor verifique el formato yyyy-MM-dd (año-mes-día)");
+                        }
+                        dato.tipoDocumento = e.NewValues["tipoDocumento"] != null ? e.NewValues["tipoDocumento"].ToString().ToUpper() : ""; 
+                    }
                     dato.razon = e.NewValues["razon"] != null ? e.NewValues["razon"].ToString().ToUpper() : null;
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
-
+                    
                     //modifica el objeto
                     Session["informacionReferencia"] = informacionReferencia;
                 }
@@ -1092,9 +1081,12 @@ namespace Web.Pages.Facturacion
 
         protected void ASPxGridView2_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
         {
-            if (e.Column.FieldName == "tipoDocumento") { e.Editor.Value = "01"; e.Editor.BackColor = System.Drawing.Color.LightGray; }
-            if (e.Column.FieldName == "fechaEmision") { e.Editor.Value = Date.DateTimeNow(); e.Editor.BackColor = System.Drawing.Color.LightGray; }
-            if (e.Column.FieldName == "razon") { e.Editor.Value = "DETALLE DE REFERENCIA"; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+            if(ASPxGridView2.IsNewRowEditing)
+            {
+                if (e.Column.FieldName == "tipoDocumento") { e.Editor.Value = "01"; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+                if (e.Column.FieldName == "fechaEmision") { e.Editor.Value = Date.DateTimeNow().ToString("yyyy-MM-dd"); e.Editor.BackColor = System.Drawing.Color.LightGray; }
+                if (e.Column.FieldName == "razon") { e.Editor.Value = "DETALLE DE REFERENCIA"; e.Editor.BackColor = System.Drawing.Color.White; }
+            }
         }
     }
 }

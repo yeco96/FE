@@ -39,13 +39,12 @@ public class EstadoMensajeHaciendaClass
         lista.Add(new ListEditItem("ENVIADO",0));
         lista.Add(new ListEditItem("ACEPTADO", 1));
         lista.Add(new ListEditItem("ACEPTADO PARCIALMENTE", 2));
-        lista.Add(new ListEditItem("RECHAZADO", 3)); 
+        lista.Add(new ListEditItem("RECHAZADO", 3));
+        lista.Add(new ListEditItem("RECIBIDO", 8));
         lista.Add(new ListEditItem("PENDIENTE", 9));
 
-        return lista;
-       
-    }
-     
+        return lista; 
+    } 
 }
 
 

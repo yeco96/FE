@@ -19,6 +19,7 @@ using Newtonsoft.Json;
 using System.Data.Entity;
 using XMLDomain;
 using System.Data.Entity.Validation;
+using Web.Models.Administracion;
 
 namespace Web.WebServices
 {
@@ -89,6 +90,7 @@ namespace Web.WebServices
                 HttpContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 
                 responseMessage = await httpClient.PostAsync(URLServices.RECEPCION_POST(), content);
+                string x = await responseMessage.Content.ReadAsStringAsync();
 
                 if (responseMessage.IsSuccessStatusCode)
                 {
@@ -100,7 +102,7 @@ namespace Web.WebServices
                 }
             }
 
-            string x = await responseMessage.Content.ReadAsStringAsync();
+
         }
 
 
@@ -174,6 +176,9 @@ namespace Web.WebServices
 
                     WSDomain.WSRecepcionPOST trama = new WSDomain.WSRecepcionPOST();
                     trama.clave = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "Clave", xmlFile);
+                    trama.fecha = DateTime.ParseExact(EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "FechaEmision", xmlFile), "yyyy-MM-ddTHH:mm:ss-06:00",
+                                       System.Globalization.CultureInfo.InvariantCulture);
+                     
 
                     string emisorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Emisor", "Identificacion", xmlFile);
                     trama.emisor.tipoIdentificacion = emisorIdentificacion.Substring(0, 2);
@@ -182,8 +187,18 @@ namespace Web.WebServices
                     trama.emisorIdentificacion = trama.emisor.numeroIdentificacion;
 
                     string receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xmlFile);
-                    trama.receptor.tipoIdentificacion = receptorIdentificacion.Substring(0, 2);
-                    trama.receptor.numeroIdentificacion = receptorIdentificacion.Substring(2);
+
+                    if (!string.IsNullOrWhiteSpace(receptorIdentificacion))
+                    {
+                        trama.receptor.tipoIdentificacion = receptorIdentificacion.Substring(0, 2);
+                        trama.receptor.numeroIdentificacion = receptorIdentificacion.Substring(2);
+                    }
+                    else
+                    {
+                        trama.receptor.tipoIdentificacion = "99";
+                        trama.receptor.numeroIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "IdentificacionExtranjero", xmlFile);
+                    }
+                     
                     trama.receptorTipo = trama.receptor.tipoIdentificacion;
                     trama.receptorIdentificacion = trama.receptor.numeroIdentificacion;
                     trama.tipoDocumento = tipoDocumento;
@@ -232,12 +247,19 @@ namespace Web.WebServices
 
                         documento.resumenFactura.clave = documento.clave;
                         conexion.ResumenFactura.Add(documento.resumenFactura);
+
+                        Plan plan = conexion.Plan.Find(emisor.identificacion);
+                        if (plan != null)
+                        {
+                            plan.cantidadDocEmitido += 1;
+                            conexion.Entry(plan).State = EntityState.Modified;
+                        }
                     } 
                     conexion.SaveChanges();
 
                     //guarda la relacion de clientes asociados al emisor
                     Cliente cliente = conexion.Cliente.Where(x => x.emisor == trama.emisor.numeroIdentificacion).Where(x => x.receptor == trama.receptor.numeroIdentificacion).FirstOrDefault();
-                    if (cliente == null)
+                    if (cliente == null && !string.IsNullOrWhiteSpace(trama.receptor.numeroIdentificacion))
                     {
                         cliente = new Cliente();
                         cliente.emisor = trama.emisor.numeroIdentificacion;

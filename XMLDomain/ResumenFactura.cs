@@ -100,7 +100,9 @@ namespace XMLDomain
         public decimal totalComprobante { set; get; }//tamaño 18,5  DGT
 
 
-        public ResumenFactura() { }
+        public ResumenFactura() {
+            this.tipoCambio = 1;
+        }
 
 
         /// <summary>

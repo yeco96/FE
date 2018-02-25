@@ -311,12 +311,13 @@ namespace Web.Pages.Facturacion
                     dato.receptor = factura.receptor;
 
                     /* INFORMACION DE REFERENCIA */
-                    dato.informacionReferencia.numero = factura.clave;
-                    dato.informacionReferencia.fechaEmision = factura.fechaEmision;
-                    dato.informacionReferencia.codigo = this.cmbCodigoReferencia.Value.ToString();
-                    dato.informacionReferencia.razon = this.txtRazón.Text;
-                    dato.informacionReferencia.tipoDocumento = TipoDocumento.FACTURA_ELECTRONICA;
-
+                    InformacionReferencia informacionReferencia = new InformacionReferencia();
+                    informacionReferencia.numero = factura.clave;
+                    informacionReferencia.fechaEmision = factura.fechaEmision;
+                    informacionReferencia.codigo = this.cmbCodigoReferencia.Value.ToString();
+                    informacionReferencia.razon = this.txtRazón.Text;
+                    informacionReferencia.tipoDocumento = TipoDocumento.FACTURA_ELECTRONICA;
+                    dato.informacionReferencia.Add(informacionReferencia);
 
                     /* RESUMEN */
                     dato.resumenFactura.tipoCambio = factura.resumenFactura.tipoCambio; 
@@ -340,7 +341,7 @@ namespace Web.Pages.Facturacion
                     object[] key = new object[] { dato.emisor.identificacion.numero, sucursal, caja };
                     ConsecutivoDocElectronico consecutivo = conexion.ConsecutivoDocElectronico.Find(key);
 
-                    dato.clave = consecutivo.getClave(this.cmbTipoDocumento.Value.ToString());
+                    dato.clave = consecutivo.getClave(this.cmbTipoDocumento.Value.ToString(), Date.DateTimeNow().ToString("yyyyMMdd"));
                     dato.numeroConsecutivo = consecutivo.getConsecutivo(this.cmbTipoDocumento.Value.ToString());
 
                     consecutivo.consecutivo += 1;
@@ -360,7 +361,7 @@ namespace Web.Pages.Facturacion
                         {
                             string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
 
-                            Utilidades.sendMail(dato.receptor.correoElectronico,
+                            Utilidades.sendMail(Session["emisor"].ToString(),dato.receptor.correoElectronico,
                                 string.Format("{0} - {1}", dato.numeroConsecutivo, factura.receptor.nombre),
                                 Utilidades.mensageGenerico(), "Documento Electrónico", xml, dato.numeroConsecutivo, dato.clave);
                         }

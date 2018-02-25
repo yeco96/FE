@@ -439,3 +439,10 @@ footer h4 {
     border-bottom: dashed 1px black;
     display: inline-block;
 }
+
+.help{
+    float: right;
+    background: none;
+    border: none;
+    margin: 25px 0px 0px 0px;
+}

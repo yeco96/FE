@@ -74,16 +74,16 @@
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Tipo Cambio" FieldName="tipoCambio" VisibleIndex="4"   PropertiesTextEdit-DisplayFormatString="n2">
                </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Serv. Gravados" FieldName="totalServGravados" VisibleIndex="5"  PropertiesTextEdit-DisplayFormatString="n2">
+                <dx:GridViewDataTextColumn Caption="Serv. Gravados" FieldName="totalServGravados" VisibleIndex="5" Visible="false"  PropertiesTextEdit-DisplayFormatString="n2">
                     
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Serv. Exentos" FieldName="totalServExentos" VisibleIndex="6"  PropertiesTextEdit-DisplayFormatString="n2">
+                <dx:GridViewDataTextColumn Caption="Serv. Exentos" FieldName="totalServExentos" VisibleIndex="6" Visible="false"  PropertiesTextEdit-DisplayFormatString="n2">
                     
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Merc. Gravados" FieldName="totalMercanciasGravadas" VisibleIndex="7"  PropertiesTextEdit-DisplayFormatString="n2">
+                <dx:GridViewDataTextColumn Caption="Merc. Gravados" FieldName="totalMercanciasGravadas" VisibleIndex="7" Visible="false"   PropertiesTextEdit-DisplayFormatString="n2">
                     
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Merc. Exentas" FieldName="totalMercanciasExentas" VisibleIndex="8"  PropertiesTextEdit-DisplayFormatString="n2">
+                <dx:GridViewDataTextColumn Caption="Merc. Exentas" FieldName="totalMercanciasExentas" VisibleIndex="8" Visible="false"  PropertiesTextEdit-DisplayFormatString="n2">
                     
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Gravado" FieldName="totalGravado" VisibleIndex="9"  PropertiesTextEdit-DisplayFormatString="n2">
@@ -135,6 +135,7 @@
             <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="True" ShowFilterRow="True" ShowTitlePanel="True" UseFixedTableLayout="True" />
             <SettingsContextMenu EnableColumnMenu="True" Enabled="True" EnableFooterMenu="True" EnableGroupPanelMenu="True" EnableRowMenu="True" />
             <SettingsDetail ShowDetailRow="false" AllowOnlyOneMasterRowExpanded="true" />
+            <SettingsDataSecurity AllowDelete="false" AllowEdit="false" AllowInsert="false" />
 
             <SettingsAdaptivity AdaptivityMode="HideDataCellsWindowLimit" HideDataCellsAtWindowInnerWidth="800" AllowOnlyOneAdaptiveDetailExpanded="true" AdaptiveDetailColumnCount="1"></SettingsAdaptivity>
             <EditFormLayoutProperties>

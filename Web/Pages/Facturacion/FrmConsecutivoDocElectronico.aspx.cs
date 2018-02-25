@@ -57,7 +57,7 @@ namespace Web.Pages.Facturacion
             using (var conexion = new DataModelFE())
             {
                 string usuario = Session["usuario"].ToString();
-                this.ASPxGridView1.DataSource = conexion.ConsecutivoDocElectronico.Where(x => x.usuarioCreacion == usuario).ToList();
+                this.ASPxGridView1.DataSource = conexion.ConsecutivoDocElectronico.Where(x => x.emisor == usuario).ToList();
                 this.ASPxGridView1.DataBind();
             }
         }
@@ -230,11 +230,16 @@ namespace Web.Pages.Facturacion
             {
                 using (var conexion = new DataModelFE())
                 {
-                    var id = e.Values["emisor"].ToString();
+                    ConsecutivoDocElectronico dato = new ConsecutivoDocElectronico(); 
 
-                    //busca objeto
-                    var itemToRemove = conexion.ConsecutivoDocElectronico.SingleOrDefault(x => x.emisor == id);
-                    conexion.ConsecutivoDocElectronico.Remove(itemToRemove);
+                    dato.emisor = e.Values["emisor"] != null ? e.Values["emisor"].ToString().ToUpper() : null;
+                    dato.sucursal = e.Values["sucursal"] != null ? e.Values["sucursal"].ToString().PadLeft(3, '0') : "001";
+                    dato.caja = e.Values["caja"] != null ? e.Values["caja"].ToString().PadLeft(3, '0') : "00001";
+
+                    //busca el objeto  
+                    object[] key = new object[] { dato.emisor, dato.sucursal, dato.caja };
+                    dato = conexion.ConsecutivoDocElectronico.Find(key); 
+                    conexion.ConsecutivoDocElectronico.Remove(dato);
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress

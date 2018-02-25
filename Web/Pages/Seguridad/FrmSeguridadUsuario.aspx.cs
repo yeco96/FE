@@ -85,7 +85,10 @@ namespace Web.Pages.Seguridad
             {
                 foreach (var item in conexion.Rol.Where(x => x.estado==Estado.ACTIVO.ToString() ).ToList())
                 {
-                    comboRol.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
+                    if (!Rol.ADMINISTRADOR.Equals(item.codigo))
+                    {
+                        comboRol.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
+                    }
                 }
             }
             comboRol.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
@@ -138,6 +141,7 @@ namespace Web.Pages.Seguridad
                     dato.rol = e.NewValues["rol"] != null ? e.NewValues["rol"].ToString().ToUpper() : null;
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
                     dato.nombre = e.NewValues["nombre"] != null ? e.NewValues["nombre"].ToString().ToUpper() : null;
+                    dato.correo = e.NewValues["correo"] != null ? e.NewValues["correo"].ToString()  : null;
                     dato.emisor = e.NewValues["emisor"] != null ? e.NewValues["emisor"].ToString().ToUpper() : null;
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioCreacion = Session["usuario"].ToString();
@@ -208,6 +212,7 @@ namespace Web.Pages.Seguridad
                     dato.emisor = e.NewValues["emisor"] != null ? e.NewValues["emisor"].ToString().ToUpper() : null;
                     dato.rol = e.NewValues["rol"] != null ? e.NewValues["rol"].ToString().ToUpper() : null;
                     dato.nombre = e.NewValues["nombre"] != null ? e.NewValues["nombre"].ToString().ToUpper() : null;
+                    dato.correo = e.NewValues["correo"] != null ? e.NewValues["correo"].ToString() : null;
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioModificacion = Session["usuario"].ToString();
                     dato.fechaModificacion = Date.DateTimeNow();
@@ -306,6 +311,7 @@ namespace Web.Pages.Seguridad
             if (!this.ASPxGridView1.IsNewRowEditing)
             {
                 if (e.Column.FieldName == "codigo") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+                if (e.Column.FieldName == "intentos") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
             }
             if (e.Column.FieldName.Equals("emisor"))
             {

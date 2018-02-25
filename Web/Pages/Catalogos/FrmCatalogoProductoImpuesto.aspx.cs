@@ -61,7 +61,7 @@ namespace Web.Pages.Catalogos
                 string emisor = Session["emisor"].ToString();
                 this.ASPxGridView1.DataSource = (from impuesto in conexion.ProductoImpuesto
                                                  from producto in conexion.Producto
-                                                 where producto.codigo == impuesto.idProducto.ToString() && producto.emisor == emisor
+                                                 where producto.id == impuesto.idProducto && producto.emisor == emisor
                                                  select impuesto).ToList(); 
                 this.ASPxGridView1.DataBind();
             }

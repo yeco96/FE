@@ -74,7 +74,8 @@ namespace Web.Models.Facturacion
         [MaxLength(60, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         [RegularExpression(@"\s*\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*\s*", ErrorMessage = "La propiedad {0} debe tener una dirección de correo valida, ejemplo: cuenta@dominio.com")]
         public string correoElectronico { set; get; }
-
+         
+        public decimal consecutivo { set; get; }
 
         [Column(TypeName = "Binary")]
         public byte[] llaveCriptografica { set; get; }
@@ -111,6 +112,7 @@ namespace Web.Models.Facturacion
         /// </summary>
         public EmisorReceptorIMEC()
         {
+            this.estado = Estado.ACTIVO.ToString();
         }
 
         /// <summary>

@@ -96,7 +96,7 @@ namespace Web.Models.Catalogos
 
         public override string ToString()
         {
-            return String.Format("{0} - {1}",this.descripcion,this.precio.ToString("c2"));
+            return String.Format("{0} - {1}",this.descripcion,this.precio.ToString("n2"));
         }
 
     }

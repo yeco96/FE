@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Class.Seguridad;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -184,41 +185,119 @@ namespace Class.Utilidades
             //Micultura.NumberFormat.NumberGroupSeparator = ",";
             //Micultura.NumberFormat.NumberDecimalSeparator = ".";
             Micultura.NumberFormat.NumberGroupSizes = grupo;
+            Micultura.DateTimeFormat.ShortTimePattern= "HH:mm:ss";
+            Micultura.DateTimeFormat.ShortDatePattern= "yyyy-MM-dd";
+            Micultura.DateTimeFormat.FullDateTimePattern = "yyyy-MM-dd HH:mm:ss";
+            Micultura.DateTimeFormat.TimeSeparator = ":";
+            Micultura.DateTimeFormat.DateSeparator = "-";
+
             return Micultura;
             
         }
-
 
 
         #region sendMail 
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="emisor">pasara buscar el proveedor de correo</param>
         /// <param name="destinatario">direccion de correo</param>
         /// <param name="asunto">asunto de correo</param>
         /// <param name="mensaje">contenido del correo</param>
-        /// /// <param name="alias">nombre para enmascar el correo</param>
-        /// <returns></returns>
-        public static bool sendMail(string destinatario, string asunto, string mensaje, string alias, string xml, string consecutivo, string clave)
+        /// <param name="alias">nombre para enmascar el correo</param>
+        /// <param name="xml">XML para adjunto</param>
+        /// <param name="consecutivo">numero de consecutivo</param>
+        /// <param name="clave"></param>
+        /// <returns>TRUE envaido FALSE no eviado</returns>
+        public static bool sendMail(string emisor, string destinatario, string asunto, string mensaje, string alias, string xml, string consecutivo, string clave)
         {
             try
             {
                 using (var conexion = new DataModelFE())
                 {
-                    ConfiguracionCorreo mailConfig = conexion.ConfiguracionCorreo.Where(x => x.estado == Estado.ACTIVO.ToString()).FirstOrDefault();
-                     
+                    ConfiguracionCorreo mailConfig = conexion.ConfiguracionCorreo.Where(x => x.estado == Estado.ACTIVO.ToString() && x.codigo == emisor).FirstOrDefault();
+                    if (mailConfig == null)
+                    {
+                        emisor = Usuario.USUARIO_AUTOMATICO;
+                        mailConfig = conexion.ConfiguracionCorreo.Where(x => x.estado == Estado.ACTIVO.ToString() && x.codigo == Usuario.USUARIO_TOKEN).FirstOrDefault();
+                    }
+                    if (mailConfig != null)
+                    {
+                        MailMessage correo = new MailMessage();
+                        SmtpClient smtp = new SmtpClient();
+                        correo.From = new MailAddress(mailConfig.user, alias);
+                        correo.To.Add(destinatario);
+                        correo.Subject = String.Format("{0}", asunto);
+                        correo.Body = mensaje;
+
+                        if (xml != null)
+                        {
+                            correo.Attachments.Add(new Attachment(GenerateStreamFromMemoryStream(UtilidadesReporte.generarPDF(clave)), string.Format("{0}.pdf", consecutivo)));
+                            correo.Attachments.Add(new Attachment(GenerateStreamFromString(xml), string.Format("{0}.xml", consecutivo)));
+                        }
+                        correo.Priority = MailPriority.Normal;
+                        correo.IsBodyHtml = true;
+                        smtp.Credentials = new NetworkCredential(mailConfig.user, mailConfig.password);
+                        smtp.Host = mailConfig.host;
+                        smtp.Port = int.Parse(mailConfig.port);
+
+                        if (Confirmacion.SI.ToString().Equals(mailConfig.ssl))
+                        {
+                            smtp.EnableSsl = true;
+                        }
+                        else
+                        {
+                            smtp.EnableSsl = false;
+                        }
+
+                        smtp.Send(correo);
+                        correo.Dispose();
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                } 
+                return true;
+            }
+            catch (Exception e)
+            {
+                e.ToString();
+                return false;
+            }
+        }
+
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="emisor">pasara buscar el proveedor de correo</param>
+        /// <param name="destinatario">direccion de correo</param>
+        /// <param name="asunto">asunto de correo</param>
+        /// <param name="mensaje">contenido del correo</param>
+        /// <param name="alias">nombre para enmascar el correo</param> 
+        /// <returns>TRUE envaido FALSE no eviado</returns>
+        public static bool sendMail(string emisor,string destinatario, string asunto, string mensaje, string alias)
+        {
+            try
+            {
+                using (var conexion = new DataModelFE())
+                { 
+                    ConfiguracionCorreo mailConfig = conexion.ConfiguracionCorreo.Where(x => x.estado == Estado.ACTIVO.ToString() && x.codigo==emisor).FirstOrDefault();
+                    if (mailConfig == null)
+                    {
+                        emisor = Usuario.USUARIO_AUTOMATICO;
+                        mailConfig = conexion.ConfiguracionCorreo.Where(x => x.estado == Estado.ACTIVO.ToString() && x.codigo == emisor).FirstOrDefault();
+                    }
+                    
                     MailMessage correo = new MailMessage();
-                    SmtpClient smtp = new SmtpClient(); 
+                    SmtpClient smtp = new SmtpClient();
                     correo.From = new MailAddress(mailConfig.user, alias);
                     correo.To.Add(destinatario);
                     correo.Subject = String.Format("{0}", asunto);
                     correo.Body = mensaje;
-
-                    if (xml != null)
-                    {
-                        correo.Attachments.Add(new Attachment(GenerateStreamFromMemoryStream(UtilidadesReporte.generarPDF(clave)), string.Format("{0}.pdf", consecutivo)));
-                        correo.Attachments.Add(new Attachment(GenerateStreamFromString(xml), string.Format("{0}.xml", consecutivo)));
-                    }
                     correo.Priority = MailPriority.Normal;
                     correo.IsBodyHtml = true;
                     smtp.Credentials = new NetworkCredential(mailConfig.user, mailConfig.password);
@@ -229,13 +308,14 @@ namespace Class.Utilidades
                     {
                         smtp.EnableSsl = true;
                     }
-                    else { 
+                    else
+                    {
                         smtp.EnableSsl = false;
                     }
 
                     smtp.Send(correo);
                     correo.Dispose();
-                } 
+                }
                 return true;
             }
             catch (Exception e)
@@ -246,8 +326,8 @@ namespace Class.Utilidades
         }
         #endregion
 
-        
-         public static string mensageGenerico()
+
+        public static string mensageGenerico()
         {
             String mensaje = "";
             mensaje += "<p>Estimado Cliente:</p>";
@@ -279,6 +359,23 @@ namespace Class.Utilidades
             return stream;
         }
 
+
+        /// <summary>
+        /// Genera una contraseña de valores de a-z A-Z  0-0 !@#$%*_+-/
+        /// </summary>
+        /// <param name="longitud">Cantidad de digitos que va a tener la contraseña</param>
+        /// <returns></returns>
+        public static string generarContrasena(int longitud)
+        {
+            const string valido = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%*_+-/";
+            StringBuilder res = new StringBuilder();
+            Random rnd = new Random();
+            while (0 < longitud--)
+            {
+                res.Append(valido[rnd.Next(valido.Length)]);
+            }
+            return res.ToString();
+        }
 
 
 

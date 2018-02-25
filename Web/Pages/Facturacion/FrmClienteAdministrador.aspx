@@ -25,7 +25,7 @@
                                 </dx:LayoutItemNestedControlContainer>
                             </LayoutItemNestedControlCollection>
                         </dx:LayoutItem>
-                        <dx:LayoutItem Caption="Identficación">
+                        <dx:LayoutItem Caption="Identificación">
                             <LayoutItemNestedControlCollection>
                                 <dx:LayoutItemNestedControlContainer>
                                     <dx:ASPxSpinEdit ID="txtEmisorIdentificacion" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
@@ -121,7 +121,7 @@
                                 </dx:LayoutItemNestedControlContainer>
                             </LayoutItemNestedControlCollection>
                         </dx:LayoutItem>
-                        <dx:LayoutItem Caption="Canton">
+                        <dx:LayoutItem Caption="Cantón">
                             <LayoutItemNestedControlCollection>
                                 <dx:LayoutItemNestedControlContainer>
                                     <dx:ASPxComboBox ID="cmbEmisorCanton" runat="server" Width="100%" AutoResizeWithContainer="true" OnValueChanged="cmbEmisorCanton_ValueChanged" AutoPostBack="true"
@@ -190,7 +190,7 @@
                                 </dx:LayoutItemNestedControlContainer>
                             </LayoutItemNestedControlCollection>
                         </dx:LayoutItem>
-                        <dx:LayoutItem Caption="Usurio Comprobantes Electrónicos">
+                        <dx:LayoutItem Caption="Usuario Comprobantes Electrónicos">
                             <LayoutItemNestedControlCollection>
                                 <dx:LayoutItemNestedControlContainer>
                                     <dx:ASPxTextBox ID="txtUsernameOAuth2" runat="server" Width="100%" AutoResizeWithContainer="true" 

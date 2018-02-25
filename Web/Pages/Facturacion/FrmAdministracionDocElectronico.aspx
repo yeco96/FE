@@ -65,7 +65,6 @@
 
                 <dx:GridViewDataTextColumn Caption="Clave" FieldName="clave" VisibleIndex="2" Visible="false">
                 </dx:GridViewDataTextColumn>
-
                 <dx:GridViewDataTextColumn Caption="Consecutivo" FieldName="numeroConsecutivo" VisibleIndex="3">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Fecha" FieldName="fecha" VisibleIndex="3">
@@ -111,6 +110,7 @@
             <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="True" ShowFilterRow="True" ShowTitlePanel="True" UseFixedTableLayout="True" />
             <SettingsContextMenu EnableColumnMenu="True" Enabled="True" EnableFooterMenu="True" EnableGroupPanelMenu="True" EnableRowMenu="True" />
             <SettingsDetail ShowDetailRow="True" AllowOnlyOneMasterRowExpanded="true" />
+            <SettingsDataSecurity AllowDelete="false" AllowEdit="false" AllowInsert="false" />
 
             <SettingsCommandButton>
                 <ClearFilterButton Image-ToolTip="Quitar filtros" Image-Url="~/Content/Images/refresh.png" />

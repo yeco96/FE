@@ -72,7 +72,7 @@ namespace XMLDomain
         /// </summary>
         public MensajeReceptor()
         {
-            this.fechaEmisionDoc = DateTime.Now.ToString("yyyy-MM-dd'T'HH:mm:ss-06:00");
+            this.fechaEmisionDoc = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss-06:00");
         }
 
           

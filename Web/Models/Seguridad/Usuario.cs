@@ -31,6 +31,12 @@ namespace Class.Seguridad
         public String nombre { set; get; }
 
         [Required]
+        [MaxLength(50, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [MinLength(0, ErrorMessage = "La propiedad {0} no puede tener menos de {1} elementos")]
+        [Display(Name = "Correo")]
+        public String correo { set; get; }
+
+        [Required]
         [MaxLength(100, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         [Display(Name = "Contraseña")]
         public String contrasena { set; get; }

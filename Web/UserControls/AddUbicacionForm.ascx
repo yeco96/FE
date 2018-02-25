@@ -13,7 +13,7 @@
                         </dx:LayoutItemNestedControlContainer> 
                     </LayoutItemNestedControlCollection>
                 </dx:LayoutItem>
-                <dx:LayoutItem Caption="Canton">
+                <dx:LayoutItem Caption="Cantón">
                     <LayoutItemNestedControlCollection>
                         <dx:LayoutItemNestedControlContainer>
                             <dx:ASPxGridViewTemplateReplacement  ReplacementType="EditFormCellEditor" ColumnID="canton" runat="server"/>   

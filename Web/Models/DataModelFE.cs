@@ -1,9 +1,14 @@
 ﻿using Class.Seguridad;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Data.Entity;
+using System.Data.Odbc;
 using System.Linq;
 using System.Web;
+using Web.Models.Administracion;
 using Web.Models.Catalogos;
 using Web.Models.Configuracion;
 using Web.Models.Facturacion;
@@ -15,26 +20,26 @@ namespace Web.Models
 
 
         public DataModelFE() : base("name=fe_db")
-        { 
+        {
         }
 
-        //public virtual DbSet<Canton> Canton { get; set; }
+        //public virtual DbSet<Cantón> Cantón { get; set; }
         public virtual DbSet<CondicionVenta> CondicionVenta { get; set; }
         public virtual DbSet<CodigoPais> CodigoPais { get; set; }
         public virtual DbSet<CodigoReferencia> CodigoReferencia { get; set; }
         public virtual DbSet<ConfiguracionCorreo> ConfiguracionCorreo { get; set; }
         public virtual DbSet<ConfiguracionGlobal> ConfiguracionGlobal { get; set; }
 
-        //public virtual DbSet<Distrito> Distrito { get; set; }
-        public virtual DbSet<ConsecutivoDocElectronico> ConsecutivoDocElectronico { get; set; } 
+       
+        public virtual DbSet<ConsecutivoDocElectronico> ConsecutivoDocElectronico { get; set; }
         public virtual DbSet<Exoneracion> Exoneracion { get; set; }
         public virtual DbSet<MedioPago> MedioPago { get; set; }
-        //public virtual DbSet<Provincia> Provincia { get; set; }
+        public virtual DbSet<Plan> Plan { get; set; }
 
         public virtual DbSet<Producto> Producto { get; set; }
         public virtual DbSet<ProductoImpuesto> ProductoImpuesto { get; set; }
-        
 
+        public virtual DbSet<TipoPlan> TipoPlan { get; set; }
         public virtual DbSet<TipoProductoServicio> TipoProductoServicio { get; set; }
         public virtual DbSet<TipoDocumento> TipoDocumento { get; set; }
         public virtual DbSet<TipoIdentificacion> TipoIdentificacion { get; set; }
@@ -52,7 +57,7 @@ namespace Web.Models
         public virtual DbSet<OAuth2.OAuth2Config> OAuth2Config { get; set; }
         public virtual DbSet<WSDomain.WSRecepcionPOST> WSRecepcionPOST { get; set; }
         public virtual DbSet<XMLDomain.ResumenFactura> ResumenFactura { get; set; }
-        
+
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Empresa> Empresa { get; set; }
 

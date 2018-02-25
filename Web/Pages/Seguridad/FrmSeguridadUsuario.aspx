@@ -1,4 +1,4 @@
-﻿<%@ Page Async="true" Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmSeguridadUsuario.aspx.cs" Inherits="Web.Pages.Seguridad.FrmSeguridadUsuario" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmSeguridadUsuario.aspx.cs" Inherits="Web.Pages.Seguridad.FrmSeguridadUsuario" %>
 <%@ Register Src="~/UserControls/AddAuditoriaForm.ascx" TagPrefix="user" TagName="AddAuditoriaForm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
@@ -33,6 +33,10 @@
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido"> 
                 </dx:GridViewDataComboBoxColumn>
 
+                <dx:GridViewDataTextColumn  Caption="Correo" FieldName="correo"   VisibleIndex="4"  PropertiesTextEdit-MaxLength="50"
+                    PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido"> 
+                </dx:GridViewDataTextColumn>
+
                 <dx:GridViewDataSpinEditColumn Caption="Intentos" FieldName="intentos" VisibleIndex="5" 
                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataSpinEditColumn>
@@ -41,7 +45,7 @@
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
 
-                  <dx:GridViewDataSpinEditColumn Caption="Emisor" FieldName="emisor" VisibleIndex="7" 
+                  <dx:GridViewDataSpinEditColumn Caption="Emisor" FieldName="emisor" VisibleIndex="7"  PropertiesSpinEdit-MaxLength="12"
                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataSpinEditColumn>
 

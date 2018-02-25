@@ -2,6 +2,7 @@
 using EncodeXML;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -13,6 +14,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml;
 using System.Xml.Linq;
+using Web.Models;
 using Web.Models.Facturacion;
 using Web.WebServices;
 using WSDomain;
@@ -31,7 +33,7 @@ namespace Web.Pages.Facturacion
 
             if (!IsCallback && !IsPostBack)
             {
-                this.txtNumConsecutivoReceptor.Text = "00100001010000000001";
+               
             }
         }
 
@@ -75,6 +77,10 @@ namespace Web.Pages.Facturacion
                 string emisorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Emisor", "Identificacion", xml); 
                 txtNumCedEmisor.Text = emisorIdentificacion.Substring(2);
                 txtFechaEmisor.Text = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xml), "FechaEmision", xml);
+                 
+                EmisorReceptorIMEC emisor = (EmisorReceptorIMEC) Session["elEmisor"]; 
+                this.txtNumConsecutivoReceptor.Text = "0010000107"+ emisor.consecutivo.ToString().PadLeft(10,'0'); 
+                 
                 //Factura
                 double totalImpuesto = Convert.ToDouble(EncondeXML.buscarValorEtiquetaXML("ResumenFactura", "TotalImpuesto", xml));
                 txtMontoTotalImpuesto.Text =  totalImpuesto.ToString("N2");
@@ -83,10 +89,19 @@ namespace Web.Pages.Facturacion
 
                 //Receptor
                 string receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xml);
-                Session["receptor.tipoIdentificacion"] = receptorIdentificacion.Substring(0,2);
+                if (!string.IsNullOrWhiteSpace(receptorIdentificacion))
+                {
+                    Session["receptor.tipoIdentificacion"] = receptorIdentificacion.Substring(0, 2);
+                    txtNumCedReceptor.Text = receptorIdentificacion.Substring(2);
+                }
+                else
+                {
+                    txtNumCedReceptor.Text = EncondeXML.buscarValorEtiquetaXML("Receptor", "IdentificacionExtranjero", xml);
+
+                }
                 Session["receptor.CorreoElectronico"] = EncondeXML.buscarValorEtiquetaXML("Receptor", "CorreoElectronico", xml);
                 Session["receptor.Nombre"] = EncondeXML.buscarValorEtiquetaXML("Receptor", "Nombre", xml);
-                txtNumCedReceptor.Text = receptorIdentificacion.Substring(2);
+                    
                 
 
                 this.alertMessages.Attributes["class"] = "alert alert-info";
@@ -114,8 +129,9 @@ namespace Web.Pages.Facturacion
                 Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
                 MensajeReceptor dato = new MensajeReceptor();
                 dato.clave = this.txtClave.Text;
+                dato.fechaEmisionDoc = txtFechaEmisor.Text;
 
-                dato.numeroCedulaEmisor = this.txtNumCedEmisor.Text;
+                dato.numeroCedulaEmisor = this.txtNumCedEmisor.Text;  
                 dato.numeroCedulaReceptor = this.txtNumCedReceptor.Text;
 
                 dato.mensajeDetalle = this.txtDetalleMensaje.Text;
@@ -135,12 +151,20 @@ namespace Web.Pages.Facturacion
                     this.alertMessages.Attributes["class"] = "alert alert-info";
                     this.alertMessages.InnerText = "Los datos fueron enviados correctamente!!!";
 
+                    using (var conexion = new DataModelFE())
+                    { 
+                        elEmisor.consecutivo += 1;
+                        conexion.Entry(elEmisor).State = EntityState.Modified;
+                        conexion.SaveChanges();
+                        Session["elEmisor"] = elEmisor;
+                    }
+
                     string correo = Session["receptor.CorreoElectronico"].ToString(); 
                     if (!string.IsNullOrWhiteSpace(correo))
                     {
                         string nombre = Session["receptor.Nombre"].ToString();
 
-                        Utilidades.sendMail(correo,
+                        Utilidades.sendMail(Session["emisor"].ToString(), correo,
                             string.Format("{0} - {1}", dato.clave.Substring(21,20), nombre),
                             Utilidades.mensageGenerico(), "Factura Electrónica", xml, dato.clave.Substring(21,20), dato.clave);
                     }

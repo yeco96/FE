@@ -4,9 +4,9 @@
 <div class="container-fluid">
     <div id="map" class="map row"></div>
 </div>
-<script src="http://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
-<script src="http://openlayers.org/en/v3.18.2/build/ol.js"></script>
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+<script src="https://openlayers.org/en/v3.18.2/build/ol.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript">
     function InitializeMap() {
         var latlng = new google.maps.LatLng(10.0030143, -84.1160851);
@@ -44,16 +44,22 @@
             <ul class="list-unstyled">
                 <li><i class="glyphicon glyphicon-phone-alt"></i> + (506) 8872 9065</li>
                 <li><i class="glyphicon glyphicon-envelope"></i> msalamanca@msasoft.net</li>
+                <li><i class="glyphicon glyphicon-envelope"></i> manchia@msasoft.net</li>
+                <li><i class="glyphicon glyphicon-envelope"></i> areyes@msasoft.net</li>
             </ul>
             <h3>Ventas</h3>
             <ul class="list-unstyled">
                 <li><i class="glyphicon glyphicon-phone-alt"></i> + (506) 8872 9065</li>
                 <li><i class="glyphicon glyphicon-envelope"></i> msalamanca@msasoft.net</li>
+                <li><i class="glyphicon glyphicon-envelope"></i> manchia@msasoft.net</li>
+                <li><i class="glyphicon glyphicon-envelope"></i> areyes@msasoft.net</li>
             </ul>
             <h3>Soporte</h3>
             <ul class="list-unstyled">
                 <li><i class="glyphicon glyphicon-hand-right"></i> <a href="#">Centro de Soporte</a></li>
                 <li><i class="glyphicon glyphicon-envelope"></i> msalamanca@msasoft.net</li>
+                <li><i class="glyphicon glyphicon-envelope"></i> manchia@msasoft.net</li>
+                <li><i class="glyphicon glyphicon-envelope"></i> areyes@msasoft.net</li>
             </ul>
         </aside>
     </div>

@@ -1,6 +1,7 @@
 <%@ Page Title="" Language="C#" AutoEventWireup="true" MasterPageFile="~/Layout.master" CodeBehind="Home.aspx.cs" Inherits="Web.Home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
+
     <div class="container-fluid">
         <div class="row">
             <dx:ASPxImageSlider ID="ImageSlider" runat="server" Width="100%" Height="400px" ImageSourceFolder="~/Content/Images/Components">

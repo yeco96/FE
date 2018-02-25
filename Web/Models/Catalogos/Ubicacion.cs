@@ -29,12 +29,12 @@ namespace Web.Models.Catalogos
 
         [Required]
         [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
-        [Display(Name = "Código Canton")]
+        [Display(Name = "Código Cantón")]
         public string codCanton { set; get; }
 
         [Required]
         [MaxLength(50, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
-        [Display(Name = "Nombre Canton")]
+        [Display(Name = "Nombre Cantón")]
         public string nombreCanton { set; get; }
 
         [Required]

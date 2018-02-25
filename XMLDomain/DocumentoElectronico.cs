@@ -10,6 +10,9 @@ namespace XMLDomain
     public class DocumentoElectronico
     {
         [XmlIgnore]
+        public static string TIPO_IDENTIFICACION_EXTRANGERO = "99";
+
+        [XmlIgnore]
         public string tipoDocumento { get { return numeroConsecutivo.Substring(8, 2); } }    
 
         [XmlElement(ElementName = "Clave", Order = 1)]
@@ -43,7 +46,7 @@ namespace XMLDomain
         public ResumenFactura resumenFactura { set; get; }
 
         [XmlElement(ElementName = "InformacionReferencia", Order = 11)]
-        public InformacionReferencia informacionReferencia { set; get; }
+        public List<InformacionReferencia> informacionReferencia { set; get; }
 
 
         [XmlElement(ElementName = "Normativa", Order = 12)]
@@ -55,7 +58,76 @@ namespace XMLDomain
 
         public virtual void verificaDatosParaXML()
         {
+            /* EMISOR */
+            if (this.emisor.telefono != null)
+            {
+                if (string.IsNullOrWhiteSpace(this.emisor.telefono.codigoPais) || string.IsNullOrWhiteSpace(this.emisor.telefono.numTelefono))
+                {
+                    this.emisor.telefono = null;
+                }
+            }
+            if (this.emisor.fax != null)
+            {
+                if (string.IsNullOrWhiteSpace(this.emisor.fax.codigoPais) || string.IsNullOrWhiteSpace(this.emisor.fax.numTelefono))
+                {
+                    this.emisor.fax = null;
+                }
+            }
+            /* RECEPTOR */
+            if (this.receptor.telefono != null)
+            {
+                if (string.IsNullOrWhiteSpace(this.receptor.telefono.codigoPais) || string.IsNullOrWhiteSpace(this.receptor.telefono.numTelefono))
+                {
+                    this.receptor.telefono = null;
+                }
+            }
+            if (this.receptor.fax != null)
+            {
+                if (string.IsNullOrWhiteSpace(this.receptor.fax.codigoPais) || string.IsNullOrWhiteSpace(this.receptor.fax.numTelefono))
+                {
+                    this.receptor.fax = null;
+                }
+            }
+            if (TIPO_IDENTIFICACION_EXTRANGERO.Equals(this.receptor.identificacion.tipo))
+            {
+                this.receptor.identificacionExtranjero = this.receptor.identificacion.numero;
+                this.receptor.identificacion = null;
+            }
+            if (this.receptor.identificacion!=null) {
+                if (String.IsNullOrWhiteSpace(this.receptor.identificacion.numero))
+                {
+                    this.receptor.identificacion = null;
+                }
+            }
 
+
+            if (string.IsNullOrWhiteSpace(this.receptor.ubicacion.barrio) ||
+                string.IsNullOrWhiteSpace(this.receptor.ubicacion.distrito) ||
+                string.IsNullOrWhiteSpace(this.receptor.ubicacion.canton) ||
+                string.IsNullOrWhiteSpace(this.receptor.ubicacion.provincia) ||
+                 string.IsNullOrWhiteSpace(this.receptor.ubicacion.otrassenas)
+                )
+            {
+                this.receptor.ubicacion = null;
+            }
+
+            /* INFORMACION DE REFERENCIA */
+            if (this.informacionReferencia.Count == 0)
+            {
+                this.informacionReferencia = null;
+            }
+
+            /* LINEA DE DETALLES (IMPUESTOS) */
+            int numeroLinea = 1;
+            foreach (var item in this.detalleServicio.lineaDetalle)
+            {
+                item.verificaDatosParaXML();
+                item.numeroLinea = numeroLinea;
+                numeroLinea = numeroLinea + 1;
+            }
+             
+            /*CLAVE RESUMEN*/
+            resumenFactura.clave = clave;
         }
 
     }
