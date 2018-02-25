@@ -45,9 +45,8 @@ namespace Web.Models.Catalogos
 
         [Required]
         [MaxLength(50, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
-        [Display(Name = "Descripción EN")]
+        [Display(Name = "Descripción Inglés")]
         public string descripcionEN { set; get; }
-
 
         /// <summary>
         /// AUDIOTORIA

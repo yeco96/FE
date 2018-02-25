@@ -27,6 +27,10 @@
                 <dx:GridViewDataTextColumn Caption="Descripción" FieldName="descripcion" VisibleIndex="3" PropertiesTextEdit-MaxLength="50"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
+
+                <dx:GridViewDataTextColumn Caption="Descripción Inglés" FieldName="descripcionEN" VisibleIndex="3" PropertiesTextEdit-MaxLength="50"
+                    PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataTextColumn>
                   
                 <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="4"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">

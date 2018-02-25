@@ -108,16 +108,19 @@ namespace Class.Utilidades
 
             using (var conexion = new DataModelFE())
             {
-                impresion.CondicionVenta = conexion.CondicionVenta.Find(dato.condicionVenta).descripcion;
-                impresion.MedioPago = conexion.MedioPago.Find(dato.medioPago).descripcion;
+                
 
                 if (empresa != null && "EN".Equals(empresa.idioma))
                 {
                     mensaje = empresa.leyenda;
                     impresion.tipoDocumento = conexion.TipoDocumento.Find(dato.tipoDocumento).descripcionEN;
+                    impresion.CondicionVenta = conexion.CondicionVenta.Find(dato.condicionVenta).descripcionEN;
+                    impresion.MedioPago = conexion.MedioPago.Find(dato.medioPago).descripcionEN;
                 }
                 else
                 {
+                    impresion.CondicionVenta = conexion.CondicionVenta.Find(dato.condicionVenta).descripcion;
+                    impresion.MedioPago = conexion.MedioPago.Find(dato.medioPago).descripcion;
                     impresion.tipoDocumento = conexion.TipoDocumento.Find(dato.tipoDocumento).descripcion;
                 }
             }
