@@ -14,7 +14,7 @@ namespace XMLDomain
         [XmlElement(ElementName = "Codigo", Order = 2)]
         public Codigo codigo { set; get; }
         [XmlElement(ElementName = "Cantidad", Order = 3)]
-        public decimal cantidad { set; get; }//tamaño 16,3 DGT
+        public decimal   cantidad { set; get; }//tamaño 16,3 DGT
         [XmlElement(ElementName = "UnidadMedida", Order = 4)]
         public string unidadMedida { set; get; }//tamaño 15 DGT
         [XmlElement(ElementName = "UnidadMedidaComercial", Order = 5)]
@@ -22,19 +22,19 @@ namespace XMLDomain
         [XmlElement(ElementName = "Detalle", Order = 6)]
         public string detalle { set; get; }//tamaño 160 DGT
         [XmlElement(ElementName = "PrecioUnitario", Order = 7)]
-        public decimal precioUnitario { set; get; }//tamaño 18,3 DGT
+        public decimal   precioUnitario { set; get; }//tamaño 18,3 DGT
 
         /// <summary>
         /// Se obtiene de multiplicar el campo cantidad por el campo precio unitario tamaño 18,3 DGT 
         /// </summary>
         [XmlElement(ElementName = "MontoTotal", Order = 8)]
-        public decimal montoTotal { set; get; }
+        public decimal   montoTotal { set; get; }
 
         /// <summary>
         /// Monto de descuento concedido, el cual es obligatorio si existe descuento
         /// </summary>
         [XmlElement(ElementName = "MontoDescuento", Order = 9)]
-        public decimal montoDescuento { set; get; }//tamaño 18,3 DGT
+        public decimal   montoDescuento { set; get; }//tamaño 18,3 DGT
 
         /// <summary>
         ///  Monto de descuento concedido, el cual es obligatorio si existe descuento //tamaño 80 DGT
@@ -46,7 +46,7 @@ namespace XMLDomain
         /// Se obtiene de la resta del campo monto total menos monto de descuento concedido //tamaño 18,3 DGT
         /// </summary>
         [XmlElement(ElementName = "SubTotal", Order = 11)]
-        public decimal subTotal { set; get; }
+        public decimal   subTotal { set; get; }
 
         /// <summary>
         /// Cuando el producto o servicio este gravado con algúnimpuesto se debe indicar cada uno de ellos.  //tamaño 18,3 DGT
@@ -59,7 +59,7 @@ namespace XMLDomain
         /// Se obtiene de la suma de los campos subtotal más monto de los impuestos //tamaño 18,3 DGT
         /// </summary>
         [XmlElement(ElementName = "MontoTotalLinea", Order = 13)]
-        public decimal montoTotalLinea { set; get; }
+        public decimal   montoTotalLinea { set; get; }
 
         [XmlIgnoreAttribute]
         public string producto { set; get; }
@@ -105,6 +105,10 @@ namespace XMLDomain
         }
 
 
+
+
+
+
         /// <summary>
         /// Este método determina los valores que no tienen datos y los asigna NULL para que no se generen los notos
         /// </summary>
@@ -123,6 +127,11 @@ namespace XMLDomain
                         item.verificaDatosParaXML();
                     }
                 }
+            }
+
+            if (string.IsNullOrWhiteSpace(this.naturalezaDescuento))
+            {
+                this.naturalezaDescuento = "N/A";
             }
         }
     }

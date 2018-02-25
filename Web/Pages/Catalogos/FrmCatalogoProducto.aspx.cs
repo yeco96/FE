@@ -76,6 +76,12 @@ namespace Web.Pages.Catalogos
                 comboEstado.PropertiesComboBox.Items.Clear();
                 comboEstado.PropertiesComboBox.Items.AddRange(Enum.GetValues(typeof(Estado)));
 
+                /* ESTADO */
+                GridViewDataComboBoxColumn comboCargaAutomaticamente = this.ASPxGridView1.Columns["cargaAutFactura"] as GridViewDataComboBoxColumn;
+                comboCargaAutomaticamente.PropertiesComboBox.Items.Clear();
+                comboCargaAutomaticamente.PropertiesComboBox.Items.AddRange(Enum.GetValues(typeof(Confirmacion)));
+                
+
                 /* UNIDAD MEDIDA */
                 GridViewDataComboBoxColumn comboUnidadMedida = this.ASPxGridView1.Columns["unidadMedida"] as GridViewDataComboBoxColumn;
                 comboUnidadMedida.PropertiesComboBox.Items.Clear();
@@ -142,6 +148,7 @@ namespace Web.Pages.Catalogos
                     dato.unidadMedida = e.NewValues["unidadMedida"] != null ? e.NewValues["unidadMedida"].ToString() : null;
                     dato.precio = e.NewValues["precio"] != null ? decimal.Parse(e.NewValues["precio"].ToString()) : 0;
                     dato.emisor =Session["emisor"].ToString();
+                    dato.cargaAutFactura = e.NewValues["cargaAutFactura"].ToString();
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioCreacion = Session["usuario"].ToString();
                     dato.fechaCreacion = Date.DateTimeNow();
@@ -205,6 +212,7 @@ namespace Web.Pages.Catalogos
                     dato.unidadMedida = e.NewValues["unidadMedida"] != null ? e.NewValues["unidadMedida"].ToString() : null;
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
                     dato.estado = e.NewValues["estado"].ToString();
+                    dato.cargaAutFactura = e.NewValues["cargaAutFactura"].ToString();
                     dato.usuarioModificacion = Session["usuario"].ToString();
                     dato.fechaModificacion = Date.DateTimeNow();
 

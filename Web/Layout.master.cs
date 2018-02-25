@@ -32,8 +32,13 @@ namespace Web {
                 this.NavMenuAdmin.Visible = false;
                 this.NavMenuFacturador.Visible = false;
 
-                
-                Usuario usuario = null;
+                using (var conexion = new DataModelFE())
+                {
+                    conexion.Database.ExecuteSqlCommand("killsleepingconnections");
+                }
+
+
+                    Usuario usuario = null;
                 if (Session["elUsuario"] !=null) {
                     usuario = (Usuario) Session["elUsuario"];
                 } 

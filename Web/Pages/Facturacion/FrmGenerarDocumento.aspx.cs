@@ -60,6 +60,48 @@ namespace Web.Pages.Facturacion
                     this.loadComboBox();
 
                     this.detalleServicio = new DetalleServicio();
+
+                    using (var conexion = new DataModelFE())
+                    {
+                        foreach (var producto in conexion.Producto.Where(x=> x.estado==Estado.ACTIVO.ToString() && x.cargaAutFactura==Confirmacion.SI.ToString()))
+                        {
+                            LineaDetalle dato = new LineaDetalle();
+                            dato.numeroLinea = this.detalleServicio.lineaDetalle.Count+1;
+                            dato.numeroLinea = detalleServicio.lineaDetalle.Count + 1;
+                            dato.cantidad = 1;
+                            dato.codigo.tipo = producto.tipo;
+                            dato.codigo.codigo = producto.codigo;
+                            dato.detalle = producto.descripcion;
+                            dato.unidadMedida = producto.unidadMedida;
+                            dato.unidadMedidaComercial = "";
+                            dato.tipoServMerc = producto.tipoServMerc;
+                            dato.producto = producto.codigo;/*solo para uso del grid*/
+                            dato.precioUnitario = producto.precio;
+                            dato.montoDescuento = 0;
+                            dato.calcularMontos();
+                            int idProducto = producto.id;
+                            using (var conexion2 = new DataModelFE())
+                            {
+                                foreach (var item in conexion2.ProductoImpuesto.Where(x => x.idProducto == idProducto).OrderByDescending(x => x.tipoImpuesto))
+                                {
+                                    if (TipoImpuesto.IMPUESTO_VENTA.Equals(item.tipoImpuesto))
+                                    {
+                                        dato.impuestos.Add(new Impuesto(item.tipoImpuesto, item.porcentaje, dato.montoTotalLinea));
+                                    }
+                                    else
+                                    {
+                                        dato.impuestos.Add(new Impuesto(item.tipoImpuesto, item.porcentaje, dato.subTotal));
+                                    }
+                                    dato.calcularMontos();
+                                }
+                            }
+                            /*EXONERACION*/
+                            dato = this.verificaExoneracion(dato);
+                            dato.calcularMontos();
+
+                            this.detalleServicio.lineaDetalle.Add(dato);
+                        }
+                    }
                     Session["detalleServicio"] = detalleServicio;
 
                     this.informacionReferencia =  new List<InformacionReferencia>();
@@ -502,33 +544,35 @@ namespace Web.Pages.Facturacion
         public LineaDetalle verificaExoneracion(LineaDetalle dato)
         {
             ASPxPageControl tabs = (ASPxPageControl)ASPxGridView1.FindEditFormTemplateControl("pageControl");
-            ASPxFormLayout form = (ASPxFormLayout)tabs.FindControl("formLayoutExoneracion");
-            /* EXONERACION */
-            ASPxComboBox cmbTipoDocumento = (ASPxComboBox)form.FindControl("cmbTipoDocumento");
-            ASPxTextBox numeroDocumento = (ASPxTextBox)form.FindControl("numeroDocumento");
-            ASPxTextBox nombreInstitucion = (ASPxTextBox)form.FindControl("nombreInstitucion");
-            ASPxDateEdit fechaEmision = (ASPxDateEdit)form.FindControl("fechaEmision");
-            ASPxSpinEdit porcentajeCompra = (ASPxSpinEdit)form.FindControl("porcentajeCompra");
-            ASPxSpinEdit montoImpuesto = (ASPxSpinEdit)form.FindControl("montoImpuesto");
+            if (tabs != null)
+            {
+                ASPxFormLayout form = (ASPxFormLayout)tabs.FindControl("formLayoutExoneracion");
+                /* EXONERACION */
+                ASPxComboBox cmbTipoDocumento = (ASPxComboBox)form.FindControl("cmbTipoDocumento");
+                ASPxTextBox numeroDocumento = (ASPxTextBox)form.FindControl("numeroDocumento");
+                ASPxTextBox nombreInstitucion = (ASPxTextBox)form.FindControl("nombreInstitucion");
+                ASPxDateEdit fechaEmision = (ASPxDateEdit)form.FindControl("fechaEmision");
+                ASPxSpinEdit porcentajeCompra = (ASPxSpinEdit)form.FindControl("porcentajeCompra");
+                ASPxSpinEdit montoImpuesto = (ASPxSpinEdit)form.FindControl("montoImpuesto");
 
-            if (cmbTipoDocumento.Value !=null && !string.IsNullOrWhiteSpace(numeroDocumento.Text) && !string.IsNullOrWhiteSpace(nombreInstitucion.Text)
-                && !string.IsNullOrWhiteSpace(porcentajeCompra.Text) && !string.IsNullOrWhiteSpace(fechaEmision.Text)) {
-                foreach (var item in dato.impuestos)
+                if (cmbTipoDocumento.Value != null && !string.IsNullOrWhiteSpace(numeroDocumento.Text) && !string.IsNullOrWhiteSpace(nombreInstitucion.Text)
+                    && !string.IsNullOrWhiteSpace(porcentajeCompra.Text) && !string.IsNullOrWhiteSpace(fechaEmision.Text))
                 {
-                    item.exoneracion.tipoDocumento = cmbTipoDocumento.Value.ToString();
-                    item.exoneracion.numeroDocumento = numeroDocumento.Text;
-                    item.exoneracion.nombreInstitucion = nombreInstitucion.Text;
-                    item.exoneracion.fechaEmision = fechaEmision.Date.ToString("yyyy-MM-ddTHH:mm:ss-06:00");
-                    item.exoneracion.porcentajeCompra = int.Parse(porcentajeCompra.Text);
-                   // item.exoneracion.montoImpuesto =  item.monto * (item.exoneracion.porcentajeCompra / new decimal(100.0));
+                    foreach (var item in dato.impuestos)
+                    {
+                        item.exoneracion.tipoDocumento = cmbTipoDocumento.Value.ToString();
+                        item.exoneracion.numeroDocumento = numeroDocumento.Text;
+                        item.exoneracion.nombreInstitucion = nombreInstitucion.Text;
+                        item.exoneracion.fechaEmision = fechaEmision.Date.ToString("yyyy-MM-ddTHH:mm:ss-06:00");
+                        item.exoneracion.porcentajeCompra = int.Parse(porcentajeCompra.Text);
+                        // item.exoneracion.montoImpuesto =  item.monto * (item.exoneracion.porcentajeCompra / new decimal(100.0));
 
-                    //modifica el monto
-                    item.monto = item.monto - item.exoneracion.montoImpuesto;
+                        //modifica el monto
+                        item.monto = item.monto - item.exoneracion.montoImpuesto;
+                    }
                 }
             }
-            
             return dato;
-
         }
 
 
