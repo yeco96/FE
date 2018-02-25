@@ -25,6 +25,17 @@ namespace Web.Models.Catalogos
 
         [Column(TypeName = "Binary")]
         public byte[] logo { set; get; }
+         
+        [Required]
+        [MaxLength(3, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [Display(Name = "Idioma")]
+        public string idioma { set; get; }
+
+
+        [Required]
+        [MaxLength(200, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [Display(Name = "Leyenda")]
+        public string leyenda { set; get; }
 
 
         /// <summary>

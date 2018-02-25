@@ -70,10 +70,17 @@ namespace Web.Pages.Catalogos
         /// </summary>
         private void cargarCombos()
         {
-            // Cargar valores de combo para estado
+            /* ESTADO */
             GridViewDataComboBoxColumn comboEstado = this.ASPxGridView1.Columns["estado"] as GridViewDataComboBoxColumn;
             comboEstado.PropertiesComboBox.Items.Clear();
             comboEstado.PropertiesComboBox.Items.AddRange(Enum.GetValues(typeof(Estado)));
+
+            /* IDIOMA */
+            GridViewDataComboBoxColumn comboIdioma = this.ASPxGridView1.Columns["idioma"] as GridViewDataComboBoxColumn;
+            comboIdioma.PropertiesComboBox.Items.Clear();
+            comboIdioma.PropertiesComboBox.Items.Add(new ListEditItem("ESPAÑOL","ES"));
+            comboIdioma.PropertiesComboBox.Items.Add(new ListEditItem("INGLES", "EN"));
+
         }
 
 
@@ -112,7 +119,8 @@ namespace Web.Pages.Catalogos
                     //llena el objeto con los valores de la pantalla
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
-
+                    dato.idioma = e.NewValues["idioma"] != null ? e.NewValues["idioma"].ToString().ToUpper() : null;
+                    dato.leyenda = e.NewValues["leyenda"].ToString().ToUpper();
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioCreacion = Session["usuario"].ToString();
                     dato.fechaCreacion = Date.DateTimeNow();
@@ -174,8 +182,9 @@ namespace Web.Pages.Catalogos
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
 
                     //busca el objeto 
-                    dato = conexion.Empresa.Find(dato.codigo); 
-
+                    dato = conexion.Empresa.Find(dato.codigo);
+                    dato.idioma = e.NewValues["idioma"] != null ? e.NewValues["idioma"].ToString().ToUpper() : null;
+                    dato.leyenda = e.NewValues["leyenda"].ToString().ToUpper();
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioModificacion = Session["usuario"].ToString();

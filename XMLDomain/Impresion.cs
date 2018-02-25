@@ -34,10 +34,10 @@ namespace XMLDomain
         public List<ImpresionDetalle> detalles { set; get; }
 
 
-        public decimal montoSubTotal { set; get; }
-        public decimal montoDescuento { set; get; }
-        public decimal montoImpuestoVenta { set; get; }
-        public decimal montoTotal { set; get; }
+        public decimal    montoSubTotal { set; get; }
+        public decimal    montoDescuento { set; get; }
+        public decimal    montoImpuestoVenta { set; get; }
+        public decimal    montoTotal { set; get; }
         public string Normativa { set; get; }
 
         public Impresion()

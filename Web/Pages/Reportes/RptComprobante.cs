@@ -215,15 +215,13 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             // 
             // xrLabel37
             // 
-            this.xrLabel37.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Normativa")});
             this.xrLabel37.LocationFloat = new DevExpress.Utils.PointFloat(0.833252F, 379.5417F);
             this.xrLabel37.Name = "xrLabel37";
             this.xrLabel37.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel37.SizeF = new System.Drawing.SizeF(649.1667F, 23F);
             this.xrLabel37.StylePriority.UseTextAlignment = false;
-            this.xrLabel37.Text = "xrLabel37";
-            this.xrLabel37.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrLabel37.Text = "Autorizada mediante resolución No DGT-R-48-2016 del 7 de Octubre de 2016";
+            this.xrLabel37.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel36
             // 

@@ -27,7 +27,7 @@
                 <dx:GridViewDataTextColumn Caption="Nombre" FieldName="descripcion" VisibleIndex="3" PropertiesTextEdit-MaxLength="50" 
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataBinaryImageColumn Caption="Logo" FieldName="logo" VisibleIndex="5"  
+                <dx:GridViewDataBinaryImageColumn Caption="Logo" FieldName="logo" VisibleIndex="10"  
                     PropertiesBinaryImage-ValidationSettings-RequiredField-IsRequired="true" PropertiesBinaryImage-ValidationSettings-RequiredField-ErrorText="Requerido">
                     <EditItemTemplate>
                         <dx:ASPxBinaryImage ID="imgPreview" runat="server" Value='<%# Bind("logo") %>' Width="100px" Height="100px">
@@ -40,8 +40,18 @@
                         </dx:ASPxUploadControl>
                     </EditItemTemplate>
                 </dx:GridViewDataBinaryImageColumn>
+
+                
+                  <dx:GridViewDataComboBoxColumn Caption="Idioma" FieldName="idioma" VisibleIndex="4"
+                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataComboBoxColumn>
+                 
+                  <dx:GridViewDataMemoColumn Caption="Leyenda" FieldName="leyenda" VisibleIndex="4" Visible="true" EditFormSettings-Visible="True"  
+                    PropertiesMemoEdit-ValidationSettings-RequiredField-IsRequired="false" PropertiesMemoEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataMemoColumn>
+
                   
-                <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="4"
+                <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="6"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
                 <dx:GridViewDataTextColumn Visible="false" Caption="Usuario Creación" FieldName="usuarioCreacion" VisibleIndex="17">
