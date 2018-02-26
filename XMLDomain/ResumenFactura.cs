@@ -120,7 +120,7 @@ namespace XMLDomain
             foreach (var linea in lineaDetalle)
             {
                  
-                if (linea.impuestos != null)
+                if (linea.impuestos != null && linea.impuestos.Count > 0)
                 {
                     foreach (var impuesto in linea.impuestos)
                     {
