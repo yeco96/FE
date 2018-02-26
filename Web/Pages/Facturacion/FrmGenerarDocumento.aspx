@@ -13,7 +13,7 @@
     <asp:UpdatePanel ID="UpdatePanel" runat="server" UpdateMode="Always" OnUnload="UpdatePanel_Unload">
         <ContentTemplate>
             <div id="alertMessages" role="alert" runat="server" />
-            <dx:ASPxPageControl ID="documento" Width="100%" runat="server" ActiveTabIndex="0" EnableHierarchyRecreation="True">
+            <dx:ASPxPageControl ID="documento" Width="100%" runat="server" ActiveTabIndex="2" EnableHierarchyRecreation="True">
                 <TabPages> 
                     <dx:TabPage Text="Receptor">
                         <ContentCollection>
@@ -28,7 +28,11 @@
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxComboBox ID="cmbReceptorTipo" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
-                                                                ValidationSettings-RequiredField-IsRequired="false" ValidationSettings-RequiredField-ErrorText="Requerido" />
+                                                                ValidationSettings-RequiredField-IsRequired="false" ValidationSettings-RequiredField-ErrorText="Requerido" >
+                                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
+                                                                    <RequiredField ErrorText="Requerido" />
+                                                                </ValidationSettings>
+                                                            </dx:ASPxComboBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
@@ -40,10 +44,17 @@
                                                                 <tr>
                                                                     <td style="width: 90%;">
                                                                        <dx:ASPxSpinEdit ID="txtReceptorIdentificacion" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
-                                                                ValidationSettings-RequiredField-IsRequired="false" ValidationSettings-RequiredField-ErrorText="Requerido" MaxLength="12" />
+                                                                ValidationSettings-RequiredField-IsRequired="false" ValidationSettings-RequiredField-ErrorText="Requerido" MaxLength="12" >
+                                                                           <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
+                                                                               <RequiredField ErrorText="Requerido" />
+                                                                           </ValidationSettings>
+                                                                        </dx:ASPxSpinEdit>
                                                                     </td>
                                                                     <td style="width: 10%;"> 
-                                                                       <dx:ASPxButton runat="server" ToolTip="Búscar" Image-AlternateText="Búscar" ID="btnBuscarReceptor" CssClass="imagen" CausesValidation="false" OnClick="btnBuscarReceptor_Click"  Image-Url="~/Content/Images/loadUser.png"   Image-Height="20px"></dx:ASPxButton> 
+                                                                       <dx:ASPxButton runat="server" ToolTip="Búscar" Image-AlternateText="Búscar" ID="btnBuscarReceptor" CssClass="imagen" CausesValidation="false" OnClick="btnBuscarReceptor_Click"  Image-Url="~/Content/Images/loadUser.png"   Image-Height="20px">
+                                                                           <Image AlternateText="Búscar" Height="20px" Url="~/Content/Images/loadUser.png">
+                                                                           </Image>
+                                                                        </dx:ASPxButton> 
                                                                     </td>
                                                                 </tr>
                                                             </table> 
@@ -55,14 +66,21 @@
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxTextBox ID="txtReceptorNombre" Width="100%" AutoResizeWithContainer="true" runat="server" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
-                                                                ValidationSettings-RequiredField-IsRequired="false" ValidationSettings-RequiredField-ErrorText="Requerido" MaxLength="80" />
+                                                                ValidationSettings-RequiredField-IsRequired="false" ValidationSettings-RequiredField-ErrorText="Requerido" MaxLength="80" >
+                                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
+                                                                    <RequiredField ErrorText="Requerido" />
+                                                                </ValidationSettings>
+                                                            </dx:ASPxTextBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
                                                 <dx:LayoutItem Caption="Nombre Comercial" >
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
-                                                            <dx:ASPxTextBox ID="txtReceptorNombreComercial" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" MaxLength="80" />
+                                                            <dx:ASPxTextBox ID="txtReceptorNombreComercial" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" MaxLength="80" >
+                                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
+                                                                </ValidationSettings>
+                                                            </dx:ASPxTextBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
@@ -85,10 +103,16 @@
                                                             <table>
                                                                 <tr>
                                                                     <td style="width: 30%;">
-                                                                        <dx:ASPxComboBox ID="cmbReceptorTelefonoCod" runat="server" Width="90%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                                        <dx:ASPxComboBox ID="cmbReceptorTelefonoCod" runat="server" Width="90%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" >
+                                                                            <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
+                                                                            </ValidationSettings>
+                                                                        </dx:ASPxComboBox>
                                                                     </td>
                                                                     <td style="width: 70%;">
-                                                                        <dx:ASPxSpinEdit ID="txtReceptorTelefono" runat="server" Width="90%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"  MaxLength="20" />
+                                                                        <dx:ASPxSpinEdit ID="txtReceptorTelefono" runat="server" Width="90%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"  MaxLength="20" >
+                                                                            <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
+                                                                            </ValidationSettings>
+                                                                        </dx:ASPxSpinEdit>
                                                                     </td>
                                                                 </tr>
                                                             </table>
@@ -101,10 +125,16 @@
                                                             <table>
                                                                 <tr>
                                                                     <td style="width: 30%;">
-                                                                        <dx:ASPxComboBox ID="cmbReceptorFaxCod" runat="server" Width="90%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                                        <dx:ASPxComboBox ID="cmbReceptorFaxCod" runat="server" Width="90%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" >
+                                                                            <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
+                                                                            </ValidationSettings>
+                                                                        </dx:ASPxComboBox>
                                                                     </td>
                                                                     <td style="width: 70%;">
-                                                                        <dx:ASPxSpinEdit ID="txtReceptorFax" runat="server" Width="90%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"  MaxLength="20"/>
+                                                                        <dx:ASPxSpinEdit ID="txtReceptorFax" runat="server" Width="90%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"  MaxLength="20">
+                                                                            <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
+                                                                            </ValidationSettings>
+                                                                        </dx:ASPxSpinEdit>
                                                                     </td>
                                                                 </tr>
                                                             </table>
@@ -116,6 +146,9 @@
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxTextBox ID="txtReceptorCorreo" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
                                                                 ValidationSettings-RegularExpression-ValidationExpression="\s*\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*\s*">
+                                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
+                                                                    <RegularExpression ValidationExpression="\s*\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*\s*" />
+                                                                </ValidationSettings>
                                                             </dx:ASPxTextBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
@@ -136,7 +169,10 @@
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxComboBox ID="cmbReceptorProvincia" runat="server" Width="100%" AutoResizeWithContainer="true" OnValueChanged="cmbReceptorProvincia_ValueChanged" AutoPostBack="true"
-                                                                ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                                ValidationSettings-ErrorDisplayMode="ImageWithTooltip" >
+                                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
+                                                                </ValidationSettings>
+                                                            </dx:ASPxComboBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
@@ -144,7 +180,10 @@
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxComboBox ID="cmbReceptorCanton" runat="server" Width="100%" AutoResizeWithContainer="true" OnValueChanged="cmbReceptorCanton_ValueChanged" AutoPostBack="true"
-                                                                ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                                ValidationSettings-ErrorDisplayMode="ImageWithTooltip" >
+                                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
+                                                                </ValidationSettings>
+                                                            </dx:ASPxComboBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
@@ -152,21 +191,30 @@
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxComboBox ID="cmbReceptorDistrito" Width="100%" AutoResizeWithContainer="true" runat="server" OnValueChanged="cmbReceptorDistrito_ValueChanged" AutoPostBack="true"
-                                                                ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                                ValidationSettings-ErrorDisplayMode="ImageWithTooltip" >
+                                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
+                                                                </ValidationSettings>
+                                                            </dx:ASPxComboBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
                                                 <dx:LayoutItem Caption="Barrio">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
-                                                            <dx:ASPxComboBox ID="cmbReceptorBarrio" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                            <dx:ASPxComboBox ID="cmbReceptorBarrio" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" >
+                                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
+                                                                </ValidationSettings>
+                                                            </dx:ASPxComboBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
                                                 <dx:LayoutItem Caption="Otras Señas" ColSpan="4" Width="100%">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
-                                                            <dx:ASPxMemo ID="txtReceptorOtraSenas" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                            <dx:ASPxMemo ID="txtReceptorOtraSenas" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" >
+                                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
+                                                                </ValidationSettings>
+                                                            </dx:ASPxMemo>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
@@ -197,22 +245,50 @@
 
                                         <dx:GridViewDataComboBoxColumn Caption="Tipo Documento" FieldName="tipoDocumento" VisibleIndex="1" PropertiesComboBox-ClientSideEvents-ValueChanged="function(s,e){cambioPrecio(s,e);}"
                                             PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                            <PropertiesComboBox>
+                                                <ClientSideEvents ValueChanged="function(s,e){cambioPrecio(s,e);}" />
+                                                <ValidationSettings>
+                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                </ValidationSettings>
+                                            </PropertiesComboBox>
                                         </dx:GridViewDataComboBoxColumn>
 
                                         <dx:GridViewDataTextColumn Caption="Número" FieldName="numero" VisibleIndex="2" PropertiesTextEdit-MaxLength="50"  PropertiesTextEdit-MaskSettings-Mask="##################################################"
                                             PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                            <PropertiesTextEdit MaxLength="50">
+                                                <MaskSettings Mask="##################################################" />
+                                                <ValidationSettings>
+                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                </ValidationSettings>
+                                            </PropertiesTextEdit>
                                         </dx:GridViewDataTextColumn>
                                          
                                        <dx:GridViewDataTextColumn Caption="Fecha Emisión" FieldName="fechaEmision" VisibleIndex="3"  PropertiesTextEdit-MaskSettings-Mask="####-##-##"
                                              PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                           <PropertiesTextEdit>
+                                               <MaskSettings Mask="####-##-##" />
+                                               <ValidationSettings>
+                                                   <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                               </ValidationSettings>
+                                           </PropertiesTextEdit>
                                         </dx:GridViewDataTextColumn>
                                          
                                          <dx:GridViewDataComboBoxColumn Caption="Código" FieldName="codigo" VisibleIndex="4" 
                                             PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                             <PropertiesComboBox>
+                                                 <ValidationSettings>
+                                                     <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                 </ValidationSettings>
+                                             </PropertiesComboBox>
                                         </dx:GridViewDataComboBoxColumn>
 
                                         <dx:GridViewDataTextColumn Caption="Razón" FieldName="razon" VisibleIndex="5" PropertiesTextEdit-MaxLength="80"
                                             PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                            <PropertiesTextEdit MaxLength="80">
+                                                <ValidationSettings>
+                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                </ValidationSettings>
+                                            </PropertiesTextEdit>
                                         </dx:GridViewDataTextColumn>
                                          
                                          
@@ -234,12 +310,30 @@
                                     <SettingsContextMenu EnableColumnMenu="True" Enabled="True" EnableFooterMenu="True" EnableGroupPanelMenu="false" EnableRowMenu="True" />
 
                                     <SettingsCommandButton>
-                                        <NewButton Image-ToolTip="Nuevo" Image-Url="~/Content/Images/add.png" />
-                                        <EditButton Image-ToolTip="Modificar" Image-Url="~/Content/Images/edit.png" />
-                                        <DeleteButton Image-ToolTip="Eliminar" Image-Url="~/Content/Images/delete.png" />
-                                        <ClearFilterButton Image-ToolTip="Quitar filtros" Image-Url="~/Content/Images/refresh.png" />
-                                        <UpdateButton ButtonType="Link" Image-ToolTip="Guardar cambios y cerrar formulario de edición" Image-Url="~/Content/Images/acept.png" />
-                                        <CancelButton ButtonType="Link" Image-ToolTip="Cerrar el formulario de edición sin guardar los cambios" Image-Url="~/Content/Images/cancel.png" />
+                                        <NewButton Image-ToolTip="Nuevo" Image-Url="~/Content/Images/add.png" >
+                                            <Image ToolTip="Nuevo" Url="~/Content/Images/add.png">
+                                            </Image>
+                                        </NewButton>
+                                        <EditButton Image-ToolTip="Modificar" Image-Url="~/Content/Images/edit.png" >
+                                            <Image ToolTip="Modificar" Url="~/Content/Images/edit.png">
+                                            </Image>
+                                        </EditButton>
+                                        <DeleteButton Image-ToolTip="Eliminar" Image-Url="~/Content/Images/delete.png" >
+                                            <Image ToolTip="Eliminar" Url="~/Content/Images/delete.png">
+                                            </Image>
+                                        </DeleteButton>
+                                        <ClearFilterButton Image-ToolTip="Quitar filtros" Image-Url="~/Content/Images/refresh.png" >
+                                            <Image ToolTip="Quitar filtros" Url="~/Content/Images/refresh.png">
+                                            </Image>
+                                        </ClearFilterButton>
+                                        <UpdateButton ButtonType="Link" Image-ToolTip="Guardar cambios y cerrar formulario de edición" Image-Url="~/Content/Images/acept.png" >
+                                            <Image ToolTip="Guardar cambios y cerrar formulario de edición" Url="~/Content/Images/acept.png">
+                                            </Image>
+                                        </UpdateButton>
+                                        <CancelButton ButtonType="Link" Image-ToolTip="Cerrar el formulario de edición sin guardar los cambios" Image-Url="~/Content/Images/cancel.png" >
+                                            <Image ToolTip="Cerrar el formulario de edición sin guardar los cambios" Url="~/Content/Images/cancel.png">
+                                            </Image>
+                                        </CancelButton>
                                     </SettingsCommandButton>
 
                                     <SettingsAdaptivity AdaptivityMode="HideDataCellsWindowLimit" HideDataCellsAtWindowInnerWidth="800" AllowOnlyOneAdaptiveDetailExpanded="true" AdaptiveDetailColumnCount="1"></SettingsAdaptivity>
@@ -296,6 +390,9 @@
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxComboBox ID="cmbTipoDocumento" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
                                                                 ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido">
+                                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
+                                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                                </ValidationSettings>
                                                             </dx:ASPxComboBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
@@ -306,6 +403,9 @@
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxComboBox ID="cmbSucursalCaja" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
                                                                 ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido">
+                                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
+                                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                                </ValidationSettings>
                                                             </dx:ASPxComboBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
@@ -325,6 +425,9 @@
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxComboBox ID="cmbMedioPago" Width="100%" AutoResizeWithContainer="true" runat="server"
                                                                 ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip">
+                                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
+                                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                                </ValidationSettings>
                                                             </dx:ASPxComboBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
@@ -334,6 +437,9 @@
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxComboBox ID="cmbCondicionVenta" runat="server" Width="100%" AutoResizeWithContainer="true" OnValueChanged="cmbCondicionVenta_ValueChanged" AutoPostBack="true"
                                                                 ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip">
+                                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
+                                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                                </ValidationSettings>
                                                             </dx:ASPxComboBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
@@ -343,6 +449,8 @@
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxSpinEdit ID="txtPlazoCredito" runat="server" Width="100%" AutoResizeWithContainer="true"  AutoPostBack="true" MaxLength="2" Enabled="false"
                                                                 ValidationSettings-ErrorDisplayMode="ImageWithTooltip">
+                                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
+                                                                </ValidationSettings>
                                                             </dx:ASPxSpinEdit>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
@@ -352,6 +460,9 @@
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxDateEdit ID="txtFechaEmision" Width="100%" AutoResizeWithContainer="true" runat="server"
                                                                 ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip">
+                                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
+                                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                                </ValidationSettings>
                                                             </dx:ASPxDateEdit>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
@@ -361,6 +472,9 @@
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxComboBox ID="cmbTipoMoneda" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" OnValueChanged="cmbMoneda_ValueChanged" AutoPostBack="true"
                                                                 ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido">
+                                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
+                                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                                </ValidationSettings>
                                                             </dx:ASPxComboBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
@@ -370,6 +484,10 @@
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxTextBox ID="txtTipoCambio" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" Enabled="false" MaskSettings-Mask="###.0#" 
                                                                 ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido"  >
+                                                                <MaskSettings Mask="###.0#" />
+                                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
+                                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                                </ValidationSettings>
                                                             </dx:ASPxTextBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
@@ -409,16 +527,28 @@
                                         <dx:GridViewDataSpinEditColumn Caption="Cantidad" FieldName="cantidad" VisibleIndex="2" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
                                             PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                                             <PropertiesSpinEdit DisplayFormatString="g" DecimalPlaces="2" MaxLength="10">
+                                                <ValidationSettings>
+                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                </ValidationSettings>
                                             </PropertiesSpinEdit>
                                         </dx:GridViewDataSpinEditColumn>
                                         <dx:GridViewDataComboBoxColumn Caption="Producto" FieldName="producto" VisibleIndex="3" PropertiesComboBox-ClientSideEvents-ValueChanged="function(s,e){cambioPrecio(s,e);}"
                                             PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                            <PropertiesComboBox>
+                                                <ClientSideEvents ValueChanged="function(s,e){cambioPrecio(s,e);}" />
+                                                <ValidationSettings>
+                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                </ValidationSettings>
+                                            </PropertiesComboBox>
                                         </dx:GridViewDataComboBoxColumn>
 
                                         <dx:GridViewDataSpinEditColumn Caption="Precio U" FieldName="precioUnitario" VisibleIndex="4" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
                                             PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="n2"
                                             PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                                             <PropertiesSpinEdit DisplayFormatString="n2" NumberFormat="Custom" DecimalPlaces="2" MaxValue="999999999999" MaxLength="10">
+                                                <ValidationSettings>
+                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                </ValidationSettings>
                                             </PropertiesSpinEdit>
                                         </dx:GridViewDataSpinEditColumn>
 
@@ -426,6 +556,9 @@
                                             PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="n2"
                                             PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                                             <PropertiesSpinEdit DisplayFormatString="n2" NumberFormat="Custom" DecimalPlaces="2" MaxValue="999999999999" MaxLength="10">
+                                                <ValidationSettings>
+                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                </ValidationSettings>
                                             </PropertiesSpinEdit>
                                         </dx:GridViewDataSpinEditColumn>
 
@@ -433,11 +566,19 @@
                                             PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="n2"
                                             PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                                             <PropertiesSpinEdit DisplayFormatString="n2" NumberFormat="Custom" DecimalPlaces="2" MaxValue="999999999999" MaxLength="10">
+                                                <ValidationSettings>
+                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                </ValidationSettings>
                                             </PropertiesSpinEdit>
                                         </dx:GridViewDataSpinEditColumn>
 
                                         <dx:GridViewDataTextColumn Caption="Naturaleza Descuento" FieldName="naturalezaDescuento" VisibleIndex="7" PropertiesTextEdit-MaxLength="80"
                                             PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                            <PropertiesTextEdit MaxLength="80">
+                                                <ValidationSettings>
+                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                </ValidationSettings>
+                                            </PropertiesTextEdit>
                                         </dx:GridViewDataTextColumn>
 
 
@@ -445,6 +586,9 @@
                                             PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="n2"
                                             PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                                             <PropertiesSpinEdit DisplayFormatString="n2" NumberFormat="Custom" DecimalPlaces="2" MaxValue="999999999999" MaxLength="10">
+                                                <ValidationSettings>
+                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                </ValidationSettings>
                                             </PropertiesSpinEdit>
                                         </dx:GridViewDataSpinEditColumn>
 
@@ -454,6 +598,9 @@
                                             PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                                          
                                               <PropertiesSpinEdit DisplayFormatString="n2" NumberFormat="Custom" DecimalPlaces="2" MaxValue="999999999999" MaxLength="10">
+                                                  <ValidationSettings>
+                                                      <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                  </ValidationSettings>
                                             </PropertiesSpinEdit>
 
                                         </dx:GridViewDataSpinEditColumn>
@@ -477,12 +624,30 @@
                                     <SettingsContextMenu EnableColumnMenu="True" Enabled="True" EnableFooterMenu="True" EnableGroupPanelMenu="false" EnableRowMenu="True" />
 
                                     <SettingsCommandButton>
-                                        <NewButton Image-ToolTip="Nuevo" Image-Url="~/Content/Images/add.png" />
-                                        <EditButton Image-ToolTip="Modificar" Image-Url="~/Content/Images/edit.png" />
-                                        <DeleteButton Image-ToolTip="Eliminar" Image-Url="~/Content/Images/delete.png" />
-                                        <ClearFilterButton Image-ToolTip="Quitar filtros" Image-Url="~/Content/Images/refresh.png" />
-                                        <UpdateButton ButtonType="Link" Image-ToolTip="Guardar cambios y cerrar formulario de edición" Image-Url="~/Content/Images/acept.png" />
-                                        <CancelButton ButtonType="Link" Image-ToolTip="Cerrar el formulario de edición sin guardar los cambios" Image-Url="~/Content/Images/cancel.png" />
+                                        <NewButton Image-ToolTip="Nuevo" Image-Url="~/Content/Images/add.png" >
+                                            <Image ToolTip="Nuevo" Url="~/Content/Images/add.png">
+                                            </Image>
+                                        </NewButton>
+                                        <EditButton Image-ToolTip="Modificar" Image-Url="~/Content/Images/edit.png" >
+                                            <Image ToolTip="Modificar" Url="~/Content/Images/edit.png">
+                                            </Image>
+                                        </EditButton>
+                                        <DeleteButton Image-ToolTip="Eliminar" Image-Url="~/Content/Images/delete.png" >
+                                            <Image ToolTip="Eliminar" Url="~/Content/Images/delete.png">
+                                            </Image>
+                                        </DeleteButton>
+                                        <ClearFilterButton Image-ToolTip="Quitar filtros" Image-Url="~/Content/Images/refresh.png" >
+                                            <Image ToolTip="Quitar filtros" Url="~/Content/Images/refresh.png">
+                                            </Image>
+                                        </ClearFilterButton>
+                                        <UpdateButton ButtonType="Link" Image-ToolTip="Guardar cambios y cerrar formulario de edición" Image-Url="~/Content/Images/acept.png" >
+                                            <Image ToolTip="Guardar cambios y cerrar formulario de edición" Url="~/Content/Images/acept.png">
+                                            </Image>
+                                        </UpdateButton>
+                                        <CancelButton ButtonType="Link" Image-ToolTip="Cerrar el formulario de edición sin guardar los cambios" Image-Url="~/Content/Images/cancel.png" >
+                                            <Image ToolTip="Cerrar el formulario de edición sin guardar los cambios" Url="~/Content/Images/cancel.png">
+                                            </Image>
+                                        </CancelButton>
                                     </SettingsCommandButton>
 
                                     <SettingsAdaptivity AdaptivityMode="HideDataCellsWindowLimit" HideDataCellsAtWindowInnerWidth="800" AllowOnlyOneAdaptiveDetailExpanded="true" AdaptiveDetailColumnCount="1"></SettingsAdaptivity>
