@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace WSDomain
 {
     [Table("ws_recepcion_documento_receptor")] 
-    public class WSRecepcionReceptorPOST
+    public class WSRecepcionPOSTReceptor
     {
         [Key]
         [JsonProperty("clave",  Order = 1)]
@@ -80,7 +80,7 @@ namespace WSDomain
         public DateTime? fechaModificacion { set; get; }
 
 
-        public WSRecepcionReceptorPOST() {
+        public WSRecepcionPOSTReceptor() {
             this.receptor = new EmisorReceptor();
             this.emisor = new EmisorReceptor();
             //this.fecha = DateTime.Now.ToString("yyyy-MM-dd'T'HH:mm:ss");
