@@ -10,7 +10,7 @@
 namespace Web.Pages.Facturacion {
     
     
-    public partial class FrmConsultaResumen {
+    public partial class FrmConsultaResumenReceptor {
         
         /// <summary>
         /// Control txtFechaInicio.

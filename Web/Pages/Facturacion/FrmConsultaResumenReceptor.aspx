@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmConsultaResumen.aspx.cs" Inherits="Web.Pages.Facturacion.FrmConsultaResumen" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmConsultaResumenReceptor.aspx.cs" Inherits="Web.Pages.Facturacion.FrmConsultaResumenReceptor" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
     <section class="featured">
@@ -42,7 +42,6 @@
                             <dx:LayoutItemNestedControlContainer>
                                  <dx:ASPxButton ID="txtConsultar" runat="server" Text="Consultar" Width="80px" Image-Url="~/Content/Images/search1.png" Image-Height="20px"
                                       CausesValidation="true" OnClick="btnConsultar_Click" >
-<Image Height="20px" Url="~/Content/Images/search1.png"></Image>
                                     </dx:ASPxButton>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
@@ -52,9 +51,8 @@
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
                                  <dx:ASPxButton ID="btnReporte" runat="server" Text="Reporte" Width="80px" Image-Url="~/Content/Images/search1.png" Image-Height="20px"
-                                      CausesValidation="true"  OnClick="btnReporte_Click" > 
-<Image Height="20px" Url="~/Content/Images/search1.png"></Image>
-                                 </dx:ASPxButton>
+                                      CausesValidation="true"  OnClick="btnReporte_Click" /> >
+                                    </dx:ASPxButton>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
