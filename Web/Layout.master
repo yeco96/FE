@@ -85,7 +85,7 @@
                                                             <dx:MenuItem Text="CONFIRMAR XML" NavigateUrl="~/Pages/Facturacion/FrmValidarXML" />
                                                             <dx:MenuItem Text="CONSULTA" NavigateUrl="~/Pages/Facturacion/FrmConsultaResumen" />
                                                             <dx:MenuItem Text="FACTURAR" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumento" />
-                                                            <dx:MenuItem Text="MANUAL DE USUARIO" NavigateUrl="~/Help/MSAFactura.chm    " />
+                                                            <dx:MenuItem Text="MANUAL DE USUARIO" NavigateUrl="~/Help/MSAFactura.chm" />
                                                         </Items>
                                                     </dx:MenuItem>
                                                     <dx:MenuItem Text="CONFIGURACIÓN">
