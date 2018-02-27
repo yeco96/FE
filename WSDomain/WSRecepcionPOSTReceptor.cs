@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace WSDomain
 {
-    [Table("ws_recepcion_documento_receptor")] 
+    [Table("ws_recepcion_xml_documento")] 
     public class WSRecepcionPOSTReceptor
     {
         [Key]

@@ -11,7 +11,7 @@ namespace XMLDomain
 {
 
 
-    [Table("ws_resumen_xml_receptor")]
+    [Table("ws_resumen_xml_factura")]
     public class ResumenFacturaReceptor
     {
 

@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -97,6 +98,7 @@ namespace Web.Pages.Facturacion
                 }
                 else
                 {
+                    Session["receptor.tipoIdentificacion"] = "99";
                     txtNumCedReceptor.Text = EncondeXML.buscarValorEtiquetaXML("Receptor", "IdentificacionExtranjero", xml);
 
                 }
@@ -149,7 +151,8 @@ namespace Web.Pages.Facturacion
 
                 //Habilitar solo cuando funcione el servicio
                 string responsePost = await Services.enviarMensajeReceptor(xml, elEmisor, Session["receptor.tipoIdentificacion"].ToString());
-               
+                this.guardarDocumentoReceptor();
+
                 if (responsePost.Equals("Success"))
                 {
                     this.alertMessages.Attributes["class"] = "alert alert-info";
@@ -188,85 +191,79 @@ namespace Web.Pages.Facturacion
         }
 
 
-        public void guardarDocumento()
+        public void guardarDocumentoReceptor()
         {
             using (var conexion = new DataModelFE())
             {
                 //Se guardan los datos en la tabla de ws_resumen_xml_receptor
                 string xmlr = Session["xmlFileValidar"].ToString();
-                ResumenFacturaReceptor datos = new ResumenFacturaReceptor();
                 DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xmlr);
+                ResumenFacturaReceptor datos = conexion.ResumenFacturaReceptor.Find(documento.clave);
 
-                datos.clave = documento.clave;
-                datos.tipoCambio = documento.resumenFactura.tipoCambio;
-                datos.codigoMoneda = documento.resumenFactura.codigoMoneda;
-                datos.totalServGravados = documento.resumenFactura.totalServGravados;
-                datos.totalServExentos = documento.resumenFactura.totalServExentos;
-                datos.totalMercanciasGravadas = documento.resumenFactura.totalMercanciasGravadas;
-                datos.totalMercanciasExentas = documento.resumenFactura.totalMercanciasExentas;
-                datos.totalGravado = documento.resumenFactura.totalGravado;
-                datos.totalExento = documento.resumenFactura.totalExento;
-                datos.totalVenta = documento.resumenFactura.totalVenta;
-                datos.totalDescuentos = documento.resumenFactura.totalDescuentos;
-                datos.totalVentaNeta = documento.resumenFactura.totalVentaNeta;
-                datos.totalImpuesto = documento.resumenFactura.totalImpuesto;
-                datos.totalComprobante = documento.resumenFactura.totalComprobante;
+                if (datos == null)
+                {
+                    datos = new ResumenFacturaReceptor();
+                    datos.clave = documento.clave;
+                    datos.tipoCambio = documento.resumenFactura.tipoCambio;
+                    datos.codigoMoneda = documento.resumenFactura.codigoMoneda;
+                    datos.totalServGravados = documento.resumenFactura.totalServGravados;
+                    datos.totalServExentos = documento.resumenFactura.totalServExentos;
+                    datos.totalMercanciasGravadas = documento.resumenFactura.totalMercanciasGravadas;
+                    datos.totalMercanciasExentas = documento.resumenFactura.totalMercanciasExentas;
+                    datos.totalGravado = documento.resumenFactura.totalGravado;
+                    datos.totalExento = documento.resumenFactura.totalExento;
+                    datos.totalVenta = documento.resumenFactura.totalVenta;
+                    datos.totalDescuentos = documento.resumenFactura.totalDescuentos;
+                    datos.totalVentaNeta = documento.resumenFactura.totalVentaNeta;
+                    datos.totalImpuesto = documento.resumenFactura.totalImpuesto;
+                    datos.totalComprobante = documento.resumenFactura.totalComprobante;
+                    conexion.ResumenFacturaReceptor.Add(datos);
 
-                conexion.ResumenFacturaReceptor.Add(datos);
+                    //Guardar la información en ws_recepcion_documento_receptor
+                    WSRecepcionPOSTReceptor datosReceptor = new WSRecepcionPOSTReceptor();
+                    datosReceptor.clave = datos.clave;
+                    //Emisor
+                    string emisorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Emisor", "Identificacion", xmlr);
+                    datosReceptor.emisorIdentificacion = emisorIdentificacion.Substring(2);
+                    datosReceptor.emisorTipo = emisorIdentificacion.Substring(0, 2);
+                    //Receptor
+                    string receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xmlr);
+                    if (!string.IsNullOrWhiteSpace(receptorIdentificacion))
+                    {
+                        datosReceptor.receptorIdentificacion = receptorIdentificacion.Substring(2);
+                        datosReceptor.receptorTipo = receptorIdentificacion.Substring(0, 2);
+                    }
+                    else
+                    {
+                        datosReceptor.receptorTipo = "99";
+                        datosReceptor.receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "IdentificacionExtranjero", xmlr);
+                    }
+                    //Comprobante XML
+                    datosReceptor.comprobanteXml = EncodeXML.EncondeXML.base64Encode(xmlr);
 
-                //Guardar la información en ws_recepcion_documento_receptor
-                //506 080118 000 603540974 00100001010000000019 1 88888888
-                WSRecepcionPOSTReceptor datosReceptor = new WSRecepcionPOSTReceptor();
-                datosReceptor.clave = datos.clave;
+                    //Auditoría
+                    datosReceptor.usuarioCreacion = Session["usuario"].ToString();
+                    datosReceptor.fechaCreacion = Date.DateTimeNow();
 
-                //Emisor
-                string emisorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Emisor", "Identificacion", xmlr);
-                datosReceptor.emisorIdentificacion = emisorIdentificacion.Substring(2);
-                datosReceptor.emisorTipo = emisorIdentificacion.Substring(0, 2);
+                    //Valores de la tabla
+                    datosReceptor.montoTotalFactura = decimal.Parse(this.txtTotalFactura.Text);
+                    datosReceptor.montoTotalImpuesto = decimal.Parse(this.txtMontoTotalImpuesto.Text);
+                    datosReceptor.tipoDocumento = datos.clave.Substring(29, 2);
 
-                //Receptor
-                string ReceptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xmlr);
-                datosReceptor.receptorIdentificacion = ReceptorIdentificacion.Substring(2);
-                datosReceptor.receptorTipo = ReceptorIdentificacion.Substring(0, 2);
+                    //Verificar si este dato es el correcto
+                    datosReceptor.mensaje = this.txtDetalleMensaje.Text;
+                    datosReceptor.fecha = DateTime.ParseExact(documento.fechaEmision.Replace("-06:00", ""), "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture);
 
-                //Comprobante XML
-                datosReceptor.comprobanteXml = EncodeXML.EncondeXML.base64Encode(xmlr);
-
-                //Auditoría
-                datosReceptor.usuarioCreacion = Session["usuario"].ToString();
-                datosReceptor.fechaCreacion = Date.DateTimeNow();
-
-                //Valores de la tabla
-                datosReceptor.montoTotalFactura = decimal.Parse(txtTotalFactura.Text);
-                datosReceptor.montoTotalImpuesto = decimal.Parse(txtMontoTotalImpuesto.Text);
-                datosReceptor.tipoDocumento = datos.clave.Substring(29, 2);
-
-                //Verificar si este dato es el correcto
-                datosReceptor.mensaje = txtDetalleMensaje.Text;
-
-
-
-                //datosReceptor.fecha = "";
-
-                //Datos Hacienda
-
-                string respuestaJSON = datosReceptor.clave;
-
-                //WSRecepcionGET respuesta = JsonConvert.DeserializeObject<WSRecepcionGET>(respuestaJSON);
-                //string respuestaXML = EncodeXML.EncondeXML.base64Decode(respuesta.respuestaXml);
-                //MensajeHacienda mensajeHacienda = new MensajeHacienda(respuestaXML);
-
-                //using (var conexionWS = new DataModelFE())
-                //{
-                //    WSRecepcionPOST datoHacienda = conexionWS.WSRecepcionPOST.Find(mensajeHacienda.clave);
-                //    datoHacienda.mensaje = mensajeHacienda.mensajeDetalle;
-                //    datoHacienda.indEstado = mensajeHacienda.mensaje;
-                //    datosReceptor.indEstado = datoHacienda.indEstado;
-                //    datosReceptor.mensaje = datoHacienda.mensaje;
-                //}
-
-                conexion.WSRecepcionPOSTReceptor.Add(datosReceptor);
-                conexion.SaveChanges();
+                    //Datos Hacienda
+                    using (var conexionWS = new DataModelFE())
+                    {
+                        WSRecepcionPOST datoHacienda = conexionWS.WSRecepcionPOST.Find(datosReceptor.clave);
+                        datosReceptor.indEstado = datoHacienda.indEstado;
+                        datosReceptor.mensaje = datoHacienda.mensaje;
+                    }
+                    conexion.WSRecepcionPOSTReceptor.Add(datosReceptor);
+                    conexion.SaveChanges();
+                }
  
             }
         }
