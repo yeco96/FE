@@ -45,7 +45,7 @@
             </tr>
         </table>
         *&nbsp;&nbsp; Si cuenta con un dominio propio consulte con su proveedor de hosting<br />
-        ** La configuración del correo es adicional, en caso no de poseer alguna configuración, la salida de correos será de fe@msasoft.net <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
+        ** La configuración del correo es adicional, en caso no de poseer alguna configuración, la salida de correos será de fe@msasoft.net. <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
             Width="100%" EnableTheming="True" KeyFieldName="codigo" Theme="Moderno" 
             OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize"
              
