@@ -11,7 +11,41 @@
     </section>
     <div class="borde_redondo_tabla">
 
-        <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
+        Datos para la configuración de los correos más usuales:<br />
+        <table class="w-50" style="width: 29%">
+            <tr>
+                <td class="dxeTextBoxDefaultWidthSys" style="width: 187px; text-align: center; color: #FFFFFF; background-color: #0000CC"><strong><em>Proveedor de Servicio</em></strong></td>
+                <td class="text-center" style="color: #FFFFFF; width: 107px; background-color: #0000CC"><strong><em>Puerto</em></strong></td>
+                <td class="text-center" style="width: 147px; color: #FFFFFF; background-color: #0000CC"><strong><em>Servidor</em></strong></td>
+                <td class="text-center" style="color: #FFFFFF; width: 164px; background-color: #0000CC"><strong><em>SSL</em></strong></td>
+            </tr>
+            <tr>
+                <td class="dxeTextBoxDefaultWidthSys" style="width: 187px"><strong>Gmail</strong></td>
+                <td class="text-center" style="width: 107px">995</td>
+                <td class="text-center" style="width: 147px"><span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">smtp.gmail.com</span></td>
+                <td class="text-center" style="width: 164px">Si</td>
+            </tr>
+            <tr>
+                <td class="dxeTextBoxDefaultWidthSys" style="width: 187px"><strong>Yahoo</strong></td>
+                <td class="text-center" style="width: 107px">465</td>
+                <td class="text-center" style="width: 147px"><span style="box-sizing: border-box; color: rgb(16, 16, 16); font-family: &quot;Graphik Web&quot;, HelveticaNeueBold, HelveticaNeue-Bold, &quot;Helvetica Neue Bold&quot;, HelveticaBold, Helvetica-Bold, &quot;Helvetica Bold&quot;, HelveticaNeue, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><span class="skimlinks-unlinked" style="box-sizing: border-box;">smtp.mail.yahoo.com</span></span></td>
+                <td class="text-center" style="width: 164px">Si</td>
+            </tr>
+            <tr>
+                <td class="dxeTextBoxDefaultWidthSys" style="width: 187px"><strong>Microsoft (Office 365)</strong></td>
+                <td class="text-center" style="width: 107px">587</td>
+                <td class="text-center" style="width: 147px">smtp.office365.com</td>
+                <td class="text-center" style="width: 164px">Si</td>
+            </tr>
+            <tr>
+                <td class="dxeTextBoxDefaultWidthSys" style="width: 187px"><strong>Hotmail</strong></td>
+                <td class="text-center" style="width: 107px">25</td>
+                <td class="text-center" style="width: 147px"><span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">smtp.live.com</span></td>
+                <td class="text-center" style="width: 164px">Si</td>
+            </tr>
+        </table>
+        *&nbsp;&nbsp; Si cuenta con un dominio propio consulte con su proveedor de hosting<br />
+        ** La configuración del correo es adicional, en caso no de poseer alguna configuración, la salida de correos será de fe@msasoft.net <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
             Width="100%" EnableTheming="True" KeyFieldName="codigo" Theme="Moderno" 
             OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize"
              
