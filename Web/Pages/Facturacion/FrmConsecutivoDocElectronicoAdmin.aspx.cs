@@ -268,7 +268,7 @@ namespace Web.Pages.Facturacion
         {
             if (this.ASPxGridView1.IsNewRowEditing)
             {
-                if (e.Column.FieldName == "emisor") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; e.Editor.Value = Session["usuario"].ToString(); }
+                
             }
             else
             {
