@@ -312,6 +312,11 @@ namespace Web.Pages.Catalogos
             if (this.ASPxGridView1.IsNewRowEditing)
             {
                 if (e.Column.FieldName == "id") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; e.Editor.Value = 0; }
+                if (e.Column.FieldName == "estado")
+                {
+                    e.Editor.Value = Estado.ACTIVO.ToString();
+                }
+                
             }
             else
             {

@@ -55,7 +55,6 @@
     <Reference Include="DevExpress.SpellChecker.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.ASPxHtmlEditor.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Web.ASPxRichEdit.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.ASPxScheduler.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.ASPxSpellChecker.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.Resources.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -99,18 +98,6 @@
     </Reference>
     <Reference Include="Quartz, Version=3.0.2.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
       <HintPath>..\packages\Quartz.3.0.2\lib\net452\Quartz.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Spire.License, Version=1.3.4.40, Culture=neutral, PublicKeyToken=b1144360237c8b3f, processorArchitecture=MSIL">
-      <HintPath>..\packages\FreeSpire.PDFViewer.2.4.35\lib\net40\Spire.License.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Spire.Pdf, Version=3.2.86.60040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
-      <HintPath>..\packages\FreeSpire.PDFViewer.2.4.35\lib\net40\Spire.Pdf.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Spire.PdfViewer.Forms, Version=2.4.35.60340, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
-      <HintPath>..\packages\FreeSpire.PDFViewer.2.4.35\lib\net40\Spire.PdfViewer.Forms.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -209,7 +196,6 @@
     <Content Include="Content\site.css" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Help\FrmManualAyuda.aspx" />
     <Content Include="Pages\Administracion\FrmPlan.aspx" />
     <Content Include="Pages\Administracion\FrmPlanAdmin.aspx" />
     <Content Include="Pages\BlogPost.aspx" />
@@ -251,6 +237,7 @@
     <Content Include="Pages\Facturacion\FrmEmisor.aspx" />
     <Content Include="Pages\Facturacion\FrmGenerarDocumento.aspx" />
     <Content Include="Pages\Facturacion\FrmValidarXML.aspx" />
+    <Content Include="Pages\Manual.aspx" />
     <Content Include="Pages\PlanesDoc.aspx" />
     <Content Include="Pages\Home.aspx" />
     <Content Include="Pages\Recepcion\FrmRecepcionEmail.aspx" />
@@ -272,10 +259,8 @@
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\site.js" />
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
-    <Content Include="App_Data\180207081824.psc" />
     <Content Include="LayoutError.master" />
-    <Content Include="Help\MSAFactura.chm" />
-    <Content Include="Help\MANUAL DE AYUDA MSAFACTURA.pdf" />
+    <Content Include="Help\Manual_MSA_Facturtacion_1.0.pdf" />
     <None Include="Properties\PublishProfiles\FE.pubxml" />
     <None Include="Service References\ServiceReferenceBCCR\wsIndicadoresEconomicos.disco" />
     <None Include="Service References\ServiceReferenceBCCR\configuration91.svcinfo" />
@@ -327,13 +312,6 @@
     <Compile Include="Enum\Enumeraciones.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Help\FrmManualAyuda.aspx.cs">
-      <DependentUpon>FrmManualAyuda.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Help\FrmManualAyuda.aspx.designer.cs">
-      <DependentUpon>FrmManualAyuda.aspx</DependentUpon>
     </Compile>
     <Compile Include="LayoutError.master.cs">
       <DependentUpon>LayoutError.master</DependentUpon>
@@ -661,6 +639,13 @@
     </Compile>
     <Compile Include="Pages\Facturacion\FrmValidarXML.aspx.designer.cs">
       <DependentUpon>FrmValidarXML.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Manual.aspx.cs">
+      <DependentUpon>Manual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Manual.aspx.designer.cs">
+      <DependentUpon>Manual.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\PlanesDoc.aspx.cs">
       <DependentUpon>PlanesDoc.aspx</DependentUpon>

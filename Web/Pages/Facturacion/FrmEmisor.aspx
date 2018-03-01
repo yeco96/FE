@@ -57,7 +57,7 @@
                 <dx:GridViewDataBinaryImageColumn Caption="Llave Criptográfica" FieldName="llaveCriptografica" VisibleIndex="20" Visible="false" EditFormSettings-Visible="True"
                     PropertiesBinaryImage-ValidationSettings-RequiredField-IsRequired="true" PropertiesBinaryImage-ValidationSettings-RequiredField-ErrorText="Requerido">
                     <EditItemTemplate>
-                        <dx:ASPxUploadControl ID="fileUpload" OnFileUploadComplete="DocumentsUploadControl_FileUploadComplete" ShowUploadButton="false" runat="server">
+                        <dx:ASPxUploadControl ID="fileUpload" OnFileUploadComplete="DocumentsUploadControl_FileUploadComplete" ShowUploadButton="true" runat="server">
                             <ValidationSettings
                                 AllowedFileExtensions=".p12"
                                 MaxFileSize="512304">

@@ -113,6 +113,7 @@ namespace Web.Models.Facturacion
         public EmisorReceptorIMEC()
         {
             this.estado = Estado.ACTIVO.ToString();
+            this.consecutivo = 1;
         }
 
         /// <summary>

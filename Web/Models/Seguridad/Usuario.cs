@@ -78,6 +78,8 @@ namespace Class.Seguridad
         /// </summary>
         public Usuario()
         {
+            this.estado = Estado.ACTIVO.ToString();
+            this.intentos = 0;
         }
 
         public override string ToString()

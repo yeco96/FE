@@ -117,7 +117,7 @@ namespace Web.Pages.Catalogos
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
                     dato.idioma = e.NewValues["idioma"] != null ? e.NewValues["idioma"].ToString().ToUpper() : null;
-                    dato.leyenda =e.NewValues["leyenda"].ToString().ToUpper() ;
+                    dato.leyenda = e.NewValues["leyenda"] != null ? e.NewValues["leyenda"].ToString().ToUpper() : null;
 
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioCreacion = Session["usuario"].ToString();
@@ -182,7 +182,7 @@ namespace Web.Pages.Catalogos
                     //busca el objeto 
                     dato = conexion.Empresa.Find(dato.codigo);
                     dato.idioma = e.NewValues["idioma"] != null ? e.NewValues["idioma"].ToString().ToUpper() : null;
-                    dato.leyenda = e.NewValues["leyenda"].ToString().ToUpper();
+                    dato.leyenda = e.NewValues["leyenda"] != null ? e.NewValues["leyenda"].ToString().ToUpper() : null;
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioModificacion = Session["usuario"].ToString();
@@ -287,7 +287,13 @@ namespace Web.Pages.Catalogos
         /// <param name="e"></param>
         protected void ASPxGridView1_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
         {
-            
+            if (this.ASPxGridView1.IsNewRowEditing)
+            {
+                if (e.Column.FieldName == "estado")
+                {
+                    e.Editor.Value = Estado.ACTIVO.ToString();
+                }
+            }
         }
 
         // <summary>

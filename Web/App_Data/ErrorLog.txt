@@ -4775,37 +4775,30 @@ Stack Trace:
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
-********** 27/02/2018 04:30:43 p.m. **********
-Inner Exception Type: System.Web.HttpParseException
-Inner Exception: El contenido literal ('<!-- Es para mostrar el chm') no está permitido en 'DevExpress.Web.MenuItemCollection'.
-Inner Source: System.Web
+********** 28/2/2018 17:59:12 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
 Inner Stack Trace: 
-   en System.Web.UI.TemplateParser.ProcessException(Exception ex)
-   en System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
-   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
-Exception Type: System.Web.HttpParseException
-Exception: El contenido literal ('<!-- Es para mostrar el chm') no está permitido en 'DevExpress.Web.MenuItemCollection'.
+   en Web.Pages.Catalogos.FrmEmisor.Page_Load(Object sender, EventArgs e) en C:\Users\SalamancaPC\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmEmisor.aspx.cs:línea 52
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
 Source: Generic Error Page
 Stack Trace: 
-   en System.Web.UI.TemplateParser.ProcessException(Exception ex)
-   en System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
-   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
-   en System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)
-   en System.Web.UI.TemplateParser.ParseInternal()
-   en System.Web.UI.TemplateParser.Parse()
-   en System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()
-   en System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
-   en System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
-   en System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
-   en System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
-   en System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
-   en System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
-   en System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
-   en System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
-   en System.Web.Routing.PageRouteHandler.GetHttpHandler(RequestContext requestContext)
-   en System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
-   en System.Web.Routing.UrlRoutingModule.OnApplicationPostResolveRequestCache(Object sender, EventArgs e)
-   en System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmemisor_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\cecb3aef\1d232269\App_Web_xohvjlba.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 

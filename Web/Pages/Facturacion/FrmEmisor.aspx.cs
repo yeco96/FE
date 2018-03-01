@@ -1,4 +1,5 @@
-﻿using Class.Utilidades;
+﻿using Class.Seguridad;
+using Class.Utilidades;
 using DevExpress.Export;
 using DevExpress.Web;
 using DevExpress.XtraPrinting;
@@ -40,6 +41,7 @@ namespace Web.Pages.Catalogos
             {
                 if (!IsCallback && !IsPostBack)
                 {
+                    Session["LlaveCriptograficap12"] = null;
                     Session["entro"] = "NO";
                     this.loadComboBox();
                 }
@@ -195,7 +197,7 @@ namespace Web.Pages.Catalogos
                     dato.fechaModificacion = Date.DateTimeNow();
 
                     //modifica objeto 
-                    conexion.Entry(dato).State = EntityState.Modified;
+                    conexion.Entry(dato).State = EntityState.Modified; 
                     conexion.SaveChanges();
 
                     Session["elEmisor"] = dato;

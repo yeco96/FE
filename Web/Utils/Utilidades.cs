@@ -227,7 +227,7 @@ namespace Class.Utilidades
                         SmtpClient smtp = new SmtpClient();
                         correo.From = new MailAddress(mailConfig.user, alias);
                         correo.To.Add(destinatario);
-                        correo.Subject = String.Format("{0}", asunto);
+                        correo.Subject = String.Format("SPAM-LOW: {0}", asunto);
                         correo.Body = mensaje;
 
                         if (xml != null)
@@ -296,7 +296,7 @@ namespace Class.Utilidades
                     SmtpClient smtp = new SmtpClient();
                     correo.From = new MailAddress(mailConfig.user, alias);
                     correo.To.Add(destinatario);
-                    correo.Subject = String.Format("{0}", asunto);
+                    correo.Subject = String.Format("SPAM-LOW: {0}", asunto);
                     correo.Body = mensaje;
                     correo.Priority = MailPriority.Normal;
                     correo.IsBodyHtml = true;

@@ -81,11 +81,11 @@
 
                                                     <dx:MenuItem Text="DOCUMENTOS">
                                                         <Items>
-                                                            <dx:MenuItem Text="ADMINISTRACIÓN" NavigateUrl="~/Pages/Facturacion/FrmAdministracionDocElectronicoAdmin" />
                                                             <dx:MenuItem Text="CONFIRMAR XML" NavigateUrl="~/Pages/Facturacion/FrmValidarXML" />
                                                             <dx:MenuItem Text="CONSULTA" NavigateUrl="~/Pages/Facturacion/FrmConsultaResumen" />
                                                             <dx:MenuItem Text="FACTURAR" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumento" />
-                                                            <dx:MenuItem Text="MANUAL DE USUARIO" NavigateUrl="~/Help/MSAFactura.chm" />
+                                                            <dx:MenuItem Text="HISTÓRICO" NavigateUrl="~/Pages/Facturacion/FrmAdministracionDocElectronicoAdmin" />
+                                                            <dx:MenuItem Text="MANUAL DE USUARIO" NavigateUrl="~/Help/Manual_MSA_Facturtacion_1.0.pdf" />
                                                         </Items>
                                                     </dx:MenuItem>
                                                     <dx:MenuItem Text="CONFIGURACIÓN">
@@ -127,7 +127,11 @@
                                                             </dx:MenuItem>
                                                         </Items>
                                                     </dx:MenuItem>
-                                                    <dx:MenuItem Text="CONTACTO" NavigateUrl="~/Pages/Contacts" />
+                                                    <dx:MenuItem Text="CONTACTO" NavigateUrl="~/Pages/Contacts" >
+                                                        <Items>
+                                                            <dx:MenuItem Text="MANUAL" NavigateUrl="~/Pages/Manual" />
+                                                        </Items>
+                                                    </dx:MenuItem>
 
                                                 </Items>
 
@@ -143,9 +147,10 @@
 
                                                     <dx:MenuItem Text="DOCUMENTOS">
                                                         <Items>
-                                                            <dx:MenuItem Text="ADMINISTRACIÓN" NavigateUrl="~/Pages/Facturacion/FrmAdministracionDocElectronico" />
+                                                           
                                                             <dx:MenuItem Text="CONFIRMAR XML" NavigateUrl="~/Pages/Facturacion/FrmValidarXML" />
                                                             <dx:MenuItem Text="CONSULTA" NavigateUrl="~/Pages/Facturacion/FrmConsultaResumen" />
+                                                            <dx:MenuItem Text="HISTÓRICO" NavigateUrl="~/Pages/Facturacion/FrmAdministracionDocElectronico" />
                                                             <dx:MenuItem Text="FACTURAR" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumento" />
 
                                                         </Items>
@@ -171,7 +176,11 @@
                                                             </dx:MenuItem>
                                                         </Items>
                                                     </dx:MenuItem>
-                                                    <dx:MenuItem Text="CONTACTO" NavigateUrl="~/Pages/Contacts" />
+                                                    <dx:MenuItem Text="CONTACTO" NavigateUrl="~/Pages/Contacts" >
+                                                        <Items>
+                                                            <dx:MenuItem Text="MANUAL" NavigateUrl="~/Pages/Manual" />
+                                                        </Items>
+                                                    </dx:MenuItem>
                                                 </Items>
                                             </dx:ASPxMenu>
 
@@ -184,7 +193,11 @@
                                                     <dx:MenuItem Text="INICIO" NavigateUrl="~/Pages/Home" />
                                                     <dx:MenuItem Text="BLOG" NavigateUrl="~/Pages/BlogTimeline" Visible="false" />
                                                     <dx:MenuItem Text="LOGIN" NavigateUrl="~/Pages/Login" />
-                                                    <dx:MenuItem Text="CONTACTO" NavigateUrl="~/Pages/Contacts" />
+                                                    <dx:MenuItem Text="CONTACTO" NavigateUrl="~/Pages/Contacts" >
+                                                        <Items>
+                                                            <dx:MenuItem Text="MANUAL" NavigateUrl="~/Pages/Manual" />
+                                                        </Items>
+                                                    </dx:MenuItem>
                                                 </Items>
                                             </dx:ASPxMenu>
 
