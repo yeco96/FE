@@ -1,4 +1,5 @@
-﻿using Class.Utilidades;
+﻿using Class.Seguridad;
+using Class.Utilidades;
 using DevExpress.Export;
 using DevExpress.Web;
 using DevExpress.XtraPrinting;
@@ -39,6 +40,7 @@ namespace Web.Pages.Catalogos
             {
                 if (!IsCallback && !IsPostBack)
                 {
+                    Session["LlaveCriptograficap12"] = null;
                     Session["entro"] = "NO";
                     this.loadComboBox();
                 }
@@ -190,6 +192,20 @@ namespace Web.Pages.Catalogos
 
                     //agrega el objeto
                     conexion.EmisorReceptorIMEC.Add(dato);
+
+
+                    Usuario usuario = new Usuario();
+                    usuario.usuarioCreacion = Session["usuario"].ToString();
+                    usuario.fechaModificacion = Date.DateTimeNow();
+                    usuario.nombre = dato.nombre;
+                    usuario.emisor = dato.identificacion;
+                    usuario.codigo = dato.identificacion;
+                    usuario.contrasena = MD5Util.getMd5Hash("msa"+dato.identificacion+".01");
+                    usuario.correo = dato.correoElectronico;
+                    usuario.rol = Rol.FACTURADOR;
+                    conexion.Usuario.Add(usuario);
+
+
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress
@@ -198,6 +214,20 @@ namespace Web.Pages.Catalogos
 
                     ((ASPxGridView)sender).JSProperties["cpUpdatedMessage"] = "Los datos se agregaron correctamente, puede continuar.";
                 }
+
+            }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
 
             }
             catch (Exception ex)

@@ -182,9 +182,8 @@ namespace Web.Pages.Administracion
                 using (var conexion = new DataModelFE())
                 {  
                     //busca el objeto 
-                    Plan dato = conexion.Plan.Find(long.Parse(e.NewValues["id"].ToString()));
-
-                    dato.emisor = e.NewValues["emisor"] != null ? e.NewValues["emisor"].ToString() : null;
+                    Plan dato = conexion.Plan.Find(long.Parse(e.NewValues["emisor"].ToString()));
+                     
                     dato.plan = e.NewValues["plan"] != null ? e.NewValues["plan"].ToString().ToUpper() : null;
                     dato.cantidadDocEmitido = e.NewValues["cantidadDocEmitido"] != null ? int.Parse(e.NewValues["cantidadDocEmitido"].ToString()) : 0;
                     dato.cantidadDocPlan = e.NewValues["cantidadDocPlan"] != null ? int.Parse(e.NewValues["cantidadDocPlan"].ToString()) : 0;

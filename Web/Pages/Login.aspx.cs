@@ -51,7 +51,7 @@ namespace Web.Pages
                                 this.alertMessages.Attributes["class"] = "alert alert-danger";
                                 return;
                             }
-
+                            Session.RemoveAll();
                             EmisorReceptorIMEC emisor = conexion.EmisorReceptorIMEC.Find(usuario.emisor);
                             Session["usuario"] = usuario.codigo;
                             Session["elUsuario"] = usuario;

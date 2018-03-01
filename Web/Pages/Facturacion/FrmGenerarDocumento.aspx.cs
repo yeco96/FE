@@ -63,7 +63,8 @@ namespace Web.Pages.Facturacion
 
                     using (var conexion = new DataModelFE())
                     {
-                        foreach (var producto in conexion.Producto.Where(x=> x.estado==Estado.ACTIVO.ToString() && x.cargaAutFactura==Confirmacion.SI.ToString()))
+                        string emisor = Session["emisor"].ToString();
+                        foreach (var producto in conexion.Producto.Where(x=> x.estado==Estado.ACTIVO.ToString() && x.cargaAutFactura==Confirmacion.SI.ToString() && x.emisor==emisor))
                         {
                             LineaDetalle dato = new LineaDetalle();
                             dato.numeroLinea = this.detalleServicio.lineaDetalle.Count+1;
@@ -158,9 +159,7 @@ namespace Web.Pages.Facturacion
             {
 
                 /* EMISOR */
-                string elEmisor =Session["emisor"].ToString();
-                EmisorReceptorIMEC emisor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == elEmisor).FirstOrDefault();
-                
+                string emisor =Session["emisor"].ToString();
 
                 /* IDENTIFICACION TIPO */
                 foreach (var item in conexion.TipoIdentificacion.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
@@ -217,7 +216,7 @@ namespace Web.Pages.Facturacion
                 /* PRODUCTO */
                 GridViewDataComboBoxColumn comboProducto = this.ASPxGridView1.Columns["producto"] as GridViewDataComboBoxColumn;
                 comboProducto.PropertiesComboBox.Items.Clear();
-                foreach (var item in conexion.Producto.Where(x => x.estado == Estado.ACTIVO.ToString()).Where(x => x.emisor == elEmisor).ToList())
+                foreach (var item in conexion.Producto.Where(x => x.estado == Estado.ACTIVO.ToString()).Where(x => x.emisor == emisor).ToList())
                 {
                     comboProducto.PropertiesComboBox.Items.Add(item.ToString(), item.codigo);
                 }
@@ -225,7 +224,7 @@ namespace Web.Pages.Facturacion
 
 
                 /* SUCURSAL CAJA */
-                foreach (var item in conexion.ConsecutivoDocElectronico.Where(x => x.emisor == elEmisor).Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                foreach (var item in conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor).Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
                 {
                     this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}", item.sucursal, item.caja));
                 }
@@ -667,6 +666,15 @@ namespace Web.Pages.Facturacion
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
                     this.alertMessages.InnerText = "Debe agregar almenos una linea de detalle a la factura";
                     return;
+                }else
+                {
+                    decimal total = detalle.lineaDetalle.Sum(x => x.montoTotalLinea);
+                    if (total <= 0)
+                    {
+                        this.alertMessages.Attributes["class"] = "alert alert-danger";
+                        this.alertMessages.InnerText = "No se puede realizar una factura sin montos";
+                        return;
+                    }
                 }
                
                 if (string.IsNullOrWhiteSpace(this.txtReceptorNombre.Text) && string.IsNullOrWhiteSpace(this.txtReceptorNombreComercial.Text))
@@ -805,7 +813,7 @@ namespace Web.Pages.Facturacion
 
                     consecutivo.consecutivo += 1;
                     conexion.Entry(consecutivo).State = EntityState.Modified;
-                    conexion.SaveChanges();
+                    
                     string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
                     string xmlSigned = FirmaXML.getXMLFirmadoWeb(xml, elEmisor.llaveCriptografica, elEmisor.claveLlaveCriptografica);
                     string responsePost = await Services.enviarDocumentoElectronico(false, dato, elEmisor, this.cmbTipoDocumento.Value.ToString(), Session["usuario"].ToString());
@@ -832,6 +840,8 @@ namespace Web.Pages.Facturacion
                         this.alertMessages.Attributes["class"] = "alert alert-warning";
                         this.alertMessages.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
                     }
+
+                    conexion.SaveChanges();
 
                 }
             }
@@ -885,7 +895,10 @@ namespace Web.Pages.Facturacion
                         receptor.telefono = this.txtReceptorTelefono.Value.ToString();
                     }
 
-                    receptor.correoElectronico = this.txtReceptorCorreo.Text;
+                    if (!string.IsNullOrWhiteSpace(this.txtReceptorCorreo.Text))
+                    {
+                        receptor.correoElectronico = this.txtReceptorCorreo.Text;
+                    }
 
                     if (this.cmbReceptorFaxCod.Value != null)
                     {
@@ -909,7 +922,10 @@ namespace Web.Pages.Facturacion
                     {
                         receptor.barrio = this.cmbReceptorBarrio.Value.ToString();
                     }
-                    receptor.otraSena = this.txtReceptorOtraSenas.Text;
+                    if (!string.IsNullOrWhiteSpace(this.txtReceptorOtraSenas.Text))
+                    {
+                        receptor.otraSena = this.txtReceptorOtraSenas.Text;
+                    }
 
 
             }

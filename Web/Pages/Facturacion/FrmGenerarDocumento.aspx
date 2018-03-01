@@ -13,7 +13,7 @@
     <asp:UpdatePanel ID="UpdatePanel" runat="server" UpdateMode="Always" OnUnload="UpdatePanel_Unload">
         <ContentTemplate>
             <div id="alertMessages" role="alert" runat="server" />
-            <dx:ASPxPageControl ID="documento" Width="100%" runat="server" ActiveTabIndex="2" EnableHierarchyRecreation="True">
+            <dx:ASPxPageControl ID="documento" Width="100%" runat="server" ActiveTabIndex="0" EnableHierarchyRecreation="True">
                 <TabPages> 
                     <dx:TabPage Text="Receptor">
                         <ContentCollection>
