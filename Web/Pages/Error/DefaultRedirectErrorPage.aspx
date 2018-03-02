@@ -3,8 +3,13 @@
 
     
 <div>
-    <h3>
-      Se presento un error, si desconoce la fuente contacte al administrador  del sistema Tel.88729065.</h3>
+    <h5>
+      Se presento un error, si desconoce la fuente contacte al administrador  del sistema.</h5>
+    <ul>
+        <li>Si pasaron más de 5 minutos sin utilizar el sistema, su sesión venció, ingrese nuevamente.</li>
+        <li>Verifique su conexión a internet.</li>
+    </ul>
+
     <asp:Panel ID="InnerErrorPanel" runat="server" Visible="false">
       <p>
         Inner Error Message:<br />
