@@ -447,7 +447,7 @@
                                                 <dx:LayoutItem Caption="Plazo Crédito">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
-                                                            <dx:ASPxSpinEdit ID="txtPlazoCredito" runat="server" Width="100%" AutoResizeWithContainer="true"  AutoPostBack="true" MaxLength="2" Enabled="false"
+                                                            <dx:ASPxSpinEdit ID="txtPlazoCredito" runat="server" Width="100%" AutoResizeWithContainer="true"  MaxLength="2" Enabled="false"
                                                                 ValidationSettings-ErrorDisplayMode="ImageWithTooltip">
                                                                 <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
                                                                 </ValidationSettings>
@@ -482,9 +482,8 @@
                                                 <dx:LayoutItem Caption="Tipo Cambio">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
-                                                            <dx:ASPxTextBox ID="txtTipoCambio" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" Enabled="false" MaskSettings-Mask="###.0#" 
+                                                            <dx:ASPxTextBox ID="txtTipoCambio" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" Enabled="false" 
                                                                 ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido"  >
-                                                                <MaskSettings Mask="###.0#" />
                                                                 <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
                                                                     <RequiredField ErrorText="Requerido" IsRequired="True" />
                                                                 </ValidationSettings>

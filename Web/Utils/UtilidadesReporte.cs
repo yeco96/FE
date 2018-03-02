@@ -103,25 +103,32 @@ namespace Class.Utilidades
             {
                 mensaje += String.Format(" {0}", empresa.leyenda);
             }
-            mensaje = mensaje.Replace("Este comprobante fue procesado en el ambiente de pruebas, por lo cual no tiene validez para fines tributarios.", "");
+            //mensaje = mensaje.Replace("Este comprobante fue procesado en el ambiente de pruebas, por lo cual no tiene validez para fines tributarios.", "");
             impresion.leyenda = mensaje;
 
             using (var conexion = new DataModelFE())
             {
-                
-
                 if (empresa != null && "EN".Equals(empresa.idioma))
                 {
-                    mensaje = empresa.leyenda;
+                    impresion.leyenda = empresa.leyenda;
                     impresion.tipoDocumento = conexion.TipoDocumento.Find(dato.tipoDocumento).descripcionEN;
                     impresion.CondicionVenta = conexion.CondicionVenta.Find(dato.condicionVenta).descripcionEN;
                     impresion.MedioPago = conexion.MedioPago.Find(dato.medioPago).descripcionEN;
+
+                    if (impresion.CondicionVenta.Equals(CondicionVenta.CREDIT))
+                    {
+                        impresion.CondicionVenta += string.Format(" {0} DAYS", dato.plazoCredito);
+                    }
                 }
                 else
                 {
                     impresion.CondicionVenta = conexion.CondicionVenta.Find(dato.condicionVenta).descripcion;
                     impresion.MedioPago = conexion.MedioPago.Find(dato.medioPago).descripcion;
                     impresion.tipoDocumento = conexion.TipoDocumento.Find(dato.tipoDocumento).descripcion;
+                    if (impresion.CondicionVenta.Equals(CondicionVenta.CREDITO))
+                    {
+                        impresion.CondicionVenta += string.Format(" {0} DÍAS", dato.plazoCredito);
+                    }
                 }
             }
 
@@ -133,7 +140,12 @@ namespace Class.Utilidades
                 ImpresionDetalle detalle = new ImpresionDetalle();
                 detalle.cantidad = int.Parse(item.cantidad.ToString());
                 detalle.codigo = item.codigo.codigo;
-                detalle.descripcion = item.detalle;
+                if (empresa != null && "EN".Equals(empresa.idioma)) { 
+                    detalle.descripcion = string.Format("{0} {1}",item.detalle, impresion.fecha.ToString("yyyy-MM"));
+                }else
+                {
+                    detalle.descripcion =  item.detalle;
+                }
                 detalle.monto = item.precioUnitario;
 
                 impresion.detalles.Add(detalle);

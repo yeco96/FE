@@ -21,7 +21,7 @@ namespace Web.Models.Facturacion
 
         [Key]
         [MaxLength(12, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
-        [MinLength(9, ErrorMessage = "La propiedad {0} no puede tener menos de {1} elementos")]
+        [MinLength(1, ErrorMessage = "La propiedad {0} no puede tener menos de {1} elementos")]
         public string identificacion { set; get; }
 
         [MaxLength(80, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]

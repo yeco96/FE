@@ -13,6 +13,7 @@ namespace Web.Models.Catalogos
     {
 
         public static string CREDITO = "CRÉDITO";
+        public static string CREDIT = "CREDIT";
 
         [Key]
         [Required]
