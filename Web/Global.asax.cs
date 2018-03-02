@@ -46,7 +46,7 @@ namespace Web
         }
 
         void Application_Error(object sender, EventArgs e)
-        {
+        {/*
             if (sender.GetType() == typeof(ASPxGridView))
             {
                 if( ((ASPxGridView)sender).AppRelativeTemplateSourceDirectory.Contains("Catalogo"))
@@ -60,7 +60,8 @@ namespace Web
             else
             {
                 Server.Transfer("/Pages/Error/DefaultRedirectErrorPage.aspx");
-            }
+            }*/
+            Server.Transfer("/Pages/Error/DefaultRedirectErrorPage.aspx");
         }
 
         void Session_Start(object sender, EventArgs e)

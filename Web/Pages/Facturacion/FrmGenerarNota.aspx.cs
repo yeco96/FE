@@ -30,7 +30,10 @@ namespace Web.Pages.Facturacion
                 
                 Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
                 this.AsyncMode = true;
-
+                if (!Request.IsAuthenticated)
+                {
+                    Response.Redirect("~/Pages/Login.aspx");
+                }
                 if (!IsCallback && !IsPostBack)
                 {
                     this.cargarCombos();

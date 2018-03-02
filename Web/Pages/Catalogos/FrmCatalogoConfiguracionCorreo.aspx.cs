@@ -39,6 +39,10 @@ namespace Web.Pages.Catalogos
         {
             try
             {
+                if (!Request.IsAuthenticated)
+                {
+                    Response.Redirect("~/Pages/Login.aspx");
+                }
                 Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
                 if (!IsCallback && !IsPostBack)
                 {

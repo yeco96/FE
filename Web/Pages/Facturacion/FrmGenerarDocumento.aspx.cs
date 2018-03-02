@@ -46,6 +46,10 @@ namespace Web.Pages.Facturacion
             Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
             try
             {
+                if (!Request.IsAuthenticated)
+                {
+                    Response.Redirect("~/Pages/Login.aspx");
+                }
                 this.alertMessages.Attributes["class"]="";
                 this.alertMessages.InnerText = "";
                 this.AsyncMode = true;

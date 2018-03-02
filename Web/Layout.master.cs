@@ -38,7 +38,7 @@ namespace Web {
                 }
 
 
-                    Usuario usuario = null;
+                Usuario usuario = null;
                 if (Session["elUsuario"] !=null) {
                     usuario = (Usuario) Session["elUsuario"];
                 } 

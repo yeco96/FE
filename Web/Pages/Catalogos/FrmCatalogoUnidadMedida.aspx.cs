@@ -36,6 +36,10 @@ namespace Web.Pages.Catalogos
         {
             try
             {
+                if (!Request.IsAuthenticated)
+                {
+                    Response.Redirect("~/Pages/Login.aspx");
+                }
                 if (!IsCallback && !IsPostBack)
                 {
                     this.cargarCombos(); 

@@ -25,6 +25,10 @@ namespace Web.Pages.Facturacion
 
             try
             {
+                if (!Request.IsAuthenticated)
+                {
+                    Response.Redirect("~/Pages/Login.aspx");
+                }
                 if (!IsCallback && !IsPostBack)
                 {
                     this.txtFechaInicio.Date = DateTime.Today;

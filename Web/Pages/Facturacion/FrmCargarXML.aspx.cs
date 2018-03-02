@@ -35,6 +35,10 @@ namespace Web.Pages.Facturacion
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Request.IsAuthenticated)
+            {
+                Response.Redirect("~/Pages/Login.aspx");
+            }
             this.AsyncMode = true;
             this.loadHTML();
         }
