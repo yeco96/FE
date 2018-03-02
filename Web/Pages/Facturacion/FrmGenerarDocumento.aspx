@@ -43,12 +43,12 @@
                                                             <table>
                                                                 <tr>
                                                                     <td style="width: 90%;">
-                                                                       <dx:ASPxSpinEdit ID="txtReceptorIdentificacion" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
+                                                                       <dx:ASPxTextBox ID="txtReceptorIdentificacion" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
                                                                 ValidationSettings-RequiredField-IsRequired="false" ValidationSettings-RequiredField-ErrorText="Requerido" MaxLength="12" >
                                                                            <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
                                                                                <RequiredField ErrorText="Requerido" />
                                                                            </ValidationSettings>
-                                                                        </dx:ASPxSpinEdit>
+                                                                        </dx:ASPxTextBox>
                                                                     </td>
                                                                     <td style="width: 10%;"> 
                                                                        <dx:ASPxButton runat="server" ToolTip="Búscar" Image-AlternateText="Búscar" ID="btnBuscarReceptor" CssClass="imagen" CausesValidation="false" OnClick="btnBuscarReceptor_Click"  Image-Url="~/Content/Images/loadUser.png"   Image-Height="20px">
