@@ -128,6 +128,14 @@ namespace XMLDomain
              
             /*CLAVE RESUMEN*/
             resumenFactura.clave = clave;
+
+
+            /*OTROS*/
+            if (this.otros.otrosTextos!=null && this.otros.otrosTextos.Count == 0)
+            {
+                this.otros = null;
+            }
+
         }
 
     }

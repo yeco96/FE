@@ -319,10 +319,10 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             // xrLabel8
             // 
             this.xrLabel8.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(331F, 294.8749F);
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(367.4583F, 294.8749F);
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel8.SizeF = new System.Drawing.SizeF(145.4167F, 18F);
+            this.xrLabel8.SizeF = new System.Drawing.SizeF(108.9583F, 18F);
             this.xrLabel8.StyleName = "FieldCaption";
             this.xrLabel8.StylePriority.UseForeColor = false;
             this.xrLabel8.StylePriority.UseTextAlignment = false;
@@ -513,7 +513,7 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(0.833257F, 276.8751F);
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel6.SizeF = new System.Drawing.SizeF(330.1667F, 18.00003F);
+            this.xrLabel6.SizeF = new System.Drawing.SizeF(366.6251F, 18.00003F);
             this.xrLabel6.StyleName = "FieldCaption";
             this.xrLabel6.StylePriority.UseForeColor = false;
             this.xrLabel6.Text = "Mensaje: ";
@@ -538,10 +538,10 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             // xrLabel9
             // 
             this.xrLabel9.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(331F, 312.8751F);
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(367.4583F, 312.8751F);
             this.xrLabel9.Name = "xrLabel9";
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel9.SizeF = new System.Drawing.SizeF(145.4167F, 18F);
+            this.xrLabel9.SizeF = new System.Drawing.SizeF(108.9583F, 18F);
             this.xrLabel9.StyleName = "FieldCaption";
             this.xrLabel9.StylePriority.UseForeColor = false;
             this.xrLabel9.StylePriority.UseTextAlignment = false;
@@ -551,10 +551,10 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             // xrLabel10
             // 
             this.xrLabel10.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(331F, 276.8751F);
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(367.4583F, 276.8751F);
             this.xrLabel10.Name = "xrLabel10";
             this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel10.SizeF = new System.Drawing.SizeF(145.4167F, 18F);
+            this.xrLabel10.SizeF = new System.Drawing.SizeF(108.9583F, 18F);
             this.xrLabel10.StyleName = "FieldCaption";
             this.xrLabel10.StylePriority.UseForeColor = false;
             this.xrLabel10.StylePriority.UseTextAlignment = false;
@@ -564,10 +564,10 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             // xrLabel11
             // 
             this.xrLabel11.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(331F, 330.8751F);
+            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(367.4583F, 330.8751F);
             this.xrLabel11.Name = "xrLabel11";
             this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel11.SizeF = new System.Drawing.SizeF(145.4167F, 18F);
+            this.xrLabel11.SizeF = new System.Drawing.SizeF(108.9583F, 18F);
             this.xrLabel11.StyleName = "FieldCaption";
             this.xrLabel11.StylePriority.UseForeColor = false;
             this.xrLabel11.StylePriority.UseTextAlignment = false;
@@ -604,12 +604,14 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             // 
             this.xrLabel22.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "leyenda")});
+            this.xrLabel22.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel22.LocationFloat = new DevExpress.Utils.PointFloat(0F, 294.8749F);
             this.xrLabel22.Multiline = true;
             this.xrLabel22.Name = "xrLabel22";
             this.xrLabel22.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel22.SizeF = new System.Drawing.SizeF(331F, 101.3334F);
+            this.xrLabel22.SizeF = new System.Drawing.SizeF(367.4583F, 101.3334F);
             this.xrLabel22.StyleName = "DataField";
+            this.xrLabel22.StylePriority.UseFont = false;
             this.xrLabel22.Text = "xrLabel22";
             // 
             // xrLabel23

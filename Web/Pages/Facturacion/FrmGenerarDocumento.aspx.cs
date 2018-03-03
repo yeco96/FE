@@ -803,8 +803,22 @@ namespace Web.Pages.Facturacion
                         item.fechaEmision = item.fechaEmisionTotal;
                     }
 
-                    /* VERIFICA VACIOS PARA XML */
-                    dato.verificaDatosParaXML();
+                    /* OTROS */
+                    if (!string.IsNullOrWhiteSpace(this.txtOtros.Text))
+                    {
+                        dato.otros.otrosTextos.Add(this.txtOtros.Text);
+                    }
+                    Empresa empresa = conexion.Empresa.Find(dato.emisor.identificacion.numero);
+                    if (empresa != null)
+                    { 
+                        if (!string.IsNullOrWhiteSpace(empresa.leyenda))
+                        {
+                            dato.otros.otrosTextos.Add(empresa.leyenda);
+                        }
+                    }
+
+                   /* VERIFICA VACIOS PARA XML */
+                   dato.verificaDatosParaXML();
 
                     //genera el consecutivo del documento
                     string sucursal = this.cmbSucursalCaja.Value.ToString().Substring(0, 3);
