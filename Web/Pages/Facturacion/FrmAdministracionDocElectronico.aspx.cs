@@ -90,7 +90,17 @@ namespace Web.Pages.Facturacion
         private void refreshData()
         {
             string emisor = Session["emisor"].ToString();
-            this.ASPxGridView1.DataSource = new DataModelFE().WSRecepcionPOST.Where(x=> x.fecha >= txtFechaInicio.Date && x.fecha <= txtFechaFin.Date && x.emisorIdentificacion== emisor).OrderByDescending(x => x.fecha).OrderByDescending(x=>x.fechaCreacion).ToList();
+            List<WSRecepcionPOST> lista = new DataModelFE().WSRecepcionPOST.Where(x=> x.fecha >= txtFechaInicio.Date && x.fecha <= txtFechaFin.Date && x.emisorIdentificacion== emisor).OrderByDescending(x => x.fecha).OrderByDescending(x=>x.fechaCreacion).ToList();
+
+            foreach (var item in lista)
+            {
+                if (item.tipoDocumento.Equals(TipoDocumento.NOTA_CREDITO))
+                {
+                    item.verificaTipoDocumentoCambioMoneda();
+                }
+            }
+            this.ASPxGridView1.DataSource = lista;
+
             this.ASPxGridView1.DataBind();
         }
 

@@ -124,5 +124,18 @@ namespace WSDomain
             }
         }
 
+        [JsonIgnore]
+        public static string NOTA_CREDITO = "03";
+
+        public void verificaTipoDocumentoCambioMoneda()
+        {
+            if (this.tipoDocumento.Equals(NOTA_CREDITO))
+            {
+                this.montoTotalFactura = this.montoTotalFactura * -1;
+                this.montoTotalImpuesto = this.montoTotalImpuesto * -1;
+            }
+           
+        }
+
     }
 }

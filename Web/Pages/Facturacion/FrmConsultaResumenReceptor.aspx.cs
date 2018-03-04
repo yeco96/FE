@@ -9,6 +9,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Web.Models;
+using Web.Models.Catalogos;
+using XMLDomain;
 
 namespace Web.Pages.Facturacion
 {
@@ -69,7 +71,7 @@ namespace Web.Pages.Facturacion
             using (var conexion = new DataModelFE())
             {
                 string emisor = Session["emisor"].ToString();
-                this.ASPxGridView1.DataSource = (from resumenFactura in conexion.ResumenFacturaReceptor
+                List<ResumenFacturaReceptor> lista = (from resumenFactura in conexion.ResumenFacturaReceptor
                                                  from recepcioDocumento in conexion.WSRecepcionPOSTReceptor
                                                  where recepcioDocumento.clave == resumenFactura.clave 
                                                  && recepcioDocumento.receptorIdentificacion == emisor
@@ -78,7 +80,13 @@ namespace Web.Pages.Facturacion
                                                  && recepcioDocumento.indEstado == 1
                                                  select resumenFactura
                                                  ).ToList();
-                
+
+                foreach (var item in lista)
+                {
+                    item.verificaTipoDocumentoCambioMoneda(this.chkCambioMoneda.Checked);
+                }
+                this.ASPxGridView1.DataSource = lista;
+
                 this.ASPxGridView1.DataBind();
             }
         }

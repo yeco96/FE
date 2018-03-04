@@ -73,6 +73,14 @@ namespace Web.Pages.Catalogos
             GridViewDataComboBoxColumn comboEstado = this.ASPxGridView1.Columns["estado"] as GridViewDataComboBoxColumn;
             comboEstado.PropertiesComboBox.Items.Clear();
             comboEstado.PropertiesComboBox.Items.AddRange(Enum.GetValues(typeof(Estado)));
+
+            GridViewDataComboBoxColumn comboAplicaNota = this.ASPxGridView1.Columns["aplicaNotas"] as GridViewDataComboBoxColumn;
+            comboAplicaNota.PropertiesComboBox.Items.Clear();
+            comboAplicaNota.PropertiesComboBox.Items.AddRange(Enum.GetValues(typeof(Confirmacion)));
+
+            GridViewDataComboBoxColumn comboAplicaFactura = this.ASPxGridView1.Columns["aplicaFacturas"] as GridViewDataComboBoxColumn;
+            comboAplicaFactura.PropertiesComboBox.Items.Clear();
+            comboAplicaFactura.PropertiesComboBox.Items.AddRange(Enum.GetValues(typeof(Confirmacion)));
         }
 
 
@@ -111,7 +119,9 @@ namespace Web.Pages.Catalogos
                     //llena el objeto con los valores de la pantalla
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
-
+                    dato.aplicaFacturas = e.NewValues["aplicaFacturas"] != null ? e.NewValues["aplicaFacturas"].ToString().ToUpper() : null;
+                    dato.aplicaNotas = e.NewValues["aplicaNotas"] != null ? e.NewValues["aplicaNotas"].ToString().ToUpper() : null;
+                     
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioCreacion = Session["usuario"].ToString();
                     dato.fechaCreacion = Date.DateTimeNow();
@@ -170,6 +180,8 @@ namespace Web.Pages.Catalogos
                     //busca el objeto 
                     dato = conexion.CodigoReferencia.Find(dato.codigo);
 
+                    dato.aplicaFacturas = e.NewValues["aplicaFacturas"] != null ? e.NewValues["aplicaFacturas"].ToString().ToUpper() : null;
+                    dato.aplicaNotas = e.NewValues["aplicaNotas"] != null ? e.NewValues["aplicaNotas"].ToString().ToUpper() : null;
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioModificacion = Session["usuario"].ToString();

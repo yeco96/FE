@@ -20,7 +20,7 @@
                         <dx:LayoutItem Caption="Fecha Inicio">
                             <LayoutItemNestedControlCollection>
                                 <dx:LayoutItemNestedControlContainer>
-                                    <dx:ASPxDateEdit ID="txtFechaInicio" runat="server" Width="100%">
+                                    <dx:ASPxDateEdit ID="txtFechaInicio" runat="server" Width="100%"  ValidationSettings-RequiredField-IsRequired="true"  DisplayFormatString="yyyy/MM/dd" EditFormatString="yyyy/MM/dd">
                                         <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ErrorText="Requerido">
                                             <RequiredField IsRequired="true" />
                                         </ValidationSettings>
@@ -32,7 +32,7 @@
                         <dx:LayoutItem Caption="Fecha Fin">
                             <LayoutItemNestedControlCollection>
                                 <dx:LayoutItemNestedControlContainer>
-                                    <dx:ASPxDateEdit ID="txtFechaFin" runat="server" Width="100%" ValidationSettings-RequiredField-IsRequired="true">
+                                    <dx:ASPxDateEdit ID="txtFechaFin" runat="server" Width="100%" ValidationSettings-RequiredField-IsRequired="true"  DisplayFormatString="yyyy/MM/dd" EditFormatString="yyyy/MM/dd">
                                         <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ErrorText="Requerido">
                                             <RequiredField IsRequired="true" />
                                         </ValidationSettings>

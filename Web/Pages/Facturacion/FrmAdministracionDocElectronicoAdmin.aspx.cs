@@ -88,8 +88,14 @@ namespace Web.Pages.Facturacion
         /// carga inicial de todos los registros
         /// </summary>  
         private void refreshData()
-        { 
-            this.ASPxGridView1.DataSource = new DataModelFE().WSRecepcionPOST.Where(x=> x.fecha >= txtFechaInicio.Date && x.fecha <= txtFechaFin.Date).OrderByDescending(x => x.fechaCreacion).ToList();
+        {
+            List<WSRecepcionPOST> lista = new DataModelFE().WSRecepcionPOST.Where(x=> x.fecha >= txtFechaInicio.Date && x.fecha <= txtFechaFin.Date).OrderByDescending(x => x.fechaCreacion).ToList();
+
+            foreach (var item in lista)
+            {
+                item.verificaTipoDocumentoCambioMoneda();
+            }
+            this.ASPxGridView1.DataSource = lista;
             this.ASPxGridView1.DataBind();
         }
 

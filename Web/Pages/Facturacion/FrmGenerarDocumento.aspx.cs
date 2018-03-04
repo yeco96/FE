@@ -249,7 +249,7 @@ namespace Web.Pages.Facturacion
 
                 /* CODIGO REFERENCIA */
                 GridViewDataComboBoxColumn comboCodigo = this.ASPxGridView2.Columns["codigo"] as GridViewDataComboBoxColumn;
-                foreach (var item in conexion.CodigoReferencia.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                foreach (var item in conexion.CodigoReferencia.Where(x => x.estado == Estado.ACTIVO.ToString() && x.aplicaFacturas == Confirmacion.SI.ToString()).ToList())
                 {
                     comboCodigo.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
                 }
@@ -969,10 +969,17 @@ namespace Web.Pages.Facturacion
                     else { 
                         string elReceptor = this.txtReceptorIdentificacion.Text;
                         EmisorReceptorIMEC receptor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == elReceptor).FirstOrDefault();
-                        this.loadReceptor(receptor);
-
-                        this.alertMessages.Attributes["class"] = "alert alert-info";
-                        this.alertMessages.InnerText = "Datos del receptor cargados correctamente";
+                        if (receptor != null)
+                        {
+                            this.loadReceptor(receptor);
+                            this.alertMessages.Attributes["class"] = "alert alert-info";
+                            this.alertMessages.InnerText = "Datos del receptor cargados correctamente";
+                        }
+                        else
+                        {
+                            this.alertMessages.Attributes["class"] = "alert alert-danger";
+                            this.alertMessages.InnerText = "Datos del receptor no existen";
+                        }
                     }
 
                 }

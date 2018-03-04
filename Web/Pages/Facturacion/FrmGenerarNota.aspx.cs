@@ -141,7 +141,7 @@ namespace Web.Pages.Facturacion
 
                 
                 /* CODIGO REFERENCIA */
-                foreach (var item in conexion.CodigoReferencia.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                foreach (var item in conexion.CodigoReferencia.Where(x => x.estado == Estado.ACTIVO.ToString() && x.aplicaNotas==Confirmacion.SI.ToString()).ToList())
                 {
                     this.cmbCodigoReferencia.Items.Add(item.descripcion, item.codigo);
                 }

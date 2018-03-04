@@ -22,6 +22,20 @@ namespace Web.Models.Catalogos
         [Display(Name = "Descripción")]
         public string descripcion { set; get; }
 
+        
+        [Required]
+        [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [MinLength(2, ErrorMessage = "La propiedad {0} no puede menos de {1} elementos")]
+        [Display(Name = "Indicador Aplica Notas")]
+        public string aplicaNotas { set; get; }
+
+        
+        [Required]
+        [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [MinLength(2, ErrorMessage = "La propiedad {0} no puede menos de {1} elementos")]
+        [Display(Name = "Indicador Aplica Facturas")]
+        public string aplicaFacturas { set; get; }
+
 
         /// <summary>
         /// AUDIOTORIA

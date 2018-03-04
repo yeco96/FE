@@ -23,6 +23,7 @@ namespace XMLDomain
         public string consecutivo { get { return clave.Substring(21, 20); } }
         [XmlIgnore]
         public string tipoDocumento { get { return clave.Substring(29, 2); } }
+      
 
 
         [XmlElement(ElementName = "CodigoMoneda", Order = 1)]
@@ -148,6 +149,50 @@ namespace XMLDomain
             totalVenta = totalGravado + totalExento;
             totalVentaNeta = totalVenta - totalDescuentos;
             totalComprobante = totalVentaNeta + totalImpuesto;
+        }
+
+
+        [XmlIgnore]
+        public static string NOTA_CREDITO = "03";
+        public void verificaTipoDocumentoCambioMoneda(bool activarCambioMoneda)
+        {
+            decimal valorTipoCambio = 0;
+
+            if (activarCambioMoneda)
+            {
+                valorTipoCambio = this.tipoCambio;
+            }else
+            {
+                valorTipoCambio = 1;
+            }
+
+            if (this.tipoDocumento.Equals(NOTA_CREDITO))
+            {
+                this.totalComprobante = this.totalComprobante * -1 * valorTipoCambio;
+                this.totalDescuentos = this.totalDescuentos * -1 * valorTipoCambio;
+                this.totalExento = this.totalExento * -1 * valorTipoCambio;
+                this.totalGravado = this.totalGravado * -1 * valorTipoCambio;
+                this.totalImpuesto = this.totalImpuesto * -1 * valorTipoCambio;
+                this.totalMercanciasExentas = this.totalMercanciasExentas * -1 * valorTipoCambio;
+                this.totalMercanciasGravadas = this.totalMercanciasGravadas * -1 * valorTipoCambio;
+                this.totalServExentos = this.totalServExentos * -1 * valorTipoCambio;
+                this.totalServGravados = this.totalServGravados * -1 * valorTipoCambio;
+                this.totalVenta = this.totalVenta * -1 * valorTipoCambio;
+                this.totalVentaNeta = this.totalVentaNeta * -1 * valorTipoCambio;
+            }else
+            {
+                this.totalComprobante = this.totalComprobante * valorTipoCambio;
+                this.totalDescuentos = this.totalDescuentos * valorTipoCambio;
+                this.totalExento = this.totalExento * valorTipoCambio;
+                this.totalGravado = this.totalGravado *valorTipoCambio;
+                this.totalImpuesto = this.totalImpuesto * valorTipoCambio;
+                this.totalMercanciasExentas = this.totalMercanciasExentas * valorTipoCambio;
+                this.totalMercanciasGravadas = this.totalMercanciasGravadas * valorTipoCambio;
+                this.totalServExentos = this.totalServExentos * valorTipoCambio;
+                this.totalServGravados = this.totalServGravados * valorTipoCambio;
+                this.totalVenta = this.totalVenta * valorTipoCambio;
+                this.totalVentaNeta = this.totalVentaNeta * valorTipoCambio;
+            }
         }
     }
 }

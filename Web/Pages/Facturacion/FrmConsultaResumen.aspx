@@ -16,7 +16,7 @@
                     <dx:LayoutItem Caption="Fecha Inicio">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxDateEdit ID="txtFechaInicio" runat="server" Width="100%">
+                                <dx:ASPxDateEdit ID="txtFechaInicio" runat="server" Width="100%" ValidationSettings-RequiredField-IsRequired="true" DisplayFormatString="yyyy/MM/dd" EditFormatString="yyyy/MM/dd">
                                     <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ErrorText="Requerido">
                                         <RequiredField IsRequired="true" />
                                     </ValidationSettings>
@@ -28,7 +28,7 @@
                     <dx:LayoutItem Caption="Fecha Fin">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxDateEdit ID="txtFechaFin" runat="server" Width="100%" ValidationSettings-RequiredField-IsRequired="true">
+                                <dx:ASPxDateEdit ID="txtFechaFin" runat="server" Width="100%" ValidationSettings-RequiredField-IsRequired="true" DisplayFormatString="yyyy/MM/dd"  EditFormatString="yyyy/MM/dd">
                                     <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ErrorText="Requerido">
                                         <RequiredField IsRequired="true" />
                                     </ValidationSettings>
@@ -40,10 +40,8 @@
                     <dx:LayoutItem Caption=" ">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                 <dx:ASPxButton ID="txtConsultar" runat="server" Text="Consultar" Width="80px" Image-Url="~/Content/Images/search1.png" Image-Height="20px"
-                                      CausesValidation="true" OnClick="btnConsultar_Click" >
-<Image Height="20px" Url="~/Content/Images/search1.png"></Image>
-                                    </dx:ASPxButton>
+                                 <dx:ASPxCheckBox ID="chkCambioMoneda" runat="server" Text="Activar cambio moneda USD a CRC" >
+                                    </dx:ASPxCheckBox>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
@@ -51,9 +49,18 @@
                     <dx:LayoutItem Caption=" ">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
+                                 <dx:ASPxButton ID="txtConsultar" runat="server" Text="Consultar" Width="80px" Image-Url="~/Content/Images/search1.png" Image-Height="20px"
+                                      CausesValidation="true" OnClick="btnConsultar_Click" > 
+                                    </dx:ASPxButton>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+                     
+                    <dx:LayoutItem Caption=" " ClientVisible="false">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer>
                                  <dx:ASPxButton ID="btnReporte" runat="server" Text="Reporte" Width="80px" Image-Url="~/Content/Images/search1.png" Image-Height="20px"
-                                      CausesValidation="true"  OnClick="btnReporte_Click" > 
-<Image Height="20px" Url="~/Content/Images/search1.png"></Image>
+                                      CausesValidation="true"  OnClick="btnReporte_Click" >  
                                  </dx:ASPxButton>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
