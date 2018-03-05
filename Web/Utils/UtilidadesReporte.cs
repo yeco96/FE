@@ -114,6 +114,11 @@ namespace Class.Utilidades
             {
                 if (empresa != null && "EN".Equals(empresa.idioma))
                 {
+                    if (string.IsNullOrWhiteSpace(impresion.leyenda))
+                    {
+                        impresion.leyenda = empresa.leyenda;
+                    }
+
                     impresion.tipoDocumento = conexion.TipoDocumento.Find(dato.tipoDocumento).descripcionEN;
                     impresion.CondicionVenta = conexion.CondicionVenta.Find(dato.condicionVenta).descripcionEN;
                     impresion.MedioPago = conexion.MedioPago.Find(dato.medioPago).descripcionEN;

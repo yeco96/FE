@@ -665,12 +665,38 @@ namespace Web.Pages.Facturacion
             {
                 Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
                 DetalleServicio detalle = (DetalleServicio)Session["detalleServicio"];
+               
+                
+                if (string.IsNullOrWhiteSpace(this.txtReceptorNombre.Text) || string.IsNullOrWhiteSpace(this.txtReceptorNombreComercial.Text) || string.IsNullOrWhiteSpace(this.txtReceptorIdentificacion.Text))
+                    {
+                    this.alertMessages.Attributes["class"] = "alert alert-danger";
+                    this.alertMessages.InnerText = "Debe agregar un receptor";
+                    return;
+                }
+                this.txtReceptorIdentificacion.Text = this.txtReceptorIdentificacion.Text.Replace(" ", "").Trim();
+                this.txtReceptorIdentificacion.Text = this.txtReceptorIdentificacion.Text.Replace("-", "").Trim();
+
+
+                if (TipoIdentificacion.FISICA.Equals(this.cmbReceptorTipo.Value.ToString()) && this.txtReceptorIdentificacion.Text.Length != 9 )
+                {
+                    this.alertMessages.Attributes["class"] = "alert alert-danger";
+                    this.alertMessages.InnerText = "La identificación debe ser de 9 digitos";
+                    return;
+                }
+                if (TipoIdentificacion.JURIDICA.Equals(this.cmbReceptorTipo.Value.ToString()) && this.txtReceptorIdentificacion.Text.Length != 10)
+                {
+                    this.alertMessages.Attributes["class"] = "alert alert-danger";
+                    this.alertMessages.InnerText = "La identificación debe ser de 10 digitos";
+                    return;
+                }
+
                 if (detalle.lineaDetalle.Count == 0)
                 {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
                     this.alertMessages.InnerText = "Debe agregar almenos una linea de detalle a la factura";
                     return;
-                }else
+                }
+                else
                 {
                     decimal total = detalle.lineaDetalle.Sum(x => x.montoTotalLinea);
                     if (total <= 0)
@@ -680,13 +706,7 @@ namespace Web.Pages.Facturacion
                         return;
                     }
                 }
-               
-                if (string.IsNullOrWhiteSpace(this.txtReceptorNombre.Text) && string.IsNullOrWhiteSpace(this.txtReceptorNombreComercial.Text))
-                    {
-                    this.alertMessages.Attributes["class"] = "alert alert-danger";
-                    this.alertMessages.InnerText = "Debe agregar un receptor";
-                    return;
-                }
+
 
                 using (var conexion = new DataModelFE())
                 {

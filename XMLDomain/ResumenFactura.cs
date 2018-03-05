@@ -138,7 +138,7 @@ namespace XMLDomain
                     if (linea.tipoServMerc.Equals("SE"))
                         totalServExentos += linea.montoTotal;
                     else
-                        totalMercanciasGravadas += linea.montoTotal;
+                        totalMercanciasExentas += linea.montoTotal;
                 }
                 totalDescuentos += linea.montoDescuento;
 

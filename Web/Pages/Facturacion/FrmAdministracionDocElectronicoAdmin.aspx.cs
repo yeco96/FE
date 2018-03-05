@@ -89,14 +89,18 @@ namespace Web.Pages.Facturacion
         /// </summary>  
         private void refreshData()
         {
-            List<WSRecepcionPOST> lista = new DataModelFE().WSRecepcionPOST.Where(x=> x.fecha >= txtFechaInicio.Date && x.fecha <= txtFechaFin.Date).OrderByDescending(x => x.fechaCreacion).ToList();
-
-            foreach (var item in lista)
+            using (var conexion = new DataModelFE())
             {
-                item.verificaTipoDocumentoCambioMoneda();
+                List<WSRecepcionPOST> lista = conexion.WSRecepcionPOST.Where(x => x.fecha >= txtFechaInicio.Date && x.fecha <= txtFechaFin.Date).OrderByDescending(x => x.fechaCreacion).ToList();
+
+                foreach (var item in lista)
+                {
+                    item.verificaTipoDocumentoCambioMoneda();
+                    item.Receptor = conexion.EmisorReceptor.Find(item.receptorIdentificacion);
+                }
+                this.ASPxGridView1.DataSource = lista;
+                this.ASPxGridView1.DataBind();
             }
-            this.ASPxGridView1.DataSource = lista;
-            this.ASPxGridView1.DataBind();
         }
 
 

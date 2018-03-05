@@ -55,7 +55,7 @@ namespace WSDomain
         [JsonIgnore]
         public string receptorTipo { set; get; }
 
-        [ForeignKey("Receptor")]
+       // [ForeignKey("Receptor")]
         [JsonIgnore]
         public string receptorIdentificacion { set; get; }
 
@@ -93,7 +93,8 @@ namespace WSDomain
         // public virtual Usuario UsuarioCreacion { get; set; }
         // public virtual Usuario UsuarioModificacion { get; set; }
         [JsonIgnore]
-        public virtual EmisorReceptor Receptor { set; get; }
+        [NotMapped]
+        public EmisorReceptor Receptor { set; get; }
 
         /// <summary>
         /// carga los datos del emisor y recetor a las variables mateadas a la base de datos
@@ -105,6 +106,8 @@ namespace WSDomain
 
             this.receptorIdentificacion = this.receptor.numeroIdentificacion;
             this.receptorTipo = this.receptor.tipoIdentificacion;
+
+            this.Receptor = new EmisorReceptor();
 
         }
 

@@ -58,6 +58,7 @@ namespace Web.Models
         public virtual DbSet<WSDomain.WSRecepcionPOST> WSRecepcionPOST { get; set; }
         public virtual DbSet<XMLDomain.ResumenFactura> ResumenFactura { get; set; }
 
+        public virtual DbSet<WSDomain.EmisorReceptor> EmisorReceptor { get; set; }
         //Para los datos del Receptor que suba informacion
         public virtual DbSet<XMLDomain.ResumenFacturaReceptor> ResumenFacturaReceptor { get; set; }
         public virtual DbSet<WSDomain.WSRecepcionPOSTReceptor> WSRecepcionPOSTReceptor { get; set; }

@@ -13,6 +13,11 @@ namespace Web.Models.Catalogos
     [Table("xml_tipo_identificacion")]
     public class TipoIdentificacion
     {
+        [NotMapped]
+        public static string FISICA = "01";
+        [NotMapped]
+        public static string JURIDICA = "02";
+
         [Key]
         [Required]
         [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
