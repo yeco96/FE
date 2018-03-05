@@ -110,7 +110,7 @@
                                                                         </dx:ASPxComboBox>
                                                                     </td>
                                                                     <td style="width: 70%;">
-                                                                        <dx:ASPxSpinEdit ID="txtReceptorTelefono" runat="server" Width="90%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"  MaxLength="20" >
+                                                                        <dx:ASPxSpinEdit  AllowMouseWheel="false" ID="txtReceptorTelefono" runat="server" Width="90%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"  MaxLength="20"  >
                                                                             <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
                                                                             </ValidationSettings>
                                                                         </dx:ASPxSpinEdit>
@@ -132,7 +132,7 @@
                                                                         </dx:ASPxComboBox>
                                                                     </td>
                                                                     <td style="width: 70%;">
-                                                                        <dx:ASPxSpinEdit ID="txtReceptorFax" runat="server" Width="90%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"  MaxLength="20">
+                                                                        <dx:ASPxSpinEdit  AllowMouseWheel="false" ID="txtReceptorFax" runat="server" Width="90%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"  MaxLength="20">
                                                                             <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
                                                                             </ValidationSettings>
                                                                         </dx:ASPxSpinEdit>
@@ -448,7 +448,7 @@
                                                 <dx:LayoutItem Caption="Plazo Crédito">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
-                                                            <dx:ASPxSpinEdit ID="txtPlazoCredito" runat="server" Width="100%" AutoResizeWithContainer="true"  MaxLength="2" Enabled="false"
+                                                            <dx:ASPxSpinEdit  AllowMouseWheel="false" ID="txtPlazoCredito" runat="server" Width="100%" AutoResizeWithContainer="true"  MaxLength="2" Enabled="false"
                                                                 ValidationSettings-ErrorDisplayMode="ImageWithTooltip">
                                                                 <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
                                                                 </ValidationSettings>
@@ -553,6 +553,7 @@
 
                                         <dx:GridViewDataSpinEditColumn Caption="Precio U" FieldName="precioUnitario" VisibleIndex="4" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
                                             PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="n2"
+                                            PropertiesSpinEdit-AllowMouseWheel="false"
                                             PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                                             <PropertiesSpinEdit DisplayFormatString="n2" NumberFormat="Custom" DecimalPlaces="2" MaxValue="999999999999" MaxLength="10">
                                                 <ValidationSettings>
@@ -574,6 +575,7 @@
 
                                         <dx:GridViewDataSpinEditColumn Caption="Descuento" FieldName="montoDescuento" VisibleIndex="6" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
                                             PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="n2"
+                                            PropertiesSpinEdit-AllowMouseWheel="false"
                                             PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                                             <PropertiesSpinEdit DisplayFormatString="n2" NumberFormat="Custom" DecimalPlaces="2" MaxValue="999999999999" MaxLength="10">
                                                 <ValidationSettings>
@@ -725,14 +727,14 @@
                                                                                          <dx:LayoutItem Caption="Porcentaje Compra">
                                                                                             <LayoutItemNestedControlCollection>
                                                                                                 <dx:LayoutItemNestedControlContainer>
-                                                                                                     <dx:ASPxSpinEdit ID="porcentajeCompra" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"  MaxValue="100" />
+                                                                                                     <dx:ASPxSpinEdit  AllowMouseWheel="false" ID="porcentajeCompra" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"  MaxValue="100" />
                                                                                                 </dx:LayoutItemNestedControlContainer>
                                                                                             </LayoutItemNestedControlCollection>
                                                                                         </dx:LayoutItem>
                                                                                         <dx:LayoutItem Caption="Monto Impuesto" >
                                                                                             <LayoutItemNestedControlCollection>
                                                                                                 <dx:LayoutItemNestedControlContainer>
-                                                                                                     <dx:ASPxSpinEdit ID="montoImpuesto" Enabled="false" BackColor="LightGray" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" DecimalPlaces="2" />
+                                                                                                     <dx:ASPxSpinEdit  AllowMouseWheel="false" ID="montoImpuesto" Enabled="false" BackColor="LightGray" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" DecimalPlaces="2" />
                                                                                                 </dx:LayoutItemNestedControlContainer>
                                                                                             </LayoutItemNestedControlCollection>
                                                                                         </dx:LayoutItem>
