@@ -68,7 +68,8 @@ namespace Web.Pages.Facturacion
                     using (var conexion = new DataModelFE())
                     {
                         string emisor = Session["emisor"].ToString();
-                        foreach (var producto in conexion.Producto.Where(x=> x.estado==Estado.ACTIVO.ToString() && x.cargaAutFactura==Confirmacion.SI.ToString() && x.emisor==emisor))
+                        foreach (var producto in conexion.Producto.Where(x=> x.estado==Estado.ACTIVO.ToString() && x.cargaAutFactura==Confirmacion.SI.ToString() && x.emisor==emisor).
+                            OrderBy(x=>x.orden))
                         {
                             LineaDetalle dato = new LineaDetalle();
                             dato.numeroLinea = this.detalleServicio.lineaDetalle.Count+1;
@@ -107,6 +108,17 @@ namespace Web.Pages.Facturacion
 
                             this.detalleServicio.lineaDetalle.Add(dato);
                         }
+
+                        Empresa empresa = conexion.Empresa.Find(emisor);
+                        if (empresa != null)
+                        {
+                            this.cmbCondicionVenta.Value = empresa.condicionVenta;
+                            this.cmbMedioPago.Value = empresa.medioPago;
+                            this.cmbTipoMoneda.Value = empresa.moneda;
+                            this.txtPlazoCredito.Text = empresa.plazoCredito.ToString();
+                            this.cmbMoneda_ValueChanged(sender, e);
+                        }
+
                     }
                     Session["detalleServicio"] = detalleServicio;
 
@@ -359,7 +371,7 @@ namespace Web.Pages.Facturacion
                 else
                 {
                     this.txtTipoCambio.Enabled = true;
-                    this.txtTipoCambio.Value = BCCR.tipoCambioDOLAR();
+                    this.txtTipoCambio.Value = BCCR.tipoCambioDOLAR(this.txtFechaEmision.Date);
                 }
             }
             catch (Exception ex)

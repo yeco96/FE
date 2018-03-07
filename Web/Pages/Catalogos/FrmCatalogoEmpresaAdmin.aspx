@@ -50,6 +50,23 @@
                     PropertiesMemoEdit-ValidationSettings-RequiredField-IsRequired="false" PropertiesMemoEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataMemoColumn>
 
+                 <dx:GridViewDataComboBoxColumn Caption="Medio Pago" FieldName="medioPago" VisibleIndex="6" EditFormSettings-Visible="True"  Visible="false"
+                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataComboBoxColumn>
+
+                  <dx:GridViewDataComboBoxColumn Caption="Condición Venta" FieldName="condicionVenta" VisibleIndex="6"  EditFormSettings-Visible="True"  Visible="false"
+                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataComboBoxColumn> 
+
+                  <dx:GridViewDataSpinEditColumn Caption="Plazo Crédito" FieldName="plazoCredito" VisibleIndex="6"  EditFormSettings-Visible="True"  Visible="false"
+                      PropertiesSpinEdit-AllowMouseWheel="false"
+                    PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataSpinEditColumn> 
+
+                <dx:GridViewDataComboBoxColumn Caption="Tipo Moneda" FieldName="moneda" VisibleIndex="6"  EditFormSettings-Visible="True"  Visible="false"
+                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataComboBoxColumn>
+
                 <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="6"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>

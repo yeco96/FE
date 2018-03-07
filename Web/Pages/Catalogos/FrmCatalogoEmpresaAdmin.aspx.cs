@@ -82,6 +82,33 @@ namespace Web.Pages.Catalogos
             comboIdioma.PropertiesComboBox.Items.Clear();
             comboIdioma.PropertiesComboBox.Items.Add(new ListEditItem("ESPAÑOL", "ES"));
             comboIdioma.PropertiesComboBox.Items.Add(new ListEditItem("INGLES", "EN"));
+
+            using (var conexion = new DataModelFE())
+            {
+                /* MEDIO PAGO */
+                GridViewDataComboBoxColumn cmbMedioPago = this.ASPxGridView1.Columns["medioPago"] as GridViewDataComboBoxColumn;
+                foreach (var item in conexion.MedioPago.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                {
+                    cmbMedioPago.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
+                }
+                cmbMedioPago.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+
+                /* CONDICION VENTA */
+                GridViewDataComboBoxColumn cmbCondicionVenta = this.ASPxGridView1.Columns["condicionVenta"] as GridViewDataComboBoxColumn;
+                foreach (var item in conexion.CondicionVenta.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                {
+                    cmbCondicionVenta.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
+                }
+                cmbCondicionVenta.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+
+                /* TIPO MONEDA */
+                GridViewDataComboBoxColumn cmbTipoMoneda = this.ASPxGridView1.Columns["moneda"] as GridViewDataComboBoxColumn;
+                foreach (var item in conexion.TipoMoneda.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                {
+                    cmbTipoMoneda.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
+                }
+                cmbTipoMoneda.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+            }
         }
 
 
@@ -122,6 +149,12 @@ namespace Web.Pages.Catalogos
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
                     dato.idioma = e.NewValues["idioma"] != null ? e.NewValues["idioma"].ToString().ToUpper() : null;
                     dato.leyenda = e.NewValues["leyenda"] != null ? e.NewValues["leyenda"].ToString().ToUpper() : null;
+
+
+                    dato.medioPago = e.NewValues["medioPago"].ToString();
+                    dato.condicionVenta = e.NewValues["condicionVenta"].ToString();
+                    dato.plazoCredito = int.Parse(e.NewValues["plazoCredito"].ToString());
+                    dato.moneda = e.NewValues["moneda"].ToString();
 
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioCreacion = Session["usuario"].ToString();
@@ -191,6 +224,12 @@ namespace Web.Pages.Catalogos
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioModificacion = Session["usuario"].ToString();
                     dato.fechaModificacion = Date.DateTimeNow();
+
+
+                    dato.medioPago = e.NewValues["medioPago"].ToString();
+                    dato.condicionVenta = e.NewValues["condicionVenta"].ToString();
+                    dato.plazoCredito = int.Parse(e.NewValues["plazoCredito"].ToString());
+                    dato.moneda = e.NewValues["moneda"].ToString();
 
                     if (Session["logo"] != null)
                     {

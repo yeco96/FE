@@ -65,7 +65,7 @@ namespace Web.Models.Catalogos
 
         public decimal precio { set; get; }
 
-        
+        public int orden { set; get; } 
 
 
         /// <summary>

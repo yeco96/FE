@@ -46,14 +46,34 @@
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
                  
-                  <dx:GridViewDataMemoColumn Caption="Leyenda" FieldName="leyenda" VisibleIndex="4" Visible="true" EditFormSettings-Visible="True"  
+                  <dx:GridViewDataMemoColumn Caption="Leyenda" FieldName="leyenda" VisibleIndex="4" Visible="false" EditFormSettings-Visible="True"  
                     PropertiesMemoEdit-ValidationSettings-RequiredField-IsRequired="false" PropertiesMemoEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataMemoColumn>
 
-                  
-                <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="6"
+
+
+                  <dx:GridViewDataComboBoxColumn Caption="Medio Pago" FieldName="medioPago" VisibleIndex="6" EditFormSettings-Visible="True"  Visible="false"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
+
+                  <dx:GridViewDataComboBoxColumn Caption="Condición Venta" FieldName="condicionVenta" VisibleIndex="6"  EditFormSettings-Visible="True"  Visible="false"
+                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataComboBoxColumn> 
+
+                  <dx:GridViewDataSpinEditColumn Caption="Plazo Crédito" FieldName="plazoCredito" VisibleIndex="6"  EditFormSettings-Visible="True"  Visible="false"
+                      PropertiesSpinEdit-AllowMouseWheel="false"
+                    PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataSpinEditColumn> 
+
+                <dx:GridViewDataComboBoxColumn Caption="Tipo Moneda" FieldName="moneda" VisibleIndex="6"  EditFormSettings-Visible="True"  Visible="false"
+                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataComboBoxColumn>
+
+                
+                <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="6"  EditFormSettings-Visible="True"  Visible="false"
+                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataComboBoxColumn>
+
                 <dx:GridViewDataTextColumn Visible="false" Caption="Usuario Creación" FieldName="usuarioCreacion" VisibleIndex="17">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataDateColumn Visible="false" Caption="Fecha Creación" FieldName="fechaCreacion" VisibleIndex="18">

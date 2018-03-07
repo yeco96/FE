@@ -493,7 +493,7 @@
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
 
-                                                <dx:LayoutItem Caption="Otros" ColSpan="3" Width="100%">
+                                                <dx:LayoutItem Caption="Detalle" ColSpan="3" Width="100%">
                                                     <LayoutItemNestedControlCollection >
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxTextBox ID="txtOtros" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"  MaxLength="200" > 
