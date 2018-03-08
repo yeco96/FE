@@ -679,7 +679,7 @@ namespace Web.Pages.Facturacion
                 DetalleServicio detalle = (DetalleServicio)Session["detalleServicio"];
                
                 
-                if (string.IsNullOrWhiteSpace(this.txtReceptorNombre.Text) || string.IsNullOrWhiteSpace(this.txtReceptorNombreComercial.Text) || string.IsNullOrWhiteSpace(this.txtReceptorIdentificacion.Text))
+                if (string.IsNullOrWhiteSpace(this.txtReceptorNombre.Text) || string.IsNullOrWhiteSpace(this.txtReceptorIdentificacion.Text))
                     {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
                     this.alertMessages.InnerText = "Debe agregar un receptor";
@@ -884,13 +884,20 @@ namespace Web.Pages.Facturacion
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-danger";
                         this.alertMessages.InnerText = String.Format("Documento #{0} con errores.", dato.numeroConsecutivo);
+
+                        this.alertMessages2.Attributes["class"] = "alert alert-danger";
+                        this.alertMessages2.InnerText = String.Format("Documento #{0} con errores.", dato.numeroConsecutivo);
                     }
                     else
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-warning";
                         this.alertMessages.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
+
+                        this.alertMessages2.Attributes["class"] = "alert alert-warning";
+                        this.alertMessages2.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
                     }
 
+                    this.btnFacturar.Enabled = false;
                     conexion.SaveChanges();
 
                 }

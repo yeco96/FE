@@ -29,7 +29,7 @@
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
 
-                <dx:GridViewDataComboBoxColumn  Caption="Rol" FieldName="rol" Settings-AutoFilterCondition="Contains" VisibleIndex="4" 
+                <dx:GridViewDataComboBoxColumn  Caption="Rol" FieldName="rol" Settings-AutoFilterCondition="Contains" VisibleIndex="4"  Visible="false"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido"> 
                 </dx:GridViewDataComboBoxColumn>
 
@@ -37,11 +37,11 @@
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido"> 
                 </dx:GridViewDataTextColumn>
 
-                <dx:GridViewDataSpinEditColumn Caption="Intentos" FieldName="intentos" VisibleIndex="5" 
+                <dx:GridViewDataSpinEditColumn Caption="Intentos" FieldName="intentos" VisibleIndex="5"   Visible="false"  
                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataSpinEditColumn>
 
-                <dx:GridViewDataTextColumn Caption="Contraseña" FieldName="contrasena" VisibleIndex="6" PropertiesTextEdit-MaxLength="100"  
+                <dx:GridViewDataTextColumn Caption="Contraseña" FieldName="contrasena" VisibleIndex="6" PropertiesTextEdit-MaxLength="100"  Visible="false"  EditFormSettings-Visible="True" 
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
 

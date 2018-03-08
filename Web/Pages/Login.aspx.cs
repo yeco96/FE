@@ -72,13 +72,13 @@ namespace Web.Pages
 
                             usuario.intentos += 1;
                             conexion.Entry(usuario).State = EntityState.Modified;
-                            conexion.SaveChanges();
+                            
 
                             if (usuario.intentos > 3)
                             {
                                 this.alertMessages.InnerText = "Ha superado la mayor cantidad de intentos posibles, su cuenta ha sido bloqueada, contacte al administrador";
                                 this.alertMessages.Attributes["class"] = "alert alert-danger";
-
+                                usuario.estado = Estado.INACTIVO.ToString();
                             }
                             else
                             {
@@ -87,6 +87,7 @@ namespace Web.Pages
 
                             }
                             this.tbUserName.ErrorText = "Usuario invalido";
+                            conexion.SaveChanges();
                         }
 
                     }

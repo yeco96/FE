@@ -56,6 +56,8 @@ namespace Web.Pages
                         {
                             string password = Utilidades.generarContrasena(10);
                             usuario.contrasena = MD5Util.getMd5Hash(password);
+                            usuario.intentos = 0;
+                            usuario.estado = Estado.ACTIVO.ToString();
                             conexion.Entry(usuario).State = EntityState.Modified;
                             conexion.SaveChanges();
 

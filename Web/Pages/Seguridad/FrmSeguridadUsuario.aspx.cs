@@ -138,7 +138,7 @@ namespace Web.Pages.Seguridad
                         }
                     }
 
-                    dato.rol = e.NewValues["rol"] != null ? e.NewValues["rol"].ToString().ToUpper() : null;
+                    dato.rol = e.NewValues["rol"] != null ? e.NewValues["rol"].ToString().ToUpper() : "FACT";
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
                     dato.nombre = e.NewValues["nombre"] != null ? e.NewValues["nombre"].ToString().ToUpper() : null;
                     dato.correo = e.NewValues["correo"] != null ? e.NewValues["correo"].ToString()  : null;
@@ -210,7 +210,7 @@ namespace Web.Pages.Seguridad
                         }
                     }
                     dato.emisor = e.NewValues["emisor"] != null ? e.NewValues["emisor"].ToString().ToUpper() : null;
-                    dato.rol = e.NewValues["rol"] != null ? e.NewValues["rol"].ToString().ToUpper() : null;
+                    dato.rol = e.NewValues["rol"] != null ? e.NewValues["rol"].ToString().ToUpper() : "FACT";
                     dato.nombre = e.NewValues["nombre"] != null ? e.NewValues["nombre"].ToString().ToUpper() : null;
                     dato.correo = e.NewValues["correo"] != null ? e.NewValues["correo"].ToString() : null;
                     dato.estado = e.NewValues["estado"].ToString();
@@ -308,18 +308,16 @@ namespace Web.Pages.Seguridad
         /// <param name="e"></param>
         protected void ASPxGridView1_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
         {
-            if (!this.ASPxGridView1.IsNewRowEditing)
+            if (this.ASPxGridView1.IsNewRowEditing)
             {
+                if (e.Column.FieldName == "emisor") { e.Editor.Value = Session["emisor"].ToString(); e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+            }
+            else
+            {
+                if (e.Column.FieldName == "emisor") { e.Editor.Value = Session["emisor"].ToString(); e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
                 if (e.Column.FieldName == "codigo") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
-                if (e.Column.FieldName == "intentos") { e.Editor.Value = 0; e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
             }
-            if (e.Column.FieldName.Equals("emisor"))
-            {
-                e.Editor.ReadOnly = true;
-                e.Column.ReadOnly = true;
-                e.Editor.BackColor = System.Drawing.Color.LightGray;
-                e.Editor.Value = Session["usuario"].ToString();
-            }
+             
 
         }
 
