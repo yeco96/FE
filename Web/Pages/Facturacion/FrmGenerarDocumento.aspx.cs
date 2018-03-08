@@ -68,7 +68,8 @@ namespace Web.Pages.Facturacion
                     using (var conexion = new DataModelFE())
                     {
                         string emisor = Session["emisor"].ToString();
-                        foreach (var producto in conexion.Producto.Where(x=> x.estado==Estado.ACTIVO.ToString() && x.cargaAutFactura==Confirmacion.SI.ToString() && x.emisor==emisor))
+                        foreach (var producto in conexion.Producto.Where(x=> x.estado==Estado.ACTIVO.ToString() && x.cargaAutFactura==Confirmacion.SI.ToString() && x.emisor==emisor).
+                            OrderBy(x=>x.orden))
                         {
                             LineaDetalle dato = new LineaDetalle();
                             dato.numeroLinea = this.detalleServicio.lineaDetalle.Count+1;
@@ -107,6 +108,17 @@ namespace Web.Pages.Facturacion
 
                             this.detalleServicio.lineaDetalle.Add(dato);
                         }
+
+                        Empresa empresa = conexion.Empresa.Find(emisor);
+                        if (empresa != null)
+                        {
+                            this.cmbCondicionVenta.Value = empresa.condicionVenta;
+                            this.cmbMedioPago.Value = empresa.medioPago;
+                            this.cmbTipoMoneda.Value = empresa.moneda;
+                            this.txtPlazoCredito.Text = empresa.plazoCredito.ToString();
+                            this.cmbMoneda_ValueChanged(sender, e);
+                        }
+
                     }
                     Session["detalleServicio"] = detalleServicio;
 
@@ -359,7 +371,7 @@ namespace Web.Pages.Facturacion
                 else
                 {
                     this.txtTipoCambio.Enabled = true;
-                    this.txtTipoCambio.Value = BCCR.tipoCambioDOLAR();
+                    this.txtTipoCambio.Value = BCCR.tipoCambioDOLAR(this.txtFechaEmision.Date);
                 }
             }
             catch (Exception ex)
@@ -667,7 +679,7 @@ namespace Web.Pages.Facturacion
                 DetalleServicio detalle = (DetalleServicio)Session["detalleServicio"];
                
                 
-                if (string.IsNullOrWhiteSpace(this.txtReceptorNombre.Text) || string.IsNullOrWhiteSpace(this.txtReceptorNombreComercial.Text) || string.IsNullOrWhiteSpace(this.txtReceptorIdentificacion.Text))
+                if (string.IsNullOrWhiteSpace(this.txtReceptorNombre.Text) || string.IsNullOrWhiteSpace(this.txtReceptorIdentificacion.Text))
                     {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
                     this.alertMessages.InnerText = "Debe agregar un receptor";
@@ -872,13 +884,20 @@ namespace Web.Pages.Facturacion
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-danger";
                         this.alertMessages.InnerText = String.Format("Documento #{0} con errores.", dato.numeroConsecutivo);
+
+                        this.alertMessages2.Attributes["class"] = "alert alert-danger";
+                        this.alertMessages2.InnerText = String.Format("Documento #{0} con errores.", dato.numeroConsecutivo);
                     }
                     else
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-warning";
                         this.alertMessages.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
+
+                        this.alertMessages2.Attributes["class"] = "alert alert-warning";
+                        this.alertMessages2.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
                     }
 
+                    this.btnFacturar.Enabled = false;
                     conexion.SaveChanges();
 
                 }

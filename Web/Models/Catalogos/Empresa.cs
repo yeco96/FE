@@ -36,6 +36,20 @@ namespace Web.Models.Catalogos
         [Display(Name = "Leyenda")]
         public string leyenda { set; get; }
 
+        [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [Display(Name = "Condición Venta")]
+        public string condicionVenta { set; get; }
+
+        [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [Display(Name = "Medio Pago")]
+        public string medioPago { set; get; }
+         
+        [Display(Name = "Plazo Crédito")]
+        public int plazoCredito { set; get; }
+
+        [MaxLength(3, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [Display(Name = "Moneda")]
+        public string moneda { set; get; }
 
         /// <summary>
         /// AUDIOTORIA

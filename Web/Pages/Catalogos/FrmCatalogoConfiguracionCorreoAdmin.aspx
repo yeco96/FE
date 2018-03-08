@@ -27,7 +27,7 @@
                  <dx:GridViewDataTextColumn Caption="Código" FieldName="codigo"  VisibleIndex="1"  
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-                 <dx:GridViewDataTextColumn Caption="Servidor" FieldName="host" VisibleIndex="2"  PropertiesTextEdit-MaxLength="25"  Width="25%" 
+                 <dx:GridViewDataTextColumn Caption="Servidor" FieldName="host" VisibleIndex="2"  PropertiesTextEdit-MaxLength="50"  Width="25%" 
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataSpinEditColumn Caption="Puerto" FieldName="port" VisibleIndex="3"    

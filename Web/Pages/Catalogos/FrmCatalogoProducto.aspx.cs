@@ -151,6 +151,7 @@ namespace Web.Pages.Catalogos
                     dato.tipoServMerc = e.NewValues["tipoServMerc"] != null ? e.NewValues["tipoServMerc"].ToString().ToUpper() : null;
                     dato.unidadMedida = e.NewValues["unidadMedida"] != null ? e.NewValues["unidadMedida"].ToString() : null;
                     dato.precio = e.NewValues["precio"] != null ? decimal.Parse(e.NewValues["precio"].ToString()) : 0;
+                    dato.orden = e.NewValues["orden"] != null ? int.Parse(e.NewValues["orden"].ToString()) : 0;
                     dato.emisor =Session["emisor"].ToString();
                     dato.cargaAutFactura = e.NewValues["cargaAutFactura"].ToString();
                     dato.estado = e.NewValues["estado"].ToString();
@@ -215,6 +216,7 @@ namespace Web.Pages.Catalogos
                     dato.tipoServMerc = e.NewValues["tipoServMerc"] != null ? e.NewValues["tipoServMerc"].ToString().ToUpper() : null;
                     dato.unidadMedida = e.NewValues["unidadMedida"] != null ? e.NewValues["unidadMedida"].ToString() : null;
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
+                    dato.orden = e.NewValues["orden"] != null ? int.Parse(e.NewValues["orden"].ToString()) : 0;
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.cargaAutFactura = e.NewValues["cargaAutFactura"].ToString();
                     dato.usuarioModificacion = Session["usuario"].ToString();

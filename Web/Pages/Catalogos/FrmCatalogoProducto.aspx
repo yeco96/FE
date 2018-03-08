@@ -26,7 +26,7 @@
                 <dx:GridViewDataTextColumn Caption="Id" FieldName="id" VisibleIndex="1"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataComboBoxColumn Caption="Tipo Código" FieldName="tipo" VisibleIndex="1" Width="20%"
+                <dx:GridViewDataComboBoxColumn Caption="Tipo Código" FieldName="tipo" VisibleIndex="1" Width="20%" Visible="false" EditFormSettings-Visible="True"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
                   <dx:GridViewDataComboBoxColumn Caption="Tipo Serv/Merc" FieldName="tipoServMerc" VisibleIndex="1" 
@@ -43,6 +43,7 @@
                 </dx:GridViewDataTextColumn>
 
                 <dx:GridViewDataSpinEditColumn Caption="Precio" FieldName="precio" VisibleIndex="4" PropertiesSpinEdit-DecimalPlaces="2"
+                     PropertiesSpinEdit-AllowMouseWheel="false"
                     PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="n2"
                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataSpinEditColumn>
@@ -50,6 +51,10 @@
                  <dx:GridViewDataComboBoxColumn Caption="Cargar Automáticamente" FieldName="cargaAutFactura" VisibleIndex="4"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
+
+                 <dx:GridViewDataSpinEditColumn Caption="Orden" FieldName="orden" VisibleIndex="4" PropertiesSpinEdit-AllowMouseWheel="false"
+                    PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataSpinEditColumn>
 
                 <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="4"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">

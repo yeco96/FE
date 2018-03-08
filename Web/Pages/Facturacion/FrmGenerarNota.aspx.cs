@@ -312,6 +312,9 @@ namespace Web.Pages.Facturacion
 
                     /* RECEPTOR */
                     dato.receptor = factura.receptor;
+                    dato.receptor.identificacion.numero = dato.receptor.identificacion.numero.Replace(" ", "").Trim();
+                    dato.receptor.identificacion.numero = dato.receptor.identificacion.numero.Replace("-", "").Trim();
+
 
                     /* INFORMACION DE REFERENCIA */
                     InformacionReferencia informacionReferencia = new InformacionReferencia();
