@@ -46,7 +46,7 @@
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
 
-                  <dx:GridViewDataMemoColumn Caption="Leyenda" FieldName="leyenda" VisibleIndex="4" Visible="true" EditFormSettings-Visible="True"  
+                  <dx:GridViewDataMemoColumn Caption="Leyenda" FieldName="leyenda" VisibleIndex="4" Visible="false" EditFormSettings-Visible="True"  
                     PropertiesMemoEdit-ValidationSettings-RequiredField-IsRequired="false" PropertiesMemoEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataMemoColumn>
 
