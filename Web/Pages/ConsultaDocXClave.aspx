@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="frmConsultaDocXclave.aspx.cs" Inherits="Web.Pages.frmConsultaDocXclave" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="ConsultaDocXClave.aspx.cs" Inherits="Web.Pages.ConsultaDocXClave" %>
+
 <%@ Register Assembly="DevExpress.XtraReports.v17.1.Web, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.XtraReports.Web" TagPrefix="dx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
@@ -7,7 +8,7 @@
         <div class="content-wrapper">
             Documento Electrónico
         </div>
-    </section> 
+    </section>
     <dx:ASPxFormLayout runat="server" AlignItemCaptionsInAllGroups="true">
         <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
         <Items>
@@ -17,8 +18,8 @@
                     <dx:LayoutItem Caption="Clave del documento">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                
-                                <dx:ASPxTextBox ID="txtClave" runat="server" Width="100%">
+
+                                <dx:ASPxTextBox ID="txtClave" runat="server" Width="100%" MaxLength="50">
                                     <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ErrorText="Requerido">
                                         <RequiredField IsRequired="true" />
                                     </ValidationSettings>
@@ -27,25 +28,17 @@
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
 
-                                        <dx:LayoutItem Caption=" ">
-                        <LayoutItemNestedControlCollection>
-                            <dx:LayoutItemNestedControlContainer>
-                                 <dx:ASPxButton ID="txtConsultar" runat="server" Text="Consultar" Width="80px" Image-Url="~/Content/Images/search1.png" Image-Height="20px"
-                                      CausesValidation="true" OnClick="btnConsultar_Click" > 
-                                    </dx:ASPxButton>
-                            </dx:LayoutItemNestedControlContainer>
-                        </LayoutItemNestedControlCollection>
-                    </dx:LayoutItem>
-
-
                     <dx:LayoutItem Caption=" ">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                 <dx:ASPxCheckBox ID="chkCambioMoneda" runat="server" Text="Activar cambio moneda USD a CRC" >
-                                    </dx:ASPxCheckBox>
+                                <dx:ASPxButton ID="txtConsultar" runat="server" Text="Consultar" Width="80px" Image-Url="~/Content/Images/search1.png" Image-Height="20px"
+                                    CausesValidation="true" OnClick="btnConsultar_Click">
+                                </dx:ASPxButton>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
+
+
 
                 </Items>
             </dx:LayoutGroup>

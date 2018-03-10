@@ -181,8 +181,7 @@
                                                      <dx:MenuItem Text="AYUDA" >
                                                         <Items>
                                                             <dx:MenuItem Text="CONTACTO" NavigateUrl="~/Pages/Contacts" />
-                                                            <dx:MenuItem Text="MANUAL" NavigateUrl="~/Pages/Manual" />
-                                                            <dx:MenuItem Text="CONSULTAR CLAVE" NavigateUrl="~/Pages/frmConsultaDocXclave"/>
+                                                            <dx:MenuItem Text="MANUAL" NavigateUrl="~/Pages/Manual" /> 
                                                         </Items>
                                                     </dx:MenuItem>
                                                 </Items>
@@ -200,8 +199,8 @@
                                                       <dx:MenuItem Text="AYUDA" >
                                                         <Items>
                                                             <dx:MenuItem Text="CONTACTO" NavigateUrl="~/Pages/Contacts" />
-                                                            <dx:MenuItem Text="MANUAL" NavigateUrl="~/Pages/Manual" />
-                                                            <dx:MenuItem Text="CONSULTAR CLAVE" NavigateUrl="~/Pages/frmConsultaDocXclave"/>
+                                                            <dx:MenuItem Text="CONSULTAR DOCUMENTO" NavigateUrl="~/Pages/ConsultaDocXClave"/>
+                                                            <dx:MenuItem Text="MANUAL" NavigateUrl="~/Pages/Manual" /> 
                                                         </Items>
                                                     </dx:MenuItem>
                                                 </Items>
