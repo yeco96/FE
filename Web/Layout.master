@@ -130,6 +130,8 @@
                                                         <Items>
                                                             <dx:MenuItem Text="CONTACTO" NavigateUrl="~/Pages/Contacts" />
                                                             <dx:MenuItem Text="MANUAL" NavigateUrl="~/Pages/Manual" />
+                                                            <dx:MenuItem Text="CONSULTA" NavigateUrl="~/Pages/Reportes/frmConsultaDocXclave"/>
+
                                                         </Items>
                                                     </dx:MenuItem>
 
