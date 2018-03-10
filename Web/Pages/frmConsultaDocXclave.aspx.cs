@@ -13,7 +13,7 @@ using Web.Models.Catalogos;
 using WSDomain;
 using XMLDomain;
 
-namespace Web.Pages.Reportes
+namespace Web.Pages
 {
     public partial class frmConsultaDocXclave : System.Web.UI.Page
     {

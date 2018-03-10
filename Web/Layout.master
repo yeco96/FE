@@ -130,7 +130,7 @@
                                                         <Items>
                                                             <dx:MenuItem Text="CONTACTO" NavigateUrl="~/Pages/Contacts" />
                                                             <dx:MenuItem Text="MANUAL" NavigateUrl="~/Pages/Manual" />
-                                                            <dx:MenuItem Text="CONSULTA" NavigateUrl="~/Pages/Reportes/frmConsultaDocXclave"/>
+                                                            <dx:MenuItem Text="CONSULTAR CLAVE" NavigateUrl="~/Pages/frmConsultaDocXclave"/>
 
                                                         </Items>
                                                     </dx:MenuItem>
@@ -182,6 +182,7 @@
                                                         <Items>
                                                             <dx:MenuItem Text="CONTACTO" NavigateUrl="~/Pages/Contacts" />
                                                             <dx:MenuItem Text="MANUAL" NavigateUrl="~/Pages/Manual" />
+                                                            <dx:MenuItem Text="CONSULTAR CLAVE" NavigateUrl="~/Pages/frmConsultaDocXclave"/>
                                                         </Items>
                                                     </dx:MenuItem>
                                                 </Items>
@@ -200,6 +201,7 @@
                                                         <Items>
                                                             <dx:MenuItem Text="CONTACTO" NavigateUrl="~/Pages/Contacts" />
                                                             <dx:MenuItem Text="MANUAL" NavigateUrl="~/Pages/Manual" />
+                                                            <dx:MenuItem Text="CONSULTAR CLAVE" NavigateUrl="~/Pages/frmConsultaDocXclave"/>
                                                         </Items>
                                                     </dx:MenuItem>
                                                 </Items>

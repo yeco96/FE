@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Web.Pages.Reportes {
+namespace Web.Pages {
     
     
     public partial class frmConsultaDocXclave {
