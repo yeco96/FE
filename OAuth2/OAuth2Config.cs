@@ -19,20 +19,44 @@ namespace OAuth2
         [Display(Name = "Ambiente")]
         public string enviroment { set; get; }
 
+        [Display(Name = "Servidor")]
         public string server { set; get; }
+
+        [Display(Name = "Cliente Id")]
         public string clientId { set; get; }
+
+        [Display(Name = "Cliente Clave")]
         public string clientSecret { set; get; }
+
+        [Display(Name = "Scope")]
         public string scope { set; get; }
 
         [NotMapped]
-        public string username { set; get; }
-        [NotMapped]
-        public string password { set; get; }
-        [NotMapped]
-        public Uri urlServer { set; get; }
-        [NotMapped]
+        [Display(Name = "Token")]
         public OAuth2Token token { set; get; }
 
+
+        /// <summary>
+        /// VALORES PARA PRUEBAS
+        /// </summary>
+
+        [NotMapped]
+        [Display(Name = "Nombre Usuario")]
+        public string username { set; get; }
+
+        [NotMapped]
+        [Display(Name = "Contraseña")]
+        public string password { set; get; }
+
+        [NotMapped]
+        [Display(Name = "Servidor URL")]
+        public Uri urlServer { set; get; }
+
+
+
+        /// <summary>
+        /// CONSTRUCTOR
+        /// </summary>
         public OAuth2Config()
         {
             this.token = new OAuth2Token();
@@ -129,7 +153,9 @@ namespace OAuth2
             return await responseMessage.Content.ReadAsStringAsync();
         }
          
-
+        /// <summary>
+        /// datos de pruebas 
+        /// </summary>
         public void loadParameter()
         {
             enviroment = "DES";

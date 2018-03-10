@@ -15,11 +15,19 @@ namespace FirmaXadesNet
     {
         public X509Certificate2 certificado;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public FirmaXML()
         {
 
         }
 
+        /// <summary>
+        /// Firma un xml ESTE METODO ES DE PRUEBAS
+        /// </summary>
+        /// <param name="xml"></param>
+        /// <returns></returns>
         public static string getXMLFirmado(string xml)
         {
             XadesService xadesService = new XadesService();
@@ -54,7 +62,7 @@ namespace FirmaXadesNet
         /// <summary>
         /// Firma un documento XML
         /// </summary>
-        /// <param name="xml">documenot XML</param>
+        /// <param name="xml">docuemento XML</param>
         /// <param name="data_p12">llave criptografica del usuario</param>
         /// <param name="clave">clave de la llave criptografica</param>
         /// <returns></returns>
@@ -89,7 +97,12 @@ namespace FirmaXadesNet
             }
         }
 
-
+        /// <summary>
+        /// Extrae el certificado del archivo .p12
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public static X509Certificate2 GetSelectedCertificate(byte[] data, string password) 
         {
             if(data != null)
@@ -98,6 +111,7 @@ namespace FirmaXadesNet
             }
             else
             {
+                // este es para pruebas con el proyecto de consola
                 return (new X509Certificate2("060354097414.p12", "6891"));
             }
             
