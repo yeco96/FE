@@ -10,7 +10,6 @@
         </div>
     </section>
     <div class="borde_redondo_tabla">
-
         Datos para la configuración de los correos más usuales:<br />
         <table class="w-50" style="width: 29%" border="1">
             <tr>
@@ -20,60 +19,61 @@
                 <td class="text-center" style="color: #FFFFFF; background-color: #0072C6"><strong><em>SSL</em></strong></td>
             </tr>
             <tr>
-                <td class="dxeTextBoxDefaultWidthSys" ><strong>Gmail</strong></td>
-                <td class="text-center" >995</td>
-                <td class="text-center" >smtp.gmail.com</td>
-                <td class="text-center" >Si</td>
+                <td class="dxeTextBoxDefaultWidthSys"><strong>Gmail</strong></td>
+                <td class="text-center">995</td>
+                <td class="text-center">smtp.gmail.com</td>
+                <td class="text-center">Si</td>
             </tr>
             <tr>
-                <td class="dxeTextBoxDefaultWidthSys" ><strong>Yahoo</strong></td>
-                <td class="text-center" >465</td>
-                <td class="text-center" >smtp.mail.yahoo.com</td>
-                <td class="text-center" >Si</td>
+                <td class="dxeTextBoxDefaultWidthSys"><strong>Yahoo</strong></td>
+                <td class="text-center">465</td>
+                <td class="text-center">smtp.mail.yahoo.com</td>
+                <td class="text-center">Si</td>
             </tr>
             <tr>
-                <td class="dxeTextBoxDefaultWidthSys" ><strong>Microsoft (Office 365)</strong></td>
-                <td class="text-center" >587</td>
-                <td class="text-center" >smtp.office365.com</td>
-                <td class="text-center" >Si</td>
+                <td class="dxeTextBoxDefaultWidthSys"><strong>Microsoft (Office 365)</strong></td>
+                <td class="text-center">587</td>
+                <td class="text-center">smtp.office365.com</td>
+                <td class="text-center">Si</td>
             </tr>
             <tr>
-                <td class="dxeTextBoxDefaultWidthSys" ><strong>Hotmail</strong></td>
-                <td class="text-center" >25</td>
-                <td class="text-center" >smtp.live.com</td>
-                <td class="text-center" >Si</td>
+                <td class="dxeTextBoxDefaultWidthSys"><strong>Hotmail</strong></td>
+                <td class="text-center">25</td>
+                <td class="text-center">smtp.live.com</td>
+                <td class="text-center">Si</td>
             </tr>
         </table>
         *&nbsp;&nbsp; Si cuenta con un dominio propio consulte con su proveedor de hosting<br />
-        ** La configuración del correo es adicional, en caso no de poseer alguna configuración, la salida de correos será de fe@msasoft.net. <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
-            Width="100%" EnableTheming="True" KeyFieldName="codigo" Theme="Moderno" 
+        ** La configuración del correo es adicional, en caso no de poseer alguna configuración, la salida de correos será de fe@msasoft.net.
+        <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
+            Width="100%" EnableTheming="True" KeyFieldName="codigo" Theme="Moderno"
             OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize"
-             
             OnRowDeleting="ASPxGridView1_RowDeleting"
             OnRowInserting="ASPxGridView1_RowInserting"
-            OnRowUpdating="ASPxGridView1_RowUpdating"> 
-             
+            OnRowUpdating="ASPxGridView1_RowUpdating">
+
             <Columns>
-                
+
                 <dx:GridViewCommandColumn Width="100px" ButtonType="Image" ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
                 </dx:GridViewCommandColumn>
 
-                 <dx:GridViewDataTextColumn Caption="Código" FieldName="codigo"  VisibleIndex="1"  
+                <dx:GridViewDataTextColumn Caption="Código" FieldName="codigo" VisibleIndex="1"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-                 <dx:GridViewDataTextColumn Caption="Servidor" FieldName="host" VisibleIndex="2"  PropertiesTextEdit-MaxLength="50"  Width="25%" 
+                <dx:GridViewDataTextColumn Caption="Servidor" FieldName="host" VisibleIndex="2" PropertiesTextEdit-MaxLength="50" Width="25%"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataSpinEditColumn Caption="Puerto" FieldName="port" VisibleIndex="3"    
+                <dx:GridViewDataSpinEditColumn Caption="Puerto" FieldName="port" VisibleIndex="3"
                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
-                </dx:GridViewDataSpinEditColumn> 
-                <dx:GridViewDataTextColumn Caption="Usuario" FieldName="user" VisibleIndex="4" PropertiesTextEdit-MaxLength="50"    Width="25%"
+                </dx:GridViewDataSpinEditColumn>
+                <dx:GridViewDataTextColumn Caption="Usuario" FieldName="user" VisibleIndex="4" PropertiesTextEdit-MaxLength="50" Width="25%"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Contraseña" FieldName="password" VisibleIndex="5" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-Password="true"   
+                <dx:GridViewDataTextColumn Caption="Contraseña" FieldName="password" VisibleIndex="50" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-Password="true"
+                    Visible="false" EditFormSettings-Visible="True"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="false" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-                 <dx:GridViewDataComboBoxColumn Caption="SSL" FieldName="ssl" VisibleIndex="6"
+                <dx:GridViewDataComboBoxColumn Caption="SSL" FieldName="ssl" VisibleIndex="6"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
                 <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="6"
@@ -82,26 +82,26 @@
                 <dx:GridViewDataTextColumn Visible="false" Caption="Usuario Creación" FieldName="usuarioCreacion" VisibleIndex="5">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataDateColumn Visible="false" Caption="Fecha Creación" FieldName="fechaCreacion" VisibleIndex="6">
-                    <PropertiesDateEdit EditFormat="DateTime" DisplayFormatstring="" EditFormatstring="dd/MM/yyyy hh:mm:ss"></PropertiesDateEdit>
+                    <PropertiesDateEdit EditFormat="DateTime" DisplayFormatString="" EditFormatString="dd/MM/yyyy hh:mm:ss"></PropertiesDateEdit>
                 </dx:GridViewDataDateColumn>
                 <dx:GridViewDataTextColumn Visible="false" Caption="Usuario Modificación" FieldName="usuarioModificacion" VisibleIndex="7">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataDateColumn Visible="false" Caption="Fecha Modificación" FieldName="fechaModificacion" VisibleIndex="8">
-                    <PropertiesDateEdit EditFormat="DateTime" DisplayFormatstring="" EditFormatstring="dd/MM/yyyy hh:mm:ss"></PropertiesDateEdit>
+                    <PropertiesDateEdit EditFormat="DateTime" DisplayFormatString="" EditFormatString="dd/MM/yyyy hh:mm:ss"></PropertiesDateEdit>
                 </dx:GridViewDataDateColumn>
             </Columns>
-            
-             <SettingsBehavior ColumnResizeMode="NextColumn" />
+
+            <SettingsBehavior ColumnResizeMode="NextColumn" />
             <Settings ShowFooter="True" ShowFilterBar="Visible" ShowFilterRow="true" />
             <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="True" ConfirmDelete="True" />
-            <SettingsPager PageSize="10" PageSizeItemSettings-Visible="true"  PageSizeItemSettings-Items="10, 20, 50, 100" />
+            <SettingsPager PageSize="10" PageSizeItemSettings-Visible="true" PageSizeItemSettings-Items="10, 20, 50, 100" />
             <SettingsEditing Mode="EditFormAndDisplayRow" />
             <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="True" ShowFilterRow="True" ShowTitlePanel="True" UseFixedTableLayout="True" />
             <SettingsContextMenu EnableColumnMenu="True" Enabled="True" EnableFooterMenu="True" EnableGroupPanelMenu="True" EnableRowMenu="True" />
-            
+
             <SettingsCommandButton>
-                <NewButton Image-ToolTip="Nuevo" Image-Url="~/Content/Images/add.png"/> 
-                <EditButton  Image-ToolTip="Modificar" Image-Url="~/Content/Images/edit.png" /> 
+                <NewButton Image-ToolTip="Nuevo" Image-Url="~/Content/Images/add.png" />
+                <EditButton Image-ToolTip="Modificar" Image-Url="~/Content/Images/edit.png" />
                 <DeleteButton Image-ToolTip="Eliminar" Image-Url="~/Content/Images/delete.png" />
                 <ClearFilterButton Image-ToolTip="Quitar filtros" Image-Url="~/Content/Images/refresh.png" />
                 <UpdateButton ButtonType="Link" Image-ToolTip="Guardar cambios y cerrar formulario de edición" Image-Url="~/Content/Images/acept.png" />
@@ -114,7 +114,7 @@
             </EditFormLayoutProperties>
             <Styles>
                 <Cell Wrap="False"></Cell>
-                <AlternatingRow Enabled="true" /> 
+                <AlternatingRow Enabled="true" />
             </Styles>
             <Templates>
                 <EditForm>
@@ -153,6 +153,37 @@
             <BorderBottom BorderWidth="1px" />
 
         </dx:ASPxGridView>
+
+
+        <dx:ASPxFormLayout runat="server" ID="formLayoutExoneracion">
+            <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
+            <Items>
+                <dx:LayoutGroup Caption="Prueba de configuración de correo" ColCount="2" GroupBoxDecoration="Box" UseDefaultPaddings="false">
+                    <Items>
+                        <dx:LayoutItem Caption="Correo">
+                            <LayoutItemNestedControlCollection>
+                                <dx:LayoutItemNestedControlContainer>
+                                     <dx:ASPxTextBox ID="txtCorreo" runat="server" ValidationSettings-ValidationGroup="correo"
+                        ValidationSettings-RegularExpression-ValidationExpression="\s*\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*\s*" />
+                                </dx:LayoutItemNestedControlContainer>
+                            </LayoutItemNestedControlCollection>
+                        </dx:LayoutItem>
+                        <dx:LayoutItem Caption=" ">
+                            <LayoutItemNestedControlCollection>
+                                <dx:LayoutItemNestedControlContainer>
+                                    <dx:ASPxButton ID="btnVerificarCorreo" Text="Verificar" runat="server" OnClick="btnVerificarCorreo_Click" ValidationGroup="correo" Width="100px" />
+                                </dx:LayoutItemNestedControlContainer>
+                            </LayoutItemNestedControlCollection>
+                        </dx:LayoutItem>
+
+                    </Items>
+                </dx:LayoutGroup>
+
+            </Items>
+        </dx:ASPxFormLayout>
+         
+        <div id="alertMessages" role="alert" runat="server" />
+
         <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="ASPxGridView1" FileName="Catálogo Producto">
             <Styles>
                 <Default Font-Names="Arial" Font-Size="Small" />
@@ -163,7 +194,9 @@
             <PageFooter Left="[Page # of Pages #]" Right="[Date Printed][Time Printed]">
                 <Font Names="Arial" Size="Small" />
             </PageFooter>
-        </dx:ASPxGridViewExporter> 
+        </dx:ASPxGridViewExporter>
+
+
     </div>
 
 </asp:Content>
