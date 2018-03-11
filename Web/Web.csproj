@@ -236,6 +236,7 @@
     <Content Include="Pages\Facturacion\FrmClienteAdministrador.aspx" />
     <Content Include="Pages\Facturacion\FrmEmisor.aspx" />
     <Content Include="Pages\Facturacion\FrmGenerarDocumento.aspx" />
+    <Content Include="Pages\Facturacion\FrmCargarXMLReceptor.aspx" />
     <Content Include="Pages\Facturacion\FrmValidarXML.aspx" />
     <Content Include="Pages\Manual.aspx" />
     <Content Include="Pages\PlanesDoc.aspx" />
@@ -633,6 +634,13 @@
     </Compile>
     <Compile Include="Pages\Facturacion\FrmGenerarDocumento.aspx.designer.cs">
       <DependentUpon>FrmGenerarDocumento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmCargarXMLReceptor.aspx.cs">
+      <DependentUpon>FrmCargarXMLReceptor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmCargarXMLReceptor.aspx.designer.cs">
+      <DependentUpon>FrmCargarXMLReceptor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Facturacion\FrmValidarXML.aspx.cs">
       <DependentUpon>FrmValidarXML.aspx</DependentUpon>
