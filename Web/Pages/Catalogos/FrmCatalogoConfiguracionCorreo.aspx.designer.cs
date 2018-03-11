@@ -22,6 +22,42 @@ namespace Web.Pages.Catalogos {
         protected global::DevExpress.Web.ASPxGridView ASPxGridView1;
         
         /// <summary>
+        /// formLayoutExoneracion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxFormLayout formLayoutExoneracion;
+        
+        /// <summary>
+        /// txtCorreo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxTextBox txtCorreo;
+        
+        /// <summary>
+        /// btnVerificarCorreo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnVerificarCorreo;
+        
+        /// <summary>
+        /// alertMessages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertMessages;
+        
+        /// <summary>
         /// ASPxGridViewExporter1 control.
         /// </summary>
         /// <remarks>

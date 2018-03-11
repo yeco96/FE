@@ -21,29 +21,20 @@ namespace EncodeXML
         public static string base64Decode(string data)
         {
             try 
-            {
-
+            { 
                 System.Text.UTF8Encoding encoder = new System.Text.UTF8Encoding(); 
-                System.Text.Decoder utf8Decode = encoder.GetDecoder();
-                 
-                byte[] todecode_byte = Convert.FromBase64String(data);
-
-                int charCount = utf8Decode.GetCharCount(todecode_byte, 0, todecode_byte.Length);
-
-                char[] decoded_char = new char[charCount];
-
-                utf8Decode.GetChars(todecode_byte, 0, todecode_byte.Length, decoded_char, 0);
-
-                string result = new string(decoded_char);
-
+                System.Text.Decoder utf8Decode = encoder.GetDecoder(); 
+                byte[] todecode_byte = Convert.FromBase64String(data); 
+                int charCount = utf8Decode.GetCharCount(todecode_byte, 0, todecode_byte.Length); 
+                char[] decoded_char = new char[charCount]; 
+                utf8Decode.GetChars(todecode_byte, 0, todecode_byte.Length, decoded_char, 0); 
+                string result = new string(decoded_char); 
                 return result;
-
             } 
             catch (Exception e) 
             { 
                 throw new Exception("Error en Descodificar a base 64" + e.Message); 
             }
-
         }
 
         
@@ -52,8 +43,7 @@ namespace EncodeXML
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public static string base64Encode(string data)
-
+        public static string base64Encode(string data) 
         {
             try
             {
@@ -65,8 +55,7 @@ namespace EncodeXML
             catch (Exception e)
             {
                 throw new Exception("Error en Codificar a base 64" + e.Message);
-            }
-
+            } 
         }
 
 
@@ -411,6 +400,12 @@ namespace EncodeXML
             }
         }
 
+
+        /// <summary>
+        /// tipo de documento presente en el XML
+        /// </summary>
+        /// <param name="xml"></param>
+        /// <returns></returns>
         public static string tipoDocumentoXML(string xml)
         {
             if (xml.Contains("FacturaElectronica"))

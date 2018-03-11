@@ -339,7 +339,14 @@ namespace Class.Utilidades
             return mensaje; 
         }
 
-   
+        public static string mensageGenericoPruebaCorreo()
+        {
+            String mensaje = ""; 
+            mensaje += "<p>**** Este mensaje se ha generado automáticamente.</p>";
+            mensaje += "<p>**** Por Favor No conteste a este mensaje ya que no recibirá ninguna respuesta..</p>";
+
+            return mensaje;
+        }
 
         public static Stream GenerateStreamFromString(string s)
         {

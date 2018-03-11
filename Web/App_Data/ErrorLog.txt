@@ -5771,35 +5771,17 @@ Stack Trace:
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
-********** 10/03/2018 10:51:22 a.m. **********
-Inner Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
-Inner Exception: An error occurred while executing the command definition. See the inner exception for details.
-Inner Source: EntityFramework
+********** 10/3/2018 13:20:15 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
 Inner Stack Trace: 
-   en System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
-   en System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
-   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
-   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
-   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
-   en System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
-   en System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__2[TResult](IEnumerable`1 sequence)
-   en System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
-   en System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
-   en System.Linq.Queryable.SingleOrDefault[TSource](IQueryable`1 source)
-   en System.Data.Entity.Internal.Linq.InternalSet`1.FindInStore(WrappedEntityKey key, String keyValuesParamName)
-   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
-   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
-   en Web.Pages.frmConsultaDocXclave.CreateReport(String clave) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\frmConsultaDocXclave.aspx.cs:línea 38
-   en Web.Pages.frmConsultaDocXclave.btnConsultar_Click(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\frmConsultaDocXclave.aspx.cs:línea 64
-   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
-   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
-   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
-   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
-   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en Web.Pages.Catalogos.FrmCatalogoConfiguracionCorreo.Page_Load(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Catalogos\FrmCatalogoConfiguracionCorreo.aspx.cs:línea 55
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
    en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
 Exception Type: System.Web.HttpUnhandledException
 Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
@@ -5811,40 +5793,22 @@ Stack Trace:
    en System.Web.UI.Page.ProcessRequest()
    en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
    en System.Web.UI.Page.ProcessRequest(HttpContext context)
-   en ASP.pages_frmconsultadocxclave_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_tpcu5vat.3.cs:línea 0
+   en ASP.pages_catalogos_frmcatalogoconfiguracioncorreo_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_a3akdkmi.2.cs:línea 0
    en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
-********** 10/03/2018 10:51:38 a.m. **********
-Inner Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
-Inner Exception: An error occurred while executing the command definition. See the inner exception for details.
-Inner Source: EntityFramework
+********** 10/3/2018 13:31:03 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
 Inner Stack Trace: 
-   en System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
-   en System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
-   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
-   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
-   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
-   en System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
-   en System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__2[TResult](IEnumerable`1 sequence)
-   en System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
-   en System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
-   en System.Linq.Queryable.SingleOrDefault[TSource](IQueryable`1 source)
-   en System.Data.Entity.Internal.Linq.InternalSet`1.FindInStore(WrappedEntityKey key, String keyValuesParamName)
-   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
-   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
-   en Web.Pages.frmConsultaDocXclave.CreateReport(String clave) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\frmConsultaDocXclave.aspx.cs:línea 38
-   en Web.Pages.frmConsultaDocXclave.btnConsultar_Click(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\frmConsultaDocXclave.aspx.cs:línea 64
-   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
-   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
-   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
-   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
-   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en Web.Pages.Catalogos.FrmCatalogoConfiguracionCorreo.Page_Load(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Catalogos\FrmCatalogoConfiguracionCorreo.aspx.cs:línea 55
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
    en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
 Exception Type: System.Web.HttpUnhandledException
 Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
@@ -5856,40 +5820,22 @@ Stack Trace:
    en System.Web.UI.Page.ProcessRequest()
    en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
    en System.Web.UI.Page.ProcessRequest(HttpContext context)
-   en ASP.pages_frmconsultadocxclave_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_tpcu5vat.3.cs:línea 0
+   en ASP.pages_catalogos_frmcatalogoconfiguracioncorreo_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_klavkgwy.1.cs:línea 0
    en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
-********** 11/03/2018 11:06:36 a.m. **********
-Inner Exception Type: System.Data.Entity.Core.EntityCommandExecutionException
-Inner Exception: An error occurred while executing the command definition. See the inner exception for details.
-Inner Source: EntityFramework
+********** 10/3/2018 13:39:28 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
 Inner Stack Trace: 
-   en System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
-   en System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
-   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
-   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
-   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
-   en System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
-   en System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__2[TResult](IEnumerable`1 sequence)
-   en System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
-   en System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
-   en System.Linq.Queryable.SingleOrDefault[TSource](IQueryable`1 source)
-   en System.Data.Entity.Internal.Linq.InternalSet`1.FindInStore(WrappedEntityKey key, String keyValuesParamName)
-   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
-   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
-   en Web.Pages.frmConsultaDocXclave.CreateReport(String clave) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\frmConsultaDocXclave.aspx.cs:línea 38
-   en Web.Pages.frmConsultaDocXclave.btnConsultar_Click(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\frmConsultaDocXclave.aspx.cs:línea 64
-   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
-   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
-   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
-   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
-   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en Web.Pages.Catalogos.FrmCatalogoConfiguracionCorreo.Page_Load(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Catalogos\FrmCatalogoConfiguracionCorreo.aspx.cs:línea 55
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
    en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
 Exception Type: System.Web.HttpUnhandledException
 Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
@@ -5901,7 +5847,34 @@ Stack Trace:
    en System.Web.UI.Page.ProcessRequest()
    en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
    en System.Web.UI.Page.ProcessRequest(HttpContext context)
-   en ASP.pages_frmconsultadocxclave_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_uj0jkbol.3.cs:línea 0
+   en ASP.pages_catalogos_frmcatalogoconfiguracioncorreo_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_elrys145.3.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 10/3/2018 15:21:49 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.Catalogos.FrmCatalogoConfiguracionCorreo.Page_Load(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Catalogos\FrmCatalogoConfiguracionCorreo.aspx.cs:línea 55
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_catalogos_frmcatalogoconfiguracioncorreo_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_akybi42z.3.cs:línea 0
    en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)

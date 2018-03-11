@@ -242,7 +242,7 @@
     <Content Include="Pages\PlanesDoc.aspx" />
     <Content Include="Pages\Home.aspx" />
     <Content Include="Pages\Recepcion\FrmRecepcionEmail.aspx" />
-    <Content Include="Pages\frmConsultaDocXclave.aspx" />
+    <Content Include="Pages\ConsultaDocXClave.aspx" />
     <Content Include="Pages\Reportes\FrmReporteDocumentoResumen.aspx" />
     <Content Include="Pages\Reportes\FrmReporteFactura.aspx" />
     <Content Include="Pages\Reportes\FrmReporteFacturaEN.aspx" />
@@ -677,12 +677,12 @@
     <Compile Include="Pages\Recepcion\FrmRecepcionEmail.aspx.designer.cs">
       <DependentUpon>FrmRecepcionEmail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\frmConsultaDocXclave.aspx.cs">
-      <DependentUpon>frmConsultaDocXclave.aspx</DependentUpon>
+    <Compile Include="Pages\ConsultaDocXClave.aspx.cs">
+      <DependentUpon>ConsultaDocXClave.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\frmConsultaDocXclave.aspx.designer.cs">
-      <DependentUpon>frmConsultaDocXclave.aspx</DependentUpon>
+    <Compile Include="Pages\ConsultaDocXClave.aspx.designer.cs">
+      <DependentUpon>ConsultaDocXClave.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs">
       <DependentUpon>FrmReporteDocumentoResumen.aspx</DependentUpon>

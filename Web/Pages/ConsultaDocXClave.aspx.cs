@@ -15,12 +15,11 @@ using XMLDomain;
 
 namespace Web.Pages
 {
-    public partial class frmConsultaDocXclave : System.Web.UI.Page
+    public partial class ConsultaDocXClave : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
-            this.AsyncMode = true;
+            Thread.CurrentThread.CurrentCulture = Utilidades.getCulture(); 
         }
 
         XtraReport CreateReport(string clave)
@@ -43,6 +42,10 @@ namespace Web.Pages
                     reportEN.objectDataSource1.DataSource = dataSource;
                     string enviroment_url = ConfigurationManager.AppSettings["ENVIROMENT_URL"].ToString();
                     reportEN.xrBarCode1.Text = (enviroment_url + documento.clave).ToUpper();
+                    if (empresa != null && empresa.logo != null)
+                    {
+                        reportEN.pbLogo.Image = UtilidadesReporte.byteArrayToImage(empresa.logo);
+                    }
                     reportEN.CreateDocument();
                     report = reportEN;
                 }
@@ -52,6 +55,10 @@ namespace Web.Pages
                     reportES.objectDataSource1.DataSource = dataSource;
                     string enviroment_url = ConfigurationManager.AppSettings["ENVIROMENT_URL"].ToString();
                     reportES.xrBarCode1.Text = (enviroment_url + documento.clave).ToUpper();
+                    if (empresa != null && empresa.logo != null)
+                    {
+                        reportES.pbLogo.Image = UtilidadesReporte.byteArrayToImage(empresa.logo);
+                    }
                     reportES.CreateDocument();
                     report = reportES;
                 }

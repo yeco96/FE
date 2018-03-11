@@ -312,6 +312,33 @@ namespace Web.Pages.Catalogos
             this.ASPxGridViewExporter1.WriteCsvToResponse();
         }
 
-       
+        protected void btnVerificarCorreo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string emisor = Session["emisor"].ToString();
+                using (var conexion = new DataModelFE())
+                {
+                    ConfiguracionCorreo correo = conexion.ConfiguracionCorreo.Find(emisor);
+                    if (correo != null && !string.IsNullOrWhiteSpace(this.txtCorreo.Text) )
+                    {
+                       bool result =  Utilidades.sendMail(emisor, this.txtCorreo.Text,
+                          "TEST", Utilidades.mensageGenericoPruebaCorreo(), "Confuguración CORREO");
+
+                        if (result)
+                        {
+                            this.alertMessages.InnerText = "Correo enviado con éxito";
+                            this.alertMessages.Attributes["class"] = "alert alert-info";
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
+                this.alertMessages.Attributes["class"] = "alert alert-danger";
+            }
+        }
     }
 }
