@@ -143,7 +143,7 @@ namespace Web.Pages.Facturacion
                 dato.numeroCedulaReceptor = this.txtNumCedReceptor.Text;
 
                 dato.mensajeDetalle = this.txtDetalleMensaje.Text;
-                dato.mensaje = int.Parse(this.cmbMensaje.Value.ToString());
+                //dato.mensaje = int.Parse(this.cmbMensaje.Value.ToString());
                 dato.numeroConsecutivoReceptor = this.txtNumConsecutivoReceptor.Text;
 
                 dato.montoTotalImpuesto = decimal.Parse(this.txtMontoTotalImpuesto.Text);
@@ -299,6 +299,11 @@ namespace Web.Pages.Facturacion
             {
                 throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
+        }
+
+        protected void btnConsultaXMLRecibidos_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Pages/Facturacion/FrmConsultaResumenReceptor.aspx");
         }
     }
 }

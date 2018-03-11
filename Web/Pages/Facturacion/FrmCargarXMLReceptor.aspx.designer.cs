@@ -76,15 +76,6 @@ namespace Web.Pages.Facturacion {
         protected global::DevExpress.Web.ASPxTextBox txtFechaEmisor;
         
         /// <summary>
-        /// Control cmbMensaje.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbMensaje;
-        
-        /// <summary>
         /// Control txtDetalleMensaje.
         /// </summary>
         /// <remarks>
@@ -137,6 +128,15 @@ namespace Web.Pages.Facturacion {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton btnEnviar;
+        
+        /// <summary>
+        /// Control btnConsultaXMLRecibidos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnConsultaXMLRecibidos;
         
         /// <summary>
         /// Control alertMessages.

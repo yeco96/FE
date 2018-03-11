@@ -13,8 +13,7 @@
 
     <section class="featured">
         <div class="content-wrapper">
-            Confirmar XML
-        </div>
+            CARGAR XML RECIBIDO</div>
     </section>
 
 
@@ -92,7 +91,15 @@
                                 </LayoutItemNestedControlCollection>
                             </dx:LayoutItem>
 
-                            <dx:LayoutItem Caption="Mensaje">
+                            <dx:LayoutItem Caption=" ">
+                                <LayoutItemNestedControlCollection>
+                                    <dx:LayoutItemNestedControlContainer>
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                            </dx:LayoutItem>
+
+
+<%--                            <dx:LayoutItem Caption="Mensaje">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
                                         <dx:ASPxComboBox ID="cmbMensaje" runat="server" SelectedIndex="0" Width="100%" AutoResizeWithContainer="true">
@@ -104,7 +111,7 @@
                                         </dx:ASPxComboBox>
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
-                            </dx:LayoutItem>
+                            </dx:LayoutItem>--%>
 
 
                             <dx:LayoutItem Caption="Detalle del Mensaje" ColSpan="2" Width="100%">
@@ -166,8 +173,10 @@
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
                                         <dx:ASPxButton ID="btnEnviar" runat="server" Text="Enviar" Width="50px" CausesValidation="true" OnClick="btnEnviar_Click"></dx:ASPxButton>
+                                        <dx:ASPxButton ID="btnConsultaXMLRecibidos" runat="server" Text="Consultar Mis XML Recibidos" Width="50px" CausesValidation="true" OnClick="btnConsultaXMLRecibidos_Click"></dx:ASPxButton>
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
+
                             </dx:LayoutItem>
 
 
