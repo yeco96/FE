@@ -265,8 +265,11 @@ namespace Web.Pages.Facturacion
                     using (var conexionWS = new DataModelFE())
                     {
                         WSRecepcionPOST datoHacienda = conexionWS.WSRecepcionPOST.Find(datosReceptor.clave);
-                        datosReceptor.indEstado = datoHacienda.indEstado;
-                        datosReceptor.mensaje = datoHacienda.mensaje;
+                        if (datoHacienda != null)
+                        {
+                            datosReceptor.indEstado = datoHacienda.indEstado;
+                            datosReceptor.mensaje = datoHacienda.mensaje;
+                        }
                     }
                     conexion.WSRecepcionPOSTReceptor.Add(datosReceptor);
                     conexion.SaveChanges();
