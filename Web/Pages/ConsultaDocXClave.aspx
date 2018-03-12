@@ -44,5 +44,6 @@
             </dx:LayoutGroup>
         </Items>
     </dx:ASPxFormLayout>
+    <div id="alertMessages" role="alert" runat="server" />
     <dx:ASPxWebDocumentViewer ID="ASPxWebDocumentViewer1" runat="server"></dx:ASPxWebDocumentViewer>
 </asp:Content>
