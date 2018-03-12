@@ -70,7 +70,7 @@ namespace Web.Pages
                         }
                         else
                         {
-                            this.alertMessages.Attributes["class"] = "alert alert-info";
+                            this.alertMessages.Attributes["class"] = "alert alert-danger";
                             this.alertMessages.InnerText = "El documento ingresado no se encuentra en el repositorio de datos del emisor!!!";
                         }
 
@@ -79,7 +79,7 @@ namespace Web.Pages
                     this.alertMessages.InnerText = "Los datos fueron enviados correctamente!!!";
                 }
                 else {
-                    this.alertMessages.Attributes["class"] = "alert alert-info";
+                    this.alertMessages.Attributes["class"] = "alert alert-danger";
                     this.alertMessages.InnerText = "El documento ingresado no se encuentra en el repositorio de datos del emisor!!!";
                 }
             }
@@ -98,7 +98,7 @@ namespace Web.Pages
                 }
                 else
                 {
-                    this.alertMessages.Attributes["class"] = "alert alert-info";
+                    this.alertMessages.Attributes["class"] = "alert alert-danger";
                     this.alertMessages.InnerText = "La clave ingresada no posee el formato correcto, favor verificar el tamaño del mismo!!!";
                 }
             }
