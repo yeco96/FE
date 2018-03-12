@@ -19,7 +19,8 @@
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
 
-                                <dx:ASPxTextBox ID="txtClave" runat="server" Width="100%" MaxLength="50">
+                                <dx:ASPxTextBox ID="txtClave" runat="server" Width="100%" MaxLength="50" ToolTip="Favor ingresar la clave numérica">
+                                    <MaskSettings Mask="00000000000000000000000000000000000000000000000000" />
                                     <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ErrorText="Requerido">
                                         <RequiredField IsRequired="true" />
                                     </ValidationSettings>
@@ -33,6 +34,7 @@
                             <dx:LayoutItemNestedControlContainer>
                                 <dx:ASPxButton ID="txtConsultar" runat="server" Text="Consultar" Width="80px" Image-Url="~/Content/Images/search1.png" Image-Height="20px"
                                     CausesValidation="true" OnClick="btnConsultar_Click">
+<Image Height="20px" Url="~/Content/Images/search1.png"></Image>
                                 </dx:ASPxButton>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
