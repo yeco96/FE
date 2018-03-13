@@ -40,6 +40,7 @@
     <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v17.1" />
     <Reference Include="DevExpress.Printing.v17.1.Core" />
+    <Reference Include="DevExpress.XtraWizard.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -69,6 +70,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ayuda\frmAcercaDeMSAFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ayuda\frmAcercaDeMSAFactura.Designer.cs">
+      <DependentUpon>frmAcercaDeMSAFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuración\Catalogos\FrmCatalogoEmisor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuración\Catalogos\FrmCatalogoEmisor.Designer.cs">
+      <DependentUpon>FrmCatalogoEmisor.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmFacturaElectronica.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +90,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Ayuda\frmAcercaDeMSAFactura.resx">
+      <DependentUpon>frmAcercaDeMSAFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuración\Catalogos\FrmCatalogoEmisor.resx">
+      <DependentUpon>FrmCatalogoEmisor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmFacturaElectronica.resx">
       <DependentUpon>frmFacturaElectronica.cs</DependentUpon>
     </EmbeddedResource>
@@ -103,8 +122,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Ayuda\" />
-    <Folder Include="Configuración\" />
     <Folder Include="Documentos\" />
     <Folder Include="Login\" />
     <Folder Include="Reportes\" />
