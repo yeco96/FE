@@ -38,9 +38,6 @@
             this.msiHistorico = new System.Windows.Forms.ToolStripMenuItem();
             this.msiFacturar = new System.Windows.Forms.ToolStripMenuItem();
             this.msbConfiguracion = new System.Windows.Forms.ToolStripDropDownButton();
-            this.msbAyuda = new System.Windows.Forms.ToolStripDropDownButton();
-            this.msbSalir = new System.Windows.Forms.ToolStripDropDownButton();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.smiNumeroConsecutivo = new System.Windows.Forms.ToolStripMenuItem();
             this.smiCorreoElectronico = new System.Windows.Forms.ToolStripMenuItem();
             this.smiCatalogos = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,10 +49,14 @@
             this.smiPlan = new System.Windows.Forms.ToolStripMenuItem();
             this.smiSeguridad = new System.Windows.Forms.ToolStripMenuItem();
             this.ssmUsuario = new System.Windows.Forms.ToolStripMenuItem();
+            this.msbAyuda = new System.Windows.Forms.ToolStripDropDownButton();
             this.smiContacto = new System.Windows.Forms.ToolStripMenuItem();
             this.smiManual = new System.Windows.Forms.ToolStripMenuItem();
+            this.msbSalir = new System.Windows.Forms.ToolStripDropDownButton();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -134,35 +135,6 @@
             this.msbConfiguracion.Size = new System.Drawing.Size(112, 22);
             this.msbConfiguracion.Text = "&Configuración";
             // 
-            // msbAyuda
-            // 
-            this.msbAyuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.smiContacto,
-            this.smiManual});
-            this.msbAyuda.Image = ((System.Drawing.Image)(resources.GetObject("msbAyuda.Image")));
-            this.msbAyuda.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.msbAyuda.Name = "msbAyuda";
-            this.msbAyuda.Size = new System.Drawing.Size(70, 22);
-            this.msbAyuda.Text = "&Ayuda";
-            // 
-            // msbSalir
-            // 
-            this.msbSalir.Image = ((System.Drawing.Image)(resources.GetObject("msbSalir.Image")));
-            this.msbSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.msbSalir.Name = "msbSalir";
-            this.msbSalir.Size = new System.Drawing.Size(58, 22);
-            this.msbSalir.Text = "&Salir";
-            this.msbSalir.Click += new System.EventHandler(this.msbSalir_Click);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 376);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.statusStrip1.Size = new System.Drawing.Size(751, 22);
-            this.statusStrip1.TabIndex = 3;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
             // smiNumeroConsecutivo
             // 
             this.smiNumeroConsecutivo.Name = "smiNumeroConsecutivo";
@@ -234,8 +206,20 @@
             // ssmUsuario
             // 
             this.ssmUsuario.Name = "ssmUsuario";
-            this.ssmUsuario.Size = new System.Drawing.Size(152, 22);
+            this.ssmUsuario.Size = new System.Drawing.Size(114, 22);
             this.ssmUsuario.Text = "&Usuario";
+            // 
+            // msbAyuda
+            // 
+            this.msbAyuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.smiContacto,
+            this.smiManual,
+            this.acercaDeToolStripMenuItem});
+            this.msbAyuda.Image = ((System.Drawing.Image)(resources.GetObject("msbAyuda.Image")));
+            this.msbAyuda.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.msbAyuda.Name = "msbAyuda";
+            this.msbAyuda.Size = new System.Drawing.Size(70, 22);
+            this.msbAyuda.Text = "&Ayuda";
             // 
             // smiContacto
             // 
@@ -249,6 +233,24 @@
             this.smiManual.Size = new System.Drawing.Size(152, 22);
             this.smiManual.Text = "&Manual";
             // 
+            // msbSalir
+            // 
+            this.msbSalir.Image = ((System.Drawing.Image)(resources.GetObject("msbSalir.Image")));
+            this.msbSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.msbSalir.Name = "msbSalir";
+            this.msbSalir.Size = new System.Drawing.Size(58, 22);
+            this.msbSalir.Text = "&Salir";
+            this.msbSalir.Click += new System.EventHandler(this.msbSalir_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(0, 376);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.statusStrip1.Size = new System.Drawing.Size(751, 22);
+            this.statusStrip1.TabIndex = 3;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
             // defaultLookAndFeel1
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Visual Studio 2013 Blue";
@@ -257,6 +259,12 @@
             // 
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "ribbonPage2";
+            // 
+            // acercaDeToolStripMenuItem
+            // 
+            this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.acercaDeToolStripMenuItem.Text = "&Acerca De";
             // 
             // frmFacturaElectronica
             // 
@@ -306,6 +314,7 @@
         private System.Windows.Forms.ToolStripMenuItem smiManual;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
+        private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
     }
 }
 
