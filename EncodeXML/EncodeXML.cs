@@ -196,8 +196,16 @@ namespace EncodeXML
 
                 int start = xml.IndexOf("<Clave>");
                 int end = xml.IndexOf("<ds:Signature xmlns");
-                xml = xml.Substring(0, end) + nodoFinal;
-                xml = nodoInicial + xml.Substring(start);
+
+                if (start > 0 && end > 0)
+                {
+                    xml = xml.Substring(0, end) + nodoFinal;
+                    xml = nodoInicial + xml.Substring(start);
+                }
+                else
+                {
+                    xml = nodoInicial + xml.Substring(start);
+                }
 
                 strReader = new StringReader(xml);
                 serializer = new XmlSerializer(objectType);
