@@ -155,8 +155,7 @@ namespace Web.Pages.Facturacion
 
                 //Habilitar solo cuando funcione el servicio
                 string responsePost = await Services.enviarMensajeReceptor(xml, elEmisor, Session["receptor.tipoIdentificacion"].ToString());
-                this.guardarDocumentoReceptor();
-
+                 
                 if (responsePost.Equals("Success"))
                 {
                     this.alertMessages.Attributes["class"] = "alert alert-info";
@@ -194,85 +193,7 @@ namespace Web.Pages.Facturacion
             }
         }
 
-
-        public void guardarDocumentoReceptor()
-        {
-            using (var conexion = new DataModelFE())
-            {
-                //Se guardan los datos en la tabla de ws_resumen_xml_receptor
-                string xmlr = Session["xmlFileValidar"].ToString();
-                DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xmlr);
-                ResumenFacturaReceptor datos = conexion.ResumenFacturaReceptor.Find(documento.clave);
-
-                if (datos == null)
-                {
-                    datos = new ResumenFacturaReceptor();
-                    datos.clave = documento.clave;
-                    datos.tipoCambio = documento.resumenFactura.tipoCambio;
-                    datos.codigoMoneda = documento.resumenFactura.codigoMoneda;
-                    datos.totalServGravados = documento.resumenFactura.totalServGravados;
-                    datos.totalServExentos = documento.resumenFactura.totalServExentos;
-                    datos.totalMercanciasGravadas = documento.resumenFactura.totalMercanciasGravadas;
-                    datos.totalMercanciasExentas = documento.resumenFactura.totalMercanciasExentas;
-                    datos.totalGravado = documento.resumenFactura.totalGravado;
-                    datos.totalExento = documento.resumenFactura.totalExento;
-                    datos.totalVenta = documento.resumenFactura.totalVenta;
-                    datos.totalDescuentos = documento.resumenFactura.totalDescuentos;
-                    datos.totalVentaNeta = documento.resumenFactura.totalVentaNeta;
-                    datos.totalImpuesto = documento.resumenFactura.totalImpuesto;
-                    datos.totalComprobante = documento.resumenFactura.totalComprobante;
-                    conexion.ResumenFacturaReceptor.Add(datos);
-
-                    //Guardar la información en ws_recepcion_documento_receptor
-                    WSRecepcionPOSTReceptor datosReceptor = new WSRecepcionPOSTReceptor();
-                    datosReceptor.clave = datos.clave;
-                    //Emisor
-                    string emisorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Emisor", "Identificacion", xmlr);
-                    datosReceptor.emisorIdentificacion = emisorIdentificacion.Substring(2);
-                    datosReceptor.emisorTipo = emisorIdentificacion.Substring(0, 2);
-                    //Receptor
-                    string receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xmlr);
-                    if (!string.IsNullOrWhiteSpace(receptorIdentificacion))
-                    {
-                        datosReceptor.receptorIdentificacion = receptorIdentificacion.Substring(2);
-                        datosReceptor.receptorTipo = receptorIdentificacion.Substring(0, 2);
-                    }
-                    else
-                    {
-                        datosReceptor.receptorTipo = "99";
-                        datosReceptor.receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "IdentificacionExtranjero", xmlr);
-                    }
-                    //Comprobante XML
-                    datosReceptor.comprobanteXml = EncodeXML.EncondeXML.base64Encode(xmlr);
-
-                    //Auditoría
-                    datosReceptor.usuarioCreacion = Session["usuario"].ToString();
-                    datosReceptor.fechaCreacion = Date.DateTimeNow();
-
-                    //Valores de la tabla
-                    datosReceptor.montoTotalFactura = decimal.Parse(this.txtTotalFactura.Text);
-                    datosReceptor.montoTotalImpuesto = decimal.Parse(this.txtMontoTotalImpuesto.Text);
-                    datosReceptor.tipoDocumento = datos.clave.Substring(29, 2);
-
-                    //Verificar si este dato es el correcto
-                    datosReceptor.mensaje = this.txtDetalleMensaje.Text;
-                    datosReceptor.fecha = DateTime.ParseExact(documento.fechaEmision.Replace("-06:00", ""), "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture);
-
-                    //Datos Hacienda
-                    using (var conexionWS = new DataModelFE())
-                    {
-                        WSRecepcionPOST datoHacienda = conexionWS.WSRecepcionPOST.Find(datosReceptor.clave);
-                        datosReceptor.indEstado = datoHacienda.indEstado;
-                        datosReceptor.mensaje = datoHacienda.mensaje;
-                    }
-                    conexion.WSRecepcionPOSTReceptor.Add(datosReceptor);
-                    conexion.SaveChanges();
-                }
  
-            }
-        }
-
-
         private static bool existeClave(string pClave)
         {
             try
