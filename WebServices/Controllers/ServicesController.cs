@@ -38,36 +38,29 @@ namespace WebServices.Controllers
         {
             string responsePost = "";
             try
-            {
-                EmisorReceptorIMEC elEmisor = null;
-                using (var conexion = new DataModelFE())
-                {
-                    // temporal
-                    elEmisor = conexion.EmisorReceptorIMEC.Find("603540974");
-                }
-
+            { 
                 Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
                 string xml = await Request.Content.ReadAsStringAsync();
                 DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xml);
                 documento.verificaDatosParaXML();
-
-                responsePost = await ServicesHacienda.enviarDocumentoElectronico(false, documento, elEmisor, documento.tipoDocumento, "603540974");
-
+                 
+                EmisorReceptorIMEC elEmisor = null;
+                using (var conexion = new DataModelFE())
+                { 
+                    elEmisor = conexion.EmisorReceptorIMEC.Find(documento.emisor.identificacion.numero);
+                } 
+                responsePost = await ServicesHacienda.enviarDocumentoElectronico(false, documento, elEmisor, documento.tipoDocumento, Usuario.USUARIO_AUTOMATICO); 
             }
             catch (DbEntityValidationException ex)
             {
                 // Retrieve the error messages as a list of strings.
                 var errorMessages = ex.EntityValidationErrors
                         .SelectMany(x => x.ValidationErrors)
-                        .Select(x => x.ErrorMessage);
-
+                        .Select(x => x.ErrorMessage); 
                 // Join the list to a single string.
-                var fullErrorMessage = string.Join("; ", errorMessages);
-                // conexion.CodigoPais.Remove(conexion.CodigoPais.Last() );
-
+                var fullErrorMessage = string.Join("; ", errorMessages);  
                 // Throw a new DbEntityValidationException with the improved exception message.
-                return fullErrorMessage;
-
+                return fullErrorMessage; 
             }
             catch (Exception ex)
             {
@@ -85,32 +78,37 @@ namespace WebServices.Controllers
         [HttpGet]
         [Route("respuestamesajehacienda/{clave}")] 
         public async Task<IHttpActionResult> respuestamesajehacienda(string clave)
-        {
-            
+        { 
             using (var conexion = new DataModelFE())
             {
-                EmisorReceptorIMEC elEmisor = conexion.EmisorReceptorIMEC.Find("603540974");
-                string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
-                OAuth2.OAuth2Config config = conexion.OAuth2Config.Where(x => x.enviroment == ambiente).FirstOrDefault();
-                config.username = elEmisor.usernameOAuth2;
-                config.password = elEmisor.passwordOAuth2;
 
-                await OAuth2.OAuth2Config.getTokenWeb(config);
-
-                string respuestaJSON = await ServicesHacienda.getRecepcion(config.token, clave);
-
-                if (!string.IsNullOrWhiteSpace(respuestaJSON))
+                Models.Facturacion.WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
+                if (dato.montoTotalFactura > 0)
                 {
-                    WSRecepcionGET respuesta = JsonConvert.DeserializeObject<WSRecepcionGET>(respuestaJSON);
-                    if (respuesta.respuestaXml != null)
+                    return Ok(new WSRespuestaGET(dato));
+                }
+                else
+                {
+                    EmisorReceptorIMEC elEmisor = conexion.EmisorReceptorIMEC.Find(Usuario.USUARIO_TOKEN);
+                    string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
+                    OAuth2.OAuth2Config config = conexion.OAuth2Config.Where(x => x.enviroment == ambiente).FirstOrDefault();
+                    config.username = elEmisor.usernameOAuth2;
+                    config.password = elEmisor.passwordOAuth2;
+
+                    await OAuth2.OAuth2Config.getTokenWeb(config);
+
+                    string respuestaJSON = await ServicesHacienda.getRecepcion(config.token, clave);
+
+                    if (!string.IsNullOrWhiteSpace(respuestaJSON))
                     {
-                        string respuestaXML = EncodeXML.EncondeXML.base64Decode(respuesta.respuestaXml);
-
-                        MensajeHacienda mensajeHacienda = new MensajeHacienda(respuestaXML);
-
-                        using (var conexionWS = new DataModelFE())
+                        WSRecepcionGET respuesta = JsonConvert.DeserializeObject<WSRecepcionGET>(respuestaJSON);
+                        if (respuesta.respuestaXml != null)
                         {
-                            Models.Facturacion.WSRecepcionPOST dato = conexionWS.WSRecepcionPOST.Find(clave);
+                            string respuestaXML = EncodeXML.EncondeXML.base64Decode(respuesta.respuestaXml);
+
+                            MensajeHacienda mensajeHacienda = new MensajeHacienda(respuestaXML);
+
+                            dato = conexion.WSRecepcionPOST.Find(clave);
                             dato.mensaje = mensajeHacienda.mensajeDetalle;
                             dato.indEstado = mensajeHacienda.mensaje;
                             dato.fechaModificacion = Date.DateTimeNow();
@@ -118,28 +116,28 @@ namespace WebServices.Controllers
                             //dato.receptorIdentificacion = mensajeHacienda.receptorNumeroCedula;
                             dato.montoTotalFactura = mensajeHacienda.montoTotalFactura;
                             dato.montoTotalImpuesto = mensajeHacienda.montoTotalImpuesto;
-                            conexionWS.Entry(dato).State = EntityState.Modified;
-                            conexionWS.SaveChanges();
+                            conexion.Entry(dato).State = EntityState.Modified;
+                            conexion.SaveChanges();
 
                             return Ok(new WSRespuestaGET(dato));
                         }
-                    }
-                    else
-                    {
-                        if (respuesta.indEstado.Equals("recibido"))
+                        else
                         {
-                            using (var conexionWS = new DataModelFE())
+                            if (respuesta.indEstado.ToLower().Equals("recibido"))
                             {
-                                Models.Facturacion.WSRecepcionPOST dato = conexionWS.WSRecepcionPOST.Find(clave);
-                                dato.indEstado = 8/*recibido por hacienda*/;
-                                dato.fechaModificacion = Date.DateTimeNow();
-                                dato.usuarioModificacion = Usuario.USUARIO_AUTOMATICO;
-                                conexionWS.Entry(dato).State = EntityState.Modified;
-                                conexionWS.SaveChanges();
+                                using (var conexionWS = new DataModelFE())
+                                {
+                                    dato = conexionWS.WSRecepcionPOST.Find(clave);
+                                    dato.indEstado = 8/*recibido por hacienda*/;
+                                    dato.fechaModificacion = Date.DateTimeNow();
+                                    dato.usuarioModificacion = Usuario.USUARIO_AUTOMATICO;
+                                    conexionWS.Entry(dato).State = EntityState.Modified;
+                                    conexionWS.SaveChanges();
 
-                                return Ok(new WSRespuestaGET(dato));
+                                    return Ok(new WSRespuestaGET(dato));
+                                }
                             }
-                        } 
+                        }
                     }
                 }
 
