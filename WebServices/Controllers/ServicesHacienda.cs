@@ -146,11 +146,17 @@ namespace WebServices.Controllers
 
 
 
+        private DateTime tokenTime { set; get; }
+        
+        private bool requiereNuevoToken()
+        {
+
+            TimeSpan diferencia = Date.DateTimeNow().Subtract();
 
 
-
-
-
+            return true;
+        }
+            
         /// <summary>
         /// 
         /// </summary>
@@ -167,12 +173,16 @@ namespace WebServices.Controllers
 
                 using (var conexion = new DataModelFE())
                 {
-                    string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
-                    OAuth2.OAuth2Config config = conexion.OAuth2Config.Where(x => x.enviroment == ambiente).FirstOrDefault();
-                    config.username = emisor.usernameOAuth2;
-                    config.password = emisor.passwordOAuth2;
+                    if (this.requiereNuevoToken())
+                    {
+                        //Sessison["horaToken"]
+                        string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
+                        OAuth2.OAuth2Config config = conexion.OAuth2Config.Where(x => x.enviroment == ambiente).FirstOrDefault();
+                        config.username = emisor.usernameOAuth2;
+                        config.password = emisor.passwordOAuth2;
 
-                    await OAuth2.OAuth2Config.getTokenWeb(config);
+                        await OAuth2.OAuth2Config.getTokenWeb(config);
+                    }
 
                     Models.Facturacion.WSRecepcionPOST trama = new Models.Facturacion.WSRecepcionPOST();
                     trama.clave = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "Clave", xmlFile);

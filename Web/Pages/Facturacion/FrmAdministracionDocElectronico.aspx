@@ -69,7 +69,7 @@
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Fecha" FieldName="fecha" VisibleIndex="3">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Emisor" FieldName="emisorIdentificacion" VisibleIndex="4">
+                <dx:GridViewDataTextColumn Caption="Emisor" FieldName="emisorIdentificacion" VisibleIndex="4" Visible="false">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Receptor" FieldName="Receptor.nombreCompleto" VisibleIndex="5" Width="25%">
                 </dx:GridViewDataTextColumn>

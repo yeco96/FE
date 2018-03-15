@@ -60,16 +60,19 @@ namespace Web.Pages.Catalogos
         /// </summary>  
         private void refreshData()
         {
-            using (var conexion = new DataModelFE())
+            if (!this.ASPxGridView1.IsEditing)
             {
-                string emisor = Session["emisor"].ToString();
-                this.ASPxGridView1.DataSource = (from Emisor in conexion.EmisorReceptorIMEC
-                                                 from cliente in conexion.Cliente
-                                                 where Emisor.identificacion == cliente.receptor && cliente.emisor == emisor
-                                                 select Emisor
-                                                 ).ToList();
+                using (var conexion = new DataModelFE())
+                {
+                    string emisor = Session["emisor"].ToString();
+                    this.ASPxGridView1.DataSource = (from Emisor in conexion.EmisorReceptorIMEC
+                                                     from cliente in conexion.Cliente
+                                                     where Emisor.identificacion == cliente.receptor && cliente.emisor == emisor
+                                                     select Emisor
+                                                     ).ToList();
                     conexion.EmisorReceptorIMEC.ToList();
-                this.ASPxGridView1.DataBind();
+                    this.ASPxGridView1.DataBind();
+                }
             }
         } 
 

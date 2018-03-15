@@ -48,6 +48,10 @@ namespace WebServices.Controllers
                 using (var conexion = new DataModelFE())
                 { 
                     elEmisor = conexion.EmisorReceptorIMEC.Find(documento.emisor.identificacion.numero);
+                    if (elEmisor == null)
+                    {
+                        return "Emisor no registrado!!!";
+                    }
                 } 
                 responsePost = await ServicesHacienda.enviarDocumentoElectronico(false, documento, elEmisor, documento.tipoDocumento, Usuario.USUARIO_AUTOMATICO); 
             }
