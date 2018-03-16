@@ -18,6 +18,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Web.Models;
+using Web.Models.Administracion;
 using Web.Models.Catalogos;
 using Web.Models.Facturacion;
 using Web.Utils;
@@ -50,10 +51,32 @@ namespace Web.Pages.Facturacion
                 {
                     Response.Redirect("~/Pages/Login.aspx");
                 }
+
                 this.alertMessages.Attributes["class"]="";
                 this.alertMessages.InnerText = "";
+
+                this.alertMessages1.Attributes["class"] = "";
+                this.alertMessages1.InnerText = "";
+
                 this.AsyncMode = true;
-                if (!IsCallback && !IsPostBack)
+
+                //Se obtiene datos del emisor
+                using (var conexionPlan = new DataModelFE())
+                {
+                    string emisorPlan = Session["emisor"].ToString();
+                    Plan dato = conexionPlan.Plan.Where(x => x.emisor == emisorPlan).FirstOrDefault();
+                    Session["fechaVencimientoPlan"] = dato.fechaFin.ToString();
+                    Session["documentosPendPlan"] = int.Parse(dato.cantidadDocPlan.ToString()) - int.Parse(dato.cantidadDocEmitido.ToString());
+                    Session["PlanPago"] = dato.plan.ToString();
+
+                    //Mensajes
+                    this.alertMessages1.Attributes["class"] = "alert alert-success";
+                    this.alertMessages1.InnerText = "Plan: " + dato.plan.ToString() + "; Documentos Pendientes: " + Session["documentosPendPlan"].ToString()+"; Fecha de Vencimiento: " + DateTime.Parse(dato.fechaFin.ToString()).ToShortDateString();
+                }
+
+
+
+                    if (!IsCallback && !IsPostBack)
                 {
                     this.txtFechaEmision.Date = Date.DateTimeNow();
                     this.txtFechaEmision.MinDate = Date.DateTimeNow().AddHours(-48);
@@ -675,231 +698,244 @@ namespace Web.Pages.Facturacion
         {
             try
             {
-                Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
-                DetalleServicio detalle = (DetalleServicio)Session["detalleServicio"];
-               
-                
-                if (string.IsNullOrWhiteSpace(this.txtReceptorNombre.Text) || string.IsNullOrWhiteSpace(this.txtReceptorIdentificacion.Text))
-                    {
-                    this.alertMessages.Attributes["class"] = "alert alert-danger";
-                    this.alertMessages.InnerText = "Debe agregar un receptor";
-                    return;
-                }
-                this.txtReceptorIdentificacion.Text = this.txtReceptorIdentificacion.Text.Replace(" ", "").Trim();
-                this.txtReceptorIdentificacion.Text = this.txtReceptorIdentificacion.Text.Replace("-", "").Trim();
+
+                //DateTime f = DateTime.Parse(DateTime.Today.ToShortDateString());
+                //DateTime v = DateTime.Parse(Session["fechaVencimientoPlan"].ToString());
+
+                if (int.Parse(Session["documentosPendPlan"].ToString()) > 0 && (DateTime.Today <= DateTime.Parse(Session["fechaVencimientoPlan"].ToString())))
+                {
+                    Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
+                    DetalleServicio detalle = (DetalleServicio)Session["detalleServicio"];
 
 
-                if (TipoIdentificacion.FISICA.Equals(this.cmbReceptorTipo.Value.ToString()) && this.txtReceptorIdentificacion.Text.Length != 9 )
-                {
-                    this.alertMessages.Attributes["class"] = "alert alert-danger";
-                    this.alertMessages.InnerText = "La identificación debe ser de 9 digitos";
-                    return;
-                }
-                if (TipoIdentificacion.JURIDICA.Equals(this.cmbReceptorTipo.Value.ToString()) && this.txtReceptorIdentificacion.Text.Length != 10)
-                {
-                    this.alertMessages.Attributes["class"] = "alert alert-danger";
-                    this.alertMessages.InnerText = "La identificación debe ser de 10 digitos";
-                    return;
-                }
-
-                if (detalle.lineaDetalle.Count == 0)
-                {
-                    this.alertMessages.Attributes["class"] = "alert alert-danger";
-                    this.alertMessages.InnerText = "Debe agregar almenos una linea de detalle a la factura";
-                    return;
-                }
-                else
-                {
-                    decimal total = detalle.lineaDetalle.Sum(x => x.montoTotalLinea);
-                    if (total <= 0)
+                    if (string.IsNullOrWhiteSpace(this.txtReceptorNombre.Text) || string.IsNullOrWhiteSpace(this.txtReceptorIdentificacion.Text))
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-danger";
-                        this.alertMessages.InnerText = "No se puede realizar una factura sin montos";
+                        this.alertMessages.InnerText = "Debe agregar un receptor";
                         return;
                     }
-                }
+                    this.txtReceptorIdentificacion.Text = this.txtReceptorIdentificacion.Text.Replace(" ", "").Trim();
+                    this.txtReceptorIdentificacion.Text = this.txtReceptorIdentificacion.Text.Replace("-", "").Trim();
 
 
-                using (var conexion = new DataModelFE())
-                {
-
-                    DocumentoElectronico dato = new DocumentoElectronico();
-                    if (TipoDocumento.FACTURA_ELECTRONICA.Equals(this.cmbTipoDocumento.Value)){
-                        dato = new FacturaElectronica();
-                    }
-                    if (TipoDocumento.TIQUETE_ELECTRONICO.Equals(this.cmbTipoDocumento.Value))
-                    {
-                        dato = new TiqueteElectronico();
-                    }
-                    if (TipoDocumento.NOTA_CREDITO.Equals(this.cmbTipoDocumento.Value))
-                    {
-                        dato = new NotaCreditoElectronica();
-                    }
-
-                    if (TipoDocumento.NOTA_DEBITO.Equals(this.cmbTipoDocumento.Value))
-                    {
-                        dato = new NotaDebitoElectronica();
-                    }
-
-                    /* ENCABEZADO */
-                    dato.medioPago = this.cmbMedioPago.Value.ToString();
-                    dato.plazoCredito = this.txtPlazoCredito.Text;
-                    dato.condicionVenta = this.cmbCondicionVenta.Value.ToString();
-                    dato.fechaEmision = this.txtFechaEmision.Date.ToString("yyyy-MM-ddTHH:mm:ss-06:00");
-                    dato.medioPago = this.cmbMedioPago.Value.ToString();
-
-                    /* DETALLE */
-                    dato.detalleServicio = detalle;
-
-                    /* EMISOR */
-                    EmisorReceptorIMEC elEmisor = (EmisorReceptorIMEC) Session["elEmisor"]; 
-
-                    dato.emisor.identificacion.tipo = elEmisor.identificacionTipo;
-                    dato.emisor.identificacion.numero = elEmisor.identificacion;
-                    dato.emisor.nombre = elEmisor.nombre;
-                    dato.emisor.nombreComercial = elEmisor.nombreComercial;
-
-                    dato.emisor.telefono.codigoPais = elEmisor.telefonoCodigoPais;
-                    dato.emisor.telefono.numTelefono = elEmisor.telefono;
-                    dato.emisor.fax.codigoPais = elEmisor.faxCodigoPais;
-                    dato.emisor.fax.numTelefono = elEmisor.fax;
-                    dato.emisor.correoElectronico = elEmisor.correoElectronico;
-
-                    dato.emisor.ubicacion.provincia = elEmisor.provincia;
-                    dato.emisor.ubicacion.canton = elEmisor.canton;
-                    dato.emisor.ubicacion.distrito = elEmisor.distrito;
-                    dato.emisor.ubicacion.barrio = elEmisor.barrio;
-                    dato.emisor.ubicacion.otrassenas = elEmisor.otraSena;
-
-
-                    /* RECEPTOR */
-                    bool nuevo = true;
-                    EmisorReceptorIMEC elReceptor =  conexion.EmisorReceptorIMEC.Find(txtReceptorIdentificacion.Text);
-                    if (elReceptor != null)
-                    {
-                        nuevo = false;
-                       
-                    }else
-                    {
-                        elReceptor = new EmisorReceptorIMEC();
-                        elReceptor.identificacion = txtReceptorIdentificacion.Text;
-                        nuevo = true; 
-                    }
-                    elReceptor = this.crearModificarReceptor(elReceptor);
-
-                    dato.receptor.identificacion.tipo = elReceptor.identificacionTipo;
-                    dato.receptor.identificacion.numero = elReceptor.identificacion;
-                    dato.receptor.nombre = elReceptor.nombre;
-                    dato.receptor.nombreComercial = elReceptor.nombreComercial;
-
-                    dato.receptor.telefono.codigoPais = elReceptor.telefonoCodigoPais;
-                    dato.receptor.telefono.numTelefono = elReceptor.telefono;
-
-                    dato.receptor.fax.codigoPais = elReceptor.faxCodigoPais;
-                    dato.receptor.fax.numTelefono = elReceptor.fax;
-                    dato.receptor.correoElectronico = elReceptor.correoElectronico;
-
-                    dato.receptor.ubicacion.provincia = elReceptor.provincia;
-                    dato.receptor.ubicacion.canton = elReceptor.canton;
-                    dato.receptor.ubicacion.distrito = elReceptor.distrito;
-                    dato.receptor.ubicacion.barrio = elReceptor.barrio;
-                    dato.receptor.ubicacion.otrassenas = elReceptor.otraSena;
-
-                    dato.receptor.verificar();
-                    if (!string.IsNullOrWhiteSpace(elReceptor.identificacion))
-                    {
-                        
-                        if (nuevo == false)
-                        {
-                            conexion.Entry(elReceptor).State = EntityState.Modified; 
-                        }
-                        else
-                        {
-                            conexion.EmisorReceptorIMEC.Add(elReceptor);
-                        }
-                        conexion.SaveChanges();
-                    }
-
-                    /* RESUMEN */
-                    dato.resumenFactura.codigoMoneda = this.cmbTipoMoneda.Value.ToString();
-                    if (!TipoMoneda.CRC.Equals(dato.resumenFactura.codigoMoneda))
-                    {
-                        dato.resumenFactura.tipoCambio = decimal.Parse(this.txtTipoCambio.Text.Replace(",", "").Replace(".", "")) / 100;
-                    }
-                    dato.resumenFactura.calcularResumenFactura(dato.detalleServicio.lineaDetalle);
-
-                    /* INFORMACION DE REFERENCIA */
-                    dato.informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
-                    foreach (var item in dato.informacionReferencia)
-                    {
-                        item.fechaEmision = item.fechaEmisionTotal;
-                    }
-
-                    /* OTROS */
-                    if (!string.IsNullOrWhiteSpace(this.txtOtros.Text))
-                    {
-                        dato.otros.otrosTextos.Add(this.txtOtros.Text);
-                    }
-                    Empresa empresa = conexion.Empresa.Find(dato.emisor.identificacion.numero);
-                    if (empresa != null)
-                    { 
-                        if (!string.IsNullOrWhiteSpace(empresa.leyenda))
-                        {
-                            dato.otros.otrosTextos.Add(empresa.leyenda);
-                        }
-                    }
-
-                   /* VERIFICA VACIOS PARA XML */
-                   dato.verificaDatosParaXML();
-
-                    //genera el consecutivo del documento
-                    string sucursal = this.cmbSucursalCaja.Value.ToString().Substring(0, 3);
-                    string caja = this.cmbSucursalCaja.Value.ToString().Substring(3, 5);
-                    object[] key = new object[] { dato.emisor.identificacion.numero, sucursal, caja };
-                    ConsecutivoDocElectronico consecutivo = conexion.ConsecutivoDocElectronico.Find(key);
-
-                    dato.clave = consecutivo.getClave(this.cmbTipoDocumento.Value.ToString(), this.txtFechaEmision.Date.ToString("yyyyMMdd"));
-                    dato.numeroConsecutivo = consecutivo.getConsecutivo(this.cmbTipoDocumento.Value.ToString());
-
-                    consecutivo.consecutivo += 1;
-                    conexion.Entry(consecutivo).State = EntityState.Modified;
-                    
-                    string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
-                    string xmlSigned = FirmaXML.getXMLFirmadoWeb(xml, elEmisor.llaveCriptografica, elEmisor.claveLlaveCriptografica);
-                    string responsePost = await Services.enviarDocumentoElectronico(false, dato, elEmisor, this.cmbTipoDocumento.Value.ToString(), Session["usuario"].ToString());
-
-                    if (responsePost.Equals("Success"))
-                    {
-                        this.alertMessages.Attributes["class"] = "alert alert-info";
-                        this.alertMessages.InnerText = String.Format("Documento #{0} enviado", dato.numeroConsecutivo);
-
-                        if (!string.IsNullOrWhiteSpace(dato.receptor.correoElectronico))
-                        {
-                            Utilidades.sendMail(Session["emisor"].ToString(),dato.receptor.correoElectronico,
-                                string.Format("{0} - {1}", dato.numeroConsecutivo, elReceptor.nombre),
-                                Utilidades.mensageGenerico(), "Documento Electrónico", EncodeXML.EncondeXML.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave);
-                        }
-                    }
-                    else if (responsePost.Equals("Error"))
+                    if (TipoIdentificacion.FISICA.Equals(this.cmbReceptorTipo.Value.ToString()) && this.txtReceptorIdentificacion.Text.Length != 9)
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-danger";
-                        this.alertMessages.InnerText = String.Format("Documento #{0} con errores.", dato.numeroConsecutivo);
+                        this.alertMessages.InnerText = "La identificación debe ser de 9 digitos";
+                        return;
+                    }
+                    if (TipoIdentificacion.JURIDICA.Equals(this.cmbReceptorTipo.Value.ToString()) && this.txtReceptorIdentificacion.Text.Length != 10)
+                    {
+                        this.alertMessages.Attributes["class"] = "alert alert-danger";
+                        this.alertMessages.InnerText = "La identificación debe ser de 10 digitos";
+                        return;
+                    }
 
-                        this.alertMessages2.Attributes["class"] = "alert alert-danger";
-                        this.alertMessages2.InnerText = String.Format("Documento #{0} con errores.", dato.numeroConsecutivo);
+                    if (detalle.lineaDetalle.Count == 0)
+                    {
+                        this.alertMessages.Attributes["class"] = "alert alert-danger";
+                        this.alertMessages.InnerText = "Debe agregar almenos una linea de detalle a la factura";
+                        return;
                     }
                     else
                     {
-                        this.alertMessages.Attributes["class"] = "alert alert-warning";
-                        this.alertMessages.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
-
-                        this.alertMessages2.Attributes["class"] = "alert alert-warning";
-                        this.alertMessages2.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
+                        decimal total = detalle.lineaDetalle.Sum(x => x.montoTotalLinea);
+                        if (total <= 0)
+                        {
+                            this.alertMessages.Attributes["class"] = "alert alert-danger";
+                            this.alertMessages.InnerText = "No se puede realizar una factura sin montos";
+                            return;
+                        }
                     }
 
-                    this.btnFacturar.Enabled = false;
-                    conexion.SaveChanges();
 
+                    using (var conexion = new DataModelFE())
+                    {
+
+                        DocumentoElectronico dato = new DocumentoElectronico();
+                        if (TipoDocumento.FACTURA_ELECTRONICA.Equals(this.cmbTipoDocumento.Value))
+                        {
+                            dato = new FacturaElectronica();
+                        }
+                        if (TipoDocumento.TIQUETE_ELECTRONICO.Equals(this.cmbTipoDocumento.Value))
+                        {
+                            dato = new TiqueteElectronico();
+                        }
+                        if (TipoDocumento.NOTA_CREDITO.Equals(this.cmbTipoDocumento.Value))
+                        {
+                            dato = new NotaCreditoElectronica();
+                        }
+
+                        if (TipoDocumento.NOTA_DEBITO.Equals(this.cmbTipoDocumento.Value))
+                        {
+                            dato = new NotaDebitoElectronica();
+                        }
+
+                        /* ENCABEZADO */
+                        dato.medioPago = this.cmbMedioPago.Value.ToString();
+                        dato.plazoCredito = this.txtPlazoCredito.Text;
+                        dato.condicionVenta = this.cmbCondicionVenta.Value.ToString();
+                        dato.fechaEmision = this.txtFechaEmision.Date.ToString("yyyy-MM-ddTHH:mm:ss-06:00");
+                        dato.medioPago = this.cmbMedioPago.Value.ToString();
+
+                        /* DETALLE */
+                        dato.detalleServicio = detalle;
+
+                        /* EMISOR */
+                        EmisorReceptorIMEC elEmisor = (EmisorReceptorIMEC)Session["elEmisor"];
+
+                        dato.emisor.identificacion.tipo = elEmisor.identificacionTipo;
+                        dato.emisor.identificacion.numero = elEmisor.identificacion;
+                        dato.emisor.nombre = elEmisor.nombre;
+                        dato.emisor.nombreComercial = elEmisor.nombreComercial;
+
+                        dato.emisor.telefono.codigoPais = elEmisor.telefonoCodigoPais;
+                        dato.emisor.telefono.numTelefono = elEmisor.telefono;
+                        dato.emisor.fax.codigoPais = elEmisor.faxCodigoPais;
+                        dato.emisor.fax.numTelefono = elEmisor.fax;
+                        dato.emisor.correoElectronico = elEmisor.correoElectronico;
+
+                        dato.emisor.ubicacion.provincia = elEmisor.provincia;
+                        dato.emisor.ubicacion.canton = elEmisor.canton;
+                        dato.emisor.ubicacion.distrito = elEmisor.distrito;
+                        dato.emisor.ubicacion.barrio = elEmisor.barrio;
+                        dato.emisor.ubicacion.otrassenas = elEmisor.otraSena;
+
+
+                        /* RECEPTOR */
+                        bool nuevo = true;
+                        EmisorReceptorIMEC elReceptor = conexion.EmisorReceptorIMEC.Find(txtReceptorIdentificacion.Text);
+                        if (elReceptor != null)
+                        {
+                            nuevo = false;
+
+                        }
+                        else
+                        {
+                            elReceptor = new EmisorReceptorIMEC();
+                            elReceptor.identificacion = txtReceptorIdentificacion.Text;
+                            nuevo = true;
+                        }
+                        elReceptor = this.crearModificarReceptor(elReceptor);
+
+                        dato.receptor.identificacion.tipo = elReceptor.identificacionTipo;
+                        dato.receptor.identificacion.numero = elReceptor.identificacion;
+                        dato.receptor.nombre = elReceptor.nombre;
+                        dato.receptor.nombreComercial = elReceptor.nombreComercial;
+
+                        dato.receptor.telefono.codigoPais = elReceptor.telefonoCodigoPais;
+                        dato.receptor.telefono.numTelefono = elReceptor.telefono;
+
+                        dato.receptor.fax.codigoPais = elReceptor.faxCodigoPais;
+                        dato.receptor.fax.numTelefono = elReceptor.fax;
+                        dato.receptor.correoElectronico = elReceptor.correoElectronico;
+
+                        dato.receptor.ubicacion.provincia = elReceptor.provincia;
+                        dato.receptor.ubicacion.canton = elReceptor.canton;
+                        dato.receptor.ubicacion.distrito = elReceptor.distrito;
+                        dato.receptor.ubicacion.barrio = elReceptor.barrio;
+                        dato.receptor.ubicacion.otrassenas = elReceptor.otraSena;
+
+                        dato.receptor.verificar();
+                        if (!string.IsNullOrWhiteSpace(elReceptor.identificacion))
+                        {
+
+                            if (nuevo == false)
+                            {
+                                conexion.Entry(elReceptor).State = EntityState.Modified;
+                            }
+                            else
+                            {
+                                conexion.EmisorReceptorIMEC.Add(elReceptor);
+                            }
+                            conexion.SaveChanges();
+                        }
+
+                        /* RESUMEN */
+                        dato.resumenFactura.codigoMoneda = this.cmbTipoMoneda.Value.ToString();
+                        if (!TipoMoneda.CRC.Equals(dato.resumenFactura.codigoMoneda))
+                        {
+                            dato.resumenFactura.tipoCambio = decimal.Parse(this.txtTipoCambio.Text.Replace(",", "").Replace(".", "")) / 100;
+                        }
+                        dato.resumenFactura.calcularResumenFactura(dato.detalleServicio.lineaDetalle);
+
+                        /* INFORMACION DE REFERENCIA */
+                        dato.informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
+                        foreach (var item in dato.informacionReferencia)
+                        {
+                            item.fechaEmision = item.fechaEmisionTotal;
+                        }
+
+                        /* OTROS */
+                        if (!string.IsNullOrWhiteSpace(this.txtOtros.Text))
+                        {
+                            dato.otros.otrosTextos.Add(this.txtOtros.Text);
+                        }
+                        Empresa empresa = conexion.Empresa.Find(dato.emisor.identificacion.numero);
+                        if (empresa != null)
+                        {
+                            if (!string.IsNullOrWhiteSpace(empresa.leyenda))
+                            {
+                                dato.otros.otrosTextos.Add(empresa.leyenda);
+                            }
+                        }
+
+                        /* VERIFICA VACIOS PARA XML */
+                        dato.verificaDatosParaXML();
+
+                        //genera el consecutivo del documento
+                        string sucursal = this.cmbSucursalCaja.Value.ToString().Substring(0, 3);
+                        string caja = this.cmbSucursalCaja.Value.ToString().Substring(3, 5);
+                        object[] key = new object[] { dato.emisor.identificacion.numero, sucursal, caja };
+                        ConsecutivoDocElectronico consecutivo = conexion.ConsecutivoDocElectronico.Find(key);
+
+                        dato.clave = consecutivo.getClave(this.cmbTipoDocumento.Value.ToString(), this.txtFechaEmision.Date.ToString("yyyyMMdd"));
+                        dato.numeroConsecutivo = consecutivo.getConsecutivo(this.cmbTipoDocumento.Value.ToString());
+
+                        consecutivo.consecutivo += 1;
+                        conexion.Entry(consecutivo).State = EntityState.Modified;
+
+                        string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
+                        string xmlSigned = FirmaXML.getXMLFirmadoWeb(xml, elEmisor.llaveCriptografica, elEmisor.claveLlaveCriptografica);
+                        string responsePost = await Services.enviarDocumentoElectronico(false, dato, elEmisor, this.cmbTipoDocumento.Value.ToString(), Session["usuario"].ToString());
+
+                        if (responsePost.Equals("Success"))
+                        {
+                            this.alertMessages.Attributes["class"] = "alert alert-info";
+                            this.alertMessages.InnerText = String.Format("Documento #{0} enviado", dato.numeroConsecutivo);
+
+                            if (!string.IsNullOrWhiteSpace(dato.receptor.correoElectronico))
+                            {
+                                Utilidades.sendMail(Session["emisor"].ToString(), dato.receptor.correoElectronico,
+                                    string.Format("{0} - {1}", dato.numeroConsecutivo, elReceptor.nombre),
+                                    Utilidades.mensageGenerico(), "Documento Electrónico", EncodeXML.EncondeXML.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave);
+                            }
+                        }
+                        else if (responsePost.Equals("Error"))
+                        {
+                            this.alertMessages.Attributes["class"] = "alert alert-danger";
+                            this.alertMessages.InnerText = String.Format("Documento #{0} con errores.", dato.numeroConsecutivo);
+
+                            this.alertMessages2.Attributes["class"] = "alert alert-danger";
+                            this.alertMessages2.InnerText = String.Format("Documento #{0} con errores.", dato.numeroConsecutivo);
+                        }
+                        else
+                        {
+                            this.alertMessages.Attributes["class"] = "alert alert-warning";
+                            this.alertMessages.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
+
+                            this.alertMessages2.Attributes["class"] = "alert alert-warning";
+                            this.alertMessages2.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
+                        }
+
+                        this.btnFacturar.Enabled = false;
+                        conexion.SaveChanges();
+
+                    }
+                } else {
+                    //Colocar el mensaje
+                    this.alertMessages.Attributes["class"] = "alert alert-danger";
+                    this.alertMessages.InnerText = "No puedes generar documentos, favor renovar tu plan de servicios";
                 }
             }
             catch (DbEntityValidationException ex)
