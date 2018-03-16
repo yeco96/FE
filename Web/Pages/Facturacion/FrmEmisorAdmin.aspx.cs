@@ -210,6 +210,18 @@ namespace Web.Pages.Catalogos
                     conexion.Usuario.Add(usuario);
 
 
+                    ConsecutivoDocElectronico consecutivo = new ConsecutivoDocElectronico();
+                    consecutivo.emisor = dato.identificacion; 
+                    consecutivo.sucursal = "001";
+                    consecutivo.caja = "00001";
+                    consecutivo.consecutivo = 1;
+                    consecutivo.digitoVerificador = "00000000";
+                    consecutivo.estado = Estado.ACTIVO.ToString();
+                    consecutivo.usuarioCreacion = Session["usuario"].ToString();
+                    consecutivo.fechaCreacion = Date.DateTimeNow(); 
+                    conexion.ConsecutivoDocElectronico.Add(consecutivo);
+
+
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress

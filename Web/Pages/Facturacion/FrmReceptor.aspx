@@ -36,7 +36,7 @@
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
 
-                <dx:GridViewDataTextColumn Caption="Nombre Comercial" FieldName="nombreComercial" VisibleIndex="6" PropertiesTextEdit-MaxLength="80"
+                <dx:GridViewDataTextColumn Caption="Nombre Comercial" FieldName="nombreComercial" VisibleIndex="6" PropertiesTextEdit-MaxLength="80" Visible="false" EditFormSettings-Visible="True"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="false" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
 
@@ -54,7 +54,7 @@
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
 
-                <dx:GridViewDataBinaryImageColumn Caption="Llave Criptográfica" FieldName="llaveCriptografica" VisibleIndex="20" Visible="false" EditFormSettings-Visible="True"
+                <dx:GridViewDataBinaryImageColumn Caption="Llave Criptográfica" FieldName="llaveCriptografica" VisibleIndex="20" Visible="false" 
                     PropertiesBinaryImage-ValidationSettings-RequiredField-IsRequired="true" PropertiesBinaryImage-ValidationSettings-RequiredField-ErrorText="Requerido">
                     <EditItemTemplate>
                         <dx:ASPxUploadControl ID="fileUpload" OnFileUploadComplete="DocumentsUploadControl_FileUploadComplete" ShowUploadButton="false" runat="server">
