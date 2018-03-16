@@ -310,7 +310,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Code\BlogPosts.cs" />
-    <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Pages\Controllers\ServicesController.cs" />
     <Compile Include="Enum\Enumeraciones.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
