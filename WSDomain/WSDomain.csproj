@@ -54,6 +54,7 @@
     <Compile Include="EmisorReceptor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WSRecepcionGET.cs" />
+    <Compile Include="WSRespuestaGET.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

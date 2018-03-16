@@ -89,7 +89,7 @@ namespace WebServices.Controllers
                 Models.Facturacion.WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
                 if (dato.montoTotalFactura > 0)
                 {
-                    return Ok(new WSRespuestaGET(dato));
+                    return Ok(new Models.Facturacion.WSRespuestaGET(dato));
                 }
                 else
                 {
@@ -123,7 +123,7 @@ namespace WebServices.Controllers
                             conexion.Entry(dato).State = EntityState.Modified;
                             conexion.SaveChanges();
 
-                            return Ok(new WSRespuestaGET(dato));
+                            return Ok(new Models.Facturacion.WSRespuestaGET(dato));
                         }
                         else
                         {
@@ -138,7 +138,7 @@ namespace WebServices.Controllers
                                     conexionWS.Entry(dato).State = EntityState.Modified;
                                     conexionWS.SaveChanges();
 
-                                    return Ok(new WSRespuestaGET(dato));
+                                    return Ok(new Models.Facturacion.WSRespuestaGET(dato));
                                 }
                             }
                         }

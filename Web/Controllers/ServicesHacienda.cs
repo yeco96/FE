@@ -1,6 +1,5 @@
 ﻿
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -9,20 +8,20 @@ using System.Net.Http.Headers;
 using System.Text;
 using OAuth2;
 using System.Configuration;
-using WebServices.Models.Facturacion;
 using Class.Utilidades;
 using EncodeXML;
-using WebServices.Models;
 using WSDomain;
 using FirmaXadesNet;
 using Newtonsoft.Json;
 using System.Data.Entity;
 using XMLDomain;
 using System.Data.Entity.Validation;
-using WebServices.Models.Administracion;
 using System.Web.Http;
+using Web.WebServices;
+using Web.Models;
+using Web.Models.Facturacion;
 
-namespace WebServices.Controllers
+namespace Web.Controllers
 {
     public class ServicesHacienda : ApiController
     {
@@ -160,7 +159,7 @@ namespace WebServices.Controllers
                         System.Web.HttpContext.Current.Session["tokenTime"] = Date.DateTimeNow();
                     }
 
-                    Models.Facturacion.WSRecepcionPOST trama = new Models.Facturacion.WSRecepcionPOST();
+                    WSRecepcionPOST trama = new WSRecepcionPOST();
                     trama.clave = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "Clave", xmlFile);
                     trama.fecha = DateTime.ParseExact(EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "FechaEmision", xmlFile), "yyyy-MM-ddTHH:mm:ss-06:00",
                                        System.Globalization.CultureInfo.InvariantCulture);
@@ -211,7 +210,7 @@ namespace WebServices.Controllers
                     }
 
 
-                    Models.Facturacion.WSRecepcionPOST tramaExiste = conexion.WSRecepcionPOST.Find(trama.clave);
+                    WSRecepcionPOST tramaExiste = conexion.WSRecepcionPOST.Find(trama.clave);
 
                     if (tramaExiste != null)
                     {// si existe
