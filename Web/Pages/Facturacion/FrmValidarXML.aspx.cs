@@ -176,7 +176,7 @@ namespace Web.Pages.Facturacion
 
                         Utilidades.sendMail(Session["emisor"].ToString(), correo,
                             string.Format("{0} - {1}", dato.clave.Substring(21, 20), nombre),
-                            Utilidades.mensageGenerico(), "Factura Electrónica", xml, dato.clave.Substring(21, 20), dato.clave);
+                            Utilidades.mensageGenerico(), "Factura Electrónica", xml, dato.clave.Substring(21, 20), dato.clave,null);
                     }
                 }
                 else

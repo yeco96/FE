@@ -300,7 +300,7 @@ namespace Web.Pages.Facturacion
                         {
                             Utilidades.sendMail(Session["emisor"].ToString(), correoElectronico,
                                 string.Format("{0} - {1}", numeroConsecutivo, dato.Receptor.nombre),
-                                Utilidades.mensageGenerico(), "Documento Electrónico", xml, numeroConsecutivo, dato.clave);
+                                Utilidades.mensageGenerico(), "Documento Electrónico", xml, numeroConsecutivo, dato.clave,null);
 
                             this.alertMessages.Attributes["class"] = "alert alert-info";
                             this.alertMessages.InnerText = String.Format("Documento #{0} enviado.", dato.numeroConsecutivo);
@@ -353,7 +353,7 @@ namespace Web.Pages.Facturacion
                             {
                                 Utilidades.sendMail(Session["emisor"].ToString(),correoElectronico,
                                     string.Format("{0} - {1}", dato.numeroConsecutivo, dato.receptor.nombre),
-                                    Utilidades.mensageGenerico(), "Documento Electrónico", xml, dato.numeroConsecutivo, dato.clave);
+                                    Utilidades.mensageGenerico(), "Documento Electrónico", xml, dato.numeroConsecutivo, dato.clave,null);
                             }
                         }
                         else if (responsePost.Equals("Error"))

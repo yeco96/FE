@@ -1,5 +1,7 @@
-﻿using Class.Utilidades;
+﻿using Class.Seguridad;
+using Class.Utilidades;
 using DevExpress.Web;
+using EncodeXML;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,6 +9,7 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Reflection;
 using System.Security.Permissions;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Web;
 using System.Web.UI;
@@ -22,12 +25,13 @@ namespace Web.Pages.Facturacion
 {
     [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
     [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
-    public partial class FrmGenerarNota : System.Web.UI.Page
+    public partial class FrmReenvioOtrosCorreos : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            try {
-                
+            try
+            {
+
                 Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
                 this.AsyncMode = true;
                 if (!Request.IsAuthenticated)
@@ -36,7 +40,7 @@ namespace Web.Pages.Facturacion
                 }
                 if (!IsCallback && !IsPostBack)
                 {
-                    this.cargarCombos();
+                    this.loadComboBox();
                     this.cargarDatosDocumento();
                 }
                 this.refreshData();
@@ -73,19 +77,30 @@ namespace Web.Pages.Facturacion
                 using (var conexionWS = new DataModelFE())
                 {
                     WSRecepcionPOST dato = conexionWS.WSRecepcionPOST.Find(clave);
-                    this.txtClave.Text = dato.clave;
-                    this.txtConsecutivo.Text = dato.numeroConsecutivo;
-                    this.txtFechaEmisor.Text = dato.fecha.ToString();
-                    this.cmbTipoDocumento.Value = Session["tipoNota"].ToString();
+                    this.cmbTipoDocumento.Value = Session["tipoDocumento"].ToString();
 
                     string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
-                     
-                    FacturaElectronica factura = (FacturaElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml, typeof(FacturaElectronica) );
 
-                    txtNombreEmisor.Text = string.Format("{0} - {1}", factura.emisor.identificacion.numero, factura.emisor.nombre); 
+                    FacturaElectronica factura = (FacturaElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml, typeof(FacturaElectronica));
+
+                    this.cmbCondicionVenta.Value = factura.condicionVenta;
+                    this.cmbMedioPago.Value = factura.medioPago;
+                    this.cmbTipoDocumento.Value = factura.tipoDocumento;
+                    this.cmbTipoMoneda.Value = factura.resumenFactura.codigoMoneda;
+                    this.txtTipoCambio.Text = factura.resumenFactura.tipoCambio.ToString();
+                    this.txtPlazoCredito.Text = factura.plazoCredito;
+                    this.txtFechaEmision.Text = factura.fechaEmision;
+
+                    foreach (var otros in factura.otros.otrosTextos)
+                    {
+                        this.txtOtrosTextos.Text += string.Format("{0}\n", otros);
+                    }
+
+                    txtNombreEmisor.Text = string.Format("{0} - {1}", factura.emisor.identificacion.numero, factura.emisor.nombre);
                     txtNombreReceptor.Text = string.Format("{0} - {1}", factura.receptor.identificacion.numero, factura.receptor.nombre);
-                    
-                    txtCorreoReceptor.Text = factura.receptor.correoElectronico;
+
+
+                    txtCorreos.Text = factura.receptor.correoElectronico;
 
                     // deja el monto neto facturado
                     foreach (var item in factura.detalleServicio.lineaDetalle)
@@ -120,35 +135,63 @@ namespace Web.Pages.Facturacion
         /// <summary>
         /// carga solo una vez para ahorar tiempo 
         /// </summary>
-        private void cargarCombos()
+        private void loadComboBox()
         {
             using (var conexion = new DataModelFE())
             {
-                /* SUCURSAL CAJA */
-                string elEmisor =Session["emisor"].ToString();
-                foreach (var item in conexion.ConsecutivoDocElectronico.Where(x => x.emisor == elEmisor).Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+
+                /* PRODUCTO */
+                string emisor = Session["emisor"].ToString();
+                GridViewDataComboBoxColumn comboProducto = this.ASPxGridView1.Columns["codigo.codigo"] as GridViewDataComboBoxColumn;
+                comboProducto.PropertiesComboBox.Items.Clear();
+                foreach (var item in conexion.Producto.Where(x => x.emisor == emisor).ToList())
                 {
-                    this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}", item.sucursal, item.caja));
+                    comboProducto.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
                 }
-                this.cmbSucursalCaja.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                comboProducto.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+
+
+                /* MEDIO PAGO */
+                foreach (var item in conexion.MedioPago.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                {
+                    this.cmbMedioPago.Items.Add(item.descripcion, item.codigo);
+                }
+                this.cmbMedioPago.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                this.cmbMedioPago.SelectedIndex = 0;
+
+                /* CONDICION VENTA */
+                foreach (var item in conexion.CondicionVenta.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                {
+                    this.cmbCondicionVenta.Items.Add(item.descripcion, item.codigo);
+                }
+                this.cmbCondicionVenta.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                this.cmbCondicionVenta.SelectedIndex = 0;
+                this.txtPlazoCredito.Text = "0";
+
+                /* TIPO MONEDA */
+                foreach (var item in conexion.TipoMoneda.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                {
+                    this.cmbTipoMoneda.Items.Add(item.descripcion, item.codigo);
+                }
+                this.cmbTipoMoneda.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                this.cmbTipoMoneda.SelectedIndex = 0;
+
 
                 /* TIPO DOCUMENTO */
+
                 foreach (var item in conexion.TipoDocumento.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
                 {
                     this.cmbTipoDocumento.Items.Add(item.descripcion, item.codigo);
+
                 }
                 this.cmbTipoDocumento.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
-                
-                /* CODIGO REFERENCIA */
-                foreach (var item in conexion.CodigoReferencia.Where(x => x.estado == Estado.ACTIVO.ToString() && x.aplicaNotas==Confirmacion.SI.ToString()).ToList())
-                {
-                    this.cmbCodigoReferencia.Items.Add(item.descripcion, item.codigo);
-                }
-                this.cmbCodigoReferencia.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                this.cmbTipoDocumento.SelectedIndex = 0;
+
 
             }
         }
+
         #endregion
 
         #region Metodos para el Grid
@@ -240,7 +283,7 @@ namespace Web.Pages.Facturacion
                             throw new Exception(string.Format("El monto de la línea de la nota de crédito no puede ser mayor al original {0}", tontoTotalLinea));
                         }
                     }
-                    
+
                     //agrega el objeto 
                     Session["detalleServicio"] = detalleServicio;
 
@@ -265,125 +308,58 @@ namespace Web.Pages.Facturacion
 
         #endregion
 
-        protected async void btnCrearNota_Click(object sender, EventArgs e)
+        protected void btnEnviarCorreo_Click(object sender, EventArgs e)
         {
             try
             {
-                Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
-                DetalleServicio detalle = (DetalleServicio)Session["detalleServicio"];
-                if (detalle.lineaDetalle.Count == 0)
-                {
-                    this.alertMessages.Attributes["class"] = "alert alert-danger";
-                    this.alertMessages.InnerText = "Debe agregar almenos una linea de detalle a la factura";
-                    return;
-                }
-
-                // datos de la factura original
-                FacturaElectronica factura = new FacturaElectronica();
-                string clave = Session["clave"].ToString();
                 using (var conexion = new DataModelFE())
                 {
-                    WSRecepcionPOST datoPost = conexion.WSRecepcionPOST.Find(clave);
-                    string xmlFactura = EncodeXML.EncondeXML.base64Decode(datoPost.comprobanteXml);
-                    factura = (FacturaElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xmlFactura, typeof(FacturaElectronica));
-                     
-                    DocumentoElectronico dato = null;
-                    if (TipoDocumento.NOTA_CREDITO.Equals(Session["tipoNota"].ToString()))
+                    string clave = Session["clave"].ToString();
+                    WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
+                    dato.cargarEmisorReceptor();
+                    string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+
+                    string numeroConsecutivo = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xml), "NumeroConsecutivo", xml);
+                    string correoElectronico = EncondeXML.buscarValorEtiquetaXML("Receptor", "CorreoElectronico", xml);
+
+                    if (this.txtCorreos.Tokens.Count >0)
                     {
-                        dato = new NotaCreditoElectronica(); 
+                        List<string> cc = new List<string>(); 
+                        Regex validator = new Regex(@"\s*\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*\s*");
+
+                        foreach (var correo in this.txtCorreos.Tokens)
+                        { 
+                            if (validator.IsMatch(correo)) { 
+                                cc.Add(correo);
+                            }else
+                            {
+                                this.alertMessages.Attributes["class"] = "alert alert-danger";
+                                this.alertMessages.InnerText =String.Format("Favor verifique el formato de la dirección {0}", correo);
+                                return;
+                            }
+                        }
+                        cc.RemoveAt(0);
+                        bool result = Utilidades.sendMail(Session["emisor"].ToString(), correoElectronico,
+                            string.Format("{0} - {1}", numeroConsecutivo, dato.Receptor.nombre),
+                            Utilidades.mensageGenerico(), "Documento Electrónico", xml, numeroConsecutivo, dato.clave, cc);
+
+                        if (result)
+                        {
+                            this.alertMessages.Attributes["class"] = "alert alert-info";
+                            this.alertMessages.InnerText = "El envió se realizó exitosamente";
+                        }
+                        else{
+                            this.alertMessages.Attributes["class"] = "alert alert-danger";
+                            this.alertMessages.InnerText = "Tenemos problema para enviar el correo, favor intente más tarde";
+                        }
                     }
                     else
-                    {
-                        dato = new NotaDebitoElectronica(); 
-                    }
-                    
-
-                    /* ENCABEZADO */
-                    dato.medioPago = factura.medioPago;
-                    dato.plazoCredito = factura.plazoCredito;
-                    dato.condicionVenta = factura.condicionVenta; 
-                    dato.fechaEmision = Date.DateTimeNow().ToString("yyyy-MM-ddTHH:mm:ss") + "-06:00";
-                    /* DETALLE */
-                    dato.detalleServicio = detalle;
-
-                    /* EMISOR */
-                    dato.emisor = factura.emisor;
-
-
-                    /* RECEPTOR */
-                    dato.receptor = factura.receptor;
-                    dato.receptor.identificacion.numero = dato.receptor.identificacion.numero.Replace(" ", "").Trim();
-                    dato.receptor.identificacion.numero = dato.receptor.identificacion.numero.Replace("-", "").Trim();
-
-
-                    /* INFORMACION DE REFERENCIA */
-                    InformacionReferencia informacionReferencia = new InformacionReferencia();
-                    informacionReferencia.numero = factura.clave;
-                    informacionReferencia.fechaEmision = factura.fechaEmision;
-                    informacionReferencia.codigo = this.cmbCodigoReferencia.Value.ToString();
-                    informacionReferencia.razon = this.txtRazón.Text;
-                    informacionReferencia.tipoDocumento = TipoDocumento.FACTURA_ELECTRONICA;
-                    dato.informacionReferencia.Add(informacionReferencia);
-
-                    /* RESUMEN */
-                    dato.resumenFactura.tipoCambio = factura.resumenFactura.tipoCambio; 
-                    dato.resumenFactura.codigoMoneda = factura.resumenFactura.codigoMoneda;
-                    foreach (var item in dato.detalleServicio.lineaDetalle)
-                    {
-                        if (item.tipoServMerc==null) {
-                            Producto producto = conexion.Producto.Where(x=>x.codigo==item.codigo.codigo && x.emisor == dato.emisor.identificacion.numero).FirstOrDefault();
-                            item.tipoServMerc = producto.tipoServMerc;
-                            item.producto = producto.codigo;
-                        }
-                    } 
-                    dato.resumenFactura.calcularResumenFactura(dato.detalleServicio.lineaDetalle);
-
-                    /* VERIFICA VACIOS PARA XML */
-                    dato.verificaDatosParaXML();
-
-                    //genera el consecutivo del documento
-                    string sucursal = this.cmbSucursalCaja.Value.ToString().Substring(0, 3);
-                    string caja = this.cmbSucursalCaja.Value.ToString().Substring(3, 5);
-                    object[] key = new object[] { dato.emisor.identificacion.numero, sucursal, caja };
-                    ConsecutivoDocElectronico consecutivo = conexion.ConsecutivoDocElectronico.Find(key);
-
-                    dato.clave = consecutivo.getClave(this.cmbTipoDocumento.Value.ToString(), Date.DateTimeNow().ToString("yyyyMMdd"));
-                    dato.numeroConsecutivo = consecutivo.getConsecutivo(this.cmbTipoDocumento.Value.ToString());
-
-                    consecutivo.consecutivo += 1;
-                    conexion.Entry(consecutivo).State = EntityState.Modified;
-                    conexion.SaveChanges();
-
-                     
-                    EmisorReceptorIMEC elEmisor = (EmisorReceptorIMEC)Session["elEmisor"];
-                    string responsePost = await Services.enviarDocumentoElectronico(false, dato, elEmisor, this.cmbTipoDocumento.Value.ToString(), Session["usuario"].ToString());
-
-                    if (responsePost.Equals("Success"))
-                    {
-                        this.alertMessages.Attributes["class"] = "alert alert-info";
-                        this.alertMessages.InnerText = String.Format("Documento #{0} enviada.", dato.numeroConsecutivo);
-
-                        if (!string.IsNullOrWhiteSpace(dato.receptor.correoElectronico))
-                        {
-                            string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
-
-                            Utilidades.sendMail(Session["emisor"].ToString(),dato.receptor.correoElectronico,
-                                string.Format("{0} - {1}", dato.numeroConsecutivo, factura.receptor.nombre),
-                                Utilidades.mensageGenerico(), "Documento Electrónico", xml, dato.numeroConsecutivo, dato.clave,null);
-                        }
-                    }
-                    else if (responsePost.Equals("Error"))
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-danger";
-                        this.alertMessages.InnerText = String.Format("Documento #{0} con errores.", dato.numeroConsecutivo);
+                        this.alertMessages.InnerText ="Debe digitar una dirección de correo eléctronico";
                     }
-                    else
-                    {
-                        this.alertMessages.Attributes["class"] = "alert alert-warning";
-                        this.alertMessages.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
-                    }
-
                 }
+
             }
             catch (Exception ex)
             {
@@ -395,6 +371,15 @@ namespace Web.Pages.Facturacion
                 //refescar los datos
                 this.refreshData();
             }
+        }
+
+        protected void btnRecresar_Click(object sender, EventArgs e)
+        {
+            Usuario usuario =(Usuario) Session["elUsuario"];
+            if(usuario.rol.Equals(Rol.FACTURADOR))
+                Response.Redirect("~/Pages/Facturacion/FrmAdministracionDocElectronico.aspx");
+            else
+                Response.Redirect("~/Pages/Facturacion/FrmAdministracionDocElectronicoAdmin.aspx");
         }
     }
 }

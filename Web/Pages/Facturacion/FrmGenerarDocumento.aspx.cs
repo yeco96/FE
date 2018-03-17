@@ -54,10 +54,7 @@ namespace Web.Pages.Facturacion
 
                 this.alertMessages.Attributes["class"]="";
                 this.alertMessages.InnerText = "";
-
-                this.alertMessages1.Attributes["class"] = "";
-                this.alertMessages1.InnerText = "";
-
+                 
                 this.AsyncMode = true;
 
                 //Se obtiene datos del emisor
@@ -70,16 +67,16 @@ namespace Web.Pages.Facturacion
                     Session["PlanPago"] = dato.plan.ToString();
 
                     //Mensajes
-                    this.alertMessages1.Attributes["class"] = "alert alert-success";
+                    this.alertMessages.Attributes["class"] = "alert alert-success";
 
                     if (Session["PlanPago"].ToString() != "PPRO1")
                     {
-                        this.alertMessages1.InnerText = "Plan: " + dato.plan.ToString() + "; Documentos Pendientes: " + Session["documentosPendPlan"].ToString() + "; Fecha de Vencimiento: " + DateTime.Parse(dato.fechaFin.ToString()).ToShortDateString();
+                        this.alertMessages.InnerText = "Plan: " + dato.plan.ToString() + "; Documentos Pendientes: " + Session["documentosPendPlan"].ToString() + "; Fecha de Vencimiento: " + DateTime.Parse(dato.fechaFin.ToString()).ToShortDateString();
                     }
                     else {
                         //Si el plan es PLAN PROFESIONAL SIN LIMITE entonces se le agrega 1 documento
                         Session["documentosPendPlan"] = 1;
-                        this.alertMessages1.InnerText = "Plan: " + dato.plan.ToString() + "; Fecha de Vencimiento: " + DateTime.Parse(dato.fechaFin.ToString()).ToShortDateString();
+                        this.alertMessages.InnerText = "Plan: " + dato.plan.ToString() + "; Fecha de Vencimiento: " + DateTime.Parse(dato.fechaFin.ToString()).ToShortDateString();
                     }
 
                     //
@@ -1170,24 +1167,19 @@ namespace Web.Pages.Facturacion
                         {
                             Utilidades.sendMail(Session["emisor"].ToString(), dato.receptor.correoElectronico,
                                 string.Format("{0} - {1}", dato.numeroConsecutivo, elReceptor.nombre),
-                                Utilidades.mensageGenerico(), "Documento Electrónico", EncodeXML.EncondeXML.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave);
+                                Utilidades.mensageGenerico(), "Documento Electrónico", EncodeXML.EncondeXML.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave,null);
                         }
                     }
                     else if (responsePost.Equals("Error"))
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-danger";
                         this.alertMessages.InnerText = String.Format("Documento #{0} con errores.", dato.numeroConsecutivo);
-
-                        this.alertMessages2.Attributes["class"] = "alert alert-danger";
-                        this.alertMessages2.InnerText = String.Format("Documento #{0} con errores.", dato.numeroConsecutivo);
+                        
                     }
                     else
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-warning";
                         this.alertMessages.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
-
-                        this.alertMessages2.Attributes["class"] = "alert alert-warning";
-                        this.alertMessages2.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
                     }
 
                     this.btnFacturar.Enabled = false;

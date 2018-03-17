@@ -231,6 +231,7 @@
     <Content Include="Pages\Facturacion\FrmConsultaResumenReceptor.aspx" />
     <Content Include="Pages\Facturacion\FrmConsultaResumen.aspx" />
     <Content Include="Pages\Facturacion\FrmEmisorAdmin.aspx" />
+    <Content Include="Pages\Facturacion\FrmReenvioOtrosCorreos.aspx" />
     <Content Include="Pages\Facturacion\FrmGenerarNota.aspx" />
     <Content Include="Pages\Facturacion\FrmReceptor.aspx" />
     <Content Include="Pages\Facturacion\FrmClienteAdministrador.aspx" />
@@ -600,6 +601,13 @@
     </Compile>
     <Compile Include="Pages\Facturacion\FrmEmisorAdmin.aspx.designer.cs">
       <DependentUpon>FrmEmisorAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmReenvioOtrosCorreos.aspx.cs">
+      <DependentUpon>FrmReenvioOtrosCorreos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmReenvioOtrosCorreos.aspx.designer.cs">
+      <DependentUpon>FrmReenvioOtrosCorreos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Facturacion\FrmGenerarNota.aspx.cs">
       <DependentUpon>FrmGenerarNota.aspx</DependentUpon>

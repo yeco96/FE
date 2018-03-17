@@ -69,7 +69,7 @@
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Fecha" FieldName="fecha" VisibleIndex="3">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Emisor" FieldName="emisorIdentificacion" VisibleIndex="4">
+                <dx:GridViewDataTextColumn Caption="Emisor" FieldName="emisorIdentificacion" VisibleIndex="4" Visible="false">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Receptor" FieldName="Receptor.nombreCompleto" VisibleIndex="5" Width="25%">
                 </dx:GridViewDataTextColumn>
@@ -129,7 +129,7 @@
             <Templates>
                 <DetailRow>
 
-                    <dx:ASPxFormLayout runat="server" ID="layoutAddAuditoriaForm">
+                    <dx:ASPxFormLayout runat="server" ID="layoutDocForm">
                         <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
                         <Items>
                             <dx:LayoutGroup Caption=" " ColCount="4" GroupBoxDecoration="None" UseDefaultPaddings="false">
@@ -142,7 +142,7 @@
 
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
-                                    </dx:LayoutItem>
+                                    </dx:LayoutItem> 
 
                                     <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
@@ -203,10 +203,12 @@
                                     <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="ASPxButton1" runat="server" ></dx:ASPxButton>
+                                                
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
+
+                                    
 
                                 </Items>
                             </dx:LayoutGroup>
