@@ -60,6 +60,7 @@ namespace Web.Pages.Facturacion
             try
             {
                 string file = Convert.ToBase64String(e.UploadedFile.FileBytes);
+
                 Session["xmlFileValidar"] = EncondeXML.base64Decode(file);
 
                 this.alertMessages.Attributes["class"] = "alert alert-info";

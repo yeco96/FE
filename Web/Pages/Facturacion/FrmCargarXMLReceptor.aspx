@@ -170,7 +170,7 @@
                             <dx:LayoutItem Caption="" ColSpan="2">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
-                                        <dx:ASPxButton ID="btnEnviar" runat="server" Text="Enviar" Width="50px" CausesValidation="true" OnClick="btnEnviar_Click"></dx:ASPxButton>
+                                        <dx:ASPxButton ID="btnEnviar" runat="server" Text="Guardar  XML" Width="50px" CausesValidation="true" OnClick="btnEnviar_Click"></dx:ASPxButton>
                                         <dx:ASPxButton ID="btnConsultaXMLRecibidos" runat="server" Text="Consultar Mis XML Recibidos" Width="50px" CausesValidation="true" OnClick="btnConsultaXMLRecibidos_Click"></dx:ASPxButton>
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
