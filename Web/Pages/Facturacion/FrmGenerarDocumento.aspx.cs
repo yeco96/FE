@@ -83,8 +83,8 @@ namespace Web.Pages.Facturacion
                     }
 
                     //
-                    int dias = int.Parse(Session["documentosPendPlan"].ToString());
-                    DateTime fechaVenc = DateTime.Parse(Session["fechaVencimientoPlan"].ToString());
+                    //int dias = int.Parse(Session["documentosPendPlan"].ToString());
+                    //DateTime fechaVenc = DateTime.Parse(Session["fechaVencimientoPlan"].ToString());
                     if (int.Parse(Session["documentosPendPlan"].ToString()) <= 0 || (DateTime.Today >= DateTime.Parse(Session["fechaVencimientoPlan"].ToString())))
                     {
                         //Colocar el mensaje
