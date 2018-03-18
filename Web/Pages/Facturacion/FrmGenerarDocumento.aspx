@@ -2,17 +2,17 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 
-    <section class="featured">
-        <div class="content-wrapper">
-            Documento Electrónico
-        </div>
-    </section>
+     <div class="text-box-title">
+        <div class="text-box-heading-title"> Documento Electrónico</div>
+        <div class="arrow-down-title" style="margin-bottom: 5px;"></div>   
+     </div>  
+     
 
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
     <asp:UpdatePanel ID="UpdatePanel" runat="server" UpdateMode="Always" OnUnload="UpdatePanel_Unload">
         <ContentTemplate>
-            <div id="alertMessages1" role="alert" runat="server" />
+            
             <div id="alertMessages" role="alert" runat="server" />
             
             <dx:ASPxPageControl ID="documento" Width="100%" runat="server" ActiveTabIndex="0" EnableHierarchyRecreation="True">
@@ -774,8 +774,7 @@
 
 
             <dx:ASPxButton runat="server" ID="btnFacturar" Text="Facturar" OnClick="btnFacturar_Click" CausesValidation="true"></dx:ASPxButton>
-            
-            <div id="alertMessages2" role="alert" runat="server" />
+             
         </ContentTemplate>
     </asp:UpdatePanel>
 

@@ -1,14 +1,12 @@
 ﻿<%@ Page Async="true" Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmGenerarNota.aspx.cs" Inherits="Web.Pages.Facturacion.FrmGenerarNota" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
-
-    <section class="featured">
-        <div class="content-wrapper">
-            Nota Electrónica
-        </div>
-    </section>
-
-
+     
+     <div class="text-box-title">
+        <div class="text-box-heading-title">Nota Electrónica</div>
+        <div class="arrow-down-title" style="margin-bottom: 5px;"></div>   
+     </div>  
+     
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel" runat="server" UpdateMode="Always" OnUnload="UpdatePanel_Unload">
         <ContentTemplate>

@@ -285,32 +285,10 @@ namespace Web.Pages.Facturacion
         {
             try
             {
+
                 if (TipoDocumento.ACEPTADO.ToString().Equals(Session["indEstado"].ToString()))
                 {
-                    using (var conexion = new DataModelFE())
-                    {
-                        string clave = Session["clave"].ToString();
-                        WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
-                        string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
-
-                        string numeroConsecutivo = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xml), "NumeroConsecutivo", xml);
-                        string correoElectronico = EncondeXML.buscarValorEtiquetaXML("Receptor", "CorreoElectronico", xml);
-
-                        if (!string.IsNullOrWhiteSpace(correoElectronico))
-                        {
-                            Utilidades.sendMail(Session["emisor"].ToString(), correoElectronico,
-                                string.Format("{0} - {1}", numeroConsecutivo, dato.Receptor.nombre),
-                                Utilidades.mensageGenerico(), "Documento Electrónico", xml, numeroConsecutivo, dato.clave);
-
-                            this.alertMessages.Attributes["class"] = "alert alert-info";
-                            this.alertMessages.InnerText = String.Format("Documento #{0} enviado.", dato.numeroConsecutivo);
-                        }
-                        else
-                        {
-                            this.alertMessages.Attributes["class"] = "alert alert-danger";
-                            this.alertMessages.InnerText = String.Format("Receptor no posee correo eléctronico", dato.numeroConsecutivo);
-                        }
-                    }
+                    Response.Redirect("~/Pages/Facturacion/FrmReenvioOtrosCorreos.aspx");
                 }
                 else
                 {
@@ -353,7 +331,7 @@ namespace Web.Pages.Facturacion
                             {
                                 Utilidades.sendMail(Session["emisor"].ToString(),correoElectronico,
                                     string.Format("{0} - {1}", dato.numeroConsecutivo, dato.receptor.nombre),
-                                    Utilidades.mensageGenerico(), "Documento Electrónico", xml, dato.numeroConsecutivo, dato.clave);
+                                    Utilidades.mensageGenerico(), "Documento Electrónico", xml, dato.numeroConsecutivo, dato.clave,null);
                             }
                         }
                         else if (responsePost.Equals("Error"))

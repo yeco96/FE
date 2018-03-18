@@ -5,11 +5,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 
-    <section class="featured">
-        <div class="content-wrapper">
-            Mantenimiento Consecutivo Documento Electrónico 
-        </div>
-    </section>
+     <div class="text-box-title">
+        <div class="text-box-heading-title">Mantenimiento Consecutivo</div>
+        <div class="arrow-down-title" style="margin-bottom: 5px;"></div>   
+     </div>   
+
     <div class="borde_redondo_tabla">
 
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"

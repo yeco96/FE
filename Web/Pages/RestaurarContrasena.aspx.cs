@@ -124,7 +124,7 @@ namespace Web.Pages
                  
                 return Utilidades.sendMail(Usuario.USUARIO_AUTOMATICO, usuario.correo,
                   "MSA SOFT Facturación  | Olvido de Contraseña",
-                    mensaje, "MSA SOFT");
+                    mensaje, "MSA SOFT",null);
 
             }
             catch (Exception ex)

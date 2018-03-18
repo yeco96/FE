@@ -176,6 +176,8 @@
     <Content Include="Content\Images\edit.png" />
     <Content Include="Content\Images\help.png" />
     <Content Include="Content\Images\loadUser.png" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\logo_azul.jpg" />
     <Content Include="Content\Images\logo_banner.png" />
     <Content Include="Content\Images\logo_banner1.png" />
     <Content Include="Content\Images\logo_banner2.png" />
@@ -231,6 +233,7 @@
     <Content Include="Pages\Facturacion\FrmConsultaResumenReceptor.aspx" />
     <Content Include="Pages\Facturacion\FrmConsultaResumen.aspx" />
     <Content Include="Pages\Facturacion\FrmEmisorAdmin.aspx" />
+    <Content Include="Pages\Facturacion\FrmReenvioOtrosCorreos.aspx" />
     <Content Include="Pages\Facturacion\FrmGenerarNota.aspx" />
     <Content Include="Pages\Facturacion\FrmReceptor.aspx" />
     <Content Include="Pages\Facturacion\FrmClienteAdministrador.aspx" />
@@ -310,7 +313,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Code\BlogPosts.cs" />
-    <Compile Include="Pages\Controllers\ServicesController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Controllers\ServicesHacienda.cs" />
     <Compile Include="Enum\Enumeraciones.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -599,6 +603,13 @@
     </Compile>
     <Compile Include="Pages\Facturacion\FrmEmisorAdmin.aspx.designer.cs">
       <DependentUpon>FrmEmisorAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmReenvioOtrosCorreos.aspx.cs">
+      <DependentUpon>FrmReenvioOtrosCorreos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmReenvioOtrosCorreos.aspx.designer.cs">
+      <DependentUpon>FrmReenvioOtrosCorreos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Facturacion\FrmGenerarNota.aspx.cs">
       <DependentUpon>FrmGenerarNota.aspx</DependentUpon>

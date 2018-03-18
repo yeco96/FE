@@ -4,11 +4,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 
-    <section class="featured">
-        <div class="content-wrapper">
-            Mantenimiento Configuración Correo
-        </div>
-    </section>
+     <div class="text-box-title">
+        <div class="text-box-heading-title"> Mantenimiento Configuración Correo</div>
+        <div class="arrow-down-title" style="margin-bottom: 5px;"></div>                        
+     </div>  
+     
     <div class="borde_redondo_tabla">
         Datos para la configuración de los correos más usuales:<br />
         <table class="w-50" style="width: 29%" border="1">

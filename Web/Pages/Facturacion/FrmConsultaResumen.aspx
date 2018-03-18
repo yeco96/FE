@@ -1,11 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmConsultaResumen.aspx.cs" Inherits="Web.Pages.Facturacion.FrmConsultaResumen" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
-    <section class="featured">
-        <div class="content-wrapper">
-            Resumen Documentos Electrónicos
-        </div>
-    </section>
+
+     <div class="text-box-title">
+        <div class="text-box-heading-title">Resumen Documentos Electrónicos</div>
+        <div class="arrow-down-title" style="margin-bottom: 5px;"></div>   
+     </div>   
+     
 
     <dx:ASPxFormLayout runat="server" AlignItemCaptionsInAllGroups="true">
         <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />

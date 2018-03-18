@@ -209,7 +209,7 @@ namespace Class.Utilidades
         /// <param name="consecutivo">numero de consecutivo</param>
         /// <param name="clave"></param>
         /// <returns>TRUE envaido FALSE no eviado</returns>
-        public static bool sendMail(string emisor, string destinatario, string asunto, string mensaje, string alias, string xml, string consecutivo, string clave)
+        public static bool sendMail(string emisor, string destinatario, string asunto, string mensaje, string alias, string xml, string consecutivo, string clave, List<string> cc)
         {
             try
             {
@@ -227,6 +227,10 @@ namespace Class.Utilidades
                         SmtpClient smtp = new SmtpClient();
                         correo.From = new MailAddress(mailConfig.user, alias);
                         correo.To.Add(destinatario);
+                        foreach (var item in cc)
+                        {
+                            correo.CC.Add(item);
+                        } 
                         correo.Subject = String.Format("SPAM-LOW: {0}", asunto);
                         correo.Body = mensaje;
 
@@ -279,7 +283,7 @@ namespace Class.Utilidades
         /// <param name="mensaje">contenido del correo</param>
         /// <param name="alias">nombre para enmascar el correo</param> 
         /// <returns>TRUE envaido FALSE no eviado</returns>
-        public static bool sendMail(string emisor,string destinatario, string asunto, string mensaje, string alias)
+        public static bool sendMail(string emisor, string destinatario, string asunto, string mensaje, string alias, List<string> cc)
         {
             try
             {
@@ -296,6 +300,10 @@ namespace Class.Utilidades
                     SmtpClient smtp = new SmtpClient();
                     correo.From = new MailAddress(mailConfig.user, alias);
                     correo.To.Add(destinatario);
+                    foreach (var item in cc)
+                    {
+                        correo.CC.Add(item);
+                    }
                     correo.Subject = String.Format("SPAM-LOW: {0}", asunto);
                     correo.Body = mensaje;
                     correo.Priority = MailPriority.Normal;

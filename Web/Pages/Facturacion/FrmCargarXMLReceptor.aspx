@@ -10,14 +10,12 @@
          }
 
     </script>
-
-    <section class="featured">
-        <div class="content-wrapper">
-            CARGAR XML RECIBIDO</div>
-    </section>
-
-
-
+      
+     <div class="text-box-title">
+        <div class="text-box-heading-title">CARGAR XML RECIBIDO</div>
+        <div class="arrow-down-title" style="margin-bottom: 5px;"></div>                        
+     </div>  
+      
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
     <asp:UpdatePanel ID="UpdatePanel" runat="server" UpdateMode="Always" OnUnload="UpdatePanel_Unload">

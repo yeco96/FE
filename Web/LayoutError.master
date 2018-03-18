@@ -29,7 +29,7 @@
     <form id="form1" runat="server" class="aspnetForm">
         <div class="wrapper">
             <header>
-                <div class="container">
+                <div class="container_banner">
                     <div class="headerTop">
                         <div class="loginControl">
                             <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
@@ -107,28 +107,59 @@
                 <div class="footerUp">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-3">
-                                <h4>¿Quienes Somos?</h4>
-                                <p>MSA SOFT es una empresa dedicada a la implementación de soluciones a la medida, somos la mejor opción para el éxito de su proyecto.</p>
+
+ 
+                            
+                             
+                             <div class="col-md-4 media"> 
+                                <div class="span4">
+                                    <div class="text-box">
+                                        <div class="text-box-heading-blue">¿Quienes Somos?</div>
+                                        <div class="arrow-down-blue" style="margin-bottom: 10px;"></div>
+                                         <p>MSA SOFT es una empresa dedicada a la implementación de soluciones a la medida, somos la mejor opción para el éxito de su proyecto.</p>
+                                        
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-md-offset-1 col-md-4">
-                                <h4>Nuestros Productos</h4>
-                                <ul class="list-unstyled latestPosts">
-                                    <li>Factura Electrónica</li>
-                                    <li>Sistema de Matrícula</li>
-                                    <li>Sistema de Planillas</li>
-                                    <li>Soporte Técnico y Consultorías</li>
-                                </ul>
+
+
+                           
+                             <div class="col-md-4 media"> 
+                                <div class="span4">
+                                    <div class="text-box">
+                                        <div class="text-box-heading-blue">Nuestros Productos</div>
+                                        <div class="arrow-down-blue" style="margin-bottom: 10px;"></div>
+                                        <p><ul class="list-unstyled latestPosts">
+                                                    <li>Factura Electrónica</li>
+                                                    <li>Sistema de Matrícula</li>
+                                                    <li>Sistema de Planillas</li>
+                                                    <li>Soporte Técnico y Consultorías</li>
+                                                </ul></p>
+                                        
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-md-offset-1 col-md-3">
-                                <h4>Contacto</h4>
-                                <ul class="list-unstyled">
+
+
+
+                             <div class="col-md-4 media"> 
+                                <div class="span4">
+                                    <div class="text-box">
+                                        <div class="text-box-heading-blue">Contacto</div>
+                                        <div class="arrow-down-blue" style="margin-bottom: 10px;"></div>
+                                        <p><ul class="list-unstyled">
                                     <li>Heredia</li>
                                     <li>Costa Rica</li>
                                     <li>Teléfono: +(506) 8872 9065</li>
-                                    <li>Correo: <a href="#">msalamanca@msasoft.com</a></li>
-                                </ul>
+                                    <li>Correo: msalamanca@msasoft.com</li>
+                                </ul></p>
+                                        
+                                    </div>
+                                </div>
                             </div>
+                             
+
+
                         </div>
                     </div>
                 </div>

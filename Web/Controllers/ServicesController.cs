@@ -1,4 +1,5 @@
-﻿using Class.Utilidades;
+﻿using Class.Seguridad;
+using Class.Utilidades;
 using FirmaXadesNet;
 using Newtonsoft.Json;
 using System;
@@ -20,13 +21,12 @@ using System.Web.Http;
 using System.Web.Script.Services;
 using System.Web.Services;
 using System.Xml.Serialization;
-using WebServices.Models;
-using WebServices.Models.Facturacion;
-using WebServices.Seguridad;
+using Web.Models;
+using Web.Models.Facturacion;
 using WSDomain;
 using XMLDomain;
 
-namespace WebServices.Controllers
+namespace Web.Controllers
 {
     [RoutePrefix("api/services")]
     public class ServicesController : ApiController
@@ -86,10 +86,10 @@ namespace WebServices.Controllers
             using (var conexion = new DataModelFE())
             {
 
-                Models.Facturacion.WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
+                WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
                 if (dato.montoTotalFactura > 0)
                 {
-                    return Ok(new Models.Facturacion.WSRespuestaGET(dato));
+                    return Ok(new WSRespuestaGET(dato));
                 }
                 else
                 {
@@ -123,7 +123,7 @@ namespace WebServices.Controllers
                             conexion.Entry(dato).State = EntityState.Modified;
                             conexion.SaveChanges();
 
-                            return Ok(new Models.Facturacion.WSRespuestaGET(dato));
+                            return Ok(new WSRespuestaGET(dato));
                         }
                         else
                         {
@@ -138,7 +138,7 @@ namespace WebServices.Controllers
                                     conexionWS.Entry(dato).State = EntityState.Modified;
                                     conexionWS.SaveChanges();
 
-                                    return Ok(new Models.Facturacion.WSRespuestaGET(dato));
+                                    return Ok(new WSRespuestaGET(dato));
                                 }
                             }
                         }

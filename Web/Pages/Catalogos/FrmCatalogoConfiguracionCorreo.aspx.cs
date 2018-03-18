@@ -323,7 +323,7 @@ namespace Web.Pages.Catalogos
                     if (correo != null && !string.IsNullOrWhiteSpace(this.txtCorreo.Text) )
                     {
                        bool result =  Utilidades.sendMail(emisor, this.txtCorreo.Text,
-                          "TEST", Utilidades.mensageGenericoPruebaCorreo(), "Confuguración CORREO");
+                          "TEST", Utilidades.mensageGenericoPruebaCorreo(), "Confuguración CORREO",null);
 
                         if (result)
                         {
