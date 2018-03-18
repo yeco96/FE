@@ -150,6 +150,8 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel19 = new DevExpress.XtraReports.UI.XRLabel();
             this.pbLogo = new DevExpress.XtraReports.UI.XRPictureBox();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
+            this.xrLabel40 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrPageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             this.reportHeaderBand1 = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.xrLabel33 = new DevExpress.XtraReports.UI.XRLabel();
@@ -157,8 +159,6 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             this.FieldCaption = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.xrPageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
-            this.xrLabel40 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -801,6 +801,30 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
+            // xrLabel40
+            // 
+            this.xrLabel40.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "fechaImpresion", "Printing date : {0:d \'de\' MMMM \'de\' yyyy HH:mm:ss}")});
+            this.xrLabel40.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
+            this.xrLabel40.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.xrLabel40.Name = "xrLabel40";
+            this.xrLabel40.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel40.SizeF = new System.Drawing.SizeF(391.4164F, 23.00002F);
+            this.xrLabel40.StyleName = "DataField";
+            this.xrLabel40.StylePriority.UseFont = false;
+            this.xrLabel40.StylePriority.UseTextAlignment = false;
+            this.xrLabel40.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
+            // xrPageInfo2
+            // 
+            this.xrPageInfo2.Format = "Page {0} of {1}";
+            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(391.4166F, 0F);
+            this.xrPageInfo2.Name = "xrPageInfo2";
+            this.xrPageInfo2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrPageInfo2.SizeF = new System.Drawing.SizeF(257.7501F, 23F);
+            this.xrPageInfo2.StyleName = "PageInfo";
+            this.xrPageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            // 
             // objectDataSource1
             // 
             this.objectDataSource1.DataSource = typeof(XMLDomain.Impresion);
@@ -869,30 +893,6 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             this.DataField.ForeColor = System.Drawing.Color.Black;
             this.DataField.Name = "DataField";
             this.DataField.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            // 
-            // xrPageInfo2
-            // 
-            this.xrPageInfo2.Format = "Page {0} of {1}";
-            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(309.75F, 0F);
-            this.xrPageInfo2.Name = "xrPageInfo2";
-            this.xrPageInfo2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrPageInfo2.SizeF = new System.Drawing.SizeF(339.4166F, 23F);
-            this.xrPageInfo2.StyleName = "PageInfo";
-            this.xrPageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            // 
-            // xrLabel40
-            // 
-            this.xrLabel40.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "fechaImpresion", "Printing date : {0:dddd, d \'de\' MMMM \'de\' yyyy HH:mm:ss}")});
-            this.xrLabel40.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
-            this.xrLabel40.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
-            this.xrLabel40.Name = "xrLabel40";
-            this.xrLabel40.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel40.SizeF = new System.Drawing.SizeF(309.75F, 23.00002F);
-            this.xrLabel40.StyleName = "DataField";
-            this.xrLabel40.StylePriority.UseFont = false;
-            this.xrLabel40.StylePriority.UseTextAlignment = false;
-            this.xrLabel40.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // RptComprobanteEN
             // 

@@ -139,6 +139,7 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel26 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel27 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
+            this.xrSubreport1 = new DevExpress.XtraReports.UI.XRSubreport();
             this.xrBarCode1 = new DevExpress.XtraReports.UI.XRBarCode();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.xrLabel20 = new DevExpress.XtraReports.UI.XRLabel();
@@ -158,7 +159,6 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
             this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
-            this.xrSubreport1 = new DevExpress.XtraReports.UI.XRSubreport();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -683,6 +683,15 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             this.xrLine1.Name = "xrLine1";
             this.xrLine1.SizeF = new System.Drawing.SizeF(649.1666F, 5.000019F);
             // 
+            // xrSubreport1
+            // 
+            this.xrSubreport1.CanShrink = true;
+            this.xrSubreport1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 173.2324F);
+            this.xrSubreport1.Name = "xrSubreport1";
+            this.xrSubreport1.ReportSource = new RptComprobanteDetalle();
+            this.xrSubreport1.SizeF = new System.Drawing.SizeF(650F, 76.7917F);
+            this.xrSubreport1.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrSubreport1_BeforePrint);
+            // 
             // xrBarCode1
             // 
             this.xrBarCode1.AutoModule = true;
@@ -794,12 +803,12 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             // xrLabel40
             // 
             this.xrLabel40.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "fechaImpresion", "Fecha de impresión : {0:dddd, d \'de\' MMMM \'de\' yyyy HH:mm:ss}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "fechaImpresion", "Fecha de impresión : {0:d \'de\' MMMM \'de\' yyyy HH:mm:ss}")});
             this.xrLabel40.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
             this.xrLabel40.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel40.Name = "xrLabel40";
             this.xrLabel40.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel40.SizeF = new System.Drawing.SizeF(309.75F, 23.00002F);
+            this.xrLabel40.SizeF = new System.Drawing.SizeF(367.4583F, 23.00002F);
             this.xrLabel40.StyleName = "DataField";
             this.xrLabel40.StylePriority.UseFont = false;
             this.xrLabel40.StylePriority.UseTextAlignment = false;
@@ -808,10 +817,10 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             // xrPageInfo2
             // 
             this.xrPageInfo2.Format = "Página {0} de {1}";
-            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(309.75F, 0F);
+            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(367.4583F, 0F);
             this.xrPageInfo2.Name = "xrPageInfo2";
             this.xrPageInfo2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrPageInfo2.SizeF = new System.Drawing.SizeF(339.4166F, 23F);
+            this.xrPageInfo2.SizeF = new System.Drawing.SizeF(281.7083F, 23F);
             this.xrPageInfo2.StyleName = "PageInfo";
             this.xrPageInfo2.StylePriority.UseTextAlignment = false;
             this.xrPageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
@@ -884,15 +893,6 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             // 
             this.objectDataSource1.DataSource = typeof(XMLDomain.Impresion);
             this.objectDataSource1.Name = "objectDataSource1";
-            // 
-            // xrSubreport1
-            // 
-            this.xrSubreport1.CanShrink = true;
-            this.xrSubreport1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 173.2324F);
-            this.xrSubreport1.Name = "xrSubreport1";
-            this.xrSubreport1.ReportSource = new RptComprobanteDetalle();
-            this.xrSubreport1.SizeF = new System.Drawing.SizeF(650F, 76.7917F);
-            this.xrSubreport1.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrSubreport1_BeforePrint);
             // 
             // RptComprobante
             // 
