@@ -294,9 +294,21 @@ header{
     #banner { 
         background: none;
     } 
+    
     .loginControl { 
         margin: 0px auto !important;
     } 
+
+
+    .container_banner {  
+        margin-left: auto  !important;
+    } 
+    header {
+        background: #fff; 
+    }
+    .help {
+     margin: 0 !important;
+    }
     
 }
 
