@@ -42,7 +42,6 @@ namespace Web.Pages.Facturacion
 
             }
         }
-
         protected void UpdatePanel_Unload(object sender, EventArgs e)
         {
             RegisterUpdatePanel((UpdatePanel)sender);
@@ -54,7 +53,6 @@ namespace Web.Pages.Facturacion
             if (mInfo != null)
                 mInfo.Invoke(ScriptManager.GetCurrent(Page), new object[] { panel });
         }
-
         protected void xmlUploadControl_FileUploadComplete(object sender, DevExpress.Web.FileUploadCompleteEventArgs e)
         {
             try
@@ -71,49 +69,59 @@ namespace Web.Pages.Facturacion
                 throw new Exception(ex.Message, ex.InnerException);
             }
         }
-
         protected void btnCargarDatos_Click(object sender, EventArgs e)
         {
             try
             {
                 Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
                 string xml = Session["xmlFileValidar"].ToString();
-                txtClave.Text = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xml), "Clave", xml);
-                //Emisor
-                string emisorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Emisor", "Identificacion", xml);
-                txtNumCedEmisor.Text = emisorIdentificacion.Substring(2);
-                txtFechaEmisor.Text = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xml), "FechaEmision", xml);
 
-                EmisorReceptorIMEC emisor = (EmisorReceptorIMEC)Session["elEmisor"];
-                this.txtNumConsecutivoReceptor.Text = "0010000107" + emisor.consecutivo.ToString().PadLeft(10, '0');
+                //string receptorIdentificacion1 = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xml);
+                //txtNumCedReceptor.Text = receptorIdentificacion.Substring(2);
+                
 
-                //Factura
-                double totalImpuesto = Convert.ToDouble(EncondeXML.buscarValorEtiquetaXML("ResumenFactura", "TotalImpuesto", xml));
-                txtMontoTotalImpuesto.Text = totalImpuesto.ToString("N2");
-                double totalFactura = Convert.ToDouble(EncondeXML.buscarValorEtiquetaXML("ResumenFactura", "TotalComprobante", xml));
-                txtTotalFactura.Text = totalFactura.ToString("N2"); ;
-
-                //Receptor
-                string receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xml);
-                if (!string.IsNullOrWhiteSpace(receptorIdentificacion))
+                    if (EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xml).Substring(2) == Session["emisor"].ToString())
                 {
-                    Session["receptor.tipoIdentificacion"] = receptorIdentificacion.Substring(0, 2);
-                    txtNumCedReceptor.Text = receptorIdentificacion.Substring(2);
+                    txtClave.Text = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xml), "Clave", xml);
+                    //Emisor
+                    string emisorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Emisor", "Identificacion", xml);
+                    txtNumCedEmisor.Text = emisorIdentificacion.Substring(2);
+                    txtFechaEmisor.Text = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xml), "FechaEmision", xml);
+
+                    EmisorReceptorIMEC emisor = (EmisorReceptorIMEC)Session["elEmisor"];
+                    this.txtNumConsecutivoReceptor.Text = "0010000107" + emisor.consecutivo.ToString().PadLeft(10, '0');
+
+                    //Factura
+                    double totalImpuesto = Convert.ToDouble(EncondeXML.buscarValorEtiquetaXML("ResumenFactura", "TotalImpuesto", xml));
+                    txtMontoTotalImpuesto.Text = totalImpuesto.ToString("N2");
+                    double totalFactura = Convert.ToDouble(EncondeXML.buscarValorEtiquetaXML("ResumenFactura", "TotalComprobante", xml));
+                    txtTotalFactura.Text = totalFactura.ToString("N2"); ;
+
+                    //Receptor
+                    string receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xml);
+                    if (!string.IsNullOrWhiteSpace(receptorIdentificacion))
+                    {
+                        Session["receptor.tipoIdentificacion"] = receptorIdentificacion.Substring(0, 2);
+                        txtNumCedReceptor.Text = receptorIdentificacion.Substring(2);
+                    }
+                    else
+                    {
+                        Session["receptor.tipoIdentificacion"] = "99";
+                        txtNumCedReceptor.Text = EncondeXML.buscarValorEtiquetaXML("Receptor", "IdentificacionExtranjero", xml);
+
+                    }
+                    Session["receptor.CorreoElectronico"] = EncondeXML.buscarValorEtiquetaXML("Receptor", "CorreoElectronico", xml);
+                    Session["receptor.Nombre"] = EncondeXML.buscarValorEtiquetaXML("Receptor", "Nombre", xml);
+
+                    this.alertMessages.Attributes["class"] = "alert alert-success";
+                    this.alertMessages.InnerText = "Los datos fueron cargados correctamente!!!";
                 }
-                else
-                {
-                    Session["receptor.tipoIdentificacion"] = "99";
-                    txtNumCedReceptor.Text = EncondeXML.buscarValorEtiquetaXML("Receptor", "IdentificacionExtranjero", xml);
-
+                else {
+                    this.alertMessages.Attributes["class"] = "alert alert-danger";
+                    this.alertMessages.InnerText = "El receptor del XML seleccionado no corresponde con la identificación del usuario!!!";
+                    xmlUploadControl1 = null;
+                    return;
                 }
-                Session["receptor.CorreoElectronico"] = EncondeXML.buscarValorEtiquetaXML("Receptor", "CorreoElectronico", xml);
-                Session["receptor.Nombre"] = EncondeXML.buscarValorEtiquetaXML("Receptor", "Nombre", xml);
-
-
-
-                this.alertMessages.Attributes["class"] = "alert alert-info";
-                this.alertMessages.InnerText = "Los datos fueron cargados correctamente!!!";
-
             }
             catch (Exception ex)
             {
@@ -121,7 +129,6 @@ namespace Web.Pages.Facturacion
                 this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
             }
         }
-
         protected async void btnEnviar_Click(object sender, EventArgs e)
         {
             try
@@ -157,38 +164,9 @@ namespace Web.Pages.Facturacion
                 //string responsePost = await Services.enviarMensajeReceptor(xml, elEmisor, Session["receptor.tipoIdentificacion"].ToString());
                 this.guardarDocumentoReceptor();
                 this.alertMessages.Attributes["class"] = "alert alert-info";
-                this.alertMessages.InnerText = "Los datos fueron enviados correctamente!!!";
-
-
-                //if (responsePost.Equals("Success"))
-                //{
-                //    this.alertMessages.Attributes["class"] = "alert alert-info";
-                //    this.alertMessages.InnerText = "Los datos fueron enviados correctamente!!!";
-
-                //    using (var conexion = new DataModelFE())
-                //    {
-                //        elEmisor.consecutivo += 1;
-                //        conexion.Entry(elEmisor).State = EntityState.Modified;
-                //        conexion.SaveChanges();
-                //        Session["elEmisor"] = elEmisor;
-                //    }
-
-                //    string correo = Session["receptor.CorreoElectronico"].ToString();
-                //    if (!string.IsNullOrWhiteSpace(correo))
-                //    {
-                //        string nombre = Session["receptor.Nombre"].ToString();
-
-                //        Utilidades.sendMail(Session["emisor"].ToString(), correo,
-                //            string.Format("{0} - {1}", dato.clave.Substring(21, 20), nombre),
-                //            Utilidades.mensageGenerico(), "Factura Electrónica", xml, dato.clave.Substring(21, 20), dato.clave);
-                //    }
-                //}
-                //else
-                //{
-                //    this.alertMessages.Attributes["class"] = "alert alert-danger";
-                //    this.alertMessages.InnerText = String.Format("Factura #{0} con errores.", dato.clave);
-                //}
-
+                this.alertMessages.InnerText = "Los datos se guardaron correctamente!!!";
+                //Limpiar la página
+                this.CleanControl(this.Controls);
             }
             catch (Exception ex)
             {
@@ -197,7 +175,30 @@ namespace Web.Pages.Facturacion
             }
         }
 
-
+        #region LimpiarControles
+        public void CleanControl(ControlCollection controles)
+        {
+            foreach (Control control in controles)
+            {
+                if (control is TextBox)
+                    ((TextBox)control).Text = string.Empty;
+                else if (control is DropDownList)
+                    ((DropDownList)control).ClearSelection();
+                else if (control is RadioButtonList)
+                    ((RadioButtonList)control).ClearSelection();
+                else if (control is CheckBoxList)
+                    ((CheckBoxList)control).ClearSelection();
+                else if (control is RadioButton)
+                    ((RadioButton)control).Checked = false;
+                else if (control is CheckBox)
+                    ((CheckBox)control).Checked = false;
+                else if (control.HasControls())
+                    //Esta linea detécta un Control que contenga otros Controles
+                    //Así ningún control se quedará sin ser limpiado.
+                    CleanControl(control.Controls);
+            }
+        }
+        #endregion
         public void guardarDocumentoReceptor()
         {
             using (var conexion = new DataModelFE())
@@ -270,6 +271,9 @@ namespace Web.Pages.Facturacion
                             datosReceptor.indEstado = datoHacienda.indEstado;
                             datosReceptor.mensaje = datoHacienda.mensaje;
                         }
+                        else {
+                            datosReceptor.indEstado = 1;
+                        }
                     }
                     conexion.WSRecepcionPOSTReceptor.Add(datosReceptor);
                     conexion.SaveChanges();
@@ -277,7 +281,6 @@ namespace Web.Pages.Facturacion
  
             }
         }
-
         private static bool existeClave(string pClave)
         {
             try
@@ -303,7 +306,6 @@ namespace Web.Pages.Facturacion
                 throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
         }
-
         protected void btnConsultaXMLRecibidos_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Pages/Facturacion/FrmConsultaResumenReceptor.aspx");
