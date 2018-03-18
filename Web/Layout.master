@@ -29,7 +29,7 @@
     <form id="form1" runat="server" class="aspnetForm">
         <div class="wrapper">
             <header>
-                <div class="container">
+                <div class="container_banner">
                     <div class="headerTop">
                         <div class="loginControl">
                             <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
