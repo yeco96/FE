@@ -2,11 +2,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 
-    <section class="featured">
-        <div class="content-wrapper">
-            Documento Electrónico
-        </div>
-    </section>
+     <div class="text-box-title">
+        <div class="text-box-heading-title"> Documento Electrónico</div>
+        <div class="arrow-down-title" style="margin-bottom: 5px;"></div>   
+     </div>  
+     
 
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
 

@@ -176,6 +176,8 @@
     <Content Include="Content\Images\edit.png" />
     <Content Include="Content\Images\help.png" />
     <Content Include="Content\Images\loadUser.png" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\logo_azul.jpg" />
     <Content Include="Content\Images\logo_banner.png" />
     <Content Include="Content\Images\logo_banner1.png" />
     <Content Include="Content\Images\logo_banner2.png" />

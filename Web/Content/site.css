@@ -272,10 +272,23 @@ footer h4 {
 
 #banner {
     padding: 10px 0px 10px 100px; 
+    /* 
     background:  url('Images/logo_banner.png');
     background-repeat: no-repeat;
     background-size: 90px 90px;
+    */
 } 
+header{ 
+    background: url(Images/logo.png) no-repeat #fff;
+    background-size: 218px 90px; 
+}
+.footerUp { 
+    /*background: #6f6f6f;
+    background: #0072C6;
+        */
+    color: #000000;
+    background: #f4f4f4;
+}
 
 @media only screen and (max-width: 800px) {
     #banner { 
@@ -347,14 +360,62 @@ footer h4 {
     text-align:center
 }
 
-.text-box {
-    background: #f4f4f4;
-    padding: 15px;
+.text-box-heading-blue {
+    font-size: 1em;
+    padding: 10px 12px;
+    background: #0072C6;
+    color: #fff;
+    text-align:center
 }
+
+.text-box .arrow-down-blue {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #0072C6;
+    font-size: 0;
+    line-height: 0;
+    margin-left: 7%;
+}
+
+
+
+.text-box-title {
+    background: #f4f4f4; 
+    padding: 15px 15px 1px 15px;
+}
+
+.text-box-heading-title {
+    font-size: 1em;
+    padding: 5px 10px;
+    background: #0072C6;
+    color: #fff;
+    text-transform:uppercase;
+    /*font-weight: bold; */
+}
+.text-box-title .arrow-down-title {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #0072C6;
+    font-size: 0;
+    line-height: 0;
+    margin-left: 7%;
+}
+
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
     background-color: #8DC2EC !important;
     transition: all 0.3s ease 0.1s;
+}
+
+
+
+.text-box {
+    background: #f4f4f4;
+    padding: 15px;
 }
 
 .text-box .arrow-down {
@@ -367,6 +428,9 @@ footer h4 {
     line-height: 0;
     margin-left: 7%;
 }
+
+
+
 
 
 .span4{

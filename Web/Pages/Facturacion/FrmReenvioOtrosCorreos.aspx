@@ -2,13 +2,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 
-    <section class="featured">
-        <div class="content-wrapper">
-            Reenvio Documento Electrónico
-        </div>
-    </section>
-
-
+     <div class="text-box-title">
+        <div class="text-box-heading-title"> Reenvio Documento Electrónico</div>
+        <div class="arrow-down-title" style="margin-bottom: 5px;"></div>   
+     </div>  
+      
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel" runat="server" UpdateMode="Always" OnUnload="UpdatePanel_Unload">
         <ContentTemplate>
@@ -174,6 +172,7 @@
                         <dx:ASPxSummaryItem FieldName="montoDescuento" SummaryType="Sum" />
                         <dx:ASPxSummaryItem FieldName="montoTotal" SummaryType="Sum" />
                     </TotalSummary>
+                    <Settings ShowFooter="true" />
                 </dx:ASPxGridView>
                 <br />
                 <dx:ASPxButton runat="server" ID="btnEnviarCorreo" Text="Enviar" OnClick="btnEnviarCorreo_Click" ></dx:ASPxButton>
