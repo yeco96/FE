@@ -26,6 +26,7 @@ namespace XMLDomain
         public string CondicionVenta { set; get; }
         public string MedioPago { set; get; }
         public DateTime fecha { set; get; }
+        public DateTime fechaImpresion { set; get; }
         public string leyenda { set; get; }
         public string moneda { set; get; }
         public string tipoCambio { set; get; }
@@ -43,6 +44,7 @@ namespace XMLDomain
         public Impresion()
         {
             this.detalles = new List<ImpresionDetalle>();
+            this.fechaImpresion = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, "Central America Standard Time");
             //iniciarParametros();
         }
          
