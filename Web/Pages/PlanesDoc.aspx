@@ -31,7 +31,7 @@
                             <li>Facturas, NC y ND</li> 
                             <li>1 emisor</li>
                             <p>¿Para quién es?</p>
-                            <p>Enfocado en Profesionales independientes y pequeños empresarios que facturen como persona Física</p>
+                            <p>Enfocado en profesionales independientes y PYMES</p>
                             <li>Válido por año desde la compra o hasta agotar la cantidad de documentos</li> 
                         </ul></p>
                         <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="#" style="pull-right">Comprar</a></p>              
@@ -51,7 +51,7 @@
                             <li>Facturas, NC y ND</li> 
                             <li>1 emisor</li>
                             <p>¿Para quién es?</p>
-                            <p>Enfocado en Profesionales independientes y pequeños empresarios que facturen como persona Física</p>
+                            <p>Enfocado en profesionales independientes y PYMES</p>
                             <li>Válido por año desde la compra o hasta agotar la cantidad de documentos</li> 
                         </ul></p>
                         <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="#" style="pull-right">Comprar</a></p>              
@@ -71,7 +71,7 @@
                             <li>Facturas, NC y ND</li> 
                             <li>1 emisor</li>
                             <p>¿Para quién es?</p>
-                            <p>Enfocado en Profesionales independientes y pequeños empresarios que facturen como persona Física</p>
+                            <p>Enfocado en profesionales independientes y PYMES</p>
                             <li>Válido por año desde la compra o hasta agotar la cantidad de documentos</li> 
                         </ul></p>
                         <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href=#" style="pull-right">Comprar</a></p>              
@@ -100,10 +100,10 @@
                 <div class="span4">
                     <div class="text-box">
                         <div style="text-align: center"; class="text-box-heading">PLAN PYMES</div>
-                        <div style="text-align: center"; class="text-box-heading">¢20,000.00 MES ¢200,000.00 ANUAL</div>
+                        <div style="text-align: center"; class="text-box-heading">¢10,000.00 MES ¢100,000.00 ANUAL</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
                            <p><ul>  
-                            <li>250 Documentos electrónicos mensuales</li>                         
+                            <li>Entre 1 y 250 documentos mensuales</li>                         
                             <li>Facturas, NC y ND</li> 
                             <li>1 emisor</li>
                             <p>¿Para quién es?</p>
@@ -118,10 +118,10 @@
                 <div class="span4">
                     <div class="text-box">
                         <div style="text-align: center"; class="text-box-heading">PLAN EMPRESARIAL</div>
-                        <div style="text-align: center"; class="text-box-heading">¢30,000.00 MES ¢300,000.00 ANUAL</div>
+                        <div style="text-align: center"; class="text-box-heading">¢20,000.00 MES ¢200,000.00 ANUAL</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
                            <p><ul>  
-                            <li>500 Documentos electrónicos mensuales</li>                         
+                            <li>Entre 1 y 500 documentos mensuales</li>                         
                             <li>Facturas, NC y ND</li> 
                             <li>1 emisor</li>
                             <p>¿Para quién es?</p>

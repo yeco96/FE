@@ -186,7 +186,7 @@ namespace Web.Pages.Administracion
                 using (var conexion = new DataModelFE())
                 {  
                     //busca el objeto 
-                    Plan dato = conexion.Plan.Find(long.Parse(e.NewValues["emisor"].ToString()));
+                    Plan dato = conexion.Plan.Find(e.NewValues["emisor"].ToString());
                      
                     dato.plan = e.NewValues["plan"] != null ? e.NewValues["plan"].ToString().ToUpper() : null;
                     dato.cantidadDocEmitido = e.NewValues["cantidadDocEmitido"] != null ? int.Parse(e.NewValues["cantidadDocEmitido"].ToString()) : 0;
@@ -244,7 +244,7 @@ namespace Web.Pages.Administracion
             {
                 using (var conexion = new DataModelFE())
                 {
-                    var id = long.Parse(e.Values["emisor"].ToString());
+                    var id = e.Values["emisor"].ToString();
 
                     //busca objeto
                     var itemToRemove = conexion.Plan.Find(id);
@@ -294,11 +294,11 @@ namespace Web.Pages.Administracion
         {
             if (this.ASPxGridView1.IsNewRowEditing)
             {
-                if (e.Column.FieldName == "id") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; e.Editor.Value = 0; }
+                if (e.Column.FieldName == "emisor") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray;  }
             }
             else
             {
-                if (e.Column.FieldName == "id") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+                if (e.Column.FieldName == "emisor") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
             }
         }
 

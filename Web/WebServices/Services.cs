@@ -209,7 +209,7 @@ namespace Web.WebServices
                     {
                         xmlFile = FirmaXML.getXMLFirmadoWeb(xmlFile, emisor.llaveCriptografica, emisor.claveLlaveCriptografica.ToString());
                     }
-
+                    trama.consecutivoReceptor = null;
                     trama.comprobanteXml = EncodeXML.EncondeXML.base64Encode(xmlFile);
 
                     string jsonTrama = JsonConvert.SerializeObject(trama);
@@ -323,6 +323,7 @@ namespace Web.WebServices
 
                     xmlFile = FirmaXML.getXMLFirmadoWeb(xmlFile, emisor.llaveCriptografica, emisor.claveLlaveCriptografica.ToString());
 
+                    trama.consecutivoReceptor= EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "NumeroConsecutivoReceptor", xmlFile);
                     trama.comprobanteXml = EncodeXML.EncondeXML.base64Encode(xmlFile);
 
                     string jsonTrama = JsonConvert.SerializeObject(trama);

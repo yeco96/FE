@@ -525,7 +525,7 @@ header{
 
 
 .container_banner {
-    width: 100%;
+    /*width: 100%;*/
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;

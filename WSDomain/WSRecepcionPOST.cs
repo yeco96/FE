@@ -38,8 +38,12 @@ namespace WSDomain
         //[JsonProperty("callbackUrl", Order = 5)]
         //public string callbackUrl { set; get; }
 
+        [JsonProperty("consecutivoReceptor", Order = 6, NullValueHandling = NullValueHandling.Ignore)]
+        [NotMapped]
+        public string consecutivoReceptor{ set; get; }
 
-        [JsonProperty("comprobanteXml", Order = 6)]
+
+        [JsonProperty("comprobanteXml", Order = 7)]
         public string comprobanteXml { set; get; }
 
         [JsonIgnore]
