@@ -7,20 +7,15 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
 
 namespace Desktop.Configuración.Catalogos
 {
-    public partial class FrmCatalogoEmisor : DevExpress.XtraEditors.XtraForm
+    public partial class FrmCatalogoCodigoPais : DevExpress.XtraEditors.XtraForm
     {
-        public FrmCatalogoEmisor()
+        public FrmCatalogoCodigoPais()
         {
             InitializeComponent();
-        }
-
-        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            this.Close();
         }
     }
 }

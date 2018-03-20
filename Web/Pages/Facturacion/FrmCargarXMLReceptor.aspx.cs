@@ -78,7 +78,6 @@ namespace Web.Pages.Facturacion
 
                 //string receptorIdentificacion1 = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xml);
                 //txtNumCedReceptor.Text = receptorIdentificacion.Substring(2);
-                
 
                     if (EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xml).Substring(2) == Session["emisor"].ToString())
                 {
@@ -150,7 +149,7 @@ namespace Web.Pages.Facturacion
                 dato.numeroCedulaReceptor = this.txtNumCedReceptor.Text;
 
                 dato.mensajeDetalle = this.txtDetalleMensaje.Text;
-                //dato.mensaje = int.Parse(this.cmbMensaje.Value.ToString());
+                dato.mensaje = int.Parse(this.cmbMensaje.Value.ToString());
                 dato.numeroConsecutivoReceptor = this.txtNumConsecutivoReceptor.Text;
 
                 dato.montoTotalImpuesto = decimal.Parse(this.txtMontoTotalImpuesto.Text);
@@ -161,12 +160,44 @@ namespace Web.Pages.Facturacion
                 //string xmlSigned = FirmaXML.getXMLFirmadoWeb(xml, elEmisor.llaveCriptografica, elEmisor.claveLlaveCriptografica);
 
                 //Habilitar solo cuando funcione el servicio
-                //string responsePost = await Services.enviarMensajeReceptor(xml, elEmisor, Session["receptor.tipoIdentificacion"].ToString());
+                string responsePost = await Services.enviarMensajeReceptor(xml, elEmisor, Session["receptor.tipoIdentificacion"].ToString());
+
+                if (responsePost.Equals("Success"))
+                {
+                    this.alertMessages.Attributes["class"] = "alert alert-info";
+                    this.alertMessages.InnerText = "Los datos fueron enviados correctamente!!!";
+
+                    using (var conexion = new DataModelFE())
+                    {
+                        elEmisor.consecutivo += 1;
+                        conexion.Entry(elEmisor).State = EntityState.Modified;
+                        conexion.SaveChanges();
+                        Session["elEmisor"] = elEmisor;
+                    }
+
+                    string correo = Session["receptor.CorreoElectronico"].ToString();
+                    if (!string.IsNullOrWhiteSpace(correo))
+                    {
+                        string nombre = Session["receptor.Nombre"].ToString();
+
+                        Utilidades.sendMail(Session["emisor"].ToString(), correo,
+                            string.Format("{0} - {1}", dato.clave.Substring(21, 20), nombre),
+                            Utilidades.mensageGenerico(), "Factura Electrónica", xml, dato.clave.Substring(21, 20), dato.clave, null);
+                    }
+                }
+                else
+                {
+                    this.alertMessages.Attributes["class"] = "alert alert-danger";
+                    this.alertMessages.InnerText = String.Format("Factura #{0} con errores.", dato.clave);
+                }
+
                 this.guardarDocumentoReceptor();
                 this.alertMessages.Attributes["class"] = "alert alert-info";
                 this.alertMessages.InnerText = "Los datos se guardaron correctamente!!!";
                 //Limpiar la página
-                this.CleanControl(this.Controls);
+                //this.CleanControl(this.Controls);
+                Response.Redirect("~/Pages/Facturacion/FrmCargarXMLReceptor.aspx");
+
             }
             catch (Exception ex)
             {

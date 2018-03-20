@@ -97,7 +97,7 @@
                             </dx:LayoutItem>
 
 
-<%--                            <dx:LayoutItem Caption="Mensaje">
+                            <dx:LayoutItem Caption="Mensaje">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
                                         <dx:ASPxComboBox ID="cmbMensaje" runat="server" SelectedIndex="0" Width="100%" AutoResizeWithContainer="true">
@@ -109,7 +109,7 @@
                                         </dx:ASPxComboBox>
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
-                            </dx:LayoutItem>--%>
+                            </dx:LayoutItem>
 
 
                             <dx:LayoutItem Caption="Detalle del Mensaje" ColSpan="2" Width="100%">
