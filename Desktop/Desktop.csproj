@@ -40,6 +40,9 @@
     <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v17.1" />
     <Reference Include="DevExpress.Printing.v17.1.Core" />
+    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraWizard.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
@@ -76,11 +79,11 @@
     <Compile Include="Ayuda\frmAcercaDeMSAFactura.Designer.cs">
       <DependentUpon>frmAcercaDeMSAFactura.cs</DependentUpon>
     </Compile>
-    <Compile Include="Configuración\Catalogos\FrmCatalogoEmisor.cs">
+    <Compile Include="Configuración\Catalogos\FrmCatalogoCodigoPais.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Configuración\Catalogos\FrmCatalogoEmisor.Designer.cs">
-      <DependentUpon>FrmCatalogoEmisor.cs</DependentUpon>
+    <Compile Include="Configuración\Catalogos\FrmCatalogoCodigoPais.Designer.cs">
+      <DependentUpon>FrmCatalogoCodigoPais.cs</DependentUpon>
     </Compile>
     <Compile Include="frmFacturaElectronica.cs">
       <SubType>Form</SubType>
@@ -93,8 +96,8 @@
     <EmbeddedResource Include="Ayuda\frmAcercaDeMSAFactura.resx">
       <DependentUpon>frmAcercaDeMSAFactura.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Configuración\Catalogos\FrmCatalogoEmisor.resx">
-      <DependentUpon>FrmCatalogoEmisor.cs</DependentUpon>
+    <EmbeddedResource Include="Configuración\Catalogos\FrmCatalogoCodigoPais.resx">
+      <DependentUpon>FrmCatalogoCodigoPais.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFacturaElectronica.resx">
       <DependentUpon>frmFacturaElectronica.cs</DependentUpon>
