@@ -107,7 +107,7 @@
                             <dx:LayoutItem Caption="Detalle del Mensaje" ColSpan="2" Width="100%">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
-                                        <dx:ASPxMemo ID="txtDetalleMensaje" runat="server" Width="100%" AutoResizeWithContainer="true">
+                                        <dx:ASPxMemo ID="txtDetalleMensaje" runat="server" Width="100%" AutoResizeWithContainer="true" MaxLength="80">
                                         </dx:ASPxMemo>
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
