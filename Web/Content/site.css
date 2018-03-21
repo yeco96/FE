@@ -531,3 +531,8 @@ header{
     margin-right: auto;
     margin-left: 185px;
 }
+
+
+.dx-vam, .dx-vat, .dx-vab { 
+    font-size: 14px;
+}

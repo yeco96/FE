@@ -17,6 +17,10 @@ namespace Web.Models.Catalogos
         public static string FISICA = "01";
         [NotMapped]
         public static string JURIDICA = "02";
+        [NotMapped]
+        public static string DIMEX = "03";
+        [NotMapped]
+        public static string NITE = "04";
 
         [Key]
         [Required]

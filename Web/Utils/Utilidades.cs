@@ -217,9 +217,8 @@ namespace Class.Utilidades
                 {
                     ConfiguracionCorreo mailConfig = conexion.ConfiguracionCorreo.Where(x => x.estado == Estado.ACTIVO.ToString() && x.codigo == emisor).FirstOrDefault();
                     if (mailConfig == null)
-                    {
-                        emisor = Usuario.USUARIO_AUTOMATICO;
-                        mailConfig = conexion.ConfiguracionCorreo.Where(x => x.estado == Estado.ACTIVO.ToString() && x.codigo == Usuario.USUARIO_TOKEN).FirstOrDefault();
+                    { 
+                        mailConfig = conexion.ConfiguracionCorreo.Where(x => x.estado == Estado.ACTIVO.ToString() && x.codigo == Usuario.USUARIO_AUTOMATICO).FirstOrDefault();
                     }
                     if (mailConfig != null)
                     {
@@ -227,10 +226,13 @@ namespace Class.Utilidades
                         SmtpClient smtp = new SmtpClient();
                         correo.From = new MailAddress(mailConfig.user, alias);
                         correo.To.Add(destinatario);
-                        foreach (var item in cc)
+                        if (cc != null)
                         {
-                            correo.CC.Add(item);
-                        } 
+                            foreach (var item in cc)
+                            {
+                                correo.CC.Add(item);
+                            }
+                        }
                         correo.Subject = String.Format("SPAM-LOW: {0}", asunto);
                         correo.Body = mensaje;
 
@@ -291,18 +293,19 @@ namespace Class.Utilidades
                 { 
                     ConfiguracionCorreo mailConfig = conexion.ConfiguracionCorreo.Where(x => x.estado == Estado.ACTIVO.ToString() && x.codigo==emisor).FirstOrDefault();
                     if (mailConfig == null)
-                    {
-                        emisor = Usuario.USUARIO_AUTOMATICO;
-                        mailConfig = conexion.ConfiguracionCorreo.Where(x => x.estado == Estado.ACTIVO.ToString() && x.codigo == emisor).FirstOrDefault();
+                    { 
+                        mailConfig = conexion.ConfiguracionCorreo.Where(x => x.estado == Estado.ACTIVO.ToString() && x.codigo == Usuario.USUARIO_AUTOMATICO).FirstOrDefault();
                     }
                     
                     MailMessage correo = new MailMessage();
                     SmtpClient smtp = new SmtpClient();
                     correo.From = new MailAddress(mailConfig.user, alias);
                     correo.To.Add(destinatario);
-                    foreach (var item in cc)
-                    {
-                        correo.CC.Add(item);
+                    if (cc != null) {
+                        foreach (var item in cc)
+                        {
+                            correo.CC.Add(item);
+                        }
                     }
                     correo.Subject = String.Format("SPAM-LOW: {0}", asunto);
                     correo.Body = mensaje;

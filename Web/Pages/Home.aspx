@@ -23,12 +23,13 @@
         </section>
         <section class="row features">
             <div class="col-md-4 media">
-                
+
                 <div class="span4">
                     <div class="text-box">
                         <div class="text-box-heading">Facturas Electrónicas </div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
-                        <p>Realice su facturación desde internet. </p><p>¿Si eres trabajador independiente? ó ¿Tiene una PYME y no cuenta con un sistema de facturación o ERP?</p>
+                        <p>Realice su facturación desde internet. </p>
+                        <p>¿Si eres trabajador independiente? ó ¿Tiene una PYME y no cuenta con un sistema de facturación o ERP?</p>
                         <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="#" style="pull-right" id="yui_3_17_2_1_1517459886390_165">Más Detalles</a></p>
                     </div>
                 </div>
@@ -40,30 +41,34 @@
                     <div class="text-box">
                         <div class="text-box-heading">Nuestros Planes</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
-                        <p><ul>
-                            <li>Planes Prepago</li>  
-                            <li>Plan Profesional Ilimitado</li>  
-                            <li>Plan Pymes</li>
-                            <li>Plan Cliente Jurídico I y II</li>
-                            <li>Planes Empresariales</li>
-                        </ul></p>
+                        <p>
+                            <ul>
+                                <li>Planes Prepago</li>
+                                <li>Plan Profesional Ilimitado</li>
+                                <li>Plan Pymes</li>
+                                <li>Plan Cliente Jurídico I y II</li>
+                                <li>Planes Empresariales</li>
+                            </ul>
+                        </p>
                         <p style="text-align: right; margin-bottom: 0;"><a href="/Pages/PlanesDoc.aspx" class="btn btn-primary">Más Detalles</a></p>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4 media">
-                 <div class="span4">
+                <div class="span4">
                     <div class="text-box">
                         <div class="text-box-heading">Requisitos</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
-                        <p><ul>
-                            <li><a href="https://tribunet.hacienda.go.cr/principal.html">Inscribirse en Hacienda</a></li>
-                            <li><a href="https://www.hacienda.go.cr/atv/login.aspx">ATV Hacienda </a></li>
-                            <li><a href="https://www.youtube.com/watch?v=7kZcx3dZIHc">Crear llave Criptográfica</a></li>
-                            <li>Llenar nuestro formulario</li>
-                            <li>Preguntas frecuentes</li> 
-                        </ul></p>
+                        <p>
+                            <ul>
+                                <li><a href="https://tribunet.hacienda.go.cr/principal.html">Inscribirse en Hacienda</a></li>
+                                <li><a href="https://www.hacienda.go.cr/atv/login.aspx">ATV Hacienda </a></li>
+                                <li><a href="https://www.youtube.com/watch?v=7kZcx3dZIHc">Crear llave Criptográfica</a></li>
+                                <li>Llenar nuestro formulario</li>
+                                <li>Preguntas frecuentes</li>
+                            </ul>
+                        </p>
                         <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="#" style="pull-right">Más Detalles</a></p>
                     </div>
                 </div>
@@ -133,6 +138,67 @@
                     </div>
                 </div>
             </div>
+            <footer>
+                <div class="footerUp">
+                    <div class="container">
+                        <div class="row">
+
+
+                            <div class="col-md-4 media">
+                                <div class="span4">
+                                    <div class="text-box">
+                                        <div class="text-box-heading-blue">¿Quienes Somos?</div>
+                                        <div class="arrow-down-blue" style="margin-bottom: 10px;"></div>
+                                        <p>MSA SOFT es una empresa dedicada a la implementación de soluciones a la medida, somos la mejor opción para el éxito de su proyecto.</p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-4 media">
+                                <div class="span4">
+                                    <div class="text-box">
+                                        <div class="text-box-heading-blue">Nuestros Productos</div>
+                                        <div class="arrow-down-blue" style="margin-bottom: 10px;"></div>
+                                        <p>
+                                            <ul class="list-unstyled latestPosts">
+                                                <li>Factura Electrónica</li>
+                                                <li>Sistema de Matrícula</li>
+                                                <li>Sistema de Planillas</li>
+                                                <li>Soporte Técnico y Consultorías</li>
+                                            </ul>
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-4 media">
+                                <div class="span4">
+                                    <div class="text-box">
+                                        <div class="text-box-heading-blue">Contacto</div>
+                                        <div class="arrow-down-blue" style="margin-bottom: 10px;"></div>
+                                        <p>
+                                            <ul class="list-unstyled">
+                                                <li>Heredia</li>
+                                                <li>Costa Rica</li>
+                                                <li>Teléfono: +(506) 8872 9065</li>
+                                                <li>Correo: msalamanca@msasoft.com</li>
+                                            </ul>
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </section>
     </div>
 </asp:Content>

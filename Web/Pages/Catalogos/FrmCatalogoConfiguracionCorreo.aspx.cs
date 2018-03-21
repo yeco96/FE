@@ -330,6 +330,11 @@ namespace Web.Pages.Catalogos
                             this.alertMessages.InnerText = "Correo enviado con éxito";
                             this.alertMessages.Attributes["class"] = "alert alert-info";
                         }
+                        else
+                        {
+                            this.alertMessages.InnerText = "Correo no enviado, verificar configuración";
+                            this.alertMessages.Attributes["class"] = "alert alert-danger";
+                        }
                     }
                 }
 

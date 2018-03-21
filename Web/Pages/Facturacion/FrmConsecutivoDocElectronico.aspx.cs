@@ -60,7 +60,7 @@ namespace Web.Pages.Facturacion
         {
             using (var conexion = new DataModelFE())
             {
-                string usuario = Session["usuario"].ToString();
+                string usuario = Session["emisor"].ToString();
                 this.ASPxGridView1.DataSource = conexion.ConsecutivoDocElectronico.Where(x => x.emisor == usuario).ToList();
                 this.ASPxGridView1.DataBind();
             }

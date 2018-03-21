@@ -980,13 +980,25 @@ namespace Web.Pages.Facturacion
                 if (TipoIdentificacion.FISICA.Equals(this.cmbReceptorTipo.Value.ToString()) && this.txtReceptorIdentificacion.Text.Length != 9)
                 {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
-                    this.alertMessages.InnerText = "La identificación debe ser de 9 digitos";
+                    this.alertMessages.InnerText = "La identificación debe tener de 9 digitos";
                     return;
                 }
                 if (TipoIdentificacion.JURIDICA.Equals(this.cmbReceptorTipo.Value.ToString()) && this.txtReceptorIdentificacion.Text.Length != 10)
                 {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
-                    this.alertMessages.InnerText = "La identificación debe ser de 10 digitos";
+                    this.alertMessages.InnerText = "La identificación debe tener de 10 digitos";
+                    return;
+                }
+                if (TipoIdentificacion.DIMEX.Equals(this.cmbReceptorTipo.Value.ToString()) &&( this.txtReceptorIdentificacion.Text.Length > 12 || this.txtReceptorIdentificacion.Text.Length < 11) )
+                {
+                    this.alertMessages.Attributes["class"] = "alert alert-danger";
+                    this.alertMessages.InnerText = "La identificación debe tener en 11 y 12 digitos";
+                    return;
+                }
+                if (TipoIdentificacion.NITE.Equals(this.cmbReceptorTipo.Value.ToString()) && this.txtReceptorIdentificacion.Text.Length != 10)
+                {
+                    this.alertMessages.Attributes["class"] = "alert alert-danger";
+                    this.alertMessages.InnerText = "La identificación debe tener de 10 digitos";
                     return;
                 }
 

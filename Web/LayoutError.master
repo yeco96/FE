@@ -109,63 +109,12 @@
                         <div class="row">
 
  
-                            
-                             
-                             <div class="col-md-4 media"> 
-                                <div class="span4">
-                                    <div class="text-box">
-                                        <div class="text-box-heading-blue">¿Quienes Somos?</div>
-                                        <div class="arrow-down-blue" style="margin-bottom: 10px;"></div>
-                                         <p>MSA SOFT es una empresa dedicada a la implementación de soluciones a la medida, somos la mejor opción para el éxito de su proyecto.</p>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-
-
-                           
-                             <div class="col-md-4 media"> 
-                                <div class="span4">
-                                    <div class="text-box">
-                                        <div class="text-box-heading-blue">Nuestros Productos</div>
-                                        <div class="arrow-down-blue" style="margin-bottom: 10px;"></div>
-                                        <p><ul class="list-unstyled latestPosts">
-                                                    <li>Factura Electrónica</li>
-                                                    <li>Sistema de Matrícula</li>
-                                                    <li>Sistema de Planillas</li>
-                                                    <li>Soporte Técnico y Consultorías</li>
-                                                </ul></p>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                             <div class="col-md-4 media"> 
-                                <div class="span4">
-                                    <div class="text-box">
-                                        <div class="text-box-heading-blue">Contacto</div>
-                                        <div class="arrow-down-blue" style="margin-bottom: 10px;"></div>
-                                        <p><ul class="list-unstyled">
-                                    <li>Heredia</li>
-                                    <li>Costa Rica</li>
-                                    <li>Teléfono: +(506) 8872 9065</li>
-                                    <li>Correo: msalamanca@msasoft.com</li>
-                                </ul></p>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                             
-
-
                         </div>
                     </div>
                 </div>
                 <div class="footerDown">
                     <div class="container">
-                        <p><%:DateTime.Today.Year.ToString()%> &copy; All Rights Reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+                       <p><%:DateTime.Today.Year.ToString()%> &copy; Derechos Reservados | Desarrollado por MSA Soft</p>
                     </div>
                 </div>
             </footer>

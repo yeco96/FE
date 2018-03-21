@@ -6279,3 +6279,72 @@ Stack Trace:
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
+********** 21/3/2018 14:40:21 **********
+Inner Exception Type: System.ArgumentOutOfRangeException
+Inner Exception: The 'ColSpan' property value must be in the range 1...1
+Nombre del parámetro: value
+Inner Source: DevExpress.Web.v17.1
+Inner Stack Trace: 
+   en DevExpress.Web.Internal.CommonUtils.CheckValueRange(Double value, Double min, Double max, String propertyName)
+   en DevExpress.Web.LayoutItemBase.CheckColSpanValue(Int32 value)
+   en DevExpress.Web.LayoutItem.set_ParentGroupInternal(LayoutGroupBase value)
+   en DevExpress.Web.LayoutItemCollection.OnInsert(Int32 index, Object value)
+   en DevExpress.Web.StateManagedCollectionBase.InsertInternal(Int32 index, Object obj)
+   en DevExpress.Web.StateManagedCollectionBase.System.Collections.IList.Add(Object value)
+   en DevExpress.Web.LayoutItemCollection.Add(LayoutItemBase item)
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.__BuildControl__control80(LayoutItemCollection __ctrl) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx:línea 209
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.__BuildControl__control79() en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx:línea 209
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.__BuildControl__control78(LayoutItemCollection __ctrl) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx:línea 206
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.__BuildControl__control76() en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx:línea 206
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.__BuildControl__control10() en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx:línea 24
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.__BuildControl__control9(ContentControlCollection __ctrl) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx:línea 22
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.__BuildControl__control8() en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx:línea 22
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.__BuildControl__control7(TabPageCollection __ctrl) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx:línea 20
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.__BuildControldocumento() en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx:línea 20
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.__BuildControl__control4(Control __ctrl) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx:línea 15
+   en System.Web.UI.CompiledTemplateBuilder.InstantiateIn(Control container)
+   en System.Web.UI.UpdatePanel.CreateContents()
+   en System.Web.UI.UpdatePanel.set_ContentTemplate(ITemplate value)
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.__BuildControlUpdatePanel() en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx:línea 15
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.__BuildControlContent1(Control __ctrl) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx:línea 5
+   en System.Web.UI.CompiledTemplateBuilder.InstantiateIn(Control container)
+   en System.Web.UI.MasterPage.InstantiateInContentPlaceHolder(Control contentPlaceHolder, ITemplate template)
+   en ASP.layout_master.__BuildControlContent() en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Layout.master:línea 221
+   en ASP.layout_master.__BuildControlform1() en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Layout.master:línea 29
+   en ASP.layout_master.__BuildControlTree(layout_master __ctrl) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Layout.master:línea 1
+   en ASP.layout_master.FrameworkInitialize() en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_ooeykbux.2.cs:línea 0
+   en System.Web.UI.UserControl.InitializeAsUserControlInternal()
+   en System.Web.UI.MasterPage.CreateMaster(TemplateControl owner, HttpContext context, VirtualPath masterPageFile, IDictionary contentTemplateCollection)
+   en System.Web.UI.Page.get_Master()
+   en System.Web.UI.Page.ApplyMasterPage()
+   en System.Web.UI.Page.<PerformPreInitAsync>d__495.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestAsync>d__515.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.UI.Page.<ProcessRequestAsync>d__554.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
+   en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.EndProcessRequest(IAsyncResult ar) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_bpoitfji.1.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+

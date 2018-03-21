@@ -294,7 +294,7 @@ namespace Web.Pages.Administracion
         {
             if (this.ASPxGridView1.IsNewRowEditing)
             {
-                if (e.Column.FieldName == "emisor") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray;  }
+               // if (e.Column.FieldName == "emisor") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray;  }
             }
             else
             {
