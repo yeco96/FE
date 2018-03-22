@@ -15,7 +15,7 @@
 
             <div id="alertMessages" role="alert" runat="server" />
 
-            <dx:ASPxPageControl ID="documento" Width="100%" runat="server" ActiveTabIndex="0" EnableHierarchyRecreation="True" Theme="MetropolisBlue">
+            <dx:ASPxPageControl ID="documento" Width="100%" runat="server" ActiveTabIndex="2" EnableHierarchyRecreation="True" Theme="MetropolisBlue">
                 <TabPages>
                   
 
@@ -143,8 +143,8 @@
                                                                                             </dx:ASPxSpinEdit>
                                                                                         </td>
                                                                                         <td style="width: 10%;">
-                                                                                            <dx:ASPxButton runat="server" ToolTip="Búscar" Image-AlternateText="Búscar" ID="btnBuscarReceptor" CssClass="imagen" CausesValidation="false" OnClick="btnBuscarReceptor_Click" Image-Url="~/Content/Images/loadUser.png" Image-Height="20px">
-                                                                                                <Image AlternateText="Búscar" Height="20px" Url="~/Content/Images/loadUser.png">
+                                                                                            <dx:ASPxButton runat="server" ToolTip="Buscar" Image-AlternateText="Buscar" ID="btnBuscarReceptor" CssClass="imagen" CausesValidation="false" OnClick="btnBuscarReceptor_Click" Image-Url="~/Content/Images/loadUser.png" Image-Height="20px">
+                                                                                                <Image AlternateText="Buscar" Height="20px" Url="~/Content/Images/loadUser.png">
                                                                                                 </Image>
                                                                                             </dx:ASPxButton>
                                                                                         </td>

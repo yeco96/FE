@@ -1,6 +1,6 @@
 ﻿1>------ Operación Compilar iniciada: proyecto: Web, configuración: Debug Any CPU ------
-1>C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\WebServices\Services.cs(101,14,101,20): warning CS0162: Se ha detectado código inaccesible
-1>C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteFacturaRollPaper.aspx.cs(34,20,34,28): warning CS0219: La variable 'variable' está asignada pero su valor nunca se usa
-1>C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteFactura.aspx.cs(38,20,38,28): warning CS0219: La variable 'variable' está asignada pero su valor nunca se usa
+1>C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteFacturaEN.aspx.cs(36,20,36,28): warning CS0219: La variable 'variable' está asignada pero su valor nunca se usa
+1>C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteFactura.aspx.cs(40,20,40,28): warning CS0219: La variable 'variable' está asignada pero su valor nunca se usa
+1>C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx.cs(512,30,512,32): warning CS0168: La variable 'ex' se ha declarado pero nunca se usa
 1>  Web -> C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\bin\Web.dll
-========== Compilar: 1 correctos, 0 incorrectos, 7 actualizados, 0 omitidos ==========
+========== Compilar: 1 correctos, 0 incorrectos, 6 actualizados, 0 omitidos ==========
