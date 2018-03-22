@@ -15,7 +15,7 @@
 
             <div id="alertMessages" role="alert" runat="server" />
 
-            <dx:ASPxPageControl ID="documento" Width="100%" runat="server" ActiveTabIndex="2" EnableHierarchyRecreation="True" Theme="MetropolisBlue">
+            <dx:ASPxPageControl ID="documento" Width="100%" runat="server" ActiveTabIndex="1" EnableHierarchyRecreation="True" Theme="MetropolisBlue">
                 <TabPages>
                   
 
@@ -33,28 +33,62 @@
 
                                         <dx:GridViewDataComboBoxColumn Caption="Tipo" FieldName="identificacionTipo" VisibleIndex="2"
                                             PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                            <PropertiesComboBox>
+                                                <ValidationSettings>
+                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                </ValidationSettings>
+                                            </PropertiesComboBox>
                                         </dx:GridViewDataComboBoxColumn>
                                         <dx:GridViewDataTextColumn Caption="Identificación" FieldName="identificacion" VisibleIndex="3" PropertiesTextEdit-MaxLength="12"
                                             Settings-AutoFilterCondition="Contains"
                                             PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                            <PropertiesTextEdit MaxLength="12">
+                                                <ValidationSettings>
+                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                </ValidationSettings>
+                                            </PropertiesTextEdit>
+                                            <Settings AutoFilterCondition="Contains" />
                                         </dx:GridViewDataTextColumn>
 
                                         <dx:GridViewDataTextColumn Caption="Nombre" FieldName="nombre" VisibleIndex="4" PropertiesTextEdit-MaxLength="30" Width="25%"
                                             Settings-AutoFilterCondition="Contains"
                                             PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                            <PropertiesTextEdit MaxLength="30">
+                                                <ValidationSettings>
+                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                </ValidationSettings>
+                                            </PropertiesTextEdit>
+                                            <Settings AutoFilterCondition="Contains" />
                                         </dx:GridViewDataTextColumn>
 
                                         <dx:GridViewDataTextColumn Caption="Nombre Comercial" FieldName="nombreComercial" VisibleIndex="6" PropertiesTextEdit-MaxLength="80" Visible="false" EditFormSettings-Visible="True"
                                             Settings-AutoFilterCondition="Contains"
                                             PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="false" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                            <PropertiesTextEdit MaxLength="80">
+                                                <ValidationSettings>
+                                                    <RequiredField ErrorText="Requerido" />
+                                                </ValidationSettings>
+                                            </PropertiesTextEdit>
+                                            <Settings AutoFilterCondition="Contains" />
+                                            <EditFormSettings Visible="True" />
                                         </dx:GridViewDataTextColumn>
 
                                         <dx:GridViewDataSpinEditColumn Caption="Teléfono" FieldName="telefono" VisibleIndex="7" PropertiesSpinEdit-MaxLength="20"
                                             PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                            <PropertiesSpinEdit DisplayFormatString="g" MaxLength="20">
+                                                <ValidationSettings>
+                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                </ValidationSettings>
+                                            </PropertiesSpinEdit>
                                         </dx:GridViewDataSpinEditColumn>
                  
                                         <dx:GridViewDataTextColumn Caption="Correo" FieldName="correoElectronico" VisibleIndex="8" PropertiesTextEdit-MaxLength="80" Width="25%"
                                             PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                            <PropertiesTextEdit MaxLength="80">
+                                                <ValidationSettings>
+                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                </ValidationSettings>
+                                            </PropertiesTextEdit>
                                         </dx:GridViewDataTextColumn>
                   
                                     </Columns>
@@ -63,14 +97,24 @@
                                     <SettingsBehavior ColumnResizeMode="NextColumn" />
                                     <Settings  ShowFooter="True" ShowFilterBar="Visible" ShowFilterRow="true" />
                                     <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="True" ConfirmDelete="True" ProcessSelectionChangedOnServer="True" AllowSelectSingleRowOnly="true" />
-                                    <SettingsPager PageSize="10" PageSizeItemSettings-Visible="true" PageSizeItemSettings-Items="10, 20, 50, 100" />
+                                    <SettingsPager PageSize="10" PageSizeItemSettings-Visible="true" PageSizeItemSettings-Items="10, 20, 50, 100" >
+                                   
+                                        <PageSizeItemSettings Items="10, 20, 50, 100" Visible="True">
+                                        </PageSizeItemSettings>
+                                    </SettingsPager>
                                    
                                     <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="True" ShowFilterRow="True" ShowTitlePanel="True" UseFixedTableLayout="True" />
                                     <SettingsContextMenu EnableColumnMenu="True" Enabled="True" EnableFooterMenu="True" EnableGroupPanelMenu="True" EnableRowMenu="True" />
                                     <SettingsDataSecurity AllowDelete="false" AllowInsert="false" AllowEdit="true" />
                                     <SettingsCommandButton>
-                                        <SelectButton Image-ToolTip="Seleccionar" Image-Url="~/Content/Images/search1.png" /> 
-                                        <ClearFilterButton Image-ToolTip="Quitar filtros" Image-Url="~/Content/Images/refresh.png" /> 
+                                        <SelectButton Image-ToolTip="Seleccionar" Image-Url="~/Content/Images/search1.png" > 
+                                            <Image ToolTip="Seleccionar" Url="~/Content/Images/search1.png">
+                                            </Image>
+                                        </SelectButton>
+                                        <ClearFilterButton Image-ToolTip="Quitar filtros" Image-Url="~/Content/Images/refresh.png" > 
+                                            <Image ToolTip="Quitar filtros" Url="~/Content/Images/refresh.png">
+                                            </Image>
+                                        </ClearFilterButton>
                                     </SettingsCommandButton>
 
                                     <SettingsAdaptivity AdaptivityMode="HideDataCellsWindowLimit" HideDataCellsAtWindowInnerWidth="800" AllowOnlyOneAdaptiveDetailExpanded="true" AdaptiveDetailColumnCount="1"></SettingsAdaptivity>
@@ -143,8 +187,8 @@
                                                                                             </dx:ASPxSpinEdit>
                                                                                         </td>
                                                                                         <td style="width: 10%;">
-                                                                                            <dx:ASPxButton runat="server" ToolTip="Buscar" Image-AlternateText="Buscar" ID="btnBuscarReceptor" CssClass="imagen" CausesValidation="false" OnClick="btnBuscarReceptor_Click" Image-Url="~/Content/Images/loadUser.png" Image-Height="20px">
-                                                                                                <Image AlternateText="Buscar" Height="20px" Url="~/Content/Images/loadUser.png">
+                                                                                            <dx:ASPxButton runat="server" ToolTip="Buscar" Image-AlternateText="Buscar" ID="btnBuscarReceptor" CssClass="imagen" CausesValidation="false" OnClick="btnBuscarReceptor_Click" Image-Url="~/Content/Images/loadUser.png" Image-Height="20px" Height="16px" Width="33px">
+                                                                                                <Image AlternateText="Buscar" Height="30px" Url="~/Content/Images/search1.png">
                                                                                                 </Image>
                                                                                             </dx:ASPxButton>
                                                                                         </td>
@@ -178,6 +222,7 @@
                                                                     </dx:LayoutItem>
 
                                                                 </Items>
+                                                                <SettingsItemCaptions Location="Top" />
                                                             </dx:LayoutGroup>
 
                                                         </Items>
@@ -271,6 +316,7 @@
                                                                     </dx:LayoutItem>
 
                                                                 </Items>
+                                                                <SettingsItemCaptions Location="Top" />
                                                             </dx:LayoutGroup>
 
                                                         </Items>
@@ -347,6 +393,7 @@
                                                                     </dx:LayoutItem>
 
                                                                 </Items>
+                                                                <SettingsItemCaptions Location="Top" />
                                                             </dx:LayoutGroup>
 
                                                         </Items>
@@ -625,6 +672,8 @@
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxTextBox ID="txtOtros" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" MaxLength="200">
+                                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
+                                                                </ValidationSettings>
                                                             </dx:ASPxTextBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
@@ -699,6 +748,7 @@
                                                     <RequiredField ErrorText="Requerido" IsRequired="True" />
                                                 </ValidationSettings>
                                             </PropertiesSpinEdit>
+                                            <EditFormSettings Visible="False" />
                                         </dx:GridViewDataSpinEditColumn>
 
                                         <dx:GridViewDataSpinEditColumn Caption="Descuento" FieldName="montoDescuento" VisibleIndex="6" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
@@ -731,6 +781,7 @@
                                                     <RequiredField ErrorText="Requerido" IsRequired="True" />
                                                 </ValidationSettings>
                                             </PropertiesSpinEdit>
+                                            <EditFormSettings Visible="False" />
                                         </dx:GridViewDataSpinEditColumn>
 
 
@@ -744,6 +795,8 @@
                                                     <RequiredField ErrorText="Requerido" IsRequired="True" />
                                                 </ValidationSettings>
                                             </PropertiesSpinEdit>
+
+                                            <EditFormSettings Visible="False" />
 
                                         </dx:GridViewDataSpinEditColumn>
 
