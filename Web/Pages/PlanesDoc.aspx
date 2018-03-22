@@ -27,7 +27,7 @@
                         <div style="text-align: center"; class="text-box-heading">¢10,000.00 ANUAL</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
                            <p><ul>  
-                            <li>50 Documentos electrónicos anuales</li>                         
+                            <li>100 Documentos electrónicos anuales</li>                         
                             <li>Facturas, NC y ND</li> 
                             <li>1 emisor</li>
                             <p>¿Para quién es?</p>
@@ -47,7 +47,7 @@
                         <div style="text-align: center"; class="text-box-heading">¢20,000.00 ANUAL</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
                            <p><ul>  
-                            <li>100 Documentos electrónicos anuales</li>                         
+                            <li>200 Documentos electrónicos anuales</li>                         
                             <li>Facturas, NC y ND</li> 
                             <li>1 emisor</li>
                             <p>¿Para quién es?</p>
@@ -67,7 +67,7 @@
                         <div style="text-align: center"; class="text-box-heading">¢30,000.00 ANUAL</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
                            <p><ul>  
-                            <li>200 Documentos electrónicos anuales</li>                         
+                            <li>300 Documentos electrónicos anuales</li>                         
                             <li>Facturas, NC y ND</li> 
                             <li>1 emisor</li>
                             <p>¿Para quién es?</p>
@@ -82,7 +82,7 @@
                 <div class="span4">
                     <div class="text-box">
                         <div style="text-align: center"; class="text-box-heading">PLAN PROFESIONAL</div>
-                        <div style="text-align: center"; class="text-box-heading">¢6,000.00 MES ¢60,000.00 ANUAL</div>
+                        <div style="text-align: center"; class="text-box-heading">¢5,000.00 MES ¢50,000.00 ANUAL</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
                            <p><ul>  
                             <li>Documentos electrónicos sin Límite</li>                         
