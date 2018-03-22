@@ -6348,3 +6348,545 @@ Stack Trace:
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
+********** 21/3/2018 23:04:49 **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumento.ASPxGridView1_CellEditorInitialize(Object sender, ASPxGridViewEditorEventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx.cs:línea 562
+   en DevExpress.Web.ASPxGridView.RaiseEditorInitialize(ASPxGridEditorEventArgs e)
+   en DevExpress.Web.Internal.GridBatchEditHelper.CreateGridEditor(IWebGridDataColumn column, WebControl container)
+   en DevExpress.Web.Internal.GridBatchEditHelper.CreateEditor(IWebGridDataColumn column, WebControl container)
+   en DevExpress.Web.Rendering.GridBatchEditorsContainer.CreateControlHierarchy()
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control)
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control)
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en DevExpress.Web.ASPxWebControl.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.<PreRenderRecursiveInternalAsync>d__249.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestAsync>d__515.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.UI.Page.<ProcessRequestAsync>d__554.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
+   en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.EndProcessRequest(IAsyncResult ar) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_us0qgrs3.0.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 21/3/2018 23:05:52 **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumento.ASPxGridView1_CellEditorInitialize(Object sender, ASPxGridViewEditorEventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx.cs:línea 562
+   en DevExpress.Web.ASPxGridView.RaiseEditorInitialize(ASPxGridEditorEventArgs e)
+   en DevExpress.Web.Internal.GridBatchEditHelper.CreateGridEditor(IWebGridDataColumn column, WebControl container)
+   en DevExpress.Web.Internal.GridBatchEditHelper.CreateEditor(IWebGridDataColumn column, WebControl container)
+   en DevExpress.Web.Rendering.GridBatchEditorsContainer.CreateControlHierarchy()
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control)
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control)
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en DevExpress.Web.ASPxWebControl.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.<PreRenderRecursiveInternalAsync>d__249.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestAsync>d__515.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.UI.Page.<ProcessRequestAsync>d__554.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
+   en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.EndProcessRequest(IAsyncResult ar) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_us0qgrs3.0.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 21/3/2018 23:07:38 **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumento.ASPxGridView1_CellEditorInitialize(Object sender, ASPxGridViewEditorEventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx.cs:línea 562
+   en DevExpress.Web.ASPxGridView.RaiseEditorInitialize(ASPxGridEditorEventArgs e)
+   en DevExpress.Web.Internal.GridBatchEditHelper.CreateGridEditor(IWebGridDataColumn column, WebControl container)
+   en DevExpress.Web.Internal.GridBatchEditHelper.CreateEditor(IWebGridDataColumn column, WebControl container)
+   en DevExpress.Web.Rendering.GridBatchEditorsContainer.CreateControlHierarchy()
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control)
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control)
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en DevExpress.Web.ASPxWebControl.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.<PreRenderRecursiveInternalAsync>d__249.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestAsync>d__515.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.UI.Page.<ProcessRequestAsync>d__554.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
+   en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.EndProcessRequest(IAsyncResult ar) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_us0qgrs3.0.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 21/3/2018 23:09:03 **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumento.ASPxGridView1_CellEditorInitialize(Object sender, ASPxGridViewEditorEventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx.cs:línea 562
+   en DevExpress.Web.ASPxGridView.RaiseEditorInitialize(ASPxGridEditorEventArgs e)
+   en DevExpress.Web.Internal.GridBatchEditHelper.CreateGridEditor(IWebGridDataColumn column, WebControl container)
+   en DevExpress.Web.Internal.GridBatchEditHelper.CreateEditor(IWebGridDataColumn column, WebControl container)
+   en DevExpress.Web.Rendering.GridBatchEditorsContainer.CreateControlHierarchy()
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control)
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control)
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en DevExpress.Web.ASPxWebControl.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.<PreRenderRecursiveInternalAsync>d__249.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestAsync>d__515.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.UI.Page.<ProcessRequestAsync>d__554.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
+   en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.EndProcessRequest(IAsyncResult ar) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_us0qgrs3.0.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 21/3/2018 23:09:16 **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumento.ASPxGridView1_CellEditorInitialize(Object sender, ASPxGridViewEditorEventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx.cs:línea 562
+   en DevExpress.Web.ASPxGridView.RaiseEditorInitialize(ASPxGridEditorEventArgs e)
+   en DevExpress.Web.Internal.GridBatchEditHelper.CreateGridEditor(IWebGridDataColumn column, WebControl container)
+   en DevExpress.Web.Internal.GridBatchEditHelper.CreateEditor(IWebGridDataColumn column, WebControl container)
+   en DevExpress.Web.Rendering.GridBatchEditorsContainer.CreateControlHierarchy()
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control)
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control)
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en DevExpress.Web.ASPxWebControl.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.<PreRenderRecursiveInternalAsync>d__249.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestAsync>d__515.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.UI.Page.<ProcessRequestAsync>d__554.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
+   en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.EndProcessRequest(IAsyncResult ar) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_us0qgrs3.0.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 21/3/2018 23:14:07 **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumento.ASPxGridView1_CellEditorInitialize(Object sender, ASPxGridViewEditorEventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx.cs:línea 562
+   en DevExpress.Web.ASPxGridView.RaiseEditorInitialize(ASPxGridEditorEventArgs e)
+   en DevExpress.Web.Internal.GridBatchEditHelper.CreateGridEditor(IWebGridDataColumn column, WebControl container)
+   en DevExpress.Web.Internal.GridBatchEditHelper.CreateEditor(IWebGridDataColumn column, WebControl container)
+   en DevExpress.Web.Rendering.GridBatchEditorsContainer.CreateControlHierarchy()
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control)
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control)
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en DevExpress.Web.ASPxWebControl.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.<PreRenderRecursiveInternalAsync>d__249.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestAsync>d__515.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.UI.Page.<ProcessRequestAsync>d__554.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
+   en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.EndProcessRequest(IAsyncResult ar) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_us0qgrs3.0.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 22/3/2018 07:25:30 **********
+Inner Exception Type: System.Web.HttpParseException
+Inner Exception: El tipo 'DevExpress.Web.ASPxGridViewSettings' no tiene ninguna propiedad pública cuyo nombre sea 's'.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   en System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+Exception Type: System.Web.HttpParseException
+Exception: El tipo 'DevExpress.Web.ASPxGridViewSettings' no tiene ninguna propiedad pública cuyo nombre sea 's'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)
+   en System.Web.UI.TemplateParser.ParseInternal()
+   en System.Web.UI.TemplateParser.Parse()
+   en System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()
+   en System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   en System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   en System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   en System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.Abstractions.BuildManagerWrapper.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetWebObjectFactory(HttpContextBase httpContext, String modifiedVirtualPath)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Microsoft.AspNet.FriendlyUrls.Abstractions.IFriendlyUrlRouteSupportFunctions.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext, String pathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.RouteCollection.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   en System.Web.Routing.UrlRoutingModule.OnApplicationPostResolveRequestCache(Object sender, EventArgs e)
+   en System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 22/3/2018 07:26:06 **********
+Inner Exception Type: System.Web.HttpParseException
+Inner Exception: El tipo 'DevExpress.Web.ASPxGridViewSettings' no tiene ninguna propiedad pública cuyo nombre sea 's'.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   en System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+Exception Type: System.Web.HttpParseException
+Exception: El tipo 'DevExpress.Web.ASPxGridViewSettings' no tiene ninguna propiedad pública cuyo nombre sea 's'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)
+   en System.Web.UI.TemplateParser.ParseInternal()
+   en System.Web.UI.TemplateParser.Parse()
+   en System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()
+   en System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   en System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   en System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   en System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.Abstractions.BuildManagerWrapper.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetWebObjectFactory(HttpContextBase httpContext, String modifiedVirtualPath)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Microsoft.AspNet.FriendlyUrls.Abstractions.IFriendlyUrlRouteSupportFunctions.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext, String pathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.RouteCollection.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   en System.Web.Routing.UrlRoutingModule.OnApplicationPostResolveRequestCache(Object sender, EventArgs e)
+   en System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+

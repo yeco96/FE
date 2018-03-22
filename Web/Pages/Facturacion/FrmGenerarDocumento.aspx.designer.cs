@@ -49,6 +49,15 @@ namespace Web.Pages.Facturacion {
         protected global::DevExpress.Web.ASPxPageControl documento;
         
         /// <summary>
+        /// ASPxGridViewClientes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGridView ASPxGridViewClientes;
+        
+        /// <summary>
         /// cmbReceptorTipo control.
         /// </summary>
         /// <remarks>

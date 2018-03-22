@@ -67,7 +67,7 @@ namespace Web.Pages.Facturacion
                     Session["PlanPago"] = dato.plan.ToString();
 
                     //Mensajes
-                    this.alertMessages.Attributes["class"] = "alert alert-success";
+                    this.alertMessages.Attributes["class"] = "alert alert-info";
 
                     if (Session["PlanPago"].ToString() != "PPRO1")
                     {
@@ -304,6 +304,19 @@ namespace Web.Pages.Facturacion
                 this.ASPxGridView2.DataSource = informacionReferencia;
                 this.ASPxGridView2.DataBind();
             }
+
+            using (var conexion = new DataModelFE())
+            { 
+                /* EMISOR */
+                string emisor = Session["emisor"].ToString();
+                this.ASPxGridViewClientes.DataSource = (from Emisor in conexion.EmisorReceptorIMEC
+                                                        from cliente in conexion.Cliente
+                                                        where Emisor.identificacion == cliente.receptor && cliente.emisor == emisor
+                                                        select Emisor
+                                             ).ToList();
+                conexion.EmisorReceptorIMEC.ToList();
+                this.ASPxGridViewClientes.DataBind();
+            }
         }
 
         /// <summary>
@@ -316,11 +329,15 @@ namespace Web.Pages.Facturacion
 
                 /* EMISOR */
                 string emisor = Session["emisor"].ToString();
+                
+                  
 
                 /* IDENTIFICACION TIPO */
+                GridViewDataComboBoxColumn comboIdentificacionTipo = this.ASPxGridViewClientes.Columns["identificacionTipo"] as GridViewDataComboBoxColumn;
                 foreach (var item in conexion.TipoIdentificacion.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
                 {
                     this.cmbReceptorTipo.Items.Add(item.descripcion, item.codigo);
+                    comboIdentificacionTipo.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
                 }
                 this.cmbReceptorTipo.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
@@ -946,7 +963,7 @@ namespace Web.Pages.Facturacion
         {
             if (ASPxGridView2.IsNewRowEditing)
             {
-                if (e.Column.FieldName == "tipoDocumento") { e.Editor.Value = "01"; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+                if (e.Column.FieldName == "tipoDocumento") { e.Editor.Value = "08"; e.Editor.BackColor = System.Drawing.Color.LightGray; }
                 if (e.Column.FieldName == "fechaEmision") { e.Editor.Value = Date.DateTimeNow().ToString("yyyy-MM-dd"); e.Editor.BackColor = System.Drawing.Color.LightGray; }
                 if (e.Column.FieldName == "razon") { e.Editor.Value = "DETALLE DE REFERENCIA"; e.Editor.BackColor = System.Drawing.Color.White; }
             }
@@ -1263,6 +1280,23 @@ namespace Web.Pages.Facturacion
             }
         }
 
+        protected void ASPxGridViewClientes_SelectionChanged(object sender, EventArgs e)
+        {
+            if ((sender as ASPxGridView).GetSelectedFieldValues("identificacion").Count > 0)
+            {
+                string identificacion = (sender as ASPxGridView).GetSelectedFieldValues("identificacion")[0].ToString();
+                using (var conexion = new DataModelFE())
+                {
+                    EmisorReceptorIMEC receptor = conexion.EmisorReceptorIMEC.Find(identificacion);
+                    this.loadReceptor(receptor);
 
+                    this.documento.ActiveTabIndex = 3;
+                     
+                }
+
+                this.alertMessages.Attributes["class"] = "alert alert-info";
+                this.alertMessages.InnerText = "Datos cargados con correctamente";
+            } 
+        }
     }
 }

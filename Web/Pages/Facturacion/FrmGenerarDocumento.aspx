@@ -17,7 +17,81 @@
 
             <dx:ASPxPageControl ID="documento" Width="100%" runat="server" ActiveTabIndex="0" EnableHierarchyRecreation="True" Theme="MetropolisBlue">
                 <TabPages>
-                    <dx:TabPage Text="Receptor">
+                  
+
+                      <dx:TabPage Text="Clientes">
+                        <ContentCollection>
+                            <dx:ContentControl runat="server">
+
+
+                                <dx:ASPxGridView ID="ASPxGridViewClientes" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
+                                    Width="100%" EnableTheming="True" KeyFieldName="identificacion" Theme="Moderno"    EnableCallBacks="false"
+                                                            OnSelectionChanged="ASPxGridViewClientes_SelectionChanged" > 
+                                    <Columns>
+                                        <dx:GridViewCommandColumn Width="50px" ButtonType="Image" ShowSelectButton="true" ShowDeleteButton="false" ShowEditButton="false" ShowNewButtonInHeader="false" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
+                                        </dx:GridViewCommandColumn>
+
+                                        <dx:GridViewDataComboBoxColumn Caption="Tipo" FieldName="identificacionTipo" VisibleIndex="2"
+                                            PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                        </dx:GridViewDataComboBoxColumn>
+                                        <dx:GridViewDataTextColumn Caption="Identificación" FieldName="identificacion" VisibleIndex="3" PropertiesTextEdit-MaxLength="12"
+                                            Settings-AutoFilterCondition="Contains"
+                                            PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                        </dx:GridViewDataTextColumn>
+
+                                        <dx:GridViewDataTextColumn Caption="Nombre" FieldName="nombre" VisibleIndex="4" PropertiesTextEdit-MaxLength="30" Width="25%"
+                                            Settings-AutoFilterCondition="Contains"
+                                            PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                        </dx:GridViewDataTextColumn>
+
+                                        <dx:GridViewDataTextColumn Caption="Nombre Comercial" FieldName="nombreComercial" VisibleIndex="6" PropertiesTextEdit-MaxLength="80" Visible="false" EditFormSettings-Visible="True"
+                                            Settings-AutoFilterCondition="Contains"
+                                            PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="false" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                        </dx:GridViewDataTextColumn>
+
+                                        <dx:GridViewDataSpinEditColumn Caption="Teléfono" FieldName="telefono" VisibleIndex="7" PropertiesSpinEdit-MaxLength="20"
+                                            PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                        </dx:GridViewDataSpinEditColumn>
+                 
+                                        <dx:GridViewDataTextColumn Caption="Correo" FieldName="correoElectronico" VisibleIndex="8" PropertiesTextEdit-MaxLength="80" Width="25%"
+                                            PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                        </dx:GridViewDataTextColumn>
+                  
+                                    </Columns>
+
+
+                                    <SettingsBehavior ColumnResizeMode="NextColumn" />
+                                    <Settings  ShowFooter="True" ShowFilterBar="Visible" ShowFilterRow="true" />
+                                    <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="True" ConfirmDelete="True" ProcessSelectionChangedOnServer="True" AllowSelectSingleRowOnly="true" />
+                                    <SettingsPager PageSize="10" PageSizeItemSettings-Visible="true" PageSizeItemSettings-Items="10, 20, 50, 100" />
+                                   
+                                    <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="True" ShowFilterRow="True" ShowTitlePanel="True" UseFixedTableLayout="True" />
+                                    <SettingsContextMenu EnableColumnMenu="True" Enabled="True" EnableFooterMenu="True" EnableGroupPanelMenu="True" EnableRowMenu="True" />
+                                    <SettingsDataSecurity AllowDelete="false" AllowInsert="false" AllowEdit="true" />
+                                    <SettingsCommandButton>
+                                        <SelectButton Image-ToolTip="Seleccionar" Image-Url="~/Content/Images/search1.png" /> 
+                                        <ClearFilterButton Image-ToolTip="Quitar filtros" Image-Url="~/Content/Images/refresh.png" /> 
+                                    </SettingsCommandButton>
+
+                                    <SettingsAdaptivity AdaptivityMode="HideDataCellsWindowLimit" HideDataCellsAtWindowInnerWidth="800" AllowOnlyOneAdaptiveDetailExpanded="true" AdaptiveDetailColumnCount="1"></SettingsAdaptivity>
+                                    <EditFormLayoutProperties>
+                                        <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="600" />
+                                    </EditFormLayoutProperties>
+                                    <Styles>
+                                        <Cell Wrap="False"></Cell>
+                                        <AlternatingRow Enabled="true" />
+                                    </Styles>
+             
+                                    <Border BorderWidth="0px" />
+                                    <BorderBottom BorderWidth="1px" />
+
+                                </dx:ASPxGridView>
+
+                                  </dx:ContentControl>
+                        </ContentCollection>
+                    </dx:TabPage>
+
+                      <dx:TabPage Text="Nuevo">
                         <ContentCollection>
                             <dx:ContentControl runat="server">
 
@@ -289,7 +363,6 @@
                             </dx:ContentControl>
                         </ContentCollection>
                     </dx:TabPage>
-
                     <dx:TabPage Text="Referencias">
                         <ContentCollection>
                             <dx:ContentControl runat="server">
@@ -314,18 +387,15 @@
                                             </PropertiesComboBox>
                                         </dx:GridViewDataComboBoxColumn>
 
-                                        <dx:GridViewDataTextColumn Caption="Número" FieldName="numero" VisibleIndex="2" PropertiesTextEdit-MaxLength="50" PropertiesTextEdit-MaskSettings-Mask="##################################################"
-                                            PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
-                                            <PropertiesTextEdit MaxLength="50">
-                                                <MaskSettings Mask="##################################################" />
+                                        <dx:GridViewDataTextColumn Caption="Número" FieldName="numero" VisibleIndex="2" PropertiesTextEdit-MaxLength="50" >
+                                            <PropertiesTextEdit MaxLength="50"> 
                                                 <ValidationSettings>
                                                     <RequiredField ErrorText="Requerido" IsRequired="True" />
                                                 </ValidationSettings>
                                             </PropertiesTextEdit>
                                         </dx:GridViewDataTextColumn>
 
-                                        <dx:GridViewDataTextColumn Caption="Fecha Emisión" FieldName="fechaEmision" VisibleIndex="3" PropertiesTextEdit-MaskSettings-Mask="####-##-##"
-                                            PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                        <dx:GridViewDataTextColumn Caption="Fecha Emisión" FieldName="fechaEmision" VisibleIndex="3" >
                                             <PropertiesTextEdit>
                                                 <MaskSettings Mask="####-##-##" />
                                                 <ValidationSettings>
@@ -334,8 +404,7 @@
                                             </PropertiesTextEdit>
                                         </dx:GridViewDataTextColumn>
 
-                                        <dx:GridViewDataComboBoxColumn Caption="Código" FieldName="codigo" VisibleIndex="4"
-                                            PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                        <dx:GridViewDataComboBoxColumn Caption="Código" FieldName="codigo" VisibleIndex="4">
                                             <PropertiesComboBox>
                                                 <ValidationSettings>
                                                     <RequiredField ErrorText="Requerido" IsRequired="True" />
@@ -408,9 +477,9 @@
                                     <Templates>
                                         <EditForm>
                                             <div style="padding: 4px 4px 3px 4px">
-                                                <dx:ASPxPageControl runat="server" ID="pageControl" Width="100%" Theme="Moderno">
+                                                <dx:ASPxPageControl runat="server" ID="pageControl" Width="100%" Theme="MetropolisBlue">
                                                     <TabPages>
-                                                        <dx:TabPage Text="Datos" Visible="true">
+                                                        <dx:TabPage Text="Documento" Visible="true">
                                                             <ContentCollection>
                                                                 <dx:ContentControl runat="server">
                                                                     <dx:ASPxGridViewTemplateReplacement ID="Editors" ReplacementType="EditFormEditors" runat="server" />
@@ -734,7 +803,7 @@
                                     <Templates>
                                         <EditForm>
                                             <div style="padding: 4px 4px 3px 4px">
-                                                <dx:ASPxPageControl runat="server" ID="pageControl" Width="100%" Theme="Moderno">
+                                                <dx:ASPxPageControl runat="server" ID="pageControl" Width="100%" Theme="MetropolisBlue">
                                                     <TabPages>
                                                         <dx:TabPage Text="Datos" Visible="true">
                                                             <ContentCollection>
