@@ -135,7 +135,7 @@
                         </ContentCollection>
                     </dx:TabPage>
 
-                      <dx:TabPage Text="Nuevo">
+                      <dx:TabPage Text="Clientes">
                         <ContentCollection>
                             <dx:ContentControl runat="server">
 
