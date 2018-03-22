@@ -106,9 +106,9 @@
                                                             </dx:MenuItem>
                                                             <dx:MenuItem Text="FACTURACIÓN">
                                                                 <Items>
-                                                                    <dx:MenuItem Text="EMISOR" NavigateUrl="~/Pages/Facturacion/FrmEmisorAdmin" />
+                                                                    <dx:MenuItem Text="MIS DATOS" NavigateUrl="~/Pages/Facturacion/FrmEmisorAdmin" />
                                                                     <dx:MenuItem Text="RECEPTOR / CLIENTES" NavigateUrl="~/Pages/Facturacion/FrmReceptor" />
-                                                                    <dx:MenuItem Text="EMPRESA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoEmpresaAdmin" />
+                                                                    <dx:MenuItem Text="MI ORGANIZACIÓN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoEmpresaAdmin" />
                                                                     <dx:MenuItem Text="PRODUCTO / SERVICIO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProducto" />
                                                                     <dx:MenuItem Text="PRODUCTO IMPUESTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProductoImpuesto" />
                                                                 </Items>
@@ -158,9 +158,9 @@
                                                             <dx:MenuItem Text="CORREO ELECTRÓNICO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoConfiguracionCorreo" />
                                                             <dx:MenuItem Text="CATÁLOGOS">
                                                                 <Items>
-                                                                    <dx:MenuItem Text="EMISOR" NavigateUrl="~/Pages/Facturacion/FrmEmisor" />
-                                                                    <dx:MenuItem Text="CLIENTES" NavigateUrl="~/Pages/Facturacion/FrmReceptor" />
-                                                                    <dx:MenuItem Text="EMPRESA" NavigateUrl="~/Pages/Catalogos/FrmCatalogoEmpresa" />
+                                                                    <dx:MenuItem Text="MIS DATOS" NavigateUrl="~/Pages/Facturacion/FrmEmisor" />
+                                                                    <dx:MenuItem Text="MIS CLIENTES" NavigateUrl="~/Pages/Facturacion/FrmReceptor" />
+                                                                    <dx:MenuItem Text="MI ORGANIZACIÓN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoEmpresa" />
                                                                     <dx:MenuItem Text="PRODUCTO / SERVICIO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProducto" />
                                                                     <dx:MenuItem Text="PRODUCTO IMPUESTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProductoImpuesto" />
                                                                 </Items>
