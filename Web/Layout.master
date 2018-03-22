@@ -66,7 +66,7 @@
                                     <p class="small">MSA SOFT</p>
                                 </div>
                                 <div class="panelContent">
-                                    <div class="pull-right">
+                                    <div class="pull-left">
                                         <div class="panelItem">
                                             <dx:ASPxMenu ID="NavMenuAdmin" runat="server" ClientInstanceName="NavMenu" EnableAnimation="true" CssClass="navMenu" AllowSelectItem="true">
                                                 <ItemStyle Paddings-PaddingLeft="22" Paddings-PaddingRight="22" />
