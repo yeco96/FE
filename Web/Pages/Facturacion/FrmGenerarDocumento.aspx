@@ -15,11 +15,11 @@
 
             <div id="alertMessages" role="alert" runat="server" />
 
-            <dx:ASPxPageControl ID="documento" Width="100%" runat="server" ActiveTabIndex="1" EnableHierarchyRecreation="True" Theme="MetropolisBlue">
+            <dx:ASPxPageControl ID="documento" Width="100%" runat="server" ActiveTabIndex="0" EnableHierarchyRecreation="True" Theme="MetropolisBlue">
                 <TabPages>
                   
 
-                      <dx:TabPage Text="Clientes">
+                      <dx:TabPage Text="Favoritos">
                         <ContentCollection>
                             <dx:ContentControl runat="server">
 
