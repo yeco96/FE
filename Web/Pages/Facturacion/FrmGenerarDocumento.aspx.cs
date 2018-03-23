@@ -118,7 +118,7 @@ namespace Web.Pages.Facturacion
                             dato.cantidad = 1;
                             dato.codigo.tipo = producto.tipo;
                             dato.codigo.codigo = producto.codigo;
-                            dato.detalle = producto.descripcion;
+                            dato.detalle = producto.descripcion.ToUpper();
                             dato.unidadMedida = producto.unidadMedida;
                             dato.unidadMedidaComercial = "";
                             dato.tipoServMerc = producto.tipoServMerc;
@@ -227,7 +227,7 @@ namespace Web.Pages.Facturacion
                 }
                 if (!string.IsNullOrWhiteSpace(this.txtReceptorOtraSenas.Text))
                 {
-                    receptor.otraSena = this.txtReceptorOtraSenas.Text;
+                    receptor.otraSena = this.txtReceptorOtraSenas.Text.ToUpper();
                 }
 
 
@@ -1074,20 +1074,22 @@ namespace Web.Pages.Facturacion
 
                     dato.emisor.identificacion.tipo = elEmisor.identificacionTipo;
                     dato.emisor.identificacion.numero = elEmisor.identificacion;
+                    dato.emisor.ubicacion.otrassenas = elEmisor.otraSena.ToUpper();
                     dato.emisor.nombre = elEmisor.nombre;
+                    dato.emisor.ubicacion.otrassenas = elEmisor.otraSena.ToUpper();
                     dato.emisor.nombreComercial = elEmisor.nombreComercial;
 
                     dato.emisor.telefono.codigoPais = elEmisor.telefonoCodigoPais;
                     dato.emisor.telefono.numTelefono = elEmisor.telefono;
                     dato.emisor.fax.codigoPais = elEmisor.faxCodigoPais;
                     dato.emisor.fax.numTelefono = elEmisor.fax;
-                    dato.emisor.correoElectronico = elEmisor.correoElectronico;
+                    dato.emisor.correoElectronico = elEmisor.correoElectronico.ToLower();
 
-                    dato.emisor.ubicacion.provincia = elEmisor.provincia;
-                    dato.emisor.ubicacion.canton = elEmisor.canton;
-                    dato.emisor.ubicacion.distrito = elEmisor.distrito;
-                    dato.emisor.ubicacion.barrio = elEmisor.barrio;
-                    dato.emisor.ubicacion.otrassenas = elEmisor.otraSena;
+                    dato.emisor.ubicacion.provincia = elEmisor.provincia.ToUpper();
+                    dato.emisor.ubicacion.canton = elEmisor.canton.ToUpper();
+                    dato.emisor.ubicacion.distrito = elEmisor.distrito.ToUpper();
+                    dato.emisor.ubicacion.barrio = elEmisor.barrio.ToUpper();
+                    dato.emisor.ubicacion.otrassenas = elEmisor.otraSena.ToUpper();
 
 
                     /* RECEPTOR */
@@ -1108,21 +1110,21 @@ namespace Web.Pages.Facturacion
 
                     dato.receptor.identificacion.tipo = elReceptor.identificacionTipo;
                     dato.receptor.identificacion.numero = elReceptor.identificacion;
-                    dato.receptor.nombre = elReceptor.nombre;
-                    dato.receptor.nombreComercial = elReceptor.nombreComercial;
+                    dato.receptor.nombre = elReceptor.nombre.ToUpper();
+                    dato.receptor.nombreComercial = elReceptor.nombreComercial.ToUpper();
 
                     dato.receptor.telefono.codigoPais = elReceptor.telefonoCodigoPais;
                     dato.receptor.telefono.numTelefono = elReceptor.telefono;
 
                     dato.receptor.fax.codigoPais = elReceptor.faxCodigoPais;
                     dato.receptor.fax.numTelefono = elReceptor.fax;
-                    dato.receptor.correoElectronico = elReceptor.correoElectronico;
+                    dato.receptor.correoElectronico = elReceptor.correoElectronico.ToLower();
 
-                    dato.receptor.ubicacion.provincia = elReceptor.provincia;
-                    dato.receptor.ubicacion.canton = elReceptor.canton;
-                    dato.receptor.ubicacion.distrito = elReceptor.distrito;
-                    dato.receptor.ubicacion.barrio = elReceptor.barrio;
-                    dato.receptor.ubicacion.otrassenas = elReceptor.otraSena;
+                    dato.receptor.ubicacion.provincia = elReceptor.provincia.ToUpper();
+                    dato.receptor.ubicacion.canton = elReceptor.canton.ToUpper();
+                    dato.receptor.ubicacion.distrito = elReceptor.distrito.ToUpper();
+                    dato.receptor.ubicacion.barrio = elReceptor.barrio.ToUpper();
+                    dato.receptor.ubicacion.otrassenas = elReceptor.otraSena.ToUpper();
 
                     dato.receptor.verificar();
                     if (!string.IsNullOrWhiteSpace(elReceptor.identificacion))
@@ -1297,6 +1299,11 @@ namespace Web.Pages.Facturacion
                 this.alertMessages.Attributes["class"] = "alert alert-info";
                 this.alertMessages.InnerText = "Datos cargados con correctamente";
             } 
+        }
+
+        protected void documento_ActiveTabChanged(object source, TabControlEventArgs e)
+        {
+
         }
     }
 }
