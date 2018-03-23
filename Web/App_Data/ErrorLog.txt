@@ -6890,3 +6890,435 @@ Stack Trace:
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
+********** 22/03/2018 08:45:51 p.m. **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumento.loadReceptor(EmisorReceptorIMEC emisor) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx.cs:línea 437
+   en Web.Pages.Facturacion.FrmGenerarDocumento.ASPxGridViewClientes_SelectionChanged(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx.cs:línea 1293
+   en DevExpress.Web.ASPxGridBase.RaiseSelectionChanged()
+   en DevExpress.Web.ASPxGridBase.CheckPendingEvents()
+   en DevExpress.Web.ASPxGridBase.OnLoad(EventArgs e)
+   en DevExpress.Web.ASPxGridView.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.<LoadRecursiveAsync>d__246.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestAsync>d__515.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.UI.Page.<ProcessRequestAsync>d__554.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
+   en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.EndProcessRequest(IAsyncResult ar) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_jpdcfcoh.0.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 22/03/2018 08:47:12 p.m. **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumento.loadReceptor(EmisorReceptorIMEC emisor) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx.cs:línea 437
+   en Web.Pages.Facturacion.FrmGenerarDocumento.ASPxGridViewClientes_SelectionChanged(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx.cs:línea 1293
+   en DevExpress.Web.ASPxGridBase.RaiseSelectionChanged()
+   en DevExpress.Web.ASPxGridBase.CheckPendingEvents()
+   en DevExpress.Web.ASPxGridBase.OnLoad(EventArgs e)
+   en DevExpress.Web.ASPxGridView.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.<LoadRecursiveAsync>d__246.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestAsync>d__515.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.UI.Page.<ProcessRequestAsync>d__554.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
+   en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.EndProcessRequest(IAsyncResult ar) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_0xztmzyw.1.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 22/03/2018 08:50:29 p.m. **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumento.loadReceptor(EmisorReceptorIMEC emisor) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx.cs:línea 437
+   en Web.Pages.Facturacion.FrmGenerarDocumento.ASPxGridViewClientes_SelectionChanged(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx.cs:línea 1293
+   en DevExpress.Web.ASPxGridBase.RaiseSelectionChanged()
+   en DevExpress.Web.ASPxGridBase.CheckPendingEvents()
+   en DevExpress.Web.ASPxGridBase.OnLoad(EventArgs e)
+   en DevExpress.Web.ASPxGridView.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.<LoadRecursiveAsync>d__246.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestAsync>d__515.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.UI.Page.<ProcessRequestAsync>d__554.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
+   en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.EndProcessRequest(IAsyncResult ar) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_evkstkpf.2.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 22/03/2018 08:51:02 p.m. **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumento.loadReceptor(EmisorReceptorIMEC emisor) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx.cs:línea 437
+   en Web.Pages.Facturacion.FrmGenerarDocumento.ASPxGridViewClientes_SelectionChanged(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx.cs:línea 1293
+   en DevExpress.Web.ASPxGridBase.RaiseSelectionChanged()
+   en DevExpress.Web.ASPxGridBase.CheckPendingEvents()
+   en DevExpress.Web.ASPxGridBase.OnLoad(EventArgs e)
+   en DevExpress.Web.ASPxGridView.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.<LoadRecursiveAsync>d__246.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestAsync>d__515.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.UI.Page.<ProcessRequestAsync>d__554.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
+   en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.EndProcessRequest(IAsyncResult ar) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_evkstkpf.2.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 22/03/2018 08:53:06 p.m. **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumento.loadReceptor(EmisorReceptorIMEC emisor) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx.cs:línea 437
+   en Web.Pages.Facturacion.FrmGenerarDocumento.ASPxGridViewClientes_SelectionChanged(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx.cs:línea 1293
+   en DevExpress.Web.ASPxGridBase.RaiseSelectionChanged()
+   en DevExpress.Web.ASPxGridBase.CheckPendingEvents()
+   en DevExpress.Web.ASPxGridBase.OnLoad(EventArgs e)
+   en DevExpress.Web.ASPxGridView.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.<LoadRecursiveAsync>d__246.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestAsync>d__515.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.UI.Page.<ProcessRequestAsync>d__554.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
+   en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.EndProcessRequest(IAsyncResult ar) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_hagj3hw1.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 22/03/2018 09:04:13 p.m. **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumento.loadReceptor(EmisorReceptorIMEC emisor)
+   en Web.Pages.Facturacion.FrmGenerarDocumento.ASPxGridViewClientes_SelectionChanged(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxGridBase.RaiseSelectionChanged()
+   en DevExpress.Web.ASPxGridBase.CheckPendingEvents()
+   en DevExpress.Web.ASPxGridBase.OnLoad(EventArgs e)
+   en DevExpress.Web.ASPxGridView.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.<LoadRecursiveAsync>d__246.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestAsync>d__515.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.UI.Page.<ProcessRequestAsync>d__554.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
+   en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.EndProcessRequest(IAsyncResult ar) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_p03xgxh4.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 22/03/2018 09:24:46 p.m. **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumento.loadReceptor(EmisorReceptorIMEC emisor) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx.cs:línea 437
+   en Web.Pages.Facturacion.FrmGenerarDocumento.ASPxGridViewClientes_SelectionChanged(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx.cs:línea 1293
+   en DevExpress.Web.ASPxGridBase.RaiseSelectionChanged()
+   en DevExpress.Web.ASPxGridBase.CheckPendingEvents()
+   en DevExpress.Web.ASPxGridBase.OnLoad(EventArgs e)
+   en DevExpress.Web.ASPxGridView.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.<LoadRecursiveAsync>d__246.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestAsync>d__515.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.UI.Page.<ProcessRequestAsync>d__554.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
+   en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.EndProcessRequest(IAsyncResult ar) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_mkdc0phg.6.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 22/03/2018 09:29:39 p.m. **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumento.loadReceptor(EmisorReceptorIMEC emisor) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx.cs:línea 437
+   en Web.Pages.Facturacion.FrmGenerarDocumento.ASPxGridViewClientes_SelectionChanged(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumento.aspx.cs:línea 1293
+   en DevExpress.Web.ASPxGridBase.RaiseSelectionChanged()
+   en DevExpress.Web.ASPxGridBase.CheckPendingEvents()
+   en DevExpress.Web.ASPxGridBase.OnLoad(EventArgs e)
+   en DevExpress.Web.ASPxGridView.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Control.<LoadRecursiveAsync>d__246.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestAsync>d__515.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.UI.Page.<ProcessRequestAsync>d__554.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
+   en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.EndProcessRequest(IAsyncResult ar) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_mkdc0phg.6.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+

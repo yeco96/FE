@@ -434,28 +434,28 @@ namespace Web.Pages.Facturacion
             this.cmbReceptorTipo.Value = emisor.identificacionTipo;
             this.txtReceptorIdentificacion.Text = emisor.identificacion;
             this.txtReceptorNombre.Text = emisor.nombre;
-            this.txtReceptorNombreComercial.Text = emisor.nombreComercial;
+            this.txtReceptorNombreComercial.Text = emisor.nombreComercial.ToUpper();
 
             this.cmbReceptorTelefonoCod.Value = emisor.telefonoCodigoPais;
             this.cmbReceptorFaxCod.Value = emisor.faxCodigoPais;
             this.txtReceptorTelefono.Value = emisor.telefono;
             this.txtReceptorFax.Value = emisor.fax;
-            this.txtReceptorCorreo.Text = emisor.correoElectronico;
+            this.txtReceptorCorreo.Text = emisor.correoElectronico.ToLower();
 
-            this.cmbReceptorProvincia.Value = emisor.provincia;
+            this.cmbReceptorProvincia.Value = emisor.provincia.ToUpper();
 
             if (emisor.provincia != null)
             {
                 this.cmbReceptorProvincia_ValueChanged(null, null);
-                this.cmbReceptorCanton.Value = emisor.canton;
+                this.cmbReceptorCanton.Value = emisor.canton.ToUpper();
 
                 this.cmbReceptorCanton_ValueChanged(null, null);
-                this.cmbReceptorDistrito.Value = emisor.distrito;
+                this.cmbReceptorDistrito.Value = emisor.distrito.ToUpper();
 
                 this.cmbReceptorDistrito_ValueChanged(null, null);
-                this.cmbReceptorBarrio.Value = emisor.barrio;
+                this.cmbReceptorBarrio.Value = emisor.barrio.ToUpper();
             }
-            this.txtReceptorOtraSenas.Value = emisor.otraSena;
+            this.txtReceptorOtraSenas.Value = emisor.otraSena.ToUpper();
 
         }
 
@@ -1111,7 +1111,7 @@ namespace Web.Pages.Facturacion
                     dato.receptor.identificacion.tipo = elReceptor.identificacionTipo;
                     dato.receptor.identificacion.numero = elReceptor.identificacion;
                     dato.receptor.nombre = elReceptor.nombre.ToUpper();
-                    dato.receptor.nombreComercial = elReceptor.nombreComercial.ToUpper();
+                    dato.receptor.nombreComercial = elReceptor.nombreComercial;
 
                     dato.receptor.telefono.codigoPais = elReceptor.telefonoCodigoPais;
                     dato.receptor.telefono.numTelefono = elReceptor.telefono;
