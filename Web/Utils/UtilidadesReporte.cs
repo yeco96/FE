@@ -86,8 +86,9 @@ namespace Class.Utilidades
             impresion.emisorNombreComercial = dato.emisor.nombreComercial;
             impresion.emisorIdentificacionCorreo = dato.emisor.correoElectronico;
             impresion.emisorTelefonos = dato.emisor.telefono.numTelefono;
-            impresion.emisorDireccion = dato.emisor.ubicacion.provincia.ToUpper().ToString() + ", " + dato.emisor.ubicacion.canton.ToUpper().ToString() + ", " + dato.emisor.ubicacion.distrito.ToUpper().ToString() + ", " + dato.emisor.ubicacion.otrassenas.ToUpper().ToString();
-
+            impresion.emisorDireccion =  dato.emisor.ubicacion.otrassenas.ToUpper().ToString();
+            //dato.emisor.ubicacion.provincia.ToUpper().ToString() + ", " + dato.emisor.ubicacion.canton.ToUpper().ToString() + ", " + dato.emisor.ubicacion.distrito.ToUpper().ToString() + ", " +
+            
             impresion.receptorNombre = dato.receptor.nombre;
             impresion.receptorIdentificacion = dato.receptor.identificacion.numero;
             impresion.receptorIdentificacionCorreo = dato.receptor.correoElectronico;
