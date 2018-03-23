@@ -86,9 +86,30 @@ namespace Class.Utilidades
             impresion.emisorNombreComercial = dato.emisor.nombreComercial;
             impresion.emisorIdentificacionCorreo = dato.emisor.correoElectronico;
             impresion.emisorTelefonos = dato.emisor.telefono.numTelefono;
-            impresion.emisorDireccion =  dato.emisor.ubicacion.otrassenas.ToUpper().ToString();
-            //dato.emisor.ubicacion.provincia.ToUpper().ToString() + ", " + dato.emisor.ubicacion.canton.ToUpper().ToString() + ", " + dato.emisor.ubicacion.distrito.ToUpper().ToString() + ", " +
+
             
+            using (var conexion = new DataModelFE())
+            {
+                Web.Models.Catalogos.Ubicacion oDato = conexion.Ubicacion.Where(x => x.codProvincia == dato.emisor.ubicacion.provincia && x.codCanton == dato.emisor.ubicacion.canton && x.codDistrito == dato.emisor.ubicacion.distrito && x.codBarrio == dato.emisor.ubicacion.barrio).FirstOrDefault();
+                if (oDato != null)
+                {
+                    impresion.emisorDireccion = ProperCase.ToTitleCase(oDato.nombreProvincia) + " , " + ProperCase.ToTitleCase(oDato.nombreCanton) + " , " + ProperCase.ToTitleCase(oDato.nombreDistrito) + " , " + ProperCase.ToTitleCase(oDato.nombreBarrio) + " , " + ProperCase.ToTitleCase(dato.emisor.ubicacion.otrassenas);
+                }
+
+                else {
+                    impresion.emisorDireccion = ProperCase.ToTitleCase(dato.emisor.ubicacion.otrassenas);
+                }
+            }
+
+
+
+            
+            //dato.emisor.ubicacion.provincia.ToUpper().ToString() + ", " + dato.emisor.ubicacion.canton.ToUpper().ToString() + ", " + dato.emisor.ubicacion.distrito.ToUpper().ToString() + ", " +
+
+
+            
+
+
             impresion.receptorNombre = dato.receptor.nombre;
             impresion.receptorIdentificacion = dato.receptor.identificacion.numero;
             impresion.receptorIdentificacionCorreo = dato.receptor.correoElectronico;
