@@ -1347,7 +1347,7 @@ namespace Web.Pages.Facturacion
                     lista = conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor &&
                             x.tipoDocumento == this.cmbTipoDocumento.Value.ToString() && x.estado == Estado.ACTIVO.ToString()).ToList();
                 }
-
+                this.cmbSucursalCaja.SelectedIndex = 0;
                 this.cmbSucursalCaja.Items.Clear();
                 foreach (var item in lista)
                 {

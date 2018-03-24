@@ -100,7 +100,8 @@ namespace Web.Pages.Facturacion
                         lista = conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor &&
                                 x.tipoDocumento == this.cmbTipoDocumento.Value.ToString() && x.estado == Estado.ACTIVO.ToString()).ToList();
                     }
-
+                     
+                    this.cmbSucursalCaja.Items.Clear();
                     foreach (var item in lista)
                     {
                         this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}", item.sucursal, item.caja));
