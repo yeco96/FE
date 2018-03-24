@@ -155,6 +155,7 @@
     <Content Include="Content\Images\Blog\image3.png" />
     <Content Include="Content\Images\cancel.png" />
     <Content Include="Content\Images\check.png" />
+    <Content Include="Content\Images\Cliente.png" />
     <Content Include="Content\Images\Components\01 factura digital.jpg" />
     <Content Include="Content\Images\Components\02 factura digital.jpg" />
     <Content Include="Content\Images\Components\03 factura digital.jpg" />
@@ -168,7 +169,11 @@
     <Content Include="Content\Images\Customers\costos01.png" />
     <Content Include="Content\Images\Customers\costos5.jpg" />
     <Content Include="Content\Images\Customers\Fast2.png" />
+    <Content Include="Content\Images\Customers\Favorite_32_32.png" />
+    <Content Include="Content\Images\Customers\Invoice_32_32.png" />
     <Content Include="Content\Images\Customers\rapidez.jpg" />
+    <Content Include="Content\Images\Customers\Reference_32_32.png" />
+    <Content Include="Content\Images\Customers\send_32_32.png" />
     <Content Include="Content\Images\delete.png" />
     <Content Include="Content\Images\cargando.gif" />
     <Content Include="Content\Images\Customers\GaryRubio.jpg" />

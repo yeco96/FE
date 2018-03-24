@@ -34,6 +34,8 @@
                                             AutoStartUpload="true" ShowProgressPanel="True" ShowTextBox="true" NullText="Seleccione un archivo XML ..."
                                             BrowseButton-Text="Cargar XML" FileUploadMode="OnPageLoad"
                                             OnFileUploadComplete="xmlUploadControl_FileUploadComplete">
+                                            <BrowseButton Text="Cargar XML">
+                                            </BrowseButton>
                                             <AdvancedModeSettings EnableMultiSelect="false" EnableDragAndDrop="true" ExternalDropZoneID="dropZone" EnableFileList="True" />
                                             <ValidationSettings
                                                 AllowedFileExtensions=".xml"
@@ -162,7 +164,10 @@
                             <dx:LayoutItem Caption="" ColSpan="2">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
-                                        <dx:ASPxButton ID="btnEnviar" runat="server" Text="Enviar" Width="50px" CausesValidation="true" OnClick="btnEnviar_Click"></dx:ASPxButton>
+                                        <dx:ASPxButton ID="btnEnviar" runat="server" Text="Enviar" Width="81px" CausesValidation="true" OnClick="btnEnviar_Click">
+                                            <Image Url="~/Content/Images/Customers/send_32_32.png">
+                                            </Image>
+                                        </dx:ASPxButton>
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
                             </dx:LayoutItem>
