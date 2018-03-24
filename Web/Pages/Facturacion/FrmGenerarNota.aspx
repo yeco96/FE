@@ -15,13 +15,14 @@
                 <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
                 <Items>
                     <%-- Datos del docuemento de referencia --%>
-                    <dx:LayoutGroup Caption="Datos del Documento de Referencia" ColCount="3" GroupBoxDecoration="Box" UseDefaultPaddings="false">
+                    <dx:LayoutGroup Caption="Datos del Documento" ColCount="3" GroupBoxDecoration="Box" UseDefaultPaddings="false">
                         <Items>
 
                             <dx:LayoutItem Caption="Tipo Documento">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
-                                        <dx:ASPxComboBox ID="cmbTipoDocumento" runat="server" Width="100%" AutoResizeWithContainer="true" ReadOnly="true">
+                                        <dx:ASPxComboBox ID="cmbTipoDocumento" runat="server" Width="100%" AutoResizeWithContainer="true" ReadOnly="true"  ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
+                                             ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" >
                                         </dx:ASPxComboBox>
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
@@ -36,7 +37,7 @@
                                 </LayoutItemNestedControlCollection>
                             </dx:LayoutItem>
 
-                            <dx:LayoutItem Caption="Consecutivo">
+                            <dx:LayoutItem Caption="Factura">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
                                         <dx:ASPxTextBox ID="txtConsecutivo" runat="server" Width="100%" AutoResizeWithContainer="true" Enabled="false" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
@@ -53,17 +54,7 @@
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
                             </dx:LayoutItem>
-
-                            <dx:LayoutItem Caption="Fecha">
-                                <LayoutItemNestedControlCollection>
-                                    <dx:LayoutItemNestedControlContainer>
-                                        <dx:ASPxTextBox ID="txtFechaEmisor" runat="server" Width="100%" AutoResizeWithContainer="true" Enabled="false" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
-                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" />
-                                    </dx:LayoutItemNestedControlContainer>
-                                </LayoutItemNestedControlCollection>
-                            </dx:LayoutItem>
-
-
+                              
                             <dx:LayoutItem Caption="Referencia">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
@@ -81,14 +72,18 @@
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
                             </dx:LayoutItem>
-                        </Items>
-                    </dx:LayoutGroup>
 
-                    <%-- Datos del Emisor --%>
-                    <dx:LayoutGroup Caption="Datos del Documento" ColCount="1" GroupBoxDecoration="Box" UseDefaultPaddings="false">
-                        <Items>
+                             <dx:LayoutItem Caption="Fecha">
+                                <LayoutItemNestedControlCollection>
+                                    <dx:LayoutItemNestedControlContainer>
+                                        <dx:ASPxTextBox ID="txtFechaEmisor" runat="server" Width="100%" AutoResizeWithContainer="true" Enabled="false" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
+                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" />
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                            </dx:LayoutItem>
+                        
 
-                            <dx:LayoutItem Caption="Emisor">
+                            <dx:LayoutItem Caption="Emisor" ColSpan="3" Width="100%">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
                                         <dx:ASPxLabel ID="txtNombreEmisor" runat="server" Width="100%">
@@ -98,7 +93,7 @@
                             </dx:LayoutItem>
 
 
-                            <dx:LayoutItem Caption="Receptor">
+                            <dx:LayoutItem Caption="Receptor"  ColSpan="3" Width="100%">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
                                         <dx:ASPxLabel ID="txtNombreReceptor" runat="server">
@@ -107,14 +102,14 @@
                                 </LayoutItemNestedControlCollection>
                             </dx:LayoutItem>
 
-                            <dx:LayoutItem Caption="Correo electrónico Receptor">
+                            <dx:LayoutItem Caption="Correo electrónico"  ColSpan="3" Width="100%">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
-                                        <dx:ASPxTextBox ID="txtCorreoReceptor" runat="server" Width="100%" AutoResizeWithContainer="true" MaxLength="80">
+                                        <dx:ASPxTokenBox ID="txtCorreoReceptor" runat="server" Width="100%" AutoResizeWithContainer="true" >
                                             <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ErrorText="Requerido">
                                                 <RequiredField IsRequired="true" />
                                             </ValidationSettings>
-                                        </dx:ASPxTextBox>
+                                        </dx:ASPxTokenBox>
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
                             </dx:LayoutItem>

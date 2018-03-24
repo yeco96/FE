@@ -15,7 +15,7 @@
 
             <div id="alertMessages" role="alert" runat="server" />
 
-            <dx:ASPxPageControl ID="documento" Width="100%" runat="server" ActiveTabIndex="0" EnableHierarchyRecreation="True" Theme="MetropolisBlue" OnActiveTabChanged="documento_ActiveTabChanged">
+            <dx:ASPxPageControl ID="documento" Width="100%" runat="server" ActiveTabIndex="0" EnableHierarchyRecreation="True" Theme="MetropolisBlue" >
                 <TabPages>
                   
 
@@ -96,7 +96,7 @@
 
                                     <SettingsBehavior ColumnResizeMode="NextColumn" />
                                     <Settings  ShowFooter="True" ShowFilterBar="Visible" ShowFilterRow="true" />
-                                    <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="True" ConfirmDelete="True" ProcessSelectionChangedOnServer="True" AllowSelectSingleRowOnly="true" />
+                                    <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="false" ConfirmDelete="True" ProcessSelectionChangedOnServer="True" AllowSelectSingleRowOnly="true" />
                                     <SettingsPager PageSize="10" PageSizeItemSettings-Visible="true" PageSizeItemSettings-Items="10, 20, 50, 100" >
                                    
                                         <PageSizeItemSettings Items="10, 20, 50, 100" Visible="True">
@@ -566,7 +566,8 @@
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxComboBox ID="cmbTipoDocumento" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
-                                                                ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido">
+                                                                ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido"
+                                                                OnValueChanged="cmbTipoDocumento_ValueChanged" AutoPostBack="true" >
                                                                 <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
                                                                     <RequiredField ErrorText="Requerido" IsRequired="True" />
                                                                 </ValidationSettings>

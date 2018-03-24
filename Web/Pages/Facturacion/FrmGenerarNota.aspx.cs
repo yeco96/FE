@@ -7,6 +7,7 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Reflection;
 using System.Security.Permissions;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Web;
 using System.Web.UI;
@@ -70,13 +71,42 @@ namespace Web.Pages.Facturacion
             if (Session["clave"] != null)
             {
                 string clave = Session["clave"].ToString();
-                using (var conexionWS = new DataModelFE())
+                using (var conexion = new DataModelFE())
                 {
-                    WSRecepcionPOST dato = conexionWS.WSRecepcionPOST.Find(clave);
+                    WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
                     this.txtClave.Text = dato.clave;
                     this.txtConsecutivo.Text = dato.numeroConsecutivo;
                     this.txtFechaEmisor.Text = dato.fecha.ToString();
                     this.cmbTipoDocumento.Value = Session["tipoNota"].ToString();
+
+                    /* SUCURSAL CAJA */
+                    string emisor = Session["emisor"].ToString();
+                    List<ConsecutivoDocElectronico> lista = conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor && 
+                    x.tipoDocumento == this.cmbTipoDocumento.Value.ToString() && x.estado == Estado.ACTIVO.ToString()).ToList();
+                    if(lista.Count == 0)
+                    {
+                        ConsecutivoDocElectronico consecutivo = new ConsecutivoDocElectronico();
+                        consecutivo.sucursal = ConsecutivoDocElectronico.DEFAULT_SUCURSAL;
+                        consecutivo.caja = ConsecutivoDocElectronico.DEFAULT_CAJA;
+                        consecutivo.digitoVerificador = ConsecutivoDocElectronico.DEFAULT_DIGITO_VERIFICADOR;
+                        consecutivo.emisor = emisor;
+                        consecutivo.tipoDocumento = this.cmbTipoDocumento.Value.ToString();
+                        consecutivo.consecutivo = 1;
+                        consecutivo.estado = Estado.ACTIVO.ToString();
+                        consecutivo.fechaCreacion = Date.DateTimeNow();   
+                        conexion.ConsecutivoDocElectronico.Add(consecutivo);
+                        conexion.SaveChanges();
+
+                        lista = conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor &&
+                                x.tipoDocumento == this.cmbTipoDocumento.Value.ToString() && x.estado == Estado.ACTIVO.ToString()).ToList();
+                    }
+
+                    foreach (var item in lista)
+                    {
+                        this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}", item.sucursal, item.caja));
+                    }
+                    this.cmbSucursalCaja.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+
 
                     string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
                      
@@ -124,13 +154,17 @@ namespace Web.Pages.Facturacion
         {
             using (var conexion = new DataModelFE())
             {
-                /* SUCURSAL CAJA */
-                string elEmisor =Session["emisor"].ToString();
-                foreach (var item in conexion.ConsecutivoDocElectronico.Where(x => x.emisor == elEmisor).Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+
+                /* PRODUCTO */
+                string emisor = Session["emisor"].ToString();
+                GridViewDataComboBoxColumn comboProducto = this.ASPxGridView1.Columns["codigo.codigo"] as GridViewDataComboBoxColumn;
+                comboProducto.PropertiesComboBox.Items.Clear();
+                foreach (var item in conexion.Producto.Where(x => x.emisor == emisor).ToList())
                 {
-                    this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}", item.sucursal, item.caja));
+                    comboProducto.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
                 }
-                this.cmbSucursalCaja.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                comboProducto.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+
 
                 /* TIPO DOCUMENTO */
                 foreach (var item in conexion.TipoDocumento.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
@@ -270,6 +304,27 @@ namespace Web.Pages.Facturacion
             try
             {
                 Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
+
+
+                List<string> cc = new List<string>();
+                Regex validator = new Regex(@"\s*\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*\s*");
+
+                foreach (var correo in this.txtCorreoReceptor.Tokens)
+                {
+                    if (validator.IsMatch(correo))
+                    {
+                        cc.Add(correo);
+                    }
+                    else
+                    {
+                        this.alertMessages.Attributes["class"] = "alert alert-danger";
+                        this.alertMessages.InnerText = String.Format("Favor verifique el formato de la dirección {0}", correo);
+                        return;
+                    }
+                }
+                cc.RemoveAt(0);
+
+
                 DetalleServicio detalle = (DetalleServicio)Session["detalleServicio"];
                 if (detalle.lineaDetalle.Count == 0)
                 {
@@ -344,17 +399,36 @@ namespace Web.Pages.Facturacion
                     //genera el consecutivo del documento
                     string sucursal = this.cmbSucursalCaja.Value.ToString().Substring(0, 3);
                     string caja = this.cmbSucursalCaja.Value.ToString().Substring(3, 5);
-                    object[] key = new object[] { dato.emisor.identificacion.numero, sucursal, caja };
+                    object[] key = new object[] { dato.emisor.identificacion.numero, sucursal, caja, this.cmbTipoDocumento.Value.ToString() };
                     ConsecutivoDocElectronico consecutivo = conexion.ConsecutivoDocElectronico.Find(key);
+                    if (consecutivo != null)
+                    {
+                        dato.clave = consecutivo.getClave(Date.DateTimeNow().ToString("yyyyMMdd"));
+                        dato.numeroConsecutivo = consecutivo.getConsecutivo();
 
-                    dato.clave = consecutivo.getClave(this.cmbTipoDocumento.Value.ToString(), Date.DateTimeNow().ToString("yyyyMMdd"));
-                    dato.numeroConsecutivo = consecutivo.getConsecutivo(this.cmbTipoDocumento.Value.ToString());
+                        consecutivo.consecutivo += 1;
+                        conexion.Entry(consecutivo).State = EntityState.Modified; 
+                    }
+                    else
+                    {
+                        consecutivo = new ConsecutivoDocElectronico();
+                        consecutivo.sucursal = ConsecutivoDocElectronico.DEFAULT_SUCURSAL;
+                        consecutivo.caja = ConsecutivoDocElectronico.DEFAULT_CAJA;
+                        consecutivo.digitoVerificador = ConsecutivoDocElectronico.DEFAULT_DIGITO_VERIFICADOR;
+                        consecutivo.emisor = dato.emisor.identificacion.numero;
+                        consecutivo.tipoDocumento = this.cmbTipoDocumento.Value.ToString();
+                        consecutivo.consecutivo = 1;
+                        consecutivo.estado = Estado.ACTIVO.ToString();
+                        consecutivo.fechaCreacion = Date.DateTimeNow();
 
-                    consecutivo.consecutivo += 1;
-                    conexion.Entry(consecutivo).State = EntityState.Modified;
-                    conexion.SaveChanges();
+                        dato.clave = consecutivo.getClave(Date.DateTimeNow().ToString("yyyyMMdd"));
+                        dato.numeroConsecutivo = consecutivo.getConsecutivo();
 
-                     
+                        consecutivo.consecutivo += 1;
+                        conexion.ConsecutivoDocElectronico.Add(consecutivo);
+
+                    }
+
                     EmisorReceptorIMEC elEmisor = (EmisorReceptorIMEC)Session["elEmisor"];
                     string responsePost = await Services.enviarDocumentoElectronico(false, dato, elEmisor, this.cmbTipoDocumento.Value.ToString(), Session["usuario"].ToString());
 
@@ -367,9 +441,11 @@ namespace Web.Pages.Facturacion
                         {
                             string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
 
+                            
+
                             Utilidades.sendMail(Session["emisor"].ToString(),dato.receptor.correoElectronico,
                                 string.Format("{0} - {1}", dato.numeroConsecutivo, factura.receptor.nombre),
-                                Utilidades.mensageGenerico(), "Documento Electrónico", xml, dato.numeroConsecutivo, dato.clave,null);
+                                Utilidades.mensageGenerico(), "Documento Electrónico", xml, dato.numeroConsecutivo, dato.clave,cc );
                         }
                     }
                     else if (responsePost.Equals("Error"))
@@ -383,6 +459,8 @@ namespace Web.Pages.Facturacion
                         this.alertMessages.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
                     }
 
+                    conexion.SaveChanges();
+
                 }
             }
             catch (Exception ex)
@@ -395,6 +473,12 @@ namespace Web.Pages.Facturacion
                 //refescar los datos
                 this.refreshData();
             }
+        }
+
+        protected void cmbTipoDocumento_ValueChanged(object sender, EventArgs e)
+        {
+           
+
         }
     }
 }

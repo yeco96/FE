@@ -399,6 +399,11 @@ namespace EncodeXML
                 {
                     XmlNodeList nNombre = nodo.GetElementsByTagName(label);
                     dato = nodo.InnerText;
+
+                    if (!string.IsNullOrWhiteSpace(dato))
+                    {
+                        break;
+                    }
                 }
                 return dato;
             }

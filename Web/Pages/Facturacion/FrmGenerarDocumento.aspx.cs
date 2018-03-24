@@ -395,15 +395,7 @@ namespace Web.Pages.Facturacion
                 }
                 comboProducto.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
-
-                /* SUCURSAL CAJA */
-                foreach (var item in conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor).Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
-                {
-                    this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}", item.sucursal, item.caja));
-                }
-                this.cmbSucursalCaja.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-                this.cmbSucursalCaja.SelectedIndex = 0;
-
+                
                 /* TIPO DOCUMENTO */
                 GridViewDataComboBoxColumn comboTipoDocumento = this.ASPxGridView2.Columns["tipoDocumento"] as GridViewDataComboBoxColumn;
                 foreach (var item in conexion.TipoDocumento.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
@@ -414,6 +406,14 @@ namespace Web.Pages.Facturacion
                 this.cmbTipoDocumento.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
                 comboTipoDocumento.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
                 this.cmbTipoDocumento.SelectedIndex = 0;
+
+                /* SUCURSAL CAJA */
+                foreach (var item in conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor && x.estado == Estado.ACTIVO.ToString() && x.tipoDocumento== cmbTipoDocumento.Value.ToString()).ToList())
+                {
+                    this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}", item.sucursal, item.caja));
+                }
+                this.cmbSucursalCaja.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                this.cmbSucursalCaja.SelectedIndex = 0;
 
 
                 /* CODIGO REFERENCIA */
@@ -1175,15 +1175,35 @@ namespace Web.Pages.Facturacion
 
                     //genera el consecutivo del documento
                     string sucursal = this.cmbSucursalCaja.Value.ToString().Substring(0, 3);
-                    string caja = this.cmbSucursalCaja.Value.ToString().Substring(3, 5);
-                    object[] key = new object[] { dato.emisor.identificacion.numero, sucursal, caja };
+                    string caja = this.cmbSucursalCaja.Value.ToString().Substring(3, 5); 
+                    object[] key = new object[] { dato.emisor.identificacion.numero, sucursal, caja , this.cmbTipoDocumento.Value.ToString()};
                     ConsecutivoDocElectronico consecutivo = conexion.ConsecutivoDocElectronico.Find(key);
+                    if (consecutivo != null)
+                    {
+                        dato.clave = consecutivo.getClave( this.txtFechaEmision.Date.ToString("yyyyMMdd"));
+                        dato.numeroConsecutivo = consecutivo.getConsecutivo();
 
-                    dato.clave = consecutivo.getClave(this.cmbTipoDocumento.Value.ToString(), this.txtFechaEmision.Date.ToString("yyyyMMdd"));
-                    dato.numeroConsecutivo = consecutivo.getConsecutivo(this.cmbTipoDocumento.Value.ToString());
+                        consecutivo.consecutivo += 1;
+                        conexion.Entry(consecutivo).State = EntityState.Modified;
+                    }else
+                    {
+                        consecutivo = new ConsecutivoDocElectronico();
+                        consecutivo.sucursal = ConsecutivoDocElectronico.DEFAULT_SUCURSAL;
+                        consecutivo.caja = ConsecutivoDocElectronico.DEFAULT_CAJA;
+                        consecutivo.digitoVerificador = ConsecutivoDocElectronico.DEFAULT_DIGITO_VERIFICADOR;
+                        consecutivo.emisor = dato.emisor.identificacion.numero;
+                        consecutivo.tipoDocumento = this.cmbTipoDocumento.Value.ToString();
+                        consecutivo.consecutivo = 1;
+                        consecutivo.estado = Estado.ACTIVO.ToString();
+                        consecutivo.fechaCreacion = Date.DateTimeNow();
 
-                    consecutivo.consecutivo += 1;
-                    conexion.Entry(consecutivo).State = EntityState.Modified;
+                        dato.clave = consecutivo.getClave(this.txtFechaEmision.Date.ToString("yyyyMMdd"));
+                        dato.numeroConsecutivo = consecutivo.getConsecutivo();
+
+                        consecutivo.consecutivo += 1;
+                        conexion.ConsecutivoDocElectronico.Add(consecutivo);
+
+                    }
 
                     string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
                     string xmlSigned = FirmaXML.getXMLFirmadoWeb(xml, elEmisor.llaveCriptografica, elEmisor.claveLlaveCriptografica);
@@ -1300,10 +1320,44 @@ namespace Web.Pages.Facturacion
                 this.alertMessages.InnerText = "Datos cargados con correctamente";
             } 
         }
+         
 
-        protected void documento_ActiveTabChanged(object source, TabControlEventArgs e)
+        protected void cmbTipoDocumento_ValueChanged(object sender, EventArgs e)
         {
+            using (var conexion = new DataModelFE())
+            {
+                /* SUCURSAL CAJA */
+                string emisor = Session["emisor"].ToString();
+                List<ConsecutivoDocElectronico> lista = conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor &&
+                x.tipoDocumento == this.cmbTipoDocumento.Value.ToString() && x.estado == Estado.ACTIVO.ToString()).ToList();
+                if (lista.Count == 0)
+                {
+                    ConsecutivoDocElectronico consecutivo = new ConsecutivoDocElectronico();
+                    consecutivo.sucursal = ConsecutivoDocElectronico.DEFAULT_SUCURSAL;
+                    consecutivo.caja = ConsecutivoDocElectronico.DEFAULT_CAJA;
+                    consecutivo.digitoVerificador = ConsecutivoDocElectronico.DEFAULT_DIGITO_VERIFICADOR;
+                    consecutivo.emisor = emisor;
+                    consecutivo.tipoDocumento = this.cmbTipoDocumento.Value.ToString();
+                    consecutivo.consecutivo = 1;
+                    consecutivo.estado = Estado.ACTIVO.ToString();
+                    consecutivo.fechaCreacion = Date.DateTimeNow();
+                    conexion.ConsecutivoDocElectronico.Add(consecutivo);
+                    conexion.SaveChanges();
 
+                    lista = conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor &&
+                            x.tipoDocumento == this.cmbTipoDocumento.Value.ToString() && x.estado == Estado.ACTIVO.ToString()).ToList();
+                }
+
+                this.cmbSucursalCaja.Items.Clear();
+                foreach (var item in lista)
+                {
+                    this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}", item.sucursal, item.caja));
+                }
+                this.cmbSucursalCaja.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+
+
+
+            }
         }
     }
 }

@@ -12,6 +12,10 @@ namespace Web.Models.Facturacion
     [Table("fact_cosecutivo_doc_electronico")]
     public class ConsecutivoDocElectronico
     {
+        public static String DEFAULT_SUCURSAL = "001";
+        public static String DEFAULT_CAJA = "00001";
+        public static String DEFAULT_DIGITO_VERIFICADOR = "00000000";
+
         [Key]
         [Required]
         [MaxLength(12, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
@@ -37,6 +41,15 @@ namespace Web.Models.Facturacion
         [RegularExpression("\\d{5}", ErrorMessage = "La propiedad {0} solo debe tener valores numéricos")]
         [Display(Name = "Caja")]
         public string caja { set; get; }
+        
+        [Key]
+        [Required]
+        [Column(Order = 4)]
+        [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [MinLength(2, ErrorMessage = "La propiedad {0} no puede tener menos de {1} elementos")]
+        [RegularExpression("\\d{2}", ErrorMessage = "La propiedad {0} solo debe tener valores numéricos")]
+        [Display(Name = "Tipo Docuemnto")]
+        public string tipoDocumento { set; get; }
 
         [Required]
         [Display(Name = "Consecutivo")]
@@ -82,7 +95,7 @@ namespace Web.Models.Facturacion
         public virtual Usuario UsuarioModificacion { get; set; }
 
 
-        public string getClave(string tipoDocumento, string fechaDocumento)
+        public string getClave(string fechaDocumento)
         {
             string tipoEnvio = "";
             if ( fechaDocumento.CompareTo( Date.DateTimeNow().ToString("yyyyMMdd") ) < 0 )
@@ -95,7 +108,7 @@ namespace Web.Models.Facturacion
            
             string fecha = Date.DateTimeNow().ToString("ddMMyy");
             //506 080118 000603540974 001 00001 01 0000000018 1 88888888
-            return String.Format("506{0}{1}{2}{3}{4}{5}{6}88888888", fecha, this.emisor.PadLeft(12, '0'), this.sucursal, this.caja, tipoDocumento, this.consecutivo.ToString().PadLeft(10, '0'), tipoEnvio);
+            return String.Format("506{0}{1}{2}{3}{4}{5}{6}88888888", fecha, this.emisor.PadLeft(12, '0'), this.sucursal, this.caja, this.tipoDocumento, this.consecutivo.ToString().PadLeft(10, '0'), tipoEnvio);
         }
 
         /// <summary>
@@ -103,10 +116,10 @@ namespace Web.Models.Facturacion
         /// </summary>
         /// <param name="tipoDocumento">factura, nota credito, nota debito, tiquete</param>
         /// <returns></returns>
-        public string getConsecutivo(string tipoDocumento)
+        public string getConsecutivo()
         {
             //001 00001 01 0000000018 
-            return String.Format("{0}{1}{2}{3}",  this.sucursal, this.caja, tipoDocumento, this.consecutivo.ToString().PadLeft(10, '0'));
+            return String.Format("{0}{1}{2}{3}",  this.sucursal, this.caja, this.tipoDocumento, this.consecutivo.ToString().PadLeft(10, '0'));
         }
 
 

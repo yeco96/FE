@@ -74,6 +74,19 @@ namespace Web.Pages.Facturacion
             GridViewDataComboBoxColumn comboEstado = this.ASPxGridView1.Columns["estado"] as GridViewDataComboBoxColumn;
             comboEstado.PropertiesComboBox.Items.Clear();
             comboEstado.PropertiesComboBox.Items.AddRange(Enum.GetValues(typeof(Estado)));
+
+            /* TIPO DOCUMENTO */
+            using (var conexion = new DataModelFE())
+            {
+                GridViewDataComboBoxColumn comboTipoDocumento = this.ASPxGridView1.Columns["tipoDocumento"] as GridViewDataComboBoxColumn;
+                foreach (var item in conexion.TipoDocumento.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                {
+                    comboTipoDocumento.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
+                }
+                comboTipoDocumento.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+            } 
+            
+
         }
 
 
@@ -113,6 +126,8 @@ namespace Web.Pages.Facturacion
                     dato.emisor = e.NewValues["emisor"] != null ? e.NewValues["emisor"].ToString().ToUpper() : null;
                     dato.sucursal = e.NewValues["sucursal"] != null ? e.NewValues["sucursal"].ToString().PadLeft(3, '0') : "001";
                     dato.caja = e.NewValues["caja"] != null ? e.NewValues["caja"].ToString().PadLeft(3, '0') : "00001";
+                    dato.tipoDocumento = e.NewValues["tipoDocumento"] != null ? e.NewValues["tipoDocumento"].ToString() : "01";
+
                     dato.consecutivo = e.NewValues["consecutivo"] != null ? long.Parse(e.NewValues["consecutivo"].ToString()) : 0 ;
                     dato.digitoVerificador= e.NewValues["digitoVerificador"].ToString();
                     dato.estado = e.NewValues["estado"].ToString();
@@ -138,12 +153,7 @@ namespace Web.Pages.Facturacion
 
                 // Join the list to a single string.
                 var fullErrorMessage = string.Join("; ", errorMessages);
-
-                
-                
-
-                
-
+                 
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
 
@@ -176,9 +186,10 @@ namespace Web.Pages.Facturacion
                     dato.emisor = e.NewValues["emisor"] != null ? e.NewValues["emisor"].ToString().ToUpper() : null;
                     dato.sucursal = e.NewValues["sucursal"] != null ? e.NewValues["sucursal"].ToString().PadLeft(3, '0') : "001";
                     dato.caja = e.NewValues["caja"] != null ? e.NewValues["caja"].ToString().PadLeft(3,'0') : "00001";
-                     
+                    dato.tipoDocumento = e.NewValues["tipoDocumento"] != null ? e.NewValues["tipoDocumento"].ToString() : "01";
+
                     //busca el objeto  
-                    object[] key = new object[] { dato.emisor, dato.sucursal, dato.caja };
+                    object[] key = new object[] { dato.emisor, dato.sucursal, dato.caja, dato.tipoDocumento };
                     dato = conexion.ConsecutivoDocElectronico.Find(key);
 
                     dato.digitoVerificador = e.NewValues["digitoVerificador"].ToString();
@@ -238,9 +249,10 @@ namespace Web.Pages.Facturacion
                     dato.emisor = e.Values["emisor"] != null ? e.Values["emisor"].ToString().ToUpper() : null;
                     dato.sucursal = e.Values["sucursal"] != null ? e.Values["sucursal"].ToString().PadLeft(3, '0') : "001";
                     dato.caja = e.Values["caja"] != null ? e.Values["caja"].ToString().PadLeft(3, '0') : "00001";
+                    dato.tipoDocumento = e.Values["tipoDocumento"] != null ? e.Values["tipoDocumento"].ToString() : "01";
 
                     //busca el objeto  
-                    object[] key = new object[] { dato.emisor, dato.sucursal, dato.caja };
+                    object[] key = new object[] { dato.emisor, dato.sucursal, dato.caja, dato.tipoDocumento };
                     dato = conexion.ConsecutivoDocElectronico.Find(key); 
                     conexion.ConsecutivoDocElectronico.Remove(dato);
                     conexion.SaveChanges();
@@ -279,6 +291,7 @@ namespace Web.Pages.Facturacion
                 if (e.Column.FieldName == "emisor") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
                 if (e.Column.FieldName == "sucursal") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
                 if (e.Column.FieldName == "caja") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+                if (e.Column.FieldName == "tipoDocumento") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray; }
             }
 
         }

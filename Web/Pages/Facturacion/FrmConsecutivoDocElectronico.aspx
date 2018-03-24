@@ -30,6 +30,10 @@
                 <dx:GridViewDataTextColumn Caption="Caja" FieldName="caja" VisibleIndex="4" PropertiesTextEdit-MaxLength="5"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
+                 <dx:GridViewDataComboBoxColumn Caption="Tipo Documento" FieldName="tipoDocumento" VisibleIndex="4" PropertiesComboBox-MaxLength="5"
+                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataComboBoxColumn>
+
                  <dx:GridViewDataSpinEditColumn Caption="Consecutivo" FieldName="consecutivo" VisibleIndex="5" PropertiesSpinEdit-MaxLength="10"
                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataSpinEditColumn>

@@ -77,7 +77,7 @@
                                                 <Items>
                                                     <dx:MenuItem Text="INICIO" NavigateUrl="~/Pages/Home" />
                                                     <dx:MenuItem Text="BLOG" NavigateUrl="~/Pages/BlogTimeline" Visible="false" />
-                                                    <dx:MenuItem Text="LOGIN" NavigateUrl="~/Pages/Login" />
+                                                    <dx:MenuItem Text="INGRESO" NavigateUrl="~/Pages/Login" />
                                                       <dx:MenuItem Text="AYUDA" >
                                                         <Items>
                                                             <dx:MenuItem Text="CONTACTO" NavigateUrl="~/Pages/Contacts" />
