@@ -31,6 +31,7 @@
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
                  <dx:GridViewDataSpinEditColumn Caption="Porcentaje" FieldName="porcentaje" VisibleIndex="3"   PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="9999" PropertiesSpinEdit-DecimalPlaces="2"
+                     PropertiesSpinEdit-AllowMouseWheel="false"
                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataSpinEditColumn>  
                  
@@ -77,7 +78,7 @@
             <Templates>
                 <EditForm>
                     <div style="padding: 4px 4px 3px 4px">
-                        <dx:ASPxPageControl runat="server" ID="pageControl" Width="100%" Theme="Moderno">
+                        <dx:ASPxPageControl runat="server" ID="pageControl" Width="100%" Theme="MetropolisBlue">
                             <TabPages>
                                 <dx:TabPage Text="Datos" Visible="true">
                                     <ContentCollection>

@@ -26,7 +26,7 @@
                 <dx:GridViewDataTextColumn Caption="Nombre" FieldName="descripcion" VisibleIndex="3" PropertiesTextEdit-MaxLength="80" 
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataBinaryImageColumn Caption="Logo" FieldName="logo" VisibleIndex="10"  
+                <dx:GridViewDataBinaryImageColumn Caption="Logo" FieldName="logo" VisibleIndex="10" Visible="false" EditFormSettings-Visible="True"  
                     PropertiesBinaryImage-ValidationSettings-RequiredField-IsRequired="true" PropertiesBinaryImage-ValidationSettings-RequiredField-ErrorText="Requerido">
                     <EditItemTemplate>
                         <dx:ASPxBinaryImage ID="imgPreview" runat="server" Value='<%# Bind("logo") %>' Width="100px" Height="100px">
@@ -109,7 +109,7 @@
             <Templates>
                 <EditForm>
                     <div style="padding: 4px 4px 3px 4px">
-                        <dx:ASPxPageControl runat="server" ID="pageControl" Width="100%" Theme="Moderno">
+                        <dx:ASPxPageControl runat="server" ID="pageControl" Width="100%" Theme="MetropolisBlue">
                             <TabPages>
                                 <dx:TabPage Text="Datos" Visible="true">
                                     <ContentCollection>

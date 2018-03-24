@@ -220,6 +220,15 @@ namespace Web.Pages.Facturacion {
         protected global::DevExpress.Web.ASPxComboBox cmbSucursalCaja;
         
         /// <summary>
+        /// txtReceptor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxTextBox txtReceptor;
+        
+        /// <summary>
         /// cmbMedioPago control.
         /// </summary>
         /// <remarks>

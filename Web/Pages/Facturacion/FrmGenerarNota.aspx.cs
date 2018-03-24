@@ -1,4 +1,5 @@
-﻿using Class.Utilidades;
+﻿using Class.Seguridad;
+using Class.Utilidades;
 using DevExpress.Web;
 using System;
 using System.Collections.Generic;
@@ -476,10 +477,13 @@ namespace Web.Pages.Facturacion
             }
         }
 
-        protected void cmbTipoDocumento_ValueChanged(object sender, EventArgs e)
+        protected void btnCancelar_Click(object sender, EventArgs e)
         {
-           
-
+            Usuario usuario = (Usuario)Session["elUsuario"];
+            if (usuario.rol.Equals(Rol.FACTURADOR))
+                Response.Redirect("~/Pages/Facturacion/FrmAdministracionDocElectronico.aspx");
+            else
+                Response.Redirect("~/Pages/Facturacion/FrmAdministracionDocElectronicoAdmin.aspx");
         }
     }
 }

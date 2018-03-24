@@ -71,7 +71,7 @@
             <Templates>
                 <EditForm>
                     <div style="padding: 4px 4px 3px 4px">
-                        <dx:ASPxPageControl runat="server" ID="pageControl" Width="100%" Theme="Moderno">
+                        <dx:ASPxPageControl runat="server" ID="pageControl" Width="100%" Theme="MetropolisBlue">
                             <TabPages>
                                 <dx:TabPage Text="Datos" Visible="true">
                                     <ContentCollection>

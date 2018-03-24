@@ -1,12 +1,12 @@
 ﻿<%@ Page Async="true" Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmGenerarNota.aspx.cs" Inherits="Web.Pages.Facturacion.FrmGenerarNota" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
-     
-     <div class="text-box-title">
+
+    <div class="text-box-title">
         <div class="text-box-heading-title">Nota Electrónica</div>
-        <div class="arrow-down-title" style="margin-bottom: 5px;"></div>   
-     </div>  
-     
+        <div class="arrow-down-title" style="margin-bottom: 5px;"></div>
+    </div>
+
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel" runat="server" UpdateMode="Always" OnUnload="UpdatePanel_Unload">
         <ContentTemplate>
@@ -21,8 +21,8 @@
                             <dx:LayoutItem Caption="Tipo Documento">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
-                                        <dx:ASPxComboBox ID="cmbTipoDocumento" runat="server" Width="100%" AutoResizeWithContainer="true" ReadOnly="true"  ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
-                                             ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" >
+                                        <dx:ASPxComboBox ID="cmbTipoDocumento" runat="server" Width="100%" AutoResizeWithContainer="true" ReadOnly="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
+                                            ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido">
                                         </dx:ASPxComboBox>
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
@@ -54,7 +54,7 @@
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
                             </dx:LayoutItem>
-                              
+
                             <dx:LayoutItem Caption="Referencia">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
@@ -73,7 +73,7 @@
                                 </LayoutItemNestedControlCollection>
                             </dx:LayoutItem>
 
-                             <dx:LayoutItem Caption="Fecha">
+                            <dx:LayoutItem Caption="Fecha">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
                                         <dx:ASPxTextBox ID="txtFechaEmisor" runat="server" Width="100%" AutoResizeWithContainer="true" Enabled="false" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
@@ -81,7 +81,7 @@
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
                             </dx:LayoutItem>
-                        
+
 
                             <dx:LayoutItem Caption="Emisor" ColSpan="3" Width="100%">
                                 <LayoutItemNestedControlCollection>
@@ -93,7 +93,7 @@
                             </dx:LayoutItem>
 
 
-                            <dx:LayoutItem Caption="Receptor"  ColSpan="3" Width="100%">
+                            <dx:LayoutItem Caption="Receptor" ColSpan="3" Width="100%">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
                                         <dx:ASPxLabel ID="txtNombreReceptor" runat="server">
@@ -102,10 +102,10 @@
                                 </LayoutItemNestedControlCollection>
                             </dx:LayoutItem>
 
-                            <dx:LayoutItem Caption="Correo electrónico"  ColSpan="3" Width="100%">
+                            <dx:LayoutItem Caption="Correo electrónico" ColSpan="3" Width="100%">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
-                                        <dx:ASPxTokenBox ID="txtCorreoReceptor" runat="server" Width="100%" AutoResizeWithContainer="true" >
+                                        <dx:ASPxTokenBox ID="txtCorreoReceptor" runat="server" Width="100%" AutoResizeWithContainer="true">
                                             <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ErrorText="Requerido">
                                                 <RequiredField IsRequired="true" />
                                             </ValidationSettings>
@@ -224,7 +224,7 @@
                 <Templates>
                     <EditForm>
                         <div style="padding: 4px 4px 3px 4px">
-                            <dx:ASPxPageControl runat="server" ID="pageControl" Width="100%" Theme="Moderno">
+                            <dx:ASPxPageControl runat="server" ID="pageControl" Width="100%" Theme="MetropolisBlue">
                                 <TabPages>
                                     <dx:TabPage Text="Datos" Visible="true">
                                         <ContentCollection>
@@ -249,8 +249,10 @@
 
 
 
-            <dx:ASPxButton runat="server" ID="btnCrearNota" Text="Crear Nota" OnClick="btnCrearNota_Click" CausesValidation="true"></dx:ASPxButton>
-
+            <div class="text-center">
+                <dx:ASPxButton runat="server" ID="btnCrearNota" Text="Crear Nota" OnClick="btnCrearNota_Click" CausesValidation="true" Image-Url="~/Content/Images/check.png"></dx:ASPxButton>
+                <dx:ASPxButton runat="server" ID="btnCancelar" Text="Cancelar" OnClick="btnCancelar_Click" Image-Url="~/Content/Images/cancel.png"></dx:ASPxButton>
+            </div>
 
         </ContentTemplate>
     </asp:UpdatePanel>

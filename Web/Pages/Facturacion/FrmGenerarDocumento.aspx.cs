@@ -434,29 +434,36 @@ namespace Web.Pages.Facturacion
             this.cmbReceptorTipo.Value = emisor.identificacionTipo;
             this.txtReceptorIdentificacion.Text = emisor.identificacion;
             this.txtReceptorNombre.Text = emisor.nombre;
-            this.txtReceptorNombreComercial.Text = emisor.nombreComercial.ToUpper();
-
+            this.txtReceptor.Text = emisor.nombre;
+            if (emisor.nombreComercial != null)
+            {
+                this.txtReceptorNombreComercial.Text = emisor.nombreComercial.ToUpper();
+            }
             this.cmbReceptorTelefonoCod.Value = emisor.telefonoCodigoPais;
             this.cmbReceptorFaxCod.Value = emisor.faxCodigoPais;
             this.txtReceptorTelefono.Value = emisor.telefono;
             this.txtReceptorFax.Value = emisor.fax;
-            this.txtReceptorCorreo.Text = emisor.correoElectronico.ToLower();
-
-            this.cmbReceptorProvincia.Value = emisor.provincia.ToUpper();
+            if (emisor.correoElectronico != null)
+            {
+                this.txtReceptorCorreo.Text = emisor.correoElectronico.ToLower();
+            }
+            this.cmbReceptorProvincia.Value = emisor.provincia;
 
             if (emisor.provincia != null)
             {
                 this.cmbReceptorProvincia_ValueChanged(null, null);
-                this.cmbReceptorCanton.Value = emisor.canton.ToUpper();
+                this.cmbReceptorCanton.Value = emisor.canton;
 
                 this.cmbReceptorCanton_ValueChanged(null, null);
-                this.cmbReceptorDistrito.Value = emisor.distrito.ToUpper();
+                this.cmbReceptorDistrito.Value = emisor.distrito;
 
                 this.cmbReceptorDistrito_ValueChanged(null, null);
-                this.cmbReceptorBarrio.Value = emisor.barrio.ToUpper();
+                this.cmbReceptorBarrio.Value = emisor.barrio;
             }
-            this.txtReceptorOtraSenas.Value = emisor.otraSena.ToUpper();
-
+            if (emisor.otraSena != null)
+            {
+                this.txtReceptorOtraSenas.Value = emisor.otraSena.ToUpper();
+            }
         }
 
         protected void cmbReceptorProvincia_ValueChanged(object sender, EventArgs e)

@@ -148,6 +148,15 @@ namespace Web.Pages.Facturacion {
         protected global::DevExpress.Web.ASPxButton btnCrearNota;
         
         /// <summary>
+        /// btnCancelar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnCancelar;
+        
+        /// <summary>
         /// UpdateProgress1 control.
         /// </summary>
         /// <remarks>

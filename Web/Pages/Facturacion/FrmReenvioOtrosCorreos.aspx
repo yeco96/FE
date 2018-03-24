@@ -2,11 +2,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 
-     <div class="text-box-title">
-        <div class="text-box-heading-title"> Reenvio Documento Electrónico</div>
-        <div class="arrow-down-title" style="margin-bottom: 5px;"></div>   
-     </div>  
-      
+    <div class="text-box-title">
+        <div class="text-box-heading-title">Reenvio Documento Electrónico</div>
+        <div class="arrow-down-title" style="margin-bottom: 5px;"></div>
+    </div>
+
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel" runat="server" UpdateMode="Always" OnUnload="UpdatePanel_Unload">
         <ContentTemplate>
@@ -175,8 +175,10 @@
                     <Settings ShowFooter="true" />
                 </dx:ASPxGridView>
                 <br />
-                <dx:ASPxButton runat="server" ID="btnEnviarCorreo" Text="Enviar" OnClick="btnEnviarCorreo_Click" ></dx:ASPxButton>
-                <dx:ASPxButton runat="server" ID="btnRecresar" Text="Regresar" OnClick="btnRecresar_Click" ></dx:ASPxButton>
+                <div class="text-center">
+                    <dx:ASPxButton runat="server" ID="btnEnviarCorreo" Text="Enviar" OnClick="btnEnviarCorreo_Click" Image-Url="~/Content/Images/check.png"></dx:ASPxButton>
+                    <dx:ASPxButton runat="server" ID="btnRecresar" Text="Cancelar" OnClick="btnRecresar_Click" Image-Url="~/Content/Images/cancel.png"></dx:ASPxButton>
+                </div>
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>

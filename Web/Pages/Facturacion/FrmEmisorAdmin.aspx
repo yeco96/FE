@@ -38,7 +38,7 @@
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
 
-                <dx:GridViewDataTextColumn Caption="Nombre Comercial" FieldName="nombreComercial" VisibleIndex="6" PropertiesTextEdit-MaxLength="80"
+                <dx:GridViewDataTextColumn Caption="Nombre Comercial" FieldName="nombreComercial" VisibleIndex="6" PropertiesTextEdit-MaxLength="80" EditFormSettings-Visible="True" Visible="false"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
 
@@ -119,7 +119,7 @@
             <Templates>
                 <EditForm>
                     <div style="padding: 4px 4px 3px 4px">
-                        <dx:ASPxPageControl runat="server" ID="pageControl" Width="100%" Theme="Moderno">
+                        <dx:ASPxPageControl runat="server" ID="pageControl" Width="100%" Theme="MetropolisBlue">
                             <TabPages>
                                 <dx:TabPage Text="Datos" Visible="true">
                                     <ContentCollection>

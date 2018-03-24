@@ -95,7 +95,7 @@
 
 
                                     <SettingsBehavior ColumnResizeMode="NextColumn" />
-                                    <Settings  ShowFooter="True" ShowFilterBar="Visible" ShowFilterRow="true" />
+                                    <Settings  ShowFooter="false" ShowFilterBar="Hidden" ShowFilterRow="true" />
                                     <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="false" ConfirmDelete="True" ProcessSelectionChangedOnServer="True" AllowSelectSingleRowOnly="true" />
                                     <SettingsPager PageSize="10" PageSizeItemSettings-Visible="true" PageSizeItemSettings-Items="10, 20, 50, 100" >
                                    
@@ -103,9 +103,9 @@
                                         </PageSizeItemSettings>
                                     </SettingsPager>
                                    
-                                    <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="True" ShowFilterRow="True" ShowTitlePanel="True" UseFixedTableLayout="True" />
+                                    <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="false" ShowFilterRow="True" ShowTitlePanel="True" UseFixedTableLayout="True" />
                                     <SettingsContextMenu EnableColumnMenu="True" Enabled="True" EnableFooterMenu="True" EnableGroupPanelMenu="True" EnableRowMenu="True" />
-                                    <SettingsDataSecurity AllowDelete="false" AllowInsert="false" AllowEdit="true" />
+                                    <SettingsDataSecurity AllowDelete="false" AllowInsert="false" AllowEdit="false" />
                                     <SettingsCommandButton>
                                         <SelectButton Image-ToolTip="Seleccionar" Image-Url="~/Content/Images/search1.png" > 
                                             <Image ToolTip="Seleccionar" Url="~/Content/Images/search1.png">
@@ -589,9 +589,10 @@
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
 
-                                                <dx:LayoutItem Caption="">
+                                                <dx:LayoutItem Caption="Cliente">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
+                                                            <dx:ASPxTextBox  runat="server" ID="txtReceptor" ReadOnly="true" BackColor="#d9edf7" ></dx:ASPxTextBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
@@ -952,9 +953,9 @@
                 </TabPages>
             </dx:ASPxPageControl>
 
-
-            <dx:ASPxButton runat="server" ID="btnFacturar" Text="Facturar" OnClick="btnFacturar_Click" CausesValidation="true"></dx:ASPxButton>
-
+               <div class="text-center">
+            <dx:ASPxButton runat="server" ID="btnFacturar" Text="Facturar" OnClick="btnFacturar_Click" CausesValidation="true" Image-Url="~/Content/Images/check.png"></dx:ASPxButton>
+                   </div>
         </ContentTemplate>
     </asp:UpdatePanel>
 

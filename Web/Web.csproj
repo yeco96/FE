@@ -149,12 +149,12 @@
     <Content Include="Content\Images\actas.png" />
     <Content Include="Content\Images\add.png" />
     <Content Include="Content\Images\acept.png" />
-    <Content Include="Content\Images\banner.jpg" />
     <Content Include="Content\Images\Blog\image0.png" />
     <Content Include="Content\Images\Blog\image1.png" />
     <Content Include="Content\Images\Blog\image2.png" />
     <Content Include="Content\Images\Blog\image3.png" />
     <Content Include="Content\Images\cancel.png" />
+    <Content Include="Content\Images\check.png" />
     <Content Include="Content\Images\Components\01 factura digital.jpg" />
     <Content Include="Content\Images\Components\02 factura digital.jpg" />
     <Content Include="Content\Images\Components\03 factura digital.jpg" />
@@ -177,12 +177,9 @@
     <Content Include="Content\Images\Customers\RafaelRaje.jpg" />
     <Content Include="Content\Images\edit.png" />
     <Content Include="Content\Images\help.png" />
+    <Content Include="Content\Images\invoice.png" />
     <Content Include="Content\Images\loadUser.png" />
     <Content Include="Content\Images\logo.png" />
-    <Content Include="Content\Images\logo_azul.jpg" />
-    <Content Include="Content\Images\logo_banner.png" />
-    <Content Include="Content\Images\logo_banner1.png" />
-    <Content Include="Content\Images\logo_banner2.png" />
     <Content Include="Content\Images\nota_credito.png" />
     <Content Include="Content\Images\nota_debito.png" />
     <Content Include="Content\Images\open-file.png" />
