@@ -19,7 +19,9 @@
                 <TabPages>
                   
 
-                      <dx:TabPage Text="Favoritos">
+                      <dx:TabPage Text="Favoritos" >
+                          <TabImage Url="~/Content/Images/Customers/Favorite_32_32.png">
+                          </TabImage>
                         <ContentCollection>
                             <dx:ContentControl runat="server">
 
@@ -136,6 +138,8 @@
                     </dx:TabPage>
 
                       <dx:TabPage Text="Cliente">
+                          <TabImage Url="~/Content/Images/Cliente.png">
+                          </TabImage>
                         <ContentCollection>
                             <dx:ContentControl runat="server">
 
@@ -411,6 +415,8 @@
                         </ContentCollection>
                     </dx:TabPage>
                     <dx:TabPage Text="Referencias">
+                        <TabImage Url="~/Content/Images/Customers/Reference_32_32.png">
+                        </TabImage>
                         <ContentCollection>
                             <dx:ContentControl runat="server">
 
@@ -552,6 +558,8 @@
                     </dx:TabPage>
 
                     <dx:TabPage Text="Factura">
+                        <TabImage Url="~/Content/Images/Customers/Invoice_32_32.png">
+                        </TabImage>
                         <ContentCollection>
                             <dx:ContentControl runat="server">
 
@@ -589,10 +597,10 @@
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
 
-                                                <dx:LayoutItem Caption="Cliente">
+                                                                                                <dx:LayoutItem Caption="Cliente">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
-                                                            <dx:ASPxTextBox  runat="server" ID="txtReceptor" ReadOnly="true" BackColor="#d9edf7" ></dx:ASPxTextBox>
+                                                            <dx:ASPxTextBox  runat="server" ID="txtReceptor" ReadOnly="true" BackColor="#d9edf7" Width="100%"></dx:ASPxTextBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
