@@ -192,7 +192,7 @@ namespace Web.Pages.Facturacion
                 if (!string.IsNullOrWhiteSpace(this.txtReceptorNombreComercial.Text))
                     receptor.nombreComercial = this.txtReceptorNombreComercial.Text.ToUpper();
 
-                if (this.cmbReceptorTelefonoCod != null)
+                if (this.cmbReceptorTelefonoCod.Value != null)
                 {
                     receptor.telefonoCodigoPais = this.cmbReceptorTelefonoCod.Value.ToString();
                     receptor.telefono = this.txtReceptorTelefono.Value.ToString();
@@ -200,7 +200,7 @@ namespace Web.Pages.Facturacion
 
                 if (!string.IsNullOrWhiteSpace(this.txtReceptorCorreo.Text))
                 {
-                    receptor.correoElectronico = this.txtReceptorCorreo.Text;
+                    receptor.correoElectronico = this.txtReceptorCorreo.Text.ToLower();
                 }
 
                 if (this.cmbReceptorFaxCod.Value != null)
@@ -1117,7 +1117,7 @@ namespace Web.Pages.Facturacion
 
                     dato.receptor.identificacion.tipo = elReceptor.identificacionTipo;
                     dato.receptor.identificacion.numero = elReceptor.identificacion;
-                    dato.receptor.nombre = elReceptor.nombre.ToUpper();
+                    dato.receptor.nombre = elReceptor.nombre;
                     dato.receptor.nombreComercial = elReceptor.nombreComercial;
 
                     dato.receptor.telefono.codigoPais = elReceptor.telefonoCodigoPais;
@@ -1125,13 +1125,13 @@ namespace Web.Pages.Facturacion
 
                     dato.receptor.fax.codigoPais = elReceptor.faxCodigoPais;
                     dato.receptor.fax.numTelefono = elReceptor.fax;
-                    dato.receptor.correoElectronico = elReceptor.correoElectronico.ToLower();
+                    dato.receptor.correoElectronico = elReceptor.correoElectronico;
 
-                    dato.receptor.ubicacion.provincia = elReceptor.provincia.ToUpper();
-                    dato.receptor.ubicacion.canton = elReceptor.canton.ToUpper();
-                    dato.receptor.ubicacion.distrito = elReceptor.distrito.ToUpper();
-                    dato.receptor.ubicacion.barrio = elReceptor.barrio.ToUpper();
-                    dato.receptor.ubicacion.otrassenas = elReceptor.otraSena.ToUpper();
+                    dato.receptor.ubicacion.provincia = elReceptor.provincia;
+                    dato.receptor.ubicacion.canton = elReceptor.canton;
+                    dato.receptor.ubicacion.distrito = elReceptor.distrito;
+                    dato.receptor.ubicacion.barrio = elReceptor.barrio;
+                    dato.receptor.ubicacion.otrassenas = elReceptor.otraSena;
 
                     dato.receptor.verificar();
                     if (!string.IsNullOrWhiteSpace(elReceptor.identificacion))
