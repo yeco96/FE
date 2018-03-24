@@ -7,6 +7,7 @@ namespace Class.Utilidades
 {
     public class ProperCase
     {
+
         public static string ToProperCase(string s)
         {
             if (s == null) return s;
@@ -26,5 +27,6 @@ namespace Class.Utilidades
             }
             return string.Join(" ", words);
         }
+        
     }
 }

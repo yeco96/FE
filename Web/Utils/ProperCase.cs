@@ -26,5 +26,18 @@ namespace Class.Utilidades
             }
             return string.Join(" ", words);
         }
+
+        public static string ToTitleCase(string str)
+        {
+            if (!ReferenceEquals(null, str))
+            {
+                var cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+                return cultureInfo.TextInfo.ToTitleCase(str.ToLower());
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
     }
 }
