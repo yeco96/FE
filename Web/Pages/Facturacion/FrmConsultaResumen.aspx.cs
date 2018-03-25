@@ -55,7 +55,7 @@ namespace Web.Pages.Facturacion
             using (var conexion = new DataModelFE())
             {
                 /* TIPO DOCUMENTO */
-                GridViewDataComboBoxColumn comboTipoDocumento = this.ASPxGridView1.Columns["tipoDocumento"] as GridViewDataComboBoxColumn;
+                GridViewDataComboBoxColumn comboTipoDocumento = this.dgvDatos.Columns["tipoDocumento"] as GridViewDataComboBoxColumn;
                 foreach (var item in conexion.TipoDocumento.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
                 {
                     comboTipoDocumento.PropertiesComboBox.Items.Add(item.descripcion.Replace("ELECTRÓNICA", ""), item.codigo);
@@ -88,9 +88,9 @@ namespace Web.Pages.Facturacion
                 {
                     item.verificaTipoDocumentoCambioMoneda(this.chkCambioMoneda.Checked);
                 }
-                this.ASPxGridView1.DataSource = lista;
+                this.dgvDatos.DataSource = lista;
 
-                this.ASPxGridView1.DataBind();
+                this.dgvDatos.DataBind();
             }
         }
 
@@ -101,6 +101,19 @@ namespace Web.Pages.Facturacion
 
         protected void btnReporte_Click(object sender, EventArgs e)
         {
+
+            //Recorremos el Grid
+            for (int i = 0; i < dgvDatos.VisibleRowCount; i++)
+            {
+                object registros = dgvDatos.GetRowValues(i, new String[] { "codigoMoneda" });
+                //object registros = dgvDatos.GetRowValues(i, new String[] { dgvDatos.KeyFieldName });
+
+            }
+
+
+
+
+
             Response.Redirect("~/Pages/Reportes/FrmReporteDocumentoResumen.aspx");
         }
     }

@@ -57,11 +57,11 @@
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
                      
-                    <dx:LayoutItem Caption=" " ClientVisible="false">
+                    <dx:LayoutItem Caption=" " ClientVisible="true">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
                                  <dx:ASPxButton ID="btnReporte" runat="server" Text="Reporte" Width="80px" Image-Url="~/Content/Images/search1.png" Image-Height="20px"
-                                      CausesValidation="true"  OnClick="btnReporte_Click" >  
+                                      CausesValidation="true"  OnClick="btnReporte_Click"  >  
                                  </dx:ASPxButton>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
@@ -73,7 +73,7 @@
     </dx:ASPxFormLayout>
 
     <div class="borde_redondo_tabla">
-        <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
+        <dx:ASPxGridView ID="dgvDatos" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
             Width="100%" EnableTheming="True" KeyFieldName="clave" Theme="Moderno">
             <Columns>
                 <dx:GridViewDataComboBoxColumn  Caption="Tipo Documento" FieldName="tipoDocumento" VisibleIndex="1" >

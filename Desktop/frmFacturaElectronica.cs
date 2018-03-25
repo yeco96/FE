@@ -25,5 +25,10 @@ namespace Desktop
         {
             Application.Exit();
         }
+
+        private void consuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
