@@ -180,54 +180,54 @@ namespace Web.Pages.Facturacion
         public EmisorReceptorIMEC crearModificarReceptor(EmisorReceptorIMEC receptor)
         {
             try
-            {
-
-                if (this.cmbReceptorTipo.Value != null)
+            { 
+                
+                if ( ((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value != null)
                 {
-                    receptor.identificacionTipo = this.cmbReceptorTipo.Value.ToString();
+                    receptor.identificacionTipo = ((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value.ToString();
                 }
-                if (!string.IsNullOrWhiteSpace(this.txtReceptorNombre.Text))
-                    receptor.nombre = this.txtReceptorNombre.Text.ToUpper();
+                if (!string.IsNullOrWhiteSpace(((ASPxTextBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorNombre")).Text))
+                    receptor.nombre = ((ASPxTextBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorNombre")).Text.ToUpper();
 
-                if (!string.IsNullOrWhiteSpace(this.txtReceptorNombreComercial.Text))
-                    receptor.nombreComercial = this.txtReceptorNombreComercial.Text.ToUpper();
+                if (!string.IsNullOrWhiteSpace(((ASPxTextBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorNombreComercial")).Text))
+                    receptor.nombreComercial = ((ASPxTextBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorNombreComercial")).Text.ToUpper();
 
-                if (this.cmbReceptorTelefonoCod != null)
+                if (((ASPxComboBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("cmbReceptorTelefonoCod")).Value != null)
                 {
-                    receptor.telefonoCodigoPais = this.cmbReceptorTelefonoCod.Value.ToString();
-                    receptor.telefono = this.txtReceptorTelefono.Value.ToString();
-                }
-
-                if (!string.IsNullOrWhiteSpace(this.txtReceptorCorreo.Text))
-                {
-                    receptor.correoElectronico = this.txtReceptorCorreo.Text;
+                    receptor.telefonoCodigoPais = ((ASPxComboBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("cmbReceptorTelefonoCod")).Value.ToString();
+                    receptor.telefono = ((ASPxSpinEdit)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("txtReceptorTelefono")).Value.ToString();
                 }
 
-                if (this.cmbReceptorFaxCod.Value != null)
+                if (!string.IsNullOrWhiteSpace(((ASPxTextBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("txtReceptorCorreo")).Text))
                 {
-                    receptor.faxCodigoPais = this.cmbReceptorFaxCod.Value.ToString();
-                    receptor.fax = this.txtReceptorFax.Value.ToString();
+                    receptor.correoElectronico = ((ASPxTextBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("txtReceptorCorreo")).Text.ToLower();
                 }
 
-                if (this.cmbReceptorProvincia.Value != null)
+                if (((ASPxComboBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("cmbReceptorFaxCod")).Value != null)
                 {
-                    receptor.provincia = this.cmbReceptorProvincia.Value.ToString();
+                    receptor.faxCodigoPais = ((ASPxComboBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("cmbReceptorFaxCod")).Value.ToString();
+                    receptor.fax = ((ASPxSpinEdit)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("txtReceptorFax")).Value.ToString();
                 }
-                if (this.cmbReceptorCanton.Value != null)
+
+                if (((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorProvincia")).Value != null)
                 {
-                    receptor.canton = this.cmbReceptorCanton.Value.ToString();
+                    receptor.provincia = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorProvincia")).Value.ToString();
                 }
-                if (this.cmbReceptorDistrito.Value != null)
+                if (((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorCanton")).Value != null)
                 {
-                    receptor.distrito = this.cmbReceptorDistrito.Value.ToString();
+                    receptor.canton = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorCanton")).Value.ToString();
                 }
-                if (this.cmbReceptorBarrio.Value != null)
+                if (((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorDistrito")).Value != null)
                 {
-                    receptor.barrio = this.cmbReceptorBarrio.Value.ToString();
+                    receptor.distrito = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorDistrito")).Value.ToString();
                 }
-                if (!string.IsNullOrWhiteSpace(this.txtReceptorOtraSenas.Text))
+                if (((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorBarrio")).Value != null)
                 {
-                    receptor.otraSena = this.txtReceptorOtraSenas.Text.ToUpper();
+                    receptor.barrio = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorBarrio")).Value.ToString();
+                }
+                if (!string.IsNullOrWhiteSpace(((ASPxMemo)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("txtReceptorOtraSenas")).Text))
+                {
+                    receptor.otraSena = ((ASPxMemo)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("txtReceptorOtraSenas")).Text.ToUpper();
                 }
 
 
@@ -239,6 +239,8 @@ namespace Web.Pages.Facturacion
             }
             return receptor;
         }
+
+         
 
         protected void UpdatePanel_Unload(object sender, EventArgs e)
         {
@@ -325,41 +327,39 @@ namespace Web.Pages.Facturacion
         private void loadComboBox()
         {
             using (var conexion = new DataModelFE())
-            {
+            { 
 
                 /* EMISOR */
                 string emisor = Session["emisor"].ToString();
-                
-                  
-
+                 
                 /* IDENTIFICACION TIPO */
                 GridViewDataComboBoxColumn comboIdentificacionTipo = this.ASPxGridViewClientes.Columns["identificacionTipo"] as GridViewDataComboBoxColumn;
                 foreach (var item in conexion.TipoIdentificacion.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
                 {
-                    this.cmbReceptorTipo.Items.Add(item.descripcion, item.codigo);
+                    ((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Items.Add(item.descripcion, item.codigo);
                     comboIdentificacionTipo.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
                 }
-                this.cmbReceptorTipo.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                ((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
 
                 /* CODIGO PAIS */
                 foreach (var item in conexion.CodigoPais.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
                 {
 
-                    this.cmbReceptorTelefonoCod.Items.Add(item.descripcion, item.codigo);
-                    this.cmbReceptorFaxCod.Items.Add(item.descripcion, item.codigo);
+                    ((ASPxComboBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("cmbReceptorTelefonoCod")).Items.Add(item.descripcion, item.codigo);
+                    ((ASPxComboBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("cmbReceptorFaxCod")).Items.Add(item.descripcion, item.codigo);
                 }
 
-                this.cmbReceptorTelefonoCod.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-                this.cmbReceptorFaxCod.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                ((ASPxComboBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("cmbReceptorTelefonoCod")).IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                ((ASPxComboBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("cmbReceptorFaxCod")).IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
 
                 /* PROVINCIA*/
                 foreach (var item in conexion.Ubicacion.Select(x => new { x.codProvincia, x.nombreProvincia }).Distinct())
                 {
-                    this.cmbReceptorProvincia.Items.Add(item.nombreProvincia, item.codProvincia);
+                    ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorProvincia")).Items.Add(item.nombreProvincia, item.codProvincia);
                 }
-                this.cmbReceptorProvincia.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorProvincia")).IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
                 /* MEDIO PAGO */
                 foreach (var item in conexion.MedioPago.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
@@ -430,73 +430,100 @@ namespace Web.Pages.Facturacion
         }
 
         private void loadReceptor(EmisorReceptorIMEC emisor)
-        {
-            this.cmbReceptorTipo.Value = emisor.identificacionTipo;
-            this.txtReceptorIdentificacion.Text = emisor.identificacion;
-            this.txtReceptorNombre.Text = emisor.nombre;
-            this.txtReceptor.Text = emisor.nombre;
+        { 
+
+            ASPxComboBox cmbReceptorTipo = ((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo"));
+            ASPxSpinEdit txtReceptorIdentificacion = ((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion"));
+            ASPxTextBox txtReceptorNombre = ((ASPxTextBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorNombre"));
+            ASPxTextBox txtReceptorNombreComercial = ((ASPxTextBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorNombreComercial"));
+
+            ASPxComboBox cmbReceptorTelefonoCod = ((ASPxComboBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("cmbReceptorTelefonoCod"));
+            ASPxComboBox cmbReceptorFaxCod = ((ASPxComboBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("cmbReceptorFaxCod"));
+            ASPxSpinEdit txtReceptorTelefono = ((ASPxSpinEdit)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("txtReceptorTelefono"));
+            ASPxSpinEdit txtReceptorFax = ((ASPxSpinEdit)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("txtReceptorFax"));
+            ASPxTextBox txtReceptorCorreo = ((ASPxTextBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("txtReceptorCorreo"));
+
+            ASPxComboBox cmbReceptorProvincia = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorProvincia"));
+            ASPxComboBox cmbReceptorCanton = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorCanton"));
+            ASPxComboBox cmbReceptorDistrito = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorDistrito"));
+            ASPxComboBox cmbReceptorBarrio = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorBarrio"));
+            ASPxMemo txtReceptorOtraSenas = ((ASPxMemo)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("txtReceptorOtraSenas"));
+            
+
+            cmbReceptorTipo.Value = emisor.identificacionTipo;
+            txtReceptorIdentificacion.Text = emisor.identificacion;
+            txtReceptorNombre.Text = emisor.nombre;
+            txtReceptor.Text = emisor.nombre;
             if (emisor.nombreComercial != null)
             {
-                this.txtReceptorNombreComercial.Text = emisor.nombreComercial.ToUpper();
+                txtReceptorNombreComercial.Text = emisor.nombreComercial.ToUpper();
             }
-            this.cmbReceptorTelefonoCod.Value = emisor.telefonoCodigoPais;
-            this.cmbReceptorFaxCod.Value = emisor.faxCodigoPais;
-            this.txtReceptorTelefono.Value = emisor.telefono;
-            this.txtReceptorFax.Value = emisor.fax;
+            cmbReceptorTelefonoCod.Value = emisor.telefonoCodigoPais;
+            cmbReceptorFaxCod.Value = emisor.faxCodigoPais;
+            txtReceptorTelefono.Value = emisor.telefono;
+            txtReceptorFax.Value = emisor.fax;
             if (emisor.correoElectronico != null)
             {
-                this.txtReceptorCorreo.Text = emisor.correoElectronico.ToLower();
+                txtReceptorCorreo.Text = emisor.correoElectronico.ToLower();
             }
-            this.cmbReceptorProvincia.Value = emisor.provincia;
+            cmbReceptorProvincia.Value = emisor.provincia;
 
             if (emisor.provincia != null)
             {
-                this.cmbReceptorProvincia_ValueChanged(null, null);
-                this.cmbReceptorCanton.Value = emisor.canton;
+                cmbReceptorProvincia_ValueChanged(null, null);
+                cmbReceptorCanton.Value = emisor.canton;
 
-                this.cmbReceptorCanton_ValueChanged(null, null);
-                this.cmbReceptorDistrito.Value = emisor.distrito;
+                cmbReceptorCanton_ValueChanged(null, null);
+                cmbReceptorDistrito.Value = emisor.distrito;
 
-                this.cmbReceptorDistrito_ValueChanged(null, null);
-                this.cmbReceptorBarrio.Value = emisor.barrio;
+                cmbReceptorDistrito_ValueChanged(null, null);
+                cmbReceptorBarrio.Value = emisor.barrio;
             }
             if (emisor.otraSena != null)
             {
-                this.txtReceptorOtraSenas.Value = emisor.otraSena.ToUpper();
+                txtReceptorOtraSenas.Value = emisor.otraSena.ToUpper();
             }
         }
 
         protected void cmbReceptorProvincia_ValueChanged(object sender, EventArgs e)
-        {
+        { 
+            ASPxComboBox cmbReceptorProvincia = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorProvincia"));
+            ASPxComboBox cmbReceptorCanton = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorCanton"));
+            ASPxComboBox cmbReceptorDistrito = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorDistrito")); 
+
             using (var conexion = new DataModelFE())
             {
-                this.cmbReceptorDistrito.SelectedItem = null;
-                this.cmbReceptorDistrito.Items.Clear();
-                this.cmbReceptorCanton.SelectedItem = null;
+                cmbReceptorDistrito.SelectedItem = null;
+                cmbReceptorDistrito.Items.Clear();
+                cmbReceptorCanton.SelectedItem = null;
 
-                this.cmbReceptorCanton.Items.Clear();
-                foreach (var item in conexion.Ubicacion.Where(x => x.codProvincia == this.cmbReceptorProvincia.Value.ToString()).Select(x => new { x.codCanton, x.nombreCanton }).Distinct())
+                cmbReceptorCanton.Items.Clear();
+                foreach (var item in conexion.Ubicacion.Where(x => x.codProvincia == cmbReceptorProvincia.Value.ToString()).Select(x => new { x.codCanton, x.nombreCanton }).Distinct())
                 {
-                    this.cmbReceptorCanton.Items.Add(item.nombreCanton, item.codCanton);
+                    cmbReceptorCanton.Items.Add(item.nombreCanton, item.codCanton);
                 }
-                this.cmbReceptorCanton.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                cmbReceptorCanton.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             }
         }
 
         protected void cmbReceptorCanton_ValueChanged(object sender, EventArgs e)
         {
             using (var conexion = new DataModelFE())
-            {
-                this.cmbReceptorDistrito.SelectedItem = null;
-                this.cmbReceptorDistrito.Items.Clear();
+            { 
+                ASPxComboBox cmbReceptorProvincia = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorProvincia"));
+                ASPxComboBox cmbReceptorCanton = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorCanton"));
+                ASPxComboBox cmbReceptorDistrito = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorDistrito")); 
+
+                cmbReceptorDistrito.SelectedItem = null;
+                cmbReceptorDistrito.Items.Clear();
                 foreach (var item in conexion.Ubicacion.
-                    Where(x => x.codProvincia == this.cmbReceptorProvincia.Value.ToString()).
-                    Where(x => x.codCanton == this.cmbReceptorCanton.Value.ToString()).
+                    Where(x => x.codProvincia == cmbReceptorProvincia.Value.ToString()).
+                    Where(x => x.codCanton == cmbReceptorCanton.Value.ToString()).
                     Select(x => new { x.codDistrito, x.nombreDistrito }).Distinct())
                 {
-                    this.cmbReceptorDistrito.Items.Add(item.nombreDistrito, item.codDistrito);
+                    cmbReceptorDistrito.Items.Add(item.nombreDistrito, item.codDistrito);
                 }
-                this.cmbReceptorDistrito.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                cmbReceptorDistrito.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             }
         }
 
@@ -504,17 +531,23 @@ namespace Web.Pages.Facturacion
         {
             using (var conexion = new DataModelFE())
             {
-                this.cmbReceptorBarrio.SelectedItem = null;
-                this.cmbReceptorBarrio.Items.Clear();
+                 
+                ASPxComboBox cmbReceptorProvincia = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorProvincia"));
+                ASPxComboBox cmbReceptorCanton = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorCanton"));
+                ASPxComboBox cmbReceptorDistrito = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorDistrito"));
+                ASPxComboBox cmbReceptorBarrio = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorBarrio")); 
+
+                cmbReceptorBarrio.SelectedItem = null;
+                cmbReceptorBarrio.Items.Clear();
                 foreach (var item in conexion.Ubicacion.
-                    Where(x => x.codProvincia == this.cmbReceptorProvincia.Value.ToString()).
-                    Where(x => x.codCanton == this.cmbReceptorCanton.Value.ToString()).
-                     Where(x => x.codDistrito == this.cmbReceptorDistrito.Value.ToString()).
+                    Where(x => x.codProvincia == cmbReceptorProvincia.Value.ToString()).
+                    Where(x => x.codCanton == cmbReceptorCanton.Value.ToString()).
+                     Where(x => x.codDistrito == cmbReceptorDistrito.Value.ToString()).
                     Select(x => new { x.codBarrio, x.nombreBarrio }).Distinct())
                 {
-                    this.cmbReceptorBarrio.Items.Add(item.nombreBarrio, item.codBarrio);
+                    cmbReceptorBarrio.Items.Add(item.nombreBarrio, item.codBarrio);
                 }
-                this.cmbReceptorBarrio.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                cmbReceptorBarrio.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             }
         }
 
@@ -987,39 +1020,41 @@ namespace Web.Pages.Facturacion
         protected async void btnFacturar_Click(object sender, EventArgs e)
         {
             try
-            {
+            { 
+
                 Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
                 DetalleServicio detalle = (DetalleServicio)Session["detalleServicio"];
 
-                if (string.IsNullOrWhiteSpace(this.txtReceptorNombre.Text) || string.IsNullOrWhiteSpace(this.txtReceptorIdentificacion.Text))
+                if (string.IsNullOrWhiteSpace(((ASPxTextBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorNombre")).Text) ||
+                    string.IsNullOrWhiteSpace(((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text))
                 {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
                     this.alertMessages.InnerText = "Debe agregar un receptor";
                     return;
-                }
-                this.txtReceptorIdentificacion.Text = this.txtReceptorIdentificacion.Text.Replace(" ", "").Trim();
-                this.txtReceptorIdentificacion.Text = this.txtReceptorIdentificacion.Text.Replace("-", "").Trim();
-
-
-                if (TipoIdentificacion.FISICA.Equals(this.cmbReceptorTipo.Value.ToString()) && this.txtReceptorIdentificacion.Text.Length != 9)
+                } 
+                if (TipoIdentificacion.FISICA.Equals(((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value.ToString()) 
+                    && ((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text.Length != 9)
                 {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
                     this.alertMessages.InnerText = "La identificación debe tener de 9 digitos";
                     return;
                 }
-                if (TipoIdentificacion.JURIDICA.Equals(this.cmbReceptorTipo.Value.ToString()) && this.txtReceptorIdentificacion.Text.Length != 10)
+                if (TipoIdentificacion.JURIDICA.Equals(((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value.ToString())
+                    && ((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text.Length != 10)
                 {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
                     this.alertMessages.InnerText = "La identificación debe tener de 10 digitos";
                     return;
                 }
-                if (TipoIdentificacion.DIMEX.Equals(this.cmbReceptorTipo.Value.ToString()) &&( this.txtReceptorIdentificacion.Text.Length > 12 || this.txtReceptorIdentificacion.Text.Length < 11) )
+                if (TipoIdentificacion.DIMEX.Equals(((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value.ToString()) 
+                    &&(((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text.Length > 12 || ((ASPxTextBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text.Length < 11) )
                 {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
                     this.alertMessages.InnerText = "La identificación debe tener en 11 y 12 digitos";
                     return;
                 }
-                if (TipoIdentificacion.NITE.Equals(this.cmbReceptorTipo.Value.ToString()) && this.txtReceptorIdentificacion.Text.Length != 10)
+                if (TipoIdentificacion.NITE.Equals(((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value.ToString()) 
+                    && ((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text.Length != 10)
                 {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
                     this.alertMessages.InnerText = "La identificación debe tener de 10 digitos";
@@ -1101,7 +1136,8 @@ namespace Web.Pages.Facturacion
 
                     /* RECEPTOR */
                     bool nuevo = true;
-                    EmisorReceptorIMEC elReceptor = conexion.EmisorReceptorIMEC.Find(txtReceptorIdentificacion.Text);
+                    string identificacion = ((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text;
+                    EmisorReceptorIMEC elReceptor = conexion.EmisorReceptorIMEC.Find(identificacion);
                     if (elReceptor != null)
                     {
                         nuevo = false;
@@ -1110,14 +1146,14 @@ namespace Web.Pages.Facturacion
                     else
                     {
                         elReceptor = new EmisorReceptorIMEC();
-                        elReceptor.identificacion = txtReceptorIdentificacion.Text;
+                        elReceptor.identificacion = identificacion;
                         nuevo = true;
                     }
                     elReceptor = this.crearModificarReceptor(elReceptor);
 
                     dato.receptor.identificacion.tipo = elReceptor.identificacionTipo;
                     dato.receptor.identificacion.numero = elReceptor.identificacion;
-                    dato.receptor.nombre = elReceptor.nombre.ToUpper();
+                    dato.receptor.nombre = elReceptor.nombre;
                     dato.receptor.nombreComercial = elReceptor.nombreComercial;
 
                     dato.receptor.telefono.codigoPais = elReceptor.telefonoCodigoPais;
@@ -1125,13 +1161,13 @@ namespace Web.Pages.Facturacion
 
                     dato.receptor.fax.codigoPais = elReceptor.faxCodigoPais;
                     dato.receptor.fax.numTelefono = elReceptor.fax;
-                    dato.receptor.correoElectronico = elReceptor.correoElectronico.ToLower();
+                    dato.receptor.correoElectronico = elReceptor.correoElectronico;
 
-                    dato.receptor.ubicacion.provincia = elReceptor.provincia.ToUpper();
-                    dato.receptor.ubicacion.canton = elReceptor.canton.ToUpper();
-                    dato.receptor.ubicacion.distrito = elReceptor.distrito.ToUpper();
-                    dato.receptor.ubicacion.barrio = elReceptor.barrio.ToUpper();
-                    dato.receptor.ubicacion.otrassenas = elReceptor.otraSena.ToUpper();
+                    dato.receptor.ubicacion.provincia = elReceptor.provincia;
+                    dato.receptor.ubicacion.canton = elReceptor.canton;
+                    dato.receptor.ubicacion.distrito = elReceptor.distrito;
+                    dato.receptor.ubicacion.barrio = elReceptor.barrio;
+                    dato.receptor.ubicacion.otrassenas = elReceptor.otraSena;
 
                     dato.receptor.verificar();
                     if (!string.IsNullOrWhiteSpace(elReceptor.identificacion))
@@ -1277,15 +1313,16 @@ namespace Web.Pages.Facturacion
         {
             try {
                 using (var conexion = new DataModelFE())
-                {
+                { 
+
                     /* RECEPTOR */
-                    if (string.IsNullOrWhiteSpace(this.txtReceptorIdentificacion.Text))
+                    if (string.IsNullOrWhiteSpace(((ASPxTextBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text))
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-danger";
                         this.alertMessages.InnerText = "El número de identifiación es requerida";
                     }
                     else { 
-                        string elReceptor = this.txtReceptorIdentificacion.Text;
+                        string elReceptor = ((ASPxTextBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text;
                         EmisorReceptorIMEC receptor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == elReceptor).FirstOrDefault();
                         if (receptor != null)
                         {
@@ -1366,5 +1403,7 @@ namespace Web.Pages.Facturacion
 
             }
         }
+
+        
     }
 }
