@@ -1,5 +1,7 @@
 ﻿<%@ Page Async="true" Title="" Culture="es-CR" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmGenerarDocumento.aspx.cs" Inherits="Web.Pages.Facturacion.FrmGenerarDocumento" %>
 
+<%@ Register Assembly="DevExpress.Web.Bootstrap.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.Bootstrap" TagPrefix="dx" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 
     <div class="text-box-title">
@@ -19,9 +21,7 @@
                 <TabPages>
                   
 
-                      <dx:TabPage Text="Favoritos" >
-                          <TabImage Url="~/Content/Images/Customers/Favorite_32_32.png">
-                          </TabImage>
+                      <dx:TabPage Text="Favoritos" > 
                         <ContentCollection>
                             <dx:ContentControl runat="server">
 
@@ -137,29 +137,19 @@
                         </ContentCollection>
                     </dx:TabPage>
 
-                      <dx:TabPage Text="Cliente">
-                          <TabImage Url="~/Content/Images/Cliente.png">
-                          </TabImage>
+                      <dx:TabPage Text="Cliente"> 
                         <ContentCollection>
                             <dx:ContentControl runat="server">
 
+                                 
+                                     <dx:BootstrapAccordion ID="acordionReceptor"  runat="server" AutoCollapse="true"   >
+                                          
+                                              <Groups>
+                                                <dx:BootstrapAccordionGroup Text="1. Datos Personales" >
 
-                                <div class="bs-example">
-                                    <div class="panel-group" id="accordion">
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading">
-                                                <h4 class="panel-title">
-                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">1. Datos Personales</a>
-                                                </h4>
-                                            </div>
-                                            <div id="collapseOne" class="panel-collapse collapse in">
-                                                <div class="panel-body">
-
-
-
-
-
-                                                    <dx:ASPxFormLayout runat="server" AlignItemCaptionsInAllGroups="true">
+                                                     <ContentTemplate> 
+                                                         
+                                                    <dx:ASPxFormLayout runat="server" AlignItemCaptionsInAllGroups="true" ID="ASPxFormLayout">
                                                         <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
                                                         <Items>
                                                             <dx:LayoutGroup Caption="Datos Personales" ColCount="2" GroupBoxDecoration="Box" UseDefaultPaddings="false" SettingsItemCaptions-Location="Top">
@@ -232,19 +222,12 @@
                                                         </Items>
                                                     </dx:ASPxFormLayout>
 
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading">
-                                                <h4 class="panel-title">
-                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">2. Contacto</a>
-                                                </h4>
-                                            </div>
-                                            <div id="collapseTwo" class="panel-collapse collapse">
-                                                <div class="panel-body">
-
-                                                    <dx:ASPxFormLayout runat="server">
+                                                    </ContentTemplate>
+                                                </dx:BootstrapAccordionGroup>
+                                                <dx:BootstrapAccordionGroup Text="2.Contacto"  >
+                                                    <ContentTemplate>
+                                                        
+                                                    <dx:ASPxFormLayout runat="server" ID="ASPxFormLayout">
                                                         <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
                                                         <Items>
                                                             <dx:LayoutGroup Caption="Contacto" ColCount="2" GroupBoxDecoration="Box" UseDefaultPaddings="false" SettingsItemCaptions-Location="Top">
@@ -326,18 +309,12 @@
                                                         </Items>
                                                     </dx:ASPxFormLayout>
 
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading">
-                                                <h4 class="panel-title">
-                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">3. Dirección</a>
-                                                </h4>
-                                            </div>
-                                            <div id="collapseThree" class="panel-collapse collapse">
-                                                <div class="panel-body">
-                                                    <dx:ASPxFormLayout runat="server">
+                                                    </ContentTemplate>
+                                                </dx:BootstrapAccordionGroup>
+                                                   <dx:BootstrapAccordionGroup Text="3. Dirección" >
+                                                    <ContentTemplate>
+                                                        
+                                                    <dx:ASPxFormLayout runat="server" ID="ASPxFormLayout">
                                                         <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
                                                         <Items>
                                                             <dx:LayoutGroup Caption="Dirección" ColCount="2" GroupBoxDecoration="Box" UseDefaultPaddings="false" SettingsItemCaptions-Location="Top">
@@ -402,21 +379,17 @@
 
                                                         </Items>
                                                     </dx:ASPxFormLayout>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p><strong>Note:</strong> Haga clic en el texto del encabezado vinculado para expandir o colapsar los paneles.</p>
-                                </div>
-                                </body>
+                                                    </ContentTemplate>
+                                                </dx:BootstrapAccordionGroup>
+                                            </Groups>
                                           
 
+                                     </dx:BootstrapAccordion>     
+                                <p><strong>Note:</strong> Haga clic en el texto del encabezado vinculado para expandir o colapsar los paneles.</p>
                             </dx:ContentControl>
                         </ContentCollection>
                     </dx:TabPage>
-                    <dx:TabPage Text="Referencias">
-                        <TabImage Url="~/Content/Images/Customers/Reference_32_32.png">
-                        </TabImage>
+                    <dx:TabPage Text="Referencias"> 
                         <ContentCollection>
                             <dx:ContentControl runat="server">
 
@@ -557,9 +530,7 @@
                         </ContentCollection>
                     </dx:TabPage>
 
-                    <dx:TabPage Text="Factura">
-                        <TabImage Url="~/Content/Images/Customers/Invoice_32_32.png">
-                        </TabImage>
+                    <dx:TabPage Text="Factura"> 
                         <ContentCollection>
                             <dx:ContentControl runat="server">
 
