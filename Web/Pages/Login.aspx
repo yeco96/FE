@@ -12,6 +12,10 @@
             margin: 0 auto;
         }
 
+        .dxflGroupBox_Moderno{
+            background-color: #f7f7f7;
+        }
+
         @media only screen and (max-width: 800px) { 
             .borde { 
                 width: 100%;
@@ -22,10 +26,10 @@
 
 
     <div class="borde">
-        <dx:ASPxFormLayout runat="server" >
+        <dx:ASPxFormLayout runat="server"  >
             <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
             <Items>
-                <dx:LayoutGroup Caption="Formulario de ingreso" ColCount="1" GroupBoxDecoration="Box" UseDefaultPaddings="false">
+                <dx:LayoutGroup Caption="Formulario de ingreso" ColCount="1" GroupBoxDecoration="Box" UseDefaultPaddings="false" >
                     <Items>
                         <dx:LayoutItem Caption="">
                             <LayoutItemNestedControlCollection>
@@ -60,7 +64,7 @@
                         <dx:LayoutItem Caption="" >
                             <LayoutItemNestedControlCollection>
                                 <dx:LayoutItemNestedControlContainer>
-                                    <dx:ASPxButton ID="btnLogin" runat="server" Text="Ingresar" Width="100px"  ValidationGroup="LoginUserValidationGroup" OnClick="btnLogin_Click">
+                                    <dx:ASPxButton ID="btnLogin" runat="server" Text="Ingresar" Width="100px"  ValidationGroup="LoginUserValidationGroup" OnClick="btnLogin_Click" Image-Url="~/Content/Images/login.png">
                                     </dx:ASPxButton>
                                 </dx:LayoutItemNestedControlContainer>
                             </LayoutItemNestedControlCollection>

@@ -75,8 +75,8 @@ namespace Web.Pages.Facturacion
             using (var conexion = new DataModelFE())
             {
                 foreach (var item in conexion.TipoDocumento.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
-                {
-                    comboTipoDocumento.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
+                { 
+                    comboTipoDocumento.PropertiesComboBox.Items.Add(item.descripcion.Replace("ELECTRÓNICA", ""), item.codigo);
                 }
                 comboTipoDocumento.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             }
