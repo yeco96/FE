@@ -52,11 +52,12 @@
             this.msbAyuda = new System.Windows.Forms.ToolStripDropDownButton();
             this.smiContacto = new System.Windows.Forms.ToolStripMenuItem();
             this.smiManual = new System.Windows.Forms.ToolStripMenuItem();
+            this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msbSalir = new System.Windows.Forms.ToolStripDropDownButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,7 +91,8 @@
             this.smiConfirmarXML,
             this.msiConsulta,
             this.msiHistorico,
-            this.msiFacturar});
+            this.msiFacturar,
+            this.consuToolStripMenuItem});
             this.msbDocumentos.Image = ((System.Drawing.Image)(resources.GetObject("msbDocumentos.Image")));
             this.msbDocumentos.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.msbDocumentos.Name = "msbDocumentos";
@@ -224,14 +226,20 @@
             // smiContacto
             // 
             this.smiContacto.Name = "smiContacto";
-            this.smiContacto.Size = new System.Drawing.Size(152, 22);
+            this.smiContacto.Size = new System.Drawing.Size(127, 22);
             this.smiContacto.Text = "&Contacto";
             // 
             // smiManual
             // 
             this.smiManual.Name = "smiManual";
-            this.smiManual.Size = new System.Drawing.Size(152, 22);
+            this.smiManual.Size = new System.Drawing.Size(127, 22);
             this.smiManual.Text = "&Manual";
+            // 
+            // acercaDeToolStripMenuItem
+            // 
+            this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.acercaDeToolStripMenuItem.Text = "&Acerca De";
             // 
             // msbSalir
             // 
@@ -260,11 +268,12 @@
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "ribbonPage2";
             // 
-            // acercaDeToolStripMenuItem
+            // consuToolStripMenuItem
             // 
-            this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.acercaDeToolStripMenuItem.Text = "&Acerca De";
+            this.consuToolStripMenuItem.Name = "consuToolStripMenuItem";
+            this.consuToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.consuToolStripMenuItem.Text = "Consultar XML &Recibidos";
+            this.consuToolStripMenuItem.Click += new System.EventHandler(this.consuToolStripMenuItem_Click);
             // 
             // frmFacturaElectronica
             // 
@@ -315,6 +324,7 @@
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consuToolStripMenuItem;
     }
 }
 
