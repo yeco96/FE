@@ -18,7 +18,7 @@
                 <p class="mainText">Una factura electrónica es un documento de uso comercial para trabajar en línea con tributación directa, este documento electrónico podrá sustituir la factura tradicional; la factura será enviada vía correo electrónico al cliente sin perder validez ,el usuario después podrá consultarla desde un sitio web donde estarán todos los documentos emitidos.</p>
             </div>
             <div class="col-md-12 marginTop20">
-                <a class="btn btn-primary btn-lg" href="#"><i class="glyphicon glyphicon-info-sign"></i>Desplace la página para más información</a>
+                <a class="btn btn-primary btn-lg" href="Contacts"><i class="glyphicon glyphicon-info-sign"></i> Contáctenos para más información</a>
             </div>
         </section>
         <section class="row features">

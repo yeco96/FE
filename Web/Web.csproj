@@ -183,7 +183,9 @@
     <Content Include="Content\Images\edit.png" />
     <Content Include="Content\Images\help.png" />
     <Content Include="Content\Images\invoice.png" />
+    <Content Include="Content\Images\key-32.png" />
     <Content Include="Content\Images\loadUser.png" />
+    <Content Include="Content\Images\login.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\nota_credito.png" />
     <Content Include="Content\Images\nota_debito.png" />
