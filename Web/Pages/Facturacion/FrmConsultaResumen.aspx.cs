@@ -10,6 +10,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Web.Models;
 using Web.Models.Catalogos;
+using WSDomain;
 using XMLDomain;
 
 namespace Web.Pages.Facturacion
@@ -24,7 +25,6 @@ namespace Web.Pages.Facturacion
             this.alertMessages.Attributes["class"] = "";
             this.alertMessages.InnerText = "";
             this.AsyncMode = true;
-
             try
             {
                 if (!Request.IsAuthenticated)
@@ -72,6 +72,7 @@ namespace Web.Pages.Facturacion
         {
             using (var conexion = new DataModelFE())
             {
+                List<String> claves = new List<string>();
                 string emisor = Session["emisor"].ToString();
                 List<ResumenFactura> lista = (from resumenFactura in conexion.ResumenFactura
                                                  from recepcioDocumento in conexion.WSRecepcionPOST
@@ -87,10 +88,12 @@ namespace Web.Pages.Facturacion
                 foreach (var item in lista)
                 {
                     item.verificaTipoDocumentoCambioMoneda(this.chkCambioMoneda.Checked);
+                    claves.Add(item.clave);
                 }
                 this.dgvDatos.DataSource = lista;
 
                 this.dgvDatos.DataBind();
+                Session["claves"] = claves;
             }
         }
 
@@ -101,20 +104,17 @@ namespace Web.Pages.Facturacion
 
         protected void btnReporte_Click(object sender, EventArgs e)
         {
-
-            //Recorremos el Grid
-            for (int i = 0; i < dgvDatos.VisibleRowCount; i++)
+            int cuenta = 0;
+            var pLista = (List<String>)Session["claves"];
+            foreach (var item in pLista)
             {
-                object registros = dgvDatos.GetRowValues(i, new String[] { "codigoMoneda" });
-                //object registros = dgvDatos.GetRowValues(i, new String[] { dgvDatos.KeyFieldName });
-
+                cuenta++;
             }
 
-
-
-
-
-            Response.Redirect("~/Pages/Reportes/FrmReporteDocumentoResumen.aspx");
+                if (cuenta > 0)
+            {
+                Response.Redirect("~/Pages/Reportes/FrmReporteDocumentoResumen.aspx");
+            }
         }
     }
 }
