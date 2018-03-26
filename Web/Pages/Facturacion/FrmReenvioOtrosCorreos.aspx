@@ -176,8 +176,8 @@
                 </dx:ASPxGridView>
                 <br />
                 <div class="text-center">
-                    <dx:ASPxButton runat="server" ID="btnEnviarCorreo" Text="Enviar" OnClick="btnEnviarCorreo_Click" Image-Url="~/Content/Images/check.png"></dx:ASPxButton>
-                    <dx:ASPxButton runat="server" ID="btnRecresar" Text="Cancelar" OnClick="btnRecresar_Click" Image-Url="~/Content/Images/cancel.png"></dx:ASPxButton>
+                    <dx:ASPxButton runat="server" ID="btnEnviarCorreo" Text="Enviar" OnClick="btnEnviarCorreo_Click" Image-Url="~/Content/Images/check.png" Image-Height="20px"></dx:ASPxButton>
+                    <dx:ASPxButton runat="server" ID="btnRecresar" Text="Cancelar" OnClick="btnRecresar_Click" Image-Url="~/Content/Images/cancel.png" Image-Height="20px"></dx:ASPxButton>
                 </div>
             </div>
         </ContentTemplate>

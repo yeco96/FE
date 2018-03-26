@@ -64,7 +64,7 @@
                         <dx:LayoutItem Caption="" >
                             <LayoutItemNestedControlCollection>
                                 <dx:LayoutItemNestedControlContainer>
-                                    <dx:ASPxButton ID="btnLogin" runat="server" Text="Ingresar" Width="100px"  ValidationGroup="LoginUserValidationGroup" OnClick="btnLogin_Click" Image-Url="~/Content/Images/login.png">
+                                    <dx:ASPxButton ID="btnLogin" runat="server" Text="Ingresar" Width="100px"  ValidationGroup="LoginUserValidationGroup" OnClick="btnLogin_Click" Image-Url="~/Content/Images/login.png" Image-Height="20px">
                                     </dx:ASPxButton>
                                 </dx:LayoutItemNestedControlContainer>
                             </LayoutItemNestedControlCollection>

@@ -14,7 +14,7 @@
         <section class="row text-center">
             <div class="col-md-12">
                 <h1>Información de nuestros Planes </h1>
-                <a class="btn btn-primary btn-lg" href="#"><i class="glyphicon glyphicon-info-sign"></i>Cotizar Planes</a>
+                <a class="btn btn-primary btn-lg" href="Contacts"><i class="glyphicon glyphicon-info-sign"></i> Cotizar Planes</a>
             </div>
                 <p class="mainText">Si su empresa factura una cantidad superior indicada en los planes, por favor comunicarse con MSASOFT + (506) 8872 9065 o escribamos al correo msalamanca@msasoft.net</p>
         </section>
@@ -135,12 +135,24 @@
              
         </section>               
         <section>
-            <div class="row marginTop20">
-                <div class="col-md-12">
-                    <h3>Para aquellos clientes que facturan una cantidad superior a la indicada en los planes, por favor comunicarse con MSASOFT + (506) 8872 9065 o escribamos al correo msalamanca@msasoft.net</h3>
-                    <p></p>
+           
+
+ <br/>
+            <div class="span4">
+                <div class="text-box">
+                    <div class="text-box-heading-blue" style="text-align: left;">Para más información</div>
+                    <div class="arrow-down-blue" style="margin-bottom: 10px;"></div>
+                    <p>
+                        <ul>
+                            <li>Maikol Salamanca Arias / +(506) 8872-9065 / msalamanca@msasoft.net</li>
+                            <li>Manuel Anchia Torrentes / +(506) 6181-8738 / manchia@msasoft.net</li>
+                            <li>Alejandro Reyes Pérez / +(506) 6343-1651 / areyes@msasoft.net</li>
+                        </ul>
+                    </p>
+
                 </div>
-            </div>
+            </div> 
+
         </section>
     </div>
 </asp:Content>

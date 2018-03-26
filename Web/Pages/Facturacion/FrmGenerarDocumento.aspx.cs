@@ -1276,8 +1276,11 @@ namespace Web.Pages.Facturacion
                         this.alertMessages.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
                     }
 
-                    this.btnFacturar.Enabled = false;
+                    this.btnFacturar.Enabled = false; 
+
                     conexion.SaveChanges();
+
+                    Response.Redirect("~/Pages/Consulta/"+dato.clave);
 
                 }
             }

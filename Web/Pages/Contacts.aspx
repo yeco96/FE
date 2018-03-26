@@ -49,7 +49,7 @@
             </ul>
             <h3>Ventas</h3>
             <ul class="list-unstyled">
-                <li><i class="glyphicon glyphicon-phone-alt"></i> + (506) 8872 9065</li>
+                <li><i class="glyphicon glyphicon-phone-alt"></i> + (506) 6181 8738</li>
                 <li><i class="glyphicon glyphicon-envelope"></i> msalamanca@msasoft.net</li>
                 <li><i class="glyphicon glyphicon-envelope"></i> manchia@msasoft.net</li>
                 <li><i class="glyphicon glyphicon-envelope"></i> areyes@msasoft.net</li>
