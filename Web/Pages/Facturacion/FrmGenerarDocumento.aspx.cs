@@ -1319,13 +1319,13 @@ namespace Web.Pages.Facturacion
                 { 
 
                     /* RECEPTOR */
-                    if (string.IsNullOrWhiteSpace(((ASPxTextBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text))
+                    if (string.IsNullOrWhiteSpace(((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text))
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-danger";
                         this.alertMessages.InnerText = "El número de identifiación es requerida";
                     }
                     else { 
-                        string elReceptor = ((ASPxTextBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text;
+                        string elReceptor = ((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text;
                         EmisorReceptorIMEC receptor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == elReceptor).FirstOrDefault();
                         if (receptor != null)
                         {

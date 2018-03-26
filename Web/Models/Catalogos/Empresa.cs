@@ -11,6 +11,9 @@ namespace Web.Models.Catalogos
     [Table("conf_empresa")]
     public class Empresa
     {
+        public static string IDIOMA_ESPANOL = "ES";
+        public static string IDIOMA_INGLES = "EN";
+
         [Key]
         [Required]
         [MaxLength(10, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]

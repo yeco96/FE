@@ -82,69 +82,72 @@ namespace WebServices.Controllers
         [HttpGet]
         [Route("respuestamesajehacienda/{clave}")] 
         public async Task<IHttpActionResult> respuestamesajehacienda(string clave)
-        { 
+        {
             using (var conexion = new DataModelFE())
             {
 
                 Models.Facturacion.WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
-                if (dato.montoTotalFactura > 0)
+                if (dato != null)
                 {
-                    return Ok(new Models.Facturacion.WSRespuestaGET(dato));
-                }
-                else
-                {
-                    EmisorReceptorIMEC elEmisor = conexion.EmisorReceptorIMEC.Find(Usuario.USUARIO_TOKEN);
-                    string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
-                    OAuth2.OAuth2Config config = conexion.OAuth2Config.Where(x => x.enviroment == ambiente).FirstOrDefault();
-                    config.username = elEmisor.usernameOAuth2;
-                    config.password = elEmisor.passwordOAuth2;
-
-                    await OAuth2.OAuth2Config.getTokenWeb(config);
-
-                    string respuestaJSON = await ServicesHacienda.getRecepcion(config.token, clave);
-
-                    if (!string.IsNullOrWhiteSpace(respuestaJSON))
+                    if (dato.montoTotalFactura > 0)
                     {
-                        WSRecepcionGET respuesta = JsonConvert.DeserializeObject<WSRecepcionGET>(respuestaJSON);
-                        if (respuesta.respuestaXml != null)
+                        return Ok(new Models.Facturacion.WSRespuestaGET(dato));
+                    }
+                    else
+                    {
+                        EmisorReceptorIMEC elEmisor = conexion.EmisorReceptorIMEC.Find(Usuario.USUARIO_TOKEN);
+                        string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
+                        OAuth2.OAuth2Config config = conexion.OAuth2Config.Where(x => x.enviroment == ambiente).FirstOrDefault();
+                        config.username = elEmisor.usernameOAuth2;
+                        config.password = elEmisor.passwordOAuth2;
+
+                        await OAuth2.OAuth2Config.getTokenWeb(config);
+
+                        string respuestaJSON = await ServicesHacienda.getRecepcion(config.token, clave);
+
+                        if (!string.IsNullOrWhiteSpace(respuestaJSON))
                         {
-                            string respuestaXML = EncodeXML.EncondeXML.base64Decode(respuesta.respuestaXml);
-
-                            MensajeHacienda mensajeHacienda = new MensajeHacienda(respuestaXML);
-
-                            dato = conexion.WSRecepcionPOST.Find(clave);
-                            dato.mensaje = mensajeHacienda.mensajeDetalle;
-                            dato.indEstado = mensajeHacienda.mensaje;
-                            dato.fechaModificacion = Date.DateTimeNow();
-                            dato.usuarioModificacion = Usuario.USUARIO_AUTOMATICO;
-                            //dato.receptorIdentificacion = mensajeHacienda.receptorNumeroCedula;
-                            dato.montoTotalFactura = mensajeHacienda.montoTotalFactura;
-                            dato.montoTotalImpuesto = mensajeHacienda.montoTotalImpuesto;
-                            conexion.Entry(dato).State = EntityState.Modified;
-                            conexion.SaveChanges();
-
-                            return Ok(new Models.Facturacion.WSRespuestaGET(dato));
-                        }
-                        else
-                        {
-                            if (respuesta.indEstado.ToLower().Equals("recibido"))
+                            WSRecepcionGET respuesta = JsonConvert.DeserializeObject<WSRecepcionGET>(respuestaJSON);
+                            if (respuesta.respuestaXml != null)
                             {
-                                using (var conexionWS = new DataModelFE())
-                                {
-                                    dato = conexionWS.WSRecepcionPOST.Find(clave);
-                                    dato.indEstado = 8/*recibido por hacienda*/;
-                                    dato.fechaModificacion = Date.DateTimeNow();
-                                    dato.usuarioModificacion = Usuario.USUARIO_AUTOMATICO;
-                                    conexionWS.Entry(dato).State = EntityState.Modified;
-                                    conexionWS.SaveChanges();
+                                string respuestaXML = EncodeXML.EncondeXML.base64Decode(respuesta.respuestaXml);
 
-                                    return Ok(new Models.Facturacion.WSRespuestaGET(dato));
+                                MensajeHacienda mensajeHacienda = new MensajeHacienda(respuestaXML);
+
+                                dato = conexion.WSRecepcionPOST.Find(clave);
+                                dato.mensaje = mensajeHacienda.mensajeDetalle;
+                                dato.indEstado = mensajeHacienda.mensaje;
+                                dato.fechaModificacion = Date.DateTimeNow();
+                                dato.usuarioModificacion = Usuario.USUARIO_AUTOMATICO;
+                                //dato.receptorIdentificacion = mensajeHacienda.receptorNumeroCedula;
+                                dato.montoTotalFactura = mensajeHacienda.montoTotalFactura;
+                                dato.montoTotalImpuesto = mensajeHacienda.montoTotalImpuesto;
+                                conexion.Entry(dato).State = EntityState.Modified;
+                                conexion.SaveChanges();
+
+                                return Ok(new Models.Facturacion.WSRespuestaGET(dato));
+                            }
+                            else
+                            {
+                                if (respuesta.indEstado.ToLower().Equals("recibido"))
+                                {
+                                    using (var conexionWS = new DataModelFE())
+                                    {
+                                        dato = conexionWS.WSRecepcionPOST.Find(clave);
+                                        dato.indEstado = 8/*recibido por hacienda*/;
+                                        dato.fechaModificacion = Date.DateTimeNow();
+                                        dato.usuarioModificacion = Usuario.USUARIO_AUTOMATICO;
+                                        conexionWS.Entry(dato).State = EntityState.Modified;
+                                        conexionWS.SaveChanges();
+
+                                        return Ok(new Models.Facturacion.WSRespuestaGET(dato));
+                                    }
                                 }
                             }
                         }
                     }
-                }
 
+                }
             }
             return NotFound();
         }
