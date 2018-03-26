@@ -731,6 +731,9 @@
     <Compile Include="Pages\Reportes\FrmReporteFacturaRollPaper.aspx.designer.cs">
       <DependentUpon>FrmReporteFacturaRollPaper.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Reportes\RptComprobante.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Pages\Reportes\RptComprobanteDetalleEN.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -744,9 +747,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Pages\Reportes\RptComprobanteDetalle.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Pages\Reportes\RptComprobante.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Pages\Reportes\RptFacturacionElectronicaRollPaper.cs">
@@ -858,6 +858,9 @@
     <Compile Include="WebServices\URLServices.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Pages\Reportes\RptComprobante.resx">
+      <DependentUpon>RptComprobante.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\Reportes\RptComprobanteDetalleEN.resx">
       <DependentUpon>RptComprobanteDetalleEN.cs</DependentUpon>
     </EmbeddedResource>
@@ -873,15 +876,10 @@
     <EmbeddedResource Include="Pages\Reportes\RptComprobanteDetalle.resx">
       <DependentUpon>RptComprobanteDetalle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\Reportes\RptComprobante.resx">
-      <DependentUpon>RptComprobante.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Pages\Reportes\RptFacturacionElectronicaRollPaper.resx">
       <DependentUpon>RptFacturacionElectronicaRollPaper.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\Reportes\XtraReport1.resx">
-      <DependentUpon>XtraReport1.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Reportes\XtraReport1.resx" />
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
