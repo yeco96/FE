@@ -3,6 +3,7 @@ using DevExpress.XtraReports.UI;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -24,29 +25,14 @@ namespace Web.Pages.Reportes
             generarReporte();
         }
 
-        private List<XtraReport> CreateData()
-        {
-            List<XtraReport> data = new List<XtraReport>();
-            var pLista = (List<String>)Session["claves"];
-            foreach (var item in pLista)
-            {
-                
-                //data.Add(CreateReport(item.ToString()));
-            }
-                return data;
-        }
-
-        /// <summary>
+           /// <summary>
         /// Método para Generar el Reporte
         /// </summary>
         private void generarReporte()
         {
-            
-                //Toma el Document Viewer para WEB y se envía el método del reporte
-                ASPxWebDocumentViewer1.OpenReport(CreateReport());
-                
+            //Toma el Document Viewer para WEB y se envía el método del reporte
+            ASPxWebDocumentViewer1.OpenReport(CreateReport());
         }
-
 
         private XtraReport CreateReport()
         {
@@ -76,6 +62,7 @@ namespace Web.Pages.Reportes
                         {
                             reportEN.pbLogo.Image = UtilidadesReporte.byteArrayToImage(empresa.logo);
                         }
+
                         reportEN.CreateDocument();
                         report = reportEN;
                     }
@@ -94,33 +81,23 @@ namespace Web.Pages.Reportes
                     }
                 }
                 oLista.Add(report);
-                report.DataSource = oLista;
+                if (oLista.Count > 1)
+                {
+                    report.DataSource = oLista;
+                    
+                }
+
+                //foreach (var registro in oLista)
+                //{
+                //    report.PrintingSystem.ContinuousPageNumbering = false;
+                //    report.Pages.AddRange(registro.Pages);
+                //    report.PrintingSystem.ContinuousPageNumbering = true;
+                //}
+                
             }
-            
+
             return report;
-            //return oLista;
         }
-
-        //RptDocumentoResumen CreateReport()
-        //{
-        //    try
-        //    {
-
-        //        RptDocumentoResumen report = new RptDocumentoResumen();
-        //        //XMLDomain.Documento fe = new XMLDomain.Documento();
-        //        //fe.iniciarParametros();
-        //        object dataSource = null;
-        //        report.objectDataSource1.DataSource = dataSource;
-
-        //        report.CreateDocument();
-        //        return report;
-        //    }
-        //    catch (Exception er)
-        //    {
-
-        //        throw;
-        //    }
-        //}
-
+    
     }
 }

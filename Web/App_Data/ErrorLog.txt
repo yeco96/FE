@@ -9635,3 +9635,924 @@ Stack Trace:
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
+********** 26/03/2018 01:56:12 p.m. **********
+Inner Exception Type: System.InvalidCastException
+Inner Exception: No se puede convertir un objeto de tipo 'RptComprobante' al tipo 'DevExpress.XtraPrinting.Page'.
+Inner Source: DevExpress.Printing.v17.1.Core
+Inner Stack Trace: 
+   en DevExpress.XtraPrinting.PageList.AddRange(IEnumerable pages)
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 98
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 46
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 24
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_hkiunzor.2.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 01:59:00 p.m. **********
+Inner Exception Type: System.InvalidCastException
+Inner Exception: No se puede convertir un objeto de tipo 'RptComprobante' al tipo 'DevExpress.XtraPrinting.Page'.
+Inner Source: DevExpress.Printing.v17.1.Core
+Inner Stack Trace: 
+   en DevExpress.XtraPrinting.PageList.AddRange(IEnumerable pages)
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 100
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 46
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 24
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_o353dijg.2.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 02:26:41 p.m. **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+No se puede convertir un objeto de tipo 'System.RuntimeType' al tipo 'XMLDomain.Documento'.
+Inner Source: DevExpress.Printing.v17.1.Core
+Inner Stack Trace: 
+   en DevExpress.XtraPrinting.PrintingSystemBase.OnCreateDocumentException(ExceptionEventArgs args)
+   en DevExpress.XtraReports.UI.XtraReport.TryCreateDocument(Single progressRange, Boolean buildPagesInBackground)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument(Boolean buildForInstantPreview)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport1() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 54
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 48
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 24
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_jfsisubh.2.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 02:29:21 p.m. **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+No se puede convertir un objeto de tipo 'RptComprobante' al tipo 'XMLDomain.Documento'.
+Inner Source: DevExpress.Printing.v17.1.Core
+Inner Stack Trace: 
+   en DevExpress.XtraPrinting.PrintingSystemBase.OnCreateDocumentException(ExceptionEventArgs args)
+   en DevExpress.XtraReports.UI.XtraReport.TryCreateDocument(Single progressRange, Boolean buildPagesInBackground)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument(Boolean buildForInstantPreview)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport1() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 55
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 48
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 24
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_lqi2kouk.0.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 02:30:39 p.m. **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+No se puede convertir un objeto de tipo 'RptComprobante' al tipo 'XMLDomain.Documento'.
+Inner Source: DevExpress.Printing.v17.1.Core
+Inner Stack Trace: 
+   en DevExpress.XtraPrinting.PrintingSystemBase.OnCreateDocumentException(ExceptionEventArgs args)
+   en DevExpress.XtraReports.UI.XtraReport.TryCreateDocument(Single progressRange, Boolean buildPagesInBackground)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument(Boolean buildForInstantPreview)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport1() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 55
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 48
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 24
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_lqi2kouk.0.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 02:32:45 p.m. **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+No se puede convertir un objeto de tipo 'RptComprobante' al tipo 'XMLDomain.Impresion'.
+Inner Source: DevExpress.Printing.v17.1.Core
+Inner Stack Trace: 
+   en DevExpress.XtraPrinting.PrintingSystemBase.OnCreateDocumentException(ExceptionEventArgs args)
+   en DevExpress.XtraReports.UI.XtraReport.TryCreateDocument(Single progressRange, Boolean buildPagesInBackground)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument(Boolean buildForInstantPreview)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport1() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 55
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 48
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 24
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_atig5lwl.3.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 02:37:41 p.m. **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+No se puede convertir un objeto de tipo 'RptComprobante' al tipo 'XMLDomain.Impresion'.
+Inner Source: DevExpress.Printing.v17.1.Core
+Inner Stack Trace: 
+   en DevExpress.XtraPrinting.PrintingSystemBase.OnCreateDocumentException(ExceptionEventArgs args)
+   en DevExpress.XtraReports.UI.XtraReport.TryCreateDocument(Single progressRange, Boolean buildPagesInBackground)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument(Boolean buildForInstantPreview)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport1()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e)
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_cj5204t5.3.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 02:37:48 p.m. **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+No se puede convertir un objeto de tipo 'System.RuntimeType' al tipo 'XMLDomain.Impresion'.
+Inner Source: DevExpress.Printing.v17.1.Core
+Inner Stack Trace: 
+   en DevExpress.XtraPrinting.PrintingSystemBase.OnCreateDocumentException(ExceptionEventArgs args)
+   en DevExpress.XtraReports.UI.XtraReport.TryCreateDocument(Single progressRange, Boolean buildPagesInBackground)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument(Boolean buildForInstantPreview)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport1()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e)
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_cj5204t5.3.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 02:37:56 p.m. **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+No se puede convertir un objeto de tipo 'System.RuntimeType' al tipo 'XMLDomain.Impresion'.
+Inner Source: DevExpress.Printing.v17.1.Core
+Inner Stack Trace: 
+   en DevExpress.XtraPrinting.PrintingSystemBase.OnCreateDocumentException(ExceptionEventArgs args)
+   en DevExpress.XtraReports.UI.XtraReport.TryCreateDocument(Single progressRange, Boolean buildPagesInBackground)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument(Boolean buildForInstantPreview)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport1()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e)
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_cj5204t5.3.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 02:38:16 p.m. **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+No se puede convertir un objeto de tipo 'System.RuntimeType' al tipo 'XMLDomain.Impresion'.
+Inner Source: DevExpress.Printing.v17.1.Core
+Inner Stack Trace: 
+   en DevExpress.XtraPrinting.PrintingSystemBase.OnCreateDocumentException(ExceptionEventArgs args)
+   en DevExpress.XtraReports.UI.XtraReport.TryCreateDocument(Single progressRange, Boolean buildPagesInBackground)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument(Boolean buildForInstantPreview)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport1()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e)
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_cj5204t5.3.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 02:39:09 p.m. **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+No se puede convertir un objeto de tipo 'System.RuntimeType' al tipo 'XMLDomain.Impresion'.
+Inner Source: DevExpress.Printing.v17.1.Core
+Inner Stack Trace: 
+   en DevExpress.XtraPrinting.PrintingSystemBase.OnCreateDocumentException(ExceptionEventArgs args)
+   en DevExpress.XtraReports.UI.XtraReport.TryCreateDocument(Single progressRange, Boolean buildPagesInBackground)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument(Boolean buildForInstantPreview)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport1()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e)
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_cj5204t5.3.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 02:39:18 p.m. **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+No se puede convertir un objeto de tipo 'System.RuntimeType' al tipo 'XMLDomain.Impresion'.
+Inner Source: DevExpress.Printing.v17.1.Core
+Inner Stack Trace: 
+   en DevExpress.XtraPrinting.PrintingSystemBase.OnCreateDocumentException(ExceptionEventArgs args)
+   en DevExpress.XtraReports.UI.XtraReport.TryCreateDocument(Single progressRange, Boolean buildPagesInBackground)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument(Boolean buildForInstantPreview)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport1()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e)
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_cj5204t5.3.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 03:35:12 p.m. **********
+Inner Exception Type: System.Exception
+Inner Exception: An object assigned to the DataSource property cannot be used as a report's datasource, because it does not implement any of supported interfaces.
+For more information, refer to http://help.devexpress.com/#XtraReports/CustomDocument1179
+Inner Source: DevExpress.Printing.v17.1.Core
+Inner Stack Trace: 
+   en DevExpress.XtraPrinting.PrintingSystemBase.OnCreateDocumentException(ExceptionEventArgs args)
+   en DevExpress.XtraReports.UI.XtraReport.TryCreateDocument(Single progressRange, Boolean buildPagesInBackground)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument(Boolean buildForInstantPreview)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport1() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 55
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 48
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 24
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_5eiqju01.3.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 03:36:26 p.m. **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+No se puede convertir un objeto de tipo 'System.RuntimeType' al tipo 'XMLDomain.Impresion'.
+Inner Source: DevExpress.Printing.v17.1.Core
+Inner Stack Trace: 
+   en DevExpress.XtraPrinting.PrintingSystemBase.OnCreateDocumentException(ExceptionEventArgs args)
+   en DevExpress.XtraReports.UI.XtraReport.TryCreateDocument(Single progressRange, Boolean buildPagesInBackground)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument(Boolean buildForInstantPreview)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport1()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e)
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_5eiqju01.3.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 03:36:44 p.m. **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+No se puede convertir un objeto de tipo 'System.RuntimeType' al tipo 'XMLDomain.Impresion'.
+Inner Source: DevExpress.Printing.v17.1.Core
+Inner Stack Trace: 
+   en DevExpress.XtraPrinting.PrintingSystemBase.OnCreateDocumentException(ExceptionEventArgs args)
+   en DevExpress.XtraReports.UI.XtraReport.TryCreateDocument(Single progressRange, Boolean buildPagesInBackground)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument(Boolean buildForInstantPreview)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport1()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e)
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_5eiqju01.3.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 03:42:04 p.m. **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+No se puede convertir un objeto de tipo 'System.RuntimeType' al tipo 'XMLDomain.Impresion'.
+Inner Source: DevExpress.Printing.v17.1.Core
+Inner Stack Trace: 
+   en DevExpress.XtraPrinting.PrintingSystemBase.OnCreateDocumentException(ExceptionEventArgs args)
+   en DevExpress.XtraReports.UI.XtraReport.TryCreateDocument(Single progressRange, Boolean buildPagesInBackground)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument(Boolean buildForInstantPreview)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport2() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 143
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 46
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 24
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_4qsfqotp.0.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 03:44:03 p.m. **********
+Inner Exception Type: System.Exception
+Inner Exception: An object assigned to the DataSource property cannot be used as a report's datasource, because it does not implement any of supported interfaces.
+For more information, refer to http://help.devexpress.com/#XtraReports/CustomDocument1179
+Inner Source: DevExpress.Printing.v17.1.Core
+Inner Stack Trace: 
+   en DevExpress.XtraPrinting.PrintingSystemBase.OnCreateDocumentException(ExceptionEventArgs args)
+   en DevExpress.XtraReports.UI.XtraReport.TryCreateDocument(Single progressRange, Boolean buildPagesInBackground)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument(Boolean buildForInstantPreview)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport2() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 143
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 46
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 24
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_lmpy0fi4.0.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 04:11:21 p.m. **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Colección modificada; puede que no se ejecute la operación de enumeración.
+Inner Source: mscorlib
+Inner Stack Trace: 
+   en System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   en System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   en System.Collections.Generic.List`1.Enumerator.MoveNext()
+   en DevExpress.XtraPrinting.PageList.AddRange(IEnumerable pages)
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 91
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 33
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 24
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_1wcdqrp4.0.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 04:11:55 p.m. **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Colección modificada; puede que no se ejecute la operación de enumeración.
+Inner Source: mscorlib
+Inner Stack Trace: 
+   en System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   en System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   en System.Collections.Generic.List`1.Enumerator.MoveNext()
+   en DevExpress.XtraPrinting.PageList.AddRange(IEnumerable pages)
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 91
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 33
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 24
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_1wcdqrp4.0.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 04:12:10 p.m. **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Colección modificada; puede que no se ejecute la operación de enumeración.
+Inner Source: mscorlib
+Inner Stack Trace: 
+   en System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   en System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   en System.Collections.Generic.List`1.Enumerator.MoveNext()
+   en DevExpress.XtraPrinting.PageList.AddRange(IEnumerable pages)
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e)
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_1wcdqrp4.0.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 04:12:15 p.m. **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Colección modificada; puede que no se ejecute la operación de enumeración.
+Inner Source: mscorlib
+Inner Stack Trace: 
+   en System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   en System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   en System.Collections.Generic.List`1.Enumerator.MoveNext()
+   en DevExpress.XtraPrinting.PageList.AddRange(IEnumerable pages)
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e)
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_1wcdqrp4.0.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 04:13:08 p.m. **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Colección modificada; puede que no se ejecute la operación de enumeración.
+Inner Source: mscorlib
+Inner Stack Trace: 
+   en System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   en System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   en System.Collections.Generic.List`1.Enumerator.MoveNext()
+   en DevExpress.XtraPrinting.PageList.AddRange(IEnumerable pages)
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e)
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_1wcdqrp4.0.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 04:23:03 p.m. **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Colección modificada; puede que no se ejecute la operación de enumeración.
+Inner Source: mscorlib
+Inner Stack Trace: 
+   en System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   en System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   en System.Collections.Generic.List`1.Enumerator.MoveNext()
+   en DevExpress.XtraPrinting.PageList.AddRange(IEnumerable pages)
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 93
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 34
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 25
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_ezjcsfo4.1.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 04:23:29 p.m. **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Colección modificada; puede que no se ejecute la operación de enumeración.
+Inner Source: mscorlib
+Inner Stack Trace: 
+   en System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   en System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   en System.Collections.Generic.List`1.Enumerator.MoveNext()
+   en DevExpress.XtraPrinting.PageList.AddRange(IEnumerable pages)
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 93
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 34
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 25
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_ezjcsfo4.1.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 04:25:59 p.m. **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Colección modificada; puede que no se ejecute la operación de enumeración.
+Inner Source: mscorlib
+Inner Stack Trace: 
+   en System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   en System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   en System.Collections.Generic.List`1.Enumerator.MoveNext()
+   en DevExpress.XtraPrinting.PageList.AddRange(IEnumerable pages)
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e)
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_ezjcsfo4.1.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 04:26:13 p.m. **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Colección modificada; puede que no se ejecute la operación de enumeración.
+Inner Source: mscorlib
+Inner Stack Trace: 
+   en System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   en System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   en System.Collections.Generic.List`1.Enumerator.MoveNext()
+   en DevExpress.XtraPrinting.PageList.AddRange(IEnumerable pages)
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e)
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_ezjcsfo4.1.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 04:28:22 p.m. **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Colección modificada; puede que no se ejecute la operación de enumeración.
+Inner Source: mscorlib
+Inner Stack Trace: 
+   en System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   en System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   en System.Collections.Generic.List`1.Enumerator.MoveNext()
+   en DevExpress.XtraPrinting.PageList.AddRange(IEnumerable pages)
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e)
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_ezjcsfo4.1.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 04:32:23 p.m. **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Colección modificada; puede que no se ejecute la operación de enumeración.
+Inner Source: mscorlib
+Inner Stack Trace: 
+   en System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   en System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   en System.Collections.Generic.List`1.Enumerator.MoveNext()
+   en DevExpress.XtraPrinting.PageList.AddRange(IEnumerable pages)
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 94
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 34
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 25
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_5elwfi0e.1.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/03/2018 04:56:21 p.m. **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Colección modificada; puede que no se ejecute la operación de enumeración.
+Inner Source: mscorlib
+Inner Stack Trace: 
+   en System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   en System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   en System.Collections.Generic.List`1.Enumerator.MoveNext()
+   en DevExpress.XtraPrinting.PageList.AddRange(IEnumerable pages)
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 93
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 34
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 25
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_hsurohs3.1.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
