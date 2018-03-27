@@ -88,14 +88,7 @@ namespace Web.Pages.Reportes
                     
                 }
                 oLista.Add(reportP);
-                //if (oLista.Count > 1)
-                //{
-                //    reportP.DataSource = oLista;
-                    
-                //}
             }
-
-
 
             if (oLista.Count == 1)
             {
@@ -128,15 +121,7 @@ namespace Web.Pages.Reportes
                     }
                 }
             }
-            //XtraReport report1 = new XtraReport();
-            //report1 = oLista[0];
-
-            //XtraReport report2 = new XtraReport();
-            //report2 = oLista[1];
-
-            //report1.Pages.AddRange(report2.Pages);
-            //report1.PrintingSystem.ContinuousPageNumbering = true;
-
+            
             report = report1;
             return report;
         }
