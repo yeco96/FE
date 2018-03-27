@@ -215,12 +215,23 @@ namespace Web.Pages.Catalogos
                     consecutivo.sucursal = "001";
                     consecutivo.caja = "00001";
                     consecutivo.consecutivo = 1;
+                    consecutivo.tipoDocumento = TipoDocumento.FACTURA_ELECTRONICA;
                     consecutivo.digitoVerificador = "00000000";
                     consecutivo.estado = Estado.ACTIVO.ToString();
                     consecutivo.usuarioCreacion = Session["usuario"].ToString();
                     consecutivo.fechaCreacion = Date.DateTimeNow(); 
                     conexion.ConsecutivoDocElectronico.Add(consecutivo);
 
+                    Empresa empresa = new Empresa();
+                    empresa.codigo = dato.identificacion;
+                    empresa.descripcion = dato.nombre == null ? dato.nombreComercial : dato.nombre;
+                    empresa.estado = Estado.ACTIVO.ToString();
+                    empresa.usuarioCreacion = Session["usuario"].ToString();
+                    empresa.idioma = Empresa.IDIOMA_ESPANOL;
+                    empresa.medioPago = "01";
+                    empresa.condicionVenta = "01";
+                    empresa.plazoCredito = 0;
+                    conexion.Empresa.Add(empresa);
 
                     conexion.SaveChanges();
 
