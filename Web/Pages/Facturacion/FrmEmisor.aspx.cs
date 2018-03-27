@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Reflection;
 using System.Security.Permissions;
 using System.Web;
 using System.Web.UI;
@@ -57,7 +58,18 @@ namespace Web.Pages.Catalogos
                 throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
         }
-        
+
+        protected void UpdatePanel_Unload(object sender, EventArgs e)
+        {
+            RegisterUpdatePanel((UpdatePanel)sender);
+        }
+        protected void RegisterUpdatePanel(UpdatePanel panel)
+        {
+            var sType = typeof(ScriptManager);
+            var mInfo = sType.GetMethod("System.Web.UI.IScriptManagerInternal.RegisterUpdatePanel", BindingFlags.NonPublic | BindingFlags.Instance);
+            if (mInfo != null)
+                mInfo.Invoke(ScriptManager.GetCurrent(Page), new object[] { panel });
+        }
         /// <summary>
         /// carga inicial de todos los registros
         /// </summary>  
@@ -161,7 +173,7 @@ namespace Web.Pages.Catalogos
                     }
 
                     dato.correoElectronico = e.NewValues["correoElectronico"] != null ? e.NewValues["correoElectronico"].ToString()  : null;
-
+                    dato.estado = e.NewValues["estado"].ToString();
                     if (e.NewValues["fax"] != null)
                     {
                         //dato.faxCodigoPais = e.NewValues["faxCodigoPais"].ToString();

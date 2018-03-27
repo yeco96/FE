@@ -106,9 +106,9 @@
                                                             </dx:MenuItem>
                                                             <dx:MenuItem Text="FACTURACIÓN">
                                                                 <Items>
-                                                                    <dx:MenuItem Text="MIS DATOS" NavigateUrl="~/Pages/Facturacion/FrmEmisorAdmin" />
-                                                                    <dx:MenuItem Text="MIS CLIENTES" NavigateUrl="~/Pages/Facturacion/FrmReceptor" />
-                                                                    <dx:MenuItem Text="MI ORGANIZACIÓN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoEmpresaAdmin" />
+                                                                    <dx:MenuItem Text="EMISORES" NavigateUrl="~/Pages/Facturacion/FrmEmisorAdmin" />
+                                                                    <dx:MenuItem Text="CLIENTES" NavigateUrl="~/Pages/Facturacion/FrmReceptor" />
+                                                                    <dx:MenuItem Text="EMPRESAS" NavigateUrl="~/Pages/Catalogos/FrmCatalogoEmpresaAdmin" />
                                                                     <dx:MenuItem Text="PRODUCTO / SERVICIO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProducto" />
                                                                     <dx:MenuItem Text="PRODUCTO IMPUESTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProductoImpuesto" />
                                                                 </Items>

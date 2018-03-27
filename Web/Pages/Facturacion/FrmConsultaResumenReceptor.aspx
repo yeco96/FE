@@ -49,21 +49,16 @@
                     <dx:LayoutItem Caption=" ">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                 <dx:ASPxButton ID="txtConsultar" runat="server" Text="Consultar" Width="80px" Image-Url="~/Content/Images/search1.png" Image-Height="20px"
-                                      CausesValidation="true" OnClick="btnConsultar_Click" >
+                                  <dx:ASPxButton ID="txtConsultar" runat="server" Text="Consultar" Width="80px" Image-Url="~/Content/Images/search1.png" Image-Height="20px"
+                                      CausesValidation="true" OnClick="btnConsultar_Click" > 
                                     </dx:ASPxButton>
+                                 <dx:ASPxButton ID="btnReporte" runat="server" Text="Reporte" Width="80px" Image-Url="~/Content/Images/pdf.png" Image-Height="20px"
+                                      CausesValidation="true"  OnClick="btnReporte_Click" >  
+                                 </dx:ASPxButton>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
-
-                    <dx:LayoutItem Caption=" " ClientVisible="false">
-                        <LayoutItemNestedControlCollection>
-                            <dx:LayoutItemNestedControlContainer>
-                                 <dx:ASPxButton ID="btnReporte" runat="server" Text="Reporte" Width="80px" Image-Url="~/Content/Images/search1.png" Image-Height="20px"
-                                      CausesValidation="true"  OnClick="btnReporte_Click" />  
-                            </dx:LayoutItemNestedControlContainer>
-                        </LayoutItemNestedControlCollection>
-                    </dx:LayoutItem>
+                     
 
                 </Items>
             </dx:LayoutGroup>

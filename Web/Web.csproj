@@ -740,9 +740,6 @@
     <Compile Include="Pages\Reportes\RptComprobanteEN.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Pages\Reportes\RptDocumentoResumen.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Pages\Reportes\RptFactDetRollPaper.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -750,9 +747,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Pages\Reportes\RptFacturacionElectronicaRollPaper.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Pages\Reportes\XtraReport1.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Pages\Search.aspx.cs">
@@ -867,9 +861,6 @@
     <EmbeddedResource Include="Pages\Reportes\RptComprobanteEN.resx">
       <DependentUpon>RptComprobanteEN.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\Reportes\RptDocumentoResumen.resx">
-      <DependentUpon>RptDocumentoResumen.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Pages\Reportes\RptFactDetRollPaper.resx">
       <DependentUpon>RptFactDetRollPaper.cs</DependentUpon>
     </EmbeddedResource>
@@ -879,7 +870,6 @@
     <EmbeddedResource Include="Pages\Reportes\RptFacturacionElectronicaRollPaper.resx">
       <DependentUpon>RptFacturacionElectronicaRollPaper.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\Reportes\XtraReport1.resx" />
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
