@@ -57,6 +57,14 @@ namespace Web.Pages.Facturacion
                  
                 this.AsyncMode = true;
 
+                EmisorReceptorIMEC elEmisor = (EmisorReceptorIMEC)Session["elEmisor"];
+                if (!Utilidades.verificaDatosHacienda(elEmisor))
+                {
+                    this.alertMessages.Attributes["class"] = "alert alert-danger";
+                    this.alertMessages.InnerText = "Se requiere configurar datos del emisor";
+                    return;
+                }
+
                 //Se obtiene datos del emisor
                 using (var conexionPlan = new DataModelFE())
                 {
@@ -1113,7 +1121,7 @@ namespace Web.Pages.Facturacion
 
                     /* EMISOR */
                     EmisorReceptorIMEC elEmisor = (EmisorReceptorIMEC)Session["elEmisor"];
-
+                    
                     dato.emisor.identificacion.tipo = elEmisor.identificacionTipo;
                     dato.emisor.identificacion.numero = elEmisor.identificacion;
                     dato.emisor.ubicacion.otrassenas = elEmisor.otraSena.ToUpper();

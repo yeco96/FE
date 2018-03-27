@@ -48,7 +48,7 @@ namespace Web.Models.Facturacion
         [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         [MinLength(2, ErrorMessage = "La propiedad {0} no puede tener menos de {1} elementos")]
         [RegularExpression("\\d{2}", ErrorMessage = "La propiedad {0} solo debe tener valores numéricos")]
-        [Display(Name = "Tipo Docuemnto")]
+        [Display(Name = "Tipo Documento")]
         public string tipoDocumento { set; get; }
 
         [Required]

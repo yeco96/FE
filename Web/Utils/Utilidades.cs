@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using Web.Models;
 using Web.Models.Catalogos;
+using Web.Models.Facturacion;
 using XMLDomain;
 
 namespace Class.Utilidades
@@ -337,7 +338,10 @@ namespace Class.Utilidades
         }
         #endregion
 
-
+        /// <summary>
+        /// texto generico para el envio de correos
+        /// </summary>
+        /// <returns></returns>
         public static string mensageGenerico()
         {
             String mensaje = "";
@@ -350,6 +354,10 @@ namespace Class.Utilidades
             return mensaje; 
         }
 
+        /// <summary>
+        /// texto generico para el envio de correos
+        /// </summary>
+        /// <returns></returns>
         public static string mensageGenericoPruebaCorreo()
         {
             String mensaje = ""; 
@@ -359,6 +367,12 @@ namespace Class.Utilidades
             return mensaje;
         }
 
+
+        /// <summary>
+        /// transforma un string a bytes en memoria
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
         public static Stream GenerateStreamFromString(string s)
         {
             MemoryStream stream = new MemoryStream();
@@ -369,6 +383,11 @@ namespace Class.Utilidades
             return stream;
         }
 
+        /// <summary>
+        /// genera un Stream a partir de un MemoryStream
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <returns></returns>
         public static Stream GenerateStreamFromMemoryStream(MemoryStream stream)
         { 
             StreamWriter writer = new StreamWriter(stream); 
@@ -394,8 +413,33 @@ namespace Class.Utilidades
             }
             return res.ToString();
         }
-
-
-
+        
+        
+        /// <summary>
+        /// verifica que existan los datos de la conexionn con hacienda
+        /// </summary>
+        /// <param name="dato"></param>
+        /// <returns></returns>
+        public static bool verificaDatosHacienda(EmisorReceptorIMEC dato)
+        {
+            bool valido = true;
+            if (dato.llaveCriptografica == null)
+            {
+                valido = false;
+            }
+            if (string.IsNullOrWhiteSpace(dato.claveLlaveCriptografica))
+            {
+                valido = false;
+            }
+            if (string.IsNullOrWhiteSpace(dato.usernameOAuth2))
+            {
+                valido = false;
+            }
+            if (string.IsNullOrWhiteSpace(dato.passwordOAuth2))
+            {
+                valido = false;
+            }
+            return valido;
+        }  
     }
 }
