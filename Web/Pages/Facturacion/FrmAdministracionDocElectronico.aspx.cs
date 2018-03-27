@@ -460,5 +460,14 @@ namespace Web.Pages.Facturacion
                 this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
             }
         }
+
+        protected void btnVerDocumento_Click(object sender, EventArgs e)
+        {
+            string clave = Session["clave"].ToString();
+            Response.Redirect("~/Pages/Consulta.aspx/" + clave);
+
+
+
+        }
     }
 }

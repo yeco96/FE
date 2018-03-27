@@ -172,6 +172,14 @@
                                     <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
+                                                <dx:ASPxButton ID="btnVerDocumento" Width="100%" AutoResizeWithContainer="true"  runat="server" Text="Ver Documento" OnClick="btnVerDocumento_Click" Image-Url="~/Content/Images/pdf2.png"></dx:ASPxButton>
+                                            </dx:LayoutItemNestedControlContainer>
+                                        </LayoutItemNestedControlCollection>
+                                    </dx:LayoutItem>
+
+                                    <dx:LayoutItem Caption="">
+                                        <LayoutItemNestedControlCollection>
+                                            <dx:LayoutItemNestedControlContainer>
                                                 <dx:ASPxButton ID="btnReenvioCorreo" Width="100%" AutoResizeWithContainer="true"  runat="server" Text="Reenviar Correo" OnClick="btnReenvioCorreo_Click" Image-Url="~/Content/Images/send.png"></dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
