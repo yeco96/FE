@@ -36,11 +36,17 @@ namespace Web.Pages.Reportes
 
         private XtraReport CreateReport()
         {
+            XtraReport report1 = new XtraReport();
+            XtraReport report2 = new XtraReport();
+
             List<XtraReport> oLista = new List<XtraReport>();
             XtraReport report = null;
             var pLista = (List<String>)Session["claves"];
             foreach (var item in pLista)
             {
+
+                XtraReport reportP = new XtraReport();
+
                 using (var conexion = new DataModelFE())
                 {
                     WSRecepcionPOST dato = conexion.WSRecepcionPOST.Where(x => x.clave == item.ToString()).FirstOrDefault();
@@ -64,7 +70,7 @@ namespace Web.Pages.Reportes
                         }
 
                         reportEN.CreateDocument();
-                        report = reportEN;
+                        reportP = reportEN;
                     }
                     else
                     {
@@ -77,25 +83,61 @@ namespace Web.Pages.Reportes
                             reportES.pbLogo.Image = UtilidadesReporte.byteArrayToImage(empresa.logo);
                         }
                         reportES.CreateDocument();
-                        report = reportES;
+                        reportP = reportES;
                     }
-                }
-                oLista.Add(report);
-                if (oLista.Count > 1)
-                {
-                    report.DataSource = oLista;
                     
                 }
-
-                //foreach (var registro in oLista)
+                oLista.Add(reportP);
+                //if (oLista.Count > 1)
                 //{
-                //    report.PrintingSystem.ContinuousPageNumbering = false;
-                //    report.Pages.AddRange(registro.Pages);
-                //    report.PrintingSystem.ContinuousPageNumbering = true;
+                //    reportP.DataSource = oLista;
+                    
                 //}
-                
             }
 
+
+
+            if (oLista.Count == 1)
+            {
+                report1 = oLista[0];
+            }
+            else
+            {
+                if (oLista.Count == 2)
+                {
+                    report1 = oLista[0];
+                    report2 = oLista[1];
+                    report1.Pages.AddRange(report2.Pages);
+                    report1.PrintingSystem.ContinuousPageNumbering = true;
+                }
+                else
+                {
+                    for (int i = 0; i < oLista.Count - 1; i++)
+                    {
+                        if (i == 0)
+                        {
+                            report1 = oLista[i];
+                        }
+                        else {
+                            report1 = report1;
+                        }
+                        
+                        report2 = oLista[i+1];
+                        report1.Pages.AddRange(report2.Pages);
+                        report1.PrintingSystem.ContinuousPageNumbering = true;
+                    }
+                }
+            }
+            //XtraReport report1 = new XtraReport();
+            //report1 = oLista[0];
+
+            //XtraReport report2 = new XtraReport();
+            //report2 = oLista[1];
+
+            //report1.Pages.AddRange(report2.Pages);
+            //report1.PrintingSystem.ContinuousPageNumbering = true;
+
+            report = report1;
             return report;
         }
     
