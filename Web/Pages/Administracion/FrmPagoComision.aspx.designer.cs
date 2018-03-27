@@ -7,10 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Web.Pages.Facturacion {
+namespace Web.Pages.Administracion {
     
     
-    public partial class FrmConsultaResumen {
+    public partial class FrmPagoComision {
         
         /// <summary>
         /// Control txtFechaInicio.
@@ -31,22 +31,13 @@ namespace Web.Pages.Facturacion {
         protected global::DevExpress.Web.ASPxDateEdit txtFechaFin;
         
         /// <summary>
-        /// Control chkCambioMoneda.
+        /// Control btnConsultar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox chkCambioMoneda;
-        
-        /// <summary>
-        /// Control txtConsultar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton txtConsultar;
+        protected global::DevExpress.Web.ASPxButton btnConsultar;
         
         /// <summary>
         /// Control btnReporte.
@@ -74,6 +65,24 @@ namespace Web.Pages.Facturacion {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxGridViewExporter ASPxGridViewExporter1;
+        
+        /// <summary>
+        /// Control txtPagoComision1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxTextBox txtPagoComision1;
+        
+        /// <summary>
+        /// Control txtPagoComision2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxTextBox txtPagoComision2;
         
         /// <summary>
         /// Control alertMessages.

@@ -72,7 +72,7 @@ namespace Web.Pages.Facturacion
         {
             using (var conexion = new DataModelFE())
             {
-                List<String> claves = new List<string>();
+                //List<String> claves = new List<string>();
                 string emisor = Session["emisor"].ToString();
                 List<ResumenFactura> lista = (from resumenFactura in conexion.ResumenFactura
                                                  from recepcioDocumento in conexion.WSRecepcionPOST
@@ -88,12 +88,12 @@ namespace Web.Pages.Facturacion
                 foreach (var item in lista)
                 {
                     item.verificaTipoDocumentoCambioMoneda(this.chkCambioMoneda.Checked);
-                    claves.Add(item.clave);
+                    //claves.Add(item.clave);
                 }
                 this.dgvDatos.DataSource = lista;
 
                 this.dgvDatos.DataBind();
-                Session["claves"] = claves;
+                //Session["claves"] = claves;
             }
         }
 
@@ -105,15 +105,32 @@ namespace Web.Pages.Facturacion
         protected void btnReporte_Click(object sender, EventArgs e)
         {
             int cuenta = 0;
-            var pLista = (List<String>)Session["claves"];
-            foreach (var item in pLista)
+            List<String> claves = new List<string>();
+            //var pLista = (List<String>)Session["claves"];
+            //foreach (var item in pLista)
+            //{
+            //    cuenta++;
+            //}
+
+            //Recorremos Grid View
+            foreach (var item in dgvDatos.GetCurrentPageRowValues("clave"))
             {
-                cuenta++;
+                if (dgvDatos.Selection.IsRowSelectedByKey(item))
+                {
+                    cuenta++;
+                    claves.Add(item.ToString());
+                }
             }
 
-                if (cuenta > 0)
+
+            if (cuenta > 0)
             {
+                Session["claves"] = claves;
                 Response.Redirect("~/Pages/Reportes/FrmReporteDocumentoResumen.aspx");
+            }
+            else {
+                this.alertMessages.Attributes["class"] = "alert alert-danger";
+                this.alertMessages.InnerText = "No hay documentos que procesar!!!";
             }
         }
     }
