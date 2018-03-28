@@ -49,7 +49,7 @@
                             PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                         </dx:GridViewDataSpinEditColumn>
 
-                        <dx:GridViewDataSpinEditColumn Caption="Fax" FieldName="fax" VisibleIndex="7" PropertiesSpinEdit-MaxLength="20">
+                        <dx:GridViewDataSpinEditColumn Caption="Fax" FieldName="fax" VisibleIndex="7" PropertiesSpinEdit-MaxLength="20" Visible="false" EditFormSettings-Visible="true">
                         </dx:GridViewDataSpinEditColumn>
 
                         <dx:GridViewDataComboBoxColumn Caption="Cod Teléfono" FieldName="telefonoCodigoPais" Visible="false" />

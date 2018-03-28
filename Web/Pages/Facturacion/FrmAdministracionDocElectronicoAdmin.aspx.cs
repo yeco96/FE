@@ -469,6 +469,12 @@ namespace Web.Pages.Facturacion
             }
         }
 
-       
+        protected void btnVerDocumento_Click(object sender, EventArgs e)
+        {
+            string clave = Session["clave"].ToString();
+            Response.Redirect("~/Pages/Consulta.aspx/" + clave);
+        }
+
+
     }
 }

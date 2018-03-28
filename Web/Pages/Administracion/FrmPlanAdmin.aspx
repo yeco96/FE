@@ -22,8 +22,14 @@
                 <dx:GridViewCommandColumn Width="100px" ButtonType="Image" ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
                 </dx:GridViewCommandColumn>
 
-                <dx:GridViewDataTextColumn Caption="Emisor" FieldName="emisor" VisibleIndex="1" PropertiesTextEdit-MaxLength="12"
+                  <dx:GridViewDataTextColumn Caption="Código" FieldName="emisor" VisibleIndex="1" PropertiesTextEdit-MaxLength="12" Visible="false" EditFormSettings-Visible="true"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataTextColumn>
+
+                <dx:GridViewDataTextColumn Caption="Código" FieldName="Emisor.identificacion" VisibleIndex="1"   EditFormSettings-Visible="False">
+                </dx:GridViewDataTextColumn>
+
+                 <dx:GridViewDataTextColumn Caption="Emisor" FieldName="Emisor.nombre" VisibleIndex="1"   EditFormSettings-Visible="false">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataComboBoxColumn Caption="Plan" FieldName="plan" VisibleIndex="1" Width="25%"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
@@ -35,11 +41,11 @@
                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataSpinEditColumn>
                
-                <dx:GridViewDataDateColumn  Caption="Fecha Inicio" FieldName="fechaInicio" VisibleIndex="6" PropertiesDateEdit-ValidationSettings-RequiredField-IsRequired="true"
+                <dx:GridViewDataDateColumn  Caption="Fecha Inicio" FieldName="fechaInicio" VisibleIndex="6" PropertiesDateEdit-ValidationSettings-RequiredField-IsRequired="true" Visible="false" EditFormSettings-Visible="True"
                    >
                     <PropertiesDateEdit EditFormat="DateTime" DisplayFormatString="dd/MM/yyyy" EditFormatString="dd/MM/yyyy"></PropertiesDateEdit>
                 </dx:GridViewDataDateColumn>
-                <dx:GridViewDataDateColumn  Caption="Fecha Fin" FieldName="fechaFin" VisibleIndex="7" PropertiesDateEdit-ValidationSettings-RequiredField-IsRequired="true">
+                <dx:GridViewDataDateColumn  Caption="Fecha Fin" FieldName="fechaFin" VisibleIndex="7" PropertiesDateEdit-ValidationSettings-RequiredField-IsRequired="true"  Visible="false" EditFormSettings-Visible="True">
                     <PropertiesDateEdit EditFormat="DateTime" DisplayFormatString="dd/MM/yyyy" EditFormatString="dd/MM/yyyy"></PropertiesDateEdit>
                 </dx:GridViewDataDateColumn>
 
@@ -66,7 +72,7 @@
             <SettingsEditing Mode="EditFormAndDisplayRow" />
             <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="True" ShowFilterRow="True" ShowTitlePanel="True" UseFixedTableLayout="True" />
             <SettingsContextMenu EnableColumnMenu="True" Enabled="True" EnableFooterMenu="True" EnableGroupPanelMenu="True" EnableRowMenu="True" />
-            <SettingsDetail ShowDetailRow="true" />
+            <SettingsDetail ShowDetailRow="false" />
             <SettingsCommandButton>
                 <NewButton Image-ToolTip="Nuevo" Image-Url="~/Content/Images/add.png" />
                 <EditButton Image-ToolTip="Modificar" Image-Url="~/Content/Images/edit.png" />

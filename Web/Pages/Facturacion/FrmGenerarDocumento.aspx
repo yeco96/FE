@@ -27,77 +27,56 @@
 
 
                                 <dx:ASPxGridView ID="ASPxGridViewClientes" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
-                                    Width="100%" EnableTheming="True" KeyFieldName="identificacion" Theme="Moderno"    EnableCallBacks="false"
-                                                            OnSelectionChanged="ASPxGridViewClientes_SelectionChanged" > 
+                                     EnableTheming="True" KeyFieldName="identificacion" Theme="Moderno"    EnableCallBacks="false"
+                                         Width="100%"   OnSelectionChanged="ASPxGridViewClientes_SelectionChanged" > 
                                     <Columns>
                                         <dx:GridViewCommandColumn Width="50px" ButtonType="Image" ShowSelectButton="true" ShowDeleteButton="false" ShowEditButton="false" ShowNewButtonInHeader="false" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
                                         </dx:GridViewCommandColumn>
 
-                                        <dx:GridViewDataComboBoxColumn Caption="Tipo" FieldName="identificacionTipo" VisibleIndex="2"
+                                        <dx:GridViewDataComboBoxColumn Caption="Tipo" Visible="false" FieldName="identificacionTipo" VisibleIndex="2"
                                             PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
-                                            <PropertiesComboBox>
-                                                <ValidationSettings>
-                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
-                                                </ValidationSettings>
-                                            </PropertiesComboBox>
+                                           
                                         </dx:GridViewDataComboBoxColumn>
                                         <dx:GridViewDataTextColumn Caption="Identificación" FieldName="identificacion" VisibleIndex="3" PropertiesTextEdit-MaxLength="12"
                                             Settings-AutoFilterCondition="Contains"
                                             PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
-                                            <PropertiesTextEdit MaxLength="12">
-                                                <ValidationSettings>
-                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
-                                                </ValidationSettings>
-                                            </PropertiesTextEdit>
+                                           
                                             <Settings AutoFilterCondition="Contains" />
                                         </dx:GridViewDataTextColumn>
 
                                         <dx:GridViewDataTextColumn Caption="Nombre" FieldName="nombre" VisibleIndex="4" PropertiesTextEdit-MaxLength="30" Width="25%"
                                             Settings-AutoFilterCondition="Contains"
                                             PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
-                                            <PropertiesTextEdit MaxLength="30">
-                                                <ValidationSettings>
-                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
-                                                </ValidationSettings>
-                                            </PropertiesTextEdit>
+                                           
                                             <Settings AutoFilterCondition="Contains" />
                                         </dx:GridViewDataTextColumn>
 
-                                        <dx:GridViewDataTextColumn Caption="Nombre Comercial" FieldName="nombreComercial" VisibleIndex="6" PropertiesTextEdit-MaxLength="80" Visible="false" EditFormSettings-Visible="True"
+                                        <dx:GridViewDataTextColumn Caption="Nombre Comercial" FieldName="nombreComercial" VisibleIndex="6" PropertiesTextEdit-MaxLength="80" Visible="true" EditFormSettings-Visible="True"
                                             Settings-AutoFilterCondition="Contains"
                                             PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="false" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
-                                            <PropertiesTextEdit MaxLength="80">
-                                                <ValidationSettings>
-                                                    <RequiredField ErrorText="Requerido" />
-                                                </ValidationSettings>
-                                            </PropertiesTextEdit>
-                                            <Settings AutoFilterCondition="Contains" />
-                                            <EditFormSettings Visible="True" />
+                                            
+                                            <Settings AutoFilterCondition="Contains" /> 
                                         </dx:GridViewDataTextColumn>
 
                                         <dx:GridViewDataSpinEditColumn Caption="Teléfono" FieldName="telefono" VisibleIndex="7" PropertiesSpinEdit-MaxLength="20"
                                             PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                                             <PropertiesSpinEdit DisplayFormatString="g" MaxLength="20">
-                                                <ValidationSettings>
-                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
-                                                </ValidationSettings>
+                                              
                                             </PropertiesSpinEdit>
                                         </dx:GridViewDataSpinEditColumn>
                  
                                         <dx:GridViewDataTextColumn Caption="Correo" FieldName="correoElectronico" VisibleIndex="8" PropertiesTextEdit-MaxLength="80" Width="25%"
                                             PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                                             <PropertiesTextEdit MaxLength="80">
-                                                <ValidationSettings>
-                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
-                                                </ValidationSettings>
+                                             
                                             </PropertiesTextEdit>
                                         </dx:GridViewDataTextColumn>
                   
                                     </Columns>
 
-
+                                      <SettingsSearchPanel Visible="true"  />
                                     <SettingsBehavior ColumnResizeMode="NextColumn" />
-                                    <Settings  ShowFooter="false" ShowFilterBar="Hidden" ShowFilterRow="true" />
+                                    <Settings  ShowFooter="false" ShowFilterBar="Hidden" ShowFilterRow="true"  />
                                     <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="false" ConfirmDelete="True" ProcessSelectionChangedOnServer="True" AllowSelectSingleRowOnly="true" />
                                     <SettingsPager PageSize="10" PageSizeItemSettings-Visible="true" PageSizeItemSettings-Items="10, 20, 50, 100" >
                                    
@@ -105,7 +84,7 @@
                                         </PageSizeItemSettings>
                                     </SettingsPager>
                                    
-                                    <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="false" ShowFilterRow="True" ShowTitlePanel="True" UseFixedTableLayout="True" />
+                                    <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="false" ShowFilterRow="false" ShowTitlePanel="True" UseFixedTableLayout="True" />
                                     <SettingsContextMenu EnableColumnMenu="True" Enabled="True" EnableFooterMenu="True" EnableGroupPanelMenu="True" EnableRowMenu="True" />
                                     <SettingsDataSecurity AllowDelete="false" AllowInsert="false" AllowEdit="false" />
                                     <SettingsCommandButton>

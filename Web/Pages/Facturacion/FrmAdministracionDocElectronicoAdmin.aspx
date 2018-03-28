@@ -99,14 +99,13 @@
             <TotalSummary>
                 <dx:ASPxSummaryItem FieldName="montoTotalImpuesto" SummaryType="Sum" DisplayFormat="{0:n2}"/>
                 <dx:ASPxSummaryItem FieldName="montoTotalFactura" SummaryType="Sum" DisplayFormat="{0:n2}"/>
-            </TotalSummary>
-
+            </TotalSummary> 
             <SettingsBehavior ColumnResizeMode="NextColumn" />
             <Settings ShowFooter="True" ShowFilterBar="Visible" ShowFilterRow="true" />
             <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="True" ConfirmDelete="True" />
             <SettingsPager PageSize="10" PageSizeItemSettings-Visible="true" PageSizeItemSettings-Items="10, 20, 30, 100" />
             <SettingsEditing Mode="EditFormAndDisplayRow" />
-            <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="True" ShowFilterRow="True" ShowTitlePanel="True" UseFixedTableLayout="True" />
+            <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="false" ShowFilterRow="True" ShowTitlePanel="True" UseFixedTableLayout="True" />
             
             <SettingsDetail ShowDetailRow="True" AllowOnlyOneMasterRowExpanded="true" />
             <SettingsDataSecurity AllowDelete="false" AllowEdit="false" AllowInsert="false" />
@@ -168,6 +167,14 @@
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
 
+                                     <dx:LayoutItem Caption="">
+                                        <LayoutItemNestedControlCollection>
+                                            <dx:LayoutItemNestedControlContainer>
+                                                <dx:ASPxButton ID="btnVerDocumento" Width="100%" AutoResizeWithContainer="true"  runat="server" Text="Ver Documento" OnClick="btnVerDocumento_Click" Image-Url="~/Content/Images/documento.png"></dx:ASPxButton>
+                                            </dx:LayoutItemNestedControlContainer>
+                                        </LayoutItemNestedControlCollection>
+                                    </dx:LayoutItem>
+
                                     <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
@@ -179,7 +186,7 @@
                                     <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="btnActualizar" Width="100%" AutoResizeWithContainer="true"  runat="server" Text="Actualizar Información" OnClick="btnActualizar_Click" Image-Url="~/Content/Images/refresh2.png"></dx:ASPxButton>
+                                                <dx:ASPxButton ID="btnActualizar" Width="100%" AutoResizeWithContainer="true"  runat="server" Text="Actualizar" OnClick="btnActualizar_Click" Image-Url="~/Content/Images/refresh2.png"></dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>

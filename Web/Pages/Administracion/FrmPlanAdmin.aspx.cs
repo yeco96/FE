@@ -63,7 +63,12 @@ namespace Web.Pages.Administracion
         {
             using (var conexion = new DataModelFE())
             {
-                this.ASPxGridView1.DataSource = conexion.Plan.ToList();
+                List<Plan> lista = conexion.Plan.ToList();
+                foreach (var item in lista)
+                {
+                    item.Emisor = conexion.EmisorReceptorIMEC.Find(item.emisor);
+                }
+                this.ASPxGridView1.DataSource = lista;
                 this.ASPxGridView1.DataBind();
             }
         }

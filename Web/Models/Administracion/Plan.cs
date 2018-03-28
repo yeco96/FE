@@ -13,7 +13,7 @@ namespace Web.Models.Administracion
     public class Plan
     {
           
-        [Key]
+        [Key] 
         [MinLength(9, ErrorMessage = "La propiedad {0} no puede tener menos de {1} elementos")]
         [MaxLength(12, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         [Display(Name = "emisor")]
@@ -67,6 +67,8 @@ namespace Web.Models.Administracion
         /// </summary>
         public virtual Usuario UsuarioCreacion { get; set; }
         public virtual Usuario UsuarioModificacion { get; set; }
+        [NotMapped]
+        public EmisorReceptorIMEC Emisor { get; set; }
 
         public override string ToString()
         {
