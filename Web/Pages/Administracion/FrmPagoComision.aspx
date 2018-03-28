@@ -71,10 +71,16 @@
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Monto Pago" FieldName="montoPago" VisibleIndex="4" PropertiesTextEdit-DisplayFormatString="n2">
                 </dx:GridViewDataTextColumn>
+                <dx:GridViewDataTextColumn Caption="Comisión Anchía" FieldName="comision1" VisibleIndex="5" PropertiesTextEdit-DisplayFormatString="n2">
+                </dx:GridViewDataTextColumn>
+                <dx:GridViewDataTextColumn Caption="Comisión Ale" FieldName="comision2" VisibleIndex="6" PropertiesTextEdit-DisplayFormatString="n2">
+                </dx:GridViewDataTextColumn>
 
             </Columns>
             <TotalSummary>
                 <dx:ASPxSummaryItem FieldName="montoPago" SummaryType="Sum" DisplayFormat="{0:n2}" />
+                <dx:ASPxSummaryItem FieldName="comision1" SummaryType="Sum" DisplayFormat="{0:n2}" />
+                <dx:ASPxSummaryItem FieldName="comision2" SummaryType="Sum" DisplayFormat="{0:n2}" />
             </TotalSummary>
 
 
@@ -139,9 +145,6 @@
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
-
-
-
                 </Items>
             </dx:LayoutGroup>
 

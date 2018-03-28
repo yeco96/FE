@@ -21,5 +21,9 @@ namespace Web.Models.Catalogos
         public string plan { set; get; }
         public DateTime fechaPago { set; get; }
         public double montoPago { set; get; }
+        [NotMapped]
+        public double comision1 { get { return montoPago * 0.25; } }
+        [NotMapped]
+        public double comision2 { get { return montoPago * 0.25; } }
     }
 }
