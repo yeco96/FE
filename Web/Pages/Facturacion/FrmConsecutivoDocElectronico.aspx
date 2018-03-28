@@ -13,7 +13,7 @@
     <div class="borde_redondo_tabla">
 
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
-            Width="100%" EnableTheming="True" KeyFieldName="emisor;sucursal;caja;" Theme="Moderno"
+            Width="100%" EnableTheming="True" KeyFieldName="emisor;sucursal;caja;tipoDocumento" Theme="Moderno"
             OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize" 
             OnRowDeleting="ASPxGridView1_RowDeleting"
             OnRowInserting="ASPxGridView1_RowInserting"
