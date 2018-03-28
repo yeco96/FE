@@ -26,6 +26,9 @@ namespace Web.Models
         //public virtual DbSet<Cantón> Cantón { get; set; }
         public virtual DbSet<CondicionVenta> CondicionVenta { get; set; }
         public virtual DbSet<CodigoPais> CodigoPais { get; set; }
+
+        public virtual DbSet<Comision> Comision { get; set; }
+
         public virtual DbSet<CodigoReferencia> CodigoReferencia { get; set; }
         public virtual DbSet<ConfiguracionCorreo> ConfiguracionCorreo { get; set; }
         public virtual DbSet<ConfiguracionGlobal> ConfiguracionGlobal { get; set; }

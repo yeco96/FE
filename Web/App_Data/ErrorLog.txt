@@ -10918,17 +10918,55 @@ Stack Trace:
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
-********** 27/3/2018 21:31:20 **********
-Inner Exception Type: System.Exception
-Inner Exception: Error no controlado.
-Favor comunicarse con el administrador del sistema. 
-A primary key field specified via the KeyFieldName property is not found in the underlying data source. Make sure the field name is spelled correctly. Pay attention to the character case. For detailed information, please refer to the http://www.devexpress.com/kbid=KA18689 article.
-Inner Source: Web
+********** 27/03/2018 02:58:47 p.m. **********
+Exception Type: System.Web.HttpCompileException
+Exception: c:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Comision\FrmPagoComision.aspx(43): error CS1061: 'ASP.pages_comision_frmpagocomision_aspx' no contiene una definición de 'btnConsultar_Click' ni se encontró ningún método de extensión 'btnConsultar_Click' que acepte un primer argumento de tipo 'ASP.pages_comision_frmpagocomision_aspx' (¿falta una directiva using o una referencia de ensamblado?)
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   en System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
+   en System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   en System.Web.UI.PageHandlerFactory.GetHandler(HttpContext context, String requestType, String virtualPath, String path)
+   en System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 27/03/2018 03:36:10 p.m. **********
+Exception Type: System.Web.HttpException
+Exception: El archivo '/Pages/FrmPagoComision.aspx' no existe.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Util.CheckVirtualFileExists(VirtualPath virtualPath)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   en System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
+   en System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   en System.Web.UI.PageHandlerFactory.GetHandler(HttpContext context, String requestType, String virtualPath, String path)
+   en System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 27/03/2018 05:00:04 p.m. **********
+Inner Exception Type: System.Web.HttpException
+Inner Exception: A field or property with name 'Clave' was not found in the selected data source. Possible causes of this error may be the following: an incorrect or case-insensitive spelling of the grid column name; assigning a wrong or not properly initialized data source to the grid.
+Inner Source: DevExpress.Web.v17.1
 Inner Stack Trace: 
-   en Web.Pages.Administracion.FrmPlanAdmin.Page_Load(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Administracion\FrmPlanAdmin.aspx.cs:línea 56
-   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
-   en System.Web.UI.Control.OnLoad(EventArgs e)
-   en System.Web.UI.Control.LoadRecursive()
+   en DevExpress.Web.Data.WebDataControllerProvider.GetRowValueByControllerRow(Int32 controllerRow, String fieldName, Boolean isDesignTime)
+   en DevExpress.Web.Data.WebDataControllerProvider.GetRowValue(Int32 visibleIndex, String fieldName, Boolean isDesignTime)
+   en DevExpress.Web.Data.WebDataProxy.GetRowValue(Int32 visibleIndex, String fieldName)
+   en DevExpress.Web.Data.WebDataProxy.GetRowValuesCore(Int32 index, String[] fieldNames, GetRowValueMethod getValue)
+   en DevExpress.Web.Data.WebDataProxy.GetRowValues(Int32 visibleIndex, String[] fieldNames)
+   en DevExpress.Web.ASPxGridView.GetRowValues(Int32 visibleIndex, String[] fieldNames)
+   en Web.Pages.Facturacion.FrmConsultaResumen.btnReporte_Click(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmConsultaResumen.aspx.cs:línea 118
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
    en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
 Exception Type: System.Web.HttpUnhandledException
 Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
@@ -10940,19 +10978,112 @@ Stack Trace:
    en System.Web.UI.Page.ProcessRequest()
    en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
    en System.Web.UI.Page.ProcessRequest(HttpContext context)
-   en ASP.pages_administracion_frmplanadmin_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_inbz1rzs.0.cs:línea 0
+   en ASP.pages_facturacion_frmconsultaresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_wwb4s4rc.4.cs:línea 0
    en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
-********** 27/3/2018 21:31:20 **********
-Inner Exception Type: System.Exception
-Inner Exception: Error no controlado.
-Favor comunicarse con el administrador del sistema. 
-A primary key field specified via the KeyFieldName property is not found in the underlying data source. Make sure the field name is spelled correctly. Pay attention to the character case. For detailed information, please refer to the http://www.devexpress.com/kbid=KA18689 article.
+********** 27/03/2018 05:00:54 p.m. **********
+Inner Exception Type: System.Web.HttpException
+Inner Exception: A field or property with name 'Clave' was not found in the selected data source. Possible causes of this error may be the following: an incorrect or case-insensitive spelling of the grid column name; assigning a wrong or not properly initialized data source to the grid.
+Inner Source: DevExpress.Web.v17.1
+Inner Stack Trace: 
+   en DevExpress.Web.Data.WebDataControllerProvider.GetRowValueByControllerRow(Int32 controllerRow, String fieldName, Boolean isDesignTime)
+   en DevExpress.Web.Data.WebDataControllerProvider.GetRowValue(Int32 visibleIndex, String fieldName, Boolean isDesignTime)
+   en DevExpress.Web.Data.WebDataProxy.GetRowValue(Int32 visibleIndex, String fieldName)
+   en DevExpress.Web.Data.WebDataProxy.GetRowValuesCore(Int32 index, String[] fieldNames, GetRowValueMethod getValue)
+   en DevExpress.Web.Data.WebDataProxy.GetRowValues(Int32 visibleIndex, String[] fieldNames)
+   en DevExpress.Web.ASPxGridView.GetRowValues(Int32 visibleIndex, String[] fieldNames)
+   en Web.Pages.Facturacion.FrmConsultaResumen.btnReporte_Click(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmconsultaresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_wwb4s4rc.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 27/03/2018 05:01:21 p.m. **********
+Inner Exception Type: System.Web.HttpException
+Inner Exception: A field or property with name 'Consecutivo' was not found in the selected data source. Possible causes of this error may be the following: an incorrect or case-insensitive spelling of the grid column name; assigning a wrong or not properly initialized data source to the grid.
+Inner Source: DevExpress.Web.v17.1
+Inner Stack Trace: 
+   en DevExpress.Web.Data.WebDataControllerProvider.GetRowValueByControllerRow(Int32 controllerRow, String fieldName, Boolean isDesignTime)
+   en DevExpress.Web.Data.WebDataControllerProvider.GetRowValue(Int32 visibleIndex, String fieldName, Boolean isDesignTime)
+   en DevExpress.Web.Data.WebDataProxy.GetRowValue(Int32 visibleIndex, String fieldName)
+   en DevExpress.Web.Data.WebDataProxy.GetRowValuesCore(Int32 index, String[] fieldNames, GetRowValueMethod getValue)
+   en DevExpress.Web.Data.WebDataProxy.GetRowValues(Int32 visibleIndex, String[] fieldNames)
+   en DevExpress.Web.ASPxGridView.GetRowValues(Int32 visibleIndex, String[] fieldNames)
+   en Web.Pages.Facturacion.FrmConsultaResumen.btnReporte_Click(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmconsultaresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_wwb4s4rc.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 27/03/2018 05:01:47 p.m. **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
 Inner Source: Web
 Inner Stack Trace: 
-   en Web.Pages.Administracion.FrmPlanAdmin.Page_Load(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Administracion\FrmPlanAdmin.aspx.cs:línea 56
+   en Web.Pages.Facturacion.FrmConsultaResumen.btnReporte_Click(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmconsultaresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_wwb4s4rc.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 27/03/2018 05:11:53 p.m. **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 45
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 34
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs:línea 25
    en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
    en System.Web.UI.Control.OnLoad(EventArgs e)
    en System.Web.UI.Control.LoadRecursive()
@@ -10967,7 +11098,7 @@ Stack Trace:
    en System.Web.UI.Page.ProcessRequest()
    en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
    en System.Web.UI.Page.ProcessRequest(HttpContext context)
-   en ASP.pages_administracion_frmplanadmin_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_inbz1rzs.0.cs:línea 0
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_wlvrpnt3.0.cs:línea 0
    en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)

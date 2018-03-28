@@ -70,6 +70,8 @@
         <dx:ASPxGridView ID="dgvDatos" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
             Width="100%" EnableTheming="True" KeyFieldName="clave" Theme="Moderno">
             <Columns>
+                <dx:GridViewCommandColumn Caption=" " SelectAllCheckboxMode="Page" ShowSelectCheckbox="True" VisibleIndex="0">
+                </dx:GridViewCommandColumn>
                 <dx:GridViewDataComboBoxColumn  Caption="Tipo Documento" FieldName="tipoDocumento" VisibleIndex="1" >
                 </dx:GridViewDataComboBoxColumn>
                 <dx:GridViewDataTextColumn Caption="Consecutivo" FieldName="consecutivo" VisibleIndex="2"  >
@@ -77,38 +79,61 @@
                 <dx:GridViewDataTextColumn Caption="Moneda" FieldName="codigoMoneda" VisibleIndex="3"  >
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Tipo Cambio" FieldName="tipoCambio" VisibleIndex="4"   PropertiesTextEdit-DisplayFormatString="n2">
+<PropertiesTextEdit DisplayFormatString="n2"></PropertiesTextEdit>
                </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Serv. Gravados" FieldName="totalServGravados" VisibleIndex="5" Visible="false"  PropertiesTextEdit-DisplayFormatString="n2">
+                    
+<PropertiesTextEdit DisplayFormatString="n2"></PropertiesTextEdit>
                     
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Serv. Exentos" FieldName="totalServExentos" VisibleIndex="6" Visible="false"  PropertiesTextEdit-DisplayFormatString="n2">
                     
+<PropertiesTextEdit DisplayFormatString="n2"></PropertiesTextEdit>
+                    
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Merc. Gravados" FieldName="totalMercanciasGravadas" VisibleIndex="7" Visible="false"   PropertiesTextEdit-DisplayFormatString="n2">
+                    
+<PropertiesTextEdit DisplayFormatString="n2"></PropertiesTextEdit>
                     
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Merc. Exentas" FieldName="totalMercanciasExentas" VisibleIndex="8" Visible="false"  PropertiesTextEdit-DisplayFormatString="n2">
                     
+<PropertiesTextEdit DisplayFormatString="n2"></PropertiesTextEdit>
+                    
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Gravado" FieldName="totalGravado" VisibleIndex="9"  PropertiesTextEdit-DisplayFormatString="n2">
+                    
+<PropertiesTextEdit DisplayFormatString="n2"></PropertiesTextEdit>
                     
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Exento" FieldName="totalExento" VisibleIndex="10"  PropertiesTextEdit-DisplayFormatString="n2">
                     
+<PropertiesTextEdit DisplayFormatString="n2"></PropertiesTextEdit>
+                    
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Venta" FieldName="totalVenta" VisibleIndex="11"  PropertiesTextEdit-DisplayFormatString="n2">
+                    
+<PropertiesTextEdit DisplayFormatString="n2"></PropertiesTextEdit>
                     
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Descuentos" FieldName="totalDescuentos" VisibleIndex="12"  PropertiesTextEdit-DisplayFormatString="n2">
                     
+<PropertiesTextEdit DisplayFormatString="n2"></PropertiesTextEdit>
+                    
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Venta Neta" FieldName="totalVentaNeta" VisibleIndex="13"  PropertiesTextEdit-DisplayFormatString="n2">
+                    
+<PropertiesTextEdit DisplayFormatString="n2"></PropertiesTextEdit>
                     
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Impuesto" FieldName="totalImpuesto" VisibleIndex="14"  PropertiesTextEdit-DisplayFormatString="n2">
                     
+<PropertiesTextEdit DisplayFormatString="n2"></PropertiesTextEdit>
+                    
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Comprobante" FieldName="totalComprobante" VisibleIndex="15"  PropertiesTextEdit-DisplayFormatString="n2">
+                    
+<PropertiesTextEdit DisplayFormatString="n2"></PropertiesTextEdit>
                     
                 </dx:GridViewDataTextColumn>
             </Columns>
@@ -131,10 +156,13 @@
             </TotalSummary>
 
             
-            <SettingsBehavior ColumnResizeMode="NextColumn" />
+            <SettingsBehavior ColumnResizeMode="NextColumn" AllowSelectByRowClick="True" />
             <Settings ShowFooter="True" ShowFilterBar="Visible" ShowFilterRow="true" />
             <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="True" ConfirmDelete="True" />
-            <SettingsPager PageSize="10" PageSizeItemSettings-Visible="true" PageSizeItemSettings-Items="10, 20, 30, 100" />
+            <SettingsPager PageSize="10" PageSizeItemSettings-Visible="true" PageSizeItemSettings-Items="10, 20, 30, 100" >
+     
+<PageSizeItemSettings Items="10, 20, 30, 100" Visible="True"></PageSizeItemSettings>
+            </SettingsPager>
      
             <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="True" ShowFilterRow="True" ShowTitlePanel="True" UseFixedTableLayout="True" />
             <SettingsContextMenu EnableColumnMenu="True" Enabled="True" EnableFooterMenu="True" EnableGroupPanelMenu="True" EnableRowMenu="True" />

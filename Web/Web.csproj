@@ -204,6 +204,7 @@
     <Content Include="Content\site.css" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Pages\Administracion\FrmPagoComision.aspx" />
     <Content Include="Pages\Administracion\FrmPlan.aspx" />
     <Content Include="Pages\Administracion\FrmPlanAdmin.aspx" />
     <Content Include="Pages\BlogPost.aspx" />
@@ -342,6 +343,7 @@
       <DependentUpon>Layout.master</DependentUpon>
     </Compile>
     <Compile Include="Models\Administracion\Plan.cs" />
+    <Compile Include="Models\Catalogos\Comision.cs" />
     <Compile Include="Models\Catalogos\TipoPlan.cs" />
     <Compile Include="Models\Catalogos\CodigoReferencia.cs" />
     <Compile Include="Models\Catalogos\CondicionVenta.cs" />
@@ -366,6 +368,13 @@
     <Compile Include="Models\Seguridad\Rol.cs" />
     <Compile Include="Models\Seguridad\Usuario.cs" />
     <Compile Include="Models\Catalogos\TipoMoneda.cs" />
+    <Compile Include="Pages\Administracion\FrmPagoComision.aspx.cs">
+      <DependentUpon>FrmPagoComision.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Administracion\FrmPagoComision.aspx.designer.cs">
+      <DependentUpon>FrmPagoComision.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Administracion\FrmPlan.aspx.cs">
       <DependentUpon>FrmPlan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
