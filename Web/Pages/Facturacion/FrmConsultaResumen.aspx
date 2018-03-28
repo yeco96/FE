@@ -159,9 +159,9 @@
             <SettingsBehavior ColumnResizeMode="NextColumn" AllowSelectByRowClick="True" />
             <Settings ShowFooter="True" ShowFilterBar="Visible" ShowFilterRow="true" />
             <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="True" ConfirmDelete="True" />
-            <SettingsPager PageSize="10" PageSizeItemSettings-Visible="true" PageSizeItemSettings-Items="10, 20, 30, 100" >
+            <SettingsPager PageSize="2" PageSizeItemSettings-Visible="true" PageSizeItemSettings-Items="2, 20, 30, 100" >
      
-<PageSizeItemSettings Items="10, 20, 30, 100" Visible="True"></PageSizeItemSettings>
+<PageSizeItemSettings Items="2, 20, 30, 100" Visible="True"></PageSizeItemSettings>
             </SettingsPager>
      
             <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="True" ShowFilterRow="True" ShowTitlePanel="True" UseFixedTableLayout="True" />

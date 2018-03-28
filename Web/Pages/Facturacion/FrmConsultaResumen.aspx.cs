@@ -113,6 +113,13 @@ namespace Web.Pages.Facturacion
             //}
 
             //Recorremos Grid View
+
+            //for (int i = 0; i < dgvDatos.; i++)
+            //{
+
+            //}
+            dgvDatos.SettingsPager.Mode= GridViewPagerMode.ShowAllRecords;
+
             foreach (var item in dgvDatos.GetCurrentPageRowValues("clave"))
             {
                 if (dgvDatos.Selection.IsRowSelectedByKey(item))
@@ -122,6 +129,7 @@ namespace Web.Pages.Facturacion
                 }
             }
 
+            dgvDatos.SettingsPager.Mode = GridViewPagerMode.ShowPager;
 
             if (cuenta > 0)
             {
