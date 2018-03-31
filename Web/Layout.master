@@ -121,6 +121,8 @@
                                                                     <dx:MenuItem Text="ROL " NavigateUrl="~/Pages/Seguridad/FrmSeguridadRol" />
                                                                 </Items>
                                                             </dx:MenuItem>
+                                                            <dx:MenuItem Text="WEB SERVICES" NavigateUrl="~/Pages/WebServices" />  
+                                                            
                                                         </Items>
                                                     </dx:MenuItem>
                                                     <dx:MenuItem Text="AYUDA" >

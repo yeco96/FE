@@ -89,5 +89,10 @@ namespace Web
         }
 
 
+        void Application_PostAuthenticateRequest(object sender, EventArgs e)
+        {
+            System.Web.HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.Required);
+        }
+
     }
 }
