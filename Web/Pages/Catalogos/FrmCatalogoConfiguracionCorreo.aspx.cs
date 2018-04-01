@@ -48,7 +48,9 @@ namespace Web.Pages.Catalogos
                 {
                     this.cargarCombos(); 
                 }
-                this.refreshData();
+                this.alertMessages.InnerText = "";
+                this.alertMessages.Attributes["class"] = "";
+            this.refreshData();
             }
             catch (Exception ex)
             {

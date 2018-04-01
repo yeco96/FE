@@ -11103,3 +11103,612 @@ Stack Trace:
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
+********** 31/3/2018 18:04:15 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Una operación asincrónica no se puede comenzar en este momento. Solo se pueden comenzar operaciones asincrónicas dentro de un controlador o módulo asincrónico o durante ciertos eventos en el ciclo de vida de la página. Si esta excepción se produjo mientras se ejecutaba una página, asegúrese de que la página esté marcada con <%@ Page Async="true" %>. Esta excepción puede también indicar que se intentó llamar a un método "async void" que generalmente no es compatible con el procesamiento de solicitudes de ASP.NET. En su lugar, el método asincrónico debería devolver una Tarea y el llamador debería esperarla.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.AspNetSynchronizationContext.OperationStarted()
+   en System.Runtime.CompilerServices.AsyncVoidMethodBuilder.Create()
+   en Web.Pages.Catalogos.FrmEmisor.btnProbarUsuario_Click(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmemisor_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_dv2wochw.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 31/3/2018 18:04:23 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Una operación asincrónica no se puede comenzar en este momento. Solo se pueden comenzar operaciones asincrónicas dentro de un controlador o módulo asincrónico o durante ciertos eventos en el ciclo de vida de la página. Si esta excepción se produjo mientras se ejecutaba una página, asegúrese de que la página esté marcada con <%@ Page Async="true" %>. Esta excepción puede también indicar que se intentó llamar a un método "async void" que generalmente no es compatible con el procesamiento de solicitudes de ASP.NET. En su lugar, el método asincrónico debería devolver una Tarea y el llamador debería esperarla.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.AspNetSynchronizationContext.OperationStarted()
+   en System.Runtime.CompilerServices.AsyncVoidMethodBuilder.Create()
+   en Web.Pages.Catalogos.FrmEmisor.btnProbarUsuario_Click(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmemisor_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_dv2wochw.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 31/3/2018 18:04:25 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Una operación asincrónica no se puede comenzar en este momento. Solo se pueden comenzar operaciones asincrónicas dentro de un controlador o módulo asincrónico o durante ciertos eventos en el ciclo de vida de la página. Si esta excepción se produjo mientras se ejecutaba una página, asegúrese de que la página esté marcada con <%@ Page Async="true" %>. Esta excepción puede también indicar que se intentó llamar a un método "async void" que generalmente no es compatible con el procesamiento de solicitudes de ASP.NET. En su lugar, el método asincrónico debería devolver una Tarea y el llamador debería esperarla.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.AspNetSynchronizationContext.OperationStarted()
+   en System.Runtime.CompilerServices.AsyncVoidMethodBuilder.Create()
+   en Web.Pages.Catalogos.FrmEmisor.btnProbarUsuario_Click(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmemisor_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_dv2wochw.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 31/3/2018 18:04:25 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Una operación asincrónica no se puede comenzar en este momento. Solo se pueden comenzar operaciones asincrónicas dentro de un controlador o módulo asincrónico o durante ciertos eventos en el ciclo de vida de la página. Si esta excepción se produjo mientras se ejecutaba una página, asegúrese de que la página esté marcada con <%@ Page Async="true" %>. Esta excepción puede también indicar que se intentó llamar a un método "async void" que generalmente no es compatible con el procesamiento de solicitudes de ASP.NET. En su lugar, el método asincrónico debería devolver una Tarea y el llamador debería esperarla.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.AspNetSynchronizationContext.OperationStarted()
+   en System.Runtime.CompilerServices.AsyncVoidMethodBuilder.Create()
+   en Web.Pages.Catalogos.FrmEmisor.btnProbarUsuario_Click(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmemisor_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_dv2wochw.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 31/3/2018 18:04:25 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Una operación asincrónica no se puede comenzar en este momento. Solo se pueden comenzar operaciones asincrónicas dentro de un controlador o módulo asincrónico o durante ciertos eventos en el ciclo de vida de la página. Si esta excepción se produjo mientras se ejecutaba una página, asegúrese de que la página esté marcada con <%@ Page Async="true" %>. Esta excepción puede también indicar que se intentó llamar a un método "async void" que generalmente no es compatible con el procesamiento de solicitudes de ASP.NET. En su lugar, el método asincrónico debería devolver una Tarea y el llamador debería esperarla.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.AspNetSynchronizationContext.OperationStarted()
+   en System.Runtime.CompilerServices.AsyncVoidMethodBuilder.Create()
+   en Web.Pages.Catalogos.FrmEmisor.btnProbarUsuario_Click(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmemisor_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_dv2wochw.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 31/3/2018 18:04:26 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Una operación asincrónica no se puede comenzar en este momento. Solo se pueden comenzar operaciones asincrónicas dentro de un controlador o módulo asincrónico o durante ciertos eventos en el ciclo de vida de la página. Si esta excepción se produjo mientras se ejecutaba una página, asegúrese de que la página esté marcada con <%@ Page Async="true" %>. Esta excepción puede también indicar que se intentó llamar a un método "async void" que generalmente no es compatible con el procesamiento de solicitudes de ASP.NET. En su lugar, el método asincrónico debería devolver una Tarea y el llamador debería esperarla.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.AspNetSynchronizationContext.OperationStarted()
+   en System.Runtime.CompilerServices.AsyncVoidMethodBuilder.Create()
+   en Web.Pages.Catalogos.FrmEmisor.btnProbarUsuario_Click(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmemisor_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_dv2wochw.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 31/3/2018 18:04:26 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Una operación asincrónica no se puede comenzar en este momento. Solo se pueden comenzar operaciones asincrónicas dentro de un controlador o módulo asincrónico o durante ciertos eventos en el ciclo de vida de la página. Si esta excepción se produjo mientras se ejecutaba una página, asegúrese de que la página esté marcada con <%@ Page Async="true" %>. Esta excepción puede también indicar que se intentó llamar a un método "async void" que generalmente no es compatible con el procesamiento de solicitudes de ASP.NET. En su lugar, el método asincrónico debería devolver una Tarea y el llamador debería esperarla.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.AspNetSynchronizationContext.OperationStarted()
+   en System.Runtime.CompilerServices.AsyncVoidMethodBuilder.Create()
+   en Web.Pages.Catalogos.FrmEmisor.btnProbarUsuario_Click(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmemisor_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_dv2wochw.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 31/3/2018 18:04:26 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Una operación asincrónica no se puede comenzar en este momento. Solo se pueden comenzar operaciones asincrónicas dentro de un controlador o módulo asincrónico o durante ciertos eventos en el ciclo de vida de la página. Si esta excepción se produjo mientras se ejecutaba una página, asegúrese de que la página esté marcada con <%@ Page Async="true" %>. Esta excepción puede también indicar que se intentó llamar a un método "async void" que generalmente no es compatible con el procesamiento de solicitudes de ASP.NET. En su lugar, el método asincrónico debería devolver una Tarea y el llamador debería esperarla.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.AspNetSynchronizationContext.OperationStarted()
+   en System.Runtime.CompilerServices.AsyncVoidMethodBuilder.Create()
+   en Web.Pages.Catalogos.FrmEmisor.btnProbarUsuario_Click(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmemisor_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_dv2wochw.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 31/3/2018 18:04:26 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Una operación asincrónica no se puede comenzar en este momento. Solo se pueden comenzar operaciones asincrónicas dentro de un controlador o módulo asincrónico o durante ciertos eventos en el ciclo de vida de la página. Si esta excepción se produjo mientras se ejecutaba una página, asegúrese de que la página esté marcada con <%@ Page Async="true" %>. Esta excepción puede también indicar que se intentó llamar a un método "async void" que generalmente no es compatible con el procesamiento de solicitudes de ASP.NET. En su lugar, el método asincrónico debería devolver una Tarea y el llamador debería esperarla.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.AspNetSynchronizationContext.OperationStarted()
+   en System.Runtime.CompilerServices.AsyncVoidMethodBuilder.Create()
+   en Web.Pages.Catalogos.FrmEmisor.btnProbarUsuario_Click(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmemisor_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_dv2wochw.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 31/3/2018 18:04:27 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Una operación asincrónica no se puede comenzar en este momento. Solo se pueden comenzar operaciones asincrónicas dentro de un controlador o módulo asincrónico o durante ciertos eventos en el ciclo de vida de la página. Si esta excepción se produjo mientras se ejecutaba una página, asegúrese de que la página esté marcada con <%@ Page Async="true" %>. Esta excepción puede también indicar que se intentó llamar a un método "async void" que generalmente no es compatible con el procesamiento de solicitudes de ASP.NET. En su lugar, el método asincrónico debería devolver una Tarea y el llamador debería esperarla.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.AspNetSynchronizationContext.OperationStarted()
+   en System.Runtime.CompilerServices.AsyncVoidMethodBuilder.Create()
+   en Web.Pages.Catalogos.FrmEmisor.btnProbarUsuario_Click(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmemisor_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_dv2wochw.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 31/3/2018 18:04:27 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Una operación asincrónica no se puede comenzar en este momento. Solo se pueden comenzar operaciones asincrónicas dentro de un controlador o módulo asincrónico o durante ciertos eventos en el ciclo de vida de la página. Si esta excepción se produjo mientras se ejecutaba una página, asegúrese de que la página esté marcada con <%@ Page Async="true" %>. Esta excepción puede también indicar que se intentó llamar a un método "async void" que generalmente no es compatible con el procesamiento de solicitudes de ASP.NET. En su lugar, el método asincrónico debería devolver una Tarea y el llamador debería esperarla.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.AspNetSynchronizationContext.OperationStarted()
+   en System.Runtime.CompilerServices.AsyncVoidMethodBuilder.Create()
+   en Web.Pages.Catalogos.FrmEmisor.btnProbarUsuario_Click(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmemisor_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_dv2wochw.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 31/3/2018 18:04:27 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Una operación asincrónica no se puede comenzar en este momento. Solo se pueden comenzar operaciones asincrónicas dentro de un controlador o módulo asincrónico o durante ciertos eventos en el ciclo de vida de la página. Si esta excepción se produjo mientras se ejecutaba una página, asegúrese de que la página esté marcada con <%@ Page Async="true" %>. Esta excepción puede también indicar que se intentó llamar a un método "async void" que generalmente no es compatible con el procesamiento de solicitudes de ASP.NET. En su lugar, el método asincrónico debería devolver una Tarea y el llamador debería esperarla.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.AspNetSynchronizationContext.OperationStarted()
+   en System.Runtime.CompilerServices.AsyncVoidMethodBuilder.Create()
+   en Web.Pages.Catalogos.FrmEmisor.btnProbarUsuario_Click(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmemisor_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_dv2wochw.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 31/3/2018 18:04:28 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Una operación asincrónica no se puede comenzar en este momento. Solo se pueden comenzar operaciones asincrónicas dentro de un controlador o módulo asincrónico o durante ciertos eventos en el ciclo de vida de la página. Si esta excepción se produjo mientras se ejecutaba una página, asegúrese de que la página esté marcada con <%@ Page Async="true" %>. Esta excepción puede también indicar que se intentó llamar a un método "async void" que generalmente no es compatible con el procesamiento de solicitudes de ASP.NET. En su lugar, el método asincrónico debería devolver una Tarea y el llamador debería esperarla.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.AspNetSynchronizationContext.OperationStarted()
+   en System.Runtime.CompilerServices.AsyncVoidMethodBuilder.Create()
+   en Web.Pages.Catalogos.FrmEmisor.btnProbarUsuario_Click(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmemisor_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_dv2wochw.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 31/3/2018 18:05:03 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Una operación asincrónica no se puede comenzar en este momento. Solo se pueden comenzar operaciones asincrónicas dentro de un controlador o módulo asincrónico o durante ciertos eventos en el ciclo de vida de la página. Si esta excepción se produjo mientras se ejecutaba una página, asegúrese de que la página esté marcada con <%@ Page Async="true" %>. Esta excepción puede también indicar que se intentó llamar a un método "async void" que generalmente no es compatible con el procesamiento de solicitudes de ASP.NET. En su lugar, el método asincrónico debería devolver una Tarea y el llamador debería esperarla.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.AspNetSynchronizationContext.OperationStarted()
+   en System.Runtime.CompilerServices.AsyncVoidMethodBuilder.Create()
+   en Web.Pages.Catalogos.FrmEmisor.btnProbarUsuario_Click(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmemisor_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_dv2wochw.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 31/3/2018 18:05:04 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Una operación asincrónica no se puede comenzar en este momento. Solo se pueden comenzar operaciones asincrónicas dentro de un controlador o módulo asincrónico o durante ciertos eventos en el ciclo de vida de la página. Si esta excepción se produjo mientras se ejecutaba una página, asegúrese de que la página esté marcada con <%@ Page Async="true" %>. Esta excepción puede también indicar que se intentó llamar a un método "async void" que generalmente no es compatible con el procesamiento de solicitudes de ASP.NET. En su lugar, el método asincrónico debería devolver una Tarea y el llamador debería esperarla.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.AspNetSynchronizationContext.OperationStarted()
+   en System.Runtime.CompilerServices.AsyncVoidMethodBuilder.Create()
+   en Web.Pages.Catalogos.FrmEmisor.btnProbarUsuario_Click(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmemisor_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_dv2wochw.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 31/3/2018 18:05:05 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Una operación asincrónica no se puede comenzar en este momento. Solo se pueden comenzar operaciones asincrónicas dentro de un controlador o módulo asincrónico o durante ciertos eventos en el ciclo de vida de la página. Si esta excepción se produjo mientras se ejecutaba una página, asegúrese de que la página esté marcada con <%@ Page Async="true" %>. Esta excepción puede también indicar que se intentó llamar a un método "async void" que generalmente no es compatible con el procesamiento de solicitudes de ASP.NET. En su lugar, el método asincrónico debería devolver una Tarea y el llamador debería esperarla.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.AspNetSynchronizationContext.OperationStarted()
+   en System.Runtime.CompilerServices.AsyncVoidMethodBuilder.Create()
+   en Web.Pages.Catalogos.FrmEmisor.btnProbarUsuario_Click(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmemisor_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_dv2wochw.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 31/3/2018 18:05:05 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Una operación asincrónica no se puede comenzar en este momento. Solo se pueden comenzar operaciones asincrónicas dentro de un controlador o módulo asincrónico o durante ciertos eventos en el ciclo de vida de la página. Si esta excepción se produjo mientras se ejecutaba una página, asegúrese de que la página esté marcada con <%@ Page Async="true" %>. Esta excepción puede también indicar que se intentó llamar a un método "async void" que generalmente no es compatible con el procesamiento de solicitudes de ASP.NET. En su lugar, el método asincrónico debería devolver una Tarea y el llamador debería esperarla.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.AspNetSynchronizationContext.OperationStarted()
+   en System.Runtime.CompilerServices.AsyncVoidMethodBuilder.Create()
+   en Web.Pages.Catalogos.FrmEmisor.btnProbarUsuario_Click(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmemisor_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_dv2wochw.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 31/3/2018 18:06:58 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Una operación asincrónica no se puede comenzar en este momento. Solo se pueden comenzar operaciones asincrónicas dentro de un controlador o módulo asincrónico o durante ciertos eventos en el ciclo de vida de la página. Si esta excepción se produjo mientras se ejecutaba una página, asegúrese de que la página esté marcada con <%@ Page Async="true" %>. Esta excepción puede también indicar que se intentó llamar a un método "async void" que generalmente no es compatible con el procesamiento de solicitudes de ASP.NET. En su lugar, el método asincrónico debería devolver una Tarea y el llamador debería esperarla.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.AspNetSynchronizationContext.OperationStarted()
+   en System.Runtime.CompilerServices.AsyncVoidMethodBuilder.Create()
+   en Web.Pages.Catalogos.FrmEmisor.btnProbarUsuario_Click(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmemisor_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_tkhdybbx.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 31/3/2018 18:07:09 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Una operación asincrónica no se puede comenzar en este momento. Solo se pueden comenzar operaciones asincrónicas dentro de un controlador o módulo asincrónico o durante ciertos eventos en el ciclo de vida de la página. Si esta excepción se produjo mientras se ejecutaba una página, asegúrese de que la página esté marcada con <%@ Page Async="true" %>. Esta excepción puede también indicar que se intentó llamar a un método "async void" que generalmente no es compatible con el procesamiento de solicitudes de ASP.NET. En su lugar, el método asincrónico debería devolver una Tarea y el llamador debería esperarla.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.AspNetSynchronizationContext.OperationStarted()
+   en System.Runtime.CompilerServices.AsyncVoidMethodBuilder.Create()
+   en Web.Pages.Catalogos.FrmEmisor.btnProbarUsuario_Click(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmemisor_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_tkhdybbx.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 31/3/2018 18:07:09 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Una operación asincrónica no se puede comenzar en este momento. Solo se pueden comenzar operaciones asincrónicas dentro de un controlador o módulo asincrónico o durante ciertos eventos en el ciclo de vida de la página. Si esta excepción se produjo mientras se ejecutaba una página, asegúrese de que la página esté marcada con <%@ Page Async="true" %>. Esta excepción puede también indicar que se intentó llamar a un método "async void" que generalmente no es compatible con el procesamiento de solicitudes de ASP.NET. En su lugar, el método asincrónico debería devolver una Tarea y el llamador debería esperarla.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.AspNetSynchronizationContext.OperationStarted()
+   en System.Runtime.CompilerServices.AsyncVoidMethodBuilder.Create()
+   en Web.Pages.Catalogos.FrmEmisor.btnProbarUsuario_Click(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmemisor_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_tkhdybbx.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 31/3/2018 18:08:02 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Una operación asincrónica no se puede comenzar en este momento. Solo se pueden comenzar operaciones asincrónicas dentro de un controlador o módulo asincrónico o durante ciertos eventos en el ciclo de vida de la página. Si esta excepción se produjo mientras se ejecutaba una página, asegúrese de que la página esté marcada con <%@ Page Async="true" %>. Esta excepción puede también indicar que se intentó llamar a un método "async void" que generalmente no es compatible con el procesamiento de solicitudes de ASP.NET. En su lugar, el método asincrónico debería devolver una Tarea y el llamador debería esperarla.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.AspNetSynchronizationContext.OperationStarted()
+   en System.Runtime.CompilerServices.AsyncVoidMethodBuilder.Create()
+   en Web.Pages.Catalogos.FrmEmisor.btnProbarUsuario_Click(Object sender, EventArgs e)
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmemisor_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_2jabgdzu.3.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+

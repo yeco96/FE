@@ -5,6 +5,7 @@ using DevExpress.Web;
 using DevExpress.XtraPrinting;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
@@ -78,12 +79,12 @@ namespace Web.Pages.Catalogos
             using (var conexion = new DataModelFE())
             {
                 if (!this.ASPxGridView1.IsEditing)
-                { 
+                {
                     string emisor = Session["emisor"].ToString();
                     this.ASPxGridView1.DataSource = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == emisor).ToList();
                     this.ASPxGridView1.DataBind();
                 }
-               
+
             }
         }
 
@@ -106,7 +107,7 @@ namespace Web.Pages.Catalogos
                 {
                     comboIdentificacionTipo.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
                 }
-                 
+
                 /* CODIGO PAIS */
                 GridViewDataComboBoxColumn cmbEmisorTelefonoCod = this.ASPxGridView1.Columns["telefonoCodigoPais"] as GridViewDataComboBoxColumn;
                 GridViewDataComboBoxColumn cmbEmisorFaxCod = this.ASPxGridView1.Columns["faxCodigoPais"] as GridViewDataComboBoxColumn;
@@ -115,10 +116,10 @@ namespace Web.Pages.Catalogos
                 foreach (var item in conexion.CodigoPais.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
                 {
                     cmbEmisorTelefonoCod.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
-                    cmbEmisorFaxCod.PropertiesComboBox.Items.Add(item.descripcion, item.codigo); 
+                    cmbEmisorFaxCod.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
                 }
                 cmbEmisorTelefonoCod.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-                cmbEmisorFaxCod.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains; 
+                cmbEmisorFaxCod.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             }
         }
 
@@ -164,7 +165,7 @@ namespace Web.Pages.Catalogos
                     dato.identificacion = e.NewValues["identificacion"].ToString();
                     dato.nombre = e.NewValues["nombre"].ToString();
                     dato.nombreComercial = e.NewValues["nombreComercial"] != null ? e.NewValues["nombreComercial"].ToString().ToUpper() : null;
-                     
+
                     if (e.NewValues["telefono"] != null)
                     {
                         //dato.telefonoCodigoPais = e.NewValues["telefonoCodigoPais"].ToString();
@@ -172,7 +173,7 @@ namespace Web.Pages.Catalogos
                         dato.telefono = e.NewValues["telefono"].ToString();
                     }
 
-                    dato.correoElectronico = e.NewValues["correoElectronico"] != null ? e.NewValues["correoElectronico"].ToString()  : null;
+                    dato.correoElectronico = e.NewValues["correoElectronico"] != null ? e.NewValues["correoElectronico"].ToString() : null;
                     dato.estado = e.NewValues["estado"].ToString();
                     if (e.NewValues["fax"] != null)
                     {
@@ -192,7 +193,7 @@ namespace Web.Pages.Catalogos
                     /* BARRIO */
                     ASPxComboBox comboBarrio = (ASPxComboBox)form.FindControl("cmbBarrio");
                     ASPxMemo otraSena = (ASPxMemo)form.FindControl("txtOtraSenas");
-                     
+
                     dato.provincia = comboProvincia.Value.ToString();
                     dato.canton = comboCanton.Value.ToString();
                     dato.distrito = comboDistrito.Value.ToString();
@@ -213,7 +214,7 @@ namespace Web.Pages.Catalogos
                     dato.fechaModificacion = Date.DateTimeNow();
 
                     //modifica objeto 
-                    conexion.Entry(dato).State = EntityState.Modified; 
+                    conexion.Entry(dato).State = EntityState.Modified;
                     conexion.SaveChanges();
 
                     Session["elEmisor"] = dato;
@@ -251,7 +252,7 @@ namespace Web.Pages.Catalogos
             }
         }
 
-      
+
         /// <summary>
         /// desabilita los campos que no son editables
         /// </summary>
@@ -292,19 +293,19 @@ namespace Web.Pages.Catalogos
                     this.cargarProvincias();
 
                     /* PROVINCIA */
-                    ASPxComboBox comboProvincia = (ASPxComboBox)form.FindControl("cmbProvincia"); 
+                    ASPxComboBox comboProvincia = (ASPxComboBox)form.FindControl("cmbProvincia");
                     comboProvincia.Value = dato.provincia;
-                    
+
                     /* CANTON */
-                    ASPxComboBox comboCanton = (ASPxComboBox)form.FindControl("cmbCanton"); 
+                    ASPxComboBox comboCanton = (ASPxComboBox)form.FindControl("cmbCanton");
                     comboCanton.Items.Clear();
 
                     /* DISTRITO */
-                    ASPxComboBox comboDistrito = (ASPxComboBox)form.FindControl("cmbDistrito"); 
+                    ASPxComboBox comboDistrito = (ASPxComboBox)form.FindControl("cmbDistrito");
                     comboDistrito.Items.Clear();
 
                     /* BARRIO */
-                    ASPxComboBox comboBarrio = (ASPxComboBox)form.FindControl("cmbBarrio");  
+                    ASPxComboBox comboBarrio = (ASPxComboBox)form.FindControl("cmbBarrio");
                     comboBarrio.Items.Clear();
 
                     /* OTRA SEÑAS */
@@ -401,7 +402,7 @@ namespace Web.Pages.Catalogos
             ASPxFormLayout form = (ASPxFormLayout)tabs.FindControl("formLayoutUbicacion");
 
             /* PROVINCIA */
-            ASPxComboBox comboProvincia = (ASPxComboBox)form.FindControl("cmbProvincia");  
+            ASPxComboBox comboProvincia = (ASPxComboBox)form.FindControl("cmbProvincia");
             comboProvincia.Items.Clear();
 
             using (var conexion = new DataModelFE())
@@ -412,7 +413,7 @@ namespace Web.Pages.Catalogos
                     comboProvincia.Items.Add(item.nombreProvincia, item.codProvincia);
                 }
                 comboProvincia.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-            } 
+            }
         }
 
         public void cargarCantones()
@@ -420,10 +421,10 @@ namespace Web.Pages.Catalogos
             ASPxPageControl tabs = (ASPxPageControl)ASPxGridView1.FindEditFormTemplateControl("pageControl");
             ASPxFormLayout form = (ASPxFormLayout)tabs.FindControl("formLayoutUbicacion");
             /* PROVINCIA */
-            ASPxComboBox comboProvincia = (ASPxComboBox)form.FindControl("cmbProvincia");  
+            ASPxComboBox comboProvincia = (ASPxComboBox)form.FindControl("cmbProvincia");
             /* CANTON */
-            ASPxComboBox comboCanton = (ASPxComboBox)form.FindControl("cmbCanton");  
-             
+            ASPxComboBox comboCanton = (ASPxComboBox)form.FindControl("cmbCanton");
+
             comboCanton.Items.Clear();
             if (comboProvincia.Value != null)
             {
@@ -438,7 +439,7 @@ namespace Web.Pages.Catalogos
                     comboCanton.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
                     comboCanton.SelectedIndex = 0;
                 }
-            } 
+            }
         }
 
         public void cargarDistritos()
@@ -450,7 +451,7 @@ namespace Web.Pages.Catalogos
             /* CANTON */
             ASPxComboBox comboCanton = (ASPxComboBox)form.FindControl("cmbCanton");
             /* DISTRITO */
-            ASPxComboBox comboDistrito = (ASPxComboBox)form.FindControl("cmbDistrito"); 
+            ASPxComboBox comboDistrito = (ASPxComboBox)form.FindControl("cmbDistrito");
 
             comboDistrito.Items.Clear();
             if (comboProvincia.Value != null && comboCanton.Value != null)
@@ -467,7 +468,7 @@ namespace Web.Pages.Catalogos
                     comboDistrito.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
                     comboDistrito.SelectedIndex = 0;
                 }
-            } 
+            }
 
         }
 
@@ -500,7 +501,7 @@ namespace Web.Pages.Catalogos
                     comboBarrio.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
                     comboBarrio.SelectedIndex = 0;
                 }
-            } 
+            }
 
         }
 
@@ -548,6 +549,32 @@ namespace Web.Pages.Catalogos
                 {
                     e.RowError = "La ubicación es obligatoria (provincia, cantón, distrito, barrio y otras señas";
                 }
+            }
+        }
+
+        protected async void btnProbarUsuario_Click(object sender, EventArgs e)
+        {
+            using (var conexion = new DataModelFE())
+            {
+                string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
+                OAuth2.OAuth2Config config = conexion.OAuth2Config.Where(x => x.enviroment == ambiente).FirstOrDefault();
+                EmisorReceptorIMEC emisor = (EmisorReceptorIMEC)Session["elEmisor"];
+                config.username = emisor.usernameOAuth2;
+                config.password = emisor.passwordOAuth2;
+
+                await OAuth2.OAuth2Config.getTokenWeb(config);
+
+                if (config != null)
+                {
+                    this.alertMessages.InnerText = "Usuario configurado con éxito";
+                    this.alertMessages.Attributes["class"] = "alert alert-info";
+                }
+                else
+                {
+                    this.alertMessages.InnerText = "Usuario presenta errores, verificar configuración";
+                    this.alertMessages.Attributes["class"] = "alert alert-danger";
+                }
+
             }
         }
     }

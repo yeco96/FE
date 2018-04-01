@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmEmisor.aspx.cs" Inherits="Web.Pages.Catalogos.FrmEmisor" %>
+﻿<%@ Page Async="true" Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmEmisor.aspx.cs" Inherits="Web.Pages.Catalogos.FrmEmisor" %>
 
 <%@ Register Src="~/UserControls/AddAuditoriaForm.ascx" TagPrefix="user1" TagName="AddAuditoriaForm" %>
 <%@ Register Src="~/UserControls/AddUbicacionForm.ascx" TagPrefix="user2" TagName="AddUbicacionForm" %>
@@ -96,12 +96,11 @@
                         </dx:GridViewDataDateColumn>
                     </Columns>
 
-                    <SettingsBehavior ColumnResizeMode="NextColumn" />
-                    <Settings ShowFooter="True" ShowFilterBar="Visible" ShowFilterRow="true" />
+                    <SettingsBehavior ColumnResizeMode="NextColumn" /> 
                     <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="True" ConfirmDelete="True" ProcessSelectionChangedOnServer="True" />
-                    <SettingsPager PageSize="10" PageSizeItemSettings-Visible="true" PageSizeItemSettings-Items="10, 20, 50, 100" />
+                    
                     <SettingsEditing Mode="EditFormAndDisplayRow" />
-                    <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="True" ShowFilterRow="True" ShowTitlePanel="True" UseFixedTableLayout="True" />
+                    <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="false" ShowFilterRow="false" ShowTitlePanel="True" UseFixedTableLayout="True" />
                     <SettingsContextMenu EnableColumnMenu="True" Enabled="True" EnableFooterMenu="True" EnableGroupPanelMenu="True" EnableRowMenu="True" />
                     <SettingsDataSecurity AllowDelete="false" AllowInsert="false" AllowEdit="true" />
                     <SettingsCommandButton>
@@ -213,6 +212,9 @@
                     <BorderBottom BorderWidth="1px" />
 
                 </dx:ASPxGridView>
+
+                 
+
                 <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="ASPxGridView1" FileName="Catálogo Emisor">
                     <Styles>
                         <Default Font-Names="Arial" Font-Size="Small" />
@@ -227,6 +229,28 @@
 
             </ContentTemplate>
         </asp:UpdatePanel>
+
+
+        <dx:ASPxFormLayout runat="server" ID="formLayoutExoneracion">
+                    <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="800" />
+                    <Items>
+                        <dx:LayoutGroup Caption="Prueba de configuración de usuario comprobante electrónico" ColCount="2" GroupBoxDecoration="Box" UseDefaultPaddings="false">
+                            <Items>
+                        
+                                <dx:LayoutItem Caption=" ">
+                                    <LayoutItemNestedControlCollection>
+                                        <dx:LayoutItemNestedControlContainer>
+                                            <dx:ASPxButton ID="btnProbarUsuario" Text="Verificar" runat="server" OnClick="btnProbarUsuario_Click" ValidationGroup="correo" Width="100px" />
+                                        </dx:LayoutItemNestedControlContainer>
+                                    </LayoutItemNestedControlCollection>
+                                </dx:LayoutItem>
+
+                            </Items>
+                        </dx:LayoutGroup> 
+                    </Items>
+                </dx:ASPxFormLayout>
+         
+        <div id="Div1" role="alert" runat="server" />
     </div>
 
 </asp:Content>

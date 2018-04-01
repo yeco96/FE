@@ -71,7 +71,7 @@
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Emisor" FieldName="emisorIdentificacion" VisibleIndex="4" Visible="false">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Receptor" FieldName="Receptor.nombreCompleto" VisibleIndex="5" Width="25%">
+                <dx:GridViewDataTextColumn Caption="Receptor" FieldName="Receptor.nombreCompleto" VisibleIndex="5" Width="25%" Settings-AutoFilterCondition="Contains">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Mensaje" FieldName="mensaje" VisibleIndex="6" Visible="false">
                 </dx:GridViewDataTextColumn>

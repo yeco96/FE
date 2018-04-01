@@ -20,7 +20,7 @@
             </tr>
             <tr>
                 <td class="dxeTextBoxDefaultWidthSys"><strong>Gmail</strong></td>
-                <td class="text-center">995</td>
+                <td class="text-center">587</td>
                 <td class="text-center">smtp.gmail.com</td>
                 <td class="text-center">Si</td>
             </tr>
@@ -91,12 +91,11 @@
                 </dx:GridViewDataDateColumn>
             </Columns>
 
-            <SettingsBehavior ColumnResizeMode="NextColumn" />
-            <Settings ShowFooter="True" ShowFilterBar="Visible" ShowFilterRow="true" />
+            <SettingsBehavior ColumnResizeMode="NextColumn" /> 
             <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="True" ConfirmDelete="True" />
-            <SettingsPager PageSize="10" PageSizeItemSettings-Visible="true" PageSizeItemSettings-Items="10, 20, 50, 100" />
+            
             <SettingsEditing Mode="EditFormAndDisplayRow" />
-            <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="True" ShowFilterRow="True" ShowTitlePanel="True" UseFixedTableLayout="True" />
+            <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="false" ShowFilterRow="false" ShowTitlePanel="True" UseFixedTableLayout="True" />
             <SettingsContextMenu EnableColumnMenu="True" Enabled="True" EnableFooterMenu="True" EnableGroupPanelMenu="True" EnableRowMenu="True" />
 
             <SettingsCommandButton>

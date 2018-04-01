@@ -8,7 +8,7 @@
         <div class="text-box-heading-title">Configuración Plan</div>
         <div class="arrow-down-title" style="margin-bottom: 5px;"></div>                        
      </div>   
-
+        <div class="borde_redondo_tabla">
 
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
             Width="100%" EnableTheming="True" KeyFieldName="emisor" Theme="Moderno"  
@@ -54,11 +54,10 @@
             </Columns>
 
             <SettingsBehavior ColumnResizeMode="NextColumn" />
-            <Settings ShowFooter="True" ShowFilterBar="Visible" ShowFilterRow="true" />
             <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="True" ConfirmDelete="True" />
-            <SettingsPager PageSize="10" PageSizeItemSettings-Visible="true" PageSizeItemSettings-Items="10, 20, 50, 100" />
+             
             <SettingsEditing Mode="EditFormAndDisplayRow" />
-            <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="True" ShowFilterRow="True" ShowTitlePanel="True" UseFixedTableLayout="True" />
+            <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="false" ShowFilterRow="false" ShowTitlePanel="True" UseFixedTableLayout="True" />
            
             <SettingsDetail ShowDetailRow="false" />
             <SettingsCommandButton>
