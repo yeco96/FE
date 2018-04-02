@@ -245,7 +245,7 @@ namespace Class.Utilidades
                         }
                         correo.Priority = MailPriority.Normal;
                         correo.IsBodyHtml = true;
-                        smtp.Credentials = new NetworkCredential(mailConfig.user, mailConfig.password);
+                        smtp.Credentials = new NetworkCredential(mailConfig.user, Ale5Util.DesEncriptar(mailConfig.password));
                         smtp.Host = mailConfig.host;
                         smtp.Port = int.Parse(mailConfig.port);
 
