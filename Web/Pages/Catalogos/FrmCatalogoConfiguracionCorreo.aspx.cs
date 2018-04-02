@@ -15,6 +15,7 @@ using System.Web.UI.WebControls;
 using Web.Models;
 using Web.Models.Catalogos;
 using Web.Models.Facturacion;
+using Web.Utils;
 
 namespace Web.Pages.Catalogos
 {
@@ -126,7 +127,7 @@ namespace Web.Pages.Catalogos
                     dato.port = e.NewValues["port"] != null ? e.NewValues["port"].ToString().ToUpper() : null;
                     dato.user = e.NewValues["user"] != null ? e.NewValues["user"].ToString() : null;
                     dato.ssl = e.NewValues["ssl"] != null ? e.NewValues["ssl"].ToString() : null;
-                    dato.password = e.NewValues["password"] != null ? MD5Util.getMd5Hash( e.NewValues["password"].ToString()) : null;
+                    dato.password = e.NewValues["password"] != null ? Ale5Util.Encriptar( e.NewValues["password"].ToString()) : null;
                     
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioCreacion = Session["usuario"].ToString();
@@ -187,7 +188,7 @@ namespace Web.Pages.Catalogos
                     dato = conexion.ConfiguracionCorreo.Find(dato.codigo);
 
                     if(e.NewValues["password"]!=null)
-                        dato.password = e.NewValues["password"] != null ? e.NewValues["password"].ToString() : null;
+                        dato.password = e.NewValues["password"] != null ? Ale5Util.Encriptar(e.NewValues["password"].ToString()) : null;
                     
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
                     dato.ssl = e.NewValues["ssl"] != null ? e.NewValues["ssl"].ToString() : null;

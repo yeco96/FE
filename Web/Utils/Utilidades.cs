@@ -13,6 +13,7 @@ using System.Web;
 using Web.Models;
 using Web.Models.Catalogos;
 using Web.Models.Facturacion;
+using Web.Utils;
 using XMLDomain;
 
 namespace Class.Utilidades
@@ -312,7 +313,8 @@ namespace Class.Utilidades
                     correo.Body = mensaje;
                     correo.Priority = MailPriority.Normal;
                     correo.IsBodyHtml = true;
-                    smtp.Credentials = new NetworkCredential(mailConfig.user, mailConfig.password);
+                    smtp.Credentials = new NetworkCredential(mailConfig.user, Ale5Util.DesEncriptar(mailConfig.password));
+                    //smtp.Credentials = new NetworkCredential(mailConfig.user, "Soporte93");
                     smtp.Host = mailConfig.host;
                     smtp.Port = int.Parse(mailConfig.port);
 

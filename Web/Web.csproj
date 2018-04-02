@@ -851,6 +851,7 @@
     <Compile Include="UserControls\BlogNavigation.ascx.designer.cs">
       <DependentUpon>BlogNavigation.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Ale5Util.cs" />
     <Compile Include="Utils\Date.cs" />
     <Compile Include="Utils\FormatString.cs" />
     <Compile Include="Utils\MD5Util.cs" />
