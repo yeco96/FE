@@ -1268,7 +1268,7 @@ namespace Web.Pages.Facturacion
                         if (!string.IsNullOrWhiteSpace(dato.receptor.correoElectronico))
                         {
                             Utilidades.sendMail(Session["emisor"].ToString(), dato.receptor.correoElectronico,
-                                string.Format("{0} - {1}", dato.numeroConsecutivo, elReceptor.nombre),
+                                string.Format("{0} - {1}", dato.numeroConsecutivo, elEmisor.nombre),
                                 Utilidades.mensageGenerico(), "Documento Electrónico", EncodeXML.EncondeXML.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave,null);
                         }
                     }

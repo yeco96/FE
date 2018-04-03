@@ -187,7 +187,7 @@ namespace Class.Utilidades
             impresion.montoImpuestoVenta = dato.resumenFactura.totalImpuesto;
             impresion.montoTotal = dato.resumenFactura.totalComprobante;
 
-
+            impresion.fechaImpresion = Date.DateTimeNow();
             return impresion;
         }
 

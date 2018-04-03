@@ -321,6 +321,7 @@ namespace Web.Pages.Facturacion
 
                     string numeroConsecutivo = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xml), "NumeroConsecutivo", xml);
                     string correoElectronico = EncondeXML.buscarValorEtiquetaXML("Receptor", "CorreoElectronico", xml);
+                    string nombre = EncondeXML.buscarValorEtiquetaXML("Emisor", "Nombre", xml);
 
                     if (this.txtCorreos.Tokens.Count >0)
                     {
@@ -338,20 +339,30 @@ namespace Web.Pages.Facturacion
                                 return;
                             }
                         }
-                        cc.RemoveAt(0);
-                        bool result = Utilidades.sendMail(Session["emisor"].ToString(), correoElectronico,
-                            string.Format("{0} - {1}", numeroConsecutivo, dato.Receptor.nombre),
+
+                        if(!string.IsNullOrWhiteSpace(correoElectronico))
+                            cc.RemoveAt(0);
+
+
+                        if (!string.IsNullOrWhiteSpace(correoElectronico) || cc.Count > 0)
+                        {
+                            bool result = Utilidades.sendMail(Session["emisor"].ToString(), correoElectronico,
+                            string.Format("{0} - {1}", numeroConsecutivo, nombre),
                             Utilidades.mensageGenerico(), "Documento Electrónico", xml, numeroConsecutivo, dato.clave, cc);
 
-                        if (result)
-                        {
-                            this.alertMessages.Attributes["class"] = "alert alert-info";
-                            this.alertMessages.InnerText = "El envió se realizó exitosamente";
+                            if (result)
+                            {
+                                this.alertMessages.Attributes["class"] = "alert alert-info";
+                                this.alertMessages.InnerText = "El envió se realizó exitosamente";
+                            }
+                            else
+                            {
+                                this.alertMessages.Attributes["class"] = "alert alert-danger";
+                                this.alertMessages.InnerText = "Tenemos problema para enviar el correo, favor intente más tarde";
+                            }
                         }
-                        else{
-                            this.alertMessages.Attributes["class"] = "alert alert-danger";
-                            this.alertMessages.InnerText = "Tenemos problema para enviar el correo, favor intente más tarde";
-                        }
+
+                       
                     }
                     else
                     {

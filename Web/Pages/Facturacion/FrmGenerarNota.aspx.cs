@@ -368,9 +368,7 @@ namespace Web.Pages.Facturacion
 
 
                     /* RECEPTOR */
-                    dato.receptor = factura.receptor;
-                    dato.receptor.identificacion.numero = dato.receptor.identificacion.numero.Replace(" ", "").Trim();
-                    dato.receptor.identificacion.numero = dato.receptor.identificacion.numero.Replace("-", "").Trim();
+                    dato.receptor = factura.receptor; 
 
 
                     /* INFORMACION DE REFERENCIA */
@@ -439,14 +437,12 @@ namespace Web.Pages.Facturacion
                         this.alertMessages.Attributes["class"] = "alert alert-info";
                         this.alertMessages.InnerText = String.Format("Documento #{0} enviada.", dato.numeroConsecutivo);
 
-                        if (!string.IsNullOrWhiteSpace(dato.receptor.correoElectronico))
+                        if (!string.IsNullOrWhiteSpace(dato.receptor.correoElectronico) || this.txtCorreoReceptor.Tokens.Count > 0)
                         {
                             string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
-
-                            
-
+                             
                             Utilidades.sendMail(Session["emisor"].ToString(),dato.receptor.correoElectronico,
-                                string.Format("{0} - {1}", dato.numeroConsecutivo, factura.receptor.nombre),
+                                string.Format("{0} - {1}", dato.numeroConsecutivo, elEmisor.nombre),
                                 Utilidades.mensageGenerico(), "Documento Electrónico", xml, dato.numeroConsecutivo, dato.clave,cc );
                         }
                     }
@@ -454,6 +450,7 @@ namespace Web.Pages.Facturacion
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-danger";
                         this.alertMessages.InnerText = String.Format("Documento #{0} con errores.", dato.numeroConsecutivo);
+                        return;
                     }
                     else
                     {
@@ -462,6 +459,9 @@ namespace Web.Pages.Facturacion
                     }
 
                     conexion.SaveChanges();
+
+
+                    Response.Redirect("~/Pages/Consulta/" + dato.clave);
 
                 }
             }

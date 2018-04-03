@@ -227,7 +227,16 @@ namespace Class.Utilidades
                         MailMessage correo = new MailMessage();
                         SmtpClient smtp = new SmtpClient();
                         correo.From = new MailAddress(mailConfig.user, alias);
-                        correo.To.Add(destinatario);
+
+                        if (string.IsNullOrWhiteSpace(destinatario))
+                        {
+                            correo.To.Add(cc[0]);
+                        }
+                        else
+                        {
+                            correo.To.Add(destinatario);
+                        }
+
                         if (cc != null)
                         {
                             foreach (var item in cc)
@@ -235,7 +244,9 @@ namespace Class.Utilidades
                                 correo.CC.Add(item);
                             }
                         }
-                        correo.Subject = String.Format("SPAM-LOW: {0}", asunto);
+                        
+                        //correo.Subject = String.Format("SPAM-LOW: {0}", asunto);
+                        correo.Subject =  asunto;
                         correo.Body = mensaje;
 
                         if (xml != null)
@@ -302,14 +313,25 @@ namespace Class.Utilidades
                     MailMessage correo = new MailMessage();
                     SmtpClient smtp = new SmtpClient();
                     correo.From = new MailAddress(mailConfig.user, alias);
-                    correo.To.Add(destinatario);
+
+
+                    if (string.IsNullOrWhiteSpace(destinatario))
+                    {
+                        correo.To.Add(cc[0]);
+                    }
+                    else
+                    {
+                        correo.To.Add(destinatario);
+                    }
+
                     if (cc != null) {
                         foreach (var item in cc)
                         {
                             correo.CC.Add(item);
                         }
                     }
-                    correo.Subject = String.Format("SPAM-LOW: {0}", asunto);
+                    //correo.Subject = String.Format("SPAM-LOW: {0}", asunto);
+                    correo.Subject =  asunto ;
                     correo.Body = mensaje;
                     correo.Priority = MailPriority.Normal;
                     correo.IsBodyHtml = true;
