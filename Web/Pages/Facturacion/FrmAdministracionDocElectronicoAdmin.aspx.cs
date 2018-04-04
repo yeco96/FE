@@ -371,7 +371,8 @@ namespace Web.Pages.Facturacion
 
                 if (TipoDocumento.FACTURA_ELECTRONICA.Equals(Session["tipoDocumento"].ToString()))
                 {
-                    if (TipoDocumento.ACEPTADO.ToString().Equals(Session["indEstado"].ToString()))
+                    if (TipoDocumento.ACEPTADO.ToString().Equals(Session["indEstado"].ToString()) ||
+                        TipoDocumento.RECHAZADO.ToString().Equals(Session["indEstado"].ToString()) )
                     {
                         Session["tipoNota"] = TipoDocumento.NOTA_DEBITO;
                         Response.Redirect("~/Pages/Facturacion/FrmGenerarNota.aspx");
@@ -407,7 +408,8 @@ namespace Web.Pages.Facturacion
 
                 if (TipoDocumento.FACTURA_ELECTRONICA.Equals(Session["tipoDocumento"].ToString()))
                 {
-                    if (TipoDocumento.ACEPTADO.ToString().Equals(Session["indEstado"].ToString()))
+                    if (TipoDocumento.ACEPTADO.ToString().Equals(Session["indEstado"].ToString()) ||
+                        TipoDocumento.RECHAZADO.ToString().Equals(Session["indEstado"].ToString()))
                     {
                         Session["tipoNota"] = TipoDocumento.NOTA_CREDITO;
                         Response.Redirect("~/Pages/Facturacion/FrmGenerarNota.aspx");
