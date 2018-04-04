@@ -37,6 +37,7 @@
             this.msiConsulta = new System.Windows.Forms.ToolStripMenuItem();
             this.msiHistorico = new System.Windows.Forms.ToolStripMenuItem();
             this.msiFacturar = new System.Windows.Forms.ToolStripMenuItem();
+            this.consuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msbConfiguracion = new System.Windows.Forms.ToolStripDropDownButton();
             this.smiNumeroConsecutivo = new System.Windows.Forms.ToolStripMenuItem();
             this.smiCorreoElectronico = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,6 +47,7 @@
             this.ssmEmpresa = new System.Windows.Forms.ToolStripMenuItem();
             this.ssmProductosServicios = new System.Windows.Forms.ToolStripMenuItem();
             this.ssmProductoImpuesto = new System.Windows.Forms.ToolStripMenuItem();
+            this.ssmCodigoPais = new System.Windows.Forms.ToolStripMenuItem();
             this.smiPlan = new System.Windows.Forms.ToolStripMenuItem();
             this.smiSeguridad = new System.Windows.Forms.ToolStripMenuItem();
             this.ssmUsuario = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +59,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.consuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,26 +103,33 @@
             // smiConfirmarXML
             // 
             this.smiConfirmarXML.Name = "smiConfirmarXML";
-            this.smiConfirmarXML.Size = new System.Drawing.Size(155, 22);
+            this.smiConfirmarXML.Size = new System.Drawing.Size(206, 22);
             this.smiConfirmarXML.Text = "Confirmar &XML";
             // 
             // msiConsulta
             // 
             this.msiConsulta.Name = "msiConsulta";
-            this.msiConsulta.Size = new System.Drawing.Size(155, 22);
+            this.msiConsulta.Size = new System.Drawing.Size(206, 22);
             this.msiConsulta.Text = "&Consulta";
             // 
             // msiHistorico
             // 
             this.msiHistorico.Name = "msiHistorico";
-            this.msiHistorico.Size = new System.Drawing.Size(155, 22);
+            this.msiHistorico.Size = new System.Drawing.Size(206, 22);
             this.msiHistorico.Text = "&Histórico";
             // 
             // msiFacturar
             // 
             this.msiFacturar.Name = "msiFacturar";
-            this.msiFacturar.Size = new System.Drawing.Size(155, 22);
+            this.msiFacturar.Size = new System.Drawing.Size(206, 22);
             this.msiFacturar.Text = "&Facturar";
+            // 
+            // consuToolStripMenuItem
+            // 
+            this.consuToolStripMenuItem.Name = "consuToolStripMenuItem";
+            this.consuToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.consuToolStripMenuItem.Text = "Consultar XML &Recibidos";
+            this.consuToolStripMenuItem.Click += new System.EventHandler(this.consuToolStripMenuItem_Click);
             // 
             // msbConfiguracion
             // 
@@ -148,6 +156,7 @@
             this.smiCorreoElectronico.Name = "smiCorreoElectronico";
             this.smiCorreoElectronico.Size = new System.Drawing.Size(203, 22);
             this.smiCorreoElectronico.Text = "Correo &Electrónico";
+            this.smiCorreoElectronico.Click += new System.EventHandler(this.smiCorreoElectronico_Click);
             // 
             // smiCatalogos
             // 
@@ -156,7 +165,8 @@
             this.ssmClientes,
             this.ssmEmpresa,
             this.ssmProductosServicios,
-            this.ssmProductoImpuesto});
+            this.ssmProductoImpuesto,
+            this.ssmCodigoPais});
             this.smiCatalogos.Name = "smiCatalogos";
             this.smiCatalogos.Size = new System.Drawing.Size(203, 22);
             this.smiCatalogos.Text = "&Catálogos";
@@ -190,6 +200,13 @@
             this.ssmProductoImpuesto.Name = "ssmProductoImpuesto";
             this.ssmProductoImpuesto.Size = new System.Drawing.Size(180, 22);
             this.ssmProductoImpuesto.Text = "&Producto Impuesto";
+            // 
+            // ssmCodigoPais
+            // 
+            this.ssmCodigoPais.Name = "ssmCodigoPais";
+            this.ssmCodigoPais.Size = new System.Drawing.Size(180, 22);
+            this.ssmCodigoPais.Text = "Codigo País";
+            this.ssmCodigoPais.Click += new System.EventHandler(this.ssmCodigoPais_Click);
             // 
             // smiPlan
             // 
@@ -268,13 +285,6 @@
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "ribbonPage2";
             // 
-            // consuToolStripMenuItem
-            // 
-            this.consuToolStripMenuItem.Name = "consuToolStripMenuItem";
-            this.consuToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.consuToolStripMenuItem.Text = "Consultar XML &Recibidos";
-            this.consuToolStripMenuItem.Click += new System.EventHandler(this.consuToolStripMenuItem_Click);
-            // 
             // frmFacturaElectronica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -325,6 +335,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ssmCodigoPais;
     }
 }
 
