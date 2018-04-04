@@ -316,30 +316,22 @@ namespace Web.Pages.Facturacion
                         WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
                         string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
                         DocumentoElectronico documento = (DocumentoElectronico) EncodeXML.EncondeXML.getObjetcFromXML(xml);
+                        documento.verificaDatosParaXML();
 
                         EmisorReceptorIMEC elEmisor = ((EmisorReceptorIMEC)Session["elEmisor"]);
-                        string responsePost = await Services.enviarDocumentoElectronico(true, documento, elEmisor, dato.tipoDocumento, Session["usuario"].ToString());
+                        string responsePost = await Services.enviarDocumentoElectronico(false, documento, elEmisor, dato.tipoDocumento, Session["usuario"].ToString());
                         string correoElectronico = EncondeXML.buscarValorEtiquetaXML("Receptor", "CorreoElectronico", xml);
 
                         if (responsePost.Equals("Success"))
                         {
                             this.alertMessages.Attributes["class"] = "alert alert-info";
                             this.alertMessages.InnerText = String.Format("Documento #{0} enviada.", dato.numeroConsecutivo);
-
-                            ASPxFormLayout form = (ASPxFormLayout)ASPxGridView1.FindEditFormTemplateControl("layoutDocForm");
-                            ASPxTokenBox ccCorreos = (ASPxTokenBox)form.FindControl("tkbCorreos");
-                            List<string> cc = new List<string>();
-                            foreach (var item in ccCorreos.Items)
-                            {
-                                cc.Add(item.ToString());
-                            }
-
+ 
                             if (!string.IsNullOrWhiteSpace(correoElectronico))
                             {
-
                                 Utilidades.sendMail(Session["emisor"].ToString(),correoElectronico,
                                     string.Format("{0} - {1}", dato.numeroConsecutivo, dato.receptor.nombre),
-                                    Utilidades.mensageGenerico(), "Documento Electrónico", xml, dato.numeroConsecutivo, dato.clave, cc);
+                                    Utilidades.mensageGenerico(), "Documento Electrónico", xml, dato.numeroConsecutivo, dato.clave, null);
                             }
                         }
                         else if (responsePost.Equals("Error"))

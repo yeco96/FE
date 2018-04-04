@@ -628,13 +628,13 @@
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
 
-                                                <dx:LayoutItem Caption="Detalle" ColSpan="3" Width="100%">
+                                                <dx:LayoutItem Caption="Detalle" ColSpan="3" Width="100%" >
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
-                                                            <dx:ASPxTextBox ID="txtOtros" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" MaxLength="200">
+                                                            <dx:ASPxMemo ID="txtOtros" Rows="4" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" MaxLength="2000">
                                                                 <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
                                                                 </ValidationSettings>
-                                                            </dx:ASPxTextBox>
+                                                            </dx:ASPxMemo>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>

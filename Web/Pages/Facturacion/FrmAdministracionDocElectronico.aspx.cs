@@ -317,9 +317,10 @@ namespace Web.Pages.Facturacion
                         WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
                         string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
                         DocumentoElectronico documento = (DocumentoElectronico) EncodeXML.EncondeXML.getObjetcFromXML(xml);
+                        documento.verificaDatosParaXML();
 
                         EmisorReceptorIMEC elEmisor = ((EmisorReceptorIMEC)Session["elEmisor"]);
-                        string responsePost = await Services.enviarDocumentoElectronico(true, documento, elEmisor, dato.tipoDocumento, Session["usuario"].ToString());
+                        string responsePost = await Services.enviarDocumentoElectronico(false, documento, elEmisor, dato.tipoDocumento, Session["usuario"].ToString());
                         string correoElectronico = EncondeXML.buscarValorEtiquetaXML("Receptor", "CorreoElectronico", xml);
 
                         if (responsePost.Equals("Success"))
