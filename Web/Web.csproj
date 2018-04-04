@@ -222,6 +222,7 @@
     <Content Include="Pages\Catalogos\FrmCatalogoUbicacion.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoProducto.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoEmpresa.aspx" />
+    <Content Include="Pages\ConsultaRP.aspx" />
     <Content Include="Pages\Facturacion\FrmAdministracionDocElectronicoAdmin.aspx" />
     <Content Include="Pages\Facturacion\FrmConsecutivoDocElectronicoAdmin.aspx" />
     <Content Include="Pages\Facturacion\FrmConsecutivoDocElectronico.aspx" />
@@ -489,6 +490,13 @@
     <Compile Include="Pages\Catalogos\FrmCatalogoEmpresa.aspx.designer.cs">
       <DependentUpon>FrmCatalogoEmpresa.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ConsultaRP.aspx.cs">
+      <DependentUpon>ConsultaRP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ConsultaRP.aspx.designer.cs">
+      <DependentUpon>ConsultaRP.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Facturacion\FrmAdministracionDocElectronicoAdmin.aspx.cs">
       <DependentUpon>FrmAdministracionDocElectronicoAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -751,10 +759,16 @@
     <Compile Include="Pages\Reportes\RptComprobanteEN.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Pages\Reportes\RptFactDetRollPaperEN.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Pages\Reportes\RptFactDetRollPaper.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Pages\Reportes\RptComprobanteDetalle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Pages\Reportes\RptFacturacionElectronicaRollPaperEN.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Pages\Reportes\RptFacturacionElectronicaRollPaper.cs">
@@ -881,11 +895,17 @@
     <EmbeddedResource Include="Pages\Reportes\RptComprobanteEN.resx">
       <DependentUpon>RptComprobanteEN.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Reportes\RptFactDetRollPaperEN.resx">
+      <DependentUpon>RptFactDetRollPaperEN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\Reportes\RptFactDetRollPaper.resx">
       <DependentUpon>RptFactDetRollPaper.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Reportes\RptComprobanteDetalle.resx">
       <DependentUpon>RptComprobanteDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Reportes\RptFacturacionElectronicaRollPaperEN.resx">
+      <DependentUpon>RptFacturacionElectronicaRollPaperEN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Reportes\RptFacturacionElectronicaRollPaper.resx">
       <DependentUpon>RptFacturacionElectronicaRollPaper.cs</DependentUpon>

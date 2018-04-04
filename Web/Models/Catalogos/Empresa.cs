@@ -54,6 +54,10 @@ namespace Web.Models.Catalogos
         [Display(Name = "Moneda")]
         public string moneda { set; get; }
 
+
+        [MaxLength(15, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [Display(Name = "Tipo de Impresión")]
+        public string tipoImpresion { set; get; }
         /// <summary>
         /// AUDIOTORIA
         /// </summary>
