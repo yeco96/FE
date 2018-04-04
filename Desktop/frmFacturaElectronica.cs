@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Desktop.Configuración.Catalogos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,6 +30,18 @@ namespace Desktop
         private void consuToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ssmCodigoPais_Click(object sender, EventArgs e)
+        {
+            FrmCatalogoCodigoPais oFormulario = new FrmCatalogoCodigoPais();
+            oFormulario.MdiParent = this;
+            oFormulario.Show();
+        }
+
+        private void smiCorreoElectronico_Click(object sender, EventArgs e)
+        {
+          
         }
     }
 }

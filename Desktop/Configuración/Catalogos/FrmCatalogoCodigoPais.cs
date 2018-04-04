@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
 
 namespace Desktop.Configuración.Catalogos
 {
-    public partial class FrmCatalogoCodigoPais : DevExpress.XtraEditors.XtraForm
+    public partial class FrmCatalogoCodigoPais : Form
     {
         public FrmCatalogoCodigoPais()
         {
             InitializeComponent();
-        }
+          }
     }
 }

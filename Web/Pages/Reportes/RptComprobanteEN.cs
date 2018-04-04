@@ -244,7 +244,7 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel1.StylePriority.UseBorders = false;
             this.xrLabel1.StylePriority.UseForeColor = false;
             this.xrLabel1.StylePriority.UseTextAlignment = false;
-            this.xrLabel1.Text = "Document Numeber:";
+            this.xrLabel1.Text = "Document Number:";
             this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // xrLabel18

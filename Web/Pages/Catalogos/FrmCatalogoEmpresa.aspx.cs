@@ -85,6 +85,12 @@ namespace Web.Pages.Catalogos
             comboIdioma.PropertiesComboBox.Items.Add(new ListEditItem("ESPAÑOL","ES"));
             comboIdioma.PropertiesComboBox.Items.Add(new ListEditItem("INGLES", "EN"));
 
+            /* TIPO IMPRESION */
+            GridViewDataComboBoxColumn comboTipoImpresion = this.ASPxGridView1.Columns["tipoImpresion"] as GridViewDataComboBoxColumn;
+            comboTipoImpresion.PropertiesComboBox.Items.Clear();
+            comboTipoImpresion.PropertiesComboBox.Items.Add(new ListEditItem("NORMAL (A4)", "A4"));
+            comboTipoImpresion.PropertiesComboBox.Items.Add(new ListEditItem("ROLL PAPER", "RP"));
+
             using (var conexion = new DataModelFE())
             {
                 /* MEDIO PAGO */
@@ -151,6 +157,7 @@ namespace Web.Pages.Catalogos
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
                     dato.idioma = e.NewValues["idioma"] != null ? e.NewValues["idioma"].ToString().ToUpper() : null;
+                    dato.tipoImpresion = e.NewValues["tipoImpresion"] != null ? e.NewValues["tipoImpresion"].ToString().ToUpper() : null;
                     dato.leyenda = e.NewValues["leyenda"] != null ? e.NewValues["leyenda"].ToString().ToUpper() : null;
                     dato.estado = e.NewValues["estado"].ToString();
 
@@ -221,6 +228,7 @@ namespace Web.Pages.Catalogos
                     //busca el objeto 
                     dato = conexion.Empresa.Find(dato.codigo);
                     dato.idioma = e.NewValues["idioma"] != null ? e.NewValues["idioma"].ToString().ToUpper() : null;
+                    dato.tipoImpresion = e.NewValues["tipoImpresion"] != null ? e.NewValues["tipoImpresion"].ToString().ToUpper() : null;
                     dato.leyenda = e.NewValues["leyenda"] != null ? e.NewValues["leyenda"].ToString().ToUpper() : null;
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
 

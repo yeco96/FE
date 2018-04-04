@@ -1288,7 +1288,13 @@ namespace Web.Pages.Facturacion
 
                     conexion.SaveChanges();
 
-                    Response.Redirect("~/Pages/Consulta/"+dato.clave);
+                    if (empresa.tipoImpresion.Equals("A4"))
+                    {
+                        Response.Redirect("~/Pages/Consulta/" + dato.clave);
+                    }
+                    else {
+                        Response.Redirect("~/Pages/ConsultaRP/" + dato.clave);
+                    }
 
                 }
             }

@@ -45,6 +45,10 @@
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
 
+                <dx:GridViewDataComboBoxColumn Caption="Tipo Impresión" FieldName="tipoImpresion" VisibleIndex="5"
+                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataComboBoxColumn>
+
                   <dx:GridViewDataMemoColumn Caption="Leyenda" FieldName="leyenda" VisibleIndex="4" Visible="false" EditFormSettings-Visible="True"  
                     PropertiesMemoEdit-ValidationSettings-RequiredField-IsRequired="false" PropertiesMemoEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataMemoColumn>
