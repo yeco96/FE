@@ -505,7 +505,7 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             // xrLabel6
             // 
             this.xrLabel6.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(0.833257F, 295.6909F);
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(0.833257F, 306.9168F);
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel6.SizeF = new System.Drawing.SizeF(366.6251F, 18.00003F);
@@ -609,7 +609,9 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel22.StyleName = "DataField";
             this.xrLabel22.StylePriority.UseBorders = false;
             this.xrLabel22.StylePriority.UseFont = false;
+            this.xrLabel22.StylePriority.UseTextAlignment = false;
             this.xrLabel22.Text = "xrLabel22";
+            this.xrLabel22.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // xrLabel23
             // 
@@ -770,7 +772,7 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             // 
             // pbLogo
             // 
-            this.pbLogo.LocationFloat = new DevExpress.Utils.PointFloat(0F, 66.79169F);
+            this.pbLogo.LocationFloat = new DevExpress.Utils.PointFloat(0.833257F, 66.79168F);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.SizeF = new System.Drawing.SizeF(100F, 100F);
             // 

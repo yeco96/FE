@@ -467,7 +467,21 @@ namespace Web.Pages.Facturacion
         protected void btnVerDocumento_Click(object sender, EventArgs e)
         {
             string clave = Session["clave"].ToString();
-            Response.Redirect("~/Pages/Consulta.aspx/" + clave);
+            string emisor = Session["emisor"].ToString();
+
+            using (var conexion = new DataModelFE())
+            {
+                Empresa empresa = conexion.Empresa.Find(emisor);
+                //Validamos la informacion de empresa
+                if (empresa.tipoImpresion.Equals("A4"))
+                {
+                    Response.Redirect("~/Pages/Consulta/" + clave);
+                }
+                else
+                {
+                    Response.Redirect("~/Pages/ConsultaRP/" + clave);
+                }
+            }
         }
 
 
