@@ -99,23 +99,15 @@ namespace Class.Utilidades
                 else {
                     impresion.emisorDireccion = ProperCase.ToTitleCase(dato.emisor.ubicacion.otrassenas);
                 }
-            }
-
-
-
-            
+            } 
             //dato.emisor.ubicacion.provincia.ToUpper().ToString() + ", " + dato.emisor.ubicacion.canton.ToUpper().ToString() + ", " + dato.emisor.ubicacion.distrito.ToUpper().ToString() + ", " +
-
-
-            
-
-
+             
             impresion.receptorNombre = dato.receptor.nombre;
             impresion.receptorIdentificacion = dato.receptor.identificacion.numero;
             impresion.receptorIdentificacionCorreo = dato.receptor.correoElectronico;
 
             impresion.clave = dato.clave;
-            impresion.consecutivo = dato.numeroConsecutivo;
+            impresion.consecutivo = dato.clave.Substring(21,20);
             impresion.fecha = Convert.ToDateTime(dato.fechaEmision);
             impresion.moneda = dato.resumenFactura.codigoMoneda;
             impresion.tipoCambio = dato.resumenFactura.tipoCambio.ToString();

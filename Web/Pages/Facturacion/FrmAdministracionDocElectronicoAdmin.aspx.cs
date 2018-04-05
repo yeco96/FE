@@ -30,6 +30,7 @@ namespace Web.Pages.Facturacion
 {
 
     [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
+    [PrincipalPermission(SecurityAction.Demand, Role = "SUPER")]
     public partial class FrmAdministracionDocElectronicoAdmin : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)

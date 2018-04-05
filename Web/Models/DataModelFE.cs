@@ -68,6 +68,7 @@ namespace Web.Models
 
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Empresa> Empresa { get; set; }
+        public virtual DbSet<Supervisor> Supervisor { get; set; }
 
         #region singletonInstance
         /// <summary>

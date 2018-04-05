@@ -12,8 +12,10 @@ namespace Class.Seguridad
 {
     [Table("security_rol")]
     public class Rol  : RoleProvider
-    {    
-        public const String ADMINISTRADOR = "ADMIN"; 
+    {
+        
+        public const String ADMINISTRADOR = "ADMIN";
+        public const String SUPERVISOR = "SUPER";
         public const String FACTURADOR = "FACT"; 
      
         [Key]

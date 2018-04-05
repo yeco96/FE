@@ -11817,3 +11817,107 @@ Stack Trace:
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
+********** 4/4/2018 23:02:21 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.Catalogos.FrmEmisor.Page_Load(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmEmisor.aspx.cs:línea 59
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.<LoadRecursiveAsync>d__246.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestAsync>d__515.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.UI.Page.<ProcessRequestAsync>d__554.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
+   en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
+   en ASP.pages_facturacion_frmemisor_aspx.EndProcessRequest(IAsyncResult ar) en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_htzhptg0.0.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 5/4/2018 11:35:48 **********
+Exception Type: System.Security.SecurityException
+Exception: Error de la solicitud de permiso principal.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Security.Permissions.PrincipalPermission.ThrowSecurityException()
+   en System.Security.Permissions.PrincipalPermission.Demand()
+   en System.Security.PermissionSet.DemandNonCAS()
+   en Web.Pages.Catalogos.FrmEmisor..ctor() en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmEmisor.aspx.cs:línea 31
+   en ASP.pages_facturacion_frmemisor_aspx..ctor() en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_tfddn1s5.5.cs:línea 0
+   en __ASP.FastObjectFactory_app_web_tfddn1s5.Create_ASP_pages_facturacion_frmemisor_aspx() en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_tfddn1s5.6.cs:línea 0
+   en System.Web.Compilation.BuildResultCompiledType.CreateInstance()
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.FriendlyUrlRouteHandler.GetHttpHandler(RequestContext requestContext)
+   en System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   en System.Web.Routing.UrlRoutingModule.OnApplicationPostResolveRequestCache(Object sender, EventArgs e)
+   en System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 5/4/2018 11:36:11 **********
+Exception Type: System.Security.SecurityException
+Exception: Error de la solicitud de permiso principal.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Security.Permissions.PrincipalPermission.ThrowSecurityException()
+   en System.Security.Permissions.PrincipalPermission.Demand()
+   en System.Security.PermissionSet.DemandNonCAS()
+   en Web.Pages.Catalogos.FrmEmisor..ctor() en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmEmisor.aspx.cs:línea 31
+   en ASP.pages_facturacion_frmemisor_aspx..ctor() en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_tfddn1s5.5.cs:línea 0
+   en __ASP.FastObjectFactory_app_web_tfddn1s5.Create_ASP_pages_facturacion_frmemisor_aspx() en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_tfddn1s5.6.cs:línea 0
+   en System.Web.Compilation.BuildResultCompiledType.CreateInstance()
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.FriendlyUrlRouteHandler.GetHttpHandler(RequestContext requestContext)
+   en System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   en System.Web.Routing.UrlRoutingModule.OnApplicationPostResolveRequestCache(Object sender, EventArgs e)
+   en System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 5/4/2018 11:48:45 **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.SeleccionarEmisor.Page_Load(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\SeleccionarEmisor.aspx.cs:línea 22
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_seleccionaremisor_aspx.ProcessRequest(HttpContext context) en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_n1skmnyw.12.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+

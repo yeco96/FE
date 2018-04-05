@@ -18,6 +18,7 @@ namespace Web.Pages.Facturacion
     public partial class FrmConsultaResumen : System.Web.UI.Page
     {
         [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
+        [PrincipalPermission(SecurityAction.Demand, Role = "SUPER")]
         [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
         protected void Page_Load(object sender, EventArgs e)
         {

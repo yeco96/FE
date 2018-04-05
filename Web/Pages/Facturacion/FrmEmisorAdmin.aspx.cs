@@ -20,6 +20,7 @@ using Web.Models.Facturacion;
 namespace Web.Pages.Catalogos
 { 
     [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
+    [PrincipalPermission(SecurityAction.Demand, Role = "SUPER")]
     public partial class FrmEmisorAdmin : System.Web.UI.Page
     {
 

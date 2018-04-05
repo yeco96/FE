@@ -21,6 +21,7 @@ using Web.Models.Facturacion;
 namespace Web.Pages.Catalogos
 {
     [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
+    [PrincipalPermission(SecurityAction.Demand, Role = "SUPER")]
     [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
     public partial class FrmEmisor : System.Web.UI.Page
     {
@@ -564,7 +565,7 @@ namespace Web.Pages.Catalogos
 
                 await OAuth2.OAuth2Config.getTokenWeb(config);
 
-                if (config != null)
+                if (config.token.access_token != null)
                 {
                     this.alertMessages.InnerText = "Usuario configurado con éxito";
                     this.alertMessages.Attributes["class"] = "alert alert-info";

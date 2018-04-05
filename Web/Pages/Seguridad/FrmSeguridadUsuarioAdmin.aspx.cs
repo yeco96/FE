@@ -20,6 +20,7 @@ namespace Web.Pages.Seguridad
 {
      
     [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
+    [PrincipalPermission(SecurityAction.Demand, Role = "SUPER")]
     public partial class FrmSeguridadUsuarioAdmin : System.Web.UI.Page
     {
 

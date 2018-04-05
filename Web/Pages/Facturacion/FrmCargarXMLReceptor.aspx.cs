@@ -25,6 +25,7 @@ using XMLDomain;
 namespace Web.Pages.Facturacion
 {
     [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
+    [PrincipalPermission(SecurityAction.Demand, Role = "SUPER")]
     [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
     public partial class FrmCargarXMLReceptor : System.Web.UI.Page
     {
