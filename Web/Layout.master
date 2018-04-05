@@ -187,6 +187,57 @@
                                             </dx:ASPxMenu>
 
 
+                                            <dx:ASPxMenu ID="NavMenuSupervisor" runat="server" ClientInstanceName="NavMenu" EnableAnimation="true" CssClass="navMenu" AllowSelectItem="true">
+                                                <ItemStyle Paddings-PaddingLeft="22" Paddings-PaddingRight="22" />
+                                                <Items>
+                                                    <dx:MenuItem Text="INICIO" NavigateUrl="~/Pages/Home" />
+                                                    <dx:MenuItem Text="BLOG" NavigateUrl="~/Pages/BlogTimeline" Visible="false" />
+
+                                                    <dx:MenuItem Text="DOCUMENTOS">
+                                                        <Items>
+                                                           
+                                                            <dx:MenuItem Text="CONFIRMAR XML" NavigateUrl="~/Pages/Facturacion/FrmValidarXML" />
+                                                            <dx:MenuItem Text="CONSULTA XML RECIBIDOS" NavigateUrl="~/Pages/Facturacion/FrmConsultaResumenReceptor"  />
+                                                            <dx:MenuItem Text="CONSULTA" NavigateUrl="~/Pages/ConsultaDocXClave"/>
+                                                            <dx:MenuItem Text="REPORTE" NavigateUrl="~/Pages/Facturacion/FrmConsultaResumen" />
+                                                            <dx:MenuItem Text="HISTÓRICO" NavigateUrl="~/Pages/Facturacion/FrmAdministracionDocElectronico" />
+                                                            <dx:MenuItem Text="FACTURAR" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumento" />
+                                                             
+                                                        </Items>
+                                                    </dx:MenuItem>
+                                                    <dx:MenuItem Text="CONFIGURACIÓN">
+                                                        <Items>
+                                                            <dx:MenuItem Text="NÚMERO DE CONSECUTIVO" NavigateUrl="~/Pages/Facturacion/FrmConsecutivoDocElectronicoAdmin" />
+                                                            <dx:MenuItem Text="CORREO ELECTRÓNICO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoConfiguracionCorreo" />
+                                                            <dx:MenuItem Text="CATÁLOGOS">
+                                                                <Items>
+                                                                    <dx:MenuItem Text="MIS DATOS" NavigateUrl="~/Pages/Facturacion/FrmEmisor" />
+                                                                    <dx:MenuItem Text="MIS EMISORES" NavigateUrl="~/Pages/Facturacion/FrmEmisorAdmin" />
+                                                                    <dx:MenuItem Text="MIS CLIENTES" NavigateUrl="~/Pages/Facturacion/FrmReceptor" />
+                                                                    <dx:MenuItem Text="MIS ORGANIZACIÓN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoEmpresaAdmin" />
+                                                                    <dx:MenuItem Text="PRODUCTO / SERVICIO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProducto" />
+                                                                    <dx:MenuItem Text="PRODUCTO IMPUESTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProductoImpuesto" />
+                                                                </Items>
+                                                            </dx:MenuItem>
+                                                            <dx:MenuItem Text="CAMBIAR EMISOR" NavigateUrl="~/Pages/SeleccionarEmisor" />  
+                                                            <dx:MenuItem Text="PLAN" NavigateUrl="~/Pages/Administracion/FrmPlan" />  
+                                                            <dx:MenuItem Text="SEGURIDAD">
+                                                                <Items>
+                                                                    <dx:MenuItem Text="USUARIO" NavigateUrl="~/Pages/Seguridad/FrmSeguridadUsuario" />
+                                                                </Items>
+                                                            </dx:MenuItem>
+                                                        </Items>
+                                                    </dx:MenuItem>
+                                                     <dx:MenuItem Text="AYUDA" >
+                                                        <Items>
+                                                            <dx:MenuItem Text="CONTACTO" NavigateUrl="~/Pages/Contacts" />
+                                                            <dx:MenuItem Text="MANUAL" NavigateUrl="~/Pages/Manual" /> 
+                                                        </Items>
+                                                    </dx:MenuItem>
+                                                </Items>
+                                            </dx:ASPxMenu>
+
+
 
 
                                             <dx:ASPxMenu ID="NavMenu" runat="server" ClientInstanceName="NavMenu" EnableAnimation="true" CssClass="navMenu" AllowSelectItem="true">

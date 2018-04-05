@@ -64,8 +64,16 @@ namespace Web.Pages
                             conexion.Entry(usuario).State = EntityState.Modified;
                             conexion.SaveChanges();
 
-                            FormsAuthentication.SetAuthCookie(usuario.nombre, false); 
-                            Response.Redirect("~/"); 
+                            FormsAuthentication.SetAuthCookie(usuario.nombre, false);
+
+                            if (usuario.rol == Rol.SUPERVISOR)
+                            {
+                                Response.Redirect("~/Pages/SeleccionarEmisor");
+                            }
+                            else
+                            {
+                                Response.Redirect("~/");
+                            }
                         }
                         else
                         {

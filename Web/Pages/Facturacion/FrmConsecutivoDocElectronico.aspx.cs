@@ -17,6 +17,7 @@ using Web.Models.Facturacion;
 namespace Web.Pages.Facturacion
 {
     [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
+    [PrincipalPermission(SecurityAction.Demand, Role = "SUPER")]
     [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
     public partial class FrmConsecutivoDocElectronico : System.Web.UI.Page
     {

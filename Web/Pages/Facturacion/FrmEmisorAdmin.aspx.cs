@@ -20,6 +20,7 @@ using Web.Models.Facturacion;
 namespace Web.Pages.Catalogos
 { 
     [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
+    [PrincipalPermission(SecurityAction.Demand, Role = "SUPER")]
     public partial class FrmEmisorAdmin : System.Web.UI.Page
     {
 
@@ -208,7 +209,14 @@ namespace Web.Pages.Catalogos
                     dato.fechaCreacion = Date.DateTimeNow();
 
                     //agrega el objeto
-                    conexion.EmisorReceptorIMEC.Add(dato);
+                    EmisorReceptorIMEC existe = conexion.EmisorReceptorIMEC.Find(dato.identificacion);
+                    if (existe == null)
+                    {
+                        conexion.EmisorReceptorIMEC.Add(dato);
+                    }else
+                    {
+                        conexion.Entry(dato).State = EntityState.Modified; 
+                    }
 
 
                     Usuario usuario = new Usuario();
@@ -245,6 +253,11 @@ namespace Web.Pages.Catalogos
                     empresa.condicionVenta = "01";
                     empresa.plazoCredito = 0;
                     conexion.Empresa.Add(empresa);
+
+                    Supervisor supervisor = new Supervisor();
+                    supervisor.supervisor = Session["usuario"].ToString();
+                    supervisor.emisor = dato.identificacion;
+                    conexion.Supervisor.Add(supervisor);
 
                     conexion.SaveChanges();
 

@@ -20,6 +20,7 @@ using Web.Models.Catalogos;
 namespace Web.Pages.Catalogos
 {
     [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
+    [PrincipalPermission(SecurityAction.Demand, Role = "SUPER")]
     [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
     public partial class FrmCatalogoEmpresa : System.Web.UI.Page
     {

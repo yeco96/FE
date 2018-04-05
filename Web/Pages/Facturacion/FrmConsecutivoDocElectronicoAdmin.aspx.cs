@@ -18,6 +18,7 @@ namespace Web.Pages.Facturacion
 {
  
     [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
+    [PrincipalPermission(SecurityAction.Demand, Role = "SUPER")]
     public partial class FrmConsecutivoDocElectronicoAdmin : System.Web.UI.Page
     {
 

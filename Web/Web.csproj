@@ -265,6 +265,7 @@
     <Content Include="Pages\Seguridad\FrmSeguridadUsuarioAdmin.aspx" />
     <Content Include="Pages\Seguridad\FrmSeguridadUsuario.aspx" />
     <Content Include="Pages\Login.aspx" />
+    <Content Include="Pages\SeleccionarEmisor.aspx" />
     <Content Include="Pages\WebServices.aspx" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrap.min3.3.7.js" />
@@ -355,6 +356,7 @@
     <Compile Include="Models\Catalogos\ProductoImpuesto.cs" />
     <Compile Include="Models\Catalogos\TipoImpuesto.cs" />
     <Compile Include="Models\Catalogos\Empresa.cs" />
+    <Compile Include="Models\Facturacion\Supervisor.cs" />
     <Compile Include="Models\Facturacion\Cliente.cs" />
     <Compile Include="Models\Facturacion\ConsecutivoDocElectronico.cs" />
     <Compile Include="Models\Catalogos\Ubicacion.cs" />
@@ -815,6 +817,13 @@
     </Compile>
     <Compile Include="Pages\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SeleccionarEmisor.aspx.cs">
+      <DependentUpon>SeleccionarEmisor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SeleccionarEmisor.aspx.designer.cs">
+      <DependentUpon>SeleccionarEmisor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\WebServices.aspx.cs">
       <DependentUpon>WebServices.aspx</DependentUpon>

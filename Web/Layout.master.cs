@@ -31,6 +31,7 @@ namespace Web {
                 this.NavMenu.Visible = true;
                 this.NavMenuAdmin.Visible = false;
                 this.NavMenuFacturador.Visible = false;
+                this.NavMenuSupervisor.Visible = false;
 
                 using (var conexion = new DataModelFE())
                 {
@@ -73,15 +74,24 @@ namespace Web {
                             this.NavMenu.Visible = false;
                             this.NavMenuAdmin.Visible = true;
                             this.NavMenuFacturador.Visible = false;
+                            this.NavMenuSupervisor.Visible = false;
+                            break;
+                        case Rol.SUPERVISOR:
+                            this.NavMenu.Visible = false;
+                            this.NavMenuAdmin.Visible = false;
+                            this.NavMenuFacturador.Visible = false;
+                            this.NavMenuSupervisor.Visible = true;
                             break;
                         case Rol.FACTURADOR:
                             this.NavMenu.Visible = false;
                             this.NavMenuAdmin.Visible = false;
                             this.NavMenuFacturador.Visible = true;
+                            this.NavMenuSupervisor.Visible = false;
                             break;
                         default:
                             this.NavMenu.Visible = true;
                             this.NavMenuAdmin.Visible = false;
+                            this.NavMenuSupervisor.Visible = false;
                             this.NavMenuFacturador.Visible = false;
                             break;
                     } 

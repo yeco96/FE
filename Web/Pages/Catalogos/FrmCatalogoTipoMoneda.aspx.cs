@@ -17,6 +17,7 @@ using Web.Models.Catalogos;
 namespace Web.Pages.Catalogos
 {
     [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
+    [PrincipalPermission(SecurityAction.Demand, Role = "SUPER")]
     public partial class FrmCatalogoTipoMoneda : System.Web.UI.Page
     {
          
