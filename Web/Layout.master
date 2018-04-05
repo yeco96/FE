@@ -207,18 +207,19 @@
                                                     </dx:MenuItem>
                                                     <dx:MenuItem Text="CONFIGURACIÓN">
                                                         <Items>
-                                                            <dx:MenuItem Text="NÚMERO DE CONSECUTIVO" NavigateUrl="~/Pages/Facturacion/FrmConsecutivoDocElectronico" />
+                                                            <dx:MenuItem Text="NÚMERO DE CONSECUTIVO" NavigateUrl="~/Pages/Facturacion/FrmConsecutivoDocElectronicoAdmin" />
                                                             <dx:MenuItem Text="CORREO ELECTRÓNICO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoConfiguracionCorreo" />
                                                             <dx:MenuItem Text="CATÁLOGOS">
                                                                 <Items>
                                                                     <dx:MenuItem Text="MIS DATOS" NavigateUrl="~/Pages/Facturacion/FrmEmisor" />
+                                                                    <dx:MenuItem Text="MIS EMISORES" NavigateUrl="~/Pages/Facturacion/FrmEmisorAdmin" />
                                                                     <dx:MenuItem Text="MIS CLIENTES" NavigateUrl="~/Pages/Facturacion/FrmReceptor" />
-                                                                    <dx:MenuItem Text="MI ORGANIZACIÓN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoEmpresa" />
+                                                                    <dx:MenuItem Text="MIS ORGANIZACIÓN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoEmpresaAdmin" />
                                                                     <dx:MenuItem Text="PRODUCTO / SERVICIO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProducto" />
                                                                     <dx:MenuItem Text="PRODUCTO IMPUESTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProductoImpuesto" />
                                                                 </Items>
                                                             </dx:MenuItem>
-                                                            <dx:MenuItem Text="EMISORES" NavigateUrl="~/Pages/SeleccionarEmisor" />  
+                                                            <dx:MenuItem Text="CAMBIAR EMISOR" NavigateUrl="~/Pages/SeleccionarEmisor" />  
                                                             <dx:MenuItem Text="PLAN" NavigateUrl="~/Pages/Administracion/FrmPlan" />  
                                                             <dx:MenuItem Text="SEGURIDAD">
                                                                 <Items>

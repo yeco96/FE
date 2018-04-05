@@ -11921,3 +11921,22 @@ Stack Trace:
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
+********** 5/4/2018 12:34:55 **********
+Exception Type: System.Security.SecurityException
+Exception: Error de la solicitud de permiso principal.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Security.Permissions.PrincipalPermission.ThrowSecurityException()
+   en System.Security.Permissions.PrincipalPermission.Demand()
+   en System.Security.PermissionSet.DemandNonCAS()
+   en Web.Pages.Catalogos.FrmCatalogoProducto..ctor() en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Catalogos\FrmCatalogoProducto.aspx.cs:línea 29
+   en ASP.pages_catalogos_frmcatalogoproducto_aspx..ctor() en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_bzvtlkgz.1.cs:línea 0
+   en __ASP.FastObjectFactory_app_web_bzvtlkgz.Create_ASP_pages_catalogos_frmcatalogoproducto_aspx() en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_bzvtlkgz.2.cs:línea 0
+   en System.Web.Compilation.BuildResultCompiledType.CreateInstance()
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.FriendlyUrlRouteHandler.GetHttpHandler(RequestContext requestContext)
+   en System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   en System.Web.Routing.UrlRoutingModule.OnApplicationPostResolveRequestCache(Object sender, EventArgs e)
+   en System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+

@@ -17,6 +17,7 @@ using Web.Models.Catalogos;
 namespace Web.Pages.Catalogos
 {
     [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
+    [PrincipalPermission(SecurityAction.Demand, Role = "SUPER")]
     [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
     public partial class FrmCatalogoCodigoPais : System.Web.UI.Page
     {

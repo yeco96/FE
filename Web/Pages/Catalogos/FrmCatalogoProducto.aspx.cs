@@ -19,6 +19,7 @@ using Web.Models.Facturacion;
 namespace Web.Pages.Catalogos
 {
     [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
+    [PrincipalPermission(SecurityAction.Demand, Role = "SUPER")]
     [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
     public partial class FrmCatalogoProducto : System.Web.UI.Page
     {
