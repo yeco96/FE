@@ -255,7 +255,7 @@
                                                                         <LayoutItemNestedControlCollection>
                                                                             <dx:LayoutItemNestedControlContainer>
                                                                                 <dx:ASPxTokenBox ID="txtReceptorCorreo" runat="server" Width="100%" AutoResizeWithContainer="true" AutoPostBack="true"
-                                                                                    OnTokensChanged="txtReceptorCorreo_TokensChanged" HelpText="Máximo dos correos electrónicos" >
+                                                                                    OnTokensChanged="txtReceptorCorreo_TokensChanged" HelpText="Máximo cinco correos electrónicos" >
                                                                                     <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
                                                                                         <RegularExpression ValidationExpression="\s*\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*\s*" ErrorText="La dirección no cumple con el formato correo@dominio.com" />
                                                                                     </ValidationSettings>
