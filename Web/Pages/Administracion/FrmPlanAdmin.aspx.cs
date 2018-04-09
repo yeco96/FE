@@ -21,6 +21,7 @@ namespace Web.Pages.Administracion
 {
 
     [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
+    [PrincipalPermission(SecurityAction.Demand, Role = "SUPER")]
     public partial class FrmPlanAdmin : System.Web.UI.Page
     {
 

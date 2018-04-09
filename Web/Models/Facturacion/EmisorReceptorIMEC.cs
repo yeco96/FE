@@ -1,5 +1,6 @@
 ﻿
 using Class.Seguridad;
+using Class.Utilidades;
 using MySql.Data.Entity;
 using System;
 using System.Collections.Generic;
@@ -71,10 +72,15 @@ namespace Web.Models.Facturacion
         [RegularExpression("^[0-9]{1,20}?$", ErrorMessage = "La propiedad {0} solo debe tener valores numéricos")]
         public string fax { set; get; }
 
-        [MaxLength(60, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
-        [RegularExpression(@"\s*\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*\s*", ErrorMessage = "La propiedad {0} debe tener una dirección de correo valida, ejemplo: cuenta@dominio.com")]
+        [MaxLength(250, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         public string correoElectronico { set; get; }
-         
+
+        public string correoElectronicoPrincipal {
+            get {
+                return Utilidades.getCorreoPrincipal(this.correoElectronico);
+            }
+        }
+
         public decimal consecutivo { set; get; }
 
         [Column(TypeName = "Binary")]

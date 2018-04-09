@@ -101,7 +101,13 @@ namespace Web.Pages.Facturacion
                     txtNombreReceptor.Text = string.Format("{0} - {1}", factura.receptor.identificacion.numero, factura.receptor.nombre);
 
 
-                    txtCorreos.Text = factura.receptor.correoElectronico;
+                    if (!string.IsNullOrWhiteSpace(factura.receptor.correoElectronico))
+                    {
+                        foreach (var correo in factura.receptor.correoElectronico.Split(','))
+                        {
+                            txtCorreos.Tokens.Add(correo);
+                        }
+                    }
 
                     // deja el monto neto facturado
                     foreach (var item in factura.detalleServicio.lineaDetalle)

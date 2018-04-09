@@ -55,11 +55,17 @@
                         <dx:GridViewDataComboBoxColumn Caption="Cod Teléfono" FieldName="telefonoCodigoPais" Visible="false" />
                         <dx:GridViewDataComboBoxColumn Caption="Cod Fax" FieldName="faxCodigoPais" Visible="false" />
 
-                        <dx:GridViewDataTextColumn Caption="Correo" FieldName="correoElectronico" VisibleIndex="8" PropertiesTextEdit-MaxLength="80" Width="20%"
-                            PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
-                        </dx:GridViewDataTextColumn>
-                        
-                        <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="9"
+                         <dx:GridViewDataTokenBoxColumn Caption="Correo" FieldName="correoElectronicoPrincipal" VisibleIndex="8"  Visible="true" EditFormSettings-Visible="False"
+                    PropertiesTokenBox-MaxLength="250"
+                    PropertiesTokenBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesTokenBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataTokenBoxColumn>
+
+                <dx:GridViewDataTokenBoxColumn Caption="Correo" FieldName="correoElectronico" VisibleIndex="8"     Visible="false" EditFormSettings-Visible="true"
+                    PropertiesTokenBox-MaxLength="250"
+                    PropertiesTokenBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesTokenBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataTokenBoxColumn>
+
+                        <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="9" Visible="false" EditFormSettings-Visible="True"
                             PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                         </dx:GridViewDataComboBoxColumn>
                         <dx:GridViewDataSpinEditColumn Caption="Clave Llave Criptográfica" FieldName="claveLlaveCriptografica" VisibleIndex="20" Visible="false" EditFormSettings-Visible="True" PropertiesSpinEdit-MaxLength="4">

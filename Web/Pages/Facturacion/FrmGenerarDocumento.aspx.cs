@@ -12,6 +12,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Security.Permissions;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
@@ -53,9 +54,9 @@ namespace Web.Pages.Facturacion
                     Response.Redirect("~/Pages/Login.aspx");
                 }
 
-                this.alertMessages.Attributes["class"]="";
+                this.alertMessages.Attributes["class"] = "";
                 this.alertMessages.InnerText = "";
-                 
+
                 this.AsyncMode = true;
 
                 EmisorReceptorIMEC elEmisor = (EmisorReceptorIMEC)Session["elEmisor"];
@@ -103,12 +104,12 @@ namespace Web.Pages.Facturacion
 
                 }//Fin del Using
 
-                    if (!IsCallback && !IsPostBack)
+                if (!IsCallback && !IsPostBack)
                 {
                     this.txtFechaEmision.Date = Date.DateTimeNow();
                     this.txtFechaEmision.MinDate = Date.DateTimeNow().AddHours(-48);
                     this.txtFechaEmision.MaxDate = Date.DateTimeNow();
-                    
+
                     this.cmbTipoMoneda.Value = TipoMoneda.CRC;
                     this.txtTipoCambio.Text = "1";
                     this.loadComboBox();
@@ -118,11 +119,11 @@ namespace Web.Pages.Facturacion
                     using (var conexion = new DataModelFE())
                     {
                         string emisor = Session["emisor"].ToString();
-                        foreach (var producto in conexion.Producto.Where(x=> x.estado==Estado.ACTIVO.ToString() && x.cargaAutFactura==Confirmacion.SI.ToString() && x.emisor==emisor).
-                            OrderBy(x=>x.orden))
+                        foreach (var producto in conexion.Producto.Where(x => x.estado == Estado.ACTIVO.ToString() && x.cargaAutFactura == Confirmacion.SI.ToString() && x.emisor == emisor).
+                            OrderBy(x => x.orden))
                         {
                             LineaDetalle dato = new LineaDetalle();
-                            dato.numeroLinea = this.detalleServicio.lineaDetalle.Count+1;
+                            dato.numeroLinea = this.detalleServicio.lineaDetalle.Count + 1;
                             dato.numeroLinea = detalleServicio.lineaDetalle.Count + 1;
                             dato.cantidad = 1;
                             dato.codigo.tipo = producto.tipo;
@@ -172,7 +173,7 @@ namespace Web.Pages.Facturacion
                     }
                     Session["detalleServicio"] = detalleServicio;
 
-                    this.informacionReferencia =  new List<InformacionReferencia>();
+                    this.informacionReferencia = new List<InformacionReferencia>();
                     Session["informacionReferencia"] = informacionReferencia;
                 }
                 this.refreshData();
@@ -190,8 +191,7 @@ namespace Web.Pages.Facturacion
         {
             try
             { 
-                
-                if ( ((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value != null)
+                if (((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value != null)
                 {
                     receptor.identificacionTipo = ((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value.ToString();
                 }
@@ -207,10 +207,15 @@ namespace Web.Pages.Facturacion
                     receptor.telefono = ((ASPxSpinEdit)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("txtReceptorTelefono")).Value.ToString();
                 }
 
-                if (!string.IsNullOrWhiteSpace(((ASPxTextBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("txtReceptorCorreo")).Text))
+                ASPxTokenBox correos = (ASPxTokenBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("txtReceptorCorreo");
+                receptor.correoElectronico = "";
+                for (int i=0; i < correos.Tokens.Count ;i++)
                 {
-                    receptor.correoElectronico = ((ASPxTextBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("txtReceptorCorreo")).Text.ToLower();
-                }
+                    if (i == correos.Tokens.Count - 1)//si es el ultimo no le agrega separador
+                        receptor.correoElectronico += correos.Tokens[i];
+                    else
+                        receptor.correoElectronico += correos.Tokens[i] + ",";
+                } 
 
                 if (((ASPxComboBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("cmbReceptorFaxCod")).Value != null)
                 {
@@ -249,7 +254,7 @@ namespace Web.Pages.Facturacion
             return receptor;
         }
 
-         
+
 
         protected void UpdatePanel_Unload(object sender, EventArgs e)
         {
@@ -317,7 +322,7 @@ namespace Web.Pages.Facturacion
             }
 
             using (var conexion = new DataModelFE())
-            { 
+            {
                 /* EMISOR */
                 string emisor = Session["emisor"].ToString();
                 this.ASPxGridViewClientes.DataSource = (from Emisor in conexion.EmisorReceptorIMEC
@@ -336,11 +341,11 @@ namespace Web.Pages.Facturacion
         private void loadComboBox()
         {
             using (var conexion = new DataModelFE())
-            { 
+            {
 
                 /* EMISOR */
                 string emisor = Session["emisor"].ToString();
-                 
+
                 /* IDENTIFICACION TIPO */
                 GridViewDataComboBoxColumn comboIdentificacionTipo = this.ASPxGridViewClientes.Columns["identificacionTipo"] as GridViewDataComboBoxColumn;
                 foreach (var item in conexion.TipoIdentificacion.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
@@ -404,7 +409,7 @@ namespace Web.Pages.Facturacion
                 }
                 comboProducto.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
-                
+
                 /* TIPO DOCUMENTO */
                 GridViewDataComboBoxColumn comboTipoDocumento = this.ASPxGridView2.Columns["tipoDocumento"] as GridViewDataComboBoxColumn;
                 foreach (var item in conexion.TipoDocumento.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
@@ -417,7 +422,7 @@ namespace Web.Pages.Facturacion
                 this.cmbTipoDocumento.SelectedIndex = 0;
 
                 /* SUCURSAL CAJA */
-                foreach (var item in conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor && x.estado == Estado.ACTIVO.ToString() && x.tipoDocumento== cmbTipoDocumento.Value.ToString()).ToList())
+                foreach (var item in conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor && x.estado == Estado.ACTIVO.ToString() && x.tipoDocumento == cmbTipoDocumento.Value.ToString()).ToList())
                 {
                     this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}", item.sucursal, item.caja));
                 }
@@ -439,7 +444,7 @@ namespace Web.Pages.Facturacion
         }
 
         private void loadReceptor(EmisorReceptorIMEC emisor)
-        { 
+        {
 
             ASPxComboBox cmbReceptorTipo = ((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo"));
             ASPxSpinEdit txtReceptorIdentificacion = ((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion"));
@@ -450,14 +455,14 @@ namespace Web.Pages.Facturacion
             ASPxComboBox cmbReceptorFaxCod = ((ASPxComboBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("cmbReceptorFaxCod"));
             ASPxSpinEdit txtReceptorTelefono = ((ASPxSpinEdit)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("txtReceptorTelefono"));
             ASPxSpinEdit txtReceptorFax = ((ASPxSpinEdit)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("txtReceptorFax"));
-            ASPxTextBox txtReceptorCorreo = ((ASPxTextBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("txtReceptorCorreo"));
+            ASPxTokenBox txtReceptorCorreo = ((ASPxTokenBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("txtReceptorCorreo"));
 
             ASPxComboBox cmbReceptorProvincia = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorProvincia"));
             ASPxComboBox cmbReceptorCanton = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorCanton"));
             ASPxComboBox cmbReceptorDistrito = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorDistrito"));
             ASPxComboBox cmbReceptorBarrio = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorBarrio"));
             ASPxMemo txtReceptorOtraSenas = ((ASPxMemo)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("txtReceptorOtraSenas"));
-            
+
 
             cmbReceptorTipo.Value = emisor.identificacionTipo;
             txtReceptorIdentificacion.Text = emisor.identificacion;
@@ -473,8 +478,12 @@ namespace Web.Pages.Facturacion
             txtReceptorFax.Value = emisor.fax;
             if (emisor.correoElectronico != null)
             {
-                txtReceptorCorreo.Text = emisor.correoElectronico.ToLower();
+                foreach (var correo in emisor.correoElectronico.Split(','))
+                {
+                    txtReceptorCorreo.Tokens.Add(correo);
+                } 
             }
+               
             cmbReceptorProvincia.Value = emisor.provincia;
 
             if (emisor.provincia != null)
@@ -495,10 +504,10 @@ namespace Web.Pages.Facturacion
         }
 
         protected void cmbReceptorProvincia_ValueChanged(object sender, EventArgs e)
-        { 
+        {
             ASPxComboBox cmbReceptorProvincia = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorProvincia"));
             ASPxComboBox cmbReceptorCanton = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorCanton"));
-            ASPxComboBox cmbReceptorDistrito = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorDistrito")); 
+            ASPxComboBox cmbReceptorDistrito = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorDistrito"));
 
             using (var conexion = new DataModelFE())
             {
@@ -518,10 +527,10 @@ namespace Web.Pages.Facturacion
         protected void cmbReceptorCanton_ValueChanged(object sender, EventArgs e)
         {
             using (var conexion = new DataModelFE())
-            { 
+            {
                 ASPxComboBox cmbReceptorProvincia = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorProvincia"));
                 ASPxComboBox cmbReceptorCanton = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorCanton"));
-                ASPxComboBox cmbReceptorDistrito = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorDistrito")); 
+                ASPxComboBox cmbReceptorDistrito = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorDistrito"));
 
                 cmbReceptorDistrito.SelectedItem = null;
                 cmbReceptorDistrito.Items.Clear();
@@ -540,11 +549,11 @@ namespace Web.Pages.Facturacion
         {
             using (var conexion = new DataModelFE())
             {
-                 
+
                 ASPxComboBox cmbReceptorProvincia = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorProvincia"));
                 ASPxComboBox cmbReceptorCanton = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorCanton"));
                 ASPxComboBox cmbReceptorDistrito = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorDistrito"));
-                ASPxComboBox cmbReceptorBarrio = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorBarrio")); 
+                ASPxComboBox cmbReceptorBarrio = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorBarrio"));
 
                 cmbReceptorBarrio.SelectedItem = null;
                 cmbReceptorBarrio.Items.Clear();
@@ -1019,7 +1028,7 @@ namespace Web.Pages.Facturacion
         }
 
         #endregion
-        
+
 
         /// <summary>
         /// obtiene los valores para crear el documento electronico
@@ -1029,7 +1038,7 @@ namespace Web.Pages.Facturacion
         protected async void btnFacturar_Click(object sender, EventArgs e)
         {
             try
-            { 
+            {
 
                 Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
                 DetalleServicio detalle = (DetalleServicio)Session["detalleServicio"];
@@ -1040,8 +1049,8 @@ namespace Web.Pages.Facturacion
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
                     this.alertMessages.InnerText = "Debe agregar un receptor";
                     return;
-                } 
-                if (TipoIdentificacion.FISICA.Equals(((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value.ToString()) 
+                }
+                if (TipoIdentificacion.FISICA.Equals(((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value.ToString())
                     && ((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text.Length != 9)
                 {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
@@ -1055,14 +1064,14 @@ namespace Web.Pages.Facturacion
                     this.alertMessages.InnerText = "La identificación debe tener de 10 digitos";
                     return;
                 }
-                if (TipoIdentificacion.DIMEX.Equals(((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value.ToString()) 
-                    &&(((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text.Length > 12 || ((ASPxTextBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text.Length < 11) )
+                if (TipoIdentificacion.DIMEX.Equals(((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value.ToString())
+                    && (((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text.Length > 12 || ((ASPxTextBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text.Length < 11))
                 {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
                     this.alertMessages.InnerText = "La identificación debe tener en 11 y 12 digitos";
                     return;
                 }
-                if (TipoIdentificacion.NITE.Equals(((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value.ToString()) 
+                if (TipoIdentificacion.NITE.Equals(((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value.ToString())
                     && ((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text.Length != 10)
                 {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
@@ -1122,7 +1131,7 @@ namespace Web.Pages.Facturacion
 
                     /* EMISOR */
                     EmisorReceptorIMEC elEmisor = (EmisorReceptorIMEC)Session["elEmisor"];
-                    
+
                     dato.emisor.identificacion.tipo = elEmisor.identificacionTipo;
                     dato.emisor.identificacion.numero = elEmisor.identificacion;
                     dato.emisor.ubicacion.otrassenas = elEmisor.otraSena.ToUpper();
@@ -1141,21 +1150,19 @@ namespace Web.Pages.Facturacion
                     dato.emisor.ubicacion.distrito = elEmisor.distrito.ToUpper();
                     dato.emisor.ubicacion.barrio = elEmisor.barrio.ToUpper();
                     dato.emisor.ubicacion.otrassenas = elEmisor.otraSena.ToUpper();
-
-
+                     
                     /* RECEPTOR */
                     bool nuevo = true;
-                    string identificacion = ((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text;
-                    EmisorReceptorIMEC elReceptor = conexion.EmisorReceptorIMEC.Find(identificacion);
+                    string identificacionReceptor = ((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text;
+                    EmisorReceptorIMEC elReceptor = conexion.EmisorReceptorIMEC.Find(identificacionReceptor);
                     if (elReceptor != null)
                     {
                         nuevo = false;
-
                     }
                     else
                     {
                         elReceptor = new EmisorReceptorIMEC();
-                        elReceptor.identificacion = identificacion;
+                        elReceptor.identificacion = identificacionReceptor;
                         nuevo = true;
                     }
                     elReceptor = this.crearModificarReceptor(elReceptor);
@@ -1170,7 +1177,7 @@ namespace Web.Pages.Facturacion
 
                     dato.receptor.fax.codigoPais = elReceptor.faxCodigoPais;
                     dato.receptor.fax.numTelefono = elReceptor.fax;
-                    dato.receptor.correoElectronico = elReceptor.correoElectronico;
+                    dato.receptor.correoElectronico = Utilidades.getCorreoPrincipal( elReceptor.correoElectronico);
 
                     dato.receptor.ubicacion.provincia = elReceptor.provincia;
                     dato.receptor.ubicacion.canton = elReceptor.canton;
@@ -1180,8 +1187,7 @@ namespace Web.Pages.Facturacion
 
                     dato.receptor.verificar();
                     if (!string.IsNullOrWhiteSpace(elReceptor.identificacion))
-                    {
-
+                    { 
                         if (nuevo == false)
                         {
                             conexion.Entry(elReceptor).State = EntityState.Modified;
@@ -1227,17 +1233,17 @@ namespace Web.Pages.Facturacion
 
                     //genera el consecutivo del documento
                     string sucursal = this.cmbSucursalCaja.Value.ToString().Substring(0, 3);
-                    string caja = this.cmbSucursalCaja.Value.ToString().Substring(3, 5); 
-                    object[] key = new object[] { dato.emisor.identificacion.numero, sucursal, caja , this.cmbTipoDocumento.Value.ToString()};
+                    string caja = this.cmbSucursalCaja.Value.ToString().Substring(3, 5);
+                    object[] key = new object[] { dato.emisor.identificacion.numero, sucursal, caja, this.cmbTipoDocumento.Value.ToString() };
                     ConsecutivoDocElectronico consecutivo = conexion.ConsecutivoDocElectronico.Find(key);
                     if (consecutivo != null)
                     {
-                        dato.clave = consecutivo.getClave( this.txtFechaEmision.Date.ToString("yyyyMMdd"));
+                        dato.clave = consecutivo.getClave(this.txtFechaEmision.Date.ToString("yyyyMMdd"));
                         dato.numeroConsecutivo = consecutivo.getConsecutivo();
 
                         consecutivo.consecutivo += 1;
                         conexion.Entry(consecutivo).State = EntityState.Modified;
-                    }else
+                    } else
                     {
                         consecutivo = new ConsecutivoDocElectronico();
                         consecutivo.sucursal = ConsecutivoDocElectronico.DEFAULT_SUCURSAL;
@@ -1261,6 +1267,9 @@ namespace Web.Pages.Facturacion
                     string xmlSigned = FirmaXML.getXMLFirmadoWeb(xml, elEmisor.llaveCriptografica, elEmisor.claveLlaveCriptografica);
                     string responsePost = await Services.enviarDocumentoElectronico(false, dato, elEmisor, this.cmbTipoDocumento.Value.ToString(), Session["usuario"].ToString());
 
+                    this.btnFacturar.Enabled = false; 
+                    conexion.SaveChanges();
+
                     if (responsePost.Equals("Success"))
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-info";
@@ -1268,27 +1277,36 @@ namespace Web.Pages.Facturacion
 
                         if (!string.IsNullOrWhiteSpace(dato.receptor.correoElectronico))
                         {
+                            List<string> cc = new List<string>(); 
+                            string[] correosEmisor = conexion.EmisorReceptorIMEC.Find(identificacionReceptor).correoElectronico.Split(',');
+                            foreach (var correo in correosEmisor)
+                            {
+                                cc.Add(correo);
+                            }
+                            // copia al emisor
+                            cc.Add(   Utilidades.getCorreoPrincipal( ((EmisorReceptorIMEC)Session["elEmisor"]).correoElectronico)   );
+
                             Utilidades.sendMail(Session["emisor"].ToString(), dato.receptor.correoElectronico,
                                 string.Format("{0} - {1}", dato.numeroConsecutivo, elEmisor.nombre),
-                                Utilidades.mensageGenerico(), "Documento Electrónico", EncodeXML.EncondeXML.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave,null);
+                                Utilidades.mensageGenerico(), "Documento Electrónico", EncodeXML.EncondeXML.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave, cc);
                         }
+                        
+
                     }
                     else if (responsePost.Equals("Error"))
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-danger";
                         this.alertMessages.InnerText = String.Format("Documento #{0} con errores.", dato.numeroConsecutivo);
-                        
+                        return;
                     }
                     else
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-warning";
                         this.alertMessages.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
+                        return;
                     }
 
-                    this.btnFacturar.Enabled = false; 
-
-                    conexion.SaveChanges();
-
+                   
                     if (empresa.tipoImpresion.Equals("A4"))
                     {
                         Response.Redirect("~/Pages/Consulta/" + dato.clave);
@@ -1331,7 +1349,7 @@ namespace Web.Pages.Facturacion
         {
             try {
                 using (var conexion = new DataModelFE())
-                { 
+                {
 
                     /* RECEPTOR */
                     if (string.IsNullOrWhiteSpace(((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text))
@@ -1339,7 +1357,7 @@ namespace Web.Pages.Facturacion
                         this.alertMessages.Attributes["class"] = "alert alert-danger";
                         this.alertMessages.InnerText = "El número de identifiación es requerida";
                     }
-                    else { 
+                    else {
                         string elReceptor = ((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text;
                         EmisorReceptorIMEC receptor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == elReceptor).FirstOrDefault();
                         if (receptor != null)
@@ -1375,12 +1393,12 @@ namespace Web.Pages.Facturacion
                     this.loadReceptor(receptor);
 
                     this.documento.ActiveTabIndex = 3;
-                     
+
                 }
 
                 this.alertMessages.Attributes["class"] = "alert alert-info";
                 this.alertMessages.InnerText = "Datos cargados con correctamente";
-            } 
+            }
         }
 
         protected void cmbTipoDocumento_ValueChanged(object sender, EventArgs e)
@@ -1420,6 +1438,63 @@ namespace Web.Pages.Facturacion
 
             }
         }
-        
-    }
+
+        protected void ASPxGridViewClientes_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)
+        {
+            try
+            {
+                using (var conexion = new DataModelFE())
+                {
+                    var cliente = e.Values["identificacion"].ToString();
+
+                    //busca objeto
+                    object[] key = new object[] { Session["emisor"].ToString(), cliente, };
+                    var itemToRemove = conexion.Cliente.Find(key);
+                    conexion.Cliente.Remove(itemToRemove);
+                    conexion.SaveChanges();
+
+                    //esto es para el manero del devexpress
+                    e.Cancel = true;
+                    this.ASPxGridView1.CancelEdit();
+                }
+
+            }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
+            }
+            finally
+            {
+                //refescar los datos
+                this.refreshData();
+            }
+
+        }
+
+        protected void txtReceptorCorreo_TokensChanged(object sender, EventArgs e)
+        {
+            ASPxTokenBox correos = (ASPxTokenBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("txtReceptorCorreo");
+            if (correos.Tokens.Count > 5)
+            {
+                correos.Tokens.RemoveAt(5);
+            } 
+        }
+
+
+
+    } 
 }

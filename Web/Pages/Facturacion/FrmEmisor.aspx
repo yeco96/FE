@@ -39,7 +39,7 @@
                             PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                         </dx:GridViewDataTextColumn>
 
-                        <dx:GridViewDataTextColumn Caption="Nombre Comercial" FieldName="nombreComercial" VisibleIndex="6" PropertiesTextEdit-MaxLength="80"
+                        <dx:GridViewDataTextColumn Caption="Nombre Comercial" FieldName="nombreComercial" VisibleIndex="6" PropertiesTextEdit-MaxLength="80" Visible="false" EditFormSettings-Visible="True"
                             PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="false" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                         </dx:GridViewDataTextColumn>
 
@@ -53,11 +53,17 @@
                         <dx:GridViewDataComboBoxColumn Caption="Cod Teléfono" FieldName="telefonoCodigoPais" Visible="false" />
                         <dx:GridViewDataComboBoxColumn Caption="Cod Fax" FieldName="faxCodigoPais" Visible="false" />
 
-                        <dx:GridViewDataTextColumn Caption="Correo" FieldName="correoElectronico" VisibleIndex="8" PropertiesTextEdit-MaxLength="80" Width="20%"
-                            PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
-                        </dx:GridViewDataTextColumn>
+                         <dx:GridViewDataTokenBoxColumn Caption="Correo" FieldName="correoElectronicoPrincipal" VisibleIndex="8"  Visible="true" EditFormSettings-Visible="False"
+                    PropertiesTokenBox-MaxLength="250"
+                    PropertiesTokenBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesTokenBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataTokenBoxColumn>
 
-                         <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="9"
+                <dx:GridViewDataTokenBoxColumn Caption="Correo" FieldName="correoElectronico" VisibleIndex="8"     Visible="false" EditFormSettings-Visible="true"
+                    PropertiesTokenBox-MaxLength="250"
+                    PropertiesTokenBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesTokenBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataTokenBoxColumn>
+
+                         <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="9" Visible="false" EditFormSettings-Visible="True"
                             PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                         </dx:GridViewDataComboBoxColumn>
 

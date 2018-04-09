@@ -8,6 +8,7 @@ using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Security.Permissions;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -161,6 +162,7 @@ namespace Web.Pages.Catalogos
                         dato.telefonoCodigoPais = "506";
                         dato.telefono = e.NewValues["telefono"].ToString();
                     }
+
 
                     dato.correoElectronico = e.NewValues["correoElectronico"] != null ? e.NewValues["correoElectronico"].ToString()  : null;
 
@@ -536,6 +538,26 @@ namespace Web.Pages.Catalogos
                 {
                     e.RowError = "La ubicación es obligatoria (provincia, cantón, distrito, barrio y otras señas";
                 }
+                 
+                if (e.NewValues["correoElectronico"] != null )
+                { 
+                    Regex validator = new Regex(@"\s*\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*\s*");
+                    string[] correos = e.NewValues["correoElectronico"].ToString().Split(',');
+                    foreach (var correo in correos)
+                    {
+                        if (!validator.IsMatch(correo))
+                        {
+                            AddError(e.Errors, this.ASPxGridView1.Columns["correoElectronico"], string.Format("Verificar formato: {0}",correo) );
+                        }
+                    }
+
+                    if(correos.Length > 5)
+                    {
+                        e.RowError = "Solo puede agregar un máximo de 5 correos";
+                    } 
+                }
+
+
             }
         }
     }

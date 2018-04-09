@@ -272,7 +272,7 @@ public class RptFactDetRollPaper : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel4.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrLabel4.BorderWidth = 1F;
             this.xrLabel4.CanGrow = false;
-            this.xrLabel4.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.xrLabel4.Font = new System.Drawing.Font("Arial", 10F);
             this.xrLabel4.ForeColor = System.Drawing.Color.Black;
             this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(228.9074F, 9.562509F);
             this.xrLabel4.Name = "xrLabel4";
@@ -298,7 +298,7 @@ public class RptFactDetRollPaper : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel3.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrLabel3.BorderWidth = 1F;
             this.xrLabel3.CanGrow = false;
-            this.xrLabel3.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.xrLabel3.Font = new System.Drawing.Font("Arial", 10F);
             this.xrLabel3.ForeColor = System.Drawing.Color.Black;
             this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(79.04466F, 9.562509F);
             this.xrLabel3.Name = "xrLabel3";
@@ -324,7 +324,7 @@ public class RptFactDetRollPaper : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel2.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrLabel2.BorderWidth = 1F;
             this.xrLabel2.CanGrow = false;
-            this.xrLabel2.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.xrLabel2.Font = new System.Drawing.Font("Arial", 10F);
             this.xrLabel2.ForeColor = System.Drawing.Color.Black;
             this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(40.53129F, 9.562504F);
             this.xrLabel2.Name = "xrLabel2";
@@ -350,7 +350,7 @@ public class RptFactDetRollPaper : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel1.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrLabel1.BorderWidth = 1F;
             this.xrLabel1.CanGrow = false;
-            this.xrLabel1.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.xrLabel1.Font = new System.Drawing.Font("Arial", 10F);
             this.xrLabel1.ForeColor = System.Drawing.Color.Black;
             this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(8F, 9.562504F);
             this.xrLabel1.Name = "xrLabel1";
@@ -428,7 +428,7 @@ public class RptFactDetRollPaper : DevExpress.XtraReports.UI.XtraReport
             this.Title.BorderColor = System.Drawing.Color.Black;
             this.Title.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.Title.BorderWidth = 1F;
-            this.Title.Font = new System.Drawing.Font("Times New Roman", 21F);
+            this.Title.Font = new System.Drawing.Font("Arial", 21F);
             this.Title.ForeColor = System.Drawing.Color.Black;
             this.Title.Name = "Title";
             // 
@@ -438,7 +438,7 @@ public class RptFactDetRollPaper : DevExpress.XtraReports.UI.XtraReport
             this.FieldCaption.BorderColor = System.Drawing.Color.Black;
             this.FieldCaption.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.FieldCaption.BorderWidth = 1F;
-            this.FieldCaption.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.FieldCaption.Font = new System.Drawing.Font("Arial", 10F);
             this.FieldCaption.ForeColor = System.Drawing.Color.Black;
             this.FieldCaption.Name = "FieldCaption";
             // 
@@ -458,7 +458,7 @@ public class RptFactDetRollPaper : DevExpress.XtraReports.UI.XtraReport
             this.DataField.BorderColor = System.Drawing.Color.Black;
             this.DataField.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.DataField.BorderWidth = 1F;
-            this.DataField.Font = new System.Drawing.Font("Arial", 9F);
+            this.DataField.Font = new System.Drawing.Font("Arial", 10F);
             this.DataField.ForeColor = System.Drawing.Color.Black;
             this.DataField.Name = "DataField";
             this.DataField.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);

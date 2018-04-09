@@ -50,11 +50,9 @@
                                             </PropertiesSpinEdit>
                                         </dx:GridViewDataSpinEditColumn>
                  
-                                        <dx:GridViewDataTextColumn Caption="Correo" FieldName="correoElectronico" VisibleIndex="8" PropertiesTextEdit-MaxLength="80" Width="25%"
+                                        <dx:GridViewDataTextColumn Caption="Correo" FieldName="correoElectronicoPrincipal" VisibleIndex="8" PropertiesTextEdit-MaxLength="80" Width="25%"
                                             PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
-                                            <PropertiesTextEdit MaxLength="80">
-                                             
-                                            </PropertiesTextEdit>
+                                          
                                         </dx:GridViewDataTextColumn>
                   
                                     </Columns>

@@ -17,7 +17,7 @@
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
             Width="100%" EnableTheming="True" KeyFieldName="identificacion" Theme="Moderno" 
             OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize"
-            OnRowValidating="ASPxGridView1_RowValidating"
+            OnRowValidating="ASPxGridView1_RowValidating" 
             OnCancelRowEditing="ASPxGridView1_CancelRowEditing"
             OnRowUpdating="ASPxGridView1_RowUpdating">
              <ClientSideEvents EndCallback="function(s, e) {if (s.cpUpdatedMessage) { alert(s.cpUpdatedMessage);  delete s.cpUpdatedMessage;  }}" />
@@ -44,15 +44,21 @@
                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataSpinEditColumn>
 
-                <dx:GridViewDataSpinEditColumn Caption="Fax" FieldName="fax" VisibleIndex="7" PropertiesSpinEdit-MaxLength="20">
+                <dx:GridViewDataSpinEditColumn Caption="Fax" FieldName="fax" VisibleIndex="7" PropertiesSpinEdit-MaxLength="20" Visible="false" EditFormSettings-Visible="True">
                 </dx:GridViewDataSpinEditColumn>
 
                 <dx:GridViewDataComboBoxColumn Caption="Cod Teléfono" FieldName="telefonoCodigoPais" Visible="false" />
                 <dx:GridViewDataComboBoxColumn Caption="Cod Fax" FieldName="faxCodigoPais" Visible="false" />
 
-                <dx:GridViewDataTextColumn Caption="Correo" FieldName="correoElectronico" VisibleIndex="8" PropertiesTextEdit-MaxLength="80" Width="20%"
-                    PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
-                </dx:GridViewDataTextColumn>
+                <dx:GridViewDataTokenBoxColumn Caption="Correo" FieldName="correoElectronicoPrincipal" VisibleIndex="8"  Visible="true" EditFormSettings-Visible="False"
+                    PropertiesTokenBox-MaxLength="250"
+                    PropertiesTokenBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesTokenBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataTokenBoxColumn>
+
+                <dx:GridViewDataTokenBoxColumn Caption="Correo" FieldName="correoElectronico" VisibleIndex="8"     Visible="false" EditFormSettings-Visible="true"
+                    PropertiesTokenBox-MaxLength="250"
+                    PropertiesTokenBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesTokenBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataTokenBoxColumn>
 
                 <dx:GridViewDataBinaryImageColumn Caption="Llave Criptográfica" FieldName="llaveCriptografica" VisibleIndex="20" Visible="false" 
                     PropertiesBinaryImage-ValidationSettings-RequiredField-IsRequired="true" PropertiesBinaryImage-ValidationSettings-RequiredField-ErrorText="Requerido">
@@ -73,7 +79,7 @@
                 <dx:GridViewDataTextColumn Caption="Contraseña Comprobantes" FieldName="passwordOAuth2" VisibleIndex="20" Visible="false"   >
                 </dx:GridViewDataTextColumn>
 
-                <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="50"
+                <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="50" Visible="false" EditFormSettings-Visible="True"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
                 <dx:GridViewDataTextColumn Visible="false" Caption="Usuario Creación" FieldName="usuarioCreacion" VisibleIndex="51">

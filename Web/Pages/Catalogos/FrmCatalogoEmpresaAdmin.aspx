@@ -23,7 +23,7 @@
                 <dx:GridViewDataTextColumn Caption="Código" FieldName="codigo" VisibleIndex="2" PropertiesTextEdit-MaxLength="10"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Nombre" FieldName="descripcion" VisibleIndex="3" PropertiesTextEdit-MaxLength="80" 
+                <dx:GridViewDataTextColumn Caption="Nombre" FieldName="descripcion" VisibleIndex="3" PropertiesTextEdit-MaxLength="250" 
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataBinaryImageColumn Caption="Logo" FieldName="logo" VisibleIndex="10" Visible="false" EditFormSettings-Visible="True"  

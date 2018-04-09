@@ -220,10 +220,10 @@
                                                                 </Items>
                                                             </dx:MenuItem>
                                                             <dx:MenuItem Text="CAMBIAR EMISOR" NavigateUrl="~/Pages/SeleccionarEmisor" />  
-                                                            <dx:MenuItem Text="PLAN" NavigateUrl="~/Pages/Administracion/FrmPlan" />  
+                                                            <dx:MenuItem Text="PLAN" NavigateUrl="~/Pages/Administracion/FrmPlanAdmin" />  
                                                             <dx:MenuItem Text="SEGURIDAD">
                                                                 <Items>
-                                                                    <dx:MenuItem Text="USUARIO" NavigateUrl="~/Pages/Seguridad/FrmSeguridadUsuario" />
+                                                                    <dx:MenuItem Text="USUARIO" NavigateUrl="~/Pages/Seguridad/FrmSeguridadUsuarioAdmin" />
                                                                 </Items>
                                                             </dx:MenuItem>
                                                         </Items>

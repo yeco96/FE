@@ -244,7 +244,7 @@ namespace Class.Utilidades
                                 correo.CC.Add(item);
                             }
                         }
-                        
+                         
                         //correo.Subject = String.Format("SPAM-LOW: {0}", asunto);
                         correo.Subject =  asunto;
                         correo.Body = mensaje;
@@ -417,6 +417,24 @@ namespace Class.Utilidades
             writer.Flush();
             stream.Position = 0;
             return stream;
+        }
+
+
+        public static string getCorreoPrincipal(string correo)
+        {
+            if (string.IsNullOrWhiteSpace(correo))
+            {
+                return null;
+            }
+            else
+            {
+               string [] lista = correo.Split(',');
+                if (lista.Length == 0)
+                    return correo;
+                else
+                    return lista[0];
+
+            }
         }
 
 
