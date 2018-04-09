@@ -167,9 +167,12 @@ namespace Class.Utilidades
                     detalle.descripcion = string.Format("{0} - {1}",item.detalle, impresion.fecha.ToString("yyyy-MM"));
                 }else
                 {
-                    detalle.descripcion =  item.detalle;
+                    if(item.cantidad == 1)
+                        detalle.descripcion =  item.detalle;
+                    else
+                        detalle.descripcion = string.Format("{0} p/u={1}" ,item.detalle, item.precioUnitario) ;
                 }
-                detalle.monto = item.precioUnitario;
+                detalle.monto = item.montoTotal;
 
                 impresion.detalles.Add(detalle);
             }

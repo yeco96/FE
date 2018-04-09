@@ -148,7 +148,7 @@ public class RptComprobanteDetalleEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel2.CanGrow = false;
             this.xrLabel2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "codigo")});
-            this.xrLabel2.Font = new System.Drawing.Font("Arial", 10F);
+            this.xrLabel2.Font = new System.Drawing.Font("Arial", 9F);
             this.xrLabel2.ForeColor = System.Drawing.Color.Black;
             this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel2.Name = "xrLabel2";

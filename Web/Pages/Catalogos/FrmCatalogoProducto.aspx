@@ -22,7 +22,7 @@
                 <dx:GridViewCommandColumn Width="100px" ButtonType="Image" ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
                 </dx:GridViewCommandColumn>
 
-                <dx:GridViewDataTextColumn Caption="Id" FieldName="id" VisibleIndex="1"
+                <dx:GridViewDataTextColumn Caption="Id" FieldName="id" VisibleIndex="1" Visible="false" EditFormSettings-Visible="True"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataComboBoxColumn Caption="Tipo Código" FieldName="tipo" VisibleIndex="1" Width="20%" Visible="false" EditFormSettings-Visible="True"
@@ -31,7 +31,7 @@
                   <dx:GridViewDataComboBoxColumn Caption="Tipo Serv/Merc" FieldName="tipoServMerc" VisibleIndex="1" 
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
-                <dx:GridViewDataComboBoxColumn Caption="Unidad Medida" FieldName="unidadMedida" VisibleIndex="2" Width="20%"
+                <dx:GridViewDataComboBoxColumn Caption="Unidad Medida" FieldName="unidadMedida" VisibleIndex="2"   Visible="false" EditFormSettings-Visible="True"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
                 <dx:GridViewDataTextColumn Caption="Código" FieldName="codigo" VisibleIndex="3" PropertiesTextEdit-MaxLength="20"
