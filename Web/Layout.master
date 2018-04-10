@@ -214,7 +214,7 @@
                                                                     <dx:MenuItem Text="MIS DATOS" NavigateUrl="~/Pages/Facturacion/FrmEmisor" />
                                                                     <dx:MenuItem Text="MIS EMISORES" NavigateUrl="~/Pages/Facturacion/FrmEmisorAdmin" />
                                                                     <dx:MenuItem Text="MIS CLIENTES" NavigateUrl="~/Pages/Facturacion/FrmReceptor" />
-                                                                    <dx:MenuItem Text="MIS ORGANIZACIÓN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoEmpresaAdmin" />
+                                                                    <dx:MenuItem Text="MI ORGANIZACIÓN" NavigateUrl="~/Pages/Catalogos/FrmCatalogoEmpresaAdmin" />
                                                                     <dx:MenuItem Text="PRODUCTO / SERVICIO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProducto" />
                                                                     <dx:MenuItem Text="PRODUCTO IMPUESTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProductoImpuesto" />
                                                                 </Items>
