@@ -11,40 +11,41 @@
      
     <div class="borde_redondo_tabla">
         Datos para la configuración de los correos más usuales:<br />
-        <table class="w-50" style="width: 29%" border="1">
+        <table class="w-50" style="width: 29%" border="1" visible="false">
             <tr>
                 <td class="dxeTextBoxDefaultWidthSys" style="text-align: center; color: #FFFFFF; background-color: #0072C6"><strong><em>Proveedor de Servicio</em></strong></td>
                 <td class="text-center" style="color: #FFFFFF; background-color: #0072C6"><strong><em>Puerto</em></strong></td>
                 <td class="text-center" style="color: #FFFFFF; background-color: #0072C6"><strong><em>Servidor</em></strong></td>
-                <td class="text-center" style="color: #FFFFFF; background-color: #0072C6"><strong><em>SSL</em></strong></td>
+                <td class="text-center" style="color: #FFFFFF; background-color: #0072C6; width: 35px;"><strong><em>SSL</em></strong></td>
             </tr>
             <tr>
                 <td class="dxeTextBoxDefaultWidthSys"><strong>Gmail</strong></td>
                 <td class="text-center">587</td>
                 <td class="text-center">smtp.gmail.com</td>
-                <td class="text-center">Si</td>
+                <td class="text-center" style="width: 35px">Si</td>
             </tr>
             <tr>
                 <td class="dxeTextBoxDefaultWidthSys"><strong>Yahoo</strong></td>
                 <td class="text-center">465</td>
                 <td class="text-center">smtp.mail.yahoo.com</td>
-                <td class="text-center">Si</td>
+                <td class="text-center" style="width: 35px">Si</td>
             </tr>
             <tr>
                 <td class="dxeTextBoxDefaultWidthSys"><strong>Microsoft (Office 365)</strong></td>
                 <td class="text-center">587</td>
                 <td class="text-center">smtp.office365.com</td>
-                <td class="text-center">Si</td>
+                <td class="text-center" style="width: 35px">Si</td>
             </tr>
             <tr>
                 <td class="dxeTextBoxDefaultWidthSys"><strong>Hotmail</strong></td>
                 <td class="text-center">25</td>
                 <td class="text-center">smtp.live.com</td>
-                <td class="text-center">Si</td>
+                <td class="text-center" style="width: 35px">Si</td>
             </tr>
         </table>
-        *&nbsp;&nbsp; Si cuenta con un dominio propio consulte con su proveedor de hosting<br />
-        ** La configuración del correo es adicional, en caso no de poseer alguna configuración, la salida de correos será de fe@msasoft.net.
+        *&nbsp;&nbsp; Si cuenta con un dominio propio consulte con su proveedor de hosting.<br />
+        ** La configuración del correo es adicional, en caso no de poseer alguna configuración, la salida de correos será de <a href="mailto:fe.msasoft@gmail.com">fe.msasoft@gmail.com</a><br />
+        *** No se podrán configurar cuentas de servicios de correo genéricos como Yahoo, Gmail, Hotmail etc.
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
             Width="100%" EnableTheming="True" KeyFieldName="codigo" Theme="Moderno"
             OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize"
