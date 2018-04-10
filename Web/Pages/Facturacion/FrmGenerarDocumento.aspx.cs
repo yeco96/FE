@@ -388,6 +388,7 @@ namespace Web.Pages.Facturacion
                 {
                     this.cmbCondicionVenta.Items.Add(item.descripcion, item.codigo);
                 }
+
                 this.cmbCondicionVenta.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
                 this.cmbCondicionVenta.SelectedIndex = 0;
                 this.txtPlazoCredito.Text = "0";
@@ -597,7 +598,8 @@ namespace Web.Pages.Facturacion
             if (CondicionVenta.CREDITO.Equals(this.cmbCondicionVenta.Text.ToString()))
             {
                 this.txtPlazoCredito.Enabled = true;
-                this.txtPlazoCredito.Value = 3;
+                this.txtPlazoCredito.Value = 30;
+                this.txtPlazoCredito.MinValue = 0;
             }
             else
             {
@@ -1123,6 +1125,15 @@ namespace Web.Pages.Facturacion
                     dato.medioPago = this.cmbMedioPago.Value.ToString();
                     dato.plazoCredito = this.txtPlazoCredito.Text;
                     dato.condicionVenta = this.cmbCondicionVenta.Value.ToString();
+
+                    if (int.Parse(dato.plazoCredito) <= 0 && (CondicionVenta.CREDITO.Equals(this.cmbCondicionVenta.Text.ToString())))
+                        {
+                        this.alertMessages.Attributes["class"] = "alert alert-danger";
+                        this.alertMessages.InnerText = "El plazo de crédito debe ser mayor a cero";
+                        return;
+                    }
+
+
                     dato.fechaEmision = this.txtFechaEmision.Date.ToString("yyyy-MM-ddTHH:mm:ss-06:00");
                     dato.medioPago = this.cmbMedioPago.Value.ToString();
 

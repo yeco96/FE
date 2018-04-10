@@ -566,8 +566,8 @@
                                                 <dx:LayoutItem Caption="Plazo Crédito">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
-                                                            <dx:ASPxSpinEdit AllowMouseWheel="false" ID="txtPlazoCredito" runat="server" Width="100%" AutoResizeWithContainer="true" MaxLength="5" Enabled="false"
-                                                                ValidationSettings-ErrorDisplayMode="ImageWithTooltip">
+                                                            <dx:ASPxSpinEdit AllowMouseWheel="false" ID="txtPlazoCredito" runat="server" Width="100%" AutoResizeWithContainer="true" MaxLength="5" MinValue="0" Enabled="false"
+                                                                ValidationSettings-ErrorDisplayMode="ImageWithTooltip" MaxValue="99999">
                                                                 <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
                                                                 </ValidationSettings>
                                                             </dx:ASPxSpinEdit>
