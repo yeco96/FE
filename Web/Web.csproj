@@ -275,7 +275,7 @@
     <Content Include="Scripts\site.js" />
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <Content Include="LayoutError.master" />
-    <Content Include="Help\Manual_MSA_Facturtacion_1.0.pdf" />
+    <Content Include="Help\Manual_MSA_Facturación_1.0.pdf" />
     <None Include="Properties\PublishProfiles\FE.pubxml" />
     <None Include="Service References\ServiceReferenceBCCR\wsIndicadoresEconomicos.disco" />
     <None Include="Service References\ServiceReferenceBCCR\configuration91.svcinfo" />
