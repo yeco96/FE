@@ -1,21 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="SeleccionarEmisor.aspx.cs" Inherits="Web.Pages.SeleccionarEmisor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 
-
-     <dx:ASPxPageControl ID="documento" Width="100%" runat="server" ActiveTabIndex="0" EnableHierarchyRecreation="True" Theme="MetropolisBlue" >
-                <TabPages>
-                  
-
-                      <dx:TabPage Text="Emisores" > 
-                        <ContentCollection>
-                            <dx:ContentControl runat="server">
-
-
-                                <dx:ASPxGridView ID="ASPxGridViewClientes" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
+     <div class="text-box-title">
+        <div class="text-box-heading-title">Emisores</div>
+        <div class="arrow-down-title" style="margin-bottom: 5px;"></div>
+    </div>
+    <div class="borde_redondo_tabla">
+                                <dx:ASPxGridView ID="ASPxGridViewEmisores" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
                                      EnableTheming="True" KeyFieldName="identificacion" Theme="Moderno"    EnableCallBacks="false"
+                                    OnRowDeleting="ASPxGridViewEmisores_RowDeleting"
                                          Width="100%"   OnSelectionChanged="ASPxGridViewClientes_SelectionChanged" > 
                                     <Columns>
-                                        <dx:GridViewCommandColumn Width="50px" ButtonType="Image" ShowSelectButton="true" ShowDeleteButton="false" ShowEditButton="false" ShowNewButtonInHeader="false" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
+                                        <dx:GridViewCommandColumn Width="50px" ButtonType="Image" ShowSelectButton="true" ShowDeleteButton="true" ShowEditButton="false" ShowNewButtonInHeader="false" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
                                         </dx:GridViewCommandColumn>
 
                                         <dx:GridViewDataComboBoxColumn Caption="Tipo" Visible="false" FieldName="identificacionTipo" VisibleIndex="2"
@@ -69,12 +65,13 @@
                                    
                                     <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="false" ShowFilterRow="false" ShowTitlePanel="True" UseFixedTableLayout="True" />
                                     <SettingsContextMenu EnableColumnMenu="True" Enabled="True" EnableFooterMenu="True" EnableGroupPanelMenu="True" EnableRowMenu="True" />
-                                    <SettingsDataSecurity AllowDelete="false" AllowInsert="false" AllowEdit="false" />
+                                    <SettingsDataSecurity AllowDelete="true" AllowInsert="false" AllowEdit="false" />
                                     <SettingsCommandButton>
                                         <SelectButton Image-ToolTip="Seleccionar" Image-Url="~/Content/Images/search1.png" > 
                                             <Image ToolTip="Seleccionar" Url="~/Content/Images/search1.png">
                                             </Image>
                                         </SelectButton>
+                                         <DeleteButton Image-ToolTip="Eliminar" Image-Url="~/Content/Images/delete.png" />
                                         <ClearFilterButton Image-ToolTip="Quitar filtros" Image-Url="~/Content/Images/refresh.png" > 
                                             <Image ToolTip="Quitar filtros" Url="~/Content/Images/refresh.png">
                                             </Image>
@@ -94,11 +91,5 @@
                                     <BorderBottom BorderWidth="1px" />
 
                                 </dx:ASPxGridView>
-
-                                  </dx:ContentControl>
-                        </ContentCollection>
-                    </dx:TabPage>
-
-                    </TabPages>
-         </dx:ASPxPageControl>
+</div>
 </asp:Content>
