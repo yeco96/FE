@@ -566,7 +566,7 @@
                                                 <dx:LayoutItem Caption="Plazo Crédito">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
-                                                            <dx:ASPxSpinEdit AllowMouseWheel="false" ID="txtPlazoCredito" runat="server" Width="100%" AutoResizeWithContainer="true" MaxLength="2" Enabled="false"
+                                                            <dx:ASPxSpinEdit AllowMouseWheel="false" ID="txtPlazoCredito" runat="server" Width="100%" AutoResizeWithContainer="true" MaxLength="5" Enabled="false"
                                                                 ValidationSettings-ErrorDisplayMode="ImageWithTooltip">
                                                                 <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
                                                                 </ValidationSettings>
@@ -654,6 +654,7 @@
                                         </dx:GridViewCommandColumn>
 
                                         <dx:GridViewDataSpinEditColumn Caption="Cantidad" FieldName="cantidad" VisibleIndex="2" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
+                                            PropertiesSpinEdit-AllowMouseWheel="false"
                                             PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                                             <PropertiesSpinEdit DisplayFormatString="g" DecimalPlaces="2" MaxLength="10">
                                                 <ValidationSettings>

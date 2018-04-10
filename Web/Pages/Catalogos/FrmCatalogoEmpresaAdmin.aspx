@@ -62,7 +62,7 @@
                 </dx:GridViewDataComboBoxColumn> 
 
                   <dx:GridViewDataSpinEditColumn Caption="Plazo Crédito" FieldName="plazoCredito" VisibleIndex="6"  EditFormSettings-Visible="True"  Visible="false"
-                      PropertiesSpinEdit-AllowMouseWheel="false"
+                      PropertiesSpinEdit-AllowMouseWheel="false" PropertiesSpinEdit-MaxLength="5"
                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataSpinEditColumn> 
 

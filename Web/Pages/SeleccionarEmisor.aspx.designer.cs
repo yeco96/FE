@@ -13,21 +13,12 @@ namespace Web.Pages {
     public partial class SeleccionarEmisor {
         
         /// <summary>
-        /// documento control.
+        /// ASPxGridViewEmisores control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxPageControl documento;
-        
-        /// <summary>
-        /// ASPxGridViewClientes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView ASPxGridViewClientes;
+        protected global::DevExpress.Web.ASPxGridView ASPxGridViewEmisores;
     }
 }

@@ -12451,3 +12451,421 @@ Stack Trace:
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
+********** 9/4/2018 13:01:02 **********
+Exception Type: System.Web.HttpCompileException
+Exception: d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Administracion\FrmDashboard.aspx(28): error CS1061: 'ASP.pages_administracion_frmdashboard_aspx' does not contain a definition for 'btnGenerar_Click' and no extension method 'btnGenerar_Click' accepting a first argument of type 'ASP.pages_administracion_frmdashboard_aspx' could be found (are you missing a using directive or an assembly reference?)
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.Abstractions.BuildManagerWrapper.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetWebObjectFactory(HttpContextBase httpContext, String modifiedVirtualPath)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Microsoft.AspNet.FriendlyUrls.Abstractions.IFriendlyUrlRouteSupportFunctions.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext, String pathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.RouteCollection.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   en System.Web.Routing.UrlRoutingModule.OnApplicationPostResolveRequestCache(Object sender, EventArgs e)
+   en System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 9/4/2018 16:25:59 **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.SeleccionarEmisor.Page_Load(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\SeleccionarEmisor.aspx.cs:línea 24
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_seleccionaremisor_aspx.ProcessRequest(HttpContext context) en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_y51hbnyq.12.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 9/4/2018 16:26:16 **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.SeleccionarEmisor.Page_Load(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\SeleccionarEmisor.aspx.cs:línea 24
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_seleccionaremisor_aspx.ProcessRequest(HttpContext context) en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_y51hbnyq.12.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 9/4/2018 16:27:20 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+El valor no puede ser nulo.
+Nombre del parámetro: entity
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.SeleccionarEmisor.ASPxGridViewEmisores_RowDeleting(Object sender, ASPxDataDeletingEventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\SeleccionarEmisor.aspx.cs:línea 89
+   en DevExpress.Web.ASPxGridBase.RaiseRowDeleting(ASPxDataDeletingEventArgs e)
+   en DevExpress.Web.ASPxGridBase.DevExpress.Web.Data.IWebDataEvents.OnRowDeleting(ASPxDataDeletingEventArgs e)
+   en DevExpress.Web.Data.WebDataProxy.OnRowDeleting(ASPxDataDeletingEventArgs e)
+   en DevExpress.Web.Data.WebDataProxy.DeleteRowCore(ASPxDataDeleteValues deleteRowValues)
+   en DevExpress.Web.Data.WebDataProxy.DeleteRowCore(Int32 visibleIndex)
+   en DevExpress.Web.ASPxGridBase.DeleteRow(Int32 visibleIndex)
+   en DevExpress.Web.ASPxGridBase.CBDeleteRow(String[] args)
+   en DevExpress.Web.ASPxGridBase.DoCallBackPostBack(String eventArgument)
+   en DevExpress.Web.ASPxGridBase.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_seleccionaremisor_aspx.ProcessRequest(HttpContext context) en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_41s0qthc.10.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 9/4/2018 16:29:23 **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.SeleccionarEmisor.Page_Load(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\SeleccionarEmisor.aspx.cs:línea 24
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_seleccionaremisor_aspx.ProcessRequest(HttpContext context) en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_b5kvi05j.13.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 9/4/2018 16:29:35 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+El valor no puede ser nulo.
+Nombre del parámetro: entity
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.SeleccionarEmisor.ASPxGridViewEmisores_RowDeleting(Object sender, ASPxDataDeletingEventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\SeleccionarEmisor.aspx.cs:línea 89
+   en DevExpress.Web.ASPxGridBase.RaiseRowDeleting(ASPxDataDeletingEventArgs e)
+   en DevExpress.Web.ASPxGridBase.DevExpress.Web.Data.IWebDataEvents.OnRowDeleting(ASPxDataDeletingEventArgs e)
+   en DevExpress.Web.Data.WebDataProxy.OnRowDeleting(ASPxDataDeletingEventArgs e)
+   en DevExpress.Web.Data.WebDataProxy.DeleteRowCore(ASPxDataDeleteValues deleteRowValues)
+   en DevExpress.Web.Data.WebDataProxy.DeleteRowCore(Int32 visibleIndex)
+   en DevExpress.Web.ASPxGridBase.DeleteRow(Int32 visibleIndex)
+   en DevExpress.Web.ASPxGridBase.CBDeleteRow(String[] args)
+   en DevExpress.Web.ASPxGridBase.DoCallBackPostBack(String eventArgument)
+   en DevExpress.Web.ASPxGridBase.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_seleccionaremisor_aspx.ProcessRequest(HttpContext context) en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_b5kvi05j.13.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 9/4/2018 16:30:25 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+El valor no puede ser nulo.
+Nombre del parámetro: entity
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.SeleccionarEmisor.ASPxGridViewEmisores_RowDeleting(Object sender, ASPxDataDeletingEventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\SeleccionarEmisor.aspx.cs:línea 89
+   en DevExpress.Web.ASPxGridBase.RaiseRowDeleting(ASPxDataDeletingEventArgs e)
+   en DevExpress.Web.ASPxGridBase.DevExpress.Web.Data.IWebDataEvents.OnRowDeleting(ASPxDataDeletingEventArgs e)
+   en DevExpress.Web.Data.WebDataProxy.OnRowDeleting(ASPxDataDeletingEventArgs e)
+   en DevExpress.Web.Data.WebDataProxy.DeleteRowCore(ASPxDataDeleteValues deleteRowValues)
+   en DevExpress.Web.Data.WebDataProxy.DeleteRowCore(Int32 visibleIndex)
+   en DevExpress.Web.ASPxGridBase.DeleteRow(Int32 visibleIndex)
+   en DevExpress.Web.ASPxGridBase.CBDeleteRow(String[] args)
+   en DevExpress.Web.ASPxGridBase.DoCallBackPostBack(String eventArgument)
+   en DevExpress.Web.ASPxGridBase.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_seleccionaremisor_aspx.ProcessRequest(HttpContext context) en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_b5kvi05j.13.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 9/4/2018 16:31:27 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+El valor no puede ser nulo.
+Nombre del parámetro: entity
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.SeleccionarEmisor.ASPxGridViewEmisores_RowDeleting(Object sender, ASPxDataDeletingEventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\SeleccionarEmisor.aspx.cs:línea 89
+   en DevExpress.Web.ASPxGridBase.RaiseRowDeleting(ASPxDataDeletingEventArgs e)
+   en DevExpress.Web.ASPxGridBase.DevExpress.Web.Data.IWebDataEvents.OnRowDeleting(ASPxDataDeletingEventArgs e)
+   en DevExpress.Web.Data.WebDataProxy.OnRowDeleting(ASPxDataDeletingEventArgs e)
+   en DevExpress.Web.Data.WebDataProxy.DeleteRowCore(ASPxDataDeleteValues deleteRowValues)
+   en DevExpress.Web.Data.WebDataProxy.DeleteRowCore(Int32 visibleIndex)
+   en DevExpress.Web.ASPxGridBase.DeleteRow(Int32 visibleIndex)
+   en DevExpress.Web.ASPxGridBase.CBDeleteRow(String[] args)
+   en DevExpress.Web.ASPxGridBase.DoCallBackPostBack(String eventArgument)
+   en DevExpress.Web.ASPxGridBase.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_seleccionaremisor_aspx.ProcessRequest(HttpContext context) en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_b5kvi05j.13.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 9/4/2018 16:31:54 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+El valor no puede ser nulo.
+Nombre del parámetro: entity
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.SeleccionarEmisor.ASPxGridViewEmisores_RowDeleting(Object sender, ASPxDataDeletingEventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\SeleccionarEmisor.aspx.cs:línea 89
+   en DevExpress.Web.ASPxGridBase.RaiseRowDeleting(ASPxDataDeletingEventArgs e)
+   en DevExpress.Web.ASPxGridBase.DevExpress.Web.Data.IWebDataEvents.OnRowDeleting(ASPxDataDeletingEventArgs e)
+   en DevExpress.Web.Data.WebDataProxy.OnRowDeleting(ASPxDataDeletingEventArgs e)
+   en DevExpress.Web.Data.WebDataProxy.DeleteRowCore(ASPxDataDeleteValues deleteRowValues)
+   en DevExpress.Web.Data.WebDataProxy.DeleteRowCore(Int32 visibleIndex)
+   en DevExpress.Web.ASPxGridBase.DeleteRow(Int32 visibleIndex)
+   en DevExpress.Web.ASPxGridBase.CBDeleteRow(String[] args)
+   en DevExpress.Web.ASPxGridBase.DoCallBackPostBack(String eventArgument)
+   en DevExpress.Web.ASPxGridBase.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_seleccionaremisor_aspx.ProcessRequest(HttpContext context) en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_b5kvi05j.13.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 9/4/2018 16:40:28 **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.SeleccionarEmisor.Page_Load(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\SeleccionarEmisor.aspx.cs:línea 24
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_seleccionaremisor_aspx.ProcessRequest(HttpContext context) en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_liv40bfu.12.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 9/4/2018 16:45:45 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+The object cannot be deleted because it was not found in the ObjectStateManager.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.SeleccionarEmisor.ASPxGridViewEmisores_RowDeleting(Object sender, ASPxDataDeletingEventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\SeleccionarEmisor.aspx.cs:línea 88
+   en DevExpress.Web.ASPxGridBase.RaiseRowDeleting(ASPxDataDeletingEventArgs e)
+   en DevExpress.Web.ASPxGridBase.DevExpress.Web.Data.IWebDataEvents.OnRowDeleting(ASPxDataDeletingEventArgs e)
+   en DevExpress.Web.Data.WebDataProxy.OnRowDeleting(ASPxDataDeletingEventArgs e)
+   en DevExpress.Web.Data.WebDataProxy.DeleteRowCore(ASPxDataDeleteValues deleteRowValues)
+   en DevExpress.Web.Data.WebDataProxy.DeleteRowCore(Int32 visibleIndex)
+   en DevExpress.Web.ASPxGridBase.DeleteRow(Int32 visibleIndex)
+   en DevExpress.Web.ASPxGridBase.CBDeleteRow(String[] args)
+   en DevExpress.Web.ASPxGridBase.DoCallBackPostBack(String eventArgument)
+   en DevExpress.Web.ASPxGridBase.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_seleccionaremisor_aspx.ProcessRequest(HttpContext context) en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_liv40bfu.12.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 9/4/2018 16:51:28 **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.SeleccionarEmisor.Page_Load(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\SeleccionarEmisor.aspx.cs:línea 24
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_seleccionaremisor_aspx.ProcessRequest(HttpContext context) en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_ls2etuxb.10.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 9/4/2018 16:54:31 **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.SeleccionarEmisor.Page_Load(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\SeleccionarEmisor.aspx.cs:línea 24
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_seleccionaremisor_aspx.ProcessRequest(HttpContext context) en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_hxf5uwle.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 9/4/2018 17:01:12 **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.SeleccionarEmisor.Page_Load(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\SeleccionarEmisor.aspx.cs:línea 24
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_seleccionaremisor_aspx.ProcessRequest(HttpContext context) en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_kpkvbjte.4.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+

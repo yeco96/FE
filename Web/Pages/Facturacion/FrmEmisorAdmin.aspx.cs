@@ -253,6 +253,8 @@ namespace Web.Pages.Catalogos
                     empresa.medioPago = "01";
                     empresa.condicionVenta = "01";
                     empresa.plazoCredito = 0;
+                    empresa.tipoImpresion = "A4";
+                    empresa.moneda = "CRC";
                     conexion.Empresa.Add(empresa);
 
                     Supervisor supervisor = new Supervisor();

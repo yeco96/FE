@@ -1448,7 +1448,7 @@ namespace Web.Pages.Facturacion
                     var cliente = e.Values["identificacion"].ToString();
 
                     //busca objeto
-                    object[] key = new object[] { Session["emisor"].ToString(), cliente, };
+                    object[] key = new object[] { Session["emisor"].ToString(), cliente };
                     var itemToRemove = conexion.Cliente.Find(key);
                     conexion.Cliente.Remove(itemToRemove);
                     conexion.SaveChanges();
