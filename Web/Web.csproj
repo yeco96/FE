@@ -60,6 +60,8 @@
     <Reference Include="DevExpress.Xpo.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraCharts.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v17.1.Web, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraMap.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.CodeParser.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -276,7 +278,7 @@
     <Content Include="Scripts\site.js" />
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <Content Include="LayoutError.master" />
-    <Content Include="Help\Manual_MSA_Facturtacion_1.0.pdf" />
+    <Content Include="Help\Manual_MSA_Facturación_1.0.pdf" />
     <None Include="Properties\PublishProfiles\FE.pubxml" />
     <None Include="Service References\ServiceReferenceBCCR\wsIndicadoresEconomicos.disco" />
     <None Include="Service References\ServiceReferenceBCCR\configuration91.svcinfo" />
@@ -765,6 +767,9 @@
     <Compile Include="Pages\Reportes\FrmReporteFacturaRollPaper.aspx.designer.cs">
       <DependentUpon>FrmReporteFacturaRollPaper.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Reportes\RptComprobanteProformas.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Pages\Reportes\RptComprobante.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -908,6 +913,9 @@
     <Compile Include="WebServices\URLServices.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Pages\Reportes\RptComprobanteProformas.resx">
+      <DependentUpon>RptComprobanteProformas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\Reportes\RptComprobante.resx">
       <DependentUpon>RptComprobante.cs</DependentUpon>
     </EmbeddedResource>

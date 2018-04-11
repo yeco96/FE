@@ -99,7 +99,32 @@ namespace Web.Pages.Facturacion
 
         protected void btnReporte_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Pages/Reportes/FrmReporteDocumentoResumen.aspx");
+            //Response.Redirect("~/Pages/Reportes/FrmReporteDocumentoResumen.aspx");
+            int cuenta = 0;
+            List<String> claves = new List<string>();
+            ASPxGridView1.SettingsPager.Mode = GridViewPagerMode.ShowAllRecords;
+
+            foreach (var item in ASPxGridView1.GetCurrentPageRowValues("clave"))
+            {
+                if (ASPxGridView1.Selection.IsRowSelectedByKey(item))
+                {
+                    cuenta++;
+                    claves.Add(item.ToString());
+                }
+            }
+
+            ASPxGridView1.SettingsPager.Mode = GridViewPagerMode.ShowPager;
+
+            if (cuenta > 0)
+            {
+                Session["claves"] = claves;
+                Response.Redirect("~/Pages/Reportes/FrmReporteDocumentoResumen.aspx");
+            }
+            else
+            {
+                this.alertMessages.Attributes["class"] = "alert alert-danger";
+                this.alertMessages.InnerText = "No hay documentos que procesar!!!";
+            }
         }
     }
 }
