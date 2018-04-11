@@ -56,6 +56,9 @@ namespace Web.Pages.Facturacion
 
                 this.alertMessages.Attributes["class"] = "";
                 this.alertMessages.InnerText = "";
+                //Se agrega segundo mensaje
+                this.alertMessages1.Attributes["class"] = "";
+                this.alertMessages1.InnerText = "";
 
                 this.AsyncMode = true;
 
@@ -64,6 +67,9 @@ namespace Web.Pages.Facturacion
                 {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
                     this.alertMessages.InnerText = "Se requiere configurar datos del emisor";
+                    //Se agrega segundo mensaje
+                    this.alertMessages1.Attributes["class"] = "alert alert-danger";
+                    this.alertMessages1.InnerText = "Se requiere configurar datos del emisor";
                     return;
                 }
 
@@ -182,6 +188,9 @@ namespace Web.Pages.Facturacion
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
                 this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
+                //Se agrega segundo mensaje
+                this.alertMessages1.Attributes["class"] = "alert alert-danger";
+                this.alertMessages1.InnerText = Utilidades.validarExepcionSQL(ex);
             }
         }
 
@@ -250,6 +259,9 @@ namespace Web.Pages.Facturacion
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
                 this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
+                //Se agrega segundo mensaje
+                this.alertMessages1.Attributes["class"] = "alert alert-danger";
+                this.alertMessages1.InnerText = Utilidades.validarExepcionSQL(ex);
             }
             return receptor;
         }
@@ -1050,6 +1062,9 @@ namespace Web.Pages.Facturacion
                 {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
                     this.alertMessages.InnerText = "Debe agregar un receptor";
+                    //Se agrega segundo mensaje
+                    this.alertMessages1.Attributes["class"] = "alert alert-danger";
+                    this.alertMessages1.InnerText = "Debe agregar un receptor";
                     return;
                 }
                 if (TipoIdentificacion.FISICA.Equals(((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value.ToString())
@@ -1057,6 +1072,9 @@ namespace Web.Pages.Facturacion
                 {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
                     this.alertMessages.InnerText = "La identificación debe tener de 9 digitos";
+                    //Se agrega segundo mensaje
+                    this.alertMessages1.Attributes["class"] = "alert alert-danger";
+                    this.alertMessages1.InnerText = "La identificación debe tener de 9 digitos";
                     return;
                 }
                 if (TipoIdentificacion.JURIDICA.Equals(((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value.ToString())
@@ -1064,6 +1082,9 @@ namespace Web.Pages.Facturacion
                 {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
                     this.alertMessages.InnerText = "La identificación debe tener de 10 digitos";
+                    //Se agrega segundo mensaje
+                    this.alertMessages1.Attributes["class"] = "alert alert-danger";
+                    this.alertMessages1.InnerText = "La identificación debe tener de 10 digitos";
                     return;
                 }
                 if (TipoIdentificacion.DIMEX.Equals(((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value.ToString())
@@ -1071,6 +1092,9 @@ namespace Web.Pages.Facturacion
                 {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
                     this.alertMessages.InnerText = "La identificación debe tener en 11 y 12 digitos";
+                    //Se agrega segundo mensaje
+                    this.alertMessages1.Attributes["class"] = "alert alert-danger";
+                    this.alertMessages1.InnerText = "La identificación debe tener en 11 y 12 digitos";
                     return;
                 }
                 if (TipoIdentificacion.NITE.Equals(((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value.ToString())
@@ -1078,6 +1102,9 @@ namespace Web.Pages.Facturacion
                 {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
                     this.alertMessages.InnerText = "La identificación debe tener de 10 digitos";
+                    //Se agrega segundo mensaje
+                    this.alertMessages1.Attributes["class"] = "alert alert-danger";
+                    this.alertMessages1.InnerText = "La identificación debe tener de 10 digitos";
                     return;
                 }
 
@@ -1085,6 +1112,9 @@ namespace Web.Pages.Facturacion
                 {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
                     this.alertMessages.InnerText = "Debe agregar almenos una linea de detalle a la factura";
+                    //Se agrega segundo mensaje
+                    this.alertMessages1.Attributes["class"] = "alert alert-danger";
+                    this.alertMessages1.InnerText = "Debe agregar almenos una linea de detalle a la factura";
                     return;
                 }
                 else
@@ -1094,6 +1124,9 @@ namespace Web.Pages.Facturacion
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-danger";
                         this.alertMessages.InnerText = "No se puede realizar una factura sin montos";
+                        //Se agrega segundo mensaje
+                        this.alertMessages1.Attributes["class"] = "alert alert-danger";
+                        this.alertMessages1.InnerText = "No se puede realizar una factura sin montos";
                         return;
                     }
                 }
@@ -1130,6 +1163,9 @@ namespace Web.Pages.Facturacion
                         {
                         this.alertMessages.Attributes["class"] = "alert alert-danger";
                         this.alertMessages.InnerText = "El plazo de crédito debe ser mayor a cero";
+                        //Se agrega segundo mensaje
+                        this.alertMessages1.Attributes["class"] = "alert alert-danger";
+                        this.alertMessages1.InnerText = "El plazo de crédito debe ser mayor a cero";
                         return;
                     }
 
@@ -1308,12 +1344,18 @@ namespace Web.Pages.Facturacion
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-danger";
                         this.alertMessages.InnerText = String.Format("Documento #{0} con errores.", dato.numeroConsecutivo);
+                        //Se agrega segundo mensaje
+                        this.alertMessages1.Attributes["class"] = "alert alert-danger";
+                        this.alertMessages1.InnerText = String.Format("Documento #{0} con errores.", dato.numeroConsecutivo);
                         return;
                     }
                     else
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-warning";
                         this.alertMessages.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
+                        //Se agrega segundo mensaje
+                        this.alertMessages1.Attributes["class"] = "alert alert-warning";
+                        this.alertMessages1.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
                         return;
                     }
 
@@ -1340,6 +1382,9 @@ namespace Web.Pages.Facturacion
 
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
                 this.alertMessages.InnerText = fullErrorMessage;
+                //Se agrega segundo mensaje
+                this.alertMessages1.Attributes["class"] = "alert alert-danger";
+                this.alertMessages1.InnerText = fullErrorMessage;
                 Server.ClearError();
 
             }
@@ -1347,6 +1392,9 @@ namespace Web.Pages.Facturacion
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
                 this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
+                //Se agrega segundo mensaje
+                this.alertMessages1.Attributes["class"] = "alert alert-danger";
+                this.alertMessages1.InnerText = Utilidades.validarExepcionSQL(ex);
             }
             finally
             {
@@ -1414,6 +1462,13 @@ namespace Web.Pages.Facturacion
 
         protected void cmbTipoDocumento_ValueChanged(object sender, EventArgs e)
         {
+            //VERIFICA SI EL SELECCIONADO ES CONTINGENCIA
+            if (cmbTipoDocumento.Text.Contains("CONTINGENCIA"))
+            {
+                this.alertMessages.Attributes["class"] = "alert alert-info";
+                this.alertMessages.InnerText = "Se le recuerda que debe de agregar el número de documento al que hace referencia, en la sección de 'Referencias'";
+            }
+
             using (var conexion = new DataModelFE())
             {
                 /* SUCURSAL CAJA */

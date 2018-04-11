@@ -898,6 +898,7 @@
                <div class="text-center">
             <dx:ASPxButton runat="server" ID="btnFacturar" Text="Facturar" OnClick="btnFacturar_Click" CausesValidation="true" Image-Url="~/Content/Images/check.png"></dx:ASPxButton>
                    </div>
+            <div id="alertMessages1" role="alert" runat="server" />
         </ContentTemplate>
     </asp:UpdatePanel>
 

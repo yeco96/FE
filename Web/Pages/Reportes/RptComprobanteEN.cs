@@ -134,7 +134,6 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel25 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel26 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel27 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrSubreport1 = new DevExpress.XtraReports.UI.XRSubreport();
             this.pbLogo = new DevExpress.XtraReports.UI.XRPictureBox();
             this.xrBarCode1 = new DevExpress.XtraReports.UI.XRBarCode();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
@@ -153,6 +152,7 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             this.FieldCaption = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.xrSubreport1 = new DevExpress.XtraReports.UI.XRSubreport();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -499,7 +499,7 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             // xrLabel6
             // 
             this.xrLabel6.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(0.8332253F, 303.0417F);
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(0.8332253F, 313.4583F);
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel6.SizeF = new System.Drawing.SizeF(379.1249F, 18.00003F);
@@ -686,15 +686,6 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel27.StylePriority.UseTextAlignment = false;
             this.xrLabel27.Text = "xrLabel27";
             this.xrLabel27.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            // 
-            // xrSubreport1
-            // 
-            this.xrSubreport1.CanShrink = true;
-            this.xrSubreport1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 178.5F);
-            this.xrSubreport1.Name = "xrSubreport1";
-            this.xrSubreport1.ReportSource = new RptComprobanteDetalleEN();
-            this.xrSubreport1.SizeF = new System.Drawing.SizeF(650F, 70.5417F);
-            this.xrSubreport1.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrSubreport1_BeforePrint);
             // 
             // pbLogo
             // 
@@ -901,6 +892,15 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             this.DataField.ForeColor = System.Drawing.Color.Black;
             this.DataField.Name = "DataField";
             this.DataField.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            // 
+            // xrSubreport1
+            // 
+            this.xrSubreport1.CanShrink = true;
+            this.xrSubreport1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 178.5F);
+            this.xrSubreport1.Name = "xrSubreport1";
+            this.xrSubreport1.ReportSource = new RptComprobanteDetalleEN();
+            this.xrSubreport1.SizeF = new System.Drawing.SizeF(650F, 70.5417F);
+            this.xrSubreport1.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrSubreport1_BeforePrint);
             // 
             // RptComprobanteEN
             // 
