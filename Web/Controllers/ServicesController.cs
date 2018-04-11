@@ -32,10 +32,9 @@ namespace Web.Controllers
     [Authorize]
     public class ServicesController : ApiController
     {
-
         [HttpPost]
         [Route("recepcionmesajehacienda")]
-        public async Task<string> recepcionMesajeHacienda()
+        public async Task<HttpResponseMessage> recepcionmesajehacienda()
         {
             string responsePost = "";
             try
@@ -48,10 +47,13 @@ namespace Web.Controllers
                 EmisorReceptorIMEC elEmisor = null;
                 using (var conexion = new DataModelFE())
                 {
-                    elEmisor = conexion.EmisorReceptorIMEC.Find(documento.emisor.identificacion.numero);
+                    long id = long.Parse(documento.emisor.identificacion.numero);
+                    elEmisor = conexion.EmisorReceptorIMEC.Find(id.ToString());
                     if (elEmisor == null)
                     {
-                        return "Emisor no registrado!!!";
+                        //return "Emisor no registrado!!!";
+                        return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Emisor no registrado!!!");
+                        //return Ok("Emisor no registrado!!!");
                     }
                 }
                 responsePost = await ServicesHacienda.enviarDocumentoElectronico(false, documento, elEmisor, documento.tipoDocumento, Usuario.USUARIO_AUTOMATICO);
@@ -65,15 +67,22 @@ namespace Web.Controllers
                 // Join the list to a single string.
                 var fullErrorMessage = string.Join("; ", errorMessages);
                 // Throw a new DbEntityValidationException with the improved exception message.
-                return fullErrorMessage;
+                //return fullErrorMessage;
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, fullErrorMessage);
+                //return Ok(fullErrorMessage);
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                //return ex.Message;
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex.Message);
+                //return Ok(ex.Message);
             }
-            return responsePost;
-        }
+            //return responsePost;
+            return Request.CreateErrorResponse(HttpStatusCode.NotFound, responsePost);
+            //return Ok(responsePost);
 
+        }
+        
 
         /// <summary>
         /// 

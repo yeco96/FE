@@ -12869,3 +12869,228 @@ Stack Trace:
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
+********** 10/4/2018 07:13:54 **********
+Exception Type: System.Web.HttpRequestValidationException
+Exception: Se detectó un posible valor Request.Form peligroso en el cliente (="<FacturaElectronica>...").
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.ValidateHttpValueCollection(HttpValueCollection collection, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.get_Form()
+   en System.Web.HttpRequest.get_Item(String key)
+   en DevExpress.Web.ASPxHttpHandlerModule.IsCallBack(HttpRequest request)
+   en DevExpress.Web.ASPxHttpHandlerModule.PreSendRequestHeadersHandler(Object sender, EventArgs args)
+   en System.Web.HttpApplication.SendResponseExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 10/4/2018 07:14:58 **********
+Exception Type: System.Web.HttpRequestValidationException
+Exception: Se detectó un posible valor Request.Form peligroso en el cliente (="<FacturaElectronica>...").
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.ValidateHttpValueCollection(HttpValueCollection collection, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.get_Form()
+   en System.Web.HttpRequest.get_Item(String key)
+   en DevExpress.Web.ASPxHttpHandlerModule.IsCallBack(HttpRequest request)
+   en DevExpress.Web.ASPxHttpHandlerModule.PreSendRequestHeadersHandler(Object sender, EventArgs args)
+   en System.Web.HttpApplication.SendResponseExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 10/4/2018 07:20:08 **********
+Exception Type: System.Web.HttpRequestValidationException
+Exception: Se detectó un posible valor Request.Form peligroso en el cliente (="<FacturaElectronica>...").
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.ValidateHttpValueCollection(HttpValueCollection collection, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.get_Form()
+   en System.Web.HttpRequest.get_Item(String key)
+   en DevExpress.Web.ASPxHttpHandlerModule.IsCallBack(HttpRequest request)
+   en DevExpress.Web.ASPxHttpHandlerModule.PreSendRequestHeadersHandler(Object sender, EventArgs args)
+   en System.Web.HttpApplication.SendResponseExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 10/4/2018 07:23:09 **********
+Exception Type: System.Web.HttpRequestValidationException
+Exception: Se detectó un posible valor Request.Form peligroso en el cliente (="<FacturaElectronica>...").
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.ValidateHttpValueCollection(HttpValueCollection collection, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.get_Form()
+   en System.Web.HttpRequest.get_Item(String key)
+   en DevExpress.Web.ASPxHttpHandlerModule.IsCallBack(HttpRequest request)
+   en DevExpress.Web.ASPxHttpHandlerModule.PreSendRequestHeadersHandler(Object sender, EventArgs args)
+   en System.Web.HttpApplication.SendResponseExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 10/4/2018 07:30:03 **********
+Exception Type: System.Web.HttpRequestValidationException
+Exception: Se detectó un posible valor Request.Form peligroso en el cliente (="<FacturaElectronica>...").
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.ValidateHttpValueCollection(HttpValueCollection collection, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.get_Form()
+   en System.Web.HttpRequest.get_Item(String key)
+   en DevExpress.Web.ASPxHttpHandlerModule.IsCallBack(HttpRequest request)
+   en DevExpress.Web.ASPxHttpHandlerModule.PreSendRequestHeadersHandler(Object sender, EventArgs args)
+   en System.Web.HttpApplication.SendResponseExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 10/4/2018 07:30:19 **********
+Exception Type: System.Web.HttpRequestValidationException
+Exception: Se detectó un posible valor Request.Form peligroso en el cliente (="<FacturaElectronica>...").
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.ValidateHttpValueCollection(HttpValueCollection collection, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.get_Form()
+   en System.Web.HttpRequest.get_Item(String key)
+   en DevExpress.Web.ASPxHttpHandlerModule.IsCallBack(HttpRequest request)
+   en DevExpress.Web.ASPxHttpHandlerModule.PreSendRequestHeadersHandler(Object sender, EventArgs args)
+   en System.Web.HttpApplication.SendResponseExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 10/4/2018 07:32:13 **********
+Exception Type: System.Web.HttpRequestValidationException
+Exception: Se detectó un posible valor Request.Form peligroso en el cliente (="<FacturaElectronica>...").
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.ValidateHttpValueCollection(HttpValueCollection collection, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.get_Form()
+   en System.Web.HttpRequest.get_Item(String key)
+   en DevExpress.Web.ASPxHttpHandlerModule.IsCallBack(HttpRequest request)
+   en DevExpress.Web.ASPxHttpHandlerModule.PreSendRequestHeadersHandler(Object sender, EventArgs args)
+   en System.Web.HttpApplication.SendResponseExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 10/4/2018 07:47:04 **********
+Exception Type: System.Web.HttpRequestValidationException
+Exception: Se detectó un posible valor Request.Form peligroso en el cliente (="<FacturaElectronica>...").
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.ValidateHttpValueCollection(HttpValueCollection collection, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.get_Form()
+   en System.Web.HttpRequest.get_Item(String key)
+   en DevExpress.Web.ASPxHttpHandlerModule.IsCallBack(HttpRequest request)
+   en DevExpress.Web.ASPxHttpHandlerModule.PreSendRequestHeadersHandler(Object sender, EventArgs args)
+   en System.Web.HttpApplication.SendResponseExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 10/4/2018 07:50:49 **********
+Exception Type: System.Web.HttpRequestValidationException
+Exception: Se detectó un posible valor Request.Form peligroso en el cliente (="<FacturaElectronica>...").
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.ValidateHttpValueCollection(HttpValueCollection collection, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.get_Form()
+   en System.Web.HttpRequest.get_Item(String key)
+   en DevExpress.Web.ASPxHttpHandlerModule.IsCallBack(HttpRequest request)
+   en DevExpress.Web.ASPxHttpHandlerModule.PreSendRequestHeadersHandler(Object sender, EventArgs args)
+   en System.Web.HttpApplication.SendResponseExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 10/4/2018 08:05:07 **********
+Exception Type: System.Web.HttpRequestValidationException
+Exception: Se detectó un posible valor Request.Form peligroso en el cliente (="<FacturaElectronica>...").
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.ValidateHttpValueCollection(HttpValueCollection collection, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.get_Form()
+   en System.Web.HttpRequest.get_Item(String key)
+   en DevExpress.Web.ASPxHttpHandlerModule.IsCallBack(HttpRequest request)
+   en DevExpress.Web.ASPxHttpHandlerModule.PreSendRequestHeadersHandler(Object sender, EventArgs args)
+   en System.Web.HttpApplication.SendResponseExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 10/4/2018 08:25:11 **********
+Exception Type: System.Web.HttpRequestValidationException
+Exception: Se detectó un posible valor Request.Form peligroso en el cliente (="<FacturaElectronica>...").
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.ValidateHttpValueCollection(HttpValueCollection collection, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.get_Form()
+   en System.Web.HttpRequest.get_Item(String key)
+   en DevExpress.Web.ASPxHttpHandlerModule.IsCallBack(HttpRequest request)
+   en DevExpress.Web.ASPxHttpHandlerModule.PreSendRequestHeadersHandler(Object sender, EventArgs args)
+   en System.Web.HttpApplication.SendResponseExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 10/4/2018 08:38:15 **********
+Exception Type: System.Web.HttpRequestValidationException
+Exception: Se detectó un posible valor Request.Form peligroso en el cliente (="<FacturaElectronica>...").
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.ValidateHttpValueCollection(HttpValueCollection collection, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.get_Form()
+   en System.Web.HttpRequest.get_Item(String key)
+   en DevExpress.Web.ASPxHttpHandlerModule.IsCallBack(HttpRequest request)
+   en DevExpress.Web.ASPxHttpHandlerModule.PreSendRequestHeadersHandler(Object sender, EventArgs args)
+   en System.Web.HttpApplication.SendResponseExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 10/4/2018 08:53:23 **********
+Exception Type: System.Web.HttpRequestValidationException
+Exception: Se detectó un posible valor Request.Form peligroso en el cliente (="<FacturaElectronica>...").
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.ValidateHttpValueCollection(HttpValueCollection collection, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.get_Form()
+   en System.Web.HttpRequest.get_Item(String key)
+   en DevExpress.Web.ASPxHttpHandlerModule.IsCallBack(HttpRequest request)
+   en DevExpress.Web.ASPxHttpHandlerModule.PreSendRequestHeadersHandler(Object sender, EventArgs args)
+   en System.Web.HttpApplication.SendResponseExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 11/4/2018 08:41:47 **********
+Exception Type: System.Web.HttpRequestValidationException
+Exception: Se detectó un posible valor Request.Form peligroso en el cliente (="<FacturaElectronica>...").
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.ValidateHttpValueCollection(HttpValueCollection collection, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.get_Form()
+   en System.Web.HttpRequest.get_Item(String key)
+   en DevExpress.Web.ASPxHttpHandlerModule.IsCallBack(HttpRequest request)
+   en DevExpress.Web.ASPxHttpHandlerModule.PreSendRequestHeadersHandler(Object sender, EventArgs args)
+   en System.Web.HttpApplication.SendResponseExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 11/4/2018 09:04:27 **********
+Exception Type: System.Web.HttpRequestValidationException
+Exception: Se detectó un posible valor Request.Form peligroso en el cliente (="<FacturaElectronica>...").
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.ValidateHttpValueCollection(HttpValueCollection collection, RequestValidationSource requestCollection)
+   en System.Web.HttpRequest.get_Form()
+   en System.Web.HttpRequest.get_Item(String key)
+   en DevExpress.Web.ASPxHttpHandlerModule.IsCallBack(HttpRequest request)
+   en DevExpress.Web.ASPxHttpHandlerModule.PreSendRequestHeadersHandler(Object sender, EventArgs args)
+   en System.Web.HttpApplication.SendResponseExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
