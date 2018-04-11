@@ -220,6 +220,7 @@
     <Content Include="Pages\Catalogos\FrmCatalogoProducto.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoEmpresa.aspx" />
     <Content Include="Pages\ConsultaRP.aspx" />
+    <Content Include="Pages\Error\default.aspx" />
     <Content Include="Pages\Facturacion\FrmAdministracionDocElectronicoAdmin.aspx" />
     <Content Include="Pages\Facturacion\FrmConsecutivoDocElectronicoAdmin.aspx" />
     <Content Include="Pages\Facturacion\FrmConsecutivoDocElectronico.aspx" />
@@ -503,6 +504,13 @@
     </Compile>
     <Compile Include="Pages\ConsultaRP.aspx.designer.cs">
       <DependentUpon>ConsultaRP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Error\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Error\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Facturacion\FrmAdministracionDocElectronicoAdmin.aspx.cs">
       <DependentUpon>FrmAdministracionDocElectronicoAdmin.aspx</DependentUpon>

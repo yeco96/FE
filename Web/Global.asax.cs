@@ -17,16 +17,16 @@ namespace Web
     public class Global_asax : System.Web.HttpApplication
     {
         //static public System.Timers.Timer MyKillTimer = new System.Timers.Timer();
-         
+
         void Application_Start(object sender, EventArgs e)
         {
             System.Web.Routing.RouteTable.Routes.MapPageRoute("defaultRoute", "", "~/Pages/Home.aspx");
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             DevExpress.Web.ASPxWebControl.CallbackError += new EventHandler(Application_Error);
 
-           GlobalConfiguration.Configure(WebApiConfig.Register);
+            GlobalConfiguration.Configure(WebApiConfig.Register);
 
-           JobScheduler.Start();
+            JobScheduler.Start();
 
 
             //MyKillTimer.Interval = 60000; // check sleeping connections every 1 minute
@@ -37,7 +37,7 @@ namespace Web
 
         private void MyKillTimer_Event(object source, System.Timers.ElapsedEventArgs e)
         {
-          //  DataModelFE.KillSleepingConnections(60);
+            //  DataModelFE.KillSleepingConnections(60);
         }
 
         void Application_End(object sender, EventArgs e)
@@ -61,6 +61,8 @@ namespace Web
             {
                 Server.Transfer("/Pages/Error/DefaultRedirectErrorPage.aspx");
             }*/
+
+           // var response = HttpContext.Current.Response;
             Server.Transfer("/Pages/Error/DefaultRedirectErrorPage.aspx");
         }
 
