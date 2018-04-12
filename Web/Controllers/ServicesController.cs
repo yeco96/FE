@@ -99,12 +99,12 @@ namespace Web.Controllers
                 using (var conexion = new DataModelFE())
                 {
 
-                    Models.WS.WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
+                   WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
                     if (dato != null)
                     {
                         if (dato.montoTotalFactura == 0)
                         {
-                            return Ok(new Models.WS.WSRespuestaGET(dato));
+                            return Ok(new WSRespuestaGET(dato));
                         }
                         else
                         {
@@ -130,7 +130,7 @@ namespace Web.Controllers
                                     conexion.Entry(dato).State = EntityState.Modified;
                                     conexion.SaveChanges();
 
-                                    return Ok(new Models.WS.WSRespuestaGET(dato));
+                                    return Ok(new WSRespuestaGET(dato));
                                 }
                                 else
                                 {
@@ -145,7 +145,7 @@ namespace Web.Controllers
                                             conexionWS.Entry(dato).State = EntityState.Modified;
                                             conexionWS.SaveChanges();
 
-                                            return Ok(new Models.WS.WSRespuestaGET(dato));
+                                            return Ok(new WSRespuestaGET(dato));
                                         }
                                     }
                                 }
