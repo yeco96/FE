@@ -251,7 +251,7 @@
 
             <div class="text-center">
                 <dx:ASPxButton runat="server" ID="btnCrearNota" Text="Crear Nota" OnClick="btnCrearNota_Click" CausesValidation="true" Image-Url="~/Content/Images/check.png"></dx:ASPxButton>
-                <dx:ASPxButton runat="server" ID="btnCancelar" Text="Cancelar" OnClick="btnCancelar_Click" Image-Url="~/Content/Images/cancel.png"></dx:ASPxButton>
+                <dx:ASPxButton runat="server" ID="btnCancelar" Text="Cancelar" OnClick="btnCancelar_Click" Image-Url="~/Content/Images/cancel.png" CausesValidation="false"></dx:ASPxButton>
             </div>
 
         </ContentTemplate>

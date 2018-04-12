@@ -147,16 +147,6 @@ namespace Web.Pages.Facturacion
             using (var conexion = new DataModelFE())
             {
 
-                /* PRODUCTO */
-                string emisor = Session["emisor"].ToString();
-                GridViewDataComboBoxColumn comboProducto = this.ASPxGridView1.Columns["codigo.codigo"] as GridViewDataComboBoxColumn;
-                comboProducto.PropertiesComboBox.Items.Clear();
-                foreach (var item in conexion.Producto.Where(x => x.emisor == emisor).ToList())
-                {
-                    comboProducto.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
-                }
-                comboProducto.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-
 
                 /* MEDIO PAGO */
                 foreach (var item in conexion.MedioPago.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
@@ -191,10 +181,9 @@ namespace Web.Pages.Facturacion
                     this.cmbTipoDocumento.Items.Add(item.descripcion, item.codigo);
 
                 }
-                this.cmbTipoDocumento.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-
+                this.cmbTipoDocumento.IncrementalFilteringMode = IncrementalFilteringMode.Contains; 
                 this.cmbTipoDocumento.SelectedIndex = 0;
-
+                
 
             }
         }
