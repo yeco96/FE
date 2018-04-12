@@ -160,7 +160,7 @@ namespace WebServices.Controllers
                         System.Web.HttpContext.Current.Session["tokenTime"] = Date.DateTimeNow();
                     }
 
-                    Models.Facturacion.WSRecepcionPOST trama = new Models.Facturacion.WSRecepcionPOST();
+                    Models.WS.WSRecepcionPOST trama = new Models.WS.WSRecepcionPOST();
                     trama.clave = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "Clave", xmlFile);
                     trama.fecha = DateTime.ParseExact(EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "FechaEmision", xmlFile), "yyyy-MM-ddTHH:mm:ss-06:00",
                                        System.Globalization.CultureInfo.InvariantCulture);
@@ -211,7 +211,7 @@ namespace WebServices.Controllers
                     }
 
 
-                    Models.Facturacion.WSRecepcionPOST tramaExiste = conexion.WSRecepcionPOST.Find(trama.clave);
+                    Models.WS.WSRecepcionPOST tramaExiste = conexion.WSRecepcionPOST.Find(trama.clave);
 
                     if (tramaExiste != null)
                     {// si existe

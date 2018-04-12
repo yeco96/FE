@@ -104,6 +104,48 @@ namespace OAuth2
         }
 
 
+
+        // <summary>
+        /// optiene el TOKEN de autorizacion
+        /// </summary>
+        /// <param name="authorization"> objeto de tipo OAuth2Config con la configuracion para la connexion</param>
+        /// <returns>un objeto de tpo OAuth2Config.Token dentro del mismo parametro de entrada authorization</returns> 
+        public static async Task getTokenWeb(OAuth2Config authorization, string username, string password)
+        {
+            try
+            {
+                HttpContent httpContent = new FormUrlEncodedContent(
+                new[]
+                {
+                new KeyValuePair<string, string>("grant_type", "password"),
+                new KeyValuePair<string, string>("username", username),
+                new KeyValuePair<string, string>("password", password),
+                new KeyValuePair<string, string>("client_id", authorization.clientId),
+                new KeyValuePair<string, string>("scope", authorization.scope),
+                new KeyValuePair<string, string>("client_secret", authorization.clientSecret)
+                });
+
+                using (HttpClient httpClient = new HttpClient())
+                {
+                    //HttpClient httpClient = new HttpClient();
+                    HttpRequestMessage tokenRequest = new HttpRequestMessage(HttpMethod.Post, authorization.server);
+
+                    tokenRequest.Content = httpContent;
+
+                    HttpResponseMessage response = await httpClient.SendAsync(tokenRequest);
+                    string tokenResult = await response.Content.ReadAsStringAsync();
+
+                    authorization.token = JsonConvert.DeserializeObject<OAuth2Token>(tokenResult);
+                }
+            }
+            catch (Exception e)
+            {
+                authorization = null;
+            }
+
+        }
+
+
         /// <summary>
         /// optiene el TOKEN de autorizacion
         /// </summary>

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebServices.Models.Facturacion
+namespace WebServices.Models.WS
 {
     [Table("ws_recepcion_documento")] 
     public class WSRespuestaGET
@@ -38,7 +38,7 @@ namespace WebServices.Models.Facturacion
         public decimal montoTotalFactura { set; get; }
         
 		 
-        public WSRespuestaGET(Models.Facturacion.WSRecepcionPOST dato) { 
+        public WSRespuestaGET(Models.WS.WSRecepcionPOST dato) { 
             this.fecha = dato.fecha;
             this.clave = dato.clave;
             this.numeroConsecutivo = dato.numeroConsecutivo;

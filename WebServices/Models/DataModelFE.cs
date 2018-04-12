@@ -27,7 +27,7 @@ namespace WebServices.Models
         public virtual DbSet<EmisorReceptorIMEC> EmisorReceptorIMEC { get; set; }
         public virtual DbSet<OAuth2.OAuth2Config> OAuth2Config { get; set; }
         public virtual DbSet<EmisorReceptor> EmisorReceptor { get; set; }
-        public virtual DbSet<WSRecepcionPOST> WSRecepcionPOST { get; set; }
+        public virtual DbSet<WebServices.Models.WS.WSRecepcionPOST> WSRecepcionPOST { get; set; }
         public virtual DbSet<ResumenFactura> ResumenFactura { get; set; }
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }

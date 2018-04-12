@@ -701,8 +701,9 @@ namespace Web.Pages.Facturacion
                     //se declara el objeto a insertar
                     LineaDetalle dato = new LineaDetalle();
                     //llena el objeto con los valores de la pantalla
-                    int codProducto = e.NewValues["producto"] != null ? int.Parse(e.NewValues["producto"].ToString()) : 0;
-                    Producto producto = conexion.Producto.Find(codProducto);
+                    string emisor = Session["emisor"].ToString();
+                    string codProducto = e.NewValues["producto"] != null ? e.NewValues["producto"].ToString() : null;
+                    Producto producto = conexion.Producto.Where(x=>x.codigo== codProducto && x.emisor== emisor).FirstOrDefault();
 
                     dato.numeroLinea = detalleServicio.lineaDetalle.Count + 1;
                     dato.cantidad = e.NewValues["cantidad"] != null ? decimal.Parse(e.NewValues["cantidad"].ToString()) : 0;
