@@ -124,14 +124,17 @@
                     Width="100%" EnableTheming="True" KeyFieldName="codigo.codigo"
                     OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize">
                     <Columns>
+                         <dx:GridViewDataTextColumn Caption="Producto" FieldName="codigo.codigo" Visible="false" >
+                        </dx:GridViewDataTextColumn>
+
                         <dx:GridViewDataSpinEditColumn Caption="Cantidad" FieldName="cantidad" VisibleIndex="2" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
                             PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                             <PropertiesSpinEdit DisplayFormatString="g" DecimalPlaces="2" MaxLength="10">
                             </PropertiesSpinEdit>
-                        </dx:GridViewDataSpinEditColumn>
-                        <dx:GridViewDataComboBoxColumn Caption="Producto" FieldName="codigo.codigo" VisibleIndex="3" PropertiesComboBox-ClientSideEvents-ValueChanged="function(s,e){cambioPrecio(s,e);}"
-                            PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
-                        </dx:GridViewDataComboBoxColumn>
+                        </dx:GridViewDataSpinEditColumn> 
+
+                        <dx:GridViewDataTextColumn Caption="Producto" FieldName="detalle" VisibleIndex="3" Visible="true"  EditFormSettings-Visible="false" >
+                        </dx:GridViewDataTextColumn>
 
                         <dx:GridViewDataSpinEditColumn Caption="Precio U" FieldName="precioUnitario" VisibleIndex="4" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
                             PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="n2"

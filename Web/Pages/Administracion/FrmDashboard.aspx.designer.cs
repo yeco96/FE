@@ -22,13 +22,22 @@ namespace Web.Pages.Administracion {
         protected global::DevExpress.Web.ASPxFormLayout formLayout;
         
         /// <summary>
-        /// cmbPeriodo control.
+        /// txtFechaInicio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbPeriodo;
+        protected global::DevExpress.Web.ASPxDateEdit txtFechaInicio;
+        
+        /// <summary>
+        /// txtFechaFin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxDateEdit txtFechaFin;
         
         /// <summary>
         /// btnGenerar control.

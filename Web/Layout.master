@@ -79,6 +79,7 @@
                                                             <dx:MenuItem Text="CONFIRMAR XML" NavigateUrl="~/Pages/Facturacion/FrmValidarXML" />
                                                             <dx:MenuItem Text="CONSULTA XML RECIBIDOS" NavigateUrl="~/Pages/Facturacion/FrmConsultaResumenReceptor"  />
                                                             <dx:MenuItem Text="CONSULTA" NavigateUrl="~/Pages/ConsultaDocXClave"/>
+                                                            <dx:MenuItem Text="ESTADÍSTICA" NavigateUrl="~/Pages/Administracion/FrmDashboard"/>
                                                             <dx:MenuItem Text="REPORTE" NavigateUrl="~/Pages/Facturacion/FrmConsultaResumen" />
                                                             <dx:MenuItem Text="FACTURAR" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumento" />
                                                             <dx:MenuItem Text="HISTÓRICO" NavigateUrl="~/Pages/Facturacion/FrmAdministracionDocElectronicoAdmin" />
@@ -150,6 +151,7 @@
                                                             <dx:MenuItem Text="CONFIRMAR XML" NavigateUrl="~/Pages/Facturacion/FrmValidarXML" />
                                                             <dx:MenuItem Text="CONSULTA XML RECIBIDOS" NavigateUrl="~/Pages/Facturacion/FrmConsultaResumenReceptor"  />
                                                             <dx:MenuItem Text="CONSULTA" NavigateUrl="~/Pages/ConsultaDocXClave"/>
+                                                            <dx:MenuItem Text="ESTADÍSTICA" NavigateUrl="~/Pages/Administracion/FrmDashboard"/>
                                                             <dx:MenuItem Text="REPORTE" NavigateUrl="~/Pages/Facturacion/FrmConsultaResumen" />
                                                             <dx:MenuItem Text="HISTÓRICO" NavigateUrl="~/Pages/Facturacion/FrmAdministracionDocElectronico" />
                                                             <dx:MenuItem Text="FACTURAR" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumento" />
@@ -199,6 +201,7 @@
                                                             <dx:MenuItem Text="CONFIRMAR XML" NavigateUrl="~/Pages/Facturacion/FrmValidarXML" />
                                                             <dx:MenuItem Text="CONSULTA XML RECIBIDOS" NavigateUrl="~/Pages/Facturacion/FrmConsultaResumenReceptor"  />
                                                             <dx:MenuItem Text="CONSULTA" NavigateUrl="~/Pages/ConsultaDocXClave"/>
+                                                            <dx:MenuItem Text="ESTADÍSTICA" NavigateUrl="~/Pages/Administracion/FrmDashboard"/>
                                                             <dx:MenuItem Text="REPORTE" NavigateUrl="~/Pages/Facturacion/FrmConsultaResumen" />
                                                             <dx:MenuItem Text="HISTÓRICO" NavigateUrl="~/Pages/Facturacion/FrmAdministracionDocElectronicoAdmin" />
                                                             <dx:MenuItem Text="FACTURAR" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumento" />

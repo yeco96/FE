@@ -23,6 +23,8 @@ namespace Web.Pages.Administracion
                 Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
                 if (!IsPostBack && !IsCallback)
                 {
+                    this.txtFechaInicio.Date = new DateTime(DateTime.Now.Year, 1,1);
+                    this.txtFechaFin.Date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
                     this.CargarCombos();
                 }
                 this.generarGrafico();
@@ -42,36 +44,28 @@ namespace Web.Pages.Administracion
         /// </summary>
         private void CargarCombos()
         {
-            this.cmbPeriodo.Items.Clear();
-            int periodoInicio = 2018;
-            int periodoFin = Date.DateTimeNow().Year;
-            for (int i= periodoInicio; i < periodoFin; i++ )
-            {
-                this.cmbPeriodo.Items.Add(i.ToString());
-            }
-            this.cmbPeriodo.IncrementalFilteringMode = DevExpress.Web.IncrementalFilteringMode.Contains;
-
+           
         }
 
 
 
         public void generarGrafico()
-        {
-            String periodo = this.cmbPeriodo.Text;
+        { 
             List<GraficoDocumento> lista = new List<GraficoDocumento>();
             string emisor = Session["emisor"].ToString();
             using (var conexion = new DataModelFE())
             {
 
                 var datos = conexion.Database.SqlQuery<string>(
-                    "select concat(x.periodo, '^', x.tipoDocumento, '^', x.cantidad) "+
+                    string.Format( "select concat(x.periodo, '^', CAST(x.tipoDocumento AS CHAR CHARACTER SET utf8), '^', x.cantidad) " +
                         "from( "+
-                        "select date_format(fecha, '%Y%m') periodo, tipoDocumento, count(1)cantidad " +
-                        "from ws_recepcion_documento " +
-                        "where emisorIdentificacion = '603540974' " +
+                        "select date_format(fecha, '%Y%m') periodo, descripcion as tipoDocumento, count(1)cantidad " +
+                        "from ws_recepcion_documento ,xml_tipo_documento " +
+                        "where codigo = tipoDocumento and emisorIdentificacion = {0} " +
+                        "and  date_format(fecha, '%Y%m%d') between {1} and {2} " +
                         "group by date_format(fecha, '%Y%m'), tipoDocumento " +
                         "order by 1 asc " +
-                        ") x").ToList();
+                        ") x", emisor,this.txtFechaInicio.Date.ToString("yyyyMMdd"), this.txtFechaFin.Date.ToString("yyyyMMdd"))  ).ToList();
                           
                 foreach (var item in datos)
                 {
@@ -90,14 +84,17 @@ namespace Web.Pages.Administracion
             {
                 foreach (var item in lista)
                 {
-                    Series serieCorrecta = new Series(item.tipo, ViewType.Bar);
+                    Series serieCorrecta = new Series(item.periodo, ViewType.Bar);
                     serieCorrecta.Points.Add(new SeriesPoint(item.tipo, item.cantidad));
-                    serieCorrecta.CrosshairLabelPattern = "{S} → {V:n2}";
+                    serieCorrecta.CrosshairLabelPattern = "{S} → {V}"; //{V:n0}
                     serieCorrecta.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+                    serieCorrecta.SetDataMembers(item.periodo, item.periodo);
                     this.wbDocumentos.Series.Add(serieCorrecta);
                 }
 
                 ((DevExpress.XtraCharts.XYDiagram)wbDocumentos.Diagram).Rotated = true;
+
+                //wbDocumentos.SeriesDataMember = "periodo";
 
                 //Hide the legend (if necessary).
                 this.wbDocumentos.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
@@ -106,7 +103,7 @@ namespace Web.Pages.Administracion
                 this.wbDocumentos.Titles.Clear();
                 this.wbDocumentos.Titles.Add(new ChartTitle());
                 this.wbDocumentos.Titles[0].Font = new Font(FontFamily.GenericSansSerif, 12);
-                this.wbDocumentos.Titles[0].Text = String.Format("DOCUEMNTOS EMITIDOS {0}", periodo);
+                this.wbDocumentos.Titles[0].Text = String.Format("DOCUMENTOS ELECTRÓNICOS");
 
             }
             this.wbDocumentos.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.False;
