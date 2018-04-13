@@ -6,8 +6,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WSDomain;
 
-namespace WebServices.Models.Facturacion
+namespace WebServices.Models.WS
 {
     [Table("ws_recepcion_documento")] 
     public class WSRecepcionPOST
@@ -128,6 +129,7 @@ namespace WebServices.Models.Facturacion
         }
 
         [JsonIgnore]
+        [NotMapped]
         public static string NOTA_CREDITO = "03";
 
         public void verificaTipoDocumentoCambioMoneda()
