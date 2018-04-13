@@ -6,156 +6,155 @@
 'iisexpress.exe' (CLR v4.0.30319: DefaultDomain): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
 'iisexpress.exe' (CLR v4.0.30319: DefaultDomain): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
 'iisexpress.exe' (CLR v4.0.30319: Domain 2): 'C:\windows\Microsoft.Net\assembly\GAC_32\mscorlib\v4.0_4.0.0.0__b77a5c561934e089\mscorlib.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_32\System.Web\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.ApplicationServices\v4.0_4.0.0.0__31bf3856ad364e35\System.Web.ApplicationServices.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Caching\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Runtime.Caching.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_32\System.Web\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.ApplicationServices\v4.0_4.0.0.0__31bf3856ad364e35\System.Web.ApplicationServices.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Caching\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Runtime.Caching.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
 'iisexpress.exe' (CLR v4.0.30319: DefaultDomain): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Caching\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Runtime.Caching.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
 'iisexpress.exe' (CLR v4.0.30319: DefaultDomain): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\mscorlib.resources\v4.0_4.0.0.0_es_b77a5c561934e089\mscorlib.resources.dll' cargado. El módulo se compiló sin símbolos.
 Excepción producida: 'System.UnauthorizedAccessException' en mscorlib.dll
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.Build.Utilities.v4.0\v4.0_4.0.0.0__b03f5f7f11d50a3a\Microsoft.Build.Utilities.v4.0.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.Build.Utilities.v4.0\v4.0_4.0.0.0__b03f5f7f11d50a3a\Microsoft.Build.Utilities.v4.0.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
 'iisexpress.exe' (CLR v4.0.30319: DefaultDomain): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.Build.Utilities.v4.0\v4.0_4.0.0.0__b03f5f7f11d50a3a\Microsoft.Build.Utilities.v4.0.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
 Excepción producida: 'System.Globalization.CultureNotFoundException' en mscorlib.dll
 Excepción producida: 'System.Security.SecurityException' en mscorlib.dll
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.JScript\v4.0_10.0.0.0__b03f5f7f11d50a3a\Microsoft.JScript.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.VisualStudio.Web.PageInspector.Loader\v4.0_1.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualStudio.Web.PageInspector.Loader.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.CSharp\v4.0_4.0.0.0__b03f5f7f11d50a3a\Microsoft.CSharp.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.Services\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_32\System.EnterpriseServices\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.EnterpriseServices.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.IdentityModel\v4.0_4.0.0.0__b77a5c561934e089\System.IdentityModel.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Serialization\v4.0_4.0.0.0__b77a5c561934e089\System.Runtime.Serialization.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel\v4.0_4.0.0.0__b77a5c561934e089\System.ServiceModel.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Activation\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Activation.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Web\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Web.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Activities\v4.0_4.0.0.0__31bf3856ad364e35\System.Activities.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Activities\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Activities.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.WorkflowServices\v4.0_4.0.0.0__31bf3856ad364e35\System.WorkflowServices.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.Extensions\v4.0_4.0.0.0__31bf3856ad364e35\System.Web.Extensions.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.DataSetExtensions\v4.0_4.0.0.0__b77a5c561934e089\System.Data.DataSetExtensions.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.ComponentModel.DataAnnotations\v4.0_4.0.0.0__31bf3856ad364e35\System.ComponentModel.DataAnnotations.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.DynamicData\v4.0_4.0.0.0__31bf3856ad364e35\System.Web.DynamicData.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\2761cd2c\6778a546_bc89d301\BouncyCastle.Crypto.dll' cargado. Símbolos cargados.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Charts.v17.1.Core\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Charts.v17.1.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Data.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Data.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.CodeParser.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.CodeParser.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Dashboard.v17.1.Core\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Dashboard.v17.1.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Dashboard.v17.1.Web\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Dashboard.v17.1.Web.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.DataAccess.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.DataAccess.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Map.v17.1.Core\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Map.v17.1.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Office.v17.1.Core\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Office.v17.1.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Pdf.v17.1.Core\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Pdf.v17.1.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.PivotGrid.v17.1.Core\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.PivotGrid.v17.1.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Printing.v17.1.Core\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Printing.v17.1.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.RichEdit.v17.1.Core\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.RichEdit.v17.1.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Sparkline.v17.1.Core\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Sparkline.v17.1.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.SpellChecker.v17.1.Core\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.SpellChecker.v17.1.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.TreeMap.v17.1.Core\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.TreeMap.v17.1.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Utils.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Utils.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Web.ASPxHtmlEditor.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Web.ASPxHtmlEditor.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Web.ASPxRichEdit.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Web.ASPxRichEdit.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Web.ASPxScheduler.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Web.ASPxScheduler.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Web.ASPxSpellChecker.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Web.ASPxSpellChecker.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Web.ASPxThemes.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Web.ASPxThemes.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Web.Bootstrap.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Web.Bootstrap.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Web.Resources.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Web.Resources.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Web.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Web.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Xpo.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Xpo.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraBars.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraBars.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraCharts.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraCharts.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraEditors.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraEditors.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraGauges.v17.1.Core\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraGauges.v17.1.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraGauges.v17.1.Presets\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraGauges.v17.1.Presets.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraGauges.v17.1.Win\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraGauges.v17.1.Win.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraLayout.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraLayout.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraMap.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraMap.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraPrinting.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraPrinting.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraReports.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraReports.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraReports.v17.1.Web\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraReports.v17.1.Web.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraScheduler.v17.1.Core\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraScheduler.v17.1.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraTreeList.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraTreeList.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraTreeMap.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraTreeMap.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\baefc49f\00eb2894_3a70d301\EAGetMail45.dll' cargado. El módulo se compiló sin símbolos.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\9cffb064\8a1d26f7_77cbd301\EncodeXML.dll' cargado. Símbolos cargados.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\ebe9de8f\bc1524da_b890d301\EntityFramework.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\542c9032\d42e2ada_b890d301\EntityFramework.SqlServer.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\f65f93d8\148735f7_77cbd301\FirmaXadesNet.dll' cargado. Símbolos cargados.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\99a28274\00a9282b_788dce01\Microsoft.AspNet.FriendlyUrls.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\70564818\bdf0e6f6_77cbd301\Microsoft.Xades.dll' cargado. Símbolos cargados.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\f3e80dbf\e43674ee_b890d301\MySql.Data.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\a04fd3e9\f3ecb804_b990d301\MySql.Data.Entity.EF6.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\20d0cb14\6b065d26_3d87d301\Newtonsoft.Json.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\49ff0fe4\08c758f7_77cbd301\OAuth2.dll' cargado. Símbolos cargados.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\1fdc0208\00cebc69_a595d301\Quartz.dll' cargado. Símbolos cargados.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\eaf2d1e3\005bc2f0_4340d001\Spire.License.dll' cargado. El módulo se compiló sin símbolos.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\42ea589e\00e255f4_4340d001\Spire.Pdf.dll' cargado. El módulo se compiló sin símbolos.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\bb8d0347\00e255f4_4340d001\Spire.PdfViewer.Forms.dll' cargado. El módulo se compiló sin símbolos.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\44436fd8\000d1c8e_e13ad001\System.Net.Http.Formatting.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\ce8ea95e\001b4395_e13ad001\System.Web.Http.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\b51daa87\00ad41b4_e13ad001\System.Web.Http.WebHost.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\59655be1\f0a41c2d_04cdd301\Web.dll' cargado. Símbolos cargados.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\62d30c19\e6f4e4f6_77cbd301\WSDomain.dll' cargado. Símbolos cargados.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\e062f579\72e3e3f6_77cbd301\XMLDomain.dll' cargado. Símbolos cargados.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Xaml\v4.0_4.0.0.0__b77a5c561934e089\System.Xaml.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.VisualStudio.Web.PageInspector.Runtime\v4.0_14.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualStudio.Web.PageInspector.Runtime.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.VisualStudio.Web.PageInspector.Tracing\v4.0_14.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualStudio.Web.PageInspector.Tracing.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.RegularExpressions\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.RegularExpressions.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.JScript\v4.0_10.0.0.0__b03f5f7f11d50a3a\Microsoft.JScript.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.VisualStudio.Web.PageInspector.Loader\v4.0_1.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualStudio.Web.PageInspector.Loader.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.CSharp\v4.0_4.0.0.0__b03f5f7f11d50a3a\Microsoft.CSharp.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.Services\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_32\System.EnterpriseServices\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.EnterpriseServices.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.IdentityModel\v4.0_4.0.0.0__b77a5c561934e089\System.IdentityModel.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Serialization\v4.0_4.0.0.0__b77a5c561934e089\System.Runtime.Serialization.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel\v4.0_4.0.0.0__b77a5c561934e089\System.ServiceModel.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Activation\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Activation.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Web\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Web.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Activities\v4.0_4.0.0.0__31bf3856ad364e35\System.Activities.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Activities\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Activities.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.WorkflowServices\v4.0_4.0.0.0__31bf3856ad364e35\System.WorkflowServices.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.Extensions\v4.0_4.0.0.0__31bf3856ad364e35\System.Web.Extensions.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.DataSetExtensions\v4.0_4.0.0.0__b77a5c561934e089\System.Data.DataSetExtensions.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.ComponentModel.DataAnnotations\v4.0_4.0.0.0__31bf3856ad364e35\System.ComponentModel.DataAnnotations.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.DynamicData\v4.0_4.0.0.0__31bf3856ad364e35\System.Web.DynamicData.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\2761cd2c\6778a546_bc89d301\BouncyCastle.Crypto.dll' cargado. Símbolos cargados.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Charts.v17.1.Core\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Charts.v17.1.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Data.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Data.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.CodeParser.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.CodeParser.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.DataAccess.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.DataAccess.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Map.v17.1.Core\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Map.v17.1.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Office.v17.1.Core\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Office.v17.1.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Pdf.v17.1.Core\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Pdf.v17.1.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.PivotGrid.v17.1.Core\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.PivotGrid.v17.1.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Printing.v17.1.Core\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Printing.v17.1.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.RichEdit.v17.1.Core\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.RichEdit.v17.1.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+El subproceso 0x2d64 terminó con código 0 (0x0).
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Sparkline.v17.1.Core\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Sparkline.v17.1.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.SpellChecker.v17.1.Core\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.SpellChecker.v17.1.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Utils.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Utils.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Web.ASPxHtmlEditor.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Web.ASPxHtmlEditor.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Web.ASPxRichEdit.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Web.ASPxRichEdit.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Web.ASPxScheduler.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Web.ASPxScheduler.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Web.ASPxSpellChecker.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Web.ASPxSpellChecker.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Web.ASPxThemes.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Web.ASPxThemes.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Web.Bootstrap.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Web.Bootstrap.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Web.Resources.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Web.Resources.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Web.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Web.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Xpo.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.Xpo.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraBars.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraBars.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraCharts.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraCharts.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraCharts.v17.1.Web\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraCharts.v17.1.Web.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraEditors.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraEditors.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraGauges.v17.1.Core\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraGauges.v17.1.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraLayout.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraLayout.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraMap.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraMap.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraPrinting.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraPrinting.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraReports.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraReports.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraReports.v17.1.Web\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraReports.v17.1.Web.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraScheduler.v17.1.Core\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraScheduler.v17.1.Core.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraTreeList.v17.1\v4.0_17.1.3.0__b88d1754d700e49a\DevExpress.XtraTreeList.v17.1.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\baefc49f\00eb2894_3a70d301\EAGetMail45.dll' cargado. El módulo se compiló sin símbolos.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\9cffb064\8a1d26f7_77cbd301\EncodeXML.dll' cargado. Símbolos cargados.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\ebe9de8f\bc1524da_b890d301\EntityFramework.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\542c9032\d42e2ada_b890d301\EntityFramework.SqlServer.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\f65f93d8\f31301a6_d8d0d301\FirmaXadesNet.dll' cargado. Símbolos cargados.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\99a28274\00a9282b_788dce01\Microsoft.AspNet.FriendlyUrls.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\70564818\e954a0a5_d8d0d301\Microsoft.Xades.dll' cargado. Símbolos cargados.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\f3e80dbf\e43674ee_b890d301\MySql.Data.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\a04fd3e9\f3ecb804_b990d301\MySql.Data.Entity.EF6.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\20d0cb14\6b065d26_3d87d301\Newtonsoft.Json.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\49ff0fe4\08c758f7_77cbd301\OAuth2.dll' cargado. Símbolos cargados.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\1fdc0208\00cebc69_a595d301\Quartz.dll' cargado. Símbolos cargados.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\eaf2d1e3\005bc2f0_4340d001\Spire.License.dll' cargado. El módulo se compiló sin símbolos.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\42ea589e\00e255f4_4340d001\Spire.Pdf.dll' cargado. El módulo se compiló sin símbolos.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\bb8d0347\00e255f4_4340d001\Spire.PdfViewer.Forms.dll' cargado. El módulo se compiló sin símbolos.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\44436fd8\000d1c8e_e13ad001\System.Net.Http.Formatting.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\ce8ea95e\001b4395_e13ad001\System.Web.Http.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\b51daa87\00ad41b4_e13ad001\System.Web.Http.WebHost.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\59655be1\5a6ca912_83d2d301\Web.dll' cargado. Símbolos cargados.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\62d30c19\e6f4e4f6_77cbd301\WSDomain.dll' cargado. Símbolos cargados.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\assembly\dl3\e062f579\72e3e3f6_77cbd301\XMLDomain.dll' cargado. Símbolos cargados.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Design\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Design.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Xaml\v4.0_4.0.0.0__b77a5c561934e089\System.Xaml.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.VisualStudio.Web.PageInspector.Runtime\v4.0_14.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualStudio.Web.PageInspector.Runtime.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.VisualStudio.Web.PageInspector.Tracing\v4.0_14.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualStudio.Web.PageInspector.Tracing.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.RegularExpressions\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.RegularExpressions.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
 'iisexpress.exe' (CLR v4.0.30319: DefaultDomain): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.RegularExpressions\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.RegularExpressions.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_32\System.EnterpriseServices\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.EnterpriseServices.Wrapper.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.Services.Design\v4.0_4.0.0.0__b77a5c561934e089\System.Data.Services.Design.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.resources\v4.0_4.0.0.0_es_b77a5c561934e089\System.resources.dll' cargado. El módulo se compiló sin símbolos.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_global.asax.ujiisq5i.dll' cargado. 
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Net.Http\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Net.Http.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\SMDiagnostics\v4.0_4.0.0.0__b77a5c561934e089\SMDiagnostics.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_32\System.Transactions\v4.0_4.0.0.0__b77a5c561934e089\System.Transactions.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\PresentationFramework\v4.0_4.0.0.0__31bf3856ad364e35\PresentationFramework.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\WindowsBase\v4.0_4.0.0.0__31bf3856ad364e35\WindowsBase.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_32\PresentationCore\v4.0_4.0.0.0__31bf3856ad364e35\PresentationCore.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Security\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Security.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Internals\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Internals.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.SqlXml\v4.0_4.0.0.0__b77a5c561934e089\System.Data.SqlXml.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Xaml.Hosting\v4.0_4.0.0.0__31bf3856ad364e35\System.Xaml.Hosting.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.DurableInstancing\v4.0_4.0.0.0__31bf3856ad364e35\System.Runtime.DurableInstancing.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_32\Microsoft.VisualBasic.Activities.Compiler\v4.0_10.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualBasic.Activities.Compiler.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Workflow.Runtime\v4.0_4.0.0.0__31bf3856ad364e35\System.Workflow.Runtime.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Workflow.ComponentModel\v4.0_4.0.0.0__31bf3856ad364e35\System.Workflow.ComponentModel.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Workflow.Activities\v4.0_4.0.0.0__31bf3856ad364e35\System.Workflow.Activities.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Design\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Design.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Configuration.Install\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.Install.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\Accessibility\v4.0_4.0.0.0__b03f5f7f11d50a3a\Accessibility.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Data.Linq.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.Build.Framework\v4.0_4.0.0.0__b03f5f7f11d50a3a\Microsoft.Build.Framework.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Dynamic\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Dynamic.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'Anonymously Hosted DynamicMethods Assembly' cargado. 
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.Mobile\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.Mobile.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.resources\v4.0_4.0.0.0_es_b03f5f7f11d50a3a\System.Web.resources.dll' cargado. El módulo se compiló sin símbolos.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\MySql.Web\v4.0_6.9.6.0__c5687fc88969c44d\MySql.Web.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'A_47a92bde_f586_4648_9520_ccd40f9cc871' cargado. 
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.Entity\v4.0_4.0.0.0__b77a5c561934e089\System.Web.Entity.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_32\System.EnterpriseServices\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.EnterpriseServices.Wrapper.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.Services.Design\v4.0_4.0.0.0__b77a5c561934e089\System.Data.Services.Design.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.resources\v4.0_4.0.0.0_es_b77a5c561934e089\System.resources.dll' cargado. El módulo se compiló sin símbolos.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_global.asax.ljp0tffe.dll' cargado. 
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Net.Http\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Net.Http.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\SMDiagnostics\v4.0_4.0.0.0__b77a5c561934e089\SMDiagnostics.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\Accessibility\v4.0_4.0.0.0__b03f5f7f11d50a3a\Accessibility.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_32\System.Transactions\v4.0_4.0.0.0__b77a5c561934e089\System.Transactions.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\PresentationFramework\v4.0_4.0.0.0__31bf3856ad364e35\PresentationFramework.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\WindowsBase\v4.0_4.0.0.0__31bf3856ad364e35\WindowsBase.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_32\PresentationCore\v4.0_4.0.0.0__31bf3856ad364e35\PresentationCore.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+El subproceso 0x2770 terminó con código 0 (0x0).
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Security\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Security.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Internals\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Internals.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.SqlXml\v4.0_4.0.0.0__b77a5c561934e089\System.Data.SqlXml.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Configuration.Install\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.Install.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.DurableInstancing\v4.0_4.0.0.0__31bf3856ad364e35\System.Runtime.DurableInstancing.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_32\Microsoft.VisualBasic.Activities.Compiler\v4.0_10.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualBasic.Activities.Compiler.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing.Design\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.Design.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Xaml.Hosting\v4.0_4.0.0.0__31bf3856ad364e35\System.Xaml.Hosting.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Workflow.Runtime\v4.0_4.0.0.0__31bf3856ad364e35\System.Workflow.Runtime.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Workflow.ComponentModel\v4.0_4.0.0.0__31bf3856ad364e35\System.Workflow.ComponentModel.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Workflow.Activities\v4.0_4.0.0.0__31bf3856ad364e35\System.Workflow.Activities.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Data.Linq.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.Build.Framework\v4.0_4.0.0.0__b03f5f7f11d50a3a\Microsoft.Build.Framework.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Dynamic\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Dynamic.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'Anonymously Hosted DynamicMethods Assembly' cargado. 
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.Mobile\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.Mobile.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Numerics\v4.0_4.0.0.0__b77a5c561934e089\System.Numerics.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_32\System.Data.OracleClient\v4.0_4.0.0.0__b77a5c561934e089\System.Data.OracleClient.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.resources\v4.0_4.0.0.0_es_b03f5f7f11d50a3a\System.Web.resources.dll' cargado. El módulo se compiló sin símbolos.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\MySql.Web\v4.0_6.9.6.0__c5687fc88969c44d\MySql.Web.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Management\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Management.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'A_4826330b_323c_4f18_970c_29ba8d2a1a74' cargado. 
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.Entity\v4.0_4.0.0.0__b77a5c561934e089\System.Web.Entity.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
 'iisexpress.exe' (CLR v4.0.30319: DefaultDomain): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Design\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Design.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Numerics\v4.0_4.0.0.0__b77a5c561934e089\System.Numerics.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_32\System.Data.OracleClient\v4.0_4.0.0.0__b77a5c561934e089\System.Data.OracleClient.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Management\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Management.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.ComponentModel.DataAnnotations.resources\v4.0_4.0.0.0_es_31bf3856ad364e35\System.ComponentModel.DataAnnotations.resources.dll' cargado. El módulo se compiló sin símbolos.
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_eu1qwxsd.dll' cargado. 
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_p3agyte0.dll' cargado. 
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.ComponentModel.DataAnnotations.resources\v4.0_4.0.0.0_es_31bf3856ad364e35\System.ComponentModel.DataAnnotations.resources.dll' cargado. El módulo se compiló sin símbolos.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_25mbdlbg.dll' cargado. 
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_b3koxi53.dll' cargado. 
 Excepción producida: 'System.Web.HttpException' en System.Web.dll
+Excepción producida: 'System.Web.HttpException' en System.Web.dll
+Excepción producida: 'System.Web.HttpException' en System.Web.dll
+Excepción producida: 'System.Web.HttpParseException' en System.Web.dll
+Excepción producida: 'System.Web.HttpParseException' en System.Web.dll
+Excepción producida: 'System.Web.HttpParseException' en System.Web.dll
+Excepción producida: 'System.Web.HttpParseException' en System.Web.dll
 'iisexpress.exe' (CLR v4.0.30319: DefaultDomain): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll' cargado. No se encuentra el archivo PDB o no se puede abrir.
-Excepción producida: 'System.Web.HttpException' en System.Web.dll
-Excepción producida: 'System.Web.HttpException' en System.Web.dll
-Excepción producida: 'System.Web.HttpParseException' en System.Web.dll
-Excepción producida: 'System.Web.HttpParseException' en System.Web.dll
-Excepción producida: 'System.Web.HttpParseException' en System.Web.dll
-Excepción producida: 'System.Web.HttpParseException' en System.Web.dll
 Excepción producida: 'MySql.Data.MySqlClient.MySqlException' en MySql.Data.dll
 Excepción producida: 'MySql.Data.MySqlClient.MySqlException' en MySql.Data.dll
 Excepción producida: 'MySql.Data.MySqlClient.MySqlException' en MySql.Data.dll
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_14v0nkzi.dll' cargado. 
 Excepción producida: 'MySql.Data.MySqlClient.MySqlException' en MySql.Data.dll
 Excepción producida: 'System.Data.Entity.Core.EntityCommandExecutionException' en EntityFramework.dll
 Excepción producida: 'System.Data.Entity.Core.EntityCommandExecutionException' en EntityFramework.dll
@@ -167,8 +166,7 @@ Excepción producida: 'MySql.Data.MySqlClient.MySqlException' en MySql.Data.dll
 Excepción producida: 'System.Data.Entity.Core.EntityCommandExecutionException' en EntityFramework.dll
 Excepción producida: 'System.Data.Entity.Core.EntityCommandExecutionException' en EntityFramework.dll
 Excepción producida: 'System.Data.Entity.Core.EntityCommandExecutionException' en EntityFramework.dll
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_ylc2x3vn.dll' cargado. 
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'EntityFrameworkDynamicProxies-EntityFramework' cargado. 
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'EntityFrameworkDynamicProxies-EntityFramework' cargado. 
 Excepción producida: 'MySql.Data.MySqlClient.MySqlException' en MySql.Data.dll
 Excepción producida: 'MySql.Data.MySqlClient.MySqlException' en MySql.Data.dll
 Excepción producida: 'MySql.Data.MySqlClient.MySqlException' en MySql.Data.dll
@@ -176,16 +174,622 @@ Excepción producida: 'MySql.Data.MySqlClient.MySqlException' en MySql.Data.dll
 Excepción producida: 'System.Data.Entity.Core.EntityCommandExecutionException' en EntityFramework.dll
 Excepción producida: 'System.Data.Entity.Core.EntityCommandExecutionException' en EntityFramework.dll
 Excepción producida: 'System.Data.Entity.Core.EntityCommandExecutionException' en EntityFramework.dll
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'EntityFrameworkDynamicProxies-WSDomain' cargado. 
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'EntityFrameworkDynamicProxies-Web' cargado. 
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'EntityFrameworkDynamicProxies-OAuth2' cargado. 
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_ot3s4ccf.dll' cargado. 
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Web.v17.1.resources\v4.0_17.1.0.0_es_b88d1754d700e49a\DevExpress.Web.v17.1.resources.dll' cargado. El módulo se compiló sin símbolos.
-Excepción producida: 'System.IO.FileNotFoundException' en mscorlib.dll
-Excepción producida: 'System.IO.FileNotFoundException' en mscorlib.dll
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'Microsoft.GeneratedCode' cargado. 
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraReports.v17.1.Web.resources\v4.0_17.1.0.0_es_b88d1754d700e49a\DevExpress.XtraReports.v17.1.Web.resources.dll' cargado. El módulo se compiló sin símbolos.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'EntityFrameworkDynamicProxies-WSDomain' cargado. 
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'EntityFrameworkDynamicProxies-Web' cargado. 
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'EntityFrameworkDynamicProxies-OAuth2' cargado. 
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_sxkmo5f0.dll' cargado. 
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.Web.v17.1.resources\v4.0_17.1.0.0_es_b88d1754d700e49a\DevExpress.Web.v17.1.resources.dll' cargado. El módulo se compiló sin símbolos.
 'iexplore.exe' (Script): 'Código de script (Windows Internet Explorer)' cargado. 
+Se produjo una excepción en línea 2, columna 10692 en http://localhost:54762/Scripts/jquery.min1.12.4.js
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Se produjo una excepción en línea 2, columna 10917 en http://localhost:54762/Scripts/jquery.min1.12.4.js
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Error al leer el mapa de origen C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Scripts\popper.min.js.map: No se pudo encontrar el archivo 'C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Scripts\popper.min.js.map'..El subproceso 0x2dfc terminó con código 0 (0x0).
+El subproceso 0x12d0 terminó con código 0 (0x0).
+El subproceso 0x1a5c terminó con código 0 (0x0).
+El subproceso 0x56c terminó con código 0 (0x0).
+El subproceso 0x2890 terminó con código 0 (0x0).
+El subproceso 0x28e0 terminó con código 0 (0x0).
+El subproceso 0x2fcc terminó con código 0 (0x0).
+El subproceso 0x2fd8 terminó con código 0 (0x0).
+El subproceso 0x2f8c terminó con código 0 (0x0).
+El subproceso 0x2270 terminó con código 0 (0x0).
+El subproceso 0x2874 terminó con código 0 (0x0).
+El subproceso 0x2388 terminó con código 0 (0x0).
+El subproceso 0x788 terminó con código 0 (0x0).
+El subproceso 0x2ef8 terminó con código 0 (0x0).
+El subproceso 0x2624 terminó con código 0 (0x0).
+El subproceso 0x28a8 terminó con código 0 (0x0).
+El subproceso 0x2e4c terminó con código 0 (0x0).
+El subproceso 0x223c terminó con código 0 (0x0).
+El subproceso 0x16a4 terminó con código 0 (0x0).
+El subproceso 0x2eb4 terminó con código 0 (0x0).
+El subproceso 0x1ee0 terminó con código 0 (0x0).
+El subproceso 0x2594 terminó con código 0 (0x0).
+El subproceso 0xcd8 terminó con código 0 (0x0).
+El subproceso 0x1f00 terminó con código 0 (0x0).
+El subproceso 0x2008 terminó con código 0 (0x0).
+El subproceso 0x2f84 terminó con código 0 (0x0).
+El subproceso 0x20a8 terminó con código 0 (0x0).
+El subproceso 0x2bf4 terminó con código 0 (0x0).
+El subproceso 0x27ec terminó con código 0 (0x0).
+El subproceso 0x2c2c terminó con código 0 (0x0).
+El subproceso 0xe80 terminó con código 0 (0x0).
+El subproceso 0x28d0 terminó con código 0 (0x0).
+El subproceso 0x2ff8 terminó con código 0 (0x0).
+El subproceso 0x2c1c terminó con código 0 (0x0).
+El subproceso 0x564 terminó con código 0 (0x0).
+El subproceso 0x1e7c terminó con código 0 (0x0).
+El subproceso 0x129c terminó con código 0 (0x0).
+El subproceso 0x2d78 terminó con código 0 (0x0).
+El subproceso 0x230c terminó con código 0 (0x0).
+El subproceso 0x26cc terminó con código 0 (0x0).
+El subproceso 0x2ff4 terminó con código 0 (0x0).
+El subproceso 0x2cfc terminó con código 0 (0x0).
+El subproceso 0x910 terminó con código 0 (0x0).
+El subproceso 0x2608 terminó con código 0 (0x0).
+El subproceso 0x1c38 terminó con código 0 (0x0).
+El subproceso 0x22f4 terminó con código 0 (0x0).
+El subproceso 0x2d98 terminó con código 0 (0x0).
+El subproceso 0x17b8 terminó con código 0 (0x0).
+El subproceso 0x2248 terminó con código 0 (0x0).
+El subproceso 0xba4 terminó con código 0 (0x0).
+El subproceso 0xbe8 terminó con código 0 (0x0).
+El subproceso 0x2a30 terminó con código 0 (0x0).
+El subproceso 0x2bc8 terminó con código 0 (0x0).
+El subproceso 0x2574 terminó con código 0 (0x0).
+El subproceso 0x2484 terminó con código 0 (0x0).
+El subproceso 0x2b90 terminó con código 0 (0x0).
+El subproceso 0x2da8 terminó con código 0 (0x0).
+El subproceso 0xa10 terminó con código 0 (0x0).
+El subproceso 0x24b0 terminó con código 0 (0x0).
+El subproceso 0x29b8 terminó con código 0 (0x0).
+El subproceso 0x1418 terminó con código 0 (0x0).
+Excepción producida: 'System.NullReferenceException' en System.Web.dll
+Excepción producida: 'System.Reflection.TargetInvocationException' en mscorlib.dll
+Excepción producida: 'System.NullReferenceException' en System.Web.dll
+El subproceso 0x2f04 terminó con código 0 (0x0).
+El subproceso 0x2180 terminó con código 0 (0x0).
+El subproceso 0x2efc terminó con código 0 (0x0).
+El subproceso 0x2e1c terminó con código 0 (0x0).
+El subproceso 0x2fac terminó con código 0 (0x0).
+El subproceso 0x1bac terminó con código 0 (0x0).
+El subproceso 0x1c70 terminó con código 0 (0x0).
+El subproceso 0x2188 terminó con código 0 (0x0).
+El subproceso 0x290c terminó con código 0 (0x0).
+El subproceso 0x2be0 terminó con código 0 (0x0).
+El subproceso 0x1654 terminó con código 0 (0x0).
+El subproceso 0x16d0 terminó con código 0 (0x0).
+El subproceso 0x2b30 terminó con código 0 (0x0).
+El subproceso 0x2884 terminó con código 0 (0x0).
+El subproceso 0x256c terminó con código 0 (0x0).
+El subproceso 0x22e8 terminó con código 0 (0x0).
+El subproceso 0x2cc8 terminó con código 0 (0x0).
+El subproceso 0x2888 terminó con código 0 (0x0).
+El subproceso 0x1094 terminó con código 0 (0x0).
+El subproceso 0x1408 terminó con código 0 (0x0).
+El subproceso 0x2bc0 terminó con código 0 (0x0).
+El subproceso 0x23a0 terminó con código 0 (0x0).
+El subproceso 0x2134 terminó con código 0 (0x0).
+El subproceso 0x2ef4 terminó con código 0 (0x0).
+El subproceso 0x2550 terminó con código 0 (0x0).
+El subproceso 0x27a8 terminó con código 0 (0x0).
+El subproceso 0x2a98 terminó con código 0 (0x0).
+El subproceso 0x2864 terminó con código 0 (0x0).
+El subproceso 0x1fb8 terminó con código 0 (0x0).
+El subproceso 0x278c terminó con código 0 (0x0).
+El subproceso 0x2d94 terminó con código 0 (0x0).
+El subproceso 0x2d68 terminó con código 0 (0x0).
+El subproceso 0x2138 terminó con código 0 (0x0).
+El subproceso 0xecc terminó con código 0 (0x0).
+El subproceso 0x1ed0 terminó con código 0 (0x0).
+El subproceso 0x2674 terminó con código 0 (0x0).
+El subproceso 0x22c8 terminó con código 0 (0x0).
+El subproceso 0x1410 terminó con código 0 (0x0).
+El subproceso 0xd8c terminó con código 0 (0x0).
+El subproceso 0x28dc terminó con código 0 (0x0).
+El subproceso 0x29b4 terminó con código 0 (0x0).
+El subproceso 0x25b0 terminó con código 0 (0x0).
+El subproceso 0x2360 terminó con código 0 (0x0).
+El subproceso 0x259c terminó con código 0 (0x0).
+El subproceso 0x1eb0 terminó con código 0 (0x0).
+El subproceso 0xa00 terminó con código 0 (0x0).
+El subproceso 0x1eb4 terminó con código 0 (0x0).
+El subproceso 0x1674 terminó con código 0 (0x0).
+El subproceso 0x2910 terminó con código 0 (0x0).
+El subproceso 0x2d54 terminó con código 0 (0x0).
+El subproceso 0x2ccc terminó con código 0 (0x0).
+El subproceso 0x2dac terminó con código 0 (0x0).
+El subproceso 0x1998 terminó con código 0 (0x0).
+El subproceso 0x1a8c terminó con código 0 (0x0).
+El subproceso 0x1288 terminó con código 0 (0x0).
+El subproceso 0x214 terminó con código 0 (0x0).
+El subproceso 0x2364 terminó con código 0 (0x0).
+El subproceso 0x2e44 terminó con código 0 (0x0).
+El subproceso 0x15ac terminó con código 0 (0x0).
+El subproceso 0x2b58 terminó con código 0 (0x0).
+El subproceso 0x2c38 terminó con código 0 (0x0).
+Excepción producida: 'System.Net.Sockets.SocketException' en System.dll
+El subproceso 0x2854 terminó con código 0 (0x0).
+El subproceso 0x2d58 terminó con código 0 (0x0).
+El subproceso 0x26bc terminó con código 0 (0x0).
+El subproceso 0x2c24 terminó con código 0 (0x0).
+El subproceso 0x2a58 terminó con código 0 (0x0).
+El subproceso 0x299c terminó con código 0 (0x0).
+Excepción producida: 'System.Net.Sockets.SocketException' en System.dll
+Excepción producida: 'System.Net.WebException' en System.dll
+Excepción producida: 'System.Net.InternalException' en System.dll
+Excepción producida: 'System.Threading.Tasks.TaskCanceledException' en mscorlib.dll
+Excepción producida: 'System.Net.InternalException' en System.dll
+Excepción producida: 'System.ObjectDisposedException' en System.dll
+Excepción producida: 'System.Net.WebException' en System.dll
+Excepción producida: 'System.Net.WebException' en System.dll
+Excepción producida: 'System.Net.WebException' en System.dll
+Excepción producida: 'System.Net.WebException' en System.dll
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Net.Http.resources\v4.0_4.0.0.0_es_b03f5f7f11d50a3a\System.Net.Http.resources.dll' cargado. El módulo se compiló sin símbolos.
+Excepción producida: 'System.Net.Http.HttpRequestException' en mscorlib.dll
+Excepción producida: 'System.Net.Http.HttpRequestException' en mscorlib.dll
+Excepción producida: 'System.Net.WebException' en System.dll
+Excepción producida: 'System.Net.WebException' en System.dll
+Excepción producida: 'System.Net.WebException' en System.dll
+Excepción producida: 'System.Net.Http.HttpRequestException' en mscorlib.dll
+Excepción producida: 'System.Net.WebException' en System.dll
+Excepción producida: 'System.Net.WebException' en System.dll
+Excepción producida: 'System.Net.WebException' en System.dll
+Excepción producida: 'System.Net.WebException' en System.dll
+Excepción producida: 'System.Net.Http.HttpRequestException' en mscorlib.dll
+Excepción producida: 'System.Net.Http.HttpRequestException' en mscorlib.dll
+Excepción producida: 'System.Net.WebException' en System.dll
+Excepción producida: 'System.Net.WebException' en System.dll
+Excepción producida: 'System.Net.WebException' en System.dll
+Excepción producida: 'System.Net.Http.HttpRequestException' en mscorlib.dll
+Excepción producida: 'System.Net.WebException' en System.dll
+Excepción producida: 'System.Net.WebException' en System.dll
+Excepción producida: 'System.Net.WebException' en System.dll
+Excepción producida: 'System.Net.WebException' en System.dll
+Excepción producida: 'System.Net.Http.HttpRequestException' en mscorlib.dll
+Excepción producida: 'System.Net.Http.HttpRequestException' en mscorlib.dll
+El subproceso 0x31ac terminó con código 0 (0x0).
+El subproceso 0x2284 terminó con código 0 (0x0).
+Excepción producida: 'System.Net.Sockets.SocketException' en System.dll
+Excepción producida: 'System.Net.Sockets.SocketException' en System.dll
+Excepción producida: 'System.Net.WebException' en System.dll
+Excepción producida: 'System.Net.Http.HttpRequestException' en mscorlib.dll
+Excepción producida: 'System.Net.InternalException' en System.dll
+Excepción producida: 'System.Net.InternalException' en System.dll
+Excepción producida: 'System.ObjectDisposedException' en System.dll
+Excepción producida: 'System.NullReferenceException' en Web.dll
+El subproceso 0xf5c terminó con código 0 (0x0).
+El subproceso 0x798 terminó con código 0 (0x0).
+El subproceso 0x1e80 terminó con código 0 (0x0).
+Excepción producida: 'System.Net.Sockets.SocketException' en System.dll
+Excepción producida: 'System.IO.IOException' en System.dll
+Excepción producida: 'System.IO.IOException' en System.dll
+Excepción producida: 'System.IO.IOException' en System.dll
+El subproceso 0x18dc terminó con código 0 (0x0).
+El subproceso 0x23e4 terminó con código 0 (0x0).
+El subproceso 0x4dc terminó con código 0 (0x0).
+El subproceso 0x1a6c terminó con código 0 (0x0).
+El subproceso 0x31b0 terminó con código 0 (0x0).
+El subproceso 0x1658 terminó con código 0 (0x0).
+El subproceso 0xf80 terminó con código 0 (0x0).
+El subproceso 0x2b9c terminó con código 0 (0x0).
+El subproceso 0x236c terminó con código 0 (0x0).
+El subproceso 0x1c34 terminó con código 0 (0x0).
+El subproceso 0x2464 terminó con código 0 (0x0).
+El subproceso 0xfa0 terminó con código 0 (0x0).
+El subproceso 0x31b8 terminó con código 0 (0x0).
+El subproceso 0x31d8 terminó con código 0 (0x0).
+El subproceso 0xd84 terminó con código 0 (0x0).
+El subproceso 0x24d0 terminó con código 0 (0x0).
+El subproceso 0x27fc terminó con código 0 (0x0).
+El subproceso 0x32b0 terminó con código 0 (0x0).
+El subproceso 0x1350 terminó con código 0 (0x0).
+El subproceso 0x2958 terminó con código 0 (0x0).
+El subproceso 0x2b98 terminó con código 0 (0x0).
+El subproceso 0x12b0 terminó con código 0 (0x0).
+El subproceso 0x32d0 terminó con código 0 (0x0).
+El subproceso 0x2ce0 terminó con código 0 (0x0).
+El subproceso 0x80c terminó con código 0 (0x0).
+El subproceso 0x1404 terminó con código 0 (0x0).
+El subproceso 0x3314 terminó con código 0 (0x0).
+El subproceso 0x3214 terminó con código 0 (0x0).
+El subproceso 0x3330 terminó con código 0 (0x0).
+El subproceso 0x2188 terminó con código 0 (0x0).
+El subproceso 0xe5c terminó con código 0 (0x0).
+El subproceso 0x2338 terminó con código 0 (0x0).
+El subproceso 0x1fa4 terminó con código 0 (0x0).
+El subproceso 0xf0 terminó con código 0 (0x0).
+El subproceso 0x2520 terminó con código 0 (0x0).
+El subproceso 0x147c terminó con código 0 (0x0).
+El subproceso 0x119c terminó con código 0 (0x0).
+El subproceso 0x27a8 terminó con código 0 (0x0).
+El subproceso 0x2784 terminó con código 0 (0x0).
+El subproceso 0x2bc0 terminó con código 0 (0x0).
+El subproceso 0x2a90 terminó con código 0 (0x0).
+El subproceso 0x2e6c terminó con código 0 (0x0).
+El subproceso 0x2b14 terminó con código 0 (0x0).
+El subproceso 0x2c24 terminó con código 0 (0x0).
+El subproceso 0x339c terminó con código 0 (0x0).
+El subproceso 0x30b4 terminó con código 0 (0x0).
+El subproceso 0x2f84 terminó con código 0 (0x0).
+El subproceso 0x2594 terminó con código 0 (0x0).
+El subproceso 0x2720 terminó con código 0 (0x0).
+El subproceso 0x1a48 terminó con código 0 (0x0).
+El subproceso 0x3144 terminó con código 0 (0x0).
+El subproceso 0x588 terminó con código 0 (0x0).
+El subproceso 0x29a4 terminó con código 0 (0x0).
+El subproceso 0x265c terminó con código 0 (0x0).
+El subproceso 0x2b74 terminó con código 0 (0x0).
+El subproceso 0x2af8 terminó con código 0 (0x0).
+El subproceso 0x327c terminó con código 0 (0x0).
+El subproceso 0x294c terminó con código 0 (0x0).
+El subproceso 0x3360 terminó con código 0 (0x0).
+El subproceso 0x1360 terminó con código 0 (0x0).
+El subproceso 0x2388 terminó con código 0 (0x0).
+El subproceso 0x1e80 terminó con código 0 (0x0).
+El subproceso 0x3030 terminó con código 0 (0x0).
+El subproceso 0x23e4 terminó con código 0 (0x0).
+El subproceso 0x2d24 terminó con código 0 (0x0).
+El subproceso 0xaa8 terminó con código 0 (0x0).
+El subproceso 0x235c terminó con código 0 (0x0).
+El subproceso 0x20d4 terminó con código 0 (0x0).
+El subproceso 0x26dc terminó con código 0 (0x0).
+El subproceso 0x2bcc terminó con código 0 (0x0).
+El subproceso 0x3148 terminó con código 0 (0x0).
+El subproceso 0x1c70 terminó con código 0 (0x0).
+El subproceso 0x3114 terminó con código 0 (0x0).
+El subproceso 0x1c10 terminó con código 0 (0x0).
+El subproceso 0x2cac terminó con código 0 (0x0).
+El subproceso 0x23c0 terminó con código 0 (0x0).
+El subproceso 0x1f68 terminó con código 0 (0x0).
+El subproceso 0x2850 terminó con código 0 (0x0).
+El subproceso 0x2918 terminó con código 0 (0x0).
+El subproceso 0x25f0 terminó con código 0 (0x0).
+El subproceso 0x2cc4 terminó con código 0 (0x0).
+El subproceso 0x9d0 terminó con código 0 (0x0).
+El subproceso 0x2364 terminó con código 0 (0x0).
+El subproceso 0x2d08 terminó con código 0 (0x0).
+El subproceso 0x1eb0 terminó con código 0 (0x0).
+El subproceso 0x17a0 terminó con código 0 (0x0).
+El subproceso 0x2674 terminó con código 0 (0x0).
+El subproceso 0x858 terminó con código 0 (0x0).
+El subproceso 0x2554 terminó con código 0 (0x0).
+El subproceso 0x1f14 terminó con código 0 (0x0).
+El subproceso 0x2264 terminó con código 0 (0x0).
+El subproceso 0x32c0 terminó con código 0 (0x0).
+El subproceso 0x1a18 terminó con código 0 (0x0).
+El subproceso 0x2d5c terminó con código 0 (0x0).
+El subproceso 0x6b4 terminó con código 0 (0x0).
+El subproceso 0x30e8 terminó con código 0 (0x0).
+El subproceso 0x2724 terminó con código 0 (0x0).
+El subproceso 0x15d0 terminó con código 0 (0x0).
+El subproceso 0x25bc terminó con código 0 (0x0).
+El subproceso 0x2b9c terminó con código 0 (0x0).
+El subproceso 0x2624 terminó con código 0 (0x0).
+El subproceso 0x20ec terminó con código 0 (0x0).
+El subproceso 0x33e0 terminó con código 0 (0x0).
+El subproceso 0x2444 terminó con código 0 (0x0).
+El subproceso 0x2850 terminó con código 0 (0x0).
+El subproceso 0xcf0 terminó con código 0 (0x0).
+El subproceso 0x3114 terminó con código 0 (0x0).
+El subproceso 0x1fb0 terminó con código 0 (0x0).
+El subproceso 0x2bd0 terminó con código 0 (0x0).
+El subproceso 0x31cc terminó con código 0 (0x0).
+El subproceso 0x1c44 terminó con código 0 (0x0).
+El subproceso 0x30e4 terminó con código 0 (0x0).
+El subproceso 0x2230 terminó con código 0 (0x0).
+El subproceso 0x2cac terminó con código 0 (0x0).
+El subproceso 0x3234 terminó con código 0 (0x0).
+El subproceso 0x3258 terminó con código 0 (0x0).
+El subproceso 0x8dc terminó con código 0 (0x0).
+El subproceso 0x3350 terminó con código 0 (0x0).
+El subproceso 0x284c terminó con código 0 (0x0).
+El subproceso 0x3028 terminó con código 0 (0x0).
+El subproceso 0x2788 terminó con código 0 (0x0).
+El subproceso 0x2d58 terminó con código 0 (0x0).
+El subproceso 0x16a4 terminó con código 0 (0x0).
+El subproceso 0x2f84 terminó con código 0 (0x0).
+El subproceso 0x2ba8 terminó con código 0 (0x0).
+El subproceso 0x247c terminó con código 0 (0x0).
+El subproceso 0x2e40 terminó con código 0 (0x0).
+El subproceso 0x24bc terminó con código 0 (0x0).
+El subproceso 0x1a58 terminó con código 0 (0x0).
+El subproceso 0x1f24 terminó con código 0 (0x0).
+El subproceso 0x322c terminó con código 0 (0x0).
+El subproceso 0x2c50 terminó con código 0 (0x0).
+El subproceso 0xa00 terminó con código 0 (0x0).
+El subproceso 0x2ee4 terminó con código 0 (0x0).
+El subproceso 0x25d8 terminó con código 0 (0x0).
+El subproceso 0x2364 terminó con código 0 (0x0).
+El subproceso 0x27a0 terminó con código 0 (0x0).
+El subproceso 0x273c terminó con código 0 (0x0).
+El subproceso 0x2764 terminó con código 0 (0x0).
+El subproceso 0x2b68 terminó con código 0 (0x0).
+El subproceso 0x2f0c terminó con código 0 (0x0).
+El subproceso 0x30b8 terminó con código 0 (0x0).
+El subproceso 0x10b8 terminó con código 0 (0x0).
+El subproceso 0x22f4 terminó con código 0 (0x0).
+El subproceso 0x28b0 terminó con código 0 (0x0).
+El subproceso 0x2c68 terminó con código 0 (0x0).
+El subproceso 0x3374 terminó con código 0 (0x0).
+El subproceso 0x1a48 terminó con código 0 (0x0).
+El subproceso 0x2700 terminó con código 0 (0x0).
+El subproceso 0x3210 terminó con código 0 (0x0).
+El subproceso 0x2bec terminó con código 0 (0x0).
+El subproceso 0x2dd8 terminó con código 0 (0x0).
+El subproceso 0x2564 terminó con código 0 (0x0).
+El subproceso 0x1410 terminó con código 0 (0x0).
+El subproceso 0x2fac terminó con código 0 (0x0).
+El subproceso 0x2cd8 terminó con código 0 (0x0).
+El subproceso 0x2d00 terminó con código 0 (0x0).
+El subproceso 0x2180 terminó con código 0 (0x0).
+El subproceso 0x2e8c terminó con código 0 (0x0).
+El subproceso 0x27c4 terminó con código 0 (0x0).
+El subproceso 0x1958 terminó con código 0 (0x0).
+El subproceso 0x2db0 terminó con código 0 (0x0).
+El subproceso 0x213c terminó con código 0 (0x0).
+Se produjo una excepción en línea 2, columna 10692 en http://localhost:54762/Scripts/jquery.min1.12.4.js
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Se produjo una excepción en línea 2, columna 10917 en http://localhost:54762/Scripts/jquery.min1.12.4.js
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Error al leer el mapa de origen C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Scripts\popper.min.js.map: No se pudo encontrar el archivo 'C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Scripts\popper.min.js.map'..Excepción producida: 'System.Threading.ThreadAbortException' en mscorlib.dll
+Excepción producida: 'System.Threading.ThreadAbortException' en Web.dll
+Se produjo una excepción en línea 2, columna 10692 en http://localhost:54762/Scripts/jquery.min1.12.4.js
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Se produjo una excepción en línea 2, columna 10917 en http://localhost:54762/Scripts/jquery.min1.12.4.js
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Error al leer el mapa de origen C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Scripts\popper.min.js.map: No se pudo encontrar el archivo 'C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Scripts\popper.min.js.map'..Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_vlrij4ft.dll' cargado. 
+Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_cy5ausev.dll' cargado. 
+Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+Excepción producida: 'System.Reflection.AmbiguousMatchException' en mscorlib.dll
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_imoik3jz.dll' cargado. 
+Se produjo una excepción en línea 2, columna 10692 en http://localhost:54762/Scripts/jquery.min1.12.4.js
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Se produjo una excepción en línea 2, columna 10917 en http://localhost:54762/Scripts/jquery.min1.12.4.js
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Error al leer el mapa de origen C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Scripts\popper.min.js.map: No se pudo encontrar el archivo 'C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Scripts\popper.min.js.map'..El subproceso 0x2a84 terminó con código 0 (0x0).
+El subproceso 0x2684 terminó con código 0 (0x0).
+El subproceso 0x1b90 terminó con código 0 (0x0).
+El subproceso 0x2b84 terminó con código 0 (0x0).
+El subproceso 0x1418 terminó con código 0 (0x0).
+El subproceso 0x2f68 terminó con código 0 (0x0).
+El subproceso 0x3078 terminó con código 0 (0x0).
+El subproceso 0x2b9c terminó con código 0 (0x0).
+El subproceso 0x1c5c terminó con código 0 (0x0).
+El subproceso 0x1d80 terminó con código 0 (0x0).
+El subproceso 0x23f0 terminó con código 0 (0x0).
+El subproceso 0x2da0 terminó con código 0 (0x0).
+El subproceso 0x1f88 terminó con código 0 (0x0).
+El subproceso 0x15ac terminó con código 0 (0x0).
+El subproceso 0x144 terminó con código 0 (0x0).
+El subproceso 0x2c60 terminó con código 0 (0x0).
+El subproceso 0x2ac8 terminó con código 0 (0x0).
+El subproceso 0x2ae4 terminó con código 0 (0x0).
+El subproceso 0x1a80 terminó con código 0 (0x0).
+El subproceso 0x2c78 terminó con código 0 (0x0).
+El subproceso 0x21b0 terminó con código 0 (0x0).
+El subproceso 0x26a8 terminó con código 0 (0x0).
+El subproceso 0x2890 terminó con código 0 (0x0).
+El subproceso 0x32bc terminó con código 0 (0x0).
+El subproceso 0x18c0 terminó con código 0 (0x0).
+El subproceso 0x2248 terminó con código 0 (0x0).
+El subproceso 0x2f0c terminó con código 0 (0x0).
+El subproceso 0x2ba8 terminó con código 0 (0x0).
+El subproceso 0x2ee0 terminó con código 0 (0x0).
+El subproceso 0x2750 terminó con código 0 (0x0).
+El subproceso 0x498 terminó con código 0 (0x0).
+El subproceso 0x2778 terminó con código 0 (0x0).
+El subproceso 0x1e44 terminó con código 0 (0x0).
+El subproceso 0x2774 terminó con código 0 (0x0).
+El subproceso 0x303c terminó con código 0 (0x0).
+El subproceso 0x2fac terminó con código 0 (0x0).
+El subproceso 0x2d9c terminó con código 0 (0x0).
+El subproceso 0x27e0 terminó con código 0 (0x0).
+El subproceso 0x32fc terminó con código 0 (0x0).
+El subproceso 0x1148 terminó con código 0 (0x0).
+El subproceso 0x33b8 terminó con código 0 (0x0).
+El subproceso 0x7d4 terminó con código 0 (0x0).
+El subproceso 0x2bb4 terminó con código 0 (0x0).
+El subproceso 0x30c4 terminó con código 0 (0x0).
+El subproceso 0x1904 terminó con código 0 (0x0).
+El subproceso 0x308c terminó con código 0 (0x0).
+El subproceso 0x2a04 terminó con código 0 (0x0).
+Excepción producida: 'System.NullReferenceException' en System.Web.dll
+Excepción producida: 'System.Reflection.TargetInvocationException' en mscorlib.dll
+Excepción producida: 'System.NullReferenceException' en System.Web.dll
+El subproceso 0xed0 terminó con código 0 (0x0).
+El subproceso 0x3060 terminó con código 0 (0x0).
+El subproceso 0x2c68 terminó con código 0 (0x0).
+El subproceso 0xe5c terminó con código 0 (0x0).
+El subproceso 0x30a4 terminó con código 0 (0x0).
+El subproceso 0x30b4 terminó con código 0 (0x0).
+El subproceso 0x3024 terminó con código 0 (0x0).
+El subproceso 0x2500 terminó con código 0 (0x0).
+El subproceso 0x2aa4 terminó con código 0 (0x0).
+El subproceso 0x1044 terminó con código 0 (0x0).
+El subproceso 0x23dc terminó con código 0 (0x0).
+El subproceso 0x2d1c terminó con código 0 (0x0).
+El subproceso 0x1c70 terminó con código 0 (0x0).
+El subproceso 0x1408 terminó con código 0 (0x0).
+El subproceso 0x3320 terminó con código 0 (0x0).
+El subproceso 0xc3c terminó con código 0 (0x0).
+El subproceso 0x4ac terminó con código 0 (0x0).
+El subproceso 0x2d00 terminó con código 0 (0x0).
+El subproceso 0x1410 terminó con código 0 (0x0).
+El subproceso 0x1de0 terminó con código 0 (0x0).
+El subproceso 0x20a8 terminó con código 0 (0x0).
+El subproceso 0x2e3c terminó con código 0 (0x0).
+El subproceso 0x18cc terminó con código 0 (0x0).
+El subproceso 0x2ef8 terminó con código 0 (0x0).
+El subproceso 0x1a4c terminó con código 0 (0x0).
+El subproceso 0x19ac terminó con código 0 (0x0).
+El subproceso 0x2bd0 terminó con código 0 (0x0).
+El subproceso 0x2ee4 terminó con código 0 (0x0).
+El subproceso 0x271c terminó con código 0 (0x0).
+El subproceso 0x2a98 terminó con código 0 (0x0).
+El subproceso 0x2ba4 terminó con código 0 (0x0).
+El subproceso 0xbac terminó con código 0 (0x0).
+El subproceso 0x27ac terminó con código 0 (0x0).
+El subproceso 0x12c0 terminó con código 0 (0x0).
+El subproceso 0x1674 terminó con código 0 (0x0).
+El subproceso 0x25f0 terminó con código 0 (0x0).
+El subproceso 0x3224 terminó con código 0 (0x0).
+El subproceso 0x3308 terminó con código 0 (0x0).
+El subproceso 0x20c0 terminó con código 0 (0x0).
+El subproceso 0x2bb4 terminó con código 0 (0x0).
+El subproceso 0x2764 terminó con código 0 (0x0).
+El subproceso 0x1ec0 terminó con código 0 (0x0).
+El subproceso 0x2be0 terminó con código 0 (0x0).
+El subproceso 0x33e4 terminó con código 0 (0x0).
+El subproceso 0x1c48 terminó con código 0 (0x0).
+El subproceso 0x2ba8 terminó con código 0 (0x0).
+El subproceso 0x2d10 terminó con código 0 (0x0).
+El subproceso 0x2d98 terminó con código 0 (0x0).
+El subproceso 0x3360 terminó con código 0 (0x0).
+El subproceso 0x1f58 terminó con código 0 (0x0).
+El subproceso 0x2f1c terminó con código 0 (0x0).
+El subproceso 0x50c terminó con código 0 (0x0).
+El subproceso 0x33d4 terminó con código 0 (0x0).
+El subproceso 0x2378 terminó con código 0 (0x0).
+El subproceso 0x8d4 terminó con código 0 (0x0).
+El subproceso 0x26d8 terminó con código 0 (0x0).
+El subproceso 0x8a8 terminó con código 0 (0x0).
+El subproceso 0x2d8c terminó con código 0 (0x0).
+El subproceso 0x300c terminó con código 0 (0x0).
+El subproceso 0x2e44 terminó con código 0 (0x0).
+El subproceso 0x2cfc terminó con código 0 (0x0).
+El subproceso 0x32c0 terminó con código 0 (0x0).
+El subproceso 0x1fc terminó con código 0 (0x0).
+El subproceso 0x2cdc terminó con código 0 (0x0).
+El subproceso 0x2658 terminó con código 0 (0x0).
+El subproceso 0x32fc terminó con código 0 (0x0).
+El subproceso 0x30c4 terminó con código 0 (0x0).
+El subproceso 0x2950 terminó con código 0 (0x0).
+El subproceso 0x32f0 terminó con código 0 (0x0).
+El subproceso 0x1f88 terminó con código 0 (0x0).
+El subproceso 0x2dfc terminó con código 0 (0x0).
+El subproceso 0x30b4 terminó con código 0 (0x0).
+El subproceso 0x1484 terminó con código 0 (0x0).
+El subproceso 0x2d38 terminó con código 0 (0x0).
+El subproceso 0x1e3c terminó con código 0 (0x0).
+El subproceso 0x2d48 terminó con código 0 (0x0).
+El subproceso 0x2db0 terminó con código 0 (0x0).
+El subproceso 0x1900 terminó con código 0 (0x0).
+El subproceso 0x24e8 terminó con código 0 (0x0).
+El subproceso 0x2e70 terminó con código 0 (0x0).
+El subproceso 0x27a0 terminó con código 0 (0x0).
+El subproceso 0x2fbc terminó con código 0 (0x0).
+El subproceso 0x181c terminó con código 0 (0x0).
+El subproceso 0x25bc terminó con código 0 (0x0).
+El subproceso 0x2180 terminó con código 0 (0x0).
+El subproceso 0x3210 terminó con código 0 (0x0).
+El subproceso 0x24d4 terminó con código 0 (0x0).
+El subproceso 0x2eb8 terminó con código 0 (0x0).
+El subproceso 0x3254 terminó con código 0 (0x0).
+El subproceso 0x2c50 terminó con código 0 (0x0).
+El subproceso 0x2820 terminó con código 0 (0x0).
+El subproceso 0x2fe8 terminó con código 0 (0x0).
+El subproceso 0x2338 terminó con código 0 (0x0).
+El subproceso 0x2904 terminó con código 0 (0x0).
+El subproceso 0x27ec terminó con código 0 (0x0).
+El subproceso 0x19d8 terminó con código 0 (0x0).
+El subproceso 0x23e4 terminó con código 0 (0x0).
+El subproceso 0x337c terminó con código 0 (0x0).
+El subproceso 0x910 terminó con código 0 (0x0).
+El subproceso 0x1c2c terminó con código 0 (0x0).
+El subproceso 0x1dfc terminó con código 0 (0x0).
+El subproceso 0xe74 terminó con código 0 (0x0).
+El subproceso 0xd08 terminó con código 0 (0x0).
+El subproceso 0x1f24 terminó con código 0 (0x0).
+El subproceso 0x2b90 terminó con código 0 (0x0).
+El subproceso 0x25d8 terminó con código 0 (0x0).
+El subproceso 0x24b4 terminó con código 0 (0x0).
+El subproceso 0x2e5c terminó con código 0 (0x0).
+El subproceso 0x19ac terminó con código 0 (0x0).
+El subproceso 0x26ac terminó con código 0 (0x0).
+El subproceso 0x2bb4 terminó con código 0 (0x0).
+El subproceso 0x1fc terminó con código 0 (0x0).
+El subproceso 0xba4 terminó con código 0 (0x0).
+El subproceso 0x25b4 terminó con código 0 (0x0).
+El subproceso 0x3394 terminó con código 0 (0x0).
+El subproceso 0x3374 terminó con código 0 (0x0).
+El subproceso 0x1e78 terminó con código 0 (0x0).
+El subproceso 0x2a90 terminó con código 0 (0x0).
+Excepción producida: 'System.Threading.ThreadAbortException' en mscorlib.dll
+Excepción producida: 'System.Threading.ThreadAbortException' en Web.dll
+Excepción producida: 'System.Threading.ThreadAbortException' en System.Web.dll
+Excepción producida: 'System.Threading.ThreadAbortException' en System.Web.dll
+Excepción producida: 'System.Threading.ThreadAbortException' en System.Web.dll
+Excepción producida: 'System.Threading.ThreadAbortException' en System.Web.dll
+Excepción producida: 'System.Threading.ThreadAbortException' en System.Web.dll
+Excepción producida: 'System.Threading.ThreadAbortException' en System.Web.dll
+Excepción producida: 'System.Threading.ThreadAbortException' en System.Web.dll
+Excepción producida: 'System.Threading.ThreadAbortException' en System.Web.dll
+Excepción producida: 'System.Threading.ThreadAbortException' en System.Web.dll
+Excepción producida: 'System.Threading.ThreadAbortException' en System.Web.dll
+Excepción producida: 'System.Threading.ThreadAbortException' en mscorlib.dll
+Excepción producida: 'System.Threading.ThreadAbortException' en System.Web.dll
+Se produjo una excepción en línea 2, columna 10692 en http://localhost:54762/Scripts/jquery.min1.12.4.js
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Se produjo una excepción en línea 2, columna 10917 en http://localhost:54762/Scripts/jquery.min1.12.4.js
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Error al leer el mapa de origen C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Scripts\popper.min.js.map: No se pudo encontrar el archivo 'C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Scripts\popper.min.js.map'..'iexplore.exe' (Script): 'Código de script (Windows Internet Explorer)' cargado. 
+Excepción producida: 'System.Threading.ThreadAbortException' en mscorlib.dll
+Excepción producida: 'System.Threading.ThreadAbortException' en Web.dll
+Se produjo una excepción en línea 2, columna 10692 en http://localhost:54762/Scripts/jquery.min1.12.4.js
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Se produjo una excepción en línea 2, columna 10917 en http://localhost:54762/Scripts/jquery.min1.12.4.js
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Error al leer el mapa de origen C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Scripts\popper.min.js.map: No se pudo encontrar el archivo 'C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Scripts\popper.min.js.map'..Se produjo una excepción en línea 2, columna 10692 en http://localhost:54762/Scripts/jquery.min1.12.4.js
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Se produjo una excepción en línea 2, columna 10917 en http://localhost:54762/Scripts/jquery.min1.12.4.js
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Error al leer el mapa de origen C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Scripts\popper.min.js.map: No se pudo encontrar el archivo 'C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Scripts\popper.min.js.map'..El subproceso 0x2c98 terminó con código 0 (0x0).
+El subproceso 0x33bc terminó con código 0 (0x0).
+El subproceso 0x2ce8 terminó con código 0 (0x0).
+El subproceso 0x20ac terminó con código 0 (0x0).
+Se produjo una excepción en línea 2, columna 10692 en http://localhost:54762/Scripts/jquery.min1.12.4.js
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Se produjo una excepción en línea 2, columna 10917 en http://localhost:54762/Scripts/jquery.min1.12.4.js
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Error al leer el mapa de origen C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Scripts\popper.min.js.map: No se pudo encontrar el archivo 'C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Scripts\popper.min.js.map'..Excepción producida: 'System.Threading.ThreadAbortException' en mscorlib.dll
+Excepción producida: 'System.Threading.ThreadAbortException' en System.Web.dll
+Excepción producida: 'System.Threading.ThreadAbortException' en System.Web.dll
+Excepción producida: 'System.Threading.ThreadAbortException' en System.Web.dll
+Excepción producida: 'System.Threading.ThreadAbortException' en System.Web.dll
+Excepción producida: 'System.Threading.ThreadAbortException' en System.Web.dll
+Excepción producida: 'System.Threading.ThreadAbortException' en System.Web.dll
+Excepción producida: 'System.Threading.ThreadAbortException' en System.Web.dll
+Excepción producida: 'System.Threading.ThreadAbortException' en System.Web.dll
+Excepción producida: 'System.Threading.ThreadAbortException' en System.Web.dll
+Excepción producida: 'System.IO.FileNotFoundException' en mscorlib.dll
+Excepción producida: 'System.IO.FileNotFoundException' en mscorlib.dll
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'Microsoft.GeneratedCode' cargado. 
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraReports.v17.1.Web.resources\v4.0_17.1.0.0_es_b88d1754d700e49a\DevExpress.XtraReports.v17.1.Web.resources.dll' cargado. El módulo se compiló sin símbolos.
 Se produjo una excepción en línea 2, columna 10692 en http://localhost:54762/Scripts/jquery.min1.12.4.js
 0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
 Se produjo una excepción en línea 2, columna 10917 en http://localhost:54762/Scripts/jquery.min1.12.4.js
@@ -200,6 +804,8 @@ Se produjo una excepción en línea 18335, columna 12242 en http://localhost:547
 0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
 Excepción producida: 'System.Threading.ThreadAbortException' en mscorlib.dll
 Excepción producida: 'System.Threading.ThreadAbortException' en DevExpress.Web.v17.1.dll
+Se produjo una excepción en línea 18335, columna 12242 en http://localhost:54762/DXR.axd?r=1_258,1_139,1_252,1_165,1_175,1_142,1_136,1_241,1_244,1_250,1_233,1_182,1_183,24_392,24_391,24_393,24_394,24_397,24_398,24_399,24_395,24_396,1_184,9_50,9_51,24_379,24_389,9_53,9_52,1_185-7oDbg&p=eba8fb1c
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
 Excepción producida: 'System.Threading.ThreadAbortException' en System.Web.dll
 Se produjo una excepción en línea 18335, columna 12242 en http://localhost:54762/DXR.axd?r=1_258,1_139,1_252,1_165,1_175,1_142,1_136,1_241,1_244,1_250,1_233,1_182,1_183,24_392,24_391,24_393,24_394,24_397,24_398,24_399,24_395,24_396,1_184,9_50,9_51,24_379,24_389,9_53,9_52,1_185-7oDbg&p=eba8fb1c
 0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
@@ -207,9 +813,7 @@ Se produjo una excepción en línea 18335, columna 12242 en http://localhost:547
 0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
 Se produjo una excepción en línea 18335, columna 12242 en http://localhost:54762/DXR.axd?r=1_258,1_139,1_252,1_165,1_175,1_142,1_136,1_241,1_244,1_250,1_233,1_182,1_183,24_392,24_391,24_393,24_394,24_397,24_398,24_399,24_395,24_396,1_184,9_50,9_51,24_379,24_389,9_53,9_52,1_185-7oDbg&p=eba8fb1c
 0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
-Se produjo una excepción en línea 18335, columna 12242 en http://localhost:54762/DXR.axd?r=1_258,1_139,1_252,1_165,1_175,1_142,1_136,1_241,1_244,1_250,1_233,1_182,1_183,24_392,24_391,24_393,24_394,24_397,24_398,24_399,24_395,24_396,1_184,9_50,9_51,24_379,24_389,9_53,9_52,1_185-7oDbg&p=eba8fb1c
-0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
-'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131674231985743939): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Serialization.resources\v4.0_4.0.0.0_es_b77a5c561934e089\System.Runtime.Serialization.resources.dll' cargado. El módulo se compiló sin símbolos.
+'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/3/ROOT-1-131680274704418873): 'C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Serialization.resources\v4.0_4.0.0.0_es_b77a5c561934e089\System.Runtime.Serialization.resources.dll' cargado. El módulo se compiló sin símbolos.
 Excepción producida: 'System.Threading.ThreadAbortException' en mscorlib.dll
 Excepción producida: 'System.Threading.ThreadAbortException' en DevExpress.Web.v17.1.dll
 Excepción producida: 'System.Threading.ThreadAbortException' en System.Web.dll
@@ -227,8 +831,35 @@ Excepción producida: 'System.Threading.ThreadAbortException' en System.Web.dll
 Excepción producida: 'System.Threading.ThreadAbortException' en mscorlib.dll
 Excepción producida: 'System.Threading.ThreadAbortException' en DevExpress.Web.v17.1.dll
 Excepción producida: 'System.Threading.ThreadAbortException' en System.Web.dll
-El subproceso 0x1fc4 terminó con código 0 (0x0).
-El subproceso 0x2544 terminó con código 0 (0x0).
-El programa '[3608] iexplore.exe' terminó con código 0 (0x0).
-El programa '[8372] iisexpress.exe: Seguimiento de programa' terminó con código 0 (0x0).
-El programa '[8372] iisexpress.exe' terminó con código -1 (0xffffffff).
+El subproceso 0x10dc terminó con código 0 (0x0).
+El subproceso 0x3d0 terminó con código 0 (0x0).
+El subproceso 0x3218 terminó con código 0 (0x0).
+El subproceso 0x858 terminó con código 0 (0x0).
+Se produjo una excepción en línea 18335, columna 12242 en http://localhost:54762/DXR.axd?r=1_258,1_139,1_252,1_165,1_175,1_142,1_136,1_241,1_244,1_250,1_233,1_182,1_183,24_392,24_391,24_393,24_394,24_397,24_398,24_399,24_395,24_396,1_184,9_50,9_51,24_379,24_389,9_53,9_52,1_185-7oDbg&p=eba8fb1c
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Se produjo una excepción en línea 18335, columna 12242 en http://localhost:54762/DXR.axd?r=1_258,1_139,1_252,1_165,1_175,1_142,1_136,1_241,1_244,1_250,1_233,1_182,1_183,24_392,24_391,24_393,24_394,24_397,24_398,24_399,24_395,24_396,1_184,9_50,9_51,24_379,24_389,9_53,9_52,1_185-7oDbg&p=eba8fb1c
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Se produjo una excepción en línea 18335, columna 12242 en http://localhost:54762/DXR.axd?r=1_258,1_139,1_252,1_165,1_175,1_142,1_136,1_241,1_244,1_250,1_233,1_182,1_183,24_392,24_391,24_393,24_394,24_397,24_398,24_399,24_395,24_396,1_184,9_50,9_51,24_379,24_389,9_53,9_52,1_185-7oDbg&p=eba8fb1c
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Se produjo una excepción en línea 18335, columna 12242 en http://localhost:54762/DXR.axd?r=1_258,1_139,1_252,1_165,1_175,1_142,1_136,1_241,1_244,1_250,1_233,1_182,1_183,24_392,24_391,24_393,24_394,24_397,24_398,24_399,24_395,24_396,1_184,9_50,9_51,24_379,24_389,9_53,9_52,1_185-7oDbg&p=eba8fb1c
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Se produjo una excepción en línea 18335, columna 12242 en http://localhost:54762/DXR.axd?r=1_258,1_139,1_252,1_165,1_175,1_142,1_136,1_241,1_244,1_250,1_233,1_182,1_183,24_392,24_391,24_393,24_394,24_397,24_398,24_399,24_395,24_396,1_184,9_50,9_51,24_379,24_389,9_53,9_52,1_185-7oDbg&p=eba8fb1c
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Se produjo una excepción en línea 18335, columna 12242 en http://localhost:54762/DXR.axd?r=1_258,1_139,1_252,1_165,1_175,1_142,1_136,1_241,1_244,1_250,1_233,1_182,1_183,24_392,24_391,24_393,24_394,24_397,24_398,24_399,24_395,24_396,1_184,9_50,9_51,24_379,24_389,9_53,9_52,1_185-7oDbg&p=eba8fb1c
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Se produjo una excepción en línea 18335, columna 12242 en http://localhost:54762/DXR.axd?r=1_258,1_139,1_252,1_165,1_175,1_142,1_136,1_241,1_244,1_250,1_233,1_182,1_183,24_392,24_391,24_393,24_394,24_397,24_398,24_399,24_395,24_396,1_184,9_50,9_51,24_379,24_389,9_53,9_52,1_185-7oDbg&p=eba8fb1c
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Se produjo una excepción en línea 18335, columna 12242 en http://localhost:54762/DXR.axd?r=1_258,1_139,1_252,1_165,1_175,1_142,1_136,1_241,1_244,1_250,1_233,1_182,1_183,24_392,24_391,24_393,24_394,24_397,24_398,24_399,24_395,24_396,1_184,9_50,9_51,24_379,24_389,9_53,9_52,1_185-7oDbg&p=eba8fb1c
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Se produjo una excepción en línea 18335, columna 12242 en http://localhost:54762/DXR.axd?r=1_258,1_139,1_252,1_165,1_175,1_142,1_136,1_241,1_244,1_250,1_233,1_182,1_183,24_392,24_391,24_393,24_394,24_397,24_398,24_399,24_395,24_396,1_184,9_50,9_51,24_379,24_389,9_53,9_52,1_185-7oDbg&p=eba8fb1c
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Se produjo una excepción en línea 18335, columna 12242 en http://localhost:54762/DXR.axd?r=1_258,1_139,1_252,1_165,1_175,1_142,1_136,1_241,1_244,1_250,1_233,1_182,1_183,24_392,24_391,24_393,24_394,24_397,24_398,24_399,24_395,24_396,1_184,9_50,9_51,24_379,24_389,9_53,9_52,1_185-7oDbg&p=eba8fb1c
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Se produjo una excepción en línea 18335, columna 12242 en http://localhost:54762/DXR.axd?r=1_258,1_139,1_252,1_165,1_175,1_142,1_136,1_241,1_244,1_250,1_233,1_182,1_183,24_392,24_391,24_393,24_394,24_397,24_398,24_399,24_395,24_396,1_184,9_50,9_51,24_379,24_389,9_53,9_52,1_185-7oDbg&p=eba8fb1c
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+Se produjo una excepción en línea 18335, columna 12242 en http://localhost:54762/DXR.axd?r=1_258,1_139,1_252,1_165,1_175,1_142,1_136,1_241,1_244,1_250,1_233,1_182,1_183,24_392,24_391,24_393,24_394,24_397,24_398,24_399,24_395,24_396,1_184,9_50,9_51,24_379,24_389,9_53,9_52,1_185-7oDbg&p=eba8fb1c
+0x800a139e - Error en tiempo de ejecución de JavaScript: SyntaxError
+El subproceso 0x2f10 terminó con código 0 (0x0).
+El programa '[3672] iexplore.exe' terminó con código 0 (0x0).
+El programa '[728] iisexpress.exe: Seguimiento de programa' terminó con código 0 (0x0).
+El programa '[728] iisexpress.exe' terminó con código -1 (0xffffffff).

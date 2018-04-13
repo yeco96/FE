@@ -44,7 +44,8 @@ namespace Web.Pages.Facturacion
             this.informacionReferencia = new List<InformacionReferencia>();
         }
         #endregion
-        #region LoadMyRegion
+
+        #region Load
         protected void Page_Load(object sender, EventArgs e)
         {
             Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
@@ -187,7 +188,16 @@ namespace Web.Pages.Facturacion
             }
         }
         #endregion
+
         #region METODOS
+        protected void txtReceptorCorreo_TokensChanged(object sender, EventArgs e)
+        {
+            ASPxTokenBox correos = (ASPxTokenBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("txtReceptorCorreo");
+            if (correos.Tokens.Count > 5)
+            {
+                correos.Tokens.RemoveAt(5);
+            }
+        }
         public EmisorReceptorIMEC crearModificarReceptor(EmisorReceptorIMEC receptor)
         {
             try
@@ -560,8 +570,101 @@ namespace Web.Pages.Facturacion
                 this.txtPlazoCredito.Enabled = false;
             }
         }
+        protected void cmbTipoDocumento_ValueChanged(object sender, EventArgs e)
+        {
+            //VERIFICA SI EL SELECCIONADO ES CONTINGENCIA
+            if (cmbTipoDocumento.Text.Contains("CONTINGENCIA"))
+            {
+                this.alertMessages.Attributes["class"] = "alert alert-info";
+                this.alertMessages.InnerText = "Se le recuerda que debe de agregar el número de documento al que hace referencia, en la sección de 'Referencias'";
+            }
+            using (var conexion = new DataModelFE())
+            {
+                /* SUCURSAL CAJA */
+                string emisor = Session["emisor"].ToString();
+                List<ConsecutivoDocElectronico> lista = conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor &&
+                x.tipoDocumento == this.cmbTipoDocumento.Value.ToString() && x.estado == Estado.ACTIVO.ToString()).ToList();
+                if (lista.Count == 0)
+                {
+                    ConsecutivoDocElectronico consecutivo = new ConsecutivoDocElectronico();
+                    consecutivo.sucursal = ConsecutivoDocElectronico.DEFAULT_SUCURSAL;
+                    consecutivo.caja = ConsecutivoDocElectronico.DEFAULT_CAJA;
+                    consecutivo.digitoVerificador = ConsecutivoDocElectronico.DEFAULT_DIGITO_VERIFICADOR;
+                    consecutivo.emisor = emisor;
+                    consecutivo.tipoDocumento = this.cmbTipoDocumento.Value.ToString();
+                    consecutivo.consecutivo = 1;
+                    consecutivo.estado = Estado.ACTIVO.ToString();
+                    consecutivo.fechaCreacion = Date.DateTimeNow();
+                    conexion.ConsecutivoDocElectronico.Add(consecutivo);
+                    conexion.SaveChanges();
+                    lista = conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor &&
+                            x.tipoDocumento == this.cmbTipoDocumento.Value.ToString() && x.estado == Estado.ACTIVO.ToString()).ToList();
+                }
+                this.cmbSucursalCaja.SelectedIndex = 0;
+                this.cmbSucursalCaja.Items.Clear();
+                foreach (var item in lista)
+                {
+                    this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}", item.sucursal, item.caja));
+                }
+                this.cmbSucursalCaja.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+            }
+        }
         #endregion
+
         #region METODOS DEL GRID
+        protected void ASPxGridViewClientes_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)
+        {
+            try
+            {
+                using (var conexion = new DataModelFE())
+                {
+                    var cliente = e.Values["identificacion"].ToString();
+                    //busca objeto
+                    object[] key = new object[] { Session["emisor"].ToString(), cliente };
+                    var itemToRemove = conexion.Cliente.Find(key);
+                    conexion.Cliente.Remove(itemToRemove);
+                    conexion.SaveChanges();
+                    //esto es para el manero del devexpress
+                    e.Cancel = true;
+                    this.ASPxGridView1.CancelEdit();
+                }
+            }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
+            }
+            finally
+            {
+                //refescar los datos
+                this.refreshData();
+            }
+        }
+        protected void ASPxGridViewClientes_SelectionChanged(object sender, EventArgs e)
+        {
+            if ((sender as ASPxGridView).GetSelectedFieldValues("identificacion").Count > 0)
+            {
+                string identificacion = (sender as ASPxGridView).GetSelectedFieldValues("identificacion")[0].ToString();
+                using (var conexion = new DataModelFE())
+                {
+                    EmisorReceptorIMEC receptor = conexion.EmisorReceptorIMEC.Find(identificacion);
+                    this.loadReceptor(receptor);
+                    this.documento.ActiveTabIndex = 3;
+                }
+                this.alertMessages.Attributes["class"] = "alert alert-info";
+                this.alertMessages.InnerText = "Datos cargados con correctamente";
+            }
+        }
         protected void ASPxGridView1_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
         {
             if (this.ASPxGridView1.IsNewRowEditing)
@@ -700,7 +803,6 @@ namespace Web.Pages.Facturacion
                 this.refreshData();
             }
         }
-
         protected void ASPxGridView1_RowUpdating(object sender, DevExpress.Web.Data.ASPxDataUpdatingEventArgs e)
         {
             try
@@ -708,28 +810,17 @@ namespace Web.Pages.Facturacion
                 using (var conexion = new DataModelFE())
                 {
                     DetalleServicio detalleServicio = (DetalleServicio)Session["detalleServicio"];
-
                     string codProducto = e.NewValues["producto"] != null ? e.NewValues["producto"].ToString().ToUpper() : null;
                     LineaDetalle dato = detalleServicio.lineaDetalle.Where(x => x.codigo.codigo == codProducto).FirstOrDefault();
                     //llena el objeto con los valores de la pantalla
-
                     Producto producto = conexion.Producto.Where(x => x.codigo == codProducto).FirstOrDefault();
-
-                    //dato.numeroLinea = detalleServicio.lineaDetalle.Count;
                     dato.cantidad = e.NewValues["cantidad"] != null ? decimal.Parse(e.NewValues["cantidad"].ToString()) : 0;
-                    //dato.codigo.tipo = producto.tipo;
-                    //dato.codigo.codigo = producto.codigo;
-                    //dato.detalle = producto.descripcion;
-                    //dato.unidadMedida = producto.unidadMedida;
                     dato.unidadMedidaComercial = "";
-
                     decimal precio = "0".Equals(e.NewValues["precioUnitario"].ToString()) ? producto.precio : decimal.Parse(e.NewValues["precioUnitario"].ToString());
-
                     dato.tipoServMerc = producto.tipoServMerc;
                     dato.producto = producto.codigo;/*solo para uso del grid*/
                     dato.precioUnitario = precio;
                     dato.montoDescuento = e.NewValues["montoDescuento"] != null ? decimal.Parse(e.NewValues["montoDescuento"].ToString()) : 0;
-
                     dato.calcularMontos();
                     dato.impuestos.Clear();
                     foreach (var item in conexion.ProductoImpuesto.Where(x => x.idProducto == producto.id).OrderByDescending(x => x.tipoImpuesto))
@@ -747,21 +838,14 @@ namespace Web.Pages.Facturacion
                     /*EXONERACION*/
                     dato = this.verificaExoneracion(dato);
                     dato.calcularMontos();
-
-
                     dato.naturalezaDescuento = e.NewValues["naturalezaDescuento"] != null ? e.NewValues["naturalezaDescuento"].ToString().ToUpper() : null;
                     dato.naturalezaDescuento = dato.naturalezaDescuento;
-
                     //agrega el objeto 
                     Session["detalleServicio"] = detalleServicio;
-
                 }
-
                 //esto es para el manero del devexpress
                 e.Cancel = true;
                 this.ASPxGridView1.CancelEdit();
-
-
             }
             catch (Exception ex)
             {
@@ -773,7 +857,6 @@ namespace Web.Pages.Facturacion
                 this.refreshData();
             }
         }
-
         protected void ASPxGridView2_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)
         {
             try
@@ -784,12 +867,10 @@ namespace Web.Pages.Facturacion
                     var id = e.Values["numero"].ToString();
                     InformacionReferencia dato = informacionReferencia.Where(x => x.numero == id).FirstOrDefault();
                     informacionReferencia.Remove(dato);
-
                     //esto es para el manero del devexpress
                     e.Cancel = true;
                     this.ASPxGridView2.CancelEdit();
                 }
-
             }
             catch (Exception ex)
             {
@@ -801,7 +882,6 @@ namespace Web.Pages.Facturacion
                 this.refreshData();
             }
         }
-
         protected void ASPxGridView2_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
         {
             try
@@ -809,13 +889,11 @@ namespace Web.Pages.Facturacion
                 using (var conexion = new DataModelFE())
                 {
                     List<InformacionReferencia> informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
-
                     //se declara el objeto a insertar
                     InformacionReferencia dato = new InformacionReferencia();
                     //llena el objeto con los valores de la pantalla
                     string clave = e.NewValues["numero"] != null ? e.NewValues["numero"].ToString().ToUpper() : "";
                     WSRecepcionPOST documento = null;
-
                     if (clave.Length == 20)
                     {
                         documento = conexion.WSRecepcionPOST.Where(x => x.clave.Substring(21, 20) == clave).FirstOrDefault();
@@ -824,7 +902,6 @@ namespace Web.Pages.Facturacion
                     {
                         documento = conexion.WSRecepcionPOST.Find(clave);
                     }
-
                     if (documento != null)
                     {
                         dato.fechaEmision = ((DateTime)documento.fecha).ToString("yyyy-MM-dd");
@@ -844,22 +921,16 @@ namespace Web.Pages.Facturacion
                         dato.tipoDocumento = e.NewValues["tipoDocumento"] != null ? e.NewValues["tipoDocumento"].ToString().ToUpper() : "";
                         dato.numero = clave;
                     }
-
-
                     dato.razon = e.NewValues["razon"] != null ? e.NewValues["razon"].ToString().ToUpper() : null;
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
-
                     //agrega el objeto
                     informacionReferencia.Add(dato);
                     Session["informacionReferencia"] = informacionReferencia;
-
                 }
 
                 //esto es para el manero del devexpress
                 e.Cancel = true;
                 this.ASPxGridView2.CancelEdit();
-
-
             }
             catch (DbEntityValidationException ex)
             {
@@ -867,13 +938,11 @@ namespace Web.Pages.Facturacion
                 var errorMessages = ex.EntityValidationErrors
                         .SelectMany(x => x.ValidationErrors)
                         .Select(x => x.ErrorMessage);
-
                 // Join the list to a single string.
                 var fullErrorMessage = string.Join("; ", errorMessages);
 
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
-
             }
             catch (Exception ex)
             {
@@ -885,7 +954,6 @@ namespace Web.Pages.Facturacion
                 this.refreshData();
             }
         }
-
         protected void ASPxGridView2_RowUpdating(object sender, DevExpress.Web.Data.ASPxDataUpdatingEventArgs e)
         {
             try
@@ -893,12 +961,10 @@ namespace Web.Pages.Facturacion
                 using (var conexion = new DataModelFE())
                 {
                     List<InformacionReferencia> informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
-
                     //se declara el objeto a insertar
                     InformacionReferencia dato = new InformacionReferencia();
                     //llena el objeto con los valores de la pantalla
                     string clave = e.NewValues["numero"] != null ? e.NewValues["numero"].ToString().ToUpper() : "";
-
                     dato = informacionReferencia.Where(x => x.numero == clave).FirstOrDefault();
                     if (dato != null)
                     {
@@ -912,16 +978,12 @@ namespace Web.Pages.Facturacion
                     }
                     dato.razon = e.NewValues["razon"] != null ? e.NewValues["razon"].ToString().ToUpper() : null;
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
-
                     //modifica el objeto
                     Session["informacionReferencia"] = informacionReferencia;
                 }
-
                 //esto es para el manero del devexpress
                 e.Cancel = true;
                 this.ASPxGridView2.CancelEdit();
-
-
             }
             catch (DbEntityValidationException ex)
             {
@@ -929,13 +991,10 @@ namespace Web.Pages.Facturacion
                 var errorMessages = ex.EntityValidationErrors
                         .SelectMany(x => x.ValidationErrors)
                         .Select(x => x.ErrorMessage);
-
                 // Join the list to a single string.
                 var fullErrorMessage = string.Join("; ", errorMessages);
-
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
-
             }
             catch (Exception ex)
             {
@@ -947,7 +1006,6 @@ namespace Web.Pages.Facturacion
                 this.refreshData();
             }
         }
-
         protected void ASPxGridView2_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
         {
             if (ASPxGridView2.IsNewRowEditing)
@@ -957,10 +1015,9 @@ namespace Web.Pages.Facturacion
                 if (e.Column.FieldName == "razon") { e.Editor.Value = "DETALLE DE REFERENCIA"; e.Editor.BackColor = System.Drawing.Color.White; }
             }
         }
-
         #endregion
 
-
+        #region Facturar
         /// <summary>
         /// obtiene los valores para crear el documento electronico
         /// </summary>
@@ -970,10 +1027,8 @@ namespace Web.Pages.Facturacion
         {
             try
             {
-
                 Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
                 DetalleServicio detalle = (DetalleServicio)Session["detalleServicio"];
-
                 if (string.IsNullOrWhiteSpace(((ASPxTextBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorNombre")).Text) ||
                     string.IsNullOrWhiteSpace(((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text))
                 {
@@ -1024,7 +1079,6 @@ namespace Web.Pages.Facturacion
                     this.alertMessages1.InnerText = "La identificación debe tener de 10 digitos";
                     return;
                 }
-
                 if (detalle.lineaDetalle.Count == 0)
                 {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
@@ -1047,11 +1101,8 @@ namespace Web.Pages.Facturacion
                         return;
                     }
                 }
-
-
                 using (var conexion = new DataModelFE())
                 {
-
                     DocumentoElectronico dato = new DocumentoElectronico();
                     if (TipoDocumento.FACTURA_ELECTRONICA.Equals(this.cmbTipoDocumento.Value))
                     {
@@ -1065,12 +1116,10 @@ namespace Web.Pages.Facturacion
                     {
                         dato = new NotaCreditoElectronica();
                     }
-
                     if (TipoDocumento.NOTA_DEBITO.Equals(this.cmbTipoDocumento.Value))
                     {
                         dato = new NotaDebitoElectronica();
                     }
-
                     /* ENCABEZADO */
                     dato.medioPago = this.cmbMedioPago.Value.ToString();
                     dato.plazoCredito = this.txtPlazoCredito.Text;
@@ -1085,36 +1134,28 @@ namespace Web.Pages.Facturacion
                         this.alertMessages1.InnerText = "El plazo de crédito debe ser mayor a cero";
                         return;
                     }
-
-
                     dato.fechaEmision = this.txtFechaEmision.Date.ToString("yyyy-MM-ddTHH:mm:ss-06:00");
                     dato.medioPago = this.cmbMedioPago.Value.ToString();
-
                     /* DETALLE */
                     dato.detalleServicio = detalle;
-
                     /* EMISOR */
                     EmisorReceptorIMEC elEmisor = (EmisorReceptorIMEC)Session["elEmisor"];
-
                     dato.emisor.identificacion.tipo = elEmisor.identificacionTipo;
                     dato.emisor.identificacion.numero = elEmisor.identificacion;
                     dato.emisor.ubicacion.otrassenas = elEmisor.otraSena.ToUpper();
                     dato.emisor.nombre = elEmisor.nombre;
                     dato.emisor.ubicacion.otrassenas = elEmisor.otraSena.ToUpper();
                     dato.emisor.nombreComercial = elEmisor.nombreComercial;
-
                     dato.emisor.telefono.codigoPais = elEmisor.telefonoCodigoPais;
                     dato.emisor.telefono.numTelefono = elEmisor.telefono;
                     dato.emisor.fax.codigoPais = elEmisor.faxCodigoPais;
                     dato.emisor.fax.numTelefono = elEmisor.fax;
                     dato.emisor.correoElectronico = elEmisor.correoElectronico.ToLower();
-
                     dato.emisor.ubicacion.provincia = elEmisor.provincia.ToUpper();
                     dato.emisor.ubicacion.canton = elEmisor.canton.ToUpper();
                     dato.emisor.ubicacion.distrito = elEmisor.distrito.ToUpper();
                     dato.emisor.ubicacion.barrio = elEmisor.barrio.ToUpper();
                     dato.emisor.ubicacion.otrassenas = elEmisor.otraSena.ToUpper();
-
                     /* RECEPTOR */
                     bool nuevo = true;
                     string identificacionReceptor = ((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text;
@@ -1130,25 +1171,20 @@ namespace Web.Pages.Facturacion
                         nuevo = true;
                     }
                     elReceptor = this.crearModificarReceptor(elReceptor);
-
                     dato.receptor.identificacion.tipo = elReceptor.identificacionTipo;
                     dato.receptor.identificacion.numero = elReceptor.identificacion;
                     dato.receptor.nombre = elReceptor.nombre;
                     dato.receptor.nombreComercial = elReceptor.nombreComercial;
-
                     dato.receptor.telefono.codigoPais = elReceptor.telefonoCodigoPais;
                     dato.receptor.telefono.numTelefono = elReceptor.telefono;
-
                     dato.receptor.fax.codigoPais = elReceptor.faxCodigoPais;
                     dato.receptor.fax.numTelefono = elReceptor.fax;
                     dato.receptor.correoElectronico = Utilidades.getCorreoPrincipal(elReceptor.correoElectronico);
-
                     dato.receptor.ubicacion.provincia = elReceptor.provincia;
                     dato.receptor.ubicacion.canton = elReceptor.canton;
                     dato.receptor.ubicacion.distrito = elReceptor.distrito;
                     dato.receptor.ubicacion.barrio = elReceptor.barrio;
                     dato.receptor.ubicacion.otrassenas = elReceptor.otraSena;
-
                     dato.receptor.verificar();
                     if (!string.IsNullOrWhiteSpace(elReceptor.identificacion))
                     {
@@ -1162,7 +1198,6 @@ namespace Web.Pages.Facturacion
                         }
                         conexion.SaveChanges();
                     }
-
                     /* RESUMEN */
                     dato.resumenFactura.codigoMoneda = this.cmbTipoMoneda.Value.ToString();
                     if (!TipoMoneda.CRC.Equals(dato.resumenFactura.codigoMoneda))
@@ -1170,14 +1205,12 @@ namespace Web.Pages.Facturacion
                         dato.resumenFactura.tipoCambio = decimal.Parse(this.txtTipoCambio.Text.Replace(",", "").Replace(".", "")) / 100;
                     }
                     dato.resumenFactura.calcularResumenFactura(dato.detalleServicio.lineaDetalle);
-
                     /* INFORMACION DE REFERENCIA */
                     dato.informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
                     foreach (var item in dato.informacionReferencia)
                     {
                         item.fechaEmision = item.fechaEmisionTotal;
                     }
-
                     /* OTROS */
                     if (!string.IsNullOrWhiteSpace(this.txtOtros.Text))
                     {
@@ -1191,10 +1224,8 @@ namespace Web.Pages.Facturacion
                             dato.otros.otrosTextos.Add(empresa.leyenda);
                         }
                     }
-
                     /* VERIFICA VACIOS PARA XML */
                     dato.verificaDatosParaXML();
-
                     //genera el consecutivo del documento
                     string sucursal = this.cmbSucursalCaja.Value.ToString().Substring(0, 3);
                     string caja = this.cmbSucursalCaja.Value.ToString().Substring(3, 5);
@@ -1204,7 +1235,6 @@ namespace Web.Pages.Facturacion
                     {
                         dato.clave = consecutivo.getClave(this.txtFechaEmision.Date.ToString("yyyyMMdd"));
                         dato.numeroConsecutivo = consecutivo.getConsecutivo();
-
                         consecutivo.consecutivo += 1;
                         conexion.Entry(consecutivo).State = EntityState.Modified;
                     }
@@ -1219,27 +1249,20 @@ namespace Web.Pages.Facturacion
                         consecutivo.consecutivo = 1;
                         consecutivo.estado = Estado.ACTIVO.ToString();
                         consecutivo.fechaCreacion = Date.DateTimeNow();
-
                         dato.clave = consecutivo.getClave(this.txtFechaEmision.Date.ToString("yyyyMMdd"));
                         dato.numeroConsecutivo = consecutivo.getConsecutivo();
-
                         consecutivo.consecutivo += 1;
                         conexion.ConsecutivoDocElectronico.Add(consecutivo);
-
                     }
-
                     string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
                     string xmlSigned = FirmaXML.getXMLFirmadoWeb(xml, elEmisor.llaveCriptografica, elEmisor.claveLlaveCriptografica);
                     string responsePost = await Services.enviarDocumentoElectronico(false, dato, elEmisor, this.cmbTipoDocumento.Value.ToString(), Session["usuario"].ToString());
-
                     this.btnFacturar.Enabled = false;
                     conexion.SaveChanges();
-
                     if (responsePost.Equals("Success"))
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-info";
                         this.alertMessages.InnerText = String.Format("Documento #{0} enviado", dato.numeroConsecutivo);
-
                         if (!string.IsNullOrWhiteSpace(dato.receptor.correoElectronico))
                         {
                             List<string> cc = new List<string>();
@@ -1250,13 +1273,10 @@ namespace Web.Pages.Facturacion
                             }
                             // copia al emisor
                             cc.Add(Utilidades.getCorreoPrincipal(((EmisorReceptorIMEC)Session["elEmisor"]).correoElectronico));
-
                             Utilidades.sendMail(Session["emisor"].ToString(), dato.receptor.correoElectronico,
                                 string.Format("{0} - {1}", dato.numeroConsecutivo, elEmisor.nombre),
                                 Utilidades.mensageGenerico(), "Documento Electrónico", EncodeXML.EncondeXML.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave, cc);
                         }
-
-
                     }
                     else if (responsePost.Equals("Error"))
                     {
@@ -1276,8 +1296,6 @@ namespace Web.Pages.Facturacion
                         this.alertMessages1.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
                         return;
                     }
-
-
                     if (empresa.tipoImpresion.Equals("A4"))
                     {
                         Response.Redirect("~/Pages/Consulta/" + dato.clave);
@@ -1286,7 +1304,6 @@ namespace Web.Pages.Facturacion
                     {
                         Response.Redirect("~/Pages/ConsultaRP/" + dato.clave);
                     }
-
                 }
             }
             catch (DbEntityValidationException ex)
@@ -1295,17 +1312,14 @@ namespace Web.Pages.Facturacion
                 var errorMessages = ex.EntityValidationErrors
                         .SelectMany(x => x.ValidationErrors)
                         .Select(x => x.ErrorMessage);
-
                 // Join the list to a single string.
                 var fullErrorMessage = string.Join("; ", errorMessages);
-
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
                 this.alertMessages.InnerText = fullErrorMessage;
                 //Se agrega segundo mensaje
                 this.alertMessages1.Attributes["class"] = "alert alert-danger";
                 this.alertMessages1.InnerText = fullErrorMessage;
                 Server.ClearError();
-
             }
             catch (Exception ex)
             {
@@ -1320,16 +1334,16 @@ namespace Web.Pages.Facturacion
                 //refescar los datos
                 this.refreshData();
             }
-
         }
+        #endregion
 
+        #region Buscar Receptor
         protected void btnBuscarReceptor_Click(object sender, EventArgs e)
         {
             try
             {
                 using (var conexion = new DataModelFE())
                 {
-
                     /* RECEPTOR */
                     if (string.IsNullOrWhiteSpace(((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text))
                     {
@@ -1352,7 +1366,6 @@ namespace Web.Pages.Facturacion
                             this.alertMessages.InnerText = "Datos del receptor no existen";
                         }
                     }
-
                 }
             }
             catch (Exception ex)
@@ -1361,123 +1374,7 @@ namespace Web.Pages.Facturacion
                 this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
             }
         }
+        #endregion
 
-        protected void ASPxGridViewClientes_SelectionChanged(object sender, EventArgs e)
-        {
-            if ((sender as ASPxGridView).GetSelectedFieldValues("identificacion").Count > 0)
-            {
-                string identificacion = (sender as ASPxGridView).GetSelectedFieldValues("identificacion")[0].ToString();
-                using (var conexion = new DataModelFE())
-                {
-                    EmisorReceptorIMEC receptor = conexion.EmisorReceptorIMEC.Find(identificacion);
-                    this.loadReceptor(receptor);
-
-                    this.documento.ActiveTabIndex = 3;
-
-                }
-
-                this.alertMessages.Attributes["class"] = "alert alert-info";
-                this.alertMessages.InnerText = "Datos cargados con correctamente";
-            }
-        }
-
-        protected void cmbTipoDocumento_ValueChanged(object sender, EventArgs e)
-        {
-            //VERIFICA SI EL SELECCIONADO ES CONTINGENCIA
-            if (cmbTipoDocumento.Text.Contains("CONTINGENCIA"))
-            {
-                this.alertMessages.Attributes["class"] = "alert alert-info";
-                this.alertMessages.InnerText = "Se le recuerda que debe de agregar el número de documento al que hace referencia, en la sección de 'Referencias'";
-            }
-
-            using (var conexion = new DataModelFE())
-            {
-                /* SUCURSAL CAJA */
-                string emisor = Session["emisor"].ToString();
-                List<ConsecutivoDocElectronico> lista = conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor &&
-                x.tipoDocumento == this.cmbTipoDocumento.Value.ToString() && x.estado == Estado.ACTIVO.ToString()).ToList();
-                if (lista.Count == 0)
-                {
-                    ConsecutivoDocElectronico consecutivo = new ConsecutivoDocElectronico();
-                    consecutivo.sucursal = ConsecutivoDocElectronico.DEFAULT_SUCURSAL;
-                    consecutivo.caja = ConsecutivoDocElectronico.DEFAULT_CAJA;
-                    consecutivo.digitoVerificador = ConsecutivoDocElectronico.DEFAULT_DIGITO_VERIFICADOR;
-                    consecutivo.emisor = emisor;
-                    consecutivo.tipoDocumento = this.cmbTipoDocumento.Value.ToString();
-                    consecutivo.consecutivo = 1;
-                    consecutivo.estado = Estado.ACTIVO.ToString();
-                    consecutivo.fechaCreacion = Date.DateTimeNow();
-                    conexion.ConsecutivoDocElectronico.Add(consecutivo);
-                    conexion.SaveChanges();
-
-                    lista = conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor &&
-                            x.tipoDocumento == this.cmbTipoDocumento.Value.ToString() && x.estado == Estado.ACTIVO.ToString()).ToList();
-                }
-                this.cmbSucursalCaja.SelectedIndex = 0;
-                this.cmbSucursalCaja.Items.Clear();
-                foreach (var item in lista)
-                {
-                    this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}", item.sucursal, item.caja));
-                }
-                this.cmbSucursalCaja.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-
-
-
-            }
-        }
-
-        protected void ASPxGridViewClientes_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)
-        {
-            try
-            {
-                using (var conexion = new DataModelFE())
-                {
-                    var cliente = e.Values["identificacion"].ToString();
-
-                    //busca objeto
-                    object[] key = new object[] { Session["emisor"].ToString(), cliente };
-                    var itemToRemove = conexion.Cliente.Find(key);
-                    conexion.Cliente.Remove(itemToRemove);
-                    conexion.SaveChanges();
-
-                    //esto es para el manero del devexpress
-                    e.Cancel = true;
-                    this.ASPxGridView1.CancelEdit();
-                }
-
-            }
-            catch (DbEntityValidationException ex)
-            {
-                // Retrieve the error messages as a list of strings.
-                var errorMessages = ex.EntityValidationErrors
-                        .SelectMany(x => x.ValidationErrors)
-                        .Select(x => x.ErrorMessage);
-
-                // Join the list to a single string.
-                var fullErrorMessage = string.Join("; ", errorMessages);
-
-                // Throw a new DbEntityValidationException with the improved exception message.
-                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
-            }
-            finally
-            {
-                //refescar los datos
-                this.refreshData();
-            }
-        }
-
-        protected void txtReceptorCorreo_TokensChanged(object sender, EventArgs e)
-        {
-            ASPxTokenBox correos = (ASPxTokenBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("txtReceptorCorreo");
-            if (correos.Tokens.Count > 5)
-            {
-                correos.Tokens.RemoveAt(5);
-            }
-        }
     }
 }
