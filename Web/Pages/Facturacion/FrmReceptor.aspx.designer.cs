@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Web.Pages.Catalogos {
+namespace Web.Pages.Facturacion {
     
     
     public partial class FrmReceptor {

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmReceptor.aspx.cs" Inherits="Web.Pages.Catalogos.FrmReceptor" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmReceptor.aspx.cs" Inherits="Web.Pages.Facturacion.FrmReceptor" %>
 
 <%@ Register Src="~/UserControls/AddAuditoriaForm.ascx" TagPrefix="user1" TagName="AddAuditoriaForm" %>
 <%@ Register Src="~/UserControls/AddUbicacionForm.ascx" TagPrefix="user2" TagName="AddUbicacionForm" %>
@@ -18,11 +18,13 @@
             Width="100%" EnableTheming="True" KeyFieldName="identificacion" Theme="Moderno" 
             OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize"
             OnRowValidating="ASPxGridView1_RowValidating" 
+            OnRowInserting="ASPxGridView1_RowInserting"
+            OnRowDeleting="ASPxGridView1_RowDeleting"
             OnCancelRowEditing="ASPxGridView1_CancelRowEditing"
             OnRowUpdating="ASPxGridView1_RowUpdating">
              <ClientSideEvents EndCallback="function(s, e) {if (s.cpUpdatedMessage) { alert(s.cpUpdatedMessage);  delete s.cpUpdatedMessage;  }}" />
             <Columns>
-                <dx:GridViewCommandColumn Width="50px" ButtonType="Image" ShowSelectButton="false" ShowDeleteButton="false" ShowEditButton="true" ShowNewButtonInHeader="false" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
+                <dx:GridViewCommandColumn Width="50px" ButtonType="Image" ShowSelectButton="false" ShowDeleteButton="true" ShowEditButton="true" ShowNewButtonInHeader="true" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
                 </dx:GridViewCommandColumn>
 
                 <dx:GridViewDataComboBoxColumn Caption="Tipo" FieldName="identificacionTipo" VisibleIndex="2"
@@ -59,26 +61,7 @@
                     PropertiesTokenBox-MaxLength="250"
                     PropertiesTokenBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesTokenBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTokenBoxColumn>
-
-                <dx:GridViewDataBinaryImageColumn Caption="Llave Criptográfica" FieldName="llaveCriptografica" VisibleIndex="20" Visible="false" 
-                    PropertiesBinaryImage-ValidationSettings-RequiredField-IsRequired="true" PropertiesBinaryImage-ValidationSettings-RequiredField-ErrorText="Requerido">
-                    <EditItemTemplate>
-                        <dx:ASPxUploadControl ID="fileUpload" OnFileUploadComplete="DocumentsUploadControl_FileUploadComplete" ShowUploadButton="false" runat="server">
-                            <ValidationSettings
-                                AllowedFileExtensions=".p12"
-                                MaxFileSize="512304">
-                            </ValidationSettings>
-                        </dx:ASPxUploadControl>
-                    </EditItemTemplate>
-                </dx:GridViewDataBinaryImageColumn>
-
-                <dx:GridViewDataSpinEditColumn Caption="Llave Criptográfica" FieldName="claveLlaveCriptografica" VisibleIndex="20" Visible="false"  >
-                </dx:GridViewDataSpinEditColumn>
-                <dx:GridViewDataTextColumn Caption="Usuario Comprobantes" FieldName="usernameOAuth2" VisibleIndex="20" Visible="false"  >
-                </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Contraseña Comprobantes" FieldName="passwordOAuth2" VisibleIndex="20" Visible="false"   >
-                </dx:GridViewDataTextColumn>
-
+                  
                 <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="50" Visible="false" EditFormSettings-Visible="True"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
@@ -101,7 +84,7 @@
             <SettingsEditing Mode="EditFormAndDisplayRow" />
             <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="True" ShowFilterRow="True" ShowTitlePanel="True" UseFixedTableLayout="True" />
             <SettingsContextMenu EnableColumnMenu="True" Enabled="True" EnableFooterMenu="True" EnableGroupPanelMenu="True" EnableRowMenu="True" />
-            <SettingsDataSecurity AllowDelete="false" AllowInsert="false" AllowEdit="true" />
+            <SettingsDataSecurity AllowDelete="true" AllowInsert="true" AllowEdit="true" />
             <SettingsCommandButton>
                 <SelectButton Image-ToolTip="Seleccionar" Image-Url="~/Content/Images/search1.png" />
                 <NewButton Image-ToolTip="Nuevo" Image-Url="~/Content/Images/add.png" />

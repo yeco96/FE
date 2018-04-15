@@ -16,7 +16,7 @@ using Web.Models;
 using Web.Models.Catalogos;
 using Web.Models.Facturacion;
 
-namespace Web.Pages.Catalogos
+namespace Web.Pages.Facturacion
 {
     [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
     [PrincipalPermission(SecurityAction.Demand, Role = "SUPER")]
@@ -190,17 +190,7 @@ namespace Web.Pages.Catalogos
                     dato.distrito = comboDistrito.Value.ToString();
                     dato.barrio = comboBarrio.Value.ToString();
                     dato.otraSena = otraSena.Text;
-
-                    dato.usernameOAuth2 = e.NewValues["usernameOAuth2"] != null ? e.NewValues["usernameOAuth2"].ToString() : null;
-                    dato.passwordOAuth2 = e.NewValues["passwordOAuth2"] != null ? e.NewValues["passwordOAuth2"].ToString() : null;
-                    dato.claveLlaveCriptografica = e.NewValues["claveLlaveCriptografica"] != null ? e.NewValues["claveLlaveCriptografica"].ToString() : null;
-
-                    if (Session["LlaveCriptograficap12"] != null)
-                    {
-                        dato.llaveCriptografica = (byte[])Session["LlaveCriptograficap12"];
-                    }
-
-
+                    
                     dato.usuarioModificacion = Session["usuario"].ToString();
                     dato.fechaModificacion = Date.DateTimeNow();
 
@@ -559,6 +549,166 @@ namespace Web.Pages.Catalogos
 
 
             }
+        }
+
+        protected void ASPxGridView1_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
+        {
+            try
+            {
+                using (var conexion = new DataModelFE())
+                {
+                    //se declara el objeto a insertar
+                    EmisorReceptorIMEC dato = new EmisorReceptorIMEC();
+                    //llena el objeto con los valores de la pantalla
+                    dato.identificacionTipo = e.NewValues["identificacionTipo"].ToString();
+                    dato.identificacion = e.NewValues["identificacion"].ToString();
+                    dato.nombre = e.NewValues["nombre"].ToString();
+                    dato.nombreComercial = e.NewValues["nombreComercial"] != null ? e.NewValues["nombreComercial"].ToString().ToUpper() : null;
+
+                    if (e.NewValues["telefono"] != null)
+                    {
+                        //dato.telefonoCodigoPais = e.NewValues["telefonoCodigoPais"].ToString();
+                        dato.telefonoCodigoPais = "506";
+                        dato.telefono = e.NewValues["telefono"].ToString();
+                    }
+
+                    dato.correoElectronico = e.NewValues["correoElectronico"] != null ? e.NewValues["correoElectronico"].ToString() : null;
+
+                    if (e.NewValues["fax"] != null)
+                    {
+                        //dato.faxCodigoPais = e.NewValues["faxCodigoPais"].ToString();
+                        dato.faxCodigoPais = "506";
+                        dato.fax = e.NewValues["fax"].ToString();
+                    }
+
+
+                    ASPxPageControl tabs = (ASPxPageControl)ASPxGridView1.FindEditFormTemplateControl("pageControl");
+                    ASPxFormLayout form = (ASPxFormLayout)tabs.FindControl("formLayoutUbicacion");
+                    /* PROVINCIA */
+                    ASPxComboBox comboProvincia = (ASPxComboBox)form.FindControl("cmbProvincia");
+                    /* CANTON */
+                    ASPxComboBox comboCanton = (ASPxComboBox)form.FindControl("cmbCanton");
+                    /* DISTRITO */
+                    ASPxComboBox comboDistrito = (ASPxComboBox)form.FindControl("cmbDistrito");
+                    /* BARRIO */
+                    ASPxComboBox comboBarrio = (ASPxComboBox)form.FindControl("cmbBarrio");
+                    ASPxMemo otraSena = (ASPxMemo)form.FindControl("txtOtraSenas");
+
+                    dato.provincia = comboProvincia.Value.ToString();
+                    dato.canton = comboCanton.Value.ToString();
+                    dato.distrito = comboDistrito.Value.ToString();
+                    dato.barrio = comboBarrio.Value.ToString();
+                    dato.otraSena = otraSena.Text;
+
+                   
+                    dato.estado = e.NewValues["estado"].ToString();
+                    dato.usuarioCreacion = Session["usuario"].ToString();
+                    dato.fechaCreacion = Date.DateTimeNow();
+
+                    //agregar cliente
+                    var existeEmisor = conexion.EmisorReceptorIMEC.Find(dato.identificacion);
+                    if (existeEmisor == null)
+                    {
+                        conexion.EmisorReceptorIMEC.Add(dato);
+                    }
+                    else
+                    {
+                        conexion.Entry(dato).State = EntityState.Modified;
+                    }
+                    conexion.SaveChanges();
+
+
+                    //asociar cliente
+                    object[] key = new object[] { Session["emisor"].ToString(), dato.identificacion };
+                    var cliente = conexion.Cliente.Find(key);
+                    if (cliente == null)
+                    {
+                        conexion.Cliente.Add(cliente);
+                    }else
+                    {
+                        conexion.Entry(cliente).State = EntityState.Modified;
+                    }
+                    conexion.SaveChanges();
+
+                            
+
+                    //esto es para el manero del devexpress
+                    e.Cancel = true;
+                    this.ASPxGridView1.CancelEdit();
+
+                    ((ASPxGridView)sender).JSProperties["cpUpdatedMessage"] = "Los datos se agregaron correctamente, puede continuar.";
+                }
+
+            }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
+            }
+            finally
+            {
+                //refescar los datos
+                this.refreshData();
+            }
+        }
+
+        protected void ASPxGridView1_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)
+        {
+            try
+            {
+                using (var conexion = new DataModelFE())
+                {
+                    var cliente = e.Values["identificacion"].ToString();
+
+                    //busca objeto
+                    object[] key = new object[] { Session["emisor"].ToString(), cliente };
+                    var itemToRemove = conexion.Cliente.Find(key);
+                    conexion.Cliente.Remove(itemToRemove);
+                    conexion.SaveChanges();
+
+                    //esto es para el manero del devexpress
+                    e.Cancel = true;
+                    this.ASPxGridView1.CancelEdit();
+                }
+
+            }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
+            }
+            finally
+            {
+                //refescar los datos
+                this.refreshData();
+            }
+
         }
     }
 }

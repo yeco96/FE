@@ -210,57 +210,73 @@ namespace Web.Pages.Catalogos
                     dato.fechaCreacion = Date.DateTimeNow();
 
                     //agrega el objeto
-                    EmisorReceptorIMEC existe = conexion.EmisorReceptorIMEC.Find(dato.identificacion);
-                    if (existe == null)
+                    EmisorReceptorIMEC existeEmisor = conexion.EmisorReceptorIMEC.Find(dato.identificacion);
+                    if (existeEmisor == null)
                     {
                         conexion.EmisorReceptorIMEC.Add(dato);
                     }else
                     {
                         conexion.Entry(dato).State = EntityState.Modified; 
                     }
+                    
+                    Usuario usuario = conexion.Usuario.Find(dato.identificacion);
+                    if (usuario == null)
+                    {
+                        usuario = new Usuario();
+                        usuario.usuarioCreacion = Session["usuario"].ToString();
+                        usuario.fechaModificacion = Date.DateTimeNow();
+                        usuario.nombre = dato.nombre;
+                        usuario.emisor = dato.identificacion;
+                        usuario.codigo = dato.identificacion;
+                        usuario.contrasena = MD5Util.getMd5Hash("msa" + dato.identificacion + ".01");
+                        usuario.correo = dato.correoElectronico;
+                        usuario.rol = Rol.FACTURADOR;
+                        conexion.Usuario.Add(usuario);
+                        conexion.EmisorReceptorIMEC.Add(dato);
+                    }
 
+                    ConsecutivoDocElectronico consecutivo = conexion.ConsecutivoDocElectronico.Find(dato.identificacion);
+                    if (consecutivo == null)
+                    {
+                        consecutivo = new ConsecutivoDocElectronico();
+                        consecutivo.emisor = dato.identificacion;
+                        consecutivo.sucursal = "001";
+                        consecutivo.caja = "00001";
+                        consecutivo.consecutivo = 1;
+                        consecutivo.tipoDocumento = TipoDocumento.FACTURA_ELECTRONICA;
+                        consecutivo.digitoVerificador = "00000000";
+                        consecutivo.estado = Estado.ACTIVO.ToString();
+                        consecutivo.usuarioCreacion = Session["usuario"].ToString();
+                        consecutivo.fechaCreacion = Date.DateTimeNow();
+                        conexion.ConsecutivoDocElectronico.Add(consecutivo);
+                    }
 
-                    Usuario usuario = new Usuario();
-                    usuario.usuarioCreacion = Session["usuario"].ToString();
-                    usuario.fechaModificacion = Date.DateTimeNow();
-                    usuario.nombre = dato.nombre;
-                    usuario.emisor = dato.identificacion;
-                    usuario.codigo = dato.identificacion;
-                    usuario.contrasena = MD5Util.getMd5Hash("msa"+dato.identificacion+".01");
-                    usuario.correo = dato.correoElectronico;
-                    usuario.rol = Rol.FACTURADOR;
-                    conexion.Usuario.Add(usuario);
+                    Empresa empresa = conexion.Empresa.Find(dato.identificacion);
+                    if (empresa == null)
+                    {
+                        empresa = new Empresa();
+                        empresa.codigo = dato.identificacion;
+                        empresa.descripcion = dato.nombre == null ? dato.nombreComercial : dato.nombre;
+                        empresa.estado = Estado.ACTIVO.ToString();
+                        empresa.usuarioCreacion = Session["usuario"].ToString();
+                        empresa.idioma = Empresa.IDIOMA_ESPANOL;
+                        empresa.medioPago = "01";
+                        empresa.condicionVenta = "01";
+                        empresa.plazoCredito = 0;
+                        empresa.tipoImpresion = "A4";
+                        empresa.moneda = "CRC";
+                        conexion.Empresa.Add(empresa);
+                    }
 
-
-                    ConsecutivoDocElectronico consecutivo = new ConsecutivoDocElectronico();
-                    consecutivo.emisor = dato.identificacion; 
-                    consecutivo.sucursal = "001";
-                    consecutivo.caja = "00001";
-                    consecutivo.consecutivo = 1;
-                    consecutivo.tipoDocumento = TipoDocumento.FACTURA_ELECTRONICA;
-                    consecutivo.digitoVerificador = "00000000";
-                    consecutivo.estado = Estado.ACTIVO.ToString();
-                    consecutivo.usuarioCreacion = Session["usuario"].ToString();
-                    consecutivo.fechaCreacion = Date.DateTimeNow(); 
-                    conexion.ConsecutivoDocElectronico.Add(consecutivo);
-
-                    Empresa empresa = new Empresa();
-                    empresa.codigo = dato.identificacion;
-                    empresa.descripcion = dato.nombre == null ? dato.nombreComercial : dato.nombre;
-                    empresa.estado = Estado.ACTIVO.ToString();
-                    empresa.usuarioCreacion = Session["usuario"].ToString();
-                    empresa.idioma = Empresa.IDIOMA_ESPANOL;
-                    empresa.medioPago = "01";
-                    empresa.condicionVenta = "01";
-                    empresa.plazoCredito = 0;
-                    empresa.tipoImpresion = "A4";
-                    empresa.moneda = "CRC";
-                    conexion.Empresa.Add(empresa);
-
-                    Supervisor supervisor = new Supervisor();
-                    supervisor.supervisor = Session["usuario"].ToString();
-                    supervisor.emisor = dato.identificacion;
-                    conexion.Supervisor.Add(supervisor);
+                    string super = Session["usuario"].ToString();
+                    Supervisor supervisor = conexion.Supervisor.Where(x=>x.supervisor == super && x.emisor == dato.identificacion).FirstOrDefault();
+                    if (supervisor == null)
+                    {
+                        supervisor = new Supervisor();
+                        supervisor.supervisor = Session["usuario"].ToString();
+                        supervisor.emisor = dato.identificacion;
+                        conexion.Supervisor.Add(supervisor);
+                    }
 
                     conexion.SaveChanges();
 
