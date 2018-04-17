@@ -232,10 +232,9 @@ namespace Web.Pages.Catalogos
                         usuario.correo = dato.correoElectronico;
                         usuario.rol = Rol.FACTURADOR;
                         conexion.Usuario.Add(usuario);
-                        conexion.EmisorReceptorIMEC.Add(dato);
                     }
 
-                    ConsecutivoDocElectronico consecutivo = conexion.ConsecutivoDocElectronico.Find(dato.identificacion);
+                    ConsecutivoDocElectronico consecutivo = conexion.ConsecutivoDocElectronico.Where(x=>x.emisor==dato.identificacion &&x.tipoDocumento=="01").FirstOrDefault();
                     if (consecutivo == null)
                     {
                         consecutivo = new ConsecutivoDocElectronico();
