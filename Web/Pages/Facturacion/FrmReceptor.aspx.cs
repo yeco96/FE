@@ -239,12 +239,34 @@ namespace Web.Pages.Facturacion
         /// <param name="e"></param>
         protected void ASPxGridView1_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
         {
+            if (e.Column.FieldName == "identificacion")
+            { 
+                ASPxPageControl tabs = (ASPxPageControl)ASPxGridView1.FindEditFormTemplateControl("pageControl");
+                ASPxFormLayout form = (ASPxFormLayout)tabs.FindControl("formLayoutUbicacion");
+                ASPxComboBox comboProvincia = (ASPxComboBox)form.FindControl("cmbProvincia");
+
+                if (comboProvincia.Items.Count == 0)
+                {
+                    this.cargarProvincias();
+                }
+
+                EmisorReceptorIMEC dato = null;
+                using (var conexion = new DataModelFE())
+                {
+                    dato = conexion.EmisorReceptorIMEC.Find(e.Editor.Value.ToString());
+                    if (dato != null)
+                    {
+                        comboProvincia.Value = dato.provincia;
+                    }
+                }
+                
+            }
+
             if (this.ASPxGridView1.IsNewRowEditing)
             {
                 if (e.Column.FieldName == "identificacion")
                 {
                     this.cargarProvincias();
-                    e.Editor.Value = "ACTIVO";
                 }
 
                 if (e.Column.FieldName == "estado")

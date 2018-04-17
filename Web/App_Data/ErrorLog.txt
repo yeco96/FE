@@ -13518,3 +13518,209 @@ Stack Trace:
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
+********** 15/4/2018 13:09:52 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.Facturacion.FrmReceptor.Page_Load(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmReceptor.aspx.cs:línea 56
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmreceptor_aspx.ProcessRequest(HttpContext context) en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_l22qntge.1.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 15/4/2018 13:22:45 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.Facturacion.FrmReceptor.Page_Load(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmReceptor.aspx.cs:línea 56
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmreceptor_aspx.ProcessRequest(HttpContext context) en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_lsy43duu.1.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 16/4/2018 14:24:57 **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.Facturacion.FrmReceptor.ASPxGridView1_CellEditorInitialize(Object sender, ASPxGridViewEditorEventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmReceptor.aspx.cs:línea 259
+   en DevExpress.Web.ASPxGridView.RaiseEditorInitialize(ASPxGridEditorEventArgs e)
+   en DevExpress.Web.Internal.GridRenderHelper.CreateEditor(Int32 visibleIndex, IWebGridDataColumn column, Control editorContainer, EditorInplaceMode mode, Int32 parentRowSpan, Boolean insideFormLayout, Func`1 createCustomEditor)
+   en DevExpress.Web.Rendering.GridViewFormLayoutContainerCell.CreateEditor(GridViewDataColumn column, ColumnLayoutItem layoutItem)
+   en DevExpress.Web.Rendering.GridViewFormLayoutContainerCell.CreateColumnLayoutItemContent(GridViewColumnLayoutItem layoutItem)
+   en DevExpress.Web.Rendering.GridViewFormLayoutContainerCell.CreateItemContent(ContentPlaceholderLayoutItem layoutItem)
+   en DevExpress.Web.Rendering.GridViewFormLayoutContainerCell.<CreateControlHierarchy>b__3(LayoutItemBase item)
+   en DevExpress.Web.LayoutGroupBase.ForEach(Action`1 method)
+   en DevExpress.Web.Rendering.GridViewFormLayoutContainerCell.CreateControlHierarchy()
+   en DevExpress.Web.Internal.InternalTableCell.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.Internal.InternalTableCell.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxGridViewTemplateReplacement.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxGridViewTemplateReplacement.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.GridRenderHelper.EnsureTemplateReplacements(Control templateContainer)
+   en DevExpress.Web.Internal.GridRenderHelper.EnsureTemplateReplacements(Control templateContainer)
+   en DevExpress.Web.Internal.GridRenderHelper.EnsureTemplateReplacements(Control templateContainer)
+   en DevExpress.Web.Internal.GridRenderHelper.EnsureTemplateReplacements(Control templateContainer)
+   en DevExpress.Web.Internal.GridRenderHelper.EnsureTemplateReplacements(Control templateContainer)
+   en DevExpress.Web.Internal.GridRenderHelper.EnsureTemplateReplacements(Control templateContainer)
+   en DevExpress.Web.Internal.GridRenderHelper.EnsureTemplateReplacements(Control templateContainer)
+   en DevExpress.Web.GridViewEditFormTemplateContainer.DataBind()
+   en DevExpress.Web.ASPxWebControlBase.DataBindContainers(Control parent, Boolean bindContents, Boolean bindTemplates)
+   en DevExpress.Web.ASPxWebControlBase.DataBindContainers(Control parent, Boolean bindContents, Boolean bindTemplates)
+   en DevExpress.Web.ASPxWebControlBase.DataBindContainers(Control parent, Boolean bindContents, Boolean bindTemplates)
+   en DevExpress.Web.ASPxWebControlBase.DataBindContainers(Control parent, Boolean bindContents, Boolean bindTemplates)
+   en DevExpress.Web.ASPxWebControlBase.DataBindContainers(Control parent, Boolean bindContents, Boolean bindTemplates)
+   en DevExpress.Web.ASPxWebControlBase.DataBindContainers(Control parent, Boolean bindContents, Boolean bindTemplates)
+   en DevExpress.Web.ASPxWebControlBase.DataBindContainers(Control parent, Boolean bindContents, Boolean bindTemplates)
+   en DevExpress.Web.ASPxWebControlBase.DataBindContainers(Control parent, Boolean bindContents, Boolean bindTemplates)
+   en DevExpress.Web.ASPxWebControlBase.DataBindContainers(Control parent, Boolean bindContents, Boolean bindTemplates)
+   en DevExpress.Web.ASPxWebControl.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.get_Controls()
+   en System.Web.UI.Control.LoadChildViewStateByIndex(ArrayList childState)
+   en System.Web.UI.Control.LoadViewStateRecursive(Object savedState)
+   en System.Web.UI.Control.LoadChildViewStateByIndex(ArrayList childState)
+   en System.Web.UI.Control.LoadViewStateRecursive(Object savedState)
+   en System.Web.UI.Control.LoadChildViewStateByIndex(ArrayList childState)
+   en System.Web.UI.Control.LoadViewStateRecursive(Object savedState)
+   en System.Web.UI.Control.LoadChildViewStateByIndex(ArrayList childState)
+   en System.Web.UI.Control.LoadViewStateRecursive(Object savedState)
+   en System.Web.UI.Control.LoadChildViewStateByIndex(ArrayList childState)
+   en System.Web.UI.Control.LoadViewStateRecursive(Object savedState)
+   en System.Web.UI.Page.LoadAllState()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmreceptor_aspx.ProcessRequest(HttpContext context) en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_l0ivp03b.5.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 16/4/2018 14:25:00 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.Facturacion.FrmReceptor.Page_Load(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmReceptor.aspx.cs:línea 56
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmreceptor_aspx.ProcessRequest(HttpContext context) en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_l0ivp03b.5.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 16/4/2018 16:55:26 **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.SeleccionarEmisor.Page_Load(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\SeleccionarEmisor.aspx.cs:línea 24
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_seleccionaremisor_aspx.ProcessRequest(HttpContext context) en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_zqsxxff4.9.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 16/4/2018 17:06:41 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.Facturacion.FrmReceptor.Page_Load(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Facturacion\FrmReceptor.aspx.cs:línea 56
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_facturacion_frmreceptor_aspx.ProcessRequest(HttpContext context) en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_10shvdxt.0.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
