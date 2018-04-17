@@ -536,3 +536,8 @@ header{
 .dx-vam, .dx-vat, .dx-vab { 
     font-size: 14px;
 }
+
+.center_grafico{
+    text-align: center;
+    text-align: -moz-center;
+}

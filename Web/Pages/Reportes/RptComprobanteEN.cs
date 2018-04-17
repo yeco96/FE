@@ -501,12 +501,14 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             // 
             // xrLabel6
             // 
+            this.xrLabel6.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.xrLabel6.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(0.8332253F, 313.4583F);
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(0.8332253F, 321.0417F);
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel6.SizeF = new System.Drawing.SizeF(379.1249F, 18.00003F);
+            this.xrLabel6.SizeF = new System.Drawing.SizeF(648.3334F, 18.00003F);
             this.xrLabel6.StyleName = "FieldCaption";
+            this.xrLabel6.StylePriority.UseBorders = false;
             this.xrLabel6.StylePriority.UseForeColor = false;
             this.xrLabel6.Text = "Comments";
             // 
@@ -597,15 +599,15 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             // 
             // xrLabel22
             // 
-            this.xrLabel22.Borders = DevExpress.XtraPrinting.BorderSide.Top;
+            this.xrLabel22.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrLabel22.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "leyenda")});
             this.xrLabel22.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel22.LocationFloat = new DevExpress.Utils.PointFloat(0F, 331.4583F);
+            this.xrLabel22.LocationFloat = new DevExpress.Utils.PointFloat(0F, 342.9166F);
             this.xrLabel22.Multiline = true;
             this.xrLabel22.Name = "xrLabel22";
             this.xrLabel22.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel22.SizeF = new System.Drawing.SizeF(649.1666F, 55.66669F);
+            this.xrLabel22.SizeF = new System.Drawing.SizeF(649.1666F, 44.20837F);
             this.xrLabel22.StyleName = "DataField";
             this.xrLabel22.StylePriority.UseBorders = false;
             this.xrLabel22.StylePriority.UseFont = false;
