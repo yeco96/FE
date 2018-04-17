@@ -67,33 +67,6 @@ namespace Web.Pages.Facturacion {
         protected global::DevExpress.Web.Bootstrap.BootstrapAccordion acordionReceptor;
         
         /// <summary>
-        /// Control ASPxGridView2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView ASPxGridView2;
-        
-        /// <summary>
-        /// Control cmbTipoDocumento.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbTipoDocumento;
-        
-        /// <summary>
-        /// Control cmbSucursalCaja.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbSucursalCaja;
-        
-        /// <summary>
         /// Control txtReceptor.
         /// </summary>
         /// <remarks>

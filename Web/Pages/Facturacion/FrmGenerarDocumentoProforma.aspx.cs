@@ -323,8 +323,8 @@ namespace Web.Pages.Facturacion
             if (Session["informacionReferencia"] != null)
             {
                 List<InformacionReferencia> informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
-                this.ASPxGridView2.DataSource = informacionReferencia;
-                this.ASPxGridView2.DataBind();
+                //this.ASPxGridView2.DataSource = informacionReferencia;
+                //this.ASPxGridView2.DataBind();
             }
 
             using (var conexion = new DataModelFE())
@@ -402,29 +402,33 @@ namespace Web.Pages.Facturacion
                 }
                 comboProducto.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
                 /* TIPO DOCUMENTO */
-                GridViewDataComboBoxColumn comboTipoDocumento = this.ASPxGridView2.Columns["tipoDocumento"] as GridViewDataComboBoxColumn;
-                foreach (var item in conexion.TipoDocumento.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
-                {
-                    this.cmbTipoDocumento.Items.Add(item.descripcion, item.codigo);
-                    comboTipoDocumento.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
-                }
-                this.cmbTipoDocumento.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-                comboTipoDocumento.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-                this.cmbTipoDocumento.SelectedIndex = 0;
-                /* SUCURSAL CAJA */
-                foreach (var item in conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor && x.estado == Estado.ACTIVO.ToString() && x.tipoDocumento == cmbTipoDocumento.Value.ToString()).ToList())
-                {
-                    this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}", item.sucursal, item.caja));
-                }
-                this.cmbSucursalCaja.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-                this.cmbSucursalCaja.SelectedIndex = 0;
+                //GridViewDataComboBoxColumn comboTipoDocumento = this.ASPxGridView2.Columns["tipoDocumento"] as GridViewDataComboBoxColumn;
+                //foreach (var item in conexion.TipoDocumento.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                //{
+                //    //Se consulta si es solo la factura
+                //    if (item.descripcion.Contains("FACTURA"))
+                //    {
+                //        this.cmbTipoDocumento.Items.Add(item.descripcion, item.codigo);
+                //        comboTipoDocumento.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
+                //    }
+                //}
+                //this.cmbTipoDocumento.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                //comboTipoDocumento.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                //this.cmbTipoDocumento.SelectedIndex = 0;
+                ///* SUCURSAL CAJA */
+                //foreach (var item in conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor && x.estado == Estado.ACTIVO.ToString() && x.tipoDocumento == cmbTipoDocumento.Value.ToString()).ToList())
+                //{
+                //    this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}", item.sucursal, item.caja));
+                //}
+                //this.cmbSucursalCaja.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                //this.cmbSucursalCaja.SelectedIndex = 0;
                 /* CODIGO REFERENCIA */
-                GridViewDataComboBoxColumn comboCodigo = this.ASPxGridView2.Columns["codigo"] as GridViewDataComboBoxColumn;
-                foreach (var item in conexion.CodigoReferencia.Where(x => x.estado == Estado.ACTIVO.ToString() && x.aplicaFacturas == Confirmacion.SI.ToString()).ToList())
-                {
-                    comboCodigo.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
-                }
-                comboCodigo.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                //GridViewDataComboBoxColumn comboCodigo = this.ASPxGridView2.Columns["codigo"] as GridViewDataComboBoxColumn;
+                //foreach (var item in conexion.CodigoReferencia.Where(x => x.estado == Estado.ACTIVO.ToString() && x.aplicaFacturas == Confirmacion.SI.ToString()).ToList())
+                //{
+                //    comboCodigo.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
+                //}
+                //comboCodigo.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             }
         }
         private void loadReceptor(EmisorReceptorIMEC emisor)
@@ -514,7 +518,7 @@ namespace Web.Pages.Facturacion
                 cmbReceptorDistrito.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             }
         }
-        protected void cmbReceptorDistrito_ValueChanged(object sender, EventArgs e)
+        protected void  cmbReceptorDistrito_ValueChanged(object sender, EventArgs e)
         {
             using (var conexion = new DataModelFE())
             {
@@ -573,40 +577,40 @@ namespace Web.Pages.Facturacion
         protected void cmbTipoDocumento_ValueChanged(object sender, EventArgs e)
         {
             //VERIFICA SI EL SELECCIONADO ES CONTINGENCIA
-            if (cmbTipoDocumento.Text.Contains("CONTINGENCIA"))
-            {
-                this.alertMessages.Attributes["class"] = "alert alert-info";
-                this.alertMessages.InnerText = "Se le recuerda que debe de agregar el número de documento al que hace referencia, en la sección de 'Referencias'";
-            }
+            //if (cmbTipoDocumento.Text.Contains("CONTINGENCIA"))
+            //{
+            //    this.alertMessages.Attributes["class"] = "alert alert-info";
+            //    this.alertMessages.InnerText = "Se le recuerda que debe de agregar el número de documento al que hace referencia, en la sección de 'Referencias'";
+            //}
             using (var conexion = new DataModelFE())
             {
                 /* SUCURSAL CAJA */
                 string emisor = Session["emisor"].ToString();
-                List<ConsecutivoDocElectronico> lista = conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor &&
-                x.tipoDocumento == this.cmbTipoDocumento.Value.ToString() && x.estado == Estado.ACTIVO.ToString()).ToList();
-                if (lista.Count == 0)
-                {
-                    ConsecutivoDocElectronico consecutivo = new ConsecutivoDocElectronico();
-                    consecutivo.sucursal = ConsecutivoDocElectronico.DEFAULT_SUCURSAL;
-                    consecutivo.caja = ConsecutivoDocElectronico.DEFAULT_CAJA;
-                    consecutivo.digitoVerificador = ConsecutivoDocElectronico.DEFAULT_DIGITO_VERIFICADOR;
-                    consecutivo.emisor = emisor;
-                    consecutivo.tipoDocumento = this.cmbTipoDocumento.Value.ToString();
-                    consecutivo.consecutivo = 1;
-                    consecutivo.estado = Estado.ACTIVO.ToString();
-                    consecutivo.fechaCreacion = Date.DateTimeNow();
-                    conexion.ConsecutivoDocElectronico.Add(consecutivo);
-                    conexion.SaveChanges();
-                    lista = conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor &&
-                            x.tipoDocumento == this.cmbTipoDocumento.Value.ToString() && x.estado == Estado.ACTIVO.ToString()).ToList();
-                }
-                this.cmbSucursalCaja.SelectedIndex = 0;
-                this.cmbSucursalCaja.Items.Clear();
-                foreach (var item in lista)
-                {
-                    this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}", item.sucursal, item.caja));
-                }
-                this.cmbSucursalCaja.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                //List<ConsecutivoDocElectronico> lista = conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor &&
+                //x.tipoDocumento == this.cmbTipoDocumento.Value.ToString() && x.estado == Estado.ACTIVO.ToString()).ToList();
+                //if (lista.Count == 0)
+                //{
+                //    ConsecutivoDocElectronico consecutivo = new ConsecutivoDocElectronico();
+                //    consecutivo.sucursal = ConsecutivoDocElectronico.DEFAULT_SUCURSAL;
+                //    consecutivo.caja = ConsecutivoDocElectronico.DEFAULT_CAJA;
+                //    consecutivo.digitoVerificador = ConsecutivoDocElectronico.DEFAULT_DIGITO_VERIFICADOR;
+                //    consecutivo.emisor = emisor;
+                //    consecutivo.tipoDocumento = this.cmbTipoDocumento.Value.ToString();
+                //    consecutivo.consecutivo = 1;
+                //    consecutivo.estado = Estado.ACTIVO.ToString();
+                //    consecutivo.fechaCreacion = Date.DateTimeNow();
+                //    conexion.ConsecutivoDocElectronico.Add(consecutivo);
+                //    conexion.SaveChanges();
+                //    lista = conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor &&
+                //            x.tipoDocumento == this.cmbTipoDocumento.Value.ToString() && x.estado == Estado.ACTIVO.ToString()).ToList();
+                //}
+                //this.cmbSucursalCaja.SelectedIndex = 0;
+                //this.cmbSucursalCaja.Items.Clear();
+                //foreach (var item in lista)
+                //{
+                //    this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}", item.sucursal, item.caja));
+                //}
+                //this.cmbSucursalCaja.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             }
         }
         #endregion
@@ -857,164 +861,164 @@ namespace Web.Pages.Facturacion
                 this.refreshData();
             }
         }
-        protected void ASPxGridView2_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)
-        {
-            try
-            {
-                using (var conexion = new DataModelFE())
-                {
-                    List<InformacionReferencia> informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
-                    var id = e.Values["numero"].ToString();
-                    InformacionReferencia dato = informacionReferencia.Where(x => x.numero == id).FirstOrDefault();
-                    informacionReferencia.Remove(dato);
-                    //esto es para el manero del devexpress
-                    e.Cancel = true;
-                    this.ASPxGridView2.CancelEdit();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
-            }
-            finally
-            {
-                //refescar los datos
-                this.refreshData();
-            }
-        }
-        protected void ASPxGridView2_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
-        {
-            try
-            {
-                using (var conexion = new DataModelFE())
-                {
-                    List<InformacionReferencia> informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
-                    //se declara el objeto a insertar
-                    InformacionReferencia dato = new InformacionReferencia();
-                    //llena el objeto con los valores de la pantalla
-                    string clave = e.NewValues["numero"] != null ? e.NewValues["numero"].ToString().ToUpper() : "";
-                    WSRecepcionPOST documento = null;
-                    if (clave.Length == 20)
-                    {
-                        documento = conexion.WSRecepcionPOST.Where(x => x.clave.Substring(21, 20) == clave).FirstOrDefault();
-                    }
-                    else
-                    {
-                        documento = conexion.WSRecepcionPOST.Find(clave);
-                    }
-                    if (documento != null)
-                    {
-                        dato.fechaEmision = ((DateTime)documento.fecha).ToString("yyyy-MM-dd");
-                        dato.fechaEmisionTotal = ((DateTime)documento.fecha).ToString("yyyy-MM-ddTHH:mm:dd-06:00");
-                        DateTime date = DateTime.Now;
-                        if (!DateTime.TryParse(dato.fechaEmision, out date))
-                        {
-                            throw new Exception("Fecha invalida, favor verifique el formato yyyy-MM-dd (año-mes-día)");
-                        }
-                        dato.tipoDocumento = documento.tipoDocumento;
-                        dato.numero = documento.clave;
-                    }
-                    else
-                    {
-                        dato.fechaEmision = e.NewValues["fechaEmision"].ToString();
-                        dato.fechaEmisionTotal = e.NewValues["fechaEmision"].ToString() + DateTime.Now.ToString("THH:mm:dd-06:00");
-                        dato.tipoDocumento = e.NewValues["tipoDocumento"] != null ? e.NewValues["tipoDocumento"].ToString().ToUpper() : "";
-                        dato.numero = clave;
-                    }
-                    dato.razon = e.NewValues["razon"] != null ? e.NewValues["razon"].ToString().ToUpper() : null;
-                    dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
-                    //agrega el objeto
-                    informacionReferencia.Add(dato);
-                    Session["informacionReferencia"] = informacionReferencia;
-                }
+        //protected void ASPxGridView2_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)
+        //{
+        //    try
+        //    {
+        //        using (var conexion = new DataModelFE())
+        //        {
+        //            List<InformacionReferencia> informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
+        //            var id = e.Values["numero"].ToString();
+        //            InformacionReferencia dato = informacionReferencia.Where(x => x.numero == id).FirstOrDefault();
+        //            informacionReferencia.Remove(dato);
+        //            //esto es para el manero del devexpress
+        //            e.Cancel = true;
+        //            this.ASPxGridView2.CancelEdit();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
+        //    }
+        //    finally
+        //    {
+        //        //refescar los datos
+        //        this.refreshData();
+        //    }
+        //}
+        //protected void ASPxGridView2_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
+        //{
+        //    try
+        //    {
+        //        using (var conexion = new DataModelFE())
+        //        {
+        //            List<InformacionReferencia> informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
+        //            //se declara el objeto a insertar
+        //            InformacionReferencia dato = new InformacionReferencia();
+        //            //llena el objeto con los valores de la pantalla
+        //            string clave = e.NewValues["numero"] != null ? e.NewValues["numero"].ToString().ToUpper() : "";
+        //            WSRecepcionPOST documento = null;
+        //            if (clave.Length == 20)
+        //            {
+        //                documento = conexion.WSRecepcionPOST.Where(x => x.clave.Substring(21, 20) == clave).FirstOrDefault();
+        //            }
+        //            else
+        //            {
+        //                documento = conexion.WSRecepcionPOST.Find(clave);
+        //            }
+        //            if (documento != null)
+        //            {
+        //                dato.fechaEmision = ((DateTime)documento.fecha).ToString("yyyy-MM-dd");
+        //                dato.fechaEmisionTotal = ((DateTime)documento.fecha).ToString("yyyy-MM-ddTHH:mm:dd-06:00");
+        //                DateTime date = DateTime.Now;
+        //                if (!DateTime.TryParse(dato.fechaEmision, out date))
+        //                {
+        //                    throw new Exception("Fecha invalida, favor verifique el formato yyyy-MM-dd (año-mes-día)");
+        //                }
+        //                dato.tipoDocumento = documento.tipoDocumento;
+        //                dato.numero = documento.clave;
+        //            }
+        //            else
+        //            {
+        //                dato.fechaEmision = e.NewValues["fechaEmision"].ToString();
+        //                dato.fechaEmisionTotal = e.NewValues["fechaEmision"].ToString() + DateTime.Now.ToString("THH:mm:dd-06:00");
+        //                dato.tipoDocumento = e.NewValues["tipoDocumento"] != null ? e.NewValues["tipoDocumento"].ToString().ToUpper() : "";
+        //                dato.numero = clave;
+        //            }
+        //            dato.razon = e.NewValues["razon"] != null ? e.NewValues["razon"].ToString().ToUpper() : null;
+        //            dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
+        //            //agrega el objeto
+        //            informacionReferencia.Add(dato);
+        //            Session["informacionReferencia"] = informacionReferencia;
+        //        }
 
-                //esto es para el manero del devexpress
-                e.Cancel = true;
-                this.ASPxGridView2.CancelEdit();
-            }
-            catch (DbEntityValidationException ex)
-            {
-                // Retrieve the error messages as a list of strings.
-                var errorMessages = ex.EntityValidationErrors
-                        .SelectMany(x => x.ValidationErrors)
-                        .Select(x => x.ErrorMessage);
-                // Join the list to a single string.
-                var fullErrorMessage = string.Join("; ", errorMessages);
+        //        //esto es para el manero del devexpress
+        //        e.Cancel = true;
+        //        this.ASPxGridView2.CancelEdit();
+        //    }
+        //    catch (DbEntityValidationException ex)
+        //    {
+        //        // Retrieve the error messages as a list of strings.
+        //        var errorMessages = ex.EntityValidationErrors
+        //                .SelectMany(x => x.ValidationErrors)
+        //                .Select(x => x.ErrorMessage);
+        //        // Join the list to a single string.
+        //        var fullErrorMessage = string.Join("; ", errorMessages);
 
-                // Throw a new DbEntityValidationException with the improved exception message.
-                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
-            }
-            finally
-            {
-                //refescar los datos
-                this.refreshData();
-            }
-        }
-        protected void ASPxGridView2_RowUpdating(object sender, DevExpress.Web.Data.ASPxDataUpdatingEventArgs e)
-        {
-            try
-            {
-                using (var conexion = new DataModelFE())
-                {
-                    List<InformacionReferencia> informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
-                    //se declara el objeto a insertar
-                    InformacionReferencia dato = new InformacionReferencia();
-                    //llena el objeto con los valores de la pantalla
-                    string clave = e.NewValues["numero"] != null ? e.NewValues["numero"].ToString().ToUpper() : "";
-                    dato = informacionReferencia.Where(x => x.numero == clave).FirstOrDefault();
-                    if (dato != null)
-                    {
-                        dato.fechaEmision = e.NewValues["fechaEmision"].ToString();
-                        DateTime date = DateTime.Now;
-                        if (!DateTime.TryParse(dato.fechaEmision, out date))
-                        {
-                            throw new Exception("Fecha invalida, favor verifique el formato yyyy-MM-dd (año-mes-día)");
-                        }
-                        dato.tipoDocumento = e.NewValues["tipoDocumento"] != null ? e.NewValues["tipoDocumento"].ToString().ToUpper() : "";
-                    }
-                    dato.razon = e.NewValues["razon"] != null ? e.NewValues["razon"].ToString().ToUpper() : null;
-                    dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
-                    //modifica el objeto
-                    Session["informacionReferencia"] = informacionReferencia;
-                }
-                //esto es para el manero del devexpress
-                e.Cancel = true;
-                this.ASPxGridView2.CancelEdit();
-            }
-            catch (DbEntityValidationException ex)
-            {
-                // Retrieve the error messages as a list of strings.
-                var errorMessages = ex.EntityValidationErrors
-                        .SelectMany(x => x.ValidationErrors)
-                        .Select(x => x.ErrorMessage);
-                // Join the list to a single string.
-                var fullErrorMessage = string.Join("; ", errorMessages);
-                // Throw a new DbEntityValidationException with the improved exception message.
-                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
-            }
-            finally
-            {
-                //refescar los datos
-                this.refreshData();
-            }
-        }
-        protected void ASPxGridView2_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
-        {
-            if (ASPxGridView2.IsNewRowEditing)
-            {
-                if (e.Column.FieldName == "tipoDocumento") { e.Editor.Value = "08"; e.Editor.BackColor = System.Drawing.Color.LightGray; }
-                if (e.Column.FieldName == "fechaEmision") { e.Editor.Value = Date.DateTimeNow().ToString("yyyy-MM-dd"); e.Editor.BackColor = System.Drawing.Color.LightGray; }
-                if (e.Column.FieldName == "razon") { e.Editor.Value = "DETALLE DE REFERENCIA"; e.Editor.BackColor = System.Drawing.Color.White; }
-            }
-        }
+        //        // Throw a new DbEntityValidationException with the improved exception message.
+        //        throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
+        //    }
+        //    finally
+        //    {
+        //        //refescar los datos
+        //        this.refreshData();
+        //    }
+        //}
+        //protected void ASPxGridView2_RowUpdating(object sender, DevExpress.Web.Data.ASPxDataUpdatingEventArgs e)
+        //{
+        //    try
+        //    {
+        //        using (var conexion = new DataModelFE())
+        //        {
+        //            List<InformacionReferencia> informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
+        //            //se declara el objeto a insertar
+        //            InformacionReferencia dato = new InformacionReferencia();
+        //            //llena el objeto con los valores de la pantalla
+        //            string clave = e.NewValues["numero"] != null ? e.NewValues["numero"].ToString().ToUpper() : "";
+        //            dato = informacionReferencia.Where(x => x.numero == clave).FirstOrDefault();
+        //            if (dato != null)
+        //            {
+        //                dato.fechaEmision = e.NewValues["fechaEmision"].ToString();
+        //                DateTime date = DateTime.Now;
+        //                if (!DateTime.TryParse(dato.fechaEmision, out date))
+        //                {
+        //                    throw new Exception("Fecha invalida, favor verifique el formato yyyy-MM-dd (año-mes-día)");
+        //                }
+        //                dato.tipoDocumento = e.NewValues["tipoDocumento"] != null ? e.NewValues["tipoDocumento"].ToString().ToUpper() : "";
+        //            }
+        //            dato.razon = e.NewValues["razon"] != null ? e.NewValues["razon"].ToString().ToUpper() : null;
+        //            dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
+        //            //modifica el objeto
+        //            Session["informacionReferencia"] = informacionReferencia;
+        //        }
+        //        //esto es para el manero del devexpress
+        //        e.Cancel = true;
+        //        //this.ASPxGridView2.CancelEdit();
+        //    }
+        //    catch (DbEntityValidationException ex)
+        //    {
+        //        // Retrieve the error messages as a list of strings.
+        //        var errorMessages = ex.EntityValidationErrors
+        //                .SelectMany(x => x.ValidationErrors)
+        //                .Select(x => x.ErrorMessage);
+        //        // Join the list to a single string.
+        //        var fullErrorMessage = string.Join("; ", errorMessages);
+        //        // Throw a new DbEntityValidationException with the improved exception message.
+        //        throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
+        //    }
+        //    finally
+        //    {
+        //        //refescar los datos
+        //        this.refreshData();
+        //    }
+        //}
+        //protected void ASPxGridView2_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
+        //{
+        //    //if (ASPxGridView2.IsNewRowEditing)
+        //    //{
+        //    //    if (e.Column.FieldName == "tipoDocumento") { e.Editor.Value = "08"; e.Editor.BackColor = System.Drawing.Color.LightGray; }
+        //    //    if (e.Column.FieldName == "fechaEmision") { e.Editor.Value = Date.DateTimeNow().ToString("yyyy-MM-dd"); e.Editor.BackColor = System.Drawing.Color.LightGray; }
+        //    //    if (e.Column.FieldName == "razon") { e.Editor.Value = "DETALLE DE REFERENCIA"; e.Editor.BackColor = System.Drawing.Color.White; }
+        //    //}
+        //}
         #endregion
 
         #region Facturar
@@ -1103,23 +1107,24 @@ namespace Web.Pages.Facturacion
                 }
                 using (var conexion = new DataModelFE())
                 {
+                    
                     DocumentoElectronico dato = new DocumentoElectronico();
-                    if (TipoDocumento.FACTURA_ELECTRONICA.Equals(this.cmbTipoDocumento.Value))
-                    {
+                    //if (TipoDocumento.FACTURA_ELECTRONICA.Equals(this.cmbTipoDocumento.Value))
+                    //{
                         dato = new FacturaElectronica();
-                    }
-                    if (TipoDocumento.TIQUETE_ELECTRONICO.Equals(this.cmbTipoDocumento.Value))
-                    {
-                        dato = new TiqueteElectronico();
-                    }
-                    if (TipoDocumento.NOTA_CREDITO.Equals(this.cmbTipoDocumento.Value))
-                    {
-                        dato = new NotaCreditoElectronica();
-                    }
-                    if (TipoDocumento.NOTA_DEBITO.Equals(this.cmbTipoDocumento.Value))
-                    {
-                        dato = new NotaDebitoElectronica();
-                    }
+                    //}
+                    //if (TipoDocumento.TIQUETE_ELECTRONICO.Equals(this.cmbTipoDocumento.Value))
+                    //{
+                    //    dato = new TiqueteElectronico();
+                    //}
+                    //if (TipoDocumento.NOTA_CREDITO.Equals(this.cmbTipoDocumento.Value))
+                    //{
+                    //    dato = new NotaCreditoElectronica();
+                    //}
+                    //if (TipoDocumento.NOTA_DEBITO.Equals(this.cmbTipoDocumento.Value))
+                    //{
+                    //    dato = new NotaDebitoElectronica();
+                    //}
                     /* ENCABEZADO */
                     dato.medioPago = this.cmbMedioPago.Value.ToString();
                     dato.plazoCredito = this.txtPlazoCredito.Text;
@@ -1227,75 +1232,75 @@ namespace Web.Pages.Facturacion
                     /* VERIFICA VACIOS PARA XML */
                     dato.verificaDatosParaXML();
                     //genera el consecutivo del documento
-                    string sucursal = this.cmbSucursalCaja.Value.ToString().Substring(0, 3);
-                    string caja = this.cmbSucursalCaja.Value.ToString().Substring(3, 5);
-                    object[] key = new object[] { dato.emisor.identificacion.numero, sucursal, caja, this.cmbTipoDocumento.Value.ToString() };
-                    ConsecutivoDocElectronico consecutivo = conexion.ConsecutivoDocElectronico.Find(key);
-                    if (consecutivo != null)
-                    {
-                        dato.clave = consecutivo.getClave(this.txtFechaEmision.Date.ToString("yyyyMMdd"));
-                        dato.numeroConsecutivo = consecutivo.getConsecutivo();
-                        consecutivo.consecutivo += 1;
-                        conexion.Entry(consecutivo).State = EntityState.Modified;
-                    }
-                    else
-                    {
-                        consecutivo = new ConsecutivoDocElectronico();
-                        consecutivo.sucursal = ConsecutivoDocElectronico.DEFAULT_SUCURSAL;
-                        consecutivo.caja = ConsecutivoDocElectronico.DEFAULT_CAJA;
-                        consecutivo.digitoVerificador = ConsecutivoDocElectronico.DEFAULT_DIGITO_VERIFICADOR;
-                        consecutivo.emisor = dato.emisor.identificacion.numero;
-                        consecutivo.tipoDocumento = this.cmbTipoDocumento.Value.ToString();
-                        consecutivo.consecutivo = 1;
-                        consecutivo.estado = Estado.ACTIVO.ToString();
-                        consecutivo.fechaCreacion = Date.DateTimeNow();
-                        dato.clave = consecutivo.getClave(this.txtFechaEmision.Date.ToString("yyyyMMdd"));
-                        dato.numeroConsecutivo = consecutivo.getConsecutivo();
-                        consecutivo.consecutivo += 1;
-                        conexion.ConsecutivoDocElectronico.Add(consecutivo);
-                    }
+                    //string sucursal = this.cmbSucursalCaja.Value.ToString().Substring(0, 3);
+                    //string caja = this.cmbSucursalCaja.Value.ToString().Substring(3, 5);
+                    //object[] key = new object[] { dato.emisor.identificacion.numero, sucursal, caja, this.cmbTipoDocumento.Value.ToString() };
+                    //ConsecutivoDocElectronico consecutivo = conexion.ConsecutivoDocElectronico.Find(key);
+                    //if (consecutivo != null)
+                    //{
+                    //    dato.clave = consecutivo.getClave(this.txtFechaEmision.Date.ToString("yyyyMMdd"));
+                    //    dato.numeroConsecutivo = consecutivo.getConsecutivo();
+                    //    consecutivo.consecutivo += 1;
+                    //    conexion.Entry(consecutivo).State = EntityState.Modified;
+                    //}
+                    //else
+                    //{
+                    //    consecutivo = new ConsecutivoDocElectronico();
+                    //    consecutivo.sucursal = ConsecutivoDocElectronico.DEFAULT_SUCURSAL;
+                    //    consecutivo.caja = ConsecutivoDocElectronico.DEFAULT_CAJA;
+                    //    consecutivo.digitoVerificador = ConsecutivoDocElectronico.DEFAULT_DIGITO_VERIFICADOR;
+                    //    consecutivo.emisor = dato.emisor.identificacion.numero;
+                    //    consecutivo.tipoDocumento = this.cmbTipoDocumento.Value.ToString();
+                    //    consecutivo.consecutivo = 1;
+                    //    consecutivo.estado = Estado.ACTIVO.ToString();
+                    //    consecutivo.fechaCreacion = Date.DateTimeNow();
+                    //    dato.clave = consecutivo.getClave(this.txtFechaEmision.Date.ToString("yyyyMMdd"));
+                    //    dato.numeroConsecutivo = consecutivo.getConsecutivo();
+                    //    consecutivo.consecutivo += 1;
+                    //    conexion.ConsecutivoDocElectronico.Add(consecutivo);
+                    //}
                     string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
                     string xmlSigned = FirmaXML.getXMLFirmadoWeb(xml, elEmisor.llaveCriptografica, elEmisor.claveLlaveCriptografica);
-                    string responsePost = await Services.enviarDocumentoElectronico(false, dato, elEmisor, this.cmbTipoDocumento.Value.ToString(), Session["usuario"].ToString());
+                    //string responsePost = await Services.enviarDocumentoElectronico(false, dato, elEmisor, this.cmbTipoDocumento.Value.ToString(), Session["usuario"].ToString());
                     this.btnFacturar.Enabled = false;
                     conexion.SaveChanges();
-                    if (responsePost.Equals("Success"))
-                    {
-                        this.alertMessages.Attributes["class"] = "alert alert-info";
-                        this.alertMessages.InnerText = String.Format("Documento #{0} enviado", dato.numeroConsecutivo);
-                        if (!string.IsNullOrWhiteSpace(dato.receptor.correoElectronico))
-                        {
-                            List<string> cc = new List<string>();
-                            string[] correosEmisor = conexion.EmisorReceptorIMEC.Find(identificacionReceptor).correoElectronico.Split(',');
-                            foreach (var correo in correosEmisor)
-                            {
-                                cc.Add(correo);
-                            }
-                            // copia al emisor
-                            cc.Add(Utilidades.getCorreoPrincipal(((EmisorReceptorIMEC)Session["elEmisor"]).correoElectronico));
-                            Utilidades.sendMail(Session["emisor"].ToString(), dato.receptor.correoElectronico,
-                                string.Format("{0} - {1}", dato.numeroConsecutivo, elEmisor.nombre),
-                                Utilidades.mensageGenerico(), "Documento Electrónico", EncodeXML.EncondeXML.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave, cc);
-                        }
-                    }
-                    else if (responsePost.Equals("Error"))
-                    {
-                        this.alertMessages.Attributes["class"] = "alert alert-danger";
-                        this.alertMessages.InnerText = String.Format("Documento #{0} con errores.", dato.numeroConsecutivo);
-                        //Se agrega segundo mensaje
-                        this.alertMessages1.Attributes["class"] = "alert alert-danger";
-                        this.alertMessages1.InnerText = String.Format("Documento #{0} con errores.", dato.numeroConsecutivo);
-                        return;
-                    }
-                    else
-                    {
-                        this.alertMessages.Attributes["class"] = "alert alert-warning";
-                        this.alertMessages.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
-                        //Se agrega segundo mensaje
-                        this.alertMessages1.Attributes["class"] = "alert alert-warning";
-                        this.alertMessages1.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
-                        return;
-                    }
+                    //if (responsePost.Equals("Success"))
+                    //{
+                    //    this.alertMessages.Attributes["class"] = "alert alert-info";
+                    //    this.alertMessages.InnerText = String.Format("Documento #{0} enviado", dato.numeroConsecutivo);
+                    //    if (!string.IsNullOrWhiteSpace(dato.receptor.correoElectronico))
+                    //    {
+                    //        List<string> cc = new List<string>();
+                    //        string[] correosEmisor = conexion.EmisorReceptorIMEC.Find(identificacionReceptor).correoElectronico.Split(',');
+                    //        foreach (var correo in correosEmisor)
+                    //        {
+                    //            cc.Add(correo);
+                    //        }
+                    //        // copia al emisor
+                    //        cc.Add(Utilidades.getCorreoPrincipal(((EmisorReceptorIMEC)Session["elEmisor"]).correoElectronico));
+                    //        Utilidades.sendMail(Session["emisor"].ToString(), dato.receptor.correoElectronico,
+                    //            string.Format("{0} - {1}", dato.numeroConsecutivo, elEmisor.nombre),
+                    //            Utilidades.mensageGenerico(), "Documento Electrónico", EncodeXML.EncondeXML.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave, cc);
+                    //    }
+                    //}
+                    //else if (responsePost.Equals("Error"))
+                    //{
+                    //    this.alertMessages.Attributes["class"] = "alert alert-danger";
+                    //    this.alertMessages.InnerText = String.Format("Documento #{0} con errores.", dato.numeroConsecutivo);
+                    //    //Se agrega segundo mensaje
+                    //    this.alertMessages1.Attributes["class"] = "alert alert-danger";
+                    //    this.alertMessages1.InnerText = String.Format("Documento #{0} con errores.", dato.numeroConsecutivo);
+                    //    return;
+                    //}
+                    //else
+                    //{
+                    //    this.alertMessages.Attributes["class"] = "alert alert-warning";
+                    //    this.alertMessages.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
+                    //    //Se agrega segundo mensaje
+                    //    this.alertMessages1.Attributes["class"] = "alert alert-warning";
+                    //    this.alertMessages1.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
+                    //    return;
+                    //}
                     if (empresa.tipoImpresion.Equals("A4"))
                     {
                         Response.Redirect("~/Pages/Consulta/" + dato.clave);

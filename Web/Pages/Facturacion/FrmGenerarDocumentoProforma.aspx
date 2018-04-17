@@ -350,7 +350,8 @@
                             </dx:ContentControl>
                         </ContentCollection>
                     </dx:TabPage>
-                    <dx:TabPage Text="Referencias"> 
+                      
+                      <%--                <dx:TabPage Text="Referencias"> 
                         <ContentCollection>
                             <dx:ContentControl runat="server">
 
@@ -489,9 +490,9 @@
 
                             </dx:ContentControl>
                         </ContentCollection>
-                    </dx:TabPage>
+                    </dx:TabPage>--%>
 
-                    <dx:TabPage Text="Factura"> 
+                    <dx:TabPage Text="Proforma"> 
                         <ContentCollection>
                             <dx:ContentControl runat="server">
 
@@ -502,7 +503,7 @@
                                         <dx:LayoutGroup Caption="Encabezado" ColCount="3" GroupBoxDecoration="Box" UseDefaultPaddings="false">
                                             <Items>
 
-                                                <dx:LayoutItem Caption="Tipo Documento">
+                                                <%--<dx:LayoutItem Caption="Tipo Documento">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxComboBox ID="cmbTipoDocumento" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
@@ -514,9 +515,9 @@
                                                             </dx:ASPxComboBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
-                                                </dx:LayoutItem>
+                                                </dx:LayoutItem>--%>
 
-                                                <dx:LayoutItem Caption="Sucursal y Caja">
+                                            <%--                                                <dx:LayoutItem Caption="Sucursal y Caja">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxComboBox ID="cmbSucursalCaja" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
@@ -527,7 +528,7 @@
                                                             </dx:ASPxComboBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
-                                                </dx:LayoutItem>
+                                                </dx:LayoutItem>--%>
 
                                                                                                 <dx:LayoutItem Caption="Cliente">
                                                     <LayoutItemNestedControlCollection>
@@ -895,7 +896,7 @@
             </dx:ASPxPageControl>
 
                <div class="text-center">
-            <dx:ASPxButton runat="server" ID="btnFacturar" Text="Facturar" OnClick="btnFacturar_Click" CausesValidation="true" Image-Url="~/Content/Images/check.png"></dx:ASPxButton>
+            <dx:ASPxButton runat="server" ID="btnFacturar" Text="Generar Proforma" OnClick="btnFacturar_Click" CausesValidation="true" Image-Url="~/Content/Images/check.png"></dx:ASPxButton>
                    </div>
             <div id="alertMessages1" role="alert" runat="server" />
         </ContentTemplate>

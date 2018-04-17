@@ -62,6 +62,7 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
     private XRLabel xrLabel28;
     private XRLabel xrLabel29;
     private XRLabel xrLabel3;
+    private CalculatedField cSimboloMonedaEN;
 
     /// <summary>
     /// Required designer variable.
@@ -152,6 +153,7 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             this.FieldCaption = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.cSimboloMonedaEN = new DevExpress.XtraReports.UI.CalculatedField();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -210,7 +212,7 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             // xrLabel18
             // 
             this.xrLabel18.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "montoImpuestoVenta", "{0:C2}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "montoImpuestoVenta", "{0:N2}")});
             this.xrLabel18.LocationFloat = new DevExpress.Utils.PointFloat(166.4999F, 342.2858F);
             this.xrLabel18.Name = "xrLabel18";
             this.xrLabel18.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -222,7 +224,7 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             // xrLabel16
             // 
             this.xrLabel16.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "montoDescuento", "{0:C2}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "montoDescuento", "{0:N2}")});
             this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(166.4999F, 324.2858F);
             this.xrLabel16.Name = "xrLabel16";
             this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -235,7 +237,7 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             // xrLabel15
             // 
             this.xrLabel15.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "montoSubTotal", "{0:C2}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "montoSubTotal", "{0:N2}")});
             this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(166.4999F, 306.2857F);
             this.xrLabel15.Name = "xrLabel15";
             this.xrLabel15.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -246,6 +248,8 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             // 
             // xrLabel24
             // 
+            this.xrLabel24.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "cSimboloMonedaEN", "Total:{0}")});
             this.xrLabel24.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(78.62492F, 360.2858F);
             this.xrLabel24.Name = "xrLabel24";
@@ -253,10 +257,13 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             this.xrLabel24.SizeF = new System.Drawing.SizeF(87.87495F, 18F);
             this.xrLabel24.StyleName = "FieldCaption";
             this.xrLabel24.StylePriority.UseFont = false;
-            this.xrLabel24.Text = "Total:";
+            this.xrLabel24.StylePriority.UseTextAlignment = false;
+            this.xrLabel24.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // xrLabel10
             // 
+            this.xrLabel10.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "cSimboloMonedaEN", "TAX : {0}")});
             this.xrLabel10.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(78.62489F, 342.2858F);
             this.xrLabel10.Name = "xrLabel10";
@@ -264,10 +271,13 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             this.xrLabel10.SizeF = new System.Drawing.SizeF(87.87496F, 18F);
             this.xrLabel10.StyleName = "FieldCaption";
             this.xrLabel10.StylePriority.UseFont = false;
-            this.xrLabel10.Text = "TAX : ";
+            this.xrLabel10.StylePriority.UseTextAlignment = false;
+            this.xrLabel10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // xrLabel9
             // 
+            this.xrLabel9.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "cSimboloMonedaEN", "Discount : {0}")});
             this.xrLabel9.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(78.62492F, 324.2858F);
             this.xrLabel9.Name = "xrLabel9";
@@ -275,7 +285,8 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             this.xrLabel9.SizeF = new System.Drawing.SizeF(87.87495F, 18F);
             this.xrLabel9.StyleName = "FieldCaption";
             this.xrLabel9.StylePriority.UseFont = false;
-            this.xrLabel9.Text = "Discount : ";
+            this.xrLabel9.StylePriority.UseTextAlignment = false;
+            this.xrLabel9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // xrLabel46
             // 
@@ -462,6 +473,8 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             // 
             // xrLabel17
             // 
+            this.xrLabel17.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "cSimboloMonedaEN", "Sub Total : {0}")});
             this.xrLabel17.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.xrLabel17.LocationFloat = new DevExpress.Utils.PointFloat(78.62492F, 306.2857F);
             this.xrLabel17.Name = "xrLabel17";
@@ -469,7 +482,8 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             this.xrLabel17.SizeF = new System.Drawing.SizeF(87.87495F, 18F);
             this.xrLabel17.StyleName = "FieldCaption";
             this.xrLabel17.StylePriority.UseFont = false;
-            this.xrLabel17.Text = "Sub Total : ";
+            this.xrLabel17.StylePriority.UseTextAlignment = false;
+            this.xrLabel17.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // xrLabel25
             // 
@@ -524,7 +538,7 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             // xrLabel42
             // 
             this.xrLabel42.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "montoTotal", "{0:C2}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "montoTotal", "{0:N2}")});
             this.xrLabel42.LocationFloat = new DevExpress.Utils.PointFloat(166.4999F, 360.2858F);
             this.xrLabel42.Name = "xrLabel42";
             this.xrLabel42.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -780,6 +794,11 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             this.DataField.Name = "DataField";
             this.DataField.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             // 
+            // cSimboloMonedaEN
+            // 
+            this.cSimboloMonedaEN.Expression = "Iif([moneda]==\'CRC\',\'₡\'  ,\'$\' )";
+            this.cSimboloMonedaEN.Name = "cSimboloMonedaEN";
+            // 
             // RptFacturacionElectronicaRollPaperEN
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -787,6 +806,8 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             this.TopMargin,
             this.BottomMargin,
             this.reportHeaderBand1});
+            this.CalculatedFields.AddRange(new DevExpress.XtraReports.UI.CalculatedField[] {
+            this.cSimboloMonedaEN});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.objectDataSource1});
             this.DataSource = this.objectDataSource1;
@@ -817,6 +838,17 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
     {
         XRSubreport xrSubReport = (XRSubreport)sender;
         RptFactDetRollPaperEN subRep = xrSubReport.ReportSource as RptFactDetRollPaperEN;
+
+        if (xrLabel38.Text.Contains("CRC"))
+        {
+            subRep.pValorEN.Value = "₡";
+        }
+        else
+        {
+            subRep.pValorEN.Value = "$";
+        }
+
+
 
         ///XMLDomain.Impresion feImpresion = new XMLDomain.Impresion();
         //feImpresion.iniciarParametros();
