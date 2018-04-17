@@ -650,7 +650,7 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel25.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "montoImpuestoVenta", "{0:N2}")});
-            this.xrLabel25.LocationFloat = new DevExpress.Utils.PointFloat(535.1991F, 285.0417F);
+            this.xrLabel25.LocationFloat = new DevExpress.Utils.PointFloat(535.1991F, 285.0418F);
             this.xrLabel25.Name = "xrLabel25";
             this.xrLabel25.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel25.SizeF = new System.Drawing.SizeF(113.9674F, 17.99997F);
@@ -699,7 +699,7 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             this.xrSubreport1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 178.5F);
             this.xrSubreport1.Name = "xrSubreport1";
             this.xrSubreport1.ReportSource = new RptComprobanteDetalleEN();
-            this.xrSubreport1.SizeF = new System.Drawing.SizeF(650F, 70.5417F);
+            this.xrSubreport1.SizeF = new System.Drawing.SizeF(650F, 60.12503F);
             this.xrSubreport1.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrSubreport1_BeforePrint);
             // 
             // pbLogo

@@ -139,12 +139,11 @@ public class RptComprobanteDetalleEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel9.StylePriority.UseForeColor = false;
             this.xrLabel9.StylePriority.UsePadding = false;
             this.xrLabel9.StylePriority.UseTextAlignment = false;
-            this.xrLabel9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrLabel9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // pSimboloMonedaEN
             // 
             this.pSimboloMonedaEN.Name = "pSimboloMonedaEN";
-            this.pSimboloMonedaEN.Type = typeof(string[]);
             this.pSimboloMonedaEN.Visible = false;
             // 
             // xrLabel1
@@ -216,7 +215,7 @@ public class RptComprobanteDetalleEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(138.4615F, 0F);
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel3.SizeF = new System.Drawing.SizeF(375.9044F, 23.25001F);
+            this.xrLabel3.SizeF = new System.Drawing.SizeF(375.9043F, 23.25001F);
             this.xrLabel3.StylePriority.UseBackColor = false;
             this.xrLabel3.StylePriority.UseBorderColor = false;
             this.xrLabel3.StylePriority.UseBorders = false;
@@ -430,7 +429,7 @@ public class RptComprobanteDetalleEN : DevExpress.XtraReports.UI.XtraReport
             // 
             // bottomMarginBand1
             // 
-            this.bottomMarginBand1.HeightF = 0F;
+            this.bottomMarginBand1.HeightF = 2.458318F;
             this.bottomMarginBand1.Name = "bottomMarginBand1";
             // 
             // Title
@@ -484,7 +483,7 @@ public class RptComprobanteDetalleEN : DevExpress.XtraReports.UI.XtraReport
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.objectDataSource1});
             this.DataSource = this.objectDataSource1;
-            this.Margins = new System.Drawing.Printing.Margins(100, 100, 0, 0);
+            this.Margins = new System.Drawing.Printing.Margins(100, 100, 0, 2);
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
             this.pSimboloMonedaEN});
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {

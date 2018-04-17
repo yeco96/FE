@@ -251,10 +251,10 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
             this.xrLabel24.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "cSimboloMoneda", "Total a pagar :{0}")});
             this.xrLabel24.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(45.66666F, 372.4948F);
+            this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(31.08333F, 372.4948F);
             this.xrLabel24.Name = "xrLabel24";
             this.xrLabel24.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel24.SizeF = new System.Drawing.SizeF(114.8333F, 18F);
+            this.xrLabel24.SizeF = new System.Drawing.SizeF(129.4167F, 18F);
             this.xrLabel24.StyleName = "FieldCaption";
             this.xrLabel24.StylePriority.UseFont = false;
             this.xrLabel24.StylePriority.UseTextAlignment = false;
@@ -265,10 +265,10 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
             this.xrLabel10.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "cSimboloMoneda", "I.V. : {0}")});
             this.xrLabel10.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(45.66663F, 354.4947F);
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(31.0833F, 354.4947F);
             this.xrLabel10.Name = "xrLabel10";
             this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel10.SizeF = new System.Drawing.SizeF(114.8333F, 18F);
+            this.xrLabel10.SizeF = new System.Drawing.SizeF(129.4167F, 18F);
             this.xrLabel10.StyleName = "FieldCaption";
             this.xrLabel10.StylePriority.UseFont = false;
             this.xrLabel10.StylePriority.UseTextAlignment = false;
@@ -279,10 +279,10 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
             this.xrLabel9.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "cSimboloMoneda", "Descuento :{0}")});
             this.xrLabel9.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(45.66666F, 336.4947F);
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(31.08333F, 336.4947F);
             this.xrLabel9.Name = "xrLabel9";
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel9.SizeF = new System.Drawing.SizeF(114.8333F, 18F);
+            this.xrLabel9.SizeF = new System.Drawing.SizeF(129.4167F, 18F);
             this.xrLabel9.StyleName = "FieldCaption";
             this.xrLabel9.StylePriority.UseFont = false;
             this.xrLabel9.StylePriority.UseTextAlignment = false;
@@ -475,10 +475,10 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
             this.xrLabel17.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "cSimboloMoneda", "Sub Total : {0}")});
             this.xrLabel17.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.xrLabel17.LocationFloat = new DevExpress.Utils.PointFloat(45.66666F, 318.4946F);
+            this.xrLabel17.LocationFloat = new DevExpress.Utils.PointFloat(31.08333F, 318.4946F);
             this.xrLabel17.Name = "xrLabel17";
             this.xrLabel17.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel17.SizeF = new System.Drawing.SizeF(114.8333F, 18F);
+            this.xrLabel17.SizeF = new System.Drawing.SizeF(129.4167F, 18F);
             this.xrLabel17.StyleName = "FieldCaption";
             this.xrLabel17.StylePriority.UseFont = false;
             this.xrLabel17.StylePriority.UseTextAlignment = false;

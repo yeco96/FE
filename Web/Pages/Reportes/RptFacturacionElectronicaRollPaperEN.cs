@@ -133,7 +133,6 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             this.xrLabel42 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel43 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
-            this.xrSubreport1 = new DevExpress.XtraReports.UI.XRSubreport();
             this.xrBarCode1 = new DevExpress.XtraReports.UI.XRBarCode();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.xrLine2 = new DevExpress.XtraReports.UI.XRLine();
@@ -154,6 +153,7 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
             this.cSimboloMonedaEN = new DevExpress.XtraReports.UI.CalculatedField();
+            this.xrSubreport1 = new DevExpress.XtraReports.UI.XRSubreport();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -251,10 +251,10 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             this.xrLabel24.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "cSimboloMonedaEN", "Total:{0}")});
             this.xrLabel24.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(78.62492F, 360.2858F);
+            this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(47.37492F, 360.2858F);
             this.xrLabel24.Name = "xrLabel24";
             this.xrLabel24.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel24.SizeF = new System.Drawing.SizeF(87.87495F, 18F);
+            this.xrLabel24.SizeF = new System.Drawing.SizeF(119.1249F, 18F);
             this.xrLabel24.StyleName = "FieldCaption";
             this.xrLabel24.StylePriority.UseFont = false;
             this.xrLabel24.StylePriority.UseTextAlignment = false;
@@ -265,10 +265,10 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             this.xrLabel10.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "cSimboloMonedaEN", "TAX : {0}")});
             this.xrLabel10.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(78.62489F, 342.2858F);
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(47.37489F, 342.2858F);
             this.xrLabel10.Name = "xrLabel10";
             this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel10.SizeF = new System.Drawing.SizeF(87.87496F, 18F);
+            this.xrLabel10.SizeF = new System.Drawing.SizeF(119.1249F, 18F);
             this.xrLabel10.StyleName = "FieldCaption";
             this.xrLabel10.StylePriority.UseFont = false;
             this.xrLabel10.StylePriority.UseTextAlignment = false;
@@ -279,10 +279,10 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             this.xrLabel9.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "cSimboloMonedaEN", "Discount : {0}")});
             this.xrLabel9.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(78.62492F, 324.2858F);
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(47.37492F, 324.2858F);
             this.xrLabel9.Name = "xrLabel9";
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel9.SizeF = new System.Drawing.SizeF(87.87495F, 18F);
+            this.xrLabel9.SizeF = new System.Drawing.SizeF(119.1249F, 18F);
             this.xrLabel9.StyleName = "FieldCaption";
             this.xrLabel9.StylePriority.UseFont = false;
             this.xrLabel9.StylePriority.UseTextAlignment = false;
@@ -476,10 +476,10 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             this.xrLabel17.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "cSimboloMonedaEN", "Sub Total : {0}")});
             this.xrLabel17.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.xrLabel17.LocationFloat = new DevExpress.Utils.PointFloat(78.62492F, 306.2857F);
+            this.xrLabel17.LocationFloat = new DevExpress.Utils.PointFloat(47.37492F, 306.2857F);
             this.xrLabel17.Name = "xrLabel17";
             this.xrLabel17.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel17.SizeF = new System.Drawing.SizeF(87.87495F, 18F);
+            this.xrLabel17.SizeF = new System.Drawing.SizeF(119.1249F, 18F);
             this.xrLabel17.StyleName = "FieldCaption";
             this.xrLabel17.StylePriority.UseFont = false;
             this.xrLabel17.StylePriority.UseTextAlignment = false;
@@ -566,14 +566,6 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(6.00001F, 3.000005F);
             this.xrLine1.Name = "xrLine1";
             this.xrLine1.SizeF = new System.Drawing.SizeF(285F, 6.00001F);
-            // 
-            // xrSubreport1
-            // 
-            this.xrSubreport1.LocationFloat = new DevExpress.Utils.PointFloat(5.999883F, 237.7857F);
-            this.xrSubreport1.Name = "xrSubreport1";
-            this.xrSubreport1.ReportSource = new RptFactDetRollPaperEN();
-            this.xrSubreport1.SizeF = new System.Drawing.SizeF(285F, 58.4167F);
-            this.xrSubreport1.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrSubreport1_BeforePrint_1);
             // 
             // xrBarCode1
             // 
@@ -798,6 +790,14 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             // 
             this.cSimboloMonedaEN.Expression = "Iif([moneda]==\'CRC\',\'₡\'  ,\'$\' )";
             this.cSimboloMonedaEN.Name = "cSimboloMonedaEN";
+            // 
+            // xrSubreport1
+            // 
+            this.xrSubreport1.LocationFloat = new DevExpress.Utils.PointFloat(5.999883F, 237.7857F);
+            this.xrSubreport1.Name = "xrSubreport1";
+            this.xrSubreport1.ReportSource = new RptFactDetRollPaperEN();
+            this.xrSubreport1.SizeF = new System.Drawing.SizeF(285F, 58.4167F);
+            this.xrSubreport1.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrSubreport1_BeforePrint_1);
             // 
             // RptFacturacionElectronicaRollPaperEN
             // 
