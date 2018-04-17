@@ -30,7 +30,8 @@ namespace Web.Models.Catalogos
         public static string NOTA_CREDITO = "03";
         [NotMapped]
         public static string TIQUETE_ELECTRONICO = "04";
-
+        [NotMapped]
+        public static string COMPROBANTE_CONTNGENCIA = "08";
 
         [Key]
         [Required]

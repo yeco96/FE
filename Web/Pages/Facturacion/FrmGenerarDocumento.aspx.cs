@@ -1120,16 +1120,36 @@ namespace Web.Pages.Facturacion
                 }
                 else
                 {
-                    decimal total = detalle.lineaDetalle.Sum(x => x.montoTotalLinea);
-                    if (total <= 0)
+                    foreach (var item in detalle.lineaDetalle)
+                    {
+                        if (item.montoTotalLinea <= 0)
+                        {
+                            this.alertMessages.Attributes["class"] = "alert alert-danger";
+                            this.alertMessages.InnerText = "No se puede realizar una factura sin montos";
+                            //Se agrega segundo mensaje
+                            this.alertMessages1.Attributes["class"] = "alert alert-danger";
+                            this.alertMessages1.InnerText = "No se puede realizar una factura sin montos";
+                            return;
+                        }
+                    }
+                   
+                }
+
+                if (cmbTipoDocumento.Value.ToString() == TipoDocumento.NOTA_CREDITO ||
+                    cmbTipoDocumento.Value.ToString() == TipoDocumento.NOTA_DEBITO ||
+                    cmbTipoDocumento.Value.ToString() == TipoDocumento.COMPROBANTE_CONTNGENCIA)
+                {
+                    List<InformacionReferencia> referencias = (List<InformacionReferencia>)Session["informacionReferencia"];
+                    if (referencias.Count == 0)
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-danger";
-                        this.alertMessages.InnerText = "No se puede realizar una factura sin montos";
-                        //Se agrega segundo mensaje
+                        this.alertMessages.InnerText = "Debe de agregar el número de documento al que hace referencia, en la sección de 'Referencias'";
+
                         this.alertMessages1.Attributes["class"] = "alert alert-danger";
-                        this.alertMessages1.InnerText = "No se puede realizar una factura sin montos";
+                        this.alertMessages1.InnerText = "Debe de agregar el número de documento al que hace referencia, en la sección de 'Referencias'";
                         return;
                     }
+
                 }
 
 
@@ -1464,7 +1484,9 @@ namespace Web.Pages.Facturacion
         protected void cmbTipoDocumento_ValueChanged(object sender, EventArgs e)
         {
             //VERIFICA SI EL SELECCIONADO ES CONTINGENCIA
-            if (cmbTipoDocumento.Text.Contains("CONTINGENCIA"))
+            if (cmbTipoDocumento.Value.ToString() == TipoDocumento.NOTA_CREDITO ||
+                    cmbTipoDocumento.Value.ToString() == TipoDocumento.NOTA_DEBITO ||
+                    cmbTipoDocumento.Value.ToString() == TipoDocumento.COMPROBANTE_CONTNGENCIA)
             {
                 this.alertMessages.Attributes["class"] = "alert alert-info";
                 this.alertMessages.InnerText = "Se le recuerda que debe de agregar el número de documento al que hace referencia, en la sección de 'Referencias'";
