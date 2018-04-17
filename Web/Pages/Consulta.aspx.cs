@@ -72,6 +72,7 @@ namespace Web.Pages
                     {
                         reportES.pbLogo.Image = UtilidadesReporte.byteArrayToImage(empresa.logo);
                     }
+
                     reportES.CreateDocument();
                     report = reportES;
                 } 

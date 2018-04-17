@@ -63,6 +63,7 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
     private XRLabel xrLabel39;
     private XRPageInfo xrPageInfo2;
     private XRLabel xrLabel40;
+    private CalculatedField cSimboloMonedaEN;
 
     /// <summary>
     /// Required designer variable.
@@ -153,6 +154,7 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             this.FieldCaption = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.cSimboloMonedaEN = new DevExpress.XtraReports.UI.CalculatedField();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -329,6 +331,8 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             // 
             // xrLabel8
             // 
+            this.xrLabel8.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "cSimboloMonedaEN", "Discount : {0}")});
             this.xrLabel8.ForeColor = System.Drawing.Color.Black;
             this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(391.4166F, 267.0418F);
             this.xrLabel8.Multiline = true;
@@ -338,7 +342,6 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel8.StyleName = "FieldCaption";
             this.xrLabel8.StylePriority.UseForeColor = false;
             this.xrLabel8.StylePriority.UseTextAlignment = false;
-            this.xrLabel8.Text = "Discount : ";
             this.xrLabel8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel12
@@ -526,6 +529,8 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             // 
             // xrLabel9
             // 
+            this.xrLabel9.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "cSimboloMonedaEN", "Tax : {0}")});
             this.xrLabel9.ForeColor = System.Drawing.Color.Black;
             this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(391.4167F, 285.0418F);
             this.xrLabel9.Name = "xrLabel9";
@@ -534,11 +539,12 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel9.StyleName = "FieldCaption";
             this.xrLabel9.StylePriority.UseForeColor = false;
             this.xrLabel9.StylePriority.UseTextAlignment = false;
-            this.xrLabel9.Text = "Tax : ";
             this.xrLabel9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel10
             // 
+            this.xrLabel10.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "cSimboloMonedaEN", "Sub Total : {0}")});
             this.xrLabel10.ForeColor = System.Drawing.Color.Black;
             this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(391.4166F, 249.0417F);
             this.xrLabel10.Name = "xrLabel10";
@@ -547,11 +553,12 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel10.StyleName = "FieldCaption";
             this.xrLabel10.StylePriority.UseForeColor = false;
             this.xrLabel10.StylePriority.UseTextAlignment = false;
-            this.xrLabel10.Text = "Sub Total : ";
             this.xrLabel10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel11
             // 
+            this.xrLabel11.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "cSimboloMonedaEN", "Total : {0}")});
             this.xrLabel11.ForeColor = System.Drawing.Color.Black;
             this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(391.4166F, 303.0417F);
             this.xrLabel11.Name = "xrLabel11";
@@ -560,7 +567,6 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel11.StyleName = "FieldCaption";
             this.xrLabel11.StylePriority.UseForeColor = false;
             this.xrLabel11.StylePriority.UseTextAlignment = false;
-            this.xrLabel11.Text = "Total : ";
             this.xrLabel11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel17
@@ -902,6 +908,11 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             this.DataField.Name = "DataField";
             this.DataField.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             // 
+            // cSimboloMonedaEN
+            // 
+            this.cSimboloMonedaEN.Expression = "Iif([moneda]==\'CRC\', \'₡\' ,\'$\' )";
+            this.cSimboloMonedaEN.Name = "cSimboloMonedaEN";
+            // 
             // RptComprobanteEN
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -909,6 +920,8 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             this.TopMargin,
             this.BottomMargin,
             this.reportHeaderBand1});
+            this.CalculatedFields.AddRange(new DevExpress.XtraReports.UI.CalculatedField[] {
+            this.cSimboloMonedaEN});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.objectDataSource1});
             this.DataSource = this.objectDataSource1;
@@ -931,7 +944,16 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
         try {
             XRSubreport xrSubReport = (XRSubreport)sender;
             RptComprobanteDetalleEN subRep = xrSubReport.ReportSource as RptComprobanteDetalleEN;
-             
+
+            if (xrLabel23.Text.Contains("CRC"))
+            {
+                subRep.pSimboloMonedaEN.Value = "₡";
+            }
+            else
+            {
+                subRep.pSimboloMonedaEN.Value = "$";
+            }
+
             object dataSource = ((XMLDomain.Impresion)this.objectDataSource1.DataSource).detalles;
             subRep.Report.DataSource = dataSource;
             subRep.Report.FillDataSource();
