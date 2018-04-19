@@ -133,6 +133,7 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             this.xrLabel42 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel43 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
+            this.xrSubreport1 = new DevExpress.XtraReports.UI.XRSubreport();
             this.xrBarCode1 = new DevExpress.XtraReports.UI.XRBarCode();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.xrLine2 = new DevExpress.XtraReports.UI.XRLine();
@@ -153,7 +154,6 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
             this.cSimboloMonedaEN = new DevExpress.XtraReports.UI.CalculatedField();
-            this.xrSubreport1 = new DevExpress.XtraReports.UI.XRSubreport();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -567,6 +567,14 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             this.xrLine1.Name = "xrLine1";
             this.xrLine1.SizeF = new System.Drawing.SizeF(285F, 6.00001F);
             // 
+            // xrSubreport1
+            // 
+            this.xrSubreport1.LocationFloat = new DevExpress.Utils.PointFloat(5.999883F, 237.7857F);
+            this.xrSubreport1.Name = "xrSubreport1";
+            this.xrSubreport1.ReportSource = new RptFactDetRollPaperEN();
+            this.xrSubreport1.SizeF = new System.Drawing.SizeF(285F, 58.4167F);
+            this.xrSubreport1.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrSubreport1_BeforePrint_1);
+            // 
             // xrBarCode1
             // 
             this.xrBarCode1.AutoModule = true;
@@ -788,16 +796,8 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
             // 
             // cSimboloMonedaEN
             // 
-            this.cSimboloMonedaEN.Expression = "Iif([moneda]==\'CRC\',\'₡\'  ,\'$\' )";
+            this.cSimboloMonedaEN.Expression = "Iif([moneda]==\'CRC\', \'₡\' ,Iif([moneda]==\'USD\',\'$\' ,\'€\' ) )";
             this.cSimboloMonedaEN.Name = "cSimboloMonedaEN";
-            // 
-            // xrSubreport1
-            // 
-            this.xrSubreport1.LocationFloat = new DevExpress.Utils.PointFloat(5.999883F, 237.7857F);
-            this.xrSubreport1.Name = "xrSubreport1";
-            this.xrSubreport1.ReportSource = new RptFactDetRollPaperEN();
-            this.xrSubreport1.SizeF = new System.Drawing.SizeF(285F, 58.4167F);
-            this.xrSubreport1.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrSubreport1_BeforePrint_1);
             // 
             // RptFacturacionElectronicaRollPaperEN
             // 
@@ -845,7 +845,14 @@ public class RptFacturacionElectronicaRollPaperEN : DevExpress.XtraReports.UI.Xt
         }
         else
         {
-            subRep.pValorEN.Value = "$";
+            if (xrLabel38.Text.Contains("USD"))
+            {
+                subRep.pValorEN.Value = "$";
+            }
+            else
+            {
+                subRep.pValorEN.Value = "€";
+            }
         }
 
 

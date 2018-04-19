@@ -912,7 +912,7 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             // 
             // cSimboloMonedaEN
             // 
-            this.cSimboloMonedaEN.Expression = "Iif([moneda]==\'CRC\', \'₡\' ,\'$\' )";
+            this.cSimboloMonedaEN.Expression = "Iif([moneda]==\'CRC\', \'₡\' ,Iif([moneda]==\'USD\',\'$\' ,\'€\' ) )";
             this.cSimboloMonedaEN.Name = "cSimboloMonedaEN";
             // 
             // RptComprobanteEN
@@ -953,7 +953,13 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             }
             else
             {
-                subRep.pSimboloMonedaEN.Value = "$";
+                if (xrLabel23.Text.Contains("USD"))
+                {
+                    subRep.pSimboloMonedaEN.Value = "$";
+                }
+                else {
+                    subRep.pSimboloMonedaEN.Value = "€";
+                }
             }
 
             object dataSource = ((XMLDomain.Impresion)this.objectDataSource1.DataSource).detalles;

@@ -739,7 +739,7 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             this.xrSubreport1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 176.3574F);
             this.xrSubreport1.Name = "xrSubreport1";
             this.xrSubreport1.ReportSource = new RptComprobanteDetalle();
-            this.xrSubreport1.SizeF = new System.Drawing.SizeF(750F, 54.91667F);
+            this.xrSubreport1.SizeF = new System.Drawing.SizeF(750F, 44.5F);
             this.xrSubreport1.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrSubreport1_BeforePrint);
             // 
             // xrBarCode1
@@ -762,7 +762,7 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel3,
             this.xrLabel19,
             this.pbLogo});
-            this.TopMargin.HeightF = 181.1667F;
+            this.TopMargin.HeightF = 181F;
             this.TopMargin.Name = "TopMargin";
             this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -953,7 +953,7 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             // 
             // cSimboloMoneda
             // 
-            this.cSimboloMoneda.Expression = "Iif([moneda]==\'CRC\', \'₡\' , \'$\' )";
+            this.cSimboloMoneda.Expression = "Iif([moneda]==\'CRC\', \'₡\' ,Iif([moneda]==\'USD\',\'$\' ,\'€\' ) )";
             this.cSimboloMoneda.Name = "cSimboloMoneda";
             // 
             // RptComprobante
@@ -996,7 +996,13 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             }
             else
             {
-                subRep.pSimboloMoneda.Value = "$";
+                if (xrLabel23.Text.Contains("USD"))
+                {
+                    subRep.pSimboloMoneda.Value = "$";
+                }
+                else {
+                    subRep.pSimboloMoneda.Value = "€";
+                }
             }
 
             object dataSource = ((XMLDomain.Impresion)this.objectDataSource1.DataSource).detalles;

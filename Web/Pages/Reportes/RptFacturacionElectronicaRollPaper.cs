@@ -795,7 +795,7 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
             // 
             // cSimboloMoneda
             // 
-            this.cSimboloMoneda.Expression = "Iif([moneda]==\'CRC\',\'₡\'  ,\'$\' )";
+            this.cSimboloMoneda.Expression = "Iif([moneda]==\'CRC\', \'₡\' ,Iif([moneda]==\'USD\',\'$\' ,\'€\' ) )";
             this.cSimboloMoneda.Name = "cSimboloMoneda";
             // 
             // RptFacturacionElectronicaRollPaper
@@ -844,7 +844,13 @@ public class RptFacturacionElectronicaRollPaper : DevExpress.XtraReports.UI.Xtra
         }
         else
         {
-            subRep.pValor.Value = "$";
+            if (xrLabel38.Text.Contains("USD"))
+            {
+                subRep.pValor.Value = "$";
+            }
+            else {
+                subRep.pValor.Value = "€";
+            }
         }
 
         ///XMLDomain.Impresion feImpresion = new XMLDomain.Impresion();
