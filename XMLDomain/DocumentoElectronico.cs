@@ -44,6 +44,7 @@ namespace XMLDomain
 
         [XmlElement(ElementName = "ResumenFactura", Order = 10)]
         public ResumenFactura resumenFactura { set; get; }
+        public ResumenFacturaProforma resumenProforma { set; get; }
 
         [XmlElement(ElementName = "InformacionReferencia", Order = 11)]
         public List<InformacionReferencia> informacionReferencia { set; get; }

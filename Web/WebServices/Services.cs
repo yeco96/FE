@@ -144,13 +144,7 @@ namespace Web.WebServices
             return await responseMessage.Content.ReadAsStringAsync();
         }
 
-
-
-
-
-
-
-
+        
         /// <summary>
         /// 
         /// </summary>
@@ -289,7 +283,135 @@ namespace Web.WebServices
             return responsePost;
         }
 
+        public static async Task<string> enviarProforma(bool tieneFirma, DocumentoElectronico documento, EmisorReceptorIMEC emisor, string tipoDocumento, string usuario)
+        {
+            String responsePostProforma = "";
+            try
+            {
+                string xmlFile = EncodeXML.EncondeXML.getXMLFromObject(documento);
 
+                using (var conexion = new DataModelFE())
+                {
+                    string ambiente = ConfigurationManager.AppSettings["ENVIROMENT"].ToString();
+                    OAuth2.OAuth2Config config = conexion.OAuth2Config.Where(x => x.enviroment == ambiente).FirstOrDefault();
+                    config.username = emisor.usernameOAuth2;
+                    config.password = emisor.passwordOAuth2;
+
+                    //await OAuth2.OAuth2Config.getTokenWeb(config);
+
+                    WSDomain.WSRecepcionPOSTProforma trama = new WSDomain.WSRecepcionPOSTProforma();
+                    trama.clave = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "Clave", xmlFile);
+                    trama.fecha = DateTime.ParseExact(EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "FechaEmision", xmlFile), "yyyy-MM-ddTHH:mm:ss-06:00",
+                                       System.Globalization.CultureInfo.InvariantCulture);
+
+
+                    string emisorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Emisor", "Identificacion", xmlFile);
+                    trama.emisor.tipoIdentificacion = emisorIdentificacion.Substring(0, 2);
+                    trama.emisor.numeroIdentificacion = emisorIdentificacion.Substring(2);
+                    trama.emisorTipo = trama.emisor.tipoIdentificacion;
+                    trama.emisorIdentificacion = trama.emisor.numeroIdentificacion;
+
+                    string receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xmlFile);
+
+                    if (!string.IsNullOrWhiteSpace(receptorIdentificacion))
+                    {
+                        trama.receptor.tipoIdentificacion = receptorIdentificacion.Substring(0, 2);
+                        trama.receptor.numeroIdentificacion = receptorIdentificacion.Substring(2);
+                    }
+                    else
+                    {
+                        trama.receptor.tipoIdentificacion = "99";
+                        trama.receptor.numeroIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "IdentificacionExtranjero", xmlFile);
+                    }
+
+                    trama.receptorTipo = trama.receptor.tipoIdentificacion;
+                    trama.receptorIdentificacion = trama.receptor.numeroIdentificacion;
+                    trama.tipoDocumento = tipoDocumento;
+
+                    //trama.callbackUrl = ConfigurationManager.AppSettings["ENVIROMENT_URL"].ToString();
+
+                    if (!tieneFirma)
+                    {
+                        xmlFile = FirmaXML.getXMLFirmadoWeb(xmlFile, emisor.llaveCriptografica, emisor.claveLlaveCriptografica.ToString());
+                    }
+                    trama.consecutivoReceptor = null;
+                    trama.comprobanteXml = EncodeXML.EncondeXML.base64Encode(xmlFile);
+
+                    string jsonTrama = JsonConvert.SerializeObject(trama);
+
+                    if (config.token.access_token != null)
+                    {
+                        responsePostProforma = await Services.postRecepcion(config.token, jsonTrama);
+                    }
+                    else
+                    {
+                        // facturar guardada para envio en linea
+                        trama.indEstado = 9;
+                    }
+
+                    WSRecepcionPOSTProforma tramaExiste = conexion.WSRecepcionPOSTProforma.Find(trama.clave);
+
+                    if (tramaExiste != null)
+                    {// si existe
+                        trama.fechaModificacion = Date.DateTimeNow();
+                        trama.usuarioModificacion = usuario;
+                        trama.indEstado = 0;
+                        trama.cargarEmisorReceptor();
+                        conexion.Entry(tramaExiste).State = EntityState.Modified;
+
+                        documento.resumenFactura.clave = documento.clave;
+                        conexion.Entry(documento.resumenFactura).State = EntityState.Modified;
+                    }
+                    else//si no existe
+                    {
+                        trama.fechaCreacion = Date.DateTimeNow();
+                        trama.usuarioCreacion = usuario;
+                        trama.cargarEmisorReceptor();
+                        conexion.WSRecepcionPOSTProforma.Add(trama);
+
+                        documento.resumenProforma.clave = documento.clave;
+                        conexion.ResumenFacturaProforma.Add(documento.resumenProforma);
+
+                        Plan plan = conexion.Plan.Find(emisor.identificacion);
+                        if (plan != null)
+                        {
+                            plan.cantidadDocEmitido += 1;
+                            conexion.Entry(plan).State = EntityState.Modified;
+                        }
+                    }
+                    conexion.SaveChanges();
+
+                    //guarda la relacion de clientes asociados al emisor
+                    Cliente cliente = conexion.Cliente.Where(x => x.emisor == trama.emisor.numeroIdentificacion).Where(x => x.receptor == trama.receptor.numeroIdentificacion).FirstOrDefault();
+                    if (cliente == null && !string.IsNullOrWhiteSpace(trama.receptor.numeroIdentificacion))
+                    {
+                        cliente = new Cliente();
+                        cliente.emisor = trama.emisor.numeroIdentificacion;
+                        cliente.receptor = trama.receptor.numeroIdentificacion;
+                        conexion.Cliente.Add(cliente);
+                        conexion.SaveChanges();
+                    }
+
+                }
+            }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(fullErrorMessage, ex.EntityValidationErrors);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
+            }
+            return responsePostProforma;
+        }
 
 
         /// <summary>

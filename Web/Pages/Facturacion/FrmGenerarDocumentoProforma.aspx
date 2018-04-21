@@ -820,21 +820,21 @@
                                                                         <Items>
                                                                             <dx:LayoutGroup Caption="Exoneración" ColCount="3" GroupBoxDecoration="Box" UseDefaultPaddings="false">
                                                                                 <Items>
-                                                                                    <dx:LayoutItem Caption="Tipo Documento">
+                                                                                    <%--<dx:LayoutItem Caption="Tipo Documento">
                                                                                         <LayoutItemNestedControlCollection>
                                                                                             <dx:LayoutItemNestedControlContainer>
                                                                                                 <dx:ASPxComboBox ID="cmbTipoDocumento" runat="server" Width="100%" AutoResizeWithContainer="true"
                                                                                                     ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
                                                                                             </dx:LayoutItemNestedControlContainer>
                                                                                         </LayoutItemNestedControlCollection>
-                                                                                    </dx:LayoutItem>
-                                                                                    <dx:LayoutItem Caption="Número Documento">
+                                                                                    </dx:LayoutItem>--%>
+                                                                                    <%--<dx:LayoutItem Caption="Número Documento">
                                                                                         <LayoutItemNestedControlCollection>
                                                                                             <dx:LayoutItemNestedControlContainer>
                                                                                                 <dx:ASPxTextBox ID="numeroDocumento" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
                                                                                             </dx:LayoutItemNestedControlContainer>
                                                                                         </LayoutItemNestedControlCollection>
-                                                                                    </dx:LayoutItem>
+                                                                                    </dx:LayoutItem>--%>
                                                                                     <dx:LayoutItem Caption="Nombre Institución">
                                                                                         <LayoutItemNestedControlCollection>
                                                                                             <dx:LayoutItemNestedControlContainer>

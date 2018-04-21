@@ -574,45 +574,45 @@ namespace Web.Pages.Facturacion
                 this.txtPlazoCredito.Enabled = false;
             }
         }
-        protected void cmbTipoDocumento_ValueChanged(object sender, EventArgs e)
-        {
-            //VERIFICA SI EL SELECCIONADO ES CONTINGENCIA
-            //if (cmbTipoDocumento.Text.Contains("CONTINGENCIA"))
-            //{
-            //    this.alertMessages.Attributes["class"] = "alert alert-info";
-            //    this.alertMessages.InnerText = "Se le recuerda que debe de agregar el número de documento al que hace referencia, en la sección de 'Referencias'";
-            //}
-            using (var conexion = new DataModelFE())
-            {
-                /* SUCURSAL CAJA */
-                string emisor = Session["emisor"].ToString();
-                //List<ConsecutivoDocElectronico> lista = conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor &&
-                //x.tipoDocumento == this.cmbTipoDocumento.Value.ToString() && x.estado == Estado.ACTIVO.ToString()).ToList();
-                //if (lista.Count == 0)
-                //{
-                //    ConsecutivoDocElectronico consecutivo = new ConsecutivoDocElectronico();
-                //    consecutivo.sucursal = ConsecutivoDocElectronico.DEFAULT_SUCURSAL;
-                //    consecutivo.caja = ConsecutivoDocElectronico.DEFAULT_CAJA;
-                //    consecutivo.digitoVerificador = ConsecutivoDocElectronico.DEFAULT_DIGITO_VERIFICADOR;
-                //    consecutivo.emisor = emisor;
-                //    consecutivo.tipoDocumento = this.cmbTipoDocumento.Value.ToString();
-                //    consecutivo.consecutivo = 1;
-                //    consecutivo.estado = Estado.ACTIVO.ToString();
-                //    consecutivo.fechaCreacion = Date.DateTimeNow();
-                //    conexion.ConsecutivoDocElectronico.Add(consecutivo);
-                //    conexion.SaveChanges();
-                //    lista = conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor &&
-                //            x.tipoDocumento == this.cmbTipoDocumento.Value.ToString() && x.estado == Estado.ACTIVO.ToString()).ToList();
-                //}
-                //this.cmbSucursalCaja.SelectedIndex = 0;
-                //this.cmbSucursalCaja.Items.Clear();
-                //foreach (var item in lista)
-                //{
-                //    this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}", item.sucursal, item.caja));
-                //}
-                //this.cmbSucursalCaja.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-            }
-        }
+        //protected void cmbTipoDocumento_ValueChanged(object sender, EventArgs e)
+        //{
+        //    //VERIFICA SI EL SELECCIONADO ES CONTINGENCIA
+        //    //if (cmbTipoDocumento.Text.Contains("CONTINGENCIA"))
+        //    //{
+        //    //    this.alertMessages.Attributes["class"] = "alert alert-info";
+        //    //    this.alertMessages.InnerText = "Se le recuerda que debe de agregar el número de documento al que hace referencia, en la sección de 'Referencias'";
+        //    //}
+        //    //using (var conexion = new DataModelFE())
+        //    //{
+        //        /* SUCURSAL CAJA */
+        //    //    string emisor = Session["emisor"].ToString();
+        //        //List<ConsecutivoDocElectronico> lista = conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor &&
+        //        //x.tipoDocumento == this.cmbTipoDocumento.Value.ToString() && x.estado == Estado.ACTIVO.ToString()).ToList();
+        //        //if (lista.Count == 0)
+        //        //{
+        //        //    ConsecutivoDocElectronico consecutivo = new ConsecutivoDocElectronico();
+        //        //    consecutivo.sucursal = ConsecutivoDocElectronico.DEFAULT_SUCURSAL;
+        //        //    consecutivo.caja = ConsecutivoDocElectronico.DEFAULT_CAJA;
+        //        //    consecutivo.digitoVerificador = ConsecutivoDocElectronico.DEFAULT_DIGITO_VERIFICADOR;
+        //        //    consecutivo.emisor = emisor;
+        //        //    consecutivo.tipoDocumento = this.cmbTipoDocumento.Value.ToString();
+        //        //    consecutivo.consecutivo = 1;
+        //        //    consecutivo.estado = Estado.ACTIVO.ToString();
+        //        //    consecutivo.fechaCreacion = Date.DateTimeNow();
+        //        //    conexion.ConsecutivoDocElectronico.Add(consecutivo);
+        //        //    conexion.SaveChanges();
+        //        //    lista = conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor &&
+        //        //            x.tipoDocumento == this.cmbTipoDocumento.Value.ToString() && x.estado == Estado.ACTIVO.ToString()).ToList();
+        //        //}
+        //        //this.cmbSucursalCaja.SelectedIndex = 0;
+        //        //this.cmbSucursalCaja.Items.Clear();
+        //        //foreach (var item in lista)
+        //        //{
+        //        //    this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}", item.sucursal, item.caja));
+        //        //}
+        //        //this.cmbSucursalCaja.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+        //    //}
+        //}
         #endregion
 
         #region METODOS DEL GRID
@@ -1033,6 +1033,7 @@ namespace Web.Pages.Facturacion
             {
                 Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
                 DetalleServicio detalle = (DetalleServicio)Session["detalleServicio"];
+
                 if (string.IsNullOrWhiteSpace(((ASPxTextBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorNombre")).Text) ||
                     string.IsNullOrWhiteSpace(((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text))
                 {
@@ -1043,6 +1044,7 @@ namespace Web.Pages.Facturacion
                     this.alertMessages1.InnerText = "Debe agregar un receptor";
                     return;
                 }
+
                 if (TipoIdentificacion.FISICA.Equals(((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value.ToString())
                     && ((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text.Length != 9)
                 {
@@ -1053,6 +1055,7 @@ namespace Web.Pages.Facturacion
                     this.alertMessages1.InnerText = "La identificación debe tener de 9 digitos";
                     return;
                 }
+
                 if (TipoIdentificacion.JURIDICA.Equals(((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value.ToString())
                     && ((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text.Length != 10)
                 {
@@ -1063,6 +1066,7 @@ namespace Web.Pages.Facturacion
                     this.alertMessages1.InnerText = "La identificación debe tener de 10 digitos";
                     return;
                 }
+
                 if (TipoIdentificacion.DIMEX.Equals(((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value.ToString())
                     && (((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text.Length > 12 || ((ASPxTextBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text.Length < 11))
                 {
@@ -1073,6 +1077,7 @@ namespace Web.Pages.Facturacion
                     this.alertMessages1.InnerText = "La identificación debe tener en 11 y 12 digitos";
                     return;
                 }
+
                 if (TipoIdentificacion.NITE.Equals(((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value.ToString())
                     && ((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text.Length != 10)
                 {
@@ -1083,6 +1088,7 @@ namespace Web.Pages.Facturacion
                     this.alertMessages1.InnerText = "La identificación debe tener de 10 digitos";
                     return;
                 }
+
                 if (detalle.lineaDetalle.Count == 0)
                 {
                     this.alertMessages.Attributes["class"] = "alert alert-danger";
@@ -1105,26 +1111,12 @@ namespace Web.Pages.Facturacion
                         return;
                     }
                 }
+
                 using (var conexion = new DataModelFE())
                 {
-                    
                     DocumentoElectronico dato = new DocumentoElectronico();
-                    //if (TipoDocumento.FACTURA_ELECTRONICA.Equals(this.cmbTipoDocumento.Value))
-                    //{
-                        dato = new FacturaElectronica();
-                    //}
-                    //if (TipoDocumento.TIQUETE_ELECTRONICO.Equals(this.cmbTipoDocumento.Value))
-                    //{
-                    //    dato = new TiqueteElectronico();
-                    //}
-                    //if (TipoDocumento.NOTA_CREDITO.Equals(this.cmbTipoDocumento.Value))
-                    //{
-                    //    dato = new NotaCreditoElectronica();
-                    //}
-                    //if (TipoDocumento.NOTA_DEBITO.Equals(this.cmbTipoDocumento.Value))
-                    //{
-                    //    dato = new NotaDebitoElectronica();
-                    //}
+                    dato = new FacturaElectronica();
+
                     /* ENCABEZADO */
                     dato.medioPago = this.cmbMedioPago.Value.ToString();
                     dato.plazoCredito = this.txtPlazoCredito.Text;
@@ -1139,6 +1131,7 @@ namespace Web.Pages.Facturacion
                         this.alertMessages1.InnerText = "El plazo de crédito debe ser mayor a cero";
                         return;
                     }
+
                     dato.fechaEmision = this.txtFechaEmision.Date.ToString("yyyy-MM-ddTHH:mm:ss-06:00");
                     dato.medioPago = this.cmbMedioPago.Value.ToString();
                     /* DETALLE */
@@ -1161,6 +1154,7 @@ namespace Web.Pages.Facturacion
                     dato.emisor.ubicacion.distrito = elEmisor.distrito.ToUpper();
                     dato.emisor.ubicacion.barrio = elEmisor.barrio.ToUpper();
                     dato.emisor.ubicacion.otrassenas = elEmisor.otraSena.ToUpper();
+
                     /* RECEPTOR */
                     bool nuevo = true;
                     string identificacionReceptor = ((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text;
@@ -1191,6 +1185,7 @@ namespace Web.Pages.Facturacion
                     dato.receptor.ubicacion.barrio = elReceptor.barrio;
                     dato.receptor.ubicacion.otrassenas = elReceptor.otraSena;
                     dato.receptor.verificar();
+
                     if (!string.IsNullOrWhiteSpace(elReceptor.identificacion))
                     {
                         if (nuevo == false)
@@ -1210,17 +1205,20 @@ namespace Web.Pages.Facturacion
                         dato.resumenFactura.tipoCambio = decimal.Parse(this.txtTipoCambio.Text.Replace(",", "").Replace(".", "")) / 100;
                     }
                     dato.resumenFactura.calcularResumenFactura(dato.detalleServicio.lineaDetalle);
+                    
                     /* INFORMACION DE REFERENCIA */
                     dato.informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
                     foreach (var item in dato.informacionReferencia)
                     {
                         item.fechaEmision = item.fechaEmisionTotal;
                     }
+                    
                     /* OTROS */
                     if (!string.IsNullOrWhiteSpace(this.txtOtros.Text))
                     {
                         dato.otros.otrosTextos.Add(this.txtOtros.Text);
                     }
+
                     Empresa empresa = conexion.Empresa.Find(dato.emisor.identificacion.numero);
                     if (empresa != null)
                     {
@@ -1229,59 +1227,38 @@ namespace Web.Pages.Facturacion
                             dato.otros.otrosTextos.Add(empresa.leyenda);
                         }
                     }
+                    
                     /* VERIFICA VACIOS PARA XML */
                     dato.verificaDatosParaXML();
-                    //genera el consecutivo del documento
-                    //string sucursal = this.cmbSucursalCaja.Value.ToString().Substring(0, 3);
-                    //string caja = this.cmbSucursalCaja.Value.ToString().Substring(3, 5);
-                    //object[] key = new object[] { dato.emisor.identificacion.numero, sucursal, caja, this.cmbTipoDocumento.Value.ToString() };
-                    //ConsecutivoDocElectronico consecutivo = conexion.ConsecutivoDocElectronico.Find(key);
-                    //if (consecutivo != null)
-                    //{
-                    //    dato.clave = consecutivo.getClave(this.txtFechaEmision.Date.ToString("yyyyMMdd"));
-                    //    dato.numeroConsecutivo = consecutivo.getConsecutivo();
-                    //    consecutivo.consecutivo += 1;
-                    //    conexion.Entry(consecutivo).State = EntityState.Modified;
-                    //}
-                    //else
-                    //{
-                    //    consecutivo = new ConsecutivoDocElectronico();
-                    //    consecutivo.sucursal = ConsecutivoDocElectronico.DEFAULT_SUCURSAL;
-                    //    consecutivo.caja = ConsecutivoDocElectronico.DEFAULT_CAJA;
-                    //    consecutivo.digitoVerificador = ConsecutivoDocElectronico.DEFAULT_DIGITO_VERIFICADOR;
-                    //    consecutivo.emisor = dato.emisor.identificacion.numero;
-                    //    consecutivo.tipoDocumento = this.cmbTipoDocumento.Value.ToString();
-                    //    consecutivo.consecutivo = 1;
-                    //    consecutivo.estado = Estado.ACTIVO.ToString();
-                    //    consecutivo.fechaCreacion = Date.DateTimeNow();
-                    //    dato.clave = consecutivo.getClave(this.txtFechaEmision.Date.ToString("yyyyMMdd"));
-                    //    dato.numeroConsecutivo = consecutivo.getConsecutivo();
-                    //    consecutivo.consecutivo += 1;
-                    //    conexion.ConsecutivoDocElectronico.Add(consecutivo);
-                    //}
+                    dato.numeroConsecutivo = "1";
+                    dato.clave = dato.numeroConsecutivo;
+
                     string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
-                    string xmlSigned = FirmaXML.getXMLFirmadoWeb(xml, elEmisor.llaveCriptografica, elEmisor.claveLlaveCriptografica);
-                    //string responsePost = await Services.enviarDocumentoElectronico(false, dato, elEmisor, this.cmbTipoDocumento.Value.ToString(), Session["usuario"].ToString());
+                    //string xmlSigned = FirmaXML.getXMLFirmadoWeb(xml, elEmisor.llaveCriptografica, elEmisor.claveLlaveCriptografica);
+
+                    string responsePostProforma = await Services.enviarProforma(false, dato, elEmisor, "5", Session["usuario"].ToString());
+
                     this.btnFacturar.Enabled = false;
                     conexion.SaveChanges();
+
                     //if (responsePost.Equals("Success"))
                     //{
-                    //    this.alertMessages.Attributes["class"] = "alert alert-info";
-                    //    this.alertMessages.InnerText = String.Format("Documento #{0} enviado", dato.numeroConsecutivo);
-                    //    if (!string.IsNullOrWhiteSpace(dato.receptor.correoElectronico))
-                    //    {
-                    //        List<string> cc = new List<string>();
-                    //        string[] correosEmisor = conexion.EmisorReceptorIMEC.Find(identificacionReceptor).correoElectronico.Split(',');
-                    //        foreach (var correo in correosEmisor)
-                    //        {
-                    //            cc.Add(correo);
-                    //        }
-                    //        // copia al emisor
-                    //        cc.Add(Utilidades.getCorreoPrincipal(((EmisorReceptorIMEC)Session["elEmisor"]).correoElectronico));
-                    //        Utilidades.sendMail(Session["emisor"].ToString(), dato.receptor.correoElectronico,
-                    //            string.Format("{0} - {1}", dato.numeroConsecutivo, elEmisor.nombre),
-                    //            Utilidades.mensageGenerico(), "Documento Electrónico", EncodeXML.EncondeXML.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave, cc);
-                    //    }
+                    this.alertMessages.Attributes["class"] = "alert alert-info";
+                    this.alertMessages.InnerText = String.Format("Documento #{0} enviado", dato.numeroConsecutivo);
+                    if (!string.IsNullOrWhiteSpace(dato.receptor.correoElectronico))
+                    {
+                        List<string> cc = new List<string>();
+                        string[] correosEmisor = conexion.EmisorReceptorIMEC.Find(identificacionReceptor).correoElectronico.Split(',');
+                        foreach (var correo in correosEmisor)
+                        {
+                            cc.Add(correo);
+                        }
+                        // copia al emisor
+                        cc.Add(Utilidades.getCorreoPrincipal(((EmisorReceptorIMEC)Session["elEmisor"]).correoElectronico));
+                        Utilidades.sendMail(Session["emisor"].ToString(), dato.receptor.correoElectronico,
+                            string.Format("{0} - {1}", dato.numeroConsecutivo, elEmisor.nombre),
+                            Utilidades.mensageGenerico(), "Documento Electrónico", EncodeXML.EncondeXML.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave, cc);
+                    }
                     //}
                     //else if (responsePost.Equals("Error"))
                     //{
@@ -1301,6 +1278,9 @@ namespace Web.Pages.Facturacion
                     //    this.alertMessages1.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
                     //    return;
                     //}
+
+
+                    //Mostrará la proforma
                     if (empresa.tipoImpresion.Equals("A4"))
                     {
                         Response.Redirect("~/Pages/Consulta/" + dato.clave);
