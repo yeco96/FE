@@ -5,7 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 
     <div class="text-box-title">
-        <div class="text-box-heading-title">Documento Electrónico</div>
+        <div class="text-box-heading-title">Proforma Electrónica</div>
         <div class="arrow-down-title" style="margin-bottom: 5px;"></div>
     </div>
 
