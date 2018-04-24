@@ -34,6 +34,8 @@ namespace Web.Models
         public virtual DbSet<ConfiguracionGlobal> ConfiguracionGlobal { get; set; }
                
         public virtual DbSet<ConsecutivoDocElectronico> ConsecutivoDocElectronico { get; set; }
+
+        
         public virtual DbSet<Exoneracion> Exoneracion { get; set; }
         public virtual DbSet<MedioPago> MedioPago { get; set; }
         public virtual DbSet<Plan> Plan { get; set; }

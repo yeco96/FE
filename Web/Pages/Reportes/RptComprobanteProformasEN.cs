@@ -195,14 +195,14 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel38.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel38.Name = "xrLabel38";
             this.xrLabel38.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel38.SizeF = new System.Drawing.SizeF(750F, 29.79164F);
+            this.xrLabel38.SizeF = new System.Drawing.SizeF(650.9998F, 29.79164F);
             this.xrLabel38.StyleName = "FieldCaption";
             this.xrLabel38.StylePriority.UseBackColor = false;
             this.xrLabel38.StylePriority.UseBorders = false;
             this.xrLabel38.StylePriority.UseFont = false;
             this.xrLabel38.StylePriority.UseForeColor = false;
             this.xrLabel38.StylePriority.UseTextAlignment = false;
-            this.xrLabel38.Text = "Pre invoice";
+            this.xrLabel38.Text = "Pre Invoice";
             this.xrLabel38.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // xrLabel18
@@ -229,7 +229,7 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel36.LocationFloat = new DevExpress.Utils.PointFloat(468.2915F, 86.43423F);
             this.xrLabel36.Name = "xrLabel36";
             this.xrLabel36.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel36.SizeF = new System.Drawing.SizeF(160.8752F, 18F);
+            this.xrLabel36.SizeF = new System.Drawing.SizeF(182.7085F, 18F);
             this.xrLabel36.StylePriority.UseBorders = false;
             this.xrLabel36.StylePriority.UseFont = false;
             this.xrLabel36.Text = "xrLabel36";
@@ -286,10 +286,10 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             // 
             this.xrLabel8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel8.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(468.2915F, 263.6665F);
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(423.0742F, 263.6664F);
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel8.SizeF = new System.Drawing.SizeF(167.7408F, 18F);
+            this.xrLabel8.SizeF = new System.Drawing.SizeF(115.6574F, 18F);
             this.xrLabel8.StyleName = "FieldCaption";
             this.xrLabel8.StylePriority.UseFont = false;
             this.xrLabel8.StylePriority.UseForeColor = false;
@@ -358,7 +358,7 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel30.Multiline = true;
             this.xrLabel30.Name = "xrLabel30";
             this.xrLabel30.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel30.SizeF = new System.Drawing.SizeF(507.7828F, 17.99998F);
+            this.xrLabel30.SizeF = new System.Drawing.SizeF(529.6162F, 18F);
             this.xrLabel30.StyleName = "DataField";
             this.xrLabel30.StylePriority.UseBorders = false;
             this.xrLabel30.StylePriority.UseFont = false;
@@ -373,7 +373,7 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel29.LocationFloat = new DevExpress.Utils.PointFloat(121.3838F, 150.5833F);
             this.xrLabel29.Name = "xrLabel29";
             this.xrLabel29.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel29.SizeF = new System.Drawing.SizeF(507.7828F, 18F);
+            this.xrLabel29.SizeF = new System.Drawing.SizeF(529.6162F, 18F);
             this.xrLabel29.StyleName = "DataField";
             this.xrLabel29.StylePriority.UseBorders = false;
             this.xrLabel29.StylePriority.UseFont = false;
@@ -388,7 +388,7 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel28.LocationFloat = new DevExpress.Utils.PointFloat(121.3838F, 114.5832F);
             this.xrLabel28.Name = "xrLabel28";
             this.xrLabel28.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel28.SizeF = new System.Drawing.SizeF(507.7828F, 18F);
+            this.xrLabel28.SizeF = new System.Drawing.SizeF(529.6162F, 17.99998F);
             this.xrLabel28.StyleName = "DataField";
             this.xrLabel28.StylePriority.UseBorders = false;
             this.xrLabel28.StylePriority.UseFont = false;
@@ -420,7 +420,7 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel31.LocationFloat = new DevExpress.Utils.PointFloat(468.2915F, 50.43424F);
             this.xrLabel31.Name = "xrLabel31";
             this.xrLabel31.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel31.SizeF = new System.Drawing.SizeF(160.8752F, 17.99998F);
+            this.xrLabel31.SizeF = new System.Drawing.SizeF(182.7085F, 17.99998F);
             this.xrLabel31.StyleName = "DataField";
             this.xrLabel31.StylePriority.UseBorders = false;
             this.xrLabel31.StylePriority.UseFont = false;
@@ -467,7 +467,7 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(0.8328994F, 310.8927F);
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel6.SizeF = new System.Drawing.SizeF(442.25F, 18.00003F);
+            this.xrLabel6.SizeF = new System.Drawing.SizeF(366.6254F, 18.00003F);
             this.xrLabel6.StyleName = "FieldCaption";
             this.xrLabel6.StylePriority.UseFont = false;
             this.xrLabel6.StylePriority.UseForeColor = false;
@@ -494,10 +494,10 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             // 
             this.xrLabel9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel9.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(468.2915F, 281.6666F);
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(423.0742F, 281.6665F);
             this.xrLabel9.Name = "xrLabel9";
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel9.SizeF = new System.Drawing.SizeF(167.7408F, 18F);
+            this.xrLabel9.SizeF = new System.Drawing.SizeF(115.6574F, 18F);
             this.xrLabel9.StyleName = "FieldCaption";
             this.xrLabel9.StylePriority.UseFont = false;
             this.xrLabel9.StylePriority.UseForeColor = false;
@@ -509,10 +509,10 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             // 
             this.xrLabel10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel10.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(468.2915F, 245.6667F);
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(423.0742F, 245.6666F);
             this.xrLabel10.Name = "xrLabel10";
             this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel10.SizeF = new System.Drawing.SizeF(167.7408F, 18F);
+            this.xrLabel10.SizeF = new System.Drawing.SizeF(115.6574F, 17.99998F);
             this.xrLabel10.StyleName = "FieldCaption";
             this.xrLabel10.StylePriority.UseFont = false;
             this.xrLabel10.StylePriority.UseForeColor = false;
@@ -524,10 +524,10 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             // 
             this.xrLabel11.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel11.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(468.2915F, 299.6667F);
+            this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(423.0742F, 299.6666F);
             this.xrLabel11.Name = "xrLabel11";
             this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel11.SizeF = new System.Drawing.SizeF(167.7408F, 18F);
+            this.xrLabel11.SizeF = new System.Drawing.SizeF(115.6574F, 18F);
             this.xrLabel11.StyleName = "FieldCaption";
             this.xrLabel11.StylePriority.UseFont = false;
             this.xrLabel11.StylePriority.UseForeColor = false;
@@ -560,7 +560,7 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel22.Multiline = true;
             this.xrLabel22.Name = "xrLabel22";
             this.xrLabel22.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel22.SizeF = new System.Drawing.SizeF(750F, 72.4165F);
+            this.xrLabel22.SizeF = new System.Drawing.SizeF(651F, 72.4165F);
             this.xrLabel22.StyleName = "DataField";
             this.xrLabel22.StylePriority.UseBorders = false;
             this.xrLabel22.StylePriority.UseFont = false;
@@ -577,7 +577,7 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel23.LocationFloat = new DevExpress.Utils.PointFloat(469.1247F, 68.43427F);
             this.xrLabel23.Name = "xrLabel23";
             this.xrLabel23.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel23.SizeF = new System.Drawing.SizeF(160.0418F, 17.99999F);
+            this.xrLabel23.SizeF = new System.Drawing.SizeF(181.8752F, 17.99999F);
             this.xrLabel23.StyleName = "DataField";
             this.xrLabel23.StylePriority.UseBorders = false;
             this.xrLabel23.StylePriority.UseFont = false;
@@ -591,10 +591,10 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel24.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "montoSubTotal", "{0:N2}")});
             this.xrLabel24.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(636.0322F, 245.6666F);
+            this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(538.7316F, 245.6666F);
             this.xrLabel24.Name = "xrLabel24";
             this.xrLabel24.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel24.SizeF = new System.Drawing.SizeF(113.9675F, 18.00003F);
+            this.xrLabel24.SizeF = new System.Drawing.SizeF(112.2683F, 18F);
             this.xrLabel24.StyleName = "DataField";
             this.xrLabel24.StylePriority.UseBorders = false;
             this.xrLabel24.StylePriority.UseFont = false;
@@ -609,10 +609,10 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel25.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "montoImpuestoVenta", "{0:N2}")});
             this.xrLabel25.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel25.LocationFloat = new DevExpress.Utils.PointFloat(636.0322F, 281.6665F);
+            this.xrLabel25.LocationFloat = new DevExpress.Utils.PointFloat(538.7317F, 281.6665F);
             this.xrLabel25.Name = "xrLabel25";
             this.xrLabel25.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel25.SizeF = new System.Drawing.SizeF(113.9675F, 17.99997F);
+            this.xrLabel25.SizeF = new System.Drawing.SizeF(112.2682F, 17.99997F);
             this.xrLabel25.StyleName = "DataField";
             this.xrLabel25.StylePriority.UseBorders = false;
             this.xrLabel25.StylePriority.UseFont = false;
@@ -628,10 +628,10 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel26.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "montoDescuento", "{0:N2}")});
             this.xrLabel26.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel26.LocationFloat = new DevExpress.Utils.PointFloat(636.0322F, 263.6665F);
+            this.xrLabel26.LocationFloat = new DevExpress.Utils.PointFloat(538.7317F, 263.6665F);
             this.xrLabel26.Name = "xrLabel26";
             this.xrLabel26.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel26.SizeF = new System.Drawing.SizeF(113.9675F, 18F);
+            this.xrLabel26.SizeF = new System.Drawing.SizeF(112.2682F, 18F);
             this.xrLabel26.StyleName = "DataField";
             this.xrLabel26.StylePriority.UseBorders = false;
             this.xrLabel26.StylePriority.UseFont = false;
@@ -646,10 +646,10 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel27.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "montoTotal", "{0:N2}")});
             this.xrLabel27.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel27.LocationFloat = new DevExpress.Utils.PointFloat(636.0322F, 299.6667F);
+            this.xrLabel27.LocationFloat = new DevExpress.Utils.PointFloat(538.7317F, 299.6667F);
             this.xrLabel27.Name = "xrLabel27";
             this.xrLabel27.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel27.SizeF = new System.Drawing.SizeF(113.9675F, 18F);
+            this.xrLabel27.SizeF = new System.Drawing.SizeF(112.2682F, 18F);
             this.xrLabel27.StyleName = "DataField";
             this.xrLabel27.StylePriority.UseBorders = false;
             this.xrLabel27.StylePriority.UseFont = false;
@@ -663,17 +663,17 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             this.xrSubreport1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 180.3333F);
             this.xrSubreport1.Name = "xrSubreport1";
             this.xrSubreport1.ReportSource = new RptComprobanteDetalleEN();
-            this.xrSubreport1.SizeF = new System.Drawing.SizeF(750F, 65.33334F);
+            this.xrSubreport1.SizeF = new System.Drawing.SizeF(650.9999F, 53.875F);
             this.xrSubreport1.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrSubreport1_BeforePrint);
             // 
             // xrBarCode1
             // 
             this.xrBarCode1.AutoModule = true;
-            this.xrBarCode1.LocationFloat = new DevExpress.Utils.PointFloat(650F, 66.79169F);
+            this.xrBarCode1.LocationFloat = new DevExpress.Utils.PointFloat(552.699F, 66.79169F);
             this.xrBarCode1.Name = "xrBarCode1";
             this.xrBarCode1.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 10, 0, 0, 100F);
             this.xrBarCode1.ShowText = false;
-            this.xrBarCode1.SizeF = new System.Drawing.SizeF(100F, 100F);
+            this.xrBarCode1.SizeF = new System.Drawing.SizeF(98.30072F, 99.99999F);
             this.xrBarCode1.Symbology = qrCodeGenerator1;
             // 
             // TopMargin
@@ -686,7 +686,7 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel3,
             this.xrLabel19,
             this.pbLogo});
-            this.TopMargin.HeightF = 181.1667F;
+            this.TopMargin.HeightF = 181F;
             this.TopMargin.Name = "TopMargin";
             this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -699,7 +699,7 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel20.LocationFloat = new DevExpress.Utils.PointFloat(110.1755F, 141.5F);
             this.xrLabel20.Name = "xrLabel20";
             this.xrLabel20.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel20.SizeF = new System.Drawing.SizeF(525.8569F, 17.99998F);
+            this.xrLabel20.SizeF = new System.Drawing.SizeF(442.5235F, 17.99998F);
             this.xrLabel20.StylePriority.UseFont = false;
             this.xrLabel20.StylePriority.UseTextAlignment = false;
             this.xrLabel20.Text = "xrLabel20";
@@ -713,7 +713,7 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(110.1755F, 123.5001F);
             this.xrLabel16.Name = "xrLabel16";
             this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel16.SizeF = new System.Drawing.SizeF(525.8569F, 17.99999F);
+            this.xrLabel16.SizeF = new System.Drawing.SizeF(442.5235F, 18F);
             this.xrLabel16.StylePriority.UseFont = false;
             this.xrLabel16.StylePriority.UseTextAlignment = false;
             this.xrLabel16.Text = "xrLabel16";
@@ -727,7 +727,7 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(110.1755F, 69.50006F);
             this.xrLabel4.Name = "xrLabel4";
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel4.SizeF = new System.Drawing.SizeF(525.8569F, 18F);
+            this.xrLabel4.SizeF = new System.Drawing.SizeF(442.5235F, 18F);
             this.xrLabel4.StylePriority.UseFont = false;
             this.xrLabel4.StylePriority.UseTextAlignment = false;
             this.xrLabel4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
@@ -740,7 +740,7 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(110.1755F, 105.5001F);
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel3.SizeF = new System.Drawing.SizeF(525.8569F, 17.99999F);
+            this.xrLabel3.SizeF = new System.Drawing.SizeF(442.5235F, 17.99999F);
             this.xrLabel3.StylePriority.UseFont = false;
             this.xrLabel3.StylePriority.UseTextAlignment = false;
             this.xrLabel3.Text = "xrLabel3";
@@ -754,7 +754,7 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel19.LocationFloat = new DevExpress.Utils.PointFloat(110.1755F, 87.50008F);
             this.xrLabel19.Name = "xrLabel19";
             this.xrLabel19.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel19.SizeF = new System.Drawing.SizeF(525.8569F, 17.99999F);
+            this.xrLabel19.SizeF = new System.Drawing.SizeF(442.5235F, 17.99999F);
             this.xrLabel19.StyleName = "DataField";
             this.xrLabel19.StylePriority.UseFont = false;
             this.xrLabel19.StylePriority.UseTextAlignment = false;
@@ -798,7 +798,7 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(367.4583F, 0F);
             this.xrPageInfo2.Name = "xrPageInfo2";
             this.xrPageInfo2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrPageInfo2.SizeF = new System.Drawing.SizeF(382.5417F, 23F);
+            this.xrPageInfo2.SizeF = new System.Drawing.SizeF(283.5416F, 23F);
             this.xrPageInfo2.StyleName = "PageInfo";
             this.xrPageInfo2.StylePriority.UseFont = false;
             this.xrPageInfo2.StylePriority.UseTextAlignment = false;
@@ -818,10 +818,10 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "emisorNombreComercial")});
             this.xrLabel33.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold);
             this.xrLabel33.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel33.LocationFloat = new DevExpress.Utils.PointFloat(0.8332752F, 0F);
+            this.xrLabel33.LocationFloat = new DevExpress.Utils.PointFloat(0.8332729F, 0F);
             this.xrLabel33.Name = "xrLabel33";
             this.xrLabel33.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel33.SizeF = new System.Drawing.SizeF(749.1667F, 33F);
+            this.xrLabel33.SizeF = new System.Drawing.SizeF(650.1666F, 33F);
             this.xrLabel33.StyleName = "Title";
             this.xrLabel33.StylePriority.UseBorders = false;
             this.xrLabel33.StylePriority.UseFont = false;
@@ -885,7 +885,7 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.objectDataSource1});
             this.DataSource = this.objectDataSource1;
-            this.Margins = new System.Drawing.Printing.Margins(50, 50, 181, 100);
+            this.Margins = new System.Drawing.Printing.Margins(50, 149, 181, 100);
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.Title,
             this.FieldCaption,
@@ -903,7 +903,7 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
     {
         try {
             XRSubreport xrSubReport = (XRSubreport)sender;
-            RptComprobanteDetalle subRep = xrSubReport.ReportSource as RptComprobanteDetalle;
+            RptComprobanteDetalleEN subRep = xrSubReport.ReportSource as RptComprobanteDetalleEN;
              
             object dataSource = ((XMLDomain.Impresion)this.objectDataSource1.DataSource).detalles;
             subRep.Report.DataSource = dataSource;

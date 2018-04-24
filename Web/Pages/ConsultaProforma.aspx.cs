@@ -41,46 +41,50 @@ namespace Web.Pages
             using (var conexion = new DataModelFE())
             {
                 WSRecepcionPOSTProforma dato = conexion.WSRecepcionPOSTProforma.Where(x => x.clave == clave).FirstOrDefault();
-                string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
-
-                //Revertimos lo de la proforma
-                xml = xml.Replace("FacturaElectronica", "ProformaElectronica");
-
-
-                RptComprobanteProformas reportES = new RptComprobanteProformas();
-                //Crear Proforma en Inglés
-                RptComprobanteProformasEN reportEN = new RptComprobanteProformasEN();
-
-                ProformaElectronico documento = (ProformaElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xml); 
-                Empresa empresa = conexion.Empresa.Find(documento.emisor.identificacion.numero);
-
-                if (empresa != null && "EN".Equals(empresa.idioma))
+                if (dato != null)
                 {
-                    object dataSource = UtilidadesReporte.cargarObjetoImpresionProforma(documento, dato.mensaje, empresa);
-                    reportEN.objectDataSource1.DataSource = dataSource;
-                    string enviroment_url = ConfigurationManager.AppSettings["ENVIROMENT_URL"].ToString();
-                    reportEN.xrBarCode1.Text = (enviroment_url + documento.clave).ToUpper();
-                    if (empresa != null && empresa.logo != null)
+
+                    string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+
+                    //Revertimos lo de la proforma
+                    xml = xml.Replace("FacturaElectronica", "ProformaElectronica");
+
+
+                    RptComprobanteProformas reportES = new RptComprobanteProformas();
+                    //Crear Proforma en Inglés
+                    RptComprobanteProformasEN reportEN = new RptComprobanteProformasEN();
+
+                    ProformaElectronico documento = (ProformaElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xml);
+                    Empresa empresa = conexion.Empresa.Find(documento.emisor.identificacion.numero);
+
+                    if (empresa != null && "EN".Equals(empresa.idioma))
                     {
-                        reportEN.pbLogo.Image = UtilidadesReporte.byteArrayToImage(empresa.logo);
+                        object dataSource = UtilidadesReporte.cargarObjetoImpresionProforma(documento, dato.mensaje, empresa);
+                        reportEN.objectDataSource1.DataSource = dataSource;
+                        string enviroment_url = ConfigurationManager.AppSettings["ENVIROMENT_URL_PROFORMA"].ToString();
+                        reportEN.xrBarCode1.Text = (enviroment_url + documento.clave).ToUpper();
+                        if (empresa != null && empresa.logo != null)
+                        {
+                            reportEN.pbLogo.Image = UtilidadesReporte.byteArrayToImage(empresa.logo);
+                        }
+                        reportEN.CreateDocument();
+                        report = reportEN;
                     }
-                    reportEN.CreateDocument();
-                    report = reportEN;
+                    else
+                    {
+                        object dataSource = UtilidadesReporte.cargarObjetoImpresionProforma(documento, dato.mensaje, empresa);
+                        reportES.objectDataSource1.DataSource = dataSource;
+                        string enviroment_url = ConfigurationManager.AppSettings["ENVIROMENT_URL_PROFORMA"].ToString();
+                        reportES.xrBarCode1.Text = (enviroment_url + documento.clave).ToUpper();
+                        if (empresa != null && empresa.logo != null)
+                        {
+                            reportES.pbLogo.Image = UtilidadesReporte.byteArrayToImage(empresa.logo);
+                        }
+
+                        reportES.CreateDocument();
+                        report = reportES;
+                    }
                 }
-                else
-                {
-                    object dataSource = UtilidadesReporte.cargarObjetoImpresionProforma(documento, dato.mensaje, empresa);
-                    reportES.objectDataSource1.DataSource = dataSource;
-                    string enviroment_url = ConfigurationManager.AppSettings["ENVIROMENT_URL"].ToString();
-                    reportES.xrBarCode1.Text = (enviroment_url + documento.clave).ToUpper();
-                    if (empresa != null && empresa.logo != null)
-                    {
-                        reportES.pbLogo.Image = UtilidadesReporte.byteArrayToImage(empresa.logo);
-                    }
-
-                    reportES.CreateDocument();
-                    report = reportES;
-                } 
             }
             return report;
         }

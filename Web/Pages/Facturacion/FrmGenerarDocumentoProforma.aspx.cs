@@ -87,9 +87,10 @@ namespace Web.Pages.Facturacion
 
                     if (Session["PlanPago"].ToString() != "PPRO1")
                     {
-                        this.alertMessages.InnerText = "Plan: " + dato.plan.ToString()  + "; Fecha de Vencimiento: " + DateTime.Parse(dato.fechaFin.ToString()).ToShortDateString();
+                        this.alertMessages.InnerText = "Plan: " + dato.plan.ToString() + "; Fecha de Vencimiento: " + DateTime.Parse(dato.fechaFin.ToString()).ToShortDateString();
                     }
-                    else {
+                    else
+                    {
                         //Si el plan es PLAN PROFESIONAL SIN LIMITE entonces se le agrega 1 documento
                         Session["documentosPendPlan"] = 1;
                         this.alertMessages.InnerText = "Plan: " + dato.plan.ToString() + "; Fecha de Vencimiento: " + DateTime.Parse(dato.fechaFin.ToString()).ToShortDateString();
@@ -199,7 +200,7 @@ namespace Web.Pages.Facturacion
         public EmisorReceptorIMEC crearModificarReceptor(EmisorReceptorIMEC receptor)
         {
             try
-            { 
+            {
                 if (((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value != null)
                 {
                     receptor.identificacionTipo = ((ASPxComboBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("cmbReceptorTipo")).Value.ToString();
@@ -218,13 +219,13 @@ namespace Web.Pages.Facturacion
 
                 ASPxTokenBox correos = (ASPxTokenBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("txtReceptorCorreo");
                 receptor.correoElectronico = "";
-                for (int i=0; i < correos.Tokens.Count ;i++)
+                for (int i = 0; i < correos.Tokens.Count; i++)
                 {
                     if (i == correos.Tokens.Count - 1)//si es el ultimo no le agrega separador
                         receptor.correoElectronico += correos.Tokens[i];
                     else
                         receptor.correoElectronico += correos.Tokens[i] + ",";
-                } 
+                }
 
                 if (((ASPxComboBox)acordionReceptor.Groups[1].FindControl("ASPxFormLayout").FindControl("cmbReceptorFaxCod")).Value != null)
                 {
@@ -494,9 +495,9 @@ namespace Web.Pages.Facturacion
                 foreach (var correo in emisor.correoElectronico.Split(','))
                 {
                     txtReceptorCorreo.Tokens.Add(correo);
-                } 
+                }
             }
-               
+
             cmbReceptorProvincia.Value = emisor.provincia;
 
             if (emisor.provincia != null)
@@ -703,7 +704,7 @@ namespace Web.Pages.Facturacion
                     //llena el objeto con los valores de la pantalla
                     string emisor = Session["emisor"].ToString();
                     string codProducto = e.NewValues["producto"] != null ? e.NewValues["producto"].ToString() : null;
-                    Producto producto = conexion.Producto.Where(x=>x.codigo== codProducto && x.emisor== emisor).FirstOrDefault();
+                    Producto producto = conexion.Producto.Where(x => x.codigo == codProducto && x.emisor == emisor).FirstOrDefault();
 
                     dato.numeroLinea = detalleServicio.lineaDetalle.Count + 1;
                     dato.cantidad = e.NewValues["cantidad"] != null ? decimal.Parse(e.NewValues["cantidad"].ToString()) : 0;
@@ -1054,7 +1055,7 @@ namespace Web.Pages.Facturacion
         {
             try
             {
-
+                long valorProforma = 0;
                 Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
                 DetalleServicio detalle = (DetalleServicio)Session["detalleServicio"];
 
@@ -1132,7 +1133,7 @@ namespace Web.Pages.Facturacion
                             return;
                         }
                     }
-                   
+
                 }
 
                 //if (cmbTipoDocumento.Value.ToString() == TipoDocumento.NOTA_CREDITO ||
@@ -1159,7 +1160,7 @@ namespace Web.Pages.Facturacion
                     ProformaElectronico dato = new ProformaElectronico();
                     //if (TipoDocumento.FACTURA_ELECTRONICA.Equals(this.cmbTipoDocumento.Value))
                     //{
-                        dato = new ProformaElectronica();
+                    dato = new ProformaElectronica();
                     //}
                     //if (TipoDocumento.TIQUETE_ELECTRONICO.Equals(this.cmbTipoDocumento.Value))
                     //{
@@ -1181,7 +1182,7 @@ namespace Web.Pages.Facturacion
                     dato.condicionVenta = this.cmbCondicionVenta.Value.ToString();
 
                     if (int.Parse(dato.plazoCredito) <= 0 && (CondicionVenta.CREDITO.Equals(this.cmbCondicionVenta.Text.ToString())))
-                        {
+                    {
                         this.alertMessages.Attributes["class"] = "alert alert-danger";
                         this.alertMessages.InnerText = "El plazo de crédito debe ser mayor a cero";
                         //Se agrega segundo mensaje
@@ -1200,6 +1201,7 @@ namespace Web.Pages.Facturacion
                     /* EMISOR */
                     EmisorReceptorIMEC elEmisor = (EmisorReceptorIMEC)Session["elEmisor"];
 
+                    valorProforma = long.Parse(elEmisor.proforma.ToString());
                     dato.emisor.identificacion.tipo = elEmisor.identificacionTipo;
                     dato.emisor.identificacion.numero = elEmisor.identificacion;
                     dato.emisor.ubicacion.otrassenas = elEmisor.otraSena.ToUpper();
@@ -1218,7 +1220,7 @@ namespace Web.Pages.Facturacion
                     dato.emisor.ubicacion.distrito = elEmisor.distrito.ToUpper();
                     dato.emisor.ubicacion.barrio = elEmisor.barrio.ToUpper();
                     dato.emisor.ubicacion.otrassenas = elEmisor.otraSena.ToUpper();
-                     
+
                     /* RECEPTOR */
                     bool nuevo = true;
                     string identificacionReceptor = ((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text;
@@ -1245,7 +1247,7 @@ namespace Web.Pages.Facturacion
 
                     dato.receptor.fax.codigoPais = elReceptor.faxCodigoPais;
                     dato.receptor.fax.numTelefono = elReceptor.fax;
-                    dato.receptor.correoElectronico = Utilidades.getCorreoPrincipal( elReceptor.correoElectronico);
+                    dato.receptor.correoElectronico = Utilidades.getCorreoPrincipal(elReceptor.correoElectronico);
 
                     dato.receptor.ubicacion.provincia = elReceptor.provincia;
                     dato.receptor.ubicacion.canton = elReceptor.canton;
@@ -1255,7 +1257,7 @@ namespace Web.Pages.Facturacion
 
                     dato.receptor.verificar();
                     if (!string.IsNullOrWhiteSpace(elReceptor.identificacion))
-                    { 
+                    {
                         if (nuevo == false)
                         {
                             conexion.Entry(elReceptor).State = EntityState.Modified;
@@ -1302,103 +1304,86 @@ namespace Web.Pages.Facturacion
                     //genera el consecutivo del documento
                     //string sucursal = this.cmbSucursalCaja.Value.ToString().Substring(0, 3);
                     //string caja = this.cmbSucursalCaja.Value.ToString().Substring(3, 5);
-                    //object[] key = new object[] { dato.emisor.identificacion.numero, sucursal, caja, this.cmbTipoDocumento.Value.ToString() };
-                    //ConsecutivoDocElectronico consecutivo = conexion.ConsecutivoDocElectronico.Find(key);
+                    
+                    
                     ConsecutivoDocElectronico consecutivo = new ConsecutivoDocElectronico();
 
-                    //if (consecutivo != null)
-                    //{
-                    //    dato.clave = consecutivo.getClave(this.txtFechaEmision.Date.ToString("yyyyMMdd"));
-                    //    dato.numeroConsecutivo = consecutivo.getConsecutivo();
+                    object[] key = new object[] { dato.emisor.identificacion.numero};
+                    EmisorReceptorIMEC emisorProforma = conexion.EmisorReceptorIMEC.Find(key);
+                    if (emisorProforma != null)
+                    {
 
-                    //    consecutivo.consecutivo += 1;
-                    //    conexion.Entry(consecutivo).State = EntityState.Modified;
-                    //} else
-                    //{
-                        consecutivo = new ConsecutivoDocElectronico();
-                        consecutivo.sucursal = ConsecutivoDocElectronico.DEFAULT_SUCURSAL;
-                        consecutivo.caja = ConsecutivoDocElectronico.DEFAULT_CAJA;
-                        consecutivo.digitoVerificador = ConsecutivoDocElectronico.DEFAULT_DIGITO_VERIFICADOR;
-                        consecutivo.emisor = dato.emisor.identificacion.numero;
-                        //consecutivo.tipoDocumento = this.cmbTipoDocumento.Value.ToString();
-                        consecutivo.tipoDocumento = "01";
-                        
-                        consecutivo.consecutivo = 1;
-                        consecutivo.estado = Estado.ACTIVO.ToString();
-                        consecutivo.fechaCreacion = Date.DateTimeNow();
+                        //emisorProforma.identificacion = consecutivo.emisor;
+                        //emisorProforma.proforma = consecutivo.consecutivo;
+                        emisorProforma.proforma += 1;
+                        conexion.Entry(emisorProforma).State = EntityState.Modified;
+                        //conexion.Entry(consecutivo).State = EntityState.Modified;
+                    }
 
-                        dato.clave = consecutivo.getClave(this.txtFechaEmision.Date.ToString("yyyyMMdd"));
+                    //else
+                        //{
 
 
-                        //Buscar el consecutivo según la proforma
-                        dato.numeroConsecutivo = consecutivo.getConsecutivo();
+                    emisorProforma = new EmisorReceptorIMEC();
+                    consecutivo = new ConsecutivoDocElectronico();
+                    consecutivo.sucursal = ConsecutivoDocElectronico.DEFAULT_SUCURSAL;
+                    consecutivo.caja = ConsecutivoDocElectronico.DEFAULT_CAJA;
+                    consecutivo.digitoVerificador = ConsecutivoDocElectronico.DEFAULT_DIGITO_VERIFICADOR;
+                    consecutivo.emisor = dato.emisor.identificacion.numero;
+                    consecutivo.tipoDocumento = "01";
 
-                        consecutivo.consecutivo += 1;
-                    //Guardar el consecutivo en el usuario en la seccion de consecutivo
-                    //Debe ir en la tabla fact_emisor_receptor en el campo Proforma
+                    consecutivo.consecutivo = valorProforma;
+                    consecutivo.estado = Estado.ACTIVO.ToString();
+                    consecutivo.fechaCreacion = Date.DateTimeNow();
 
+                    dato.clave = consecutivo.getClave(this.txtFechaEmision.Date.ToString("yyyyMMdd"));
+                    //Buscar el consecutivo según la proforma
+                    //dato.numeroConsecutivo = (valorProforma).ToString();
+                    dato.numeroConsecutivo = consecutivo.getConsecutivo();
 
-                    //conexion.ConsecutivoDocElectronico.Add(consecutivo);
-
-                    //}
+                    consecutivo.consecutivo += 1;
 
                     string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
                     string xmlSigned = FirmaXML.getXMLFirmadoWeb(xml, elEmisor.llaveCriptografica, elEmisor.claveLlaveCriptografica);
                     string responsePostProforma = await Services.enviarProforma(false, dato, elEmisor, "01", Session["usuario"].ToString());
 
-                    this.btnFacturar.Enabled = false; 
+                    this.btnFacturar.Enabled = false;
                     conexion.SaveChanges();
 
-                    if (responsePostProforma.Equals("Success"))
-                    {
+                    //if (responsePostProforma.Equals(""))
+                    //{
                         this.alertMessages.Attributes["class"] = "alert alert-info";
-                        this.alertMessages.InnerText = String.Format("Documento #{0} enviado", dato.numeroConsecutivo);
+                        this.alertMessages.InnerText = String.Format("Proforma # {0} enviada", dato.numeroConsecutivo);
 
                         if (!string.IsNullOrWhiteSpace(dato.receptor.correoElectronico))
                         {
-                            List<string> cc = new List<string>(); 
+                            List<string> cc = new List<string>();
                             string[] correosEmisor = conexion.EmisorReceptorIMEC.Find(identificacionReceptor).correoElectronico.Split(',');
                             foreach (var correo in correosEmisor)
                             {
                                 cc.Add(correo);
                             }
                             // copia al emisor
-                            cc.Add(   Utilidades.getCorreoPrincipal( ((EmisorReceptorIMEC)Session["elEmisor"]).correoElectronico)   );
+                            cc.Add(Utilidades.getCorreoPrincipal(((EmisorReceptorIMEC)Session["elEmisor"]).correoElectronico));
 
-                            Utilidades.sendMail(Session["emisor"].ToString(), dato.receptor.correoElectronico,
+                            Utilidades.sendMailProforma(Session["emisor"].ToString(), dato.receptor.correoElectronico,
                                 string.Format("{0} - {1}", dato.numeroConsecutivo, elEmisor.nombre),
-                                Utilidades.mensageGenerico(), "Documento Electrónico", EncodeXML.EncondeXML.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave, cc);
+                                Utilidades.mensageGenericoProforma(), "Proforma Electrónica", EncodeXML.EncondeXML.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave, cc);
                         }
-                        
+                    //}
 
-                    }
-                    else if (responsePostProforma.Equals("Error"))
+
+
+
+                    if (empresa.tipoImpresion.Equals("A4"))
                     {
-                        this.alertMessages.Attributes["class"] = "alert alert-danger";
-                        this.alertMessages.InnerText = String.Format("Documento #{0} con errores.", dato.numeroConsecutivo);
-                        //Se agrega segundo mensaje
-                        this.alertMessages1.Attributes["class"] = "alert alert-danger";
-                        this.alertMessages1.InnerText = String.Format("Documento #{0} con errores.", dato.numeroConsecutivo);
-                        return;
+                        //Response.Redirect("~/Pages/ConsultaProforma/" + dato.clave);
+                        Response.Redirect("~/Pages/ConsultaProforma/" + dato.clave,false);
                     }
                     else
                     {
-                        this.alertMessages.Attributes["class"] = "alert alert-warning";
-                        this.alertMessages.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
-                        //Se agrega segundo mensaje
-                        this.alertMessages1.Attributes["class"] = "alert alert-warning";
-                        this.alertMessages1.InnerText = String.Format("Documento #{0} pendiente de envío", dato.numeroConsecutivo);
-                        return;
-                    }
-
-                   
-                    if (empresa.tipoImpresion.Equals("A4"))
-                    {
-                        Response.Redirect("~/Pages/ConsultaProforma/" + dato.clave);
-                    }
-                    else {
                         //Crear el consulta proforma para ROll Paper
-                        Response.Redirect("~/Pages/ConsultaProforma/" + dato.clave);
+                        Response.Redirect("~/Pages/ConsultaProforma/" + dato.clave,false);
                     }
 
                 }
@@ -1439,7 +1424,8 @@ namespace Web.Pages.Facturacion
 
         protected void btnBuscarReceptor_Click(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 using (var conexion = new DataModelFE())
                 {
 
@@ -1449,7 +1435,8 @@ namespace Web.Pages.Facturacion
                         this.alertMessages.Attributes["class"] = "alert alert-danger";
                         this.alertMessages.InnerText = "El número de identifiación es requerida";
                     }
-                    else {
+                    else
+                    {
                         string elReceptor = ((ASPxSpinEdit)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorIdentificacion")).Text;
                         EmisorReceptorIMEC receptor = conexion.EmisorReceptorIMEC.Where(x => x.identificacion == elReceptor).FirstOrDefault();
                         if (receptor != null)
@@ -1590,10 +1577,10 @@ namespace Web.Pages.Facturacion
             if (correos.Tokens.Count > 5)
             {
                 correos.Tokens.RemoveAt(5);
-            } 
+            }
         }
 
 
 
-    } 
+    }
 }

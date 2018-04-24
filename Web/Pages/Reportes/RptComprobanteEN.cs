@@ -288,10 +288,10 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel35.BackColor = System.Drawing.Color.Transparent;
             this.xrLabel35.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrLabel35.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel35.LocationFloat = new DevExpress.Utils.PointFloat(356.6251F, 82.00006F);
+            this.xrLabel35.LocationFloat = new DevExpress.Utils.PointFloat(345.1667F, 82.00006F);
             this.xrLabel35.Name = "xrLabel35";
             this.xrLabel35.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel35.SizeF = new System.Drawing.SizeF(119.7916F, 18F);
+            this.xrLabel35.SizeF = new System.Drawing.SizeF(131.25F, 18F);
             this.xrLabel35.StyleName = "FieldCaption";
             this.xrLabel35.StylePriority.UseBackColor = false;
             this.xrLabel35.StylePriority.UseBorders = false;
@@ -325,7 +325,7 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel32.LocationFloat = new DevExpress.Utils.PointFloat(142.2171F, 82.00006F);
             this.xrLabel32.Name = "xrLabel32";
             this.xrLabel32.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel32.SizeF = new System.Drawing.SizeF(214.4079F, 18F);
+            this.xrLabel32.SizeF = new System.Drawing.SizeF(202.9496F, 18F);
             this.xrLabel32.StylePriority.UseBorders = false;
             this.xrLabel32.Text = "xrLabel32";
             // 

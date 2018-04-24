@@ -339,16 +339,17 @@ namespace Web.WebServices
 
                     string jsonTrama = JsonConvert.SerializeObject(trama);
 
-                    if (config.token.access_token != null)
-                    {
-                        responsePostProforma = await Services.postRecepcion(config.token, jsonTrama);
-                    }
-                    else
-                    {
-                        // facturar guardada para envio en linea
-                        trama.indEstado = 9;
-                    }
+                    //if (config.token.access_token != null)
+                    //{
+                    //    responsePostProforma = await Services.postRecepcion(config.token, jsonTrama);
+                    //}
+                    //else
+                    //{
+                    //    // facturar guardada para envio en linea
+                    //    trama.indEstado = 9;
+                    //}
 
+                    trama.indEstado = 1;
                     WSRecepcionPOSTProforma tramaExiste = conexion.WSRecepcionPOSTProforma.Find(trama.clave);
 
                     if (tramaExiste != null)
@@ -372,12 +373,12 @@ namespace Web.WebServices
                         documento.resumenProforma.clave = documento.clave;
                         conexion.ResumenFacturaProforma.Add(documento.resumenProforma);
 
-                        Plan plan = conexion.Plan.Find(emisor.identificacion);
-                        if (plan != null)
-                        {
-                            plan.cantidadDocEmitido += 1;
-                            conexion.Entry(plan).State = EntityState.Modified;
-                        }
+                        //Plan plan = conexion.Plan.Find(emisor.identificacion);
+                        //if (plan != null)
+                        //{
+                        //    plan.cantidadDocEmitido += 1;
+                        //    conexion.Entry(plan).State = EntityState.Modified;
+                        //}
                     }
                     conexion.SaveChanges();
 

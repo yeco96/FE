@@ -14142,3 +14142,345 @@ Stack Trace:
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
+********** 24/04/2018 09:56:17 a.m. **********
+Exception Type: System.Threading.ThreadAbortException
+Exception: Subproceso anulado.
+Source: Generic Error Page
+Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumentoProforma.<btnFacturar_Click>d__24.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+   en System.Web.AspNetSynchronizationContext.<>c__DisplayClass22_0.<Post>b__0()
+   en System.Web.Util.SynchronizationHelper.SafeWrapCallback(Action action)
+
+********** 24/04/2018 09:57:02 a.m. **********
+Inner Exception Type: System.ArgumentOutOfRangeException
+Inner Exception: startIndex no puede ser mayor que la longitud de la cadena.
+Nombre del parámetro: startIndex
+Inner Source: mscorlib
+Inner Stack Trace: 
+   en System.String.Substring(Int32 startIndex, Int32 length)
+   en XMLDomain.ProformaElectronico.get_tipoDocumento() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\XMLDomain\ProformaElectronico.cs:línea 16
+   en Class.Utilidades.UtilidadesReporte.cargarObjetoImpresionProforma(ProformaElectronico dato, String mensajeHacienda, Empresa empresa)
+   en Web.Pages.ConsultaProforma.CreateReport(String clave)
+   en Web.Pages.ConsultaProforma.Page_Load(Object sender, EventArgs e)
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_consultaproforma_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_jhwup3t0.10.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 24/04/2018 10:01:58 a.m. **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.ConsultaProforma.CreateReport(String clave) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\ConsultaProforma.aspx.cs:línea 44
+   en Web.Pages.ConsultaProforma.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\ConsultaProforma.aspx.cs:línea 33
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_consultaproforma_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_5ecx3gv4.8.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 24/04/2018 12:32:38 p.m. **********
+Inner Exception Type: System.ArgumentOutOfRangeException
+Inner Exception: startIndex no puede ser mayor que la longitud de la cadena.
+Nombre del parámetro: startIndex
+Inner Source: mscorlib
+Inner Stack Trace: 
+   en System.String.Substring(Int32 startIndex, Int32 length)
+   en XMLDomain.ProformaElectronico.get_tipoDocumento() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\XMLDomain\ProformaElectronico.cs:línea 16
+   en Class.Utilidades.UtilidadesReporte.cargarObjetoImpresionProforma(ProformaElectronico dato, String mensajeHacienda, Empresa empresa) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Utils\UtilidadesReporte.cs:línea 246
+   en Web.Pages.ConsultaProforma.CreateReport(String clave) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\ConsultaProforma.aspx.cs:línea 62
+   en Web.Pages.ConsultaProforma.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\ConsultaProforma.aspx.cs:línea 33
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_consultaproforma_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_s1w1s20d.5.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 24/04/2018 12:32:50 p.m. **********
+Inner Exception Type: System.ArgumentOutOfRangeException
+Inner Exception: startIndex no puede ser mayor que la longitud de la cadena.
+Nombre del parámetro: startIndex
+Inner Source: mscorlib
+Inner Stack Trace: 
+   en System.String.Substring(Int32 startIndex, Int32 length)
+   en XMLDomain.ProformaElectronico.get_tipoDocumento() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\XMLDomain\ProformaElectronico.cs:línea 16
+   en Class.Utilidades.UtilidadesReporte.cargarObjetoImpresionProforma(ProformaElectronico dato, String mensajeHacienda, Empresa empresa) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Utils\UtilidadesReporte.cs:línea 246
+   en Web.Pages.ConsultaProforma.CreateReport(String clave) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\ConsultaProforma.aspx.cs:línea 62
+   en Web.Pages.ConsultaProforma.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\ConsultaProforma.aspx.cs:línea 33
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_consultaproforma_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_s1w1s20d.5.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 24/04/2018 12:36:27 p.m. **********
+Inner Exception Type: System.ArgumentOutOfRangeException
+Inner Exception: startIndex no puede ser mayor que la longitud de la cadena.
+Nombre del parámetro: startIndex
+Inner Source: mscorlib
+Inner Stack Trace: 
+   en System.String.Substring(Int32 startIndex, Int32 length)
+   en XMLDomain.ProformaElectronico.get_tipoDocumento() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\XMLDomain\ProformaElectronico.cs:línea 16
+   en Class.Utilidades.UtilidadesReporte.cargarObjetoImpresionProforma(ProformaElectronico dato, String mensajeHacienda, Empresa empresa) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Utils\UtilidadesReporte.cs:línea 246
+   en Web.Pages.ConsultaProforma.CreateReport(String clave) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\ConsultaProforma.aspx.cs:línea 62
+   en Web.Pages.ConsultaProforma.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\ConsultaProforma.aspx.cs:línea 33
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_consultaproforma_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_hyjn1pcl.9.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 24/04/2018 01:10:49 p.m. **********
+Exception Type: System.Threading.ThreadAbortException
+Exception: Subproceso anulado.
+Source: Generic Error Page
+Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumentoProforma.<btnFacturar_Click>d__24.MoveNext() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumentoProforma.aspx.cs:línea 1414
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+   en System.Web.AspNetSynchronizationContext.<>c__DisplayClass22_0.<Post>b__0()
+   en System.Web.Util.SynchronizationHelper.SafeWrapCallback(Action action)
+
+********** 24/04/2018 01:15:44 p.m. **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: DevExpress.Printing.v17.1.Core
+Inner Stack Trace: 
+   en DevExpress.XtraPrinting.PrintingSystemBase.OnCreateDocumentException(ExceptionEventArgs args)
+   en DevExpress.XtraReports.UI.XtraReport.TryCreateDocument(Single progressRange, Boolean buildPagesInBackground)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument(Boolean buildForInstantPreview)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument()
+   en Web.Pages.ConsultaProforma.CreateReport(String clave) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\ConsultaProforma.aspx.cs:línea 70
+   en Web.Pages.ConsultaProforma.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\ConsultaProforma.aspx.cs:línea 33
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_consultaproforma_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_pbbgivwe.7.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 24/04/2018 01:28:24 p.m. **********
+Inner Exception Type: System.Exception
+Inner Exception: Error no controlado.
+Favor comunicarse con el administrador del sistema. 
+Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: DevExpress.Printing.v17.1.Core
+Inner Stack Trace: 
+   en DevExpress.XtraPrinting.PrintingSystemBase.OnCreateDocumentException(ExceptionEventArgs args)
+   en DevExpress.XtraReports.UI.XtraReport.TryCreateDocument(Single progressRange, Boolean buildPagesInBackground)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument(Boolean buildForInstantPreview)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument()
+   en Web.Pages.ConsultaProforma.CreateReport(String clave) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\ConsultaProforma.aspx.cs:línea 70
+   en Web.Pages.ConsultaProforma.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\ConsultaProforma.aspx.cs:línea 33
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_consultaproforma_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_2qv0ozsq.8.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 24/04/2018 02:09:06 p.m. **********
+Exception Type: System.Threading.ThreadAbortException
+Exception: Subproceso anulado.
+Source: Generic Error Page
+Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumentoProforma.<btnFacturar_Click>d__24.MoveNext() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumentoProforma.aspx.cs:línea 1414
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+   en System.Web.AspNetSynchronizationContext.<>c__DisplayClass22_0.<Post>b__0()
+   en System.Web.Util.SynchronizationHelper.SafeWrapCallback(Action action)
+
+********** 24/04/2018 02:16:34 p.m. **********
+Exception Type: System.Threading.ThreadAbortException
+Exception: Subproceso anulado.
+Source: Generic Error Page
+Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumentoProforma.<btnFacturar_Click>d__24.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+   en System.Web.AspNetSynchronizationContext.<>c__DisplayClass22_0.<Post>b__0()
+   en System.Web.Util.SynchronizationHelper.SafeWrapCallback(Action action)
+
+********** 24/04/2018 02:21:35 p.m. **********
+Exception Type: System.Threading.ThreadAbortException
+Exception: Subproceso anulado.
+Source: Generic Error Page
+Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumentoProforma.<btnFacturar_Click>d__24.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+   en System.Web.AspNetSynchronizationContext.<>c__DisplayClass22_0.<Post>b__0()
+   en System.Web.Util.SynchronizationHelper.SafeWrapCallback(Action action)
+
+********** 24/04/2018 02:32:29 p.m. **********
+Exception Type: System.Threading.ThreadAbortException
+Exception: Subproceso anulado.
+Source: Generic Error Page
+Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumentoProforma.<btnFacturar_Click>d__24.MoveNext() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumentoProforma.aspx.cs:línea 1414
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+   en System.Web.AspNetSynchronizationContext.<>c__DisplayClass22_0.<Post>b__0()
+   en System.Web.Util.SynchronizationHelper.SafeWrapCallback(Action action)
+
+********** 24/04/2018 02:34:53 p.m. **********
+Exception Type: System.Threading.ThreadAbortException
+Exception: Subproceso anulado.
+Source: Generic Error Page
+Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumentoProforma.<btnFacturar_Click>d__24.MoveNext() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumentoProforma.aspx.cs:línea 1414
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+   en System.Web.AspNetSynchronizationContext.<>c__DisplayClass22_0.<Post>b__0()
+   en System.Web.Util.SynchronizationHelper.SafeWrapCallback(Action action)
+
+********** 24/04/2018 02:46:43 p.m. **********
+Exception Type: System.Threading.ThreadAbortException
+Exception: Subproceso anulado.
+Source: Generic Error Page
+Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumentoProforma.<btnFacturar_Click>d__24.MoveNext() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumentoProforma.aspx.cs:línea 1414
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+   en System.Web.AspNetSynchronizationContext.<>c__DisplayClass22_0.<Post>b__0()
+   en System.Web.Util.SynchronizationHelper.SafeWrapCallback(Action action)
+
+********** 24/04/2018 02:48:13 p.m. **********
+Exception Type: System.Threading.ThreadAbortException
+Exception: Subproceso anulado.
+Source: Generic Error Page
+Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumentoProforma.<btnFacturar_Click>d__24.MoveNext() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumentoProforma.aspx.cs:línea 1414
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+   en System.Web.AspNetSynchronizationContext.<>c__DisplayClass22_0.<Post>b__0()
+   en System.Web.Util.SynchronizationHelper.SafeWrapCallback(Action action)
+
+********** 24/04/2018 04:07:53 p.m. **********
+Exception Type: System.Threading.ThreadAbortException
+Exception: Subproceso anulado.
+Source: Generic Error Page
+Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumentoProforma.<btnFacturar_Click>d__24.MoveNext() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumentoProforma.aspx.cs:línea 1415
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+   en System.Web.AspNetSynchronizationContext.<>c__DisplayClass22_0.<Post>b__0()
+   en System.Web.Util.SynchronizationHelper.SafeWrapCallback(Action action)
+
+********** 24/04/2018 04:20:28 p.m. **********
+Exception Type: System.Threading.ThreadAbortException
+Exception: Subproceso anulado.
+Source: Generic Error Page
+Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumentoProforma.<btnFacturar_Click>d__24.MoveNext() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmGenerarDocumentoProforma.aspx.cs:línea 1416
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+   en System.Web.AspNetSynchronizationContext.<>c__DisplayClass22_0.<Post>b__0()
+   en System.Web.Util.SynchronizationHelper.SafeWrapCallback(Action action)
+
+********** 24/04/2018 04:23:51 p.m. **********
+Exception Type: System.Threading.ThreadAbortException
+Exception: Subproceso anulado.
+Source: Generic Error Page
+Stack Trace: 
+   en Web.Pages.Facturacion.FrmGenerarDocumentoProforma.<btnFacturar_Click>d__24.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+   en System.Web.AspNetSynchronizationContext.<>c__DisplayClass22_0.<Post>b__0()
+   en System.Web.Util.SynchronizationHelper.SafeWrapCallback(Action action)
+

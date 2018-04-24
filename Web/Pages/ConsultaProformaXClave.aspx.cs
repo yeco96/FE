@@ -48,7 +48,7 @@ namespace Web.Pages
                     {
                         object dataSource = UtilidadesReporte.cargarObjetoImpresionProforma(documento, dato.mensaje, empresa);
                         reportEN.objectDataSource1.DataSource = dataSource;
-                        string enviroment_url = ConfigurationManager.AppSettings["ENVIROMENT_URL"].ToString();
+                        string enviroment_url = ConfigurationManager.AppSettings["ENVIROMENT_URL_PROFORMA"].ToString();
                         reportEN.xrBarCode1.Text = (enviroment_url + documento.clave).ToUpper();
                         if (empresa != null && empresa.logo != null)
                         {
@@ -63,7 +63,7 @@ namespace Web.Pages
                         {
                             object dataSource = UtilidadesReporte.cargarObjetoImpresionProforma(documento, dato.mensaje, empresa);
                             reportES.objectDataSource1.DataSource = dataSource;
-                            string enviroment_url = ConfigurationManager.AppSettings["ENVIROMENT_URL"].ToString();
+                            string enviroment_url = ConfigurationManager.AppSettings["ENVIROMENT_URL_PROFORMA"].ToString();
                             reportES.xrBarCode1.Text = (enviroment_url + documento.clave).ToUpper();
                             if (empresa != null && empresa.logo != null)
                             {
