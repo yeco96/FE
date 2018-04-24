@@ -6,7 +6,7 @@
 
     <section class="featured">
         <div class="content-wrapper">
-            Documento Electrónico
+            Proforma Electrónica
         </div>
     </section>
     <dx:ASPxFormLayout runat="server" AlignItemCaptionsInAllGroups="true">

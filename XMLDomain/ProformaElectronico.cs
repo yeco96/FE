@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace XMLDomain
 {
-    public class DocumentoElectronico
+    public class ProformaElectronico
     {
         [XmlIgnore]
         public static string TIPO_IDENTIFICACION_EXTRANGERO = "99";
@@ -43,7 +43,8 @@ namespace XMLDomain
 
 
         [XmlElement(ElementName = "ResumenFactura", Order = 10)]
-        public ResumenFactura resumenFactura { set; get; }
+        //public ResumenFactura resumenFactura { set; get; }
+        public ResumenFacturaProforma resumenProforma { set; get; }
 
         [XmlElement(ElementName = "InformacionReferencia", Order = 11)]
         public List<InformacionReferencia> informacionReferencia { set; get; }
@@ -127,7 +128,7 @@ namespace XMLDomain
             }
              
             /*CLAVE RESUMEN*/
-            resumenFactura.clave = clave;
+            resumenProforma.clave = clave;
 
 
             /*OTROS*/

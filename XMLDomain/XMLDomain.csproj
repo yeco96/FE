@@ -44,6 +44,8 @@
     <Compile Include="Codigo.cs" />
     <Compile Include="DetalleServicio.cs" />
     <Compile Include="Documento.cs" />
+    <Compile Include="ProformaElectronica.cs" />
+    <Compile Include="ProformaElectronico.cs" />
     <Compile Include="DocumentoElectronico.cs" />
     <Compile Include="Emisor.cs" />
     <Compile Include="Exoneracion.cs" />

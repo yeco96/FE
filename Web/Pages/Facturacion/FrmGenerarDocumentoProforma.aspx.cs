@@ -87,7 +87,7 @@ namespace Web.Pages.Facturacion
 
                     if (Session["PlanPago"].ToString() != "PPRO1")
                     {
-                        this.alertMessages.InnerText = "Plan: " + dato.plan.ToString() + "; Documentos Pendientes: " + Session["documentosPendPlan"].ToString() + "; Fecha de Vencimiento: " + DateTime.Parse(dato.fechaFin.ToString()).ToShortDateString();
+                        this.alertMessages.InnerText = "Plan: " + dato.plan.ToString()  + "; Fecha de Vencimiento: " + DateTime.Parse(dato.fechaFin.ToString()).ToShortDateString();
                     }
                     else {
                         //Si el plan es PLAN PROFESIONAL SIN LIMITE entonces se le agrega 1 documento
@@ -1156,10 +1156,10 @@ namespace Web.Pages.Facturacion
                 using (var conexion = new DataModelFE())
                 {
 
-                    DocumentoElectronico dato = new DocumentoElectronico();
+                    ProformaElectronico dato = new ProformaElectronico();
                     //if (TipoDocumento.FACTURA_ELECTRONICA.Equals(this.cmbTipoDocumento.Value))
                     //{
-                        dato = new FacturaElectronica();
+                        dato = new ProformaElectronica();
                     //}
                     //if (TipoDocumento.TIQUETE_ELECTRONICO.Equals(this.cmbTipoDocumento.Value))
                     //{
@@ -1268,12 +1268,12 @@ namespace Web.Pages.Facturacion
                     }
 
                     /* RESUMEN */
-                    dato.resumenFactura.codigoMoneda = this.cmbTipoMoneda.Value.ToString();
-                    if (!TipoMoneda.CRC.Equals(dato.resumenFactura.codigoMoneda))
+                    dato.resumenProforma.codigoMoneda = this.cmbTipoMoneda.Value.ToString();
+                    if (!TipoMoneda.CRC.Equals(dato.resumenProforma.codigoMoneda))
                     {
-                        dato.resumenFactura.tipoCambio = decimal.Parse(this.txtTipoCambio.Text.Replace(",", "").Replace(".", "")) / 100;
+                        dato.resumenProforma.tipoCambio = decimal.Parse(this.txtTipoCambio.Text.Replace(",", "").Replace(".", "")) / 100;
                     }
-                    dato.resumenFactura.calcularResumenFactura(dato.detalleServicio.lineaDetalle);
+                    dato.resumenProforma.calcularResumenProforma(dato.detalleServicio.lineaDetalle);
 
                     /* INFORMACION DE REFERENCIA */
                     dato.informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
@@ -1322,26 +1322,34 @@ namespace Web.Pages.Facturacion
                         consecutivo.emisor = dato.emisor.identificacion.numero;
                         //consecutivo.tipoDocumento = this.cmbTipoDocumento.Value.ToString();
                         consecutivo.tipoDocumento = "01";
+                        
                         consecutivo.consecutivo = 1;
                         consecutivo.estado = Estado.ACTIVO.ToString();
                         consecutivo.fechaCreacion = Date.DateTimeNow();
 
                         dato.clave = consecutivo.getClave(this.txtFechaEmision.Date.ToString("yyyyMMdd"));
+
+
+                        //Buscar el consecutivo según la proforma
                         dato.numeroConsecutivo = consecutivo.getConsecutivo();
 
                         consecutivo.consecutivo += 1;
-                        conexion.ConsecutivoDocElectronico.Add(consecutivo);
+                    //Guardar el consecutivo en el usuario en la seccion de consecutivo
+                    //Debe ir en la tabla fact_emisor_receptor en el campo Proforma
+
+
+                    //conexion.ConsecutivoDocElectronico.Add(consecutivo);
 
                     //}
 
                     string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
                     string xmlSigned = FirmaXML.getXMLFirmadoWeb(xml, elEmisor.llaveCriptografica, elEmisor.claveLlaveCriptografica);
-                    string responsePost = await Services.enviarDocumentoElectronico(false, dato, elEmisor, "01", Session["usuario"].ToString());
+                    string responsePostProforma = await Services.enviarProforma(false, dato, elEmisor, "01", Session["usuario"].ToString());
 
                     this.btnFacturar.Enabled = false; 
                     conexion.SaveChanges();
 
-                    if (responsePost.Equals("Success"))
+                    if (responsePostProforma.Equals("Success"))
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-info";
                         this.alertMessages.InnerText = String.Format("Documento #{0} enviado", dato.numeroConsecutivo);
@@ -1364,7 +1372,7 @@ namespace Web.Pages.Facturacion
                         
 
                     }
-                    else if (responsePost.Equals("Error"))
+                    else if (responsePostProforma.Equals("Error"))
                     {
                         this.alertMessages.Attributes["class"] = "alert alert-danger";
                         this.alertMessages.InnerText = String.Format("Documento #{0} con errores.", dato.numeroConsecutivo);
@@ -1386,10 +1394,11 @@ namespace Web.Pages.Facturacion
                    
                     if (empresa.tipoImpresion.Equals("A4"))
                     {
-                        Response.Redirect("~/Pages/Consulta/" + dato.clave);
+                        Response.Redirect("~/Pages/ConsultaProforma/" + dato.clave);
                     }
                     else {
-                        Response.Redirect("~/Pages/ConsultaRP/" + dato.clave);
+                        //Crear el consulta proforma para ROll Paper
+                        Response.Redirect("~/Pages/ConsultaProforma/" + dato.clave);
                     }
 
                 }

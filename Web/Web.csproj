@@ -791,13 +791,16 @@
     <Compile Include="Pages\Reportes\FrmReporteFacturaRollPaper.aspx.designer.cs">
       <DependentUpon>FrmReporteFacturaRollPaper.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Reportes\RptComprobanteDetalleEN.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Pages\Reportes\RptComprobanteProformasEN.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Pages\Reportes\RptComprobanteProformas.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Pages\Reportes\RptComprobante.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Pages\Reportes\RptComprobanteDetalleEN.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Pages\Reportes\RptComprobanteEN.cs">
@@ -937,14 +940,15 @@
     <Compile Include="WebServices\URLServices.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Pages\Reportes\RptComprobanteDetalleEN.resx" />
+    <EmbeddedResource Include="Pages\Reportes\RptComprobanteProformasEN.resx">
+      <DependentUpon>RptComprobanteProformasEN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\Reportes\RptComprobanteProformas.resx">
       <DependentUpon>RptComprobanteProformas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Reportes\RptComprobante.resx">
       <DependentUpon>RptComprobante.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pages\Reportes\RptComprobanteDetalleEN.resx">
-      <DependentUpon>RptComprobanteDetalleEN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Reportes\RptComprobanteEN.resx">
       <DependentUpon>RptComprobanteEN.cs</DependentUpon>

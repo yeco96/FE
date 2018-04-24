@@ -194,6 +194,13 @@ namespace EncodeXML
                     objectType = typeof(MensajeReceptor);
                 }
 
+                if (xml.Contains("ProformaElectronica"))
+                {
+                    nodoInicial = "<ProformaElectronica>";
+                    nodoFinal = "</ProformaElectronica>";
+                    objectType = typeof(ProformaElectronica);
+                }
+
                 int start = xml.IndexOf("<Clave>");
                 int end = xml.IndexOf("<ds:Signature xmlns");
 
@@ -279,6 +286,14 @@ namespace EncodeXML
                     tipo_documento = "mensajeReceptor";
                     nodo_inicial = "MensajeReceptor ";
                 }
+                //Se agrega POroforma Electronica
+                if (typeof(ProformaElectronica) == o.GetType())
+                {
+                    tipo_documento = "facturaElectronica";
+                    nodo_inicial = "FacturaElectronica ";
+                }
+
+
                 xml = sw.ToString();
                 //FacturaElectronica xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
                 //xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -289,6 +304,10 @@ namespace EncodeXML
 
                 xml = xml.Replace("XSI","http://www.w3.org/2001/XMLSchema-instance");
 
+                if (typeof(ProformaElectronica) == o.GetType())
+                {
+                    xml = xml.Replace("ProformaElectronica", "FacturaElectronica");// esto es solo para que no se reemplace por el de abajo
+                }
 
                 string new_atribute = nodo_inicial + " ";
                // string new_atribute = nodo_inicial + "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ";

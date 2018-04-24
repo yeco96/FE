@@ -151,6 +151,46 @@ namespace XMLDomain
             totalComprobante = totalVentaNeta + totalImpuesto;
         }
 
+        public void calcularResumenProforma(List<LineaDetalle> lineaDetalle)
+        {
+            totalImpuesto = 0;
+            totalServExentos = 0;
+            totalServGravados = 0;
+            totalMercanciasGravadas = 0;
+            totalMercanciasExentas = 0;
+
+            foreach (var linea in lineaDetalle)
+            {
+
+                if (linea.impuestos != null && linea.impuestos.Count > 0)
+                {
+                    foreach (var impuesto in linea.impuestos)
+                    {
+                        totalImpuesto += impuesto.monto;
+                    }
+                    //con IV
+                    if (linea.tipoServMerc.Equals("SE"))
+                        totalServGravados += linea.montoTotal;
+                    else
+                        totalMercanciasGravadas += linea.montoTotal;
+                }
+                else//sin IV
+                {
+                    if (linea.tipoServMerc.Equals("SE"))
+                        totalServExentos += linea.montoTotal;
+                    else
+                        totalMercanciasExentas += linea.montoTotal;
+                }
+                totalDescuentos += linea.montoDescuento;
+
+            }
+            totalGravado = totalServGravados + totalMercanciasGravadas;
+            totalExento = totalServExentos + totalMercanciasExentas;
+
+            totalVenta = totalGravado + totalExento;
+            totalVentaNeta = totalVenta - totalDescuentos;
+            totalComprobante = totalVentaNeta + totalImpuesto;
+        }
 
         [XmlIgnore]
         public static string NOTA_CREDITO = "03";

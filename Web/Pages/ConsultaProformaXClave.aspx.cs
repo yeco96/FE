@@ -28,21 +28,25 @@ namespace Web.Pages
             XtraReport report = null;
             using (var conexion = new DataModelFE())
             {
-                WSRecepcionPOST dato = conexion.WSRecepcionPOST.Where(x => x.clave == clave).FirstOrDefault();
+                WSRecepcionPOSTProforma dato = conexion.WSRecepcionPOSTProforma.Where(x => x.clave == clave).FirstOrDefault();
                 if (dato != null)
                 {
                     string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
 
-                    RptComprobante reportES = new RptComprobante();
-                    RptComprobanteEN reportEN = new RptComprobanteEN();
+                    //Revertimos lo de la proforma
+                    xml = xml.Replace("FacturaElectronica", "ProformaElectronica");
 
-                    DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xml);
+                    RptComprobanteProformas reportES = new RptComprobanteProformas();
+                    //Hacer Proforma en Inglés
+                    RptComprobanteProformasEN reportEN = new RptComprobanteProformasEN();
+
+                    ProformaElectronico documento = (ProformaElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xml);
 
                     Empresa empresa = conexion.Empresa.Find(documento.emisor.identificacion.numero);
 
                     if (empresa != null && "EN".Equals(empresa.idioma))
                     {
-                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(documento, dato.mensaje, empresa);
+                        object dataSource = UtilidadesReporte.cargarObjetoImpresionProforma(documento, dato.mensaje, empresa);
                         reportEN.objectDataSource1.DataSource = dataSource;
                         string enviroment_url = ConfigurationManager.AppSettings["ENVIROMENT_URL"].ToString();
                         reportEN.xrBarCode1.Text = (enviroment_url + documento.clave).ToUpper();
@@ -57,7 +61,7 @@ namespace Web.Pages
                     {
                         if (empresa != null && "ES".Equals(empresa.idioma))
                         {
-                            object dataSource = UtilidadesReporte.cargarObjetoImpresion(documento, dato.mensaje, empresa);
+                            object dataSource = UtilidadesReporte.cargarObjetoImpresionProforma(documento, dato.mensaje, empresa);
                             reportES.objectDataSource1.DataSource = dataSource;
                             string enviroment_url = ConfigurationManager.AppSettings["ENVIROMENT_URL"].ToString();
                             reportES.xrBarCode1.Text = (enviroment_url + documento.clave).ToUpper();

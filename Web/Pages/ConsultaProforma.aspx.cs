@@ -27,11 +27,11 @@ namespace Web.Pages
             {
                 string[] valor = url.Split('/');
                 string dato = valor[valor.Length - 1];
-                if (dato.Length == 50)
-                {
+                //if (dato.Length == 50)
+                //{
                      
                     ASPxWebDocumentViewer1.OpenReport(CreateReport(dato));
-                }
+                //}
             }
         }
 
@@ -40,11 +40,12 @@ namespace Web.Pages
             XtraReport report = null;
             using (var conexion = new DataModelFE())
             {
-                WSRecepcionPOST dato = conexion.WSRecepcionPOST.Where(x => x.clave == clave).FirstOrDefault();
+                WSRecepcionPOSTProforma dato = conexion.WSRecepcionPOSTProforma.Where(x => x.clave == clave).FirstOrDefault();
                 string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
-                
-                RptComprobante reportES = new RptComprobante();
-                RptComprobanteEN reportEN = new RptComprobanteEN();
+
+                RptComprobanteProformas reportES = new RptComprobanteProformas();
+                //Crear Proforma en Inglés
+                RptComprobanteProformasEN reportEN = new RptComprobanteProformasEN();
 
                 DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xml); 
                 Empresa empresa = conexion.Empresa.Find(documento.emisor.identificacion.numero);

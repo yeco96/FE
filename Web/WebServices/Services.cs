@@ -283,7 +283,7 @@ namespace Web.WebServices
             return responsePost;
         }
 
-        public static async Task<string> enviarProforma(bool tieneFirma, DocumentoElectronico documento, EmisorReceptorIMEC emisor, string tipoDocumento, string usuario)
+        public static async Task<string> enviarProforma(bool tieneFirma, ProformaElectronico documento, EmisorReceptorIMEC emisor, string tipoDocumento, string usuario)
         {
             String responsePostProforma = "";
             try
@@ -358,9 +358,9 @@ namespace Web.WebServices
                         trama.indEstado = 0;
                         trama.cargarEmisorReceptor();
                         conexion.Entry(tramaExiste).State = EntityState.Modified;
-
-                        documento.resumenFactura.clave = documento.clave;
-                        conexion.Entry(documento.resumenFactura).State = EntityState.Modified;
+                        //lleva resumen factura
+                        documento.resumenProforma.clave = documento.clave;
+                        conexion.Entry(documento.resumenProforma).State = EntityState.Modified;
                     }
                     else//si no existe
                     {
