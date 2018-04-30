@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
 using System.Web.SessionState;
+using WebServices.ScheduledTask;
 
 namespace WebServices
 {
@@ -13,6 +14,7 @@ namespace WebServices
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+            JobScheduler.Start();
         }
 
         void Application_PostAuthenticateRequest(object sender, EventArgs e)

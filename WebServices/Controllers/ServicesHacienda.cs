@@ -203,50 +203,41 @@ namespace WebServices.Controllers
                     if (config.token.access_token != null)
                     {
                         responsePost = await postRecepcion(config.token, jsonTrama);
+
+                        Models.WS.WSRecepcionPOST tramaExiste = conexion.WSRecepcionPOST.Find(trama.clave);
+
+                        if (tramaExiste != null)
+                        {// si existe
+                            trama.fechaModificacion = Date.DateTimeNow();
+                            trama.usuarioModificacion = usuario;
+                            trama.indEstado = 0;
+                            trama.cargarEmisorReceptor();
+                            conexion.Entry(tramaExiste).State = EntityState.Modified;
+
+                            documento.resumenFactura.clave = documento.clave;
+                            conexion.Entry(documento.resumenFactura).State = EntityState.Modified;
+                        }
+                        else//si no existe
+                        {
+                            trama.fechaCreacion = Date.DateTimeNow();
+                            trama.usuarioCreacion = usuario;
+                            trama.cargarEmisorReceptor();
+                            conexion.WSRecepcionPOST.Add(trama); //trama
+
+                            documento.resumenFactura.clave = documento.clave;//resumen
+                            conexion.ResumenFactura.Add(documento.resumenFactura);
+
+                        }
+                        conexion.SaveChanges();
+
                     }
                     else
                     {
-                        // facturar guardada para envio en linea
-                        trama.indEstado = 9;
+                        // error de conexion de red
+                        responsePost = "net_error";
+                        return responsePost;
                     }
-
-
-                    Models.WS.WSRecepcionPOST tramaExiste = conexion.WSRecepcionPOST.Find(trama.clave);
-
-                    if (tramaExiste != null)
-                    {// si existe
-                        trama.fechaModificacion = Date.DateTimeNow();
-                        trama.usuarioModificacion = usuario;
-                        trama.indEstado = 0;
-                        trama.cargarEmisorReceptor();
-                        conexion.Entry(tramaExiste).State = EntityState.Modified;
-
-                        documento.resumenFactura.clave = documento.clave;
-                        conexion.Entry(documento.resumenFactura).State = EntityState.Modified;
-                    }
-                    else//si no existe
-                    {
-                        trama.fechaCreacion = Date.DateTimeNow();
-                        trama.usuarioCreacion = usuario;
-                        trama.cargarEmisorReceptor();
-                        conexion.WSRecepcionPOST.Add(trama); //trama
-
-                        documento.resumenFactura.clave = documento.clave;//resumen
-                        conexion.ResumenFactura.Add(documento.resumenFactura);
-
-                    }
-                    conexion.SaveChanges();
-
-                    //guarda la relacion de clientes asociados al emisor
-                    Cliente cliente = conexion.Cliente.Where(x => x.emisor == trama.emisor.numeroIdentificacion).Where(x => x.receptor == trama.receptor.numeroIdentificacion).FirstOrDefault();
-                    if (cliente == null && !string.IsNullOrWhiteSpace(trama.receptor.numeroIdentificacion))
-                    {
-                        cliente = new Cliente();
-                        cliente.emisor = trama.emisor.numeroIdentificacion;
-                        cliente.receptor = trama.receptor.numeroIdentificacion;
-                        conexion.Cliente.Add(cliente);
-                        conexion.SaveChanges();
-                    }
+                     
 
                 }
             }
