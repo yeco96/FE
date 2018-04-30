@@ -32,9 +32,10 @@ namespace Web.Models
         public virtual DbSet<CodigoReferencia> CodigoReferencia { get; set; }
         public virtual DbSet<ConfiguracionCorreo> ConfiguracionCorreo { get; set; }
         public virtual DbSet<ConfiguracionGlobal> ConfiguracionGlobal { get; set; }
-
-       
+               
         public virtual DbSet<ConsecutivoDocElectronico> ConsecutivoDocElectronico { get; set; }
+
+        
         public virtual DbSet<Exoneracion> Exoneracion { get; set; }
         public virtual DbSet<MedioPago> MedioPago { get; set; }
         public virtual DbSet<Plan> Plan { get; set; }
@@ -59,11 +60,13 @@ namespace Web.Models
 
         public virtual DbSet<OAuth2.OAuth2Config> OAuth2Config { get; set; }
         public virtual DbSet<WSDomain.WSRecepcionPOST> WSRecepcionPOST { get; set; }
+        public virtual DbSet<WSDomain.WSRecepcionPOSTProforma> WSRecepcionPOSTProforma { get; set; }
         public virtual DbSet<XMLDomain.ResumenFactura> ResumenFactura { get; set; }
 
         public virtual DbSet<WSDomain.EmisorReceptor> EmisorReceptor { get; set; }
         //Para los datos del Receptor que suba informacion
         public virtual DbSet<XMLDomain.ResumenFacturaReceptor> ResumenFacturaReceptor { get; set; }
+        public virtual DbSet<XMLDomain.ResumenFacturaProforma> ResumenFacturaProforma { get; set; }
         public virtual DbSet<WSDomain.WSRecepcionPOSTReceptor> WSRecepcionPOSTReceptor { get; set; }
 
         public virtual DbSet<Cliente> Cliente { get; set; }

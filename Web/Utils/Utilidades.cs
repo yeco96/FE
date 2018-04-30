@@ -286,7 +286,80 @@ namespace Class.Utilidades
             }
         }
 
+        public static bool sendMailProforma(string emisor, string destinatario, string asunto, string mensaje, string alias, string xml, string consecutivo, string clave, List<string> cc)
+        {
+            try
+            {
+                using (var conexion = new DataModelFE())
+                {
+                    ConfiguracionCorreo mailConfig = conexion.ConfiguracionCorreo.Where(x => x.estado == Estado.ACTIVO.ToString() && x.codigo == emisor).FirstOrDefault();
+                    if (mailConfig == null)
+                    {
+                        mailConfig = conexion.ConfiguracionCorreo.Where(x => x.estado == Estado.ACTIVO.ToString() && x.codigo == Usuario.USUARIO_AUTOMATICO).FirstOrDefault();
+                    }
+                    if (mailConfig != null)
+                    {
+                        MailMessage correo = new MailMessage();
+                        SmtpClient smtp = new SmtpClient();
+                        correo.From = new MailAddress(mailConfig.user, alias);
 
+                        if (string.IsNullOrWhiteSpace(destinatario))
+                        {
+                            correo.To.Add(cc[0]);
+                        }
+                        else
+                        {
+                            correo.To.Add(destinatario);
+                        }
+
+                        if (cc != null)
+                        {
+                            foreach (var item in cc)
+                            {
+                                correo.CC.Add(item);
+                            }
+                        }
+
+                        //correo.Subject = String.Format("SPAM-LOW: {0}", asunto);
+                        correo.Subject = asunto;
+                        correo.Body = mensaje;
+
+                        if (xml != null)
+                        {
+                            correo.Attachments.Add(new Attachment(GenerateStreamFromMemoryStream(UtilidadesReporte.generarPDFProforma(clave)), string.Format("{0}.pdf", consecutivo)));
+                            //correo.Attachments.Add(new Attachment(GenerateStreamFromString(xml), string.Format("{0}.xml", consecutivo)));
+                        }
+                        correo.Priority = MailPriority.Normal;
+                        correo.IsBodyHtml = true;
+                        smtp.Credentials = new NetworkCredential(mailConfig.user, Ale5Util.DesEncriptar(mailConfig.password));
+                        smtp.Host = mailConfig.host;
+                        smtp.Port = int.Parse(mailConfig.port);
+
+                        if (Confirmacion.SI.ToString().Equals(mailConfig.ssl))
+                        {
+                            smtp.EnableSsl = true;
+                        }
+                        else
+                        {
+                            smtp.EnableSsl = false;
+                        }
+
+                        smtp.Send(correo);
+                        correo.Dispose();
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                e.ToString();
+                return false;
+            }
+        }
 
 
         /// <summary>
@@ -360,6 +433,18 @@ namespace Class.Utilidades
             }
         }
         #endregion
+
+        public static string mensageGenericoProforma()
+        {
+            String mensaje = "";
+            mensaje += "<p>Estimado Cliente:</p>";
+            mensaje += "<p>Adjunto a este correo encontrará una factura proforma en formato PDF.</p>";
+            mensaje += "<p></p>";
+            mensaje += "<p>**** Este mensaje se ha generado automáticamente.</p>";
+            mensaje += "<p>**** Por Favor No conteste a este mensaje ya que no recibirá ninguna respuesta..</p>";
+
+            return mensaje;
+        }
 
         /// <summary>
         /// texto generico para el envio de correos

@@ -429,7 +429,7 @@ public class RptComprobanteDetalleEN : DevExpress.XtraReports.UI.XtraReport
             // 
             // bottomMarginBand1
             // 
-            this.bottomMarginBand1.HeightF = 2.458318F;
+            this.bottomMarginBand1.HeightF = 2F;
             this.bottomMarginBand1.Name = "bottomMarginBand1";
             // 
             // Title

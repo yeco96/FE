@@ -1,10 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmGenerarDocumentoProforma.aspx.cs" Inherits="Web.Pages.Facturacion.FrmGenerarDocumentoProforma" %>
+﻿<%@ Page Async="true" Title="" Culture="es-CR" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmGenerarDocumentoProforma.aspx.cs" Inherits="Web.Pages.Facturacion.FrmGenerarDocumentoProforma" %>
+
 <%@ Register Assembly="DevExpress.Web.Bootstrap.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.Bootstrap" TagPrefix="dx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 
     <div class="text-box-title">
-        <div class="text-box-heading-title">Documento Electrónico</div>
+        <div class="text-box-heading-title">Proforma Electrónica</div>
         <div class="arrow-down-title" style="margin-bottom: 5px;"></div>
     </div>
 
@@ -350,8 +351,7 @@
                             </dx:ContentControl>
                         </ContentCollection>
                     </dx:TabPage>
-                      
-                      <%--                <dx:TabPage Text="Referencias"> 
+                    <dx:TabPage Text="Referencias" Visible="false"> 
                         <ContentCollection>
                             <dx:ContentControl runat="server">
 
@@ -490,9 +490,9 @@
 
                             </dx:ContentControl>
                         </ContentCollection>
-                    </dx:TabPage>--%>
+                    </dx:TabPage>
 
-                    <dx:TabPage Text="Proforma"> 
+                    <dx:TabPage Text="Factura"> 
                         <ContentCollection>
                             <dx:ContentControl runat="server">
 
@@ -503,7 +503,7 @@
                                         <dx:LayoutGroup Caption="Encabezado" ColCount="3" GroupBoxDecoration="Box" UseDefaultPaddings="false">
                                             <Items>
 
-                                                <%--<dx:LayoutItem Caption="Tipo Documento">
+<%--                                                <dx:LayoutItem Caption="Tipo Documento">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxComboBox ID="cmbTipoDocumento" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
@@ -515,9 +515,9 @@
                                                             </dx:ASPxComboBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
-                                                </dx:LayoutItem>--%>
+                                                </dx:LayoutItem>
 
-                                            <%--                                                <dx:LayoutItem Caption="Sucursal y Caja">
+                                                <dx:LayoutItem Caption="Sucursal y Caja">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxComboBox ID="cmbSucursalCaja" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
@@ -530,7 +530,7 @@
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>--%>
 
-                                                                                                <dx:LayoutItem Caption="Cliente">
+                                              <dx:LayoutItem Caption="Cliente">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxTextBox  runat="server" ID="txtReceptor" ReadOnly="true" BackColor="#d9edf7" Width="100%"></dx:ASPxTextBox>
@@ -915,3 +915,4 @@
     </div>
 
 </asp:Content>
+

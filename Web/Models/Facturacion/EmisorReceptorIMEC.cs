@@ -102,6 +102,7 @@ namespace Web.Models.Facturacion
         /// AUDIOTORIA
         /// </summary>
         public string estado { set; get; }
+        public long proforma { set; get; }
 
         [ForeignKey("UsuarioCreacion")]
         public string usuarioCreacion { set; get; }
