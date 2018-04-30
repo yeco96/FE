@@ -114,8 +114,8 @@ namespace Web.Pages.Facturacion
                 if (!IsCallback && !IsPostBack)
                 {
                     this.txtFechaEmision.Date = Date.DateTimeNow();
-                    this.txtFechaEmision.MinDate = Date.DateTimeNow().AddHours(-48);
-                    this.txtFechaEmision.MaxDate = Date.DateTimeNow();
+                    //this.txtFechaEmision.MinDate = Date.DateTimeNow().AddHours(-48);
+                    //this.txtFechaEmision.MaxDate = Date.DateTimeNow();
 
                     this.cmbTipoMoneda.Value = TipoMoneda.CRC;
                     this.txtTipoCambio.Text = "1";

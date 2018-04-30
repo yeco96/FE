@@ -241,6 +241,7 @@
     <Content Include="Pages\Facturacion\FrmCargarXML.aspx" />
     <Content Include="Pages\Consulta.aspx" />
     <Content Include="Pages\Facturacion\FrmAdministracionDocElectronico.aspx" />
+    <Content Include="Pages\Facturacion\FrmConsultaProformas.aspx" />
     <Content Include="Pages\Facturacion\FrmConsultaResumenReceptor.aspx" />
     <Content Include="Pages\Facturacion\FrmConsultaResumen.aspx" />
     <Content Include="Pages\Facturacion\FrmEmisorAdmin.aspx" />
@@ -258,6 +259,7 @@
     <Content Include="Pages\Home.aspx" />
     <Content Include="Pages\Recepcion\FrmRecepcionEmail.aspx" />
     <Content Include="Pages\ConsultaDocXClave.aspx" />
+    <Content Include="Pages\Reportes\FrmReporteProformaResumen.aspx" />
     <Content Include="Pages\Reportes\FrmReporteDocumentoResumen.aspx" />
     <Content Include="Pages\Reportes\FrmReporteFactura.aspx" />
     <Content Include="Pages\Reportes\FrmReporteFacturaEN.aspx" />
@@ -644,6 +646,13 @@
     <Compile Include="Pages\Facturacion\FrmAdministracionDocElectronico.aspx.designer.cs">
       <DependentUpon>FrmAdministracionDocElectronico.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Facturacion\FrmConsultaProformas.aspx.cs">
+      <DependentUpon>FrmConsultaProformas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmConsultaProformas.aspx.designer.cs">
+      <DependentUpon>FrmConsultaProformas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Facturacion\FrmConsultaResumenReceptor.aspx.cs">
       <DependentUpon>FrmConsultaResumenReceptor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -762,6 +771,13 @@
     </Compile>
     <Compile Include="Pages\ConsultaDocXClave.aspx.designer.cs">
       <DependentUpon>ConsultaDocXClave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reportes\FrmReporteProformaResumen.aspx.cs">
+      <DependentUpon>FrmReporteProformaResumen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reportes\FrmReporteProformaResumen.aspx.designer.cs">
+      <DependentUpon>FrmReporteProformaResumen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Reportes\FrmReporteDocumentoResumen.aspx.cs">
       <DependentUpon>FrmReporteDocumentoResumen.aspx</DependentUpon>
