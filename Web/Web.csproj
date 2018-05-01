@@ -956,7 +956,6 @@
     <Compile Include="WebServices\URLServices.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\Reportes\RptComprobanteDetalleEN.resx" />
     <EmbeddedResource Include="Pages\Reportes\RptComprobanteProformasEN.resx">
       <DependentUpon>RptComprobanteProformasEN.cs</DependentUpon>
     </EmbeddedResource>

@@ -59,63 +59,12 @@ namespace Web.Pages.Facturacion
                 //Se agrega segundo mensaje
                 this.alertMessages1.Attributes["class"] = "";
                 this.alertMessages1.InnerText = "";
-
-                this.AsyncMode = true;
-
-                EmisorReceptorIMEC elEmisor = (EmisorReceptorIMEC)Session["elEmisor"];
-                if (!Utilidades.verificaDatosHacienda(elEmisor))
-                {
-                    this.alertMessages.Attributes["class"] = "alert alert-danger";
-                    this.alertMessages.InnerText = "Se requiere configurar datos del emisor";
-                    //Se agrega segundo mensaje
-                    this.alertMessages1.Attributes["class"] = "alert alert-danger";
-                    this.alertMessages1.InnerText = "Se requiere configurar datos del emisor";
-                    return;
-                }
-
-                //Se obtiene datos del emisor
-                using (var conexionPlan = new DataModelFE())
-                {
-                    string emisorPlan = Session["emisor"].ToString();
-                    Plan dato = conexionPlan.Plan.Where(x => x.emisor == emisorPlan && x.estado == "ACTIVO").FirstOrDefault();
-                    Session["fechaVencimientoPlan"] = dato.fechaFin.ToString();
-                    Session["documentosPendPlan"] = int.Parse(dato.cantidadDocPlan.ToString()) - int.Parse(dato.cantidadDocEmitido.ToString());
-                    Session["PlanPago"] = dato.plan.ToString();
-
-                    //Mensajes
-                    this.alertMessages.Attributes["class"] = "alert alert-info";
-
-                    if (Session["PlanPago"].ToString() != "PPRO1")
-                    {
-                        this.alertMessages.InnerText = "Plan: " + dato.plan.ToString() + "; Fecha de Vencimiento: " + DateTime.Parse(dato.fechaFin.ToString()).ToShortDateString();
-                    }
-                    else
-                    {
-                        //Si el plan es PLAN PROFESIONAL SIN LIMITE entonces se le agrega 1 documento
-                        Session["documentosPendPlan"] = 1;
-                        this.alertMessages.InnerText = "Plan: " + dato.plan.ToString() + "; Fecha de Vencimiento: " + DateTime.Parse(dato.fechaFin.ToString()).ToShortDateString();
-                    }
-
-                    //
-                    //int dias = int.Parse(Session["documentosPendPlan"].ToString());
-                    //DateTime fechaVenc = DateTime.Parse(Session["fechaVencimientoPlan"].ToString());
-                    if (int.Parse(Session["documentosPendPlan"].ToString()) <= 0 || (DateTime.Today >= DateTime.Parse(Session["fechaVencimientoPlan"].ToString())))
-                    {
-                        //Colocar el mensaje
-                        this.alertMessages.Attributes["class"] = "alert alert-danger";
-                        this.alertMessages.InnerText = "Su plan ha expirado, favor contactenos para renovar su plan.";
-                        this.btnFacturar.Enabled = false;
-                        return;
-                    }
-
-
-                }//Fin del Using
+                 
+                 
 
                 if (!IsCallback && !IsPostBack)
                 {
-                    this.txtFechaEmision.Date = Date.DateTimeNow();
-                    //this.txtFechaEmision.MinDate = Date.DateTimeNow().AddHours(-48);
-                    //this.txtFechaEmision.MaxDate = Date.DateTimeNow();
+                    this.txtFechaEmision.Date = Date.DateTimeNow(); 
 
                     this.cmbTipoMoneda.Value = TipoMoneda.CRC;
                     this.txtTipoCambio.Text = "1";
@@ -425,15 +374,11 @@ namespace Web.Pages.Facturacion
 
 
                 /* TIPO DOCUMENTO */
-                //GridViewDataComboBoxColumn comboTipoDocumento = this.ASPxGridView2.Columns["tipoDocumento"] as GridViewDataComboBoxColumn;
-                //foreach (var item in conexion.TipoDocumento.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
-                //{
-                //    this.cmbTipoDocumento.Items.Add(item.descripcion, item.codigo);
-                //    comboTipoDocumento.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
-                //}
-                //this.cmbTipoDocumento.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-                //comboTipoDocumento.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-                //this.cmbTipoDocumento.SelectedIndex = 0;
+                GridViewDataComboBoxColumn comboTipoDocumento = this.ASPxGridView2.Columns["tipoDocumento"] as GridViewDataComboBoxColumn;
+                
+                this.cmbTipoDocumento.Items.Add("PROFORMA", "00"); 
+                this.cmbTipoDocumento.IncrementalFilteringMode = IncrementalFilteringMode.Contains; 
+                this.cmbTipoDocumento.SelectedIndex = 0;
 
                 /* SUCURSAL CAJA */
                 //foreach (var item in conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor && x.estado == Estado.ACTIVO.ToString() && x.tipoDocumento == cmbTipoDocumento.Value.ToString()).ToList())
@@ -1135,46 +1080,12 @@ namespace Web.Pages.Facturacion
                     }
 
                 }
-
-                //if (cmbTipoDocumento.Value.ToString() == TipoDocumento.NOTA_CREDITO ||
-                //    cmbTipoDocumento.Value.ToString() == TipoDocumento.NOTA_DEBITO ||
-                //    cmbTipoDocumento.Value.ToString() == TipoDocumento.COMPROBANTE_CONTNGENCIA)
-                //{
-                //    List<InformacionReferencia> referencias = (List<InformacionReferencia>)Session["informacionReferencia"];
-                //    if (referencias.Count == 0)
-                //    {
-                //        this.alertMessages.Attributes["class"] = "alert alert-danger";
-                //        this.alertMessages.InnerText = "Debe de agregar el número de documento al que hace referencia, en la sección de 'Referencias'";
-
-                //        this.alertMessages1.Attributes["class"] = "alert alert-danger";
-                //        this.alertMessages1.InnerText = "Debe de agregar el número de documento al que hace referencia, en la sección de 'Referencias'";
-                //        return;
-                //    }
-
-                //}
-
+                 
 
                 using (var conexion = new DataModelFE())
                 {
 
-                    ProformaElectronico dato = new ProformaElectronico();
-                    //if (TipoDocumento.FACTURA_ELECTRONICA.Equals(this.cmbTipoDocumento.Value))
-                    //{
-                    dato = new ProformaElectronica();
-                    //}
-                    //if (TipoDocumento.TIQUETE_ELECTRONICO.Equals(this.cmbTipoDocumento.Value))
-                    //{
-                    //    dato = new TiqueteElectronico();
-                    //}
-                    //if (TipoDocumento.NOTA_CREDITO.Equals(this.cmbTipoDocumento.Value))
-                    //{
-                    //    dato = new NotaCreditoElectronica();
-                    //}
-
-                    //if (TipoDocumento.NOTA_DEBITO.Equals(this.cmbTipoDocumento.Value))
-                    //{
-                    //    dato = new NotaDebitoElectronica();
-                    //}
+                    ProformaElectronica dato = new ProformaElectronica(); 
 
                     /* ENCABEZADO */
                     dato.medioPago = this.cmbMedioPago.Value.ToString();
@@ -1270,12 +1181,22 @@ namespace Web.Pages.Facturacion
                     }
 
                     /* RESUMEN */
-                    dato.resumenProforma.codigoMoneda = this.cmbTipoMoneda.Value.ToString();
-                    if (!TipoMoneda.CRC.Equals(dato.resumenProforma.codigoMoneda))
+                    dato.resumenFactura.codigoMoneda = this.cmbTipoMoneda.Value.ToString();
+                    if (!TipoMoneda.CRC.Equals(dato.resumenFactura.codigoMoneda))
                     {
-                        dato.resumenProforma.tipoCambio = decimal.Parse(this.txtTipoCambio.Text.Replace(",", "").Replace(".", "")) / 100;
+                        dato.resumenFactura.tipoCambio = decimal.Parse(this.txtTipoCambio.Text.Replace(",", "."));
+                        if (dato.resumenFactura.tipoCambio > 1000)
+                        {
+
+                            this.alertMessages.Attributes["class"] = "alert alert-danger";
+                            this.alertMessages.InnerText = "Error de conversión";
+                            //Se agrega segundo mensaje
+                            this.alertMessages1.Attributes["class"] = "alert alert-danger";
+                            this.alertMessages1.InnerText = "Error de conversión";
+                            return;
+                        }
                     }
-                    dato.resumenProforma.calcularResumenProforma(dato.detalleServicio.lineaDetalle);
+                    dato.resumenFactura.calcularResumenFactura(dato.detalleServicio.lineaDetalle);
 
                     /* INFORMACION DE REFERENCIA */
                     dato.informacionReferencia = (List<InformacionReferencia>)Session["informacionReferencia"];
@@ -1345,47 +1266,33 @@ namespace Web.Pages.Facturacion
 
                     string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
                     string xmlSigned = FirmaXML.getXMLFirmadoWeb(xml, elEmisor.llaveCriptografica, elEmisor.claveLlaveCriptografica);
-                    string responsePostProforma = await Services.enviarProforma(false, dato, elEmisor, "01", Session["usuario"].ToString());
+                    string responsePostProforma =  Services.enviarProforma( dato, "00", Session["usuario"].ToString());
 
                     this.btnFacturar.Enabled = false;
                     conexion.SaveChanges();
+                     
+                    this.alertMessages.Attributes["class"] = "alert alert-info";
+                    this.alertMessages.InnerText = String.Format("Proforma # {0} enviada", dato.numeroConsecutivo);
 
-                    //if (responsePostProforma.Equals(""))
-                    //{
-                        this.alertMessages.Attributes["class"] = "alert alert-info";
-                        this.alertMessages.InnerText = String.Format("Proforma # {0} enviada", dato.numeroConsecutivo);
-
-                        if (!string.IsNullOrWhiteSpace(dato.receptor.correoElectronico))
+                    if (!string.IsNullOrWhiteSpace(dato.receptor.correoElectronico))
+                    {
+                        List<string> cc = new List<string>();
+                        string[] correosEmisor = conexion.EmisorReceptorIMEC.Find(identificacionReceptor).correoElectronico.Split(',');
+                        foreach (var correo in correosEmisor)
                         {
-                            List<string> cc = new List<string>();
-                            string[] correosEmisor = conexion.EmisorReceptorIMEC.Find(identificacionReceptor).correoElectronico.Split(',');
-                            foreach (var correo in correosEmisor)
-                            {
-                                cc.Add(correo);
-                            }
-                            // copia al emisor
-                            cc.Add(Utilidades.getCorreoPrincipal(((EmisorReceptorIMEC)Session["elEmisor"]).correoElectronico));
-
-                            Utilidades.sendMailProforma(Session["emisor"].ToString(), dato.receptor.correoElectronico,
-                                string.Format("{0} - {1}", dato.numeroConsecutivo, elEmisor.nombre),
-                                Utilidades.mensageGenericoProforma(), "Proforma Electrónica", EncodeXML.EncondeXML.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave, cc);
+                            cc.Add(correo);
                         }
-                    //}
+                        // copia al emisor
+                        cc.Add(Utilidades.getCorreoPrincipal(((EmisorReceptorIMEC)Session["elEmisor"]).correoElectronico));
 
-
-
-
-                    if (empresa.tipoImpresion.Equals("A4"))
-                    {
-                        //Response.Redirect("~/Pages/ConsultaProforma/" + dato.clave);
-                        Response.Redirect("~/Pages/ConsultaProforma/" + dato.clave,false);
-                    }
-                    else
-                    {
-                        //Crear el consulta proforma para ROll Paper
-                        Response.Redirect("~/Pages/ConsultaProforma/" + dato.clave,false);
-                    }
-
+                        Utilidades.sendMailProforma(Session["emisor"].ToString(), dato.receptor.correoElectronico,
+                            string.Format("{0} - {1}", dato.numeroConsecutivo, elEmisor.nombre),
+                            Utilidades.mensageGenericoProforma(), "Proforma Electrónica", EncodeXML.EncondeXML.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave, cc);
+                    } 
+                      
+                    //Crear el consulta proforma para ROll Paper
+                    Response.Redirect("~/Pages/ConsultaProforma/" + dato.clave,false);
+                      
                 }
             }
             catch (DbEntityValidationException ex)
@@ -1481,16 +1388,7 @@ namespace Web.Pages.Facturacion
         }
 
         protected void cmbTipoDocumento_ValueChanged(object sender, EventArgs e)
-        {
-            //VERIFICA SI EL SELECCIONADO ES CONTINGENCIA
-            //if (cmbTipoDocumento.Value.ToString() == TipoDocumento.NOTA_CREDITO ||
-            //        cmbTipoDocumento.Value.ToString() == TipoDocumento.NOTA_DEBITO ||
-            //        cmbTipoDocumento.Value.ToString() == TipoDocumento.COMPROBANTE_CONTNGENCIA)
-            //{
-            //    this.alertMessages.Attributes["class"] = "alert alert-info";
-            //    this.alertMessages.InnerText = "Se le recuerda que debe de agregar el número de documento al que hace referencia, en la sección de 'Referencias'";
-            //}
-
+        { 
             using (var conexion = new DataModelFE())
             {
                 /* SUCURSAL CAJA */
@@ -1513,15 +1411,7 @@ namespace Web.Pages.Facturacion
 
                     lista = conexion.ConsecutivoDocElectronico.Where(x => x.emisor == emisor &&
                             x.tipoDocumento == "01" && x.estado == Estado.ACTIVO.ToString()).ToList();
-                }
-                //this.cmbSucursalCaja.SelectedIndex = 0;
-                //this.cmbSucursalCaja.Items.Clear();
-                //foreach (var item in lista)
-                //{
-                //    this.cmbSucursalCaja.Items.Add(item.ToString(), string.Format("{0}{1}", item.sucursal, item.caja));
-                //}
-                //this.cmbSucursalCaja.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-
+                } 
             }
         }
 

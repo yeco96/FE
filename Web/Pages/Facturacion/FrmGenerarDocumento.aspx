@@ -600,13 +600,15 @@
                                                 </dx:LayoutItem>
                                                 <dx:LayoutItem Caption="Tipo Cambio">
                                                     <LayoutItemNestedControlCollection>
-                                                        <dx:LayoutItemNestedControlContainer>
-                                                            <dx:ASPxTextBox ID="txtTipoCambio" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" Enabled="false"
-                                                                ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido">
+                                                        <dx:LayoutItemNestedControlContainer> 
+                                                            <dx:ASPxTextBox ID="txtTipoCambio" runat="server" Width="100%" AutoResizeWithContainer="true" 
+                                                                  Enabled="false"  >
                                                                 <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
                                                                     <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                                    <RegularExpression ValidationExpression="^(\d{1}\.)?(\d+\.?)+(\d{2})?$" />
                                                                 </ValidationSettings>
                                                             </dx:ASPxTextBox>
+                                                            
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>

@@ -1271,7 +1271,17 @@ namespace Web.Pages.Facturacion
                     dato.resumenFactura.codigoMoneda = this.cmbTipoMoneda.Value.ToString();
                     if (!TipoMoneda.CRC.Equals(dato.resumenFactura.codigoMoneda))
                     {
-                        dato.resumenFactura.tipoCambio = decimal.Parse(this.txtTipoCambio.Text.Replace(",", "").Replace(".", "")) / 100;
+                        dato.resumenFactura.tipoCambio = decimal.Parse(this.txtTipoCambio.Text.Replace(",", "."));
+                        if (dato.resumenFactura.tipoCambio > 1000)
+                        {
+
+                            this.alertMessages.Attributes["class"] = "alert alert-danger";
+                            this.alertMessages.InnerText = "Error de conversión";
+                            //Se agrega segundo mensaje
+                            this.alertMessages1.Attributes["class"] = "alert alert-danger";
+                            this.alertMessages1.InnerText = "Error de conversión";
+                            return;
+                        }
                     }
                     dato.resumenFactura.calcularResumenFactura(dato.detalleServicio.lineaDetalle);
 

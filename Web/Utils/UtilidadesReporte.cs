@@ -80,7 +80,7 @@ namespace Class.Utilidades
                 xml = xml.Replace("FacturaElectronica", "ProformaElectronica");// esto es solo para que no se reemplace por el de abajo
 
 
-                ProformaElectronico documento = (ProformaElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xml);
+                ProformaElectronica documento = (ProformaElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml);
                 Empresa empresa = conexion.Empresa.Find(documento.emisor.identificacion.numero);
 
                 if (empresa != null && "EN".Equals(empresa.idioma))
@@ -237,7 +237,7 @@ namespace Class.Utilidades
             return impresion;
         }
 
-        public static Impresion cargarObjetoImpresionProforma(ProformaElectronico dato, string mensajeHacienda, Empresa empresa)
+        public static Impresion cargarObjetoImpresionProforma(ProformaElectronica dato, string mensajeHacienda, Empresa empresa)
         {
             Impresion impresion = new Impresion();
 
@@ -270,8 +270,8 @@ namespace Class.Utilidades
             impresion.clave = dato.clave;
             impresion.consecutivo = dato.clave.Substring(21, 20);
             impresion.fecha = Convert.ToDateTime(dato.fechaEmision);
-            impresion.moneda = dato.resumenProforma.codigoMoneda;
-            impresion.tipoCambio = dato.resumenProforma.tipoCambio.ToString();
+            impresion.moneda = dato.resumenFactura.codigoMoneda;
+            impresion.tipoCambio = dato.resumenFactura.tipoCambio.ToString();
 
 
             /*
@@ -340,10 +340,10 @@ namespace Class.Utilidades
                 impresion.detalles.Add(detalle);
             }
 
-            impresion.montoSubTotal = dato.resumenProforma.totalVenta;
-            impresion.montoDescuento = dato.resumenProforma.totalDescuentos;
-            impresion.montoImpuestoVenta = dato.resumenProforma.totalImpuesto;
-            impresion.montoTotal = dato.resumenProforma.totalComprobante;
+            impresion.montoSubTotal = dato.resumenFactura.totalVenta;
+            impresion.montoDescuento = dato.resumenFactura.totalDescuentos;
+            impresion.montoImpuestoVenta = dato.resumenFactura.totalImpuesto;
+            impresion.montoTotal = dato.resumenFactura.totalComprobante;
 
             impresion.fechaImpresion = Date.DateTimeNow();
             return impresion;

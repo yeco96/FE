@@ -72,6 +72,7 @@ namespace Web.Pages.Facturacion
             using (var conexion = new DataModelFE())
             {
                 string emisor = Session["emisor"].ToString();
+                /*
                 List<ResumenFacturaProforma> lista = (from resumenFactura in conexion.ResumenFacturaProforma
                                                  from recepcioDocumento in conexion.WSRecepcionPOSTProforma
                                                  where recepcioDocumento.clave == resumenFactura.clave 
@@ -81,6 +82,7 @@ namespace Web.Pages.Facturacion
                                                  && recepcioDocumento.indEstado == 1
                                                  select resumenFactura
                                                  ).ToList();
+                                                 
 
                 foreach (var item in lista)
                 {
@@ -88,6 +90,7 @@ namespace Web.Pages.Facturacion
                 }
                 this.ASPxGridView1.DataSource = lista;
                 this.ASPxGridView1.DataBind();
+                */
             }
         }
 

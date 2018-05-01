@@ -40,7 +40,7 @@ namespace Web.Pages
                     //Hacer Proforma en Inglés
                     RptComprobanteProformasEN reportEN = new RptComprobanteProformasEN();
 
-                    ProformaElectronico documento = (ProformaElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xml);
+                    ProformaElectronica documento = (ProformaElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml);
 
                     Empresa empresa = conexion.Empresa.Find(documento.emisor.identificacion.numero);
 
