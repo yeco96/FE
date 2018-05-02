@@ -701,7 +701,7 @@ public class RptComprobanteEN : DevExpress.XtraReports.UI.XtraReport
             this.xrSubreport1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 178.5F);
             this.xrSubreport1.Name = "xrSubreport1";
             this.xrSubreport1.ReportSource = new RptComprobanteDetalleEN();
-            this.xrSubreport1.SizeF = new System.Drawing.SizeF(650F, 60.12503F);
+            this.xrSubreport1.SizeF = new System.Drawing.SizeF(650F, 70.5417F);
             this.xrSubreport1.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrSubreport1_BeforePrint);
             // 
             // pbLogo

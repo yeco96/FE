@@ -503,20 +503,16 @@
                                         <dx:LayoutGroup Caption="Encabezado" ColCount="3" GroupBoxDecoration="Box" UseDefaultPaddings="false">
                                             <Items>
 
-<%--                                                <dx:LayoutItem Caption="Tipo Documento">
+                                              <dx:LayoutItem Caption="Tipo Documento">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxComboBox ID="cmbTipoDocumento" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
-                                                                ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido"
-                                                                OnValueChanged="cmbTipoDocumento_ValueChanged" AutoPostBack="true" >
-                                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
-                                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
-                                                                </ValidationSettings>
+                                                                OnValueChanged="cmbTipoDocumento_ValueChanged" AutoPostBack="true" > 
                                                             </dx:ASPxComboBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
-
+                                                <%--  
                                                 <dx:LayoutItem Caption="Sucursal y Caja">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
@@ -529,8 +525,18 @@
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>--%>
+                                                 
+                                                <dx:LayoutItem Caption="Medio Pago">
+                                                    <LayoutItemNestedControlCollection>
+                                                        <dx:LayoutItemNestedControlContainer>
+                                                            <dx:ASPxComboBox ID="cmbMedioPago" Width="100%" AutoResizeWithContainer="true" runat="server">
+                                                                
+                                                            </dx:ASPxComboBox>
+                                                        </dx:LayoutItemNestedControlContainer>
+                                                    </LayoutItemNestedControlCollection>
+                                                </dx:LayoutItem>
 
-                                              <dx:LayoutItem Caption="Cliente">
+                                                 <dx:LayoutItem Caption="Cliente">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxTextBox  runat="server" ID="txtReceptor" ReadOnly="true" BackColor="#d9edf7" Width="100%"></dx:ASPxTextBox>
@@ -539,26 +545,22 @@
                                                 </dx:LayoutItem>
 
 
-                                                <dx:LayoutItem Caption="Medio Pago">
+                                                 <dx:LayoutItem Caption="Fecha">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
-                                                            <dx:ASPxComboBox ID="cmbMedioPago" Width="100%" AutoResizeWithContainer="true" runat="server"
-                                                                ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip">
-                                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
-                                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
-                                                                </ValidationSettings>
-                                                            </dx:ASPxComboBox>
+                                                            <dx:ASPxDateEdit ID="txtFechaEmision" Width="100%" AutoResizeWithContainer="true" runat="server" EditFormatString="yyyy-MM-dd HH:mm:ss"
+                                                               >
+                                                                
+                                                            </dx:ASPxDateEdit>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
+
                                                 <dx:LayoutItem Caption="Condición Venta">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
-                                                            <dx:ASPxComboBox ID="cmbCondicionVenta" runat="server" Width="100%" AutoResizeWithContainer="true" OnValueChanged="cmbCondicionVenta_ValueChanged" AutoPostBack="true"
-                                                                ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip">
-                                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
-                                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
-                                                                </ValidationSettings>
+                                                            <dx:ASPxComboBox ID="cmbCondicionVenta" runat="server" Width="100%" AutoResizeWithContainer="true" OnValueChanged="cmbCondicionVenta_ValueChanged" AutoPostBack="true" >
+                                                                
                                                             </dx:ASPxComboBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
@@ -574,43 +576,32 @@
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
-                                                <dx:LayoutItem Caption="Fecha de Emision">
-                                                    <LayoutItemNestedControlCollection>
-                                                        <dx:LayoutItemNestedControlContainer>
-                                                            <dx:ASPxDateEdit ID="txtFechaEmision" Width="100%" AutoResizeWithContainer="true" runat="server" EditFormatString="yyyy-MM-dd HH:mm:ss"
-                                                                ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip">
-                                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
-                                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
-                                                                </ValidationSettings>
-                                                            </dx:ASPxDateEdit>
-                                                        </dx:LayoutItemNestedControlContainer>
-                                                    </LayoutItemNestedControlCollection>
-                                                </dx:LayoutItem>
+                                               
                                                 <dx:LayoutItem Caption="Moneda">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
-                                                            <dx:ASPxComboBox ID="cmbTipoMoneda" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" OnValueChanged="cmbMoneda_ValueChanged" AutoPostBack="true"
-                                                                ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido">
-                                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
-                                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
-                                                                </ValidationSettings>
+                                                            <dx:ASPxComboBox ID="cmbTipoMoneda" runat="server" Width="100%" AutoResizeWithContainer="true" 
+                                                                OnValueChanged="cmbMoneda_ValueChanged" AutoPostBack="true" >
+                                                                
                                                             </dx:ASPxComboBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
                                                 <dx:LayoutItem Caption="Tipo Cambio">
                                                     <LayoutItemNestedControlCollection>
-                                                        <dx:LayoutItemNestedControlContainer>
-                                                            <dx:ASPxTextBox ID="txtTipoCambio" runat="server" Width="100%" AutoResizeWithContainer="true" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" Enabled="false"
-                                                                ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido">
+                                                        <dx:LayoutItemNestedControlContainer> 
+                                                            <dx:ASPxTextBox ID="txtTipoCambio" runat="server" Width="100%" AutoResizeWithContainer="true" 
+                                                                  Enabled="false" MaxLength="8"  >
                                                                 <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
                                                                     <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                                     <RegularExpression ValidationExpression="^(\d{1}\.)?(\d+\.?)+(\d{2})?$" />
                                                                 </ValidationSettings>
                                                             </dx:ASPxTextBox>
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
 
+                                                
                                                 <dx:LayoutItem Caption="Detalle" ColSpan="3" Width="100%" >
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
@@ -621,8 +612,7 @@
                                                         </dx:LayoutItemNestedControlContainer>
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
-
-
+                                                 
                                             </Items>
                                         </dx:LayoutGroup>
 

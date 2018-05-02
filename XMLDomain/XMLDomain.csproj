@@ -45,7 +45,6 @@
     <Compile Include="DetalleServicio.cs" />
     <Compile Include="Documento.cs" />
     <Compile Include="ProformaElectronica.cs" />
-    <Compile Include="ProformaElectronico.cs" />
     <Compile Include="DocumentoElectronico.cs" />
     <Compile Include="Emisor.cs" />
     <Compile Include="Exoneracion.cs" />
@@ -65,7 +64,6 @@
     <Compile Include="Otros.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Receptor.cs" />
-    <Compile Include="ResumenFacturaProforma.cs" />
     <Compile Include="ResumenFacturaReceptor.cs" />
     <Compile Include="ResumenFactura.cs" />
     <Compile Include="Telefono.cs" />

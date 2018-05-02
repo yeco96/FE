@@ -14160,8 +14160,8 @@ Nombre del parámetro: startIndex
 Inner Source: mscorlib
 Inner Stack Trace: 
    en System.String.Substring(Int32 startIndex, Int32 length)
-   en XMLDomain.ProformaElectronico.get_tipoDocumento() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\XMLDomain\ProformaElectronico.cs:línea 16
-   en Class.Utilidades.UtilidadesReporte.cargarObjetoImpresionProforma(ProformaElectronico dato, String mensajeHacienda, Empresa empresa)
+   en XMLDomain.ProformaElectronica.get_tipoDocumento() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\XMLDomain\ProformaElectronica.cs:línea 16
+   en Class.Utilidades.UtilidadesReporte.cargarObjetoImpresionProforma(ProformaElectronica dato, String mensajeHacienda, Empresa empresa)
    en Web.Pages.ConsultaProforma.CreateReport(String clave)
    en Web.Pages.ConsultaProforma.Page_Load(Object sender, EventArgs e)
    en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
@@ -14216,8 +14216,8 @@ Nombre del parámetro: startIndex
 Inner Source: mscorlib
 Inner Stack Trace: 
    en System.String.Substring(Int32 startIndex, Int32 length)
-   en XMLDomain.ProformaElectronico.get_tipoDocumento() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\XMLDomain\ProformaElectronico.cs:línea 16
-   en Class.Utilidades.UtilidadesReporte.cargarObjetoImpresionProforma(ProformaElectronico dato, String mensajeHacienda, Empresa empresa) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Utils\UtilidadesReporte.cs:línea 246
+   en XMLDomain.ProformaElectronica.get_tipoDocumento() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\XMLDomain\ProformaElectronica.cs:línea 16
+   en Class.Utilidades.UtilidadesReporte.cargarObjetoImpresionProforma(ProformaElectronica dato, String mensajeHacienda, Empresa empresa) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Utils\UtilidadesReporte.cs:línea 246
    en Web.Pages.ConsultaProforma.CreateReport(String clave) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\ConsultaProforma.aspx.cs:línea 62
    en Web.Pages.ConsultaProforma.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\ConsultaProforma.aspx.cs:línea 33
    en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
@@ -14246,8 +14246,8 @@ Nombre del parámetro: startIndex
 Inner Source: mscorlib
 Inner Stack Trace: 
    en System.String.Substring(Int32 startIndex, Int32 length)
-   en XMLDomain.ProformaElectronico.get_tipoDocumento() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\XMLDomain\ProformaElectronico.cs:línea 16
-   en Class.Utilidades.UtilidadesReporte.cargarObjetoImpresionProforma(ProformaElectronico dato, String mensajeHacienda, Empresa empresa) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Utils\UtilidadesReporte.cs:línea 246
+   en XMLDomain.ProformaElectronica.get_tipoDocumento() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\XMLDomain\ProformaElectronica.cs:línea 16
+   en Class.Utilidades.UtilidadesReporte.cargarObjetoImpresionProforma(ProformaElectronica dato, String mensajeHacienda, Empresa empresa) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Utils\UtilidadesReporte.cs:línea 246
    en Web.Pages.ConsultaProforma.CreateReport(String clave) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\ConsultaProforma.aspx.cs:línea 62
    en Web.Pages.ConsultaProforma.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\ConsultaProforma.aspx.cs:línea 33
    en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
@@ -14276,8 +14276,8 @@ Nombre del parámetro: startIndex
 Inner Source: mscorlib
 Inner Stack Trace: 
    en System.String.Substring(Int32 startIndex, Int32 length)
-   en XMLDomain.ProformaElectronico.get_tipoDocumento() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\XMLDomain\ProformaElectronico.cs:línea 16
-   en Class.Utilidades.UtilidadesReporte.cargarObjetoImpresionProforma(ProformaElectronico dato, String mensajeHacienda, Empresa empresa) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Utils\UtilidadesReporte.cs:línea 246
+   en XMLDomain.ProformaElectronica.get_tipoDocumento() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\XMLDomain\ProformaElectronica.cs:línea 16
+   en Class.Utilidades.UtilidadesReporte.cargarObjetoImpresionProforma(ProformaElectronica dato, String mensajeHacienda, Empresa empresa) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Utils\UtilidadesReporte.cs:línea 246
    en Web.Pages.ConsultaProforma.CreateReport(String clave) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\ConsultaProforma.aspx.cs:línea 62
    en Web.Pages.ConsultaProforma.Page_Load(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\ConsultaProforma.aspx.cs:línea 33
    en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
@@ -14502,7 +14502,7 @@ Stack Trace:
 
 ********** 30/04/2018 10:29:35 a.m. **********
 Inner Exception Type: System.InvalidCastException
-Inner Exception: No se puede convertir un objeto de tipo 'XMLDomain.FacturaElectronica' al tipo 'XMLDomain.ProformaElectronico'.
+Inner Exception: No se puede convertir un objeto de tipo 'XMLDomain.FacturaElectronica' al tipo 'XMLDomain.ProformaElectronica'.
 Inner Source: Web
 Inner Stack Trace: 
    en Web.Pages.Reportes.FrmReporteProformaResumen.CreateReport() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteProformaResumen.aspx.cs:línea 59
@@ -14529,7 +14529,7 @@ Stack Trace:
 
 ********** 30/04/2018 10:37:29 a.m. **********
 Inner Exception Type: System.InvalidCastException
-Inner Exception: No se puede convertir un objeto de tipo 'XMLDomain.FacturaElectronica' al tipo 'XMLDomain.ProformaElectronico'.
+Inner Exception: No se puede convertir un objeto de tipo 'XMLDomain.FacturaElectronica' al tipo 'XMLDomain.ProformaElectronica'.
 Inner Source: Web
 Inner Stack Trace: 
    en Web.Pages.Reportes.FrmReporteProformaResumen.CreateReport() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteProformaResumen.aspx.cs:línea 61
@@ -14554,86 +14554,502 @@ Stack Trace:
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
-********** 01/05/2018 12:26:38 p.m. **********
-Inner Exception Type: System.FormatException
-Inner Exception: La cadena de entrada no tiene el formato correcto.
-Inner Source: mscorlib
+********** 1/5/2018 15:21:36 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: UnobtrusiveValidationMode de WebForms requiere un ScriptResourceMapping para 'jquery'. Agregue un ScriptResourceMapping con nombre jquery(distinguir mayúsculas de minúsculas).
+Inner Source: System.Web
 Inner Stack Trace: 
-   en System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
-   en System.Double.Parse(String s)
-   en Web.Pages.Facturacion.FrmPrueba.ASPxButton1_Click(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmPrueba.aspx.cs:línea 19
-   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
-   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
-   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
-   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
-   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
-   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.ClientScriptManager.EnsureJqueryRegistered()
+   en System.Web.UI.WebControls.BaseValidator.RegisterUnobtrusiveScript()
+   en System.Web.UI.WebControls.BaseValidator.OnPreRender(EventArgs e)
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.<PreRenderRecursiveInternalAsync>d__249.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
 Exception Type: System.Web.HttpUnhandledException
 Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
 Source: Generic Error Page
 Stack Trace: 
    en System.Web.UI.Page.HandleError(Exception e)
-   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
-   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
-   en System.Web.UI.Page.ProcessRequest()
-   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
-   en System.Web.UI.Page.ProcessRequest(HttpContext context)
-   en ASP.pages_facturacion_frmprueba_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_3sg1diyc.5.cs:línea 0
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestAsync>d__515.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.UI.Page.<ProcessRequestAsync>d__554.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
+   en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.EndProcessRequest(IAsyncResult ar) en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_pmlaw1su.4.cs:línea 0
    en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
-********** 01/05/2018 12:44:00 p.m. **********
-Inner Exception Type: System.NullReferenceException
-Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
-Inner Source: Web
+********** 1/5/2018 15:21:37 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: UnobtrusiveValidationMode de WebForms requiere un ScriptResourceMapping para 'jquery'. Agregue un ScriptResourceMapping con nombre jquery(distinguir mayúsculas de minúsculas).
+Inner Source: System.Web
 Inner Stack Trace: 
-   en Web.Pages.Facturacion.FrmPrueba.ASPxButton1_Click(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmPrueba.aspx.cs:línea 19
-   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
-   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
-   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
-   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
-   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
-   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.ClientScriptManager.EnsureJqueryRegistered()
+   en System.Web.UI.WebControls.BaseValidator.RegisterUnobtrusiveScript()
+   en System.Web.UI.WebControls.BaseValidator.OnPreRender(EventArgs e)
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.PreRenderRecursiveInternal()
+   en System.Web.UI.Control.<PreRenderRecursiveInternalAsync>d__249.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
 Exception Type: System.Web.HttpUnhandledException
 Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
 Source: Generic Error Page
 Stack Trace: 
    en System.Web.UI.Page.HandleError(Exception e)
-   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
-   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
-   en System.Web.UI.Page.ProcessRequest()
-   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
-   en System.Web.UI.Page.ProcessRequest(HttpContext context)
-   en ASP.pages_facturacion_frmprueba_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_4z0waw20.2.cs:línea 0
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestAsync>d__515.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.UI.Page.<ProcessRequestAsync>d__554.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
+   en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.EndProcessRequest(IAsyncResult ar) en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_pmlaw1su.4.cs:línea 0
    en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
-********** 01/05/2018 12:51:20 p.m. **********
-Inner Exception Type: System.NullReferenceException
-Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
-Inner Source: Web
+********** 1/5/2018 15:22:16 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: Sólo se puede agregar una instancia de ScriptManager a la página.
+Inner Source: System.Web.Extensions
 Inner Stack Trace: 
-   en Web.Pages.Facturacion.FrmPrueba.ASPxButton1_Click(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Facturacion\FrmPrueba.aspx.cs:línea 19
-   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
-   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
-   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
-   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
-   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
-   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.ScriptManager.OnInit(EventArgs e)
+   en System.Web.UI.Control.InitRecursive(Control namingContainer)
+   en System.Web.UI.Control.InitRecursive(Control namingContainer)
+   en System.Web.UI.Control.AddedControl(Control control, Int32 index)
+   en System.Web.UI.ControlCollection.Add(Control child)
+   en DevExpress.Web.Internal.LayoutItemControl.CreateControlHierarchy()
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control)
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control)
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control)
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control)
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.FormLayoutRenderHelper.EnsureChildControlsRecursive(Control mainControl)
+   en DevExpress.Web.ASPxFormLayout.CreateControlHierarchy()
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en DevExpress.Web.ASPxWebControl.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControl.AfterInit()
+   en DevExpress.Web.ASPxWebControlBase.OnInit(EventArgs e)
+   en DevExpress.Web.ASPxDataWebControlBase.OnInit(EventArgs e)
+   en System.Web.UI.Control.InitRecursive(Control namingContainer)
+   en System.Web.UI.Control.InitRecursive(Control namingContainer)
+   en System.Web.UI.Control.InitRecursive(Control namingContainer)
+   en System.Web.UI.Control.AddedControl(Control control, Int32 index)
+   en System.Web.UI.ControlCollection.Add(Control child)
+   en DevExpress.Web.Internal.ContentControlLite.CreateControlHierarchy()
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control)
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control)
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en DevExpress.Web.ASPxWebControl.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControl.AfterInit()
+   en DevExpress.Web.ASPxTabControlBase.AfterInit()
+   en DevExpress.Web.ASPxWebControlBase.OnInit(EventArgs e)
+   en DevExpress.Web.ASPxDataWebControlBase.OnInit(EventArgs e)
+   en System.Web.UI.Control.InitRecursive(Control namingContainer)
+   en System.Web.UI.Control.InitRecursive(Control namingContainer)
+   en System.Web.UI.Control.InitRecursive(Control namingContainer)
+   en System.Web.UI.Control.InitRecursive(Control namingContainer)
+   en System.Web.UI.Control.InitRecursive(Control namingContainer)
+   en System.Web.UI.Control.InitRecursive(Control namingContainer)
+   en System.Web.UI.Control.<InitRecursiveAsync>d__225.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
 Exception Type: System.Web.HttpUnhandledException
 Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
 Source: Generic Error Page
 Stack Trace: 
    en System.Web.UI.Page.HandleError(Exception e)
-   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
-   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
-   en System.Web.UI.Page.ProcessRequest()
-   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
-   en System.Web.UI.Page.ProcessRequest(HttpContext context)
-   en ASP.pages_facturacion_frmprueba_aspx.ProcessRequest(HttpContext context) en c:\Users\bcrrreyeper\AppData\Local\Temp\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_b1fxgxnb.1.cs:línea 0
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestAsync>d__515.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.UI.Page.<ProcessRequestAsync>d__554.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
+   en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
+   en ASP.pages_facturacion_frmgenerardocumento_aspx.EndProcessRequest(IAsyncResult ar) en c:\Users\MSA\AppData\Local\Temp\Temporary ASP.NET Files\root\2f6e3398\ac8aecf6\App_Web_iedp0wos.3.cs:línea 0
    en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 1/5/2018 15:31:07 **********
+Inner Exception Type: System.Web.HttpParseException
+Inner Exception: El controlador de eventos OnTextChanged no puede ser una cadena vacía.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   en System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+Exception Type: System.Web.HttpParseException
+Exception: El controlador de eventos OnTextChanged no puede ser una cadena vacía.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)
+   en System.Web.UI.TemplateParser.ParseInternal()
+   en System.Web.UI.TemplateParser.Parse()
+   en System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()
+   en System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   en System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   en System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   en System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.Abstractions.BuildManagerWrapper.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetWebObjectFactory(HttpContextBase httpContext, String modifiedVirtualPath)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Microsoft.AspNet.FriendlyUrls.Abstractions.IFriendlyUrlRouteSupportFunctions.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext, String pathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.RouteCollection.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   en System.Web.Routing.UrlRoutingModule.OnApplicationPostResolveRequestCache(Object sender, EventArgs e)
+   en System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 1/5/2018 15:32:26 **********
+Inner Exception Type: System.Web.HttpParseException
+Inner Exception: El controlador de eventos OnTextChanged no puede ser una cadena vacía.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   en System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+Exception Type: System.Web.HttpParseException
+Exception: El controlador de eventos OnTextChanged no puede ser una cadena vacía.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)
+   en System.Web.UI.TemplateParser.ParseInternal()
+   en System.Web.UI.TemplateParser.Parse()
+   en System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()
+   en System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   en System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   en System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   en System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.Abstractions.BuildManagerWrapper.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetWebObjectFactory(HttpContextBase httpContext, String modifiedVirtualPath)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Microsoft.AspNet.FriendlyUrls.Abstractions.IFriendlyUrlRouteSupportFunctions.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext, String pathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.RouteCollection.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   en System.Web.Routing.UrlRoutingModule.OnApplicationPostResolveRequestCache(Object sender, EventArgs e)
+   en System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 1/5/2018 15:34:39 **********
+Inner Exception Type: System.Web.HttpParseException
+Inner Exception: El controlador de eventos OnTextChanged no puede ser una cadena vacía.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   en System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+Exception Type: System.Web.HttpParseException
+Exception: El controlador de eventos OnTextChanged no puede ser una cadena vacía.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)
+   en System.Web.UI.TemplateParser.ParseInternal()
+   en System.Web.UI.TemplateParser.Parse()
+   en System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()
+   en System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   en System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   en System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   en System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.Abstractions.BuildManagerWrapper.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetWebObjectFactory(HttpContextBase httpContext, String modifiedVirtualPath)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Microsoft.AspNet.FriendlyUrls.Abstractions.IFriendlyUrlRouteSupportFunctions.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext, String pathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.RouteCollection.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   en System.Web.Routing.UrlRoutingModule.OnApplicationPostResolveRequestCache(Object sender, EventArgs e)
+   en System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 1/5/2018 15:43:02 **********
+Inner Exception Type: System.Web.HttpParseException
+Inner Exception: El controlador de eventos OnTextChanged no puede ser una cadena vacía.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   en System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+Exception Type: System.Web.HttpParseException
+Exception: El controlador de eventos OnTextChanged no puede ser una cadena vacía.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)
+   en System.Web.UI.TemplateParser.ParseInternal()
+   en System.Web.UI.TemplateParser.Parse()
+   en System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()
+   en System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   en System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   en System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   en System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.Abstractions.BuildManagerWrapper.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetWebObjectFactory(HttpContextBase httpContext, String modifiedVirtualPath)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Microsoft.AspNet.FriendlyUrls.Abstractions.IFriendlyUrlRouteSupportFunctions.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext, String pathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.RouteCollection.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   en System.Web.Routing.UrlRoutingModule.OnApplicationPostResolveRequestCache(Object sender, EventArgs e)
+   en System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 1/5/2018 15:43:30 **********
+Inner Exception Type: System.Web.HttpParseException
+Inner Exception: El controlador de eventos OnTextChanged no puede ser una cadena vacía.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   en System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+Exception Type: System.Web.HttpParseException
+Exception: El controlador de eventos OnTextChanged no puede ser una cadena vacía.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)
+   en System.Web.UI.TemplateParser.ParseInternal()
+   en System.Web.UI.TemplateParser.Parse()
+   en System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()
+   en System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   en System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   en System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   en System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.Abstractions.BuildManagerWrapper.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetWebObjectFactory(HttpContextBase httpContext, String modifiedVirtualPath)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Microsoft.AspNet.FriendlyUrls.Abstractions.IFriendlyUrlRouteSupportFunctions.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext, String pathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.RouteCollection.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   en System.Web.Routing.UrlRoutingModule.OnApplicationPostResolveRequestCache(Object sender, EventArgs e)
+   en System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 1/5/2018 15:55:22 **********
+Inner Exception Type: System.Web.HttpException
+Inner Exception: Etiqueta de servidor incorrecta.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.UI.TemplateParser.ProcessError(String message)
+   en System.Web.UI.TemplateParser.DetectSpecialServerTagError(String text, Int32 textPos)
+   en System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+Exception Type: System.Web.HttpParseException
+Exception: Etiqueta de servidor incorrecta.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)
+   en System.Web.UI.TemplateParser.ParseInternal()
+   en System.Web.UI.TemplateParser.Parse()
+   en System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()
+   en System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   en System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   en System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   en System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.Abstractions.BuildManagerWrapper.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetWebObjectFactory(HttpContextBase httpContext, String modifiedVirtualPath)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Microsoft.AspNet.FriendlyUrls.Abstractions.IFriendlyUrlRouteSupportFunctions.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext, String pathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.RouteCollection.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   en System.Web.Routing.UrlRoutingModule.OnApplicationPostResolveRequestCache(Object sender, EventArgs e)
+   en System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
