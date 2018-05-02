@@ -77,6 +77,14 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="VfpClient, Version=0.5.14.0, Culture=neutral, PublicKeyToken=78aaa56544ab725d, processorArchitecture=x86">
+      <HintPath>..\packages\VfpClient.0.5.14.0\lib\net45\VfpClient.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="VfpEntityFrameworkProvider, Version=1.0.1.0, Culture=neutral, PublicKeyToken=feace53afe38fe48, processorArchitecture=x86">
+      <HintPath>..\packages\VFPEntityFrameworkProvider.1.0.1.0\lib\net40\VfpEntityFrameworkProvider.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ayuda\frmAcercaDeMSAFactura.cs">
@@ -99,6 +107,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Ayuda\frmAcercaDeMSAFactura.resx">
       <DependentUpon>frmAcercaDeMSAFactura.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,6 +132,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reportes\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -133,7 +150,6 @@
   <ItemGroup>
     <Folder Include="Documentos\" />
     <Folder Include="Login\" />
-    <Folder Include="Reportes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
