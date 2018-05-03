@@ -166,6 +166,15 @@ namespace Web.Pages.Facturacion
                                 //dato.receptorIdentificacion = mensajeHacienda.receptorNumeroCedula;
                                 dato.montoTotalFactura = mensajeHacienda.montoTotalFactura;
                                 dato.montoTotalImpuesto = mensajeHacienda.montoTotalImpuesto;
+
+                                if (mensajeHacienda.montoTotalFactura == 0)
+                                {
+                                    string xml = EncondeXML.base64Decode(dato.comprobanteXml);
+                                    dato.montoTotalImpuesto = Convert.ToDecimal(EncondeXML.buscarValorEtiquetaXML("ResumenFactura", "TotalImpuesto", xml));
+                                    dato.montoTotalFactura = Convert.ToDecimal(EncondeXML.buscarValorEtiquetaXML("ResumenFactura", "TotalComprobante", xml));
+                                }
+
+
                                 conexionWS.Entry(dato).State = EntityState.Modified;
                                 conexionWS.SaveChanges();
 

@@ -12,7 +12,10 @@
      
     <div class="borde_redondo_tabla">
 
-         
+             <asp:ScriptManager ID="ScriptManager1" runat="server" />
+
+        <asp:UpdatePanel ID="UpdatePanel" runat="server" UpdateMode="Always" OnUnload="UpdatePanel_Unload">
+            <ContentTemplate>
         <div id="alertMessages" role="alert"  runat="server" />  
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
             Width="100%" EnableTheming="True" KeyFieldName="identificacion" Theme="Moderno" 
@@ -100,7 +103,7 @@
                 <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="600" />
             </EditFormLayoutProperties>
             <Styles>
-                <Cell Wrap="False"></Cell>
+                <Cell Wrap="True"></Cell>
                 <AlternatingRow Enabled="true" />
             </Styles>
             <Templates>
@@ -194,6 +197,10 @@
             <BorderBottom BorderWidth="1px" />
 
         </dx:ASPxGridView>
+                
+            </ContentTemplate>
+        </asp:UpdatePanel>
+
         <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="ASPxGridView1" FileName="Catálogo Emisor">
             <Styles>
                 <Default Font-Names="Arial" Font-Size="Small" />

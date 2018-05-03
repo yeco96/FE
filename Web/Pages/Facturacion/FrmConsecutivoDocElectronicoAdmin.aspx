@@ -80,7 +80,7 @@
                 <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="600" />
             </EditFormLayoutProperties>
             <Styles>
-                <Cell Wrap="False"></Cell>
+                <Cell Wrap="True"></Cell>
                 <AlternatingRow Enabled="true" /> 
             </Styles>
             <Templates>

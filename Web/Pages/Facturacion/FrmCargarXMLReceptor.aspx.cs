@@ -95,7 +95,7 @@ namespace Web.Pages.Facturacion
                     double totalImpuesto = Convert.ToDouble(EncondeXML.buscarValorEtiquetaXML("ResumenFactura", "TotalImpuesto", xml));
                     txtMontoTotalImpuesto.Text = totalImpuesto.ToString("N2");
                     double totalFactura = Convert.ToDouble(EncondeXML.buscarValorEtiquetaXML("ResumenFactura", "TotalComprobante", xml));
-                    txtTotalFactura.Text = totalFactura.ToString("N2"); ;
+                    txtTotalFactura.Text = totalFactura.ToString("N2"); 
 
                     //Receptor
                     string receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xml);
