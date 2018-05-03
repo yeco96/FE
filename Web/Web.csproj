@@ -284,6 +284,9 @@
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <Content Include="LayoutError.master" />
     <Content Include="Help\Manual_MSA_Facturación_1.0.pdf" />
+    <Content Include="Help\DGT-R-12-2018. Obligatoriedad General para el uso de los Comprobantes Electrónicos.pdf" />
+    <Content Include="Help\DGT-R-48-2016 Resolucion_Comprobantes_Electronicos_.pdf" />
+    <Content Include="Help\DGT-R-51-2016 Resolución de Obligatoriedad.pdf" />
     <None Include="Properties\PublishProfiles\FE.pubxml" />
     <None Include="Service References\ServiceReferenceBCCR\wsIndicadoresEconomicos.disco" />
     <None Include="Service References\ServiceReferenceBCCR\configuration91.svcinfo" />
