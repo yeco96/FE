@@ -92,7 +92,7 @@
                 <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="600" />
             </EditFormLayoutProperties>
             <Styles>
-                <Cell Wrap="False"></Cell>
+                <Cell Wrap="True"></Cell>
                 <AlternatingRow Enabled="true" />
             </Styles>
             <Templates>
@@ -146,7 +146,7 @@
                         </Columns>
                         <SettingsAdaptivity AdaptivityMode="HideDataCellsWindowLimit" HideDataCellsAtWindowInnerWidth="800" AllowOnlyOneAdaptiveDetailExpanded="true" AdaptiveDetailColumnCount="1"></SettingsAdaptivity>
                         <Styles>
-                            <Cell Wrap="False"></Cell>
+                            <Cell Wrap="True"></Cell>
                             <AlternatingRow Enabled="true" />
                         </Styles>
                         <Border BorderWidth="0px" />

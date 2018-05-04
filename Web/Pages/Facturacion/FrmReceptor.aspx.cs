@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Reflection;
 using System.Security.Permissions;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -55,6 +56,19 @@ namespace Web.Pages.Facturacion
 
                 throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
+        }
+
+
+        protected void UpdatePanel_Unload(object sender, EventArgs e)
+        {
+            RegisterUpdatePanel((UpdatePanel)sender);
+        }
+        protected void RegisterUpdatePanel(UpdatePanel panel)
+        {
+            var sType = typeof(ScriptManager);
+            var mInfo = sType.GetMethod("System.Web.UI.IScriptManagerInternal.RegisterUpdatePanel", BindingFlags.NonPublic | BindingFlags.Instance);
+            if (mInfo != null)
+                mInfo.Invoke(ScriptManager.GetCurrent(Page), new object[] { panel });
         }
 
         /// <summary>
@@ -253,10 +267,12 @@ namespace Web.Pages.Facturacion
                 EmisorReceptorIMEC dato = null;
                 using (var conexion = new DataModelFE())
                 {
-                    dato = conexion.EmisorReceptorIMEC.Find(e.Editor.Value.ToString());
-                    if (dato != null)
-                    {
-                        comboProvincia.Value = dato.provincia;
+                    if (e.Editor.Value != null){
+                        dato = conexion.EmisorReceptorIMEC.Find(e.Editor.Value.ToString());
+                        if (dato != null)
+                        {
+                            comboProvincia.Value = dato.provincia;
+                        }
                     }
                 }
                 

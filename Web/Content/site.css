@@ -541,3 +541,32 @@ header{
     text-align: center;
     text-align: -moz-center;
 }
+
+
+  /*
+.dxgvDataRowAlt_MetropolisBlue{
+    background-color: #EEF6FB;
+}
+
+.dxgvFocusedRow_MetropolisBlue{
+    background-color: #e5e5e5;
+}
+
+.dxgvControl_MetropolisBlue, .dxgvDisabled_MetropolisBlue{
+    font: 14px 'Segoe UI','Helvetica Neue','Droid Sans',Arial,Tahoma,Geneva,Sans-serif;
+    color: #2b2b2b;
+    background-color: #FFFFFF;
+    cursor: default;
+}
+.dxgvTable_MetropolisBlue {
+    background-color: #FFFFFF;
+    border: Solid 1px #d1d1d1;
+    border-top: 0;
+    border-bottom: 0;
+    /* border-collapse: separate !important;  
+    overflow: hidden;
+}
+  */
+.dxgvTable_Moderno {
+    table-layout: fixed !important;
+}

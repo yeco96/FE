@@ -57,7 +57,7 @@
         <div id="alertMessages" role="alert" runat="server" />
         
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
-            Width="100%" EnableTheming="True" KeyFieldName="clave" Theme="Moderno"
+            Width="100%" EnableTheming="True" KeyFieldName="clave" Theme="Moderno" 
             OnDetailRowExpandedChanged="ASPxGridView1_DetailRowExpandedChanged"
             OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize">
             <Columns>
@@ -70,7 +70,7 @@
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Emisor" FieldName="emisorIdentificacion" VisibleIndex="4" Visible="false">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Receptor" FieldName="Receptor.nombreCompleto" VisibleIndex="5" Width="25%" Settings-AutoFilterCondition="Contains">
+                <dx:GridViewDataTextColumn Caption="Receptor" FieldName="Receptor.nombreCompleto" VisibleIndex="5" Width="25%"  Settings-AutoFilterCondition="Contains">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Mensaje" FieldName="mensaje" VisibleIndex="6" Visible="false">
                 </dx:GridViewDataTextColumn>
@@ -100,12 +100,12 @@
                 <dx:ASPxSummaryItem FieldName="montoTotalImpuesto" SummaryType="Sum" DisplayFormat="{0:n2}"/>
                 <dx:ASPxSummaryItem FieldName="montoTotalFactura" SummaryType="Sum" DisplayFormat="{0:n2}"/>
             </TotalSummary> 
-            <SettingsBehavior ColumnResizeMode="NextColumn" />
+            <SettingsBehavior    />
             <Settings ShowFooter="True" ShowFilterBar="Visible" ShowFilterRow="true" />
             <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="True" ConfirmDelete="True" />
             <SettingsPager PageSize="10" PageSizeItemSettings-Visible="true" PageSizeItemSettings-Items="10, 20, 30, 100" />
             <SettingsEditing Mode="EditFormAndDisplayRow" />
-            <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="false" ShowFilterRow="True" ShowTitlePanel="True" UseFixedTableLayout="True" />
+            <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="false" ShowFilterRow="True" ShowTitlePanel="True" UseFixedTableLayout="True"   />
             
             <SettingsDetail ShowDetailRow="True" AllowOnlyOneMasterRowExpanded="true" />
             <SettingsDataSecurity AllowDelete="false" AllowEdit="false" AllowInsert="false" />
@@ -121,7 +121,7 @@
                 <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="600" />
             </EditFormLayoutProperties>
             <Styles>
-                <Cell Wrap="False"></Cell>
+                <Cell Wrap="True"></Cell>
                 <AlternatingRow Enabled="true" />
             </Styles>
             <Templates>
