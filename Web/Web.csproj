@@ -225,6 +225,7 @@
     <Content Include="Pages\ConsultaProforma.aspx" />
     <Content Include="Pages\ConsultaRP.aspx" />
     <Content Include="Pages\Error\default.aspx" />
+    <Content Include="Pages\Facturacion\FrmAdministracionDocProforma.aspx" />
     <Content Include="Pages\Facturacion\FrmAdministracionDocElectronicoAdmin.aspx" />
     <Content Include="Pages\Facturacion\FrmConsecutivoDocElectronicoAdmin.aspx" />
     <Content Include="Pages\Facturacion\FrmConsecutivoDocElectronico.aspx" />
@@ -241,7 +242,6 @@
     <Content Include="Pages\Facturacion\FrmCargarXML.aspx" />
     <Content Include="Pages\Consulta.aspx" />
     <Content Include="Pages\Facturacion\FrmAdministracionDocElectronico.aspx" />
-    <Content Include="Pages\Facturacion\FrmConsultaProformas.aspx" />
     <Content Include="Pages\Facturacion\FrmConsultaResumenReceptor.aspx" />
     <Content Include="Pages\Facturacion\FrmConsultaResumen.aspx" />
     <Content Include="Pages\Facturacion\FrmEmisorAdmin.aspx" />
@@ -284,9 +284,6 @@
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <Content Include="LayoutError.master" />
     <Content Include="Help\Manual_MSA_Facturación_1.0.pdf" />
-    <Content Include="Help\DGT-R-12-2018. Obligatoriedad General para el uso de los Comprobantes Electrónicos.pdf" />
-    <Content Include="Help\DGT-R-48-2016 Resolucion_Comprobantes_Electronicos_.pdf" />
-    <Content Include="Help\DGT-R-51-2016 Resolución de Obligatoriedad.pdf" />
     <None Include="Properties\PublishProfiles\FE.pubxml" />
     <None Include="Service References\ServiceReferenceBCCR\wsIndicadoresEconomicos.disco" />
     <None Include="Service References\ServiceReferenceBCCR\configuration91.svcinfo" />
@@ -536,6 +533,13 @@
     <Compile Include="Pages\Error\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Facturacion\FrmAdministracionDocProforma.aspx.cs">
+      <DependentUpon>FrmAdministracionDocProforma.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Facturacion\FrmAdministracionDocProforma.aspx.designer.cs">
+      <DependentUpon>FrmAdministracionDocProforma.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Facturacion\FrmAdministracionDocElectronicoAdmin.aspx.cs">
       <DependentUpon>FrmAdministracionDocElectronicoAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -648,13 +652,6 @@
     </Compile>
     <Compile Include="Pages\Facturacion\FrmAdministracionDocElectronico.aspx.designer.cs">
       <DependentUpon>FrmAdministracionDocElectronico.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Facturacion\FrmConsultaProformas.aspx.cs">
-      <DependentUpon>FrmConsultaProformas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Facturacion\FrmConsultaProformas.aspx.designer.cs">
-      <DependentUpon>FrmConsultaProformas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Facturacion\FrmConsultaResumenReceptor.aspx.cs">
       <DependentUpon>FrmConsultaResumenReceptor.aspx</DependentUpon>

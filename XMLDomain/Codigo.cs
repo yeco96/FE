@@ -18,6 +18,5 @@ namespace XMLDomain
         public string codigo { set; get; }//tamaño 20  DGT
         public  Codigo() {}
 
-
     }
 }
