@@ -67,9 +67,9 @@
                             PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                         </dx:GridViewDataComboBoxColumn>
 
-                         <dx:GridViewDataSpinEditColumn Caption="Clave Llave Criptográfica" FieldName="claveLlaveCriptografica" VisibleIndex="20" Visible="false" EditFormSettings-Visible="True" PropertiesSpinEdit-MaxLength="4"
-                            PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
-                        </dx:GridViewDataSpinEditColumn>
+                         <dx:GridViewDataTextColumn Caption="Clave Llave Criptográfica" FieldName="claveLlaveCriptografica" VisibleIndex="20" Visible="false" EditFormSettings-Visible="True" PropertiesTextEdit-MaxLength="4"
+                            PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                        </dx:GridViewDataTextColumn>
                         <dx:GridViewDataBinaryImageColumn Caption="Llave Criptográfica" FieldName="llaveCriptografica" VisibleIndex="20" Visible="false" EditFormSettings-Visible="True"
                             PropertiesBinaryImage-ValidationSettings-RequiredField-IsRequired="true" PropertiesBinaryImage-ValidationSettings-RequiredField-ErrorText="Requerido">
                             <EditItemTemplate>
