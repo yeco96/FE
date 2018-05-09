@@ -32,7 +32,7 @@ namespace Web.WebServices
         // TODO: Here is where you would validate the username and password.
         private static bool CheckPassword(string username, string password)
         {
-            bool result = username == "msasoft" && password == "&msasoft.01#%";
+            bool result = username == "msasoft" && password == "1986Msa.01#%";
             if (!result)
             {
                 return username == "msasoft" && password == "msasoft.01";

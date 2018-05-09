@@ -15156,3 +15156,29 @@ Stack Trace:
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
+********** 6/5/2018 20:36:58 **********
+Exception Type: System.ArgumentOutOfRangeException
+Exception: La longitud no puede ser inferior a cero.
+Nombre del parámetro: length
+Source: Generic Error Page
+Stack Trace: 
+   en System.String.Substring(Int32 startIndex, Int32 length)
+   en Web.WebServices.BasicAuthHttpModule.AuthenticateUser(String credentials) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\WebServices\BasicAuthHttpModule.cs:línea 51
+   en Web.WebServices.BasicAuthHttpModule.OnApplicationAuthenticateRequest(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\WebServices\BasicAuthHttpModule.cs:línea 85
+   en System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 6/5/2018 20:38:15 **********
+Exception Type: System.ArgumentOutOfRangeException
+Exception: La longitud no puede ser inferior a cero.
+Nombre del parámetro: length
+Source: Generic Error Page
+Stack Trace: 
+   en System.String.Substring(Int32 startIndex, Int32 length)
+   en Web.WebServices.BasicAuthHttpModule.AuthenticateUser(String credentials) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\WebServices\BasicAuthHttpModule.cs:línea 51
+   en Web.WebServices.BasicAuthHttpModule.OnApplicationAuthenticateRequest(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\WebServices\BasicAuthHttpModule.cs:línea 85
+   en System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+

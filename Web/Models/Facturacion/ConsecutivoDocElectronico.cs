@@ -108,7 +108,7 @@ namespace Web.Models.Facturacion
            
             string fecha = Date.DateTimeNow().ToString("ddMMyy");
             //506 080118 000603540974 001 00001 01 0000000018 1 88888888
-            return String.Format("506{0}{1}{2}{3}{4}{5}{6}88888888", fecha, this.emisor.PadLeft(12, '0'), this.sucursal, this.caja, this.tipoDocumento, this.consecutivo.ToString().PadLeft(10, '0'), tipoEnvio);
+            return String.Format("506{0}{1}{2}{3}{4}{5}{6}{7}", fecha, this.emisor.PadLeft(12, '0'), this.sucursal, this.caja, this.tipoDocumento, this.consecutivo.ToString().PadLeft(10, '0'), tipoEnvio, this.digitoVerificador);
         }
 
         /// <summary>
