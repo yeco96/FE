@@ -1,11 +1,11 @@
-﻿<%@ Page Async="true" Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmAdministracionDocProforma.aspx.cs" Inherits="Web.Pages.Facturacion.FrmAdministracionDocProforma" %>
+﻿<%@ Page Async="true" Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmAdministracionDocElectronicoProforma.aspx.cs" Inherits="Web.Pages.Facturacion.FrmAdministracionDocElectronicoProforma" %>
 
 <%@ Register Src="~/UserControls/AddAuditoriaForm.ascx" TagPrefix="user" TagName="AddAuditoriaForm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 
       <div class="text-box-title">
-        <div class="text-box-heading-title"> Histórico Proformas</div>
+        <div class="text-box-heading-title"> Histórico de Proformas Electrónicas</div>
         <div class="arrow-down-title" style="margin-bottom: 5px;"></div>                        
      </div>  
      
@@ -82,7 +82,10 @@
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Monto Factura" FieldName="montoTotalFactura" VisibleIndex="9" PropertiesTextEdit-DisplayFormatString="n2">
                 </dx:GridViewDataTextColumn>
-                 
+
+                <dx:GridViewDataComboBoxColumn Caption="Tipo" FieldName="tipoDocumento" VisibleIndex="10">
+                </dx:GridViewDataComboBoxColumn>
+
                 <dx:GridViewDataTextColumn Visible="false" Caption="Usuario Creación" FieldName="usuarioCreacion" VisibleIndex="11">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataDateColumn Visible="false" Caption="Fecha Creación" FieldName="fechaCreacion" VisibleIndex="12">
@@ -149,14 +152,15 @@
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
 
-                                     <dx:LayoutItem Caption="">
+                                    
+<%--                                     <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
                                                 <dx:ASPxButton ID="btnDescargarXML" Width="100%" AutoResizeWithContainer="true"  runat="server" Text="Descargar XML" OnClick="btnDescargarXML_Click" Image-Url="~/Content/Images/xml.png"></dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
-                                    </dx:LayoutItem>
-
+                                    </dx:LayoutItem>--%>
+                                    
 
                                     <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
@@ -181,7 +185,41 @@
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
-                                      
+
+
+
+<%--                                    <dx:LayoutItem Caption="">
+                                        <LayoutItemNestedControlCollection>
+                                            <dx:LayoutItemNestedControlContainer>
+                                                <dx:ASPxButton ID="btnActualizar" Width="100%" AutoResizeWithContainer="true"  runat="server" Text="Actualizar" OnClick="btnActualizar_Click" Image-Url="~/Content/Images/refresh2.png"></dx:ASPxButton>
+                                            </dx:LayoutItemNestedControlContainer>
+                                        </LayoutItemNestedControlCollection>
+                                    </dx:LayoutItem>
+
+                                    
+                                    <dx:LayoutItem Caption="">
+                                        <LayoutItemNestedControlCollection>
+                                            <dx:LayoutItemNestedControlContainer>
+                                                <dx:ASPxButton ID="btnNotaCredito" Width="100%" AutoResizeWithContainer="true"  runat="server" Text="Crear Nota Crédito" OnClick="btnNotaCredito_Click" Image-Url="~/Content/Images/nota_credito.png"></dx:ASPxButton>
+                                            </dx:LayoutItemNestedControlContainer>
+                                        </LayoutItemNestedControlCollection>
+                                    </dx:LayoutItem>
+                                    <dx:LayoutItem Caption="">
+                                        <LayoutItemNestedControlCollection>
+                                            <dx:LayoutItemNestedControlContainer>
+                                                <dx:ASPxButton ID="btnNotaDebito" Width="100%" AutoResizeWithContainer="true"  runat="server" Text="Crear Nota Débito" OnClick="btnNotaDebito_Click" Image-Url="~/Content/Images/nota_debito.png"></dx:ASPxButton>
+                                            </dx:LayoutItemNestedControlContainer>
+                                        </LayoutItemNestedControlCollection>
+                                    </dx:LayoutItem>
+                                    
+                                    <dx:LayoutItem Caption="">
+                                        <LayoutItemNestedControlCollection>
+                                            <dx:LayoutItemNestedControlContainer>
+                                                <dx:ASPxButton ID="btnEnvioManual" Width="100%" AutoResizeWithContainer="true"  runat="server" Text="Reenvio Hacienda" OnClick="btnEnvioManual_Click" Image-Url="~/Content/Images/send2.png"></dx:ASPxButton>
+                                            </dx:LayoutItemNestedControlContainer>
+                                        </LayoutItemNestedControlCollection>
+                                    </dx:LayoutItem>--%>
+
                                     
 
                                 </Items>

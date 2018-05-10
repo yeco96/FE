@@ -351,6 +351,7 @@
                             </dx:ContentControl>
                         </ContentCollection>
                     </dx:TabPage>
+
                     <dx:TabPage Text="Referencias" Visible="false"> 
                         <ContentCollection>
                             <dx:ContentControl runat="server">
@@ -492,7 +493,7 @@
                         </ContentCollection>
                     </dx:TabPage>
 
-                    <dx:TabPage Text="Factura"> 
+                    <dx:TabPage Text="Profomra"> 
                         <ContentCollection>
                             <dx:ContentControl runat="server">
 

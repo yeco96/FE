@@ -82,7 +82,7 @@
                                                             <dx:MenuItem Text="ESTADÍSTICA" NavigateUrl="~/Pages/Administracion/FrmDashboard"/>
                                                             <dx:MenuItem Text="REPORTE" NavigateUrl="~/Pages/Facturacion/FrmConsultaResumen" />
                                                             <dx:MenuItem Text="HISTÓRICO FACTURAS/NOTAS" NavigateUrl="~/Pages/Facturacion/FrmAdministracionDocElectronicoAdmin" />
-                                                            <dx:MenuItem Text="HISTÓRICO PROFORMA" NavigateUrl="~/Pages/Facturacion/FrmAdministracionDocProforma" /> 
+                                                            <dx:MenuItem Text="HISTÓRICO PROFORMA" NavigateUrl="~/Pages/Facturacion/FrmAdministracionDocElectronicoProforma" /> 
                                                             <dx:MenuItem Text="FACTURAR" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumento" />
                                                             <dx:MenuItem Text="PROFORMA" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumentoProforma" /> 
                                                             
@@ -157,7 +157,7 @@
                                                             <dx:MenuItem Text="ESTADÍSTICA" NavigateUrl="~/Pages/Administracion/FrmDashboard"/>
                                                             <dx:MenuItem Text="REPORTE" NavigateUrl="~/Pages/Facturacion/FrmConsultaResumen" />
                                                             <dx:MenuItem Text="HISTÓRICO FACTURAS/NOTAS" NavigateUrl="~/Pages/Facturacion/FrmAdministracionDocElectronico" /> 
-                                                            <dx:MenuItem Text="HISTÓRICO PROFORMA" NavigateUrl="~/Pages/Facturacion/FrmAdministracionDocProforma" /> 
+                                                            <dx:MenuItem Text="HISTÓRICO PROFORMA" NavigateUrl="~/Pages/Facturacion/FrmAdministracionDocElectronicoProforma" /> 
                                                             <dx:MenuItem Text="FACTURAR" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumento" />
                                                             <dx:MenuItem Text="PROFORMA" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumentoProforma" /> 
                                                              
@@ -209,7 +209,7 @@
                                                             <dx:MenuItem Text="ESTADÍSTICA" NavigateUrl="~/Pages/Administracion/FrmDashboard"/>
                                                             <dx:MenuItem Text="REPORTE" NavigateUrl="~/Pages/Facturacion/FrmConsultaResumen" />
                                                             <dx:MenuItem Text="HISTÓRICO FACTURAS/NOTAS" NavigateUrl="~/Pages/Facturacion/FrmAdministracionDocElectronicoAdmin" />
-                                                            <dx:MenuItem Text="HISTÓRICO PROFORMA" NavigateUrl="~/Pages/Facturacion/FrmAdministracionDocProforma" /> 
+                                                            <dx:MenuItem Text="HISTÓRICO PROFORMA" NavigateUrl="~/Pages/Facturacion/FrmAdministracionDocElectronicoProforma" /> 
                                                             <dx:MenuItem Text="FACTURAR" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumento" />
                                                             <dx:MenuItem Text="PROFORMA" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumentoProforma" /> 
                                                              

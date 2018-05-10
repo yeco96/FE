@@ -10,7 +10,9 @@
      </div>  
      
     <div class="borde_redondo_tabla">
+        <!--
         Datos para la configuración de los correos más usuales:<br />
+        
         <table class="w-50" style="width: 29%" border="1" visible="false">
             <tr>
                 <td class="dxeTextBoxDefaultWidthSys" style="text-align: center; color: #FFFFFF; background-color: #0072C6"><strong><em>Proveedor de Servicio</em></strong></td>
@@ -43,6 +45,8 @@
                 <td class="text-center" style="width: 35px">Si</td>
             </tr>
         </table>
+
+        -->
         *&nbsp;&nbsp; Si cuenta con un dominio propio consulte con su proveedor de hosting.<br />
         ** La configuración del correo es adicional, en caso no de poseer alguna configuración, la salida de correos será de <a href="mailto:fe.msasoft@gmail.com">fe.msasoft@gmail.com</a><br />
         *** No se podrán configurar cuentas de servicios de correo genéricos como Yahoo, Gmail, Hotmail etc.

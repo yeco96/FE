@@ -225,7 +225,7 @@
     <Content Include="Pages\ConsultaProforma.aspx" />
     <Content Include="Pages\ConsultaRP.aspx" />
     <Content Include="Pages\Error\default.aspx" />
-    <Content Include="Pages\Facturacion\FrmAdministracionDocProforma.aspx" />
+    <Content Include="Pages\Facturacion\FrmAdministracionDocElectronicoProforma.aspx" />
     <Content Include="Pages\Facturacion\FrmAdministracionDocElectronicoAdmin.aspx" />
     <Content Include="Pages\Facturacion\FrmConsecutivoDocElectronicoAdmin.aspx" />
     <Content Include="Pages\Facturacion\FrmConsecutivoDocElectronico.aspx" />
@@ -533,12 +533,12 @@
     <Compile Include="Pages\Error\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Facturacion\FrmAdministracionDocProforma.aspx.cs">
-      <DependentUpon>FrmAdministracionDocProforma.aspx</DependentUpon>
+    <Compile Include="Pages\Facturacion\FrmAdministracionDocElectronicoProforma.aspx.cs">
+      <DependentUpon>FrmAdministracionDocElectronicoProforma.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Facturacion\FrmAdministracionDocProforma.aspx.designer.cs">
-      <DependentUpon>FrmAdministracionDocProforma.aspx</DependentUpon>
+    <Compile Include="Pages\Facturacion\FrmAdministracionDocElectronicoProforma.aspx.designer.cs">
+      <DependentUpon>FrmAdministracionDocElectronicoProforma.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Facturacion\FrmAdministracionDocElectronicoAdmin.aspx.cs">
       <DependentUpon>FrmAdministracionDocElectronicoAdmin.aspx</DependentUpon>
