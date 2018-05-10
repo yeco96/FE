@@ -75,49 +75,58 @@ namespace Web.Pages.Facturacion
             if (Session["clave"] != null)
             {
                 string clave = Session["clave"].ToString();
-                using (var conexionWS = new DataModelFE())
-                {
-                    WSRecepcionPOST dato = conexionWS.WSRecepcionPOST.Find(clave);
-                    this.cmbTipoDocumento.Value = Session["tipoDocumento"].ToString();
+                using (var conexion = new DataModelFE())
+                {  
+                    string xml = ""; 
+                    if (clave.Substring(29, 2) == TipoDocumento.PROFORMA)
+                    {
+                        WSRecepcionPOSTProforma dato = conexion.WSRecepcionPOSTProforma.Find(clave);
+                        xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml); 
+                    }
+                    else
+                    {
+                        WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
+                        xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml); 
+                    }
+                     
+                    this.cmbTipoDocumento.Value = Session["tipoDocumento"].ToString(); 
 
-                    string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+                    DocumentoElectronico documento = (DocumentoElectronico) EncodeXML.EncondeXML.getObjetcFromXML(xml);
 
-                    FacturaElectronica factura = (FacturaElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml, typeof(FacturaElectronica));
+                    this.cmbCondicionVenta.Value = documento.condicionVenta;
+                    this.cmbMedioPago.Value = documento.medioPago;
+                    this.cmbTipoDocumento.Value = documento.tipoDocumento;
+                    this.cmbTipoMoneda.Value = documento.resumenFactura.codigoMoneda;
+                    this.txtTipoCambio.Text = documento.resumenFactura.tipoCambio.ToString();
+                    this.txtPlazoCredito.Text = documento.plazoCredito;
+                    this.txtFechaEmision.Text = documento.fechaEmision;
 
-                    this.cmbCondicionVenta.Value = factura.condicionVenta;
-                    this.cmbMedioPago.Value = factura.medioPago;
-                    this.cmbTipoDocumento.Value = factura.tipoDocumento;
-                    this.cmbTipoMoneda.Value = factura.resumenFactura.codigoMoneda;
-                    this.txtTipoCambio.Text = factura.resumenFactura.tipoCambio.ToString();
-                    this.txtPlazoCredito.Text = factura.plazoCredito;
-                    this.txtFechaEmision.Text = factura.fechaEmision;
-
-                    foreach (var otros in factura.otros.otrosTextos)
+                    foreach (var otros in documento.otros.otrosTextos)
                     {
                         this.txtOtrosTextos.Text += string.Format("{0}\n", otros);
                     }
 
-                    txtNombreEmisor.Text = string.Format("{0} - {1}", factura.emisor.identificacion.numero, factura.emisor.nombre);
-                    txtNombreReceptor.Text = string.Format("{0} - {1}", factura.receptor.identificacion.numero, factura.receptor.nombre);
+                    txtNombreEmisor.Text = string.Format("{0} - {1}", documento.emisor.identificacion.numero, documento.emisor.nombre);
+                    txtNombreReceptor.Text = string.Format("{0} - {1}", documento.receptor.identificacion.numero, documento.receptor.nombre);
 
 
-                    if (!string.IsNullOrWhiteSpace(factura.receptor.correoElectronico))
+                    if (!string.IsNullOrWhiteSpace(documento.receptor.correoElectronico))
                     {
-                        foreach (var correo in factura.receptor.correoElectronico.Split(','))
+                        foreach (var correo in documento.receptor.correoElectronico.Split(','))
                         {
                             txtCorreos.Tokens.Add(correo);
                         }
                     }
 
                     // deja el monto neto facturado
-                    foreach (var item in factura.detalleServicio.lineaDetalle)
+                    foreach (var item in documento.detalleServicio.lineaDetalle)
                     {
                         item.precioUnitario = item.precioUnitario - item.montoDescuento;
                         item.montoDescuento = 0;
                         item.calcularMontos();
                     }
 
-                    Session["detalleServicio"] = factura.detalleServicio;
+                    Session["detalleServicio"] = documento.detalleServicio;
 
                     this.refreshData();
 

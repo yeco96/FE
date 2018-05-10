@@ -32,6 +32,8 @@ namespace Web.Models.Catalogos
         public static string TIQUETE_ELECTRONICO = "04";
         [NotMapped]
         public static string COMPROBANTE_CONTNGENCIA = "08";
+        [NotMapped]
+        public static string PROFORMA = "88";
 
         [Key]
         [Required]

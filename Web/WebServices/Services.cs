@@ -297,8 +297,7 @@ namespace Web.WebServices
                     trama.clave = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "Clave", xmlFile);
                     trama.fecha = DateTime.ParseExact(EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "FechaEmision", xmlFile), "yyyy-MM-ddTHH:mm:ss-06:00",
                                        System.Globalization.CultureInfo.InvariantCulture);
-
-
+                     
                     string emisorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Emisor", "Identificacion", xmlFile);
                     trama.emisor.tipoIdentificacion = emisorIdentificacion.Substring(0, 2);
                     trama.emisor.numeroIdentificacion = emisorIdentificacion.Substring(2);
@@ -316,7 +315,9 @@ namespace Web.WebServices
                         trama.receptor.tipoIdentificacion = "99";
                         trama.receptor.numeroIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "IdentificacionExtranjero", xmlFile);
                     }
-
+                     
+                    trama.montoTotalImpuesto = Convert.ToDecimal(EncondeXML.buscarValorEtiquetaXML("ResumenFactura", "TotalImpuesto", xmlFile));
+                    trama.montoTotalFactura = Convert.ToDecimal(EncondeXML.buscarValorEtiquetaXML("ResumenFactura", "TotalComprobante", xmlFile));
                     trama.receptorTipo = trama.receptor.tipoIdentificacion;
                     trama.receptorIdentificacion = trama.receptor.numeroIdentificacion;
                     trama.tipoDocumento = tipoDocumento; 
@@ -329,7 +330,7 @@ namespace Web.WebServices
                     {// si existe
                         trama.fechaModificacion = Date.DateTimeNow();
                         trama.usuarioModificacion = usuario;
-                        trama.indEstado = 0;
+                        trama.indEstado = 1;
                         trama.cargarEmisorReceptor();
                         conexion.Entry(tramaExiste).State = EntityState.Modified; 
                     }

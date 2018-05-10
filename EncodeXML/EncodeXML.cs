@@ -112,6 +112,11 @@ namespace EncodeXML
                     nodoInicial = "<MensajeReceptor>";
                     nodoFinal = "</MensajeReceptor>";
                 }
+                if (typeof(ProformaElectronica) == objectType)
+                {
+                    nodoInicial = "<ProformaElectronica>";
+                    nodoFinal = "</ProformaElectronica>";
+                }
 
                 int start = xml.IndexOf("<Clave>");
                 int end = xml.IndexOf("<ds:Signature xmlns");
@@ -289,9 +294,10 @@ namespace EncodeXML
                 //Se agrega POroforma Electronica
                 if (typeof(ProformaElectronica) == o.GetType())
                 {
-                    tipo_documento = "facturaElectronica";
-                    nodo_inicial = "FacturaElectronica ";
+                    tipo_documento = "proformaElectronica";
+                    nodo_inicial = "ProformaElectronica ";
                 }
+
 
 
                 xml = sw.ToString();
@@ -303,12 +309,7 @@ namespace EncodeXML
                 xml = xml.Replace("http://www.w3.org/2001/XMLSchema", "https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/" + tipo_documento );
 
                 xml = xml.Replace("XSI","http://www.w3.org/2001/XMLSchema-instance");
-
-                if (typeof(ProformaElectronica) == o.GetType())
-                {
-                    xml = xml.Replace("ProformaElectronica", "FacturaElectronica");// esto es solo para que no se reemplace por el de abajo
-                }
-
+                
                 string new_atribute = nodo_inicial + " ";
                // string new_atribute = nodo_inicial + "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ";
                 new_atribute += "xmlns=\"https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/" + tipo_documento + "\" ";
@@ -457,6 +458,9 @@ namespace EncodeXML
 
             if (xml.Contains("TiqueteElectronico"))
                 return "TiqueteElectronico";
+
+            if (xml.Contains("ProformaElectronica"))
+                return "ProformaElectronica";
 
             return null;
         }

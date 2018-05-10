@@ -26,8 +26,20 @@ namespace Class.Utilidades
             var reportStream = new MemoryStream();
             using (var conexion = new DataModelFE())
             {
-                WSRecepcionPOST dato = conexion.WSRecepcionPOST.Where(x => x.clave == clave).FirstOrDefault();
-                string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+                string xml = "";
+                string mensaje = "";
+                if (clave.Substring(29, 2) == TipoDocumento.PROFORMA)
+                {
+                    WSRecepcionPOSTProforma dato = conexion.WSRecepcionPOSTProforma.Find(clave);
+                    xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+                    mensaje = dato.mensaje;
+                }
+                else
+                {
+                    WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
+                    xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+                    mensaje = dato.mensaje;
+                }
 
                 DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xml);
                 Empresa empresa = conexion.Empresa.Find(documento.emisor.identificacion.numero);
@@ -36,7 +48,7 @@ namespace Class.Utilidades
                 {
                     using (RptComprobanteEN report = new RptComprobanteEN())
                     {
-                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(documento, dato.mensaje, empresa);
+                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(documento, mensaje, empresa);
                         report.objectDataSource1.DataSource = dataSource;
                         string enviroment_url = ConfigurationManager.AppSettings["ENVIROMENT_URL"].ToString();
                         report.xrBarCode1.Text = (enviroment_url + documento.clave).ToUpper();
@@ -52,7 +64,7 @@ namespace Class.Utilidades
                 {
                     using (RptComprobante report = new RptComprobante())
                     {
-                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(documento, dato.mensaje, empresa);
+                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(documento, mensaje, empresa);
                         report.objectDataSource1.DataSource = dataSource;
                         string enviroment_url = ConfigurationManager.AppSettings["ENVIROMENT_URL"].ToString();
                         report.xrBarCode1.Text = (enviroment_url + documento.clave).ToUpper();
