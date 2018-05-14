@@ -47,13 +47,47 @@ namespace Web.Controllers
                 EmisorReceptorIMEC elEmisor = null;
                 using (var conexion = new DataModelFE())
                 {
-                    long id = long.Parse(documento.emisor.identificacion.numero);
-                    elEmisor = conexion.EmisorReceptorIMEC.Find(id.ToString());
+                    long idE = long.Parse(documento.emisor.identificacion.numero);
+                    elEmisor = conexion.EmisorReceptorIMEC.Find(idE.ToString());
                     if (elEmisor == null)
                     {
                         //return "Emisor no registrado!!!";
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Emisor no registrado!!!");
                         //return Ok("Emisor no registrado!!!");
+                    }
+                    else// si el xml es de un emisor valido, verifica si existe el receptor y si no lo crea 
+                    {
+                        string tipo = "";
+                        string idReceptor = "";
+                        if (!string.IsNullOrWhiteSpace(documento.receptor.identificacionExtranjero))
+                        {
+                            tipo = "99";
+                            idReceptor = documento.receptor.identificacionExtranjero;
+                        }
+                        else{
+                            //elimina ceros a la izquierda
+                            long idR = long.Parse(documento.receptor.identificacion.numero);
+                            tipo = documento.receptor.identificacion.tipo;
+                            idReceptor = idR.ToString();
+                        }
+                        EmisorReceptorIMEC elReceptor = conexion.EmisorReceptorIMEC.Find(idReceptor);
+                        if (elReceptor == null)
+                        {
+                            // crea un cliente para que se muestre el emisor
+                            elReceptor = new EmisorReceptorIMEC();
+                            elReceptor.identificacion = idReceptor;
+                            elReceptor.identificacionTipo = tipo;
+                            elReceptor.correoElectronico = documento.receptor.correoElectronico;
+                            if (documento.receptor.telefono != null)
+                            {
+                                elReceptor.telefonoCodigoPais = documento.receptor.telefono.codigoPais;
+                                elReceptor.telefono = documento.receptor.telefono.numTelefono;
+                            }
+                            elReceptor.nombre = documento.receptor.nombre;
+                            elReceptor.nombreComercial = documento.receptor.nombreComercial;
+                            conexion.EmisorReceptorIMEC.Add(elReceptor);
+                            conexion.SaveChanges();
+                        }
                     }
                 }
                 responsePost = await ServicesHacienda.enviarDocumentoElectronico(false, documento, elEmisor, documento.tipoDocumento, Usuario.USUARIO_AUTOMATICO);

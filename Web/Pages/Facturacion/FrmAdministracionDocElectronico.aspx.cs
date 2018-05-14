@@ -150,7 +150,7 @@ namespace Web.Pages.Facturacion
                     if (!string.IsNullOrWhiteSpace(respuestaJSON))
                     {
                         WSRecepcionGET respuesta = JsonConvert.DeserializeObject<WSRecepcionGET>(respuestaJSON);
-                        if (respuesta.respuestaXml != null)
+                        if (!string.IsNullOrWhiteSpace(respuesta.respuestaXml))
                         {
                             string respuestaXML = EncodeXML.EncondeXML.base64Decode(respuesta.respuestaXml);
 

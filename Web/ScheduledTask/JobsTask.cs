@@ -41,8 +41,11 @@ namespace HighSchoolWeb.ScheduledTask
                 OAuth2.OAuth2Config config = null;
 
                 using (var conexion = new DataModelFE())
-                { 
-                    List<WSRecepcionPOST> lista = conexion.WSRecepcionPOST.Where(x => x.indEstado == 0 || x.indEstado == 8 ).ToList();
+                {                                                                                                              
+                    List<WSRecepcionPOST> lista = conexion.WSRecepcionPOST.
+                        Where(x =>  x.indEstado == 0 /*ENVIADO*/    || 
+                                    x.indEstado == 8  /*RECIBIDO*/   ||
+                                    x.indEstado == 9  /*PENDIENTE*/  ).ToList();
                     foreach (var item in lista)
                     {
 
