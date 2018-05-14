@@ -35,7 +35,7 @@ namespace Web.Pages
                     WSRecepcionPOSTProforma dato = conexion.WSRecepcionPOSTProforma.Find(clave);
                     if (dato != null)
                     {
-                        xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+                        xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
                     }
                 }
                 else
@@ -43,19 +43,19 @@ namespace Web.Pages
                     WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
                     if (dato != null)
                     {
-                        xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+                        xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
                     }
                 }
 
                 //WSRecepcionPOST dato = conexion.WSRecepcionPOST.Where(x => x.clave == clave).FirstOrDefault();
                 if (!string.IsNullOrWhiteSpace(xml))
                 {
-                    //string xml = EncodeXML.EncondeXML.base64Decode(xml);
+                    //string xml = EncodeXML.XMLUtils.base64Decode(xml);
 
                     RptComprobante reportES = new RptComprobante();
                     RptComprobanteEN reportEN = new RptComprobanteEN();
 
-                    DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xml);
+                    DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.XMLUtils.getObjetcFromXML(xml);
 
                     Empresa empresa = conexion.Empresa.Find(documento.emisor.identificacion.numero);
 

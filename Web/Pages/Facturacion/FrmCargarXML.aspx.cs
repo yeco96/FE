@@ -62,7 +62,7 @@ namespace Web.Pages.Facturacion
             try
             {
                 string file = Convert.ToBase64String(e.UploadedFile.FileBytes);
-                Session["xmlFile"] = EncondeXML.base64Decode(file);
+                Session["xmlFile"] = XMLUtils.base64Decode(file);
 
 
                 this.loadHTML();
@@ -119,21 +119,21 @@ namespace Web.Pages.Facturacion
                       
                     string xmlFile = Session["xmlFile"].ToString();
                     WSDomain.WSRecepcionPOST trama = new WSDomain.WSRecepcionPOST();
-                    trama.clave = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "Clave", xmlFile);
+                    trama.clave = XMLUtils.buscarValorEtiquetaXML(XMLUtils.tipoDocumentoXML(xmlFile), "Clave", xmlFile);
 
-                    string emisorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Emisor", "Identificacion", xmlFile);
+                    string emisorIdentificacion = XMLUtils.buscarValorEtiquetaXML("Emisor", "Identificacion", xmlFile);
                     trama.emisor.tipoIdentificacion = emisorIdentificacion.Substring(0, 2);
                     trama.emisor.numeroIdentificacion = emisorIdentificacion.Substring(2);
                     trama.emisorTipo = trama.emisor.tipoIdentificacion;
                     trama.emisorIdentificacion = trama.emisor.numeroIdentificacion;
 
-                    string receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xmlFile);
+                    string receptorIdentificacion = XMLUtils.buscarValorEtiquetaXML("Receptor", "Identificacion", xmlFile);
                     trama.receptor.tipoIdentificacion = receptorIdentificacion.Substring(0, 2);
                     trama.receptor.numeroIdentificacion = receptorIdentificacion.Substring(2);
                     trama.receptorTipo = trama.receptor.tipoIdentificacion;
                     trama.receptorIdentificacion = trama.receptor.numeroIdentificacion;
 
-                    trama.comprobanteXml = EncodeXML.EncondeXML.base64Encode(xmlFile);
+                    trama.comprobanteXml = EncodeXML.XMLUtils.base64Encode(xmlFile);
 
                     string jsonTrama = JsonConvert.SerializeObject(trama);
 

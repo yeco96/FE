@@ -111,9 +111,9 @@ namespace Web.Pages.Facturacion
                     this.cmbSucursalCaja.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
 
-                    string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+                    string xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
                      
-                    FacturaElectronica factura = (FacturaElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml, typeof(FacturaElectronica) );
+                    FacturaElectronica factura = (FacturaElectronica)EncodeXML.XMLUtils.getObjetcFromXML(xml, typeof(FacturaElectronica) );
 
                     txtNombreEmisor.Text = string.Format("{0} - {1}", factura.emisor.identificacion.numero, factura.emisor.nombre); 
                     txtNombreReceptor.Text = string.Format("{0} - {1}", factura.receptor.identificacion.numero, factura.receptor.nombre);
@@ -342,8 +342,8 @@ namespace Web.Pages.Facturacion
                 using (var conexion = new DataModelFE())
                 {
                     WSRecepcionPOST datoPost = conexion.WSRecepcionPOST.Find(clave);
-                    string xmlFactura = EncodeXML.EncondeXML.base64Decode(datoPost.comprobanteXml);
-                    factura = (FacturaElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xmlFactura, typeof(FacturaElectronica));
+                    string xmlFactura = EncodeXML.XMLUtils.base64Decode(datoPost.comprobanteXml);
+                    factura = (FacturaElectronica)EncodeXML.XMLUtils.getObjetcFromXML(xmlFactura, typeof(FacturaElectronica));
                      
                     DocumentoElectronico dato = null;
                     if (TipoDocumento.NOTA_CREDITO.Equals(Session["tipoNota"].ToString()))
@@ -440,7 +440,7 @@ namespace Web.Pages.Facturacion
 
                         if (!string.IsNullOrWhiteSpace(dato.receptor.correoElectronico) || this.txtCorreoReceptor.Tokens.Count > 0)
                         {
-                            string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
+                            string xml = EncodeXML.XMLUtils.getXMLFromObject(dato);
                              
                             Utilidades.sendMail(Session["emisor"].ToString(),dato.receptor.correoElectronico,
                                 string.Format("{0} - {1}", dato.numeroConsecutivo, elEmisor.nombre),

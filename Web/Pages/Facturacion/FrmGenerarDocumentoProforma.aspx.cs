@@ -1239,7 +1239,7 @@ namespace Web.Pages.Facturacion
                     dato.clave = consecutivo.getClave(this.txtFechaEmision.Date.ToString("yyyyMMdd"));
                     dato.numeroConsecutivo = consecutivo.getConsecutivo();  
 
-                    string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
+                    string xml = EncodeXML.XMLUtils.getXMLFromObject(dato);
                     string responsePostProforma =  Services.enviarProforma( dato, TipoDocumento.PROFORMA, Session["usuario"].ToString());
 
                     this.btnFacturar.Enabled = false;
@@ -1261,7 +1261,7 @@ namespace Web.Pages.Facturacion
 
                         Utilidades.sendMailProforma(Session["emisor"].ToString(), dato.receptor.correoElectronico,
                             string.Format("{0} - {1}", dato.numeroConsecutivo, elEmisor.nombre),
-                            Utilidades.mensageGenericoProforma(), "Proforma Electrónica", EncodeXML.EncondeXML.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave, cc);
+                            Utilidades.mensageGenericoProforma(), "Proforma Electrónica", EncodeXML.XMLUtils.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave, cc);
                     } 
                       
                     //Crear el consulta proforma para ROll Paper

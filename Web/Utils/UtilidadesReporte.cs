@@ -31,17 +31,17 @@ namespace Class.Utilidades
                 if (clave.Substring(29, 2) == TipoDocumento.PROFORMA)
                 {
                     WSRecepcionPOSTProforma dato = conexion.WSRecepcionPOSTProforma.Find(clave);
-                    xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+                    xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
                     mensaje = dato.mensaje;
                 }
                 else
                 {
                     WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
-                    xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+                    xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
                     mensaje = dato.mensaje;
                 }
 
-                DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xml);
+                DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.XMLUtils.getObjetcFromXML(xml);
                 Empresa empresa = conexion.Empresa.Find(documento.emisor.identificacion.numero);
 
                 if (empresa != null && "EN".Equals(empresa.idioma))
@@ -86,13 +86,13 @@ namespace Class.Utilidades
             using (var conexion = new DataModelFE())
             {
                 WSRecepcionPOSTProforma dato = conexion.WSRecepcionPOSTProforma.Where(x => x.clave == clave).FirstOrDefault();
-                string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+                string xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
 
                 //Cambiar el formato a Proforma Electrónica
                 xml = xml.Replace("FacturaElectronica", "ProformaElectronica");// esto es solo para que no se reemplace por el de abajo
 
 
-                ProformaElectronica documento = (ProformaElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml);
+                ProformaElectronica documento = (ProformaElectronica)EncodeXML.XMLUtils.getObjetcFromXML(xml);
                 Empresa empresa = conexion.Empresa.Find(documento.emisor.identificacion.numero);
 
                 if (empresa != null && "EN".Equals(empresa.idioma))

@@ -41,7 +41,7 @@ namespace Web.Pages
             using (var conexion = new DataModelFE())
             {
                 WSRecepcionPOST dato = conexion.WSRecepcionPOST.Where(x => x.clave == clave).FirstOrDefault();
-                string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+                string xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
 
                 //RptComprobante reportES = new RptComprobante();
                 //RptComprobanteEN reportEN = new RptComprobanteEN();
@@ -49,7 +49,7 @@ namespace Web.Pages
                 RptFacturacionElectronicaRollPaper reportES = new RptFacturacionElectronicaRollPaper();
                 RptFacturacionElectronicaRollPaperEN reportEN = new RptFacturacionElectronicaRollPaperEN();
 
-                DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xml); 
+                DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.XMLUtils.getObjetcFromXML(xml); 
                 Empresa empresa = conexion.Empresa.Find(documento.emisor.identificacion.numero);
 
                 if (empresa != null && "EN".Equals(empresa.idioma))

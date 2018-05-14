@@ -81,17 +81,17 @@ namespace Web.Pages.Facturacion
                     if (clave.Substring(29, 2) == TipoDocumento.PROFORMA)
                     {
                         WSRecepcionPOSTProforma dato = conexion.WSRecepcionPOSTProforma.Find(clave);
-                        xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml); 
+                        xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml); 
                     }
                     else
                     {
                         WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
-                        xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml); 
+                        xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml); 
                     }
                      
                     this.cmbTipoDocumento.Value = Session["tipoDocumento"].ToString(); 
 
-                    DocumentoElectronico documento = (DocumentoElectronico) EncodeXML.EncondeXML.getObjetcFromXML(xml);
+                    DocumentoElectronico documento = (DocumentoElectronico) EncodeXML.XMLUtils.getObjetcFromXML(xml);
 
                     this.cmbCondicionVenta.Value = documento.condicionVenta;
                     this.cmbMedioPago.Value = documento.medioPago;
@@ -322,11 +322,11 @@ namespace Web.Pages.Facturacion
                     string clave = Session["clave"].ToString();
                     WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
                     dato.cargarEmisorReceptor();
-                    string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+                    string xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
 
-                    string numeroConsecutivo = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xml), "NumeroConsecutivo", xml);
-                    string correoElectronico = EncondeXML.buscarValorEtiquetaXML("Receptor", "CorreoElectronico", xml);
-                    string nombre = EncondeXML.buscarValorEtiquetaXML("Emisor", "Nombre", xml);
+                    string numeroConsecutivo = XMLUtils.buscarValorEtiquetaXML(XMLUtils.tipoDocumentoXML(xml), "NumeroConsecutivo", xml);
+                    string correoElectronico = XMLUtils.buscarValorEtiquetaXML("Receptor", "CorreoElectronico", xml);
+                    string nombre = XMLUtils.buscarValorEtiquetaXML("Emisor", "Nombre", xml);
 
                     if (this.txtCorreos.Tokens.Count >0)
                     {

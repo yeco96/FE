@@ -45,20 +45,20 @@ namespace Web.Pages
                 if (clave.Substring(29,2) == TipoDocumento.PROFORMA)
                 {
                     WSRecepcionPOSTProforma dato = conexion.WSRecepcionPOSTProforma.Find(clave);
-                    xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+                    xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
                     mensaje = dato.mensaje;
                 }
                 else
                 {
                     WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
-                    xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+                    xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
                     mensaje = dato.mensaje;
                 }  
 
                 RptComprobante reportES = new RptComprobante();
                 RptComprobanteEN reportEN = new RptComprobanteEN();
 
-                DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xml); 
+                DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.XMLUtils.getObjetcFromXML(xml); 
                 Empresa empresa = conexion.Empresa.Find(documento.emisor.identificacion.numero);
 
                 if (empresa != null && "EN".Equals(empresa.idioma))

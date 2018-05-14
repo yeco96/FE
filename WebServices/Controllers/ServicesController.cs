@@ -41,7 +41,7 @@ namespace WebServices.Controllers
             {
                 Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
                 string xml = await Request.Content.ReadAsStringAsync();
-                DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xml);
+                DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.XMLUtils.getObjetcFromXML(xml);
                 documento.verificaDatosParaXML();
 
                 EmisorReceptorIMEC elEmisor = null;
@@ -116,7 +116,7 @@ namespace WebServices.Controllers
                                 WSRecepcionGET respuesta = JsonConvert.DeserializeObject<WSRecepcionGET>(respuestaJSON);
                                 if (respuesta.respuestaXml != null)
                                 {
-                                    string respuestaXML = EncodeXML.EncondeXML.base64Decode(respuesta.respuestaXml);
+                                    string respuestaXML = EncodeXML.XMLUtils.base64Decode(respuesta.respuestaXml);
 
                                     MensajeHacienda mensajeHacienda = new MensajeHacienda(respuestaXML);
                                     

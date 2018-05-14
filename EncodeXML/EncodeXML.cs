@@ -11,7 +11,7 @@ using XMLDomain;
 
 namespace EncodeXML
 {
-    public class EncondeXML
+    public class XMLUtils
     {
         /// <summary>
         /// decodifica un string de base 64

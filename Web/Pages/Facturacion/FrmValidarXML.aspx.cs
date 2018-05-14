@@ -62,7 +62,7 @@ namespace Web.Pages.Facturacion
             {
                 string file = Convert.ToBase64String(e.UploadedFile.FileBytes);
 
-                Session["xmlFileValidar"] = EncondeXML.base64Decode(file);
+                Session["xmlFileValidar"] = XMLUtils.base64Decode(file);
 
                 this.alertMessages.Attributes["class"] = "alert alert-info";
                 this.alertMessages.InnerText = "Los datos fueron cargados correctamente!!!";
@@ -81,25 +81,25 @@ namespace Web.Pages.Facturacion
                 Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
                 string xml = Session["xmlFileValidar"].ToString();
 
-                if (EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xml).Substring(2) == Session["emisor"].ToString())
+                if (XMLUtils.buscarValorEtiquetaXML("Receptor", "Identificacion", xml).Substring(2) == Session["emisor"].ToString())
                 {
-                    txtClave.Text = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xml), "Clave", xml);
+                    txtClave.Text = XMLUtils.buscarValorEtiquetaXML(XMLUtils.tipoDocumentoXML(xml), "Clave", xml);
                     //Emisor
-                    string emisorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Emisor", "Identificacion", xml);
+                    string emisorIdentificacion = XMLUtils.buscarValorEtiquetaXML("Emisor", "Identificacion", xml);
                     txtNumCedEmisor.Text = emisorIdentificacion.Substring(2);
-                    txtFechaEmisor.Text = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xml), "FechaEmision", xml);
+                    txtFechaEmisor.Text = XMLUtils.buscarValorEtiquetaXML(XMLUtils.tipoDocumentoXML(xml), "FechaEmision", xml);
 
                     EmisorReceptorIMEC emisor = (EmisorReceptorIMEC)Session["elEmisor"];
                     this.txtNumConsecutivoReceptor.Text = "0010000107" + emisor.consecutivo.ToString().PadLeft(10, '0');
 
                     //Factura
-                    double totalImpuesto = Convert.ToDouble(EncondeXML.buscarValorEtiquetaXML("ResumenFactura", "TotalImpuesto", xml));
+                    double totalImpuesto = Convert.ToDouble(XMLUtils.buscarValorEtiquetaXML("ResumenFactura", "TotalImpuesto", xml));
                     txtMontoTotalImpuesto.Text = totalImpuesto.ToString("N2");
-                    double totalFactura = Convert.ToDouble(EncondeXML.buscarValorEtiquetaXML("ResumenFactura", "TotalComprobante", xml));
+                    double totalFactura = Convert.ToDouble(XMLUtils.buscarValorEtiquetaXML("ResumenFactura", "TotalComprobante", xml));
                     txtTotalFactura.Text = totalFactura.ToString("N2"); ;
 
                     //Receptor
-                    string receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xml);
+                    string receptorIdentificacion = XMLUtils.buscarValorEtiquetaXML("Receptor", "Identificacion", xml);
                     if (!string.IsNullOrWhiteSpace(receptorIdentificacion))
                     {
                         Session["receptor.tipoIdentificacion"] = receptorIdentificacion.Substring(0, 2);
@@ -108,11 +108,11 @@ namespace Web.Pages.Facturacion
                     else
                     {
                         Session["receptor.tipoIdentificacion"] = "99";
-                        txtNumCedReceptor.Text = EncondeXML.buscarValorEtiquetaXML("Receptor", "IdentificacionExtranjero", xml);
+                        txtNumCedReceptor.Text = XMLUtils.buscarValorEtiquetaXML("Receptor", "IdentificacionExtranjero", xml);
 
                     }
-                    Session["receptor.CorreoElectronico"] = EncondeXML.buscarValorEtiquetaXML("Receptor", "CorreoElectronico", xml);
-                    Session["receptor.Nombre"] = EncondeXML.buscarValorEtiquetaXML("Receptor", "Nombre", xml);
+                    Session["receptor.CorreoElectronico"] = XMLUtils.buscarValorEtiquetaXML("Receptor", "CorreoElectronico", xml);
+                    Session["receptor.Nombre"] = XMLUtils.buscarValorEtiquetaXML("Receptor", "Nombre", xml);
 
 
 
@@ -163,7 +163,7 @@ namespace Web.Pages.Facturacion
                 dato.montoTotalFactura = decimal.Parse(this.txtTotalFactura.Text);
 
                 EmisorReceptorIMEC elEmisor = (EmisorReceptorIMEC)Session["elEmisor"];
-                string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
+                string xml = EncodeXML.XMLUtils.getXMLFromObject(dato);
                 //string xmlSigned = FirmaXML.getXMLFirmadoWeb(xml, elEmisor.llaveCriptografica, elEmisor.claveLlaveCriptografica);
 
                 //Habilitar solo cuando funcione el servicio
@@ -214,7 +214,7 @@ namespace Web.Pages.Facturacion
             {
                 //Se guardan los datos en la tabla de ws_resumen_xml_receptor
                 string xmlr = Session["xmlFileValidar"].ToString();
-                DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xmlr);
+                DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.XMLUtils.getObjetcFromXML(xmlr);
                 ResumenFacturaReceptor datos = conexion.ResumenFacturaReceptor.Find(documento.clave);
 
                 if (datos == null)
@@ -240,11 +240,11 @@ namespace Web.Pages.Facturacion
                     WSRecepcionPOSTReceptor datosReceptor = new WSRecepcionPOSTReceptor();
                     datosReceptor.clave = datos.clave;
                     //Emisor
-                    string emisorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Emisor", "Identificacion", xmlr);
+                    string emisorIdentificacion = XMLUtils.buscarValorEtiquetaXML("Emisor", "Identificacion", xmlr);
                     datosReceptor.emisorIdentificacion = emisorIdentificacion.Substring(2);
                     datosReceptor.emisorTipo = emisorIdentificacion.Substring(0, 2);
                     //Receptor
-                    string receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xmlr);
+                    string receptorIdentificacion = XMLUtils.buscarValorEtiquetaXML("Receptor", "Identificacion", xmlr);
                     if (!string.IsNullOrWhiteSpace(receptorIdentificacion))
                     {
                         datosReceptor.receptorIdentificacion = receptorIdentificacion.Substring(2);
@@ -253,10 +253,10 @@ namespace Web.Pages.Facturacion
                     else
                     {
                         datosReceptor.receptorTipo = "99";
-                        datosReceptor.receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "IdentificacionExtranjero", xmlr);
+                        datosReceptor.receptorIdentificacion = XMLUtils.buscarValorEtiquetaXML("Receptor", "IdentificacionExtranjero", xmlr);
                     }
                     //Comprobante XML
-                    datosReceptor.comprobanteXml = EncodeXML.EncondeXML.base64Encode(xmlr);
+                    datosReceptor.comprobanteXml = EncodeXML.XMLUtils.base64Encode(xmlr);
 
                     //Auditoría
                     datosReceptor.usuarioCreacion = Session["usuario"].ToString();
