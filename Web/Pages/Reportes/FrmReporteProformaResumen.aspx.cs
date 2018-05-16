@@ -50,7 +50,7 @@ namespace Web.Pages.Reportes
                 using (var conexion = new DataModelFE())
                 {
                     WSRecepcionPOSTProforma dato = conexion.WSRecepcionPOSTProforma.Where(x => x.clave == item.ToString()).FirstOrDefault();
-                    string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+                    string xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
                     //Cambiar sector a Factura Electrónica
                     xml = xml.Replace("FacturaElectronica", "ProformaElectronica");// esto es solo para que no se reemplace por el de abajo
 
@@ -58,7 +58,7 @@ namespace Web.Pages.Reportes
                     RptComprobanteProformas reportES = new RptComprobanteProformas();
                     RptComprobanteProformasEN reportEN = new RptComprobanteProformasEN();
 
-                    ProformaElectronica documento = (ProformaElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml);
+                    ProformaElectronica documento = (ProformaElectronica)EncodeXML.XMLUtils.getObjetcFromXML(xml);
                     Empresa empresa = conexion.Empresa.Find(documento.emisor.identificacion.numero);
 
                     if (empresa != null && "EN".Equals(empresa.idioma))

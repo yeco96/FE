@@ -157,7 +157,7 @@ namespace Web.WebServices
             String responsePost = "";
             try
             {
-                string xmlFile = EncodeXML.EncondeXML.getXMLFromObject(documento);
+                string xmlFile = EncodeXML.XMLUtils.getXMLFromObject(documento);
                  
                 using (var conexion = new DataModelFE())
                 {
@@ -169,18 +169,18 @@ namespace Web.WebServices
                     await OAuth2.OAuth2Config.getTokenWeb(config);
 
                     WSDomain.WSRecepcionPOST trama = new WSDomain.WSRecepcionPOST();
-                    trama.clave = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "Clave", xmlFile);
-                    trama.fecha = DateTime.ParseExact(EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "FechaEmision", xmlFile), "yyyy-MM-ddTHH:mm:ss-06:00",
+                    trama.clave = XMLUtils.buscarValorEtiquetaXML(XMLUtils.tipoDocumentoXML(xmlFile), "Clave", xmlFile);
+                    trama.fecha = DateTime.ParseExact(XMLUtils.buscarValorEtiquetaXML(XMLUtils.tipoDocumentoXML(xmlFile), "FechaEmision", xmlFile), "yyyy-MM-ddTHH:mm:ss-06:00",
                                        System.Globalization.CultureInfo.InvariantCulture);
                      
 
-                    string emisorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Emisor", "Identificacion", xmlFile);
+                    string emisorIdentificacion = XMLUtils.buscarValorEtiquetaXML("Emisor", "Identificacion", xmlFile);
                     trama.emisor.tipoIdentificacion = emisorIdentificacion.Substring(0, 2);
                     trama.emisor.numeroIdentificacion = emisorIdentificacion.Substring(2);
                     trama.emisorTipo = trama.emisor.tipoIdentificacion;
                     trama.emisorIdentificacion = trama.emisor.numeroIdentificacion;
 
-                    string receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xmlFile);
+                    string receptorIdentificacion = XMLUtils.buscarValorEtiquetaXML("Receptor", "Identificacion", xmlFile);
 
                     if (!string.IsNullOrWhiteSpace(receptorIdentificacion))
                     {
@@ -190,7 +190,7 @@ namespace Web.WebServices
                     else
                     {
                         trama.receptor.tipoIdentificacion = "99";
-                        trama.receptor.numeroIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "IdentificacionExtranjero", xmlFile);
+                        trama.receptor.numeroIdentificacion = XMLUtils.buscarValorEtiquetaXML("Receptor", "IdentificacionExtranjero", xmlFile);
                     }
                      
                     trama.receptorTipo = trama.receptor.tipoIdentificacion;
@@ -204,7 +204,7 @@ namespace Web.WebServices
                         xmlFile = FirmaXML.getXMLFirmadoWeb(xmlFile, emisor.llaveCriptografica, emisor.claveLlaveCriptografica.ToString());
                     }
                     trama.consecutivoReceptor = null;
-                    trama.comprobanteXml = EncodeXML.EncondeXML.base64Encode(xmlFile);
+                    trama.comprobanteXml = EncodeXML.XMLUtils.base64Encode(xmlFile);
 
                     string jsonTrama = JsonConvert.SerializeObject(trama);
 
@@ -288,24 +288,23 @@ namespace Web.WebServices
             String responsePostProforma = "";
             try
             {
-                string xmlFile = EncodeXML.EncondeXML.getXMLFromObject(documento);
+                string xmlFile = EncodeXML.XMLUtils.getXMLFromObject(documento);
 
                 using (var conexion = new DataModelFE())
                 {
                   
                     WSDomain.WSRecepcionPOSTProforma trama = new WSDomain.WSRecepcionPOSTProforma();
-                    trama.clave = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "Clave", xmlFile);
-                    trama.fecha = DateTime.ParseExact(EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "FechaEmision", xmlFile), "yyyy-MM-ddTHH:mm:ss-06:00",
+                    trama.clave = XMLUtils.buscarValorEtiquetaXML(XMLUtils.tipoDocumentoXML(xmlFile), "Clave", xmlFile);
+                    trama.fecha = DateTime.ParseExact(XMLUtils.buscarValorEtiquetaXML(XMLUtils.tipoDocumentoXML(xmlFile), "FechaEmision", xmlFile), "yyyy-MM-ddTHH:mm:ss-06:00",
                                        System.Globalization.CultureInfo.InvariantCulture);
-
-
-                    string emisorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Emisor", "Identificacion", xmlFile);
+                     
+                    string emisorIdentificacion = XMLUtils.buscarValorEtiquetaXML("Emisor", "Identificacion", xmlFile);
                     trama.emisor.tipoIdentificacion = emisorIdentificacion.Substring(0, 2);
                     trama.emisor.numeroIdentificacion = emisorIdentificacion.Substring(2);
                     trama.emisorTipo = trama.emisor.tipoIdentificacion;
                     trama.emisorIdentificacion = trama.emisor.numeroIdentificacion;
 
-                    string receptorIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "Identificacion", xmlFile); 
+                    string receptorIdentificacion = XMLUtils.buscarValorEtiquetaXML("Receptor", "Identificacion", xmlFile); 
                     if (!string.IsNullOrWhiteSpace(receptorIdentificacion))
                     {
                         trama.receptor.tipoIdentificacion = receptorIdentificacion.Substring(0, 2);
@@ -314,14 +313,16 @@ namespace Web.WebServices
                     else
                     {
                         trama.receptor.tipoIdentificacion = "99";
-                        trama.receptor.numeroIdentificacion = EncondeXML.buscarValorEtiquetaXML("Receptor", "IdentificacionExtranjero", xmlFile);
+                        trama.receptor.numeroIdentificacion = XMLUtils.buscarValorEtiquetaXML("Receptor", "IdentificacionExtranjero", xmlFile);
                     }
-
+                     
+                    trama.montoTotalImpuesto = Convert.ToDecimal(XMLUtils.buscarValorEtiquetaXML("ResumenFactura", "TotalImpuesto", xmlFile));
+                    trama.montoTotalFactura = Convert.ToDecimal(XMLUtils.buscarValorEtiquetaXML("ResumenFactura", "TotalComprobante", xmlFile));
                     trama.receptorTipo = trama.receptor.tipoIdentificacion;
                     trama.receptorIdentificacion = trama.receptor.numeroIdentificacion;
                     trama.tipoDocumento = tipoDocumento; 
                     trama.consecutivoReceptor = null;
-                    trama.comprobanteXml = EncodeXML.EncondeXML.base64Encode(xmlFile); 
+                    trama.comprobanteXml = EncodeXML.XMLUtils.base64Encode(xmlFile); 
                     trama.indEstado = 1;
                     WSRecepcionPOSTProforma tramaExiste = conexion.WSRecepcionPOSTProforma.Find(trama.clave);
 
@@ -329,7 +330,7 @@ namespace Web.WebServices
                     {// si existe
                         trama.fechaModificacion = Date.DateTimeNow();
                         trama.usuarioModificacion = usuario;
-                        trama.indEstado = 0;
+                        trama.indEstado = 1;
                         trama.cargarEmisorReceptor();
                         conexion.Entry(tramaExiste).State = EntityState.Modified; 
                     }
@@ -385,18 +386,18 @@ namespace Web.WebServices
                     await OAuth2.OAuth2Config.getTokenWeb(config);
 
                     WSDomain.WSRecepcionPOST trama = new WSDomain.WSRecepcionPOST();
-                    trama.clave = EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "Clave", xmlFile);
+                    trama.clave = XMLUtils.buscarValorEtiquetaXML(XMLUtils.tipoDocumentoXML(xmlFile), "Clave", xmlFile);
 
                     trama.emisor.tipoIdentificacion = emisor.identificacionTipo;
-                    trama.emisor.numeroIdentificacion = EncondeXML.buscarValorEtiquetaXML("MensajeReceptor", "NumeroCedulaEmisor", xmlFile);
+                    trama.emisor.numeroIdentificacion = XMLUtils.buscarValorEtiquetaXML("MensajeReceptor", "NumeroCedulaEmisor", xmlFile);
 
                     trama.receptor.tipoIdentificacion = receptorTipoIdentificacion;
-                    trama.receptor.numeroIdentificacion = EncondeXML.buscarValorEtiquetaXML("MensajeReceptor", "NumeroCedulaReceptor", xmlFile);
+                    trama.receptor.numeroIdentificacion = XMLUtils.buscarValorEtiquetaXML("MensajeReceptor", "NumeroCedulaReceptor", xmlFile);
 
                     xmlFile = FirmaXML.getXMLFirmadoWeb(xmlFile, emisor.llaveCriptografica, emisor.claveLlaveCriptografica.ToString());
 
-                    trama.consecutivoReceptor= EncondeXML.buscarValorEtiquetaXML(EncondeXML.tipoDocumentoXML(xmlFile), "NumeroConsecutivoReceptor", xmlFile);
-                    trama.comprobanteXml = EncodeXML.EncondeXML.base64Encode(xmlFile);
+                    trama.consecutivoReceptor= XMLUtils.buscarValorEtiquetaXML(XMLUtils.tipoDocumentoXML(xmlFile), "NumeroConsecutivoReceptor", xmlFile);
+                    trama.comprobanteXml = EncodeXML.XMLUtils.base64Encode(xmlFile);
 
                     string jsonTrama = JsonConvert.SerializeObject(trama);
 

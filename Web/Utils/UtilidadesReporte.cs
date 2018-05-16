@@ -26,17 +26,29 @@ namespace Class.Utilidades
             var reportStream = new MemoryStream();
             using (var conexion = new DataModelFE())
             {
-                WSRecepcionPOST dato = conexion.WSRecepcionPOST.Where(x => x.clave == clave).FirstOrDefault();
-                string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+                string xml = "";
+                string mensaje = "";
+                if (clave.Substring(29, 2) == TipoDocumento.PROFORMA)
+                {
+                    WSRecepcionPOSTProforma dato = conexion.WSRecepcionPOSTProforma.Find(clave);
+                    xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
+                    mensaje = dato.mensaje;
+                }
+                else
+                {
+                    WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
+                    xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
+                    mensaje = dato.mensaje;
+                }
 
-                DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xml);
+                DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.XMLUtils.getObjetcFromXML(xml);
                 Empresa empresa = conexion.Empresa.Find(documento.emisor.identificacion.numero);
 
                 if (empresa != null && "EN".Equals(empresa.idioma))
                 {
                     using (RptComprobanteEN report = new RptComprobanteEN())
                     {
-                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(documento, dato.mensaje, empresa);
+                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(documento, mensaje, empresa);
                         report.objectDataSource1.DataSource = dataSource;
                         string enviroment_url = ConfigurationManager.AppSettings["ENVIROMENT_URL"].ToString();
                         report.xrBarCode1.Text = (enviroment_url + documento.clave).ToUpper();
@@ -52,7 +64,7 @@ namespace Class.Utilidades
                 {
                     using (RptComprobante report = new RptComprobante())
                     {
-                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(documento, dato.mensaje, empresa);
+                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(documento, mensaje, empresa);
                         report.objectDataSource1.DataSource = dataSource;
                         string enviroment_url = ConfigurationManager.AppSettings["ENVIROMENT_URL"].ToString();
                         report.xrBarCode1.Text = (enviroment_url + documento.clave).ToUpper();
@@ -74,13 +86,13 @@ namespace Class.Utilidades
             using (var conexion = new DataModelFE())
             {
                 WSRecepcionPOSTProforma dato = conexion.WSRecepcionPOSTProforma.Where(x => x.clave == clave).FirstOrDefault();
-                string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+                string xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
 
                 //Cambiar el formato a Proforma Electrónica
                 xml = xml.Replace("FacturaElectronica", "ProformaElectronica");// esto es solo para que no se reemplace por el de abajo
 
 
-                ProformaElectronica documento = (ProformaElectronica)EncodeXML.EncondeXML.getObjetcFromXML(xml);
+                ProformaElectronica documento = (ProformaElectronica)EncodeXML.XMLUtils.getObjetcFromXML(xml);
                 Empresa empresa = conexion.Empresa.Find(documento.emisor.identificacion.numero);
 
                 if (empresa != null && "EN".Equals(empresa.idioma))

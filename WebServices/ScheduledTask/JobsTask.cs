@@ -62,7 +62,7 @@ namespace WebServices.ScheduledTask
                             WSRecepcionGET respuesta = JsonConvert.DeserializeObject<WSRecepcionGET>(respuestaJSON);
                             if (respuesta.respuestaXml != null)
                             {
-                                string respuestaXML = EncodeXML.EncondeXML.base64Decode(respuesta.respuestaXml);
+                                string respuestaXML = EncodeXML.XMLUtils.base64Decode(respuesta.respuestaXml);
                                 MensajeHacienda mensajeHacienda = new MensajeHacienda(respuestaXML);
                                   
                                 using (var conexionWS = new DataModelFE())

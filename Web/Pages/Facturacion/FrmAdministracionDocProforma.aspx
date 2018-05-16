@@ -1,4 +1,4 @@
-﻿<%@ Page Async="true" Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmAdministracionDocElectronicoProforma.aspx.cs" Inherits="Web.Pages.Facturacion.FrmAdministracionDocElectronicoProforma" %>
+﻿<%@ Page Async="true" Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmAdministracionDocProforma.aspx.cs" Inherits="Web.Pages.Facturacion.FrmAdministracionDocProforma" %>
 
 <%@ Register Src="~/UserControls/AddAuditoriaForm.ascx" TagPrefix="user" TagName="AddAuditoriaForm" %>
 
@@ -71,20 +71,16 @@
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Emisor" FieldName="emisorIdentificacion" VisibleIndex="4" Visible="false">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Receptor" FieldName="Receptor.nombreCompleto" VisibleIndex="5" Width="25%" Settings-AutoFilterCondition="Contains">
+                <dx:GridViewDataTextColumn Caption="Receptor" FieldName="Receptor.nombreCompleto" VisibleIndex="5" Width="35%" Settings-AutoFilterCondition="Contains">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Mensaje" FieldName="mensaje" VisibleIndex="6" Visible="false">
                 </dx:GridViewDataTextColumn>
-
-                <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="indEstado" VisibleIndex="7">
-                </dx:GridViewDataComboBoxColumn>
+                 
                 <dx:GridViewDataTextColumn Caption="Monto Impuesto" FieldName="montoTotalImpuesto" VisibleIndex="8" PropertiesTextEdit-DisplayFormatString="n2">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Monto Factura" FieldName="montoTotalFactura" VisibleIndex="9" PropertiesTextEdit-DisplayFormatString="n2">
                 </dx:GridViewDataTextColumn>
-
-                <dx:GridViewDataComboBoxColumn Caption="Tipo" FieldName="tipoDocumento" VisibleIndex="10">
-                </dx:GridViewDataComboBoxColumn>
+                 
 
                 <dx:GridViewDataTextColumn Visible="false" Caption="Usuario Creación" FieldName="usuarioCreacion" VisibleIndex="11">
                 </dx:GridViewDataTextColumn>
@@ -232,9 +228,9 @@
                 </DetailRow>
                 <TitlePanel>
                     <div style="text-align: right;">
-                        <asp:ImageButton ID="exportarPDF" runat="server" ImageUrl="~/Content/Images/pdf.png" Text="Exportar a PDF" OnClick="exportarPDF_Click" />
-                        <asp:ImageButton ID="exportarXLSX" runat="server" ImageUrl="~/Content/Images/xlsx.png" Text="Exportar a MS-Excel 2007 o superior" OnClick="exportarXLSX_Click" />
-                        <asp:ImageButton ID="exportarCSV" runat="server" ImageUrl="~/Content/Images/csv.png" Text="Exportar a MS-Excel delimitado con punto y coma" OnClick="exportarCSV_Click" />
+                        <asp:ImageButton ID="exportarPDF" runat="server" ImageUrl="~/Content/Images/pdf.png" ToolTip="Exportar a PDF" OnClick="exportarPDF_Click" />
+                        <asp:ImageButton ID="exportarXLSX" runat="server" ImageUrl="~/Content/Images/xlsx.png" ToolTip="Exportar a MS-Excel 2007 o superior" OnClick="exportarXLSX_Click" />
+                        <asp:ImageButton ID="exportarCSV" runat="server" ImageUrl="~/Content/Images/csv.png" ToolTip="Exportar a MS-Excel delimitado con punto y coma" OnClick="exportarCSV_Click" />
                     </div>
                 </TitlePanel>
             </Templates>

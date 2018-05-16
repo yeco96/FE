@@ -30,7 +30,25 @@ namespace WSDomain
         [JsonIgnore]
         public string numeroConsecutivo { get { return clave.Substring(21,20); } }
 
-        
+        [NotMapped]
+        [JsonIgnore]
+        public string moneda {
+            get {
+                if (!string.IsNullOrWhiteSpace(comprobanteXml))
+                {
+                    string xml = EncodeXML.XMLUtils.base64Decode(comprobanteXml);
+                    string codMoneda = EncodeXML.XMLUtils.buscarValorEtiquetaXML("ResumenFactura", "CodigoMoneda", xml);
+                    return codMoneda;
+                }
+                else
+                {
+                    return null;
+                }
+                
+            }
+        }
+
+
         [JsonIgnore]
         public string tipoDocumento { set; get; }
 

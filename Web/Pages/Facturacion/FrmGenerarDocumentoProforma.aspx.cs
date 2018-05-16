@@ -999,8 +999,7 @@ namespace Web.Pages.Facturacion
         protected async void btnFacturar_Click(object sender, EventArgs e)
         {
             try
-            {
-                long valorProforma = 0;
+            { 
                 Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
                 DetalleServicio detalle = (DetalleServicio)Session["detalleServicio"];
 
@@ -1111,8 +1110,7 @@ namespace Web.Pages.Facturacion
 
                     /* EMISOR */
                     EmisorReceptorIMEC elEmisor = (EmisorReceptorIMEC)Session["elEmisor"];
-
-                    valorProforma = long.Parse(elEmisor.proforma.ToString());
+                     
                     dato.emisor.identificacion.tipo = elEmisor.identificacionTipo;
                     dato.emisor.identificacion.numero = elEmisor.identificacion;
                     dato.emisor.ubicacion.otrassenas = elEmisor.otraSena.ToUpper();
@@ -1221,52 +1219,28 @@ namespace Web.Pages.Facturacion
 
                     /* VERIFICA VACIOS PARA XML */
                     dato.verificaDatosParaXML();
-
-                    //genera el consecutivo del documento
-                    //string sucursal = this.cmbSucursalCaja.Value.ToString().Substring(0, 3);
-                    //string caja = this.cmbSucursalCaja.Value.ToString().Substring(3, 5);
-                    
-                    
+                       
                     ConsecutivoDocElectronico consecutivo = new ConsecutivoDocElectronico();
-
-                    object[] key = new object[] { dato.emisor.identificacion.numero};
-                    EmisorReceptorIMEC emisorProforma = conexion.EmisorReceptorIMEC.Find(key);
-                    if (emisorProforma != null)
-                    {
-
-                        //emisorProforma.identificacion = consecutivo.emisor;
-                        //emisorProforma.proforma = consecutivo.consecutivo;
-                        emisorProforma.proforma += 1;
-                        conexion.Entry(emisorProforma).State = EntityState.Modified;
-                        //conexion.Entry(consecutivo).State = EntityState.Modified;
-                    }
-
-                    //else
-                        //{
-
-
-                    emisorProforma = new EmisorReceptorIMEC();
-                    consecutivo = new ConsecutivoDocElectronico();
                     consecutivo.sucursal = ConsecutivoDocElectronico.DEFAULT_SUCURSAL;
                     consecutivo.caja = ConsecutivoDocElectronico.DEFAULT_CAJA;
-                    consecutivo.digitoVerificador = ConsecutivoDocElectronico.DEFAULT_DIGITO_VERIFICADOR;
+                    consecutivo.digitoVerificador = ConsecutivoDocElectronico.DEFAULT_DIGITO_VERIFICADOR; 
                     consecutivo.emisor = dato.emisor.identificacion.numero;
-                    consecutivo.tipoDocumento = "01";
-
-                    consecutivo.consecutivo = valorProforma;
+                    consecutivo.tipoDocumento = TipoDocumento.PROFORMA; 
+                    consecutivo.consecutivo = elEmisor.proforma ;
                     consecutivo.estado = Estado.ACTIVO.ToString();
                     consecutivo.fechaCreacion = Date.DateTimeNow();
 
+                    elEmisor.proforma += 1;
+                    conexion.Entry(elEmisor).State = EntityState.Modified;
+                    conexion.SaveChanges();
+                    Session["elEmisor"] = elEmisor;//se guarda el usuario en la session nuevamente
+
+                    //Buscar el consecutivo según la proforma 
                     dato.clave = consecutivo.getClave(this.txtFechaEmision.Date.ToString("yyyyMMdd"));
-                    //Buscar el consecutivo según la proforma
-                    //dato.numeroConsecutivo = (valorProforma).ToString();
-                    dato.numeroConsecutivo = consecutivo.getConsecutivo();
+                    dato.numeroConsecutivo = consecutivo.getConsecutivo();  
 
-                    consecutivo.consecutivo += 1;
-
-                    string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
-                    string xmlSigned = FirmaXML.getXMLFirmadoWeb(xml, elEmisor.llaveCriptografica, elEmisor.claveLlaveCriptografica);
-                    string responsePostProforma =  Services.enviarProforma( dato, "00", Session["usuario"].ToString());
+                    string xml = EncodeXML.XMLUtils.getXMLFromObject(dato);
+                    string responsePostProforma =  Services.enviarProforma( dato, TipoDocumento.PROFORMA, Session["usuario"].ToString());
 
                     this.btnFacturar.Enabled = false;
                     conexion.SaveChanges();
@@ -1287,11 +1261,11 @@ namespace Web.Pages.Facturacion
 
                         Utilidades.sendMailProforma(Session["emisor"].ToString(), dato.receptor.correoElectronico,
                             string.Format("{0} - {1}", dato.numeroConsecutivo, elEmisor.nombre),
-                            Utilidades.mensageGenericoProforma(), "Proforma Electrónica", EncodeXML.EncondeXML.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave, cc);
+                            Utilidades.mensageGenericoProforma(), "Proforma Electrónica", EncodeXML.XMLUtils.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave, cc);
                     } 
                       
                     //Crear el consulta proforma para ROll Paper
-                    Response.Redirect("~/Pages/ConsultaProforma/" + dato.clave,false);
+                    Response.Redirect("~/Pages/Consulta/" + dato.clave,false);
                       
                 }
             }

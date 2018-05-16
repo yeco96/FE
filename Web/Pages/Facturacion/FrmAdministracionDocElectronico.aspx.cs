@@ -81,6 +81,17 @@ namespace Web.Pages.Facturacion
                 }
                 comboTipoDocumento.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             }
+
+            /* TIPO MONEDA */
+            GridViewDataComboBoxColumn comboTipoMoneda = this.ASPxGridView1.Columns["moneda"] as GridViewDataComboBoxColumn;
+            using (var conexion = new DataModelFE())
+            {
+                foreach (var item in conexion.TipoMoneda.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                {
+                    comboTipoMoneda.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
+                }
+                comboTipoMoneda.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+            }
         }
 
 
@@ -150,9 +161,9 @@ namespace Web.Pages.Facturacion
                     if (!string.IsNullOrWhiteSpace(respuestaJSON))
                     {
                         WSRecepcionGET respuesta = JsonConvert.DeserializeObject<WSRecepcionGET>(respuestaJSON);
-                        if (respuesta.respuestaXml != null)
+                        if (!string.IsNullOrWhiteSpace(respuesta.respuestaXml))
                         {
-                            string respuestaXML = EncodeXML.EncondeXML.base64Decode(respuesta.respuestaXml);
+                            string respuestaXML = EncodeXML.XMLUtils.base64Decode(respuesta.respuestaXml);
 
                             MensajeHacienda mensajeHacienda = new MensajeHacienda(respuestaXML);
 
@@ -169,9 +180,9 @@ namespace Web.Pages.Facturacion
 
                                 if (mensajeHacienda.montoTotalFactura == 0)
                                 {
-                                    string xml = EncondeXML.base64Decode(dato.comprobanteXml);
-                                    dato.montoTotalImpuesto = Convert.ToDecimal(EncondeXML.buscarValorEtiquetaXML("ResumenFactura", "TotalImpuesto", xml));
-                                    dato.montoTotalFactura = Convert.ToDecimal(EncondeXML.buscarValorEtiquetaXML("ResumenFactura", "TotalComprobante", xml));
+                                    string xml = XMLUtils.base64Decode(dato.comprobanteXml);
+                                    dato.montoTotalImpuesto = Convert.ToDecimal(XMLUtils.buscarValorEtiquetaXML("ResumenFactura", "TotalImpuesto", xml));
+                                    dato.montoTotalFactura = Convert.ToDecimal(XMLUtils.buscarValorEtiquetaXML("ResumenFactura", "TotalComprobante", xml));
                                 }
 
 
@@ -271,7 +282,7 @@ namespace Web.Pages.Facturacion
                     {
                         string clave = Session["clave"].ToString();
                         WSRecepcionPOST dato = conexion.WSRecepcionPOST.Where(x => x.clave == clave).FirstOrDefault();
-                        xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+                        xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
                     }
                     Response.Clear();
                     Response.ClearHeaders();
@@ -325,13 +336,13 @@ namespace Web.Pages.Facturacion
 
                         string clave = Session["clave"].ToString();
                         WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
-                        string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
-                        DocumentoElectronico documento = (DocumentoElectronico) EncodeXML.EncondeXML.getObjetcFromXML(xml);
+                        string xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
+                        DocumentoElectronico documento = (DocumentoElectronico) EncodeXML.XMLUtils.getObjetcFromXML(xml);
                         documento.verificaDatosParaXML();
 
                         EmisorReceptorIMEC elEmisor = ((EmisorReceptorIMEC)Session["elEmisor"]);
                         string responsePost = await Services.enviarDocumentoElectronico(false, documento, elEmisor, dato.tipoDocumento, Session["usuario"].ToString());
-                        string correoElectronico = EncondeXML.buscarValorEtiquetaXML("Receptor", "CorreoElectronico", xml);
+                        string correoElectronico = XMLUtils.buscarValorEtiquetaXML("Receptor", "CorreoElectronico", xml);
 
                         if (responsePost.Equals("Success"))
                         {

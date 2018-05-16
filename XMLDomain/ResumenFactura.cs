@@ -117,6 +117,12 @@ namespace XMLDomain
             totalServGravados = 0;
             totalMercanciasGravadas = 0;
             totalMercanciasExentas = 0;
+            totalComprobante = 0;
+            totalDescuentos = 0;
+            totalExento = 0;
+            totalGravado = 0;
+            totalVenta = 0;
+            totalVentaNeta = 0;
 
             foreach (var linea in lineaDetalle)
             {

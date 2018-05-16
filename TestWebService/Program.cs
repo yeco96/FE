@@ -61,9 +61,9 @@ namespace TestWebService
                 Console.WriteLine("indEstado -> " + trama.indEstado);
                 //Console.WriteLine(response);
 
-                string xmlDecode = EncodeXML.EncondeXML.base64Decode(trama.respuestaXml);
+                string xmlDecode = EncodeXML.XMLUtils.base64Decode(trama.respuestaXml);
 
-                string data = EncodeXML.EncondeXML.buscarValorEtiquetaXML("MensajeHacienda", "DetalleMensaje", xmlDecode);
+                string data = EncodeXML.XMLUtils.buscarValorEtiquetaXML("MensajeHacienda", "DetalleMensaje", xmlDecode);
                 Console.WriteLine(data);
             }
 
@@ -88,9 +88,9 @@ namespace TestWebService
             string path = Path.Combine(Path.GetFullPath("fact.xml"));
 
             string xmlData = File.ReadAllText(path);
-            //string xmlData = EncondeXML.getXMLFromObject(fact);   
+            //string xmlData = XMLUtilsgetXMLFromObject(fact);   
 
-            //EncondeXML.validadXMLXSD(xmlData);
+            //XMLUtilsvalidadXMLXSD(xmlData);
 
             string xmlDataSigned = FirmaXML.getXMLFirmado(xmlData);
 
@@ -99,7 +99,7 @@ namespace TestWebService
             // guarda xml firmado para pruebas
             File.WriteAllText(Path.GetFullPath("fact_firma.xml"), xmlDataSigned); 
 
-            post.comprobanteXml = EncodeXML.EncondeXML.base64Encode(xmlDataSigned);
+            post.comprobanteXml = EncodeXML.XMLUtils.base64Encode(xmlDataSigned);
 
             string jsonTrama = JsonConvert.SerializeObject(post);
 
@@ -136,9 +136,9 @@ namespace TestWebService
             Console.WriteLine("indEstado -> " + trama.indEstado);
             //Console.WriteLine(response);
 
-            string xmlDecode = EncodeXML.EncondeXML.base64Decode(trama.respuestaXml);
+            string xmlDecode = EncodeXML.XMLUtils.base64Decode(trama.respuestaXml);
 
-            string data = EncodeXML.EncondeXML.buscarValorEtiquetaXML("MensajeHacienda", "DetalleMensaje", xmlDecode);
+            string data = EncodeXML.XMLUtils.buscarValorEtiquetaXML("MensajeHacienda", "DetalleMensaje", xmlDecode);
             Console.WriteLine(data);
 
         }

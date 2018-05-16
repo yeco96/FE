@@ -50,12 +50,12 @@ namespace Web.Pages.Reportes
                 using (var conexion = new DataModelFE())
                 {
                     WSRecepcionPOST dato = conexion.WSRecepcionPOST.Where(x => x.clave == item.ToString()).FirstOrDefault();
-                    string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+                    string xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
 
                     RptComprobante reportES = new RptComprobante();
                     RptComprobanteEN reportEN = new RptComprobanteEN();
 
-                    DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xml);
+                    DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.XMLUtils.getObjetcFromXML(xml);
                     Empresa empresa = conexion.Empresa.Find(documento.emisor.identificacion.numero);
 
                     if (empresa != null && "EN".Equals(empresa.idioma))

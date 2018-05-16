@@ -1341,7 +1341,7 @@ namespace Web.Pages.Facturacion
 
                     }
 
-                    string xml = EncodeXML.EncondeXML.getXMLFromObject(dato);
+                    string xml = EncodeXML.XMLUtils.getXMLFromObject(dato);
                     string xmlSigned = FirmaXML.getXMLFirmadoWeb(xml, elEmisor.llaveCriptografica, elEmisor.claveLlaveCriptografica);
                     string responsePost = await Services.enviarDocumentoElectronico(false, dato, elEmisor, this.cmbTipoDocumento.Value.ToString(), Session["usuario"].ToString());
 
@@ -1366,7 +1366,7 @@ namespace Web.Pages.Facturacion
 
                             Utilidades.sendMail(Session["emisor"].ToString(), dato.receptor.correoElectronico,
                                 string.Format("{0} - {1}", dato.numeroConsecutivo, elEmisor.nombre),
-                                Utilidades.mensageGenerico(), "Documento Electrónico", EncodeXML.EncondeXML.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave, cc);
+                                Utilidades.mensageGenerico(), "Documento Electrónico", EncodeXML.XMLUtils.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave, cc);
                         }
                         
 

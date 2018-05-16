@@ -28,21 +28,40 @@ namespace Web.Pages
             XtraReport report = null;
             using (var conexion = new DataModelFE())
             {
-                WSRecepcionPOST dato = conexion.WSRecepcionPOST.Where(x => x.clave == clave).FirstOrDefault();
-                if (dato != null)
+                string mensaje = "";
+                string xml = "";
+                if (clave.Substring(29, 2) == TipoDocumento.PROFORMA)
                 {
-                    string xml = EncodeXML.EncondeXML.base64Decode(dato.comprobanteXml);
+                    WSRecepcionPOSTProforma dato = conexion.WSRecepcionPOSTProforma.Find(clave);
+                    if (dato != null)
+                    {
+                        xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
+                    }
+                }
+                else
+                {
+                    WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
+                    if (dato != null)
+                    {
+                        xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
+                    }
+                }
+
+                //WSRecepcionPOST dato = conexion.WSRecepcionPOST.Where(x => x.clave == clave).FirstOrDefault();
+                if (!string.IsNullOrWhiteSpace(xml))
+                {
+                    //string xml = EncodeXML.XMLUtils.base64Decode(xml);
 
                     RptComprobante reportES = new RptComprobante();
                     RptComprobanteEN reportEN = new RptComprobanteEN();
 
-                    DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.EncondeXML.getObjetcFromXML(xml);
+                    DocumentoElectronico documento = (DocumentoElectronico)EncodeXML.XMLUtils.getObjetcFromXML(xml);
 
                     Empresa empresa = conexion.Empresa.Find(documento.emisor.identificacion.numero);
 
                     if (empresa != null && "EN".Equals(empresa.idioma))
                     {
-                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(documento, dato.mensaje, empresa);
+                        object dataSource = UtilidadesReporte.cargarObjetoImpresion(documento, mensaje, empresa);
                         reportEN.objectDataSource1.DataSource = dataSource;
                         string enviroment_url = ConfigurationManager.AppSettings["ENVIROMENT_URL"].ToString();
                         reportEN.xrBarCode1.Text = (enviroment_url + documento.clave).ToUpper();
@@ -57,7 +76,7 @@ namespace Web.Pages
                     {
                         if (empresa != null && "ES".Equals(empresa.idioma))
                         {
-                            object dataSource = UtilidadesReporte.cargarObjetoImpresion(documento, dato.mensaje, empresa);
+                            object dataSource = UtilidadesReporte.cargarObjetoImpresion(documento, mensaje, empresa);
                             reportES.objectDataSource1.DataSource = dataSource;
                             string enviroment_url = ConfigurationManager.AppSettings["ENVIROMENT_URL"].ToString();
                             reportES.xrBarCode1.Text = (enviroment_url + documento.clave).ToUpper();
