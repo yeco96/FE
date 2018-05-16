@@ -50,7 +50,7 @@ namespace Web.Pages
                     xml = xml.Replace("FacturaElectronica", "ProformaElectronica");
                     
 
-                    RptComprobanteProformas reportES = new RptComprobanteProformas();
+                    RptComprobanteProformas reportES = new RptComprobanteProformas(); 
                     //Crear Proforma en Inglés
                     RptComprobanteProformasEN reportEN = new RptComprobanteProformasEN();
 
