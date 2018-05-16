@@ -39,6 +39,10 @@ namespace XMLDomain
         public decimal    montoDescuento { set; get; }
         public decimal    montoImpuestoVenta { set; get; }
         public decimal    montoTotal { set; get; }
+
+        public decimal montoTotalGravado { set; get; }
+        public decimal montoTotalExento { set; get; }
+
         public string Normativa { set; get; }
 
         public Impresion()

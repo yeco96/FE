@@ -240,6 +240,8 @@ namespace Class.Utilidades
                 impresion.detalles.Add(detalle);
             }
 
+            impresion.montoTotalExento = dato.resumenFactura.totalExento;
+            impresion.montoTotalGravado = dato.resumenFactura.totalGravado;
             impresion.montoSubTotal = dato.resumenFactura.totalVenta;
             impresion.montoDescuento = dato.resumenFactura.totalDescuentos;
             impresion.montoImpuestoVenta = dato.resumenFactura.totalImpuesto;

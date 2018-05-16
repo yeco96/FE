@@ -756,6 +756,9 @@
     <Compile Include="Pages\ConsultaDocXClave.aspx.designer.cs">
       <DependentUpon>ConsultaDocXClave.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Reportes\DCC.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Pages\Reportes\FrmReporteProformaResumen.aspx.cs">
       <DependentUpon>FrmReporteProformaResumen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -940,6 +943,9 @@
     <Compile Include="WebServices\URLServices.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Pages\Reportes\DCC.resx">
+      <DependentUpon>DCC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\Reportes\RptComprobanteProformasEN.resx">
       <DependentUpon>RptComprobanteProformasEN.cs</DependentUpon>
     </EmbeddedResource>

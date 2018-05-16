@@ -103,11 +103,11 @@
                         <div style="text-align: center"; class="text-box-heading">¢10,000.00 MES ¢100,000.00 ANUAL</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
                            <p><ul>  
-                            <li>Entre 1 y 250 documentos mensuales</li>                         
+                            <li>Entre 1 y 300 documentos mensuales</li>                         
                             <li>Facturas, NC y ND</li> 
                             <li>1 emisor</li>
                             <p>¿Para quién es?</p>
-                            <p>Para empresas que facturan aproximadamente 250 documentos mensuales</p>
+                            <p>Para empresas que facturan aproximadamente 300 documentos mensuales</p>
                             <li>Válido por año desde la compra</li> 
                         </ul></p>
                         <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="#" style="pull-right">Comprar</a></p>              
@@ -121,11 +121,11 @@
                         <div style="text-align: center"; class="text-box-heading">¢20,000.00 MES ¢200,000.00 ANUAL</div>
                         <div class="arrow-down" style="margin-bottom: 10px;"></div>
                            <p><ul>  
-                            <li>Entre 1 y 500 documentos mensuales</li>                         
+                            <li>Entre 1 y 600 documentos mensuales</li>                         
                             <li>Facturas, NC y ND</li> 
                             <li>1 emisor</li>
                             <p>¿Para quién es?</p>
-                            <p>Para empresas que facturan aproximadamente 500 documentos mensuales</p>
+                            <p>Para empresas que facturan aproximadamente 600 documentos mensuales</p>
                             <li>Válido por año desde la compra</li> 
                         </ul></p>
                         <p style="text-align: right; margin-bottom: 0;"><a class="btn btn-primary" href="#" style="pull-right">Comprar</a></p>              
