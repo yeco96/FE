@@ -129,7 +129,7 @@ namespace Class.Utilidades
                 message += exception.Message;
             }
 
-            if(message.ToUpper().Contains("DUPLICATE ENTRY") ){
+            if(message.ToUpper().Contains("DUPLICATE ENTRY") || message.ToUpper().Contains("SAME PRIMARY KEY") ){
                 return "El registro a insertar ya se encuentra en el sistema. " +  
                         "Cambiar el o los códigos que desea guardar por otros que no existan en el sistema.";
             }else{ 

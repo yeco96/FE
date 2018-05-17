@@ -650,7 +650,7 @@ namespace Web.Pages.Facturacion
                         conexion.EmisorReceptorIMEC.Add(dato);
                     }
                     else
-                    {
+                    { 
                         conexion.Entry(dato).State = EntityState.Modified;
                     }
                     conexion.SaveChanges();
@@ -661,15 +661,13 @@ namespace Web.Pages.Facturacion
                     var cliente = conexion.Cliente.Find(key);
                     if (cliente == null)
                     {
+                        cliente = new Cliente();
+                        cliente.emisor = Session["emisor"].ToString();
+                        cliente.receptor = dato.identificacion;
                         conexion.Cliente.Add(cliente);
-                    }else
-                    {
-                        conexion.Entry(cliente).State = EntityState.Modified;
+                        conexion.SaveChanges();
                     }
-                    conexion.SaveChanges();
-
-                            
-
+                      
                     //esto es para el manero del devexpress
                     e.Cancel = true;
                     this.ASPxGridView1.CancelEdit();
