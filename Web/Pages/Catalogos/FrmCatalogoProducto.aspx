@@ -43,15 +43,27 @@
 
                 <dx:GridViewDataSpinEditColumn Caption="Precio" FieldName="precio" VisibleIndex="4" PropertiesSpinEdit-DecimalPlaces="2"
                      PropertiesSpinEdit-AllowMouseWheel="false"
-                    PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="n2"
+                    PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="{0:n2}"
                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataSpinEditColumn>
 
                  <dx:GridViewDataComboBoxColumn Caption="Cargar Automáticamente" FieldName="cargaAutFactura" VisibleIndex="4"
+                     Visible="false" EditFormSettings-Visible="True"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
 
+                 <dx:GridViewDataComboBoxColumn Caption="Aplica Imp. Venta" FieldName="aplicaIV" VisibleIndex="4"
+                     Visible="true" EditFormSettings-Visible="True"  CellStyle-HorizontalAlign="Center"
+                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataComboBoxColumn>
+                 <dx:GridViewDataComboBoxColumn Caption="Aplica Imp. Servicio" FieldName="aplicaIS" VisibleIndex="4"
+                     Visible="true" EditFormSettings-Visible="True"  CellStyle-HorizontalAlign="Center"
+                    PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataComboBoxColumn>
+
+
                  <dx:GridViewDataSpinEditColumn Caption="Orden" FieldName="orden" VisibleIndex="4" PropertiesSpinEdit-AllowMouseWheel="false"
+                     Visible="false" EditFormSettings-Visible="True"
                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataSpinEditColumn>
 

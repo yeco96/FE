@@ -63,9 +63,22 @@ namespace Web.Models.Catalogos
         [Column("emisor", Order = 2)]
         public string emisor { set; get; }
 
+        [Required]
         public decimal precio { set; get; }
 
-        public int orden { set; get; } 
+        [Required]
+        public int orden { set; get; }
+
+        /// <summary>
+        /// Aplica impuesto de ventas 13%
+        /// </summary>
+        [Required]
+        public string aplicaIV { set; get; }
+        /// <summary>
+        /// Aplica impuesto de servicio 10%
+        /// </summary>
+        [Required]
+        public string aplicaIS { set; get; }
 
 
         /// <summary>

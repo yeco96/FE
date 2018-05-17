@@ -81,11 +81,21 @@ namespace Web.Pages.Catalogos
                 comboEstado.PropertiesComboBox.Items.Clear();
                 comboEstado.PropertiesComboBox.Items.AddRange(Enum.GetValues(typeof(Estado)));
 
-                /* ESTADO */
+                /* CARGA AUTOMATICA */
                 GridViewDataComboBoxColumn comboCargaAutomaticamente = this.ASPxGridView1.Columns["cargaAutFactura"] as GridViewDataComboBoxColumn;
                 comboCargaAutomaticamente.PropertiesComboBox.Items.Clear();
                 comboCargaAutomaticamente.PropertiesComboBox.Items.AddRange(Enum.GetValues(typeof(Confirmacion)));
-                
+
+                /* APLICA IMPUESTO VENTA Y SERVICIO*/
+                GridViewDataComboBoxColumn comboAplicaIV= this.ASPxGridView1.Columns["aplicaIV"] as GridViewDataComboBoxColumn;
+                comboAplicaIV.PropertiesComboBox.Items.Clear();
+                comboAplicaIV.PropertiesComboBox.Items.AddRange(Enum.GetValues(typeof(Confirmacion)));
+
+                GridViewDataComboBoxColumn comboaplicaIS = this.ASPxGridView1.Columns["aplicaIS"] as GridViewDataComboBoxColumn;
+                comboaplicaIS.PropertiesComboBox.Items.Clear();
+                comboaplicaIS.PropertiesComboBox.Items.AddRange(Enum.GetValues(typeof(Confirmacion)));
+
+
 
                 /* UNIDAD MEDIDA */
                 GridViewDataComboBoxColumn comboUnidadMedida = this.ASPxGridView1.Columns["unidadMedida"] as GridViewDataComboBoxColumn;
@@ -154,6 +164,8 @@ namespace Web.Pages.Catalogos
                     dato.precio = e.NewValues["precio"] != null ? decimal.Parse(e.NewValues["precio"].ToString()) : 0;
                     dato.orden = e.NewValues["orden"] != null ? int.Parse(e.NewValues["orden"].ToString()) : 0;
                     dato.emisor =Session["emisor"].ToString();
+                    dato.aplicaIV = e.NewValues["aplicaIV"].ToString();
+                    dato.aplicaIS = e.NewValues["aplicaIS"].ToString();
                     dato.cargaAutFactura = e.NewValues["cargaAutFactura"].ToString();
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioCreacion = Session["usuario"].ToString();
@@ -219,12 +231,71 @@ namespace Web.Pages.Catalogos
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
                     dato.orden = e.NewValues["orden"] != null ? int.Parse(e.NewValues["orden"].ToString()) : 0;
                     dato.estado = e.NewValues["estado"].ToString();
+                    dato.aplicaIV = e.NewValues["aplicaIV"].ToString();
+                    dato.aplicaIS = e.NewValues["aplicaIS"].ToString();
                     dato.cargaAutFactura = e.NewValues["cargaAutFactura"].ToString();
                     dato.usuarioModificacion = Session["usuario"].ToString();
                     dato.fechaModificacion = Date.DateTimeNow();
 
                     //modifica objeto
                     conexion.Entry(dato).State = EntityState.Modified;
+
+                    if (dato.aplicaIV.Equals(Confirmacion.SI.ToString()))
+                    {
+                        ProductoImpuesto impuesto = conexion.ProductoImpuesto.Where(x => x.idProducto == dato.id).Where(x => x.tipoImpuesto == ProductoImpuesto.IMPUESTO_VENTAS).FirstOrDefault();
+                        if (impuesto == null)
+                        {
+                            impuesto = new ProductoImpuesto();
+                            impuesto.idProducto = dato.id;
+                            impuesto.tipoImpuesto = ProductoImpuesto.IMPUESTO_VENTAS;
+                            impuesto.porcentaje = 13;
+                            impuesto.emisor = Session["emisor"].ToString();
+                            impuesto.estado = Estado.ACTIVO.ToString();
+                            impuesto.usuarioCreacion = Session["usuario"].ToString();
+                            impuesto.fechaCreacion = Date.DateTimeNow();
+                            conexion.ProductoImpuesto.Add(impuesto);
+                        }  
+                        
+                    }else
+                    {
+                        ProductoImpuesto impuesto = conexion.ProductoImpuesto.Where(x => x.idProducto == dato.id).Where(x => x.tipoImpuesto == ProductoImpuesto.IMPUESTO_VENTAS).FirstOrDefault();
+                        if (impuesto != null)
+                        {
+                            conexion.ProductoImpuesto.Remove(impuesto);
+                        }
+                    }
+
+
+
+                    if (dato.aplicaIS.Equals(Confirmacion.SI.ToString()))
+                    {
+                        
+                        ProductoImpuesto impuesto = conexion.ProductoImpuesto.Where(x => x.idProducto == dato.id).Where(x => x.tipoImpuesto == ProductoImpuesto.IMPUESTO_SERVICIO).FirstOrDefault();
+                        if (impuesto == null)
+                        {
+                            impuesto = new ProductoImpuesto();
+                            impuesto.idProducto = dato.id;
+                            impuesto.tipoImpuesto = ProductoImpuesto.IMPUESTO_SERVICIO;
+                            impuesto.porcentaje = 10;
+                            impuesto.emisor = Session["emisor"].ToString();
+                            impuesto.estado = Estado.ACTIVO.ToString();
+                            impuesto.usuarioCreacion = Session["usuario"].ToString();
+                            impuesto.fechaCreacion = Date.DateTimeNow();
+                            conexion.ProductoImpuesto.Add(impuesto);
+                        }
+                        
+                    }
+                    else
+                    {
+                        ProductoImpuesto impuesto = conexion.ProductoImpuesto.Where(x => x.idProducto == dato.id).Where(x => x.tipoImpuesto == ProductoImpuesto.IMPUESTO_SERVICIO).FirstOrDefault();
+                        if (impuesto != null)
+                        {
+                            conexion.ProductoImpuesto.Remove(impuesto);
+                        }
+                    }
+
+
+
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress

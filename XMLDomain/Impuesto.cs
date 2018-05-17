@@ -74,7 +74,8 @@ namespace XMLDomain
         /// </summary>
         public void verificaDatosParaXML()
         {
-            if (string.IsNullOrWhiteSpace(this.exoneracion.tipoDocumento) &&
+            if (this.exoneracion != null &&
+                string.IsNullOrWhiteSpace(this.exoneracion.tipoDocumento) &&
                 string.IsNullOrWhiteSpace(this.exoneracion.numeroDocumento))
             {
                 this.exoneracion = null;

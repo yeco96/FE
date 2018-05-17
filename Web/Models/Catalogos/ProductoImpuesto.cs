@@ -12,6 +12,11 @@ namespace Web.Models.Catalogos
     [Table("fact_producto_impuesto")]
     public class ProductoImpuesto
     {
+        [NotMapped]
+        public static string IMPUESTO_VENTAS = "01";
+        [NotMapped]
+        public static string IMPUESTO_SERVICIO = "07";
+
         [Key]
         [Required]
         [Display(Name = "Id")]
