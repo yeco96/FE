@@ -172,6 +172,7 @@ namespace Class.Utilidades
             impresion.clave = dato.clave;
             impresion.consecutivo = dato.clave.Substring(21,20);
             impresion.fecha = Convert.ToDateTime(dato.fechaEmision);
+            //TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, "Central America Standard Time");
             impresion.moneda = dato.resumenFactura.codigoMoneda;
             impresion.tipoCambio = dato.resumenFactura.tipoCambio.ToString();
 
