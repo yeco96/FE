@@ -113,7 +113,7 @@ namespace Web.Pages.Facturacion
                 if (!IsCallback && !IsPostBack)
                 {
                     this.txtFechaEmision.Date = Date.DateTimeNow();
-                    this.txtFechaEmision.Enabled = false;
+                    this.txtFechaEmision.ReadOnly=true;
 
                     this.cmbTipoMoneda.Value = TipoMoneda.CRC;
                     this.txtTipoCambio.Text = "1";
