@@ -171,10 +171,10 @@ namespace Class.Utilidades
 
             impresion.clave = dato.clave;
             impresion.consecutivo = dato.clave.Substring(21,20);
-            impresion.fecha = Convert.ToDateTime(dato.fechaEmision);
+            impresion.fecha = dato.fechaEmision.Replace("T", " ").Replace("-06:00", ""); 
             //TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, "Central America Standard Time");
             impresion.moneda = dato.resumenFactura.codigoMoneda;
-            impresion.tipoCambio = dato.resumenFactura.tipoCambio.ToString();
+            impresion.tipoCambio = dato.resumenFactura.tipoCambio.ToString("n2");
 
 
             /*
@@ -228,7 +228,7 @@ namespace Class.Utilidades
                 detalle.cantidad = int.Parse(item.cantidad.ToString());
                 detalle.codigo = item.codigo.codigo;
                 if (empresa != null && "EN".Equals(empresa.idioma)) { 
-                    detalle.descripcion = string.Format("{0} - {1}",item.detalle, impresion.fecha.ToString("yyyy-MM"));
+                    detalle.descripcion = string.Format("{0} - {1}",item.detalle, impresion.fecha.Substring(0,7));
                 }else
                 {
                     if(item.cantidad == 1)
@@ -284,9 +284,9 @@ namespace Class.Utilidades
 
             impresion.clave = dato.clave;
             impresion.consecutivo = dato.clave.Substring(21, 20);
-            impresion.fecha = Convert.ToDateTime(dato.fechaEmision);
+            impresion.fecha = dato.fechaEmision.Replace("T"," ").Replace("-06:00", "");
             impresion.moneda = dato.resumenFactura.codigoMoneda;
-            impresion.tipoCambio = dato.resumenFactura.tipoCambio.ToString();
+            impresion.tipoCambio = dato.resumenFactura.tipoCambio.ToString("n2");
 
 
             /*
@@ -341,7 +341,7 @@ namespace Class.Utilidades
                 detalle.codigo = item.codigo.codigo;
                 if (empresa != null && "EN".Equals(empresa.idioma))
                 {
-                    detalle.descripcion = string.Format("{0} - {1}", item.detalle, impresion.fecha.ToString("yyyy-MM"));
+                    detalle.descripcion = string.Format("{0} - {1}", item.detalle, impresion.fecha.Substring(0,7));
                 }
                 else
                 {
