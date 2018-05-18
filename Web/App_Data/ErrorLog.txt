@@ -15792,3 +15792,225 @@ Stack Trace:
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
+********** 18/5/2018 06:35:22 **********
+Inner Exception Type: System.Web.HttpParseException
+Inner Exception: El contenido literal ('<!--') no está permitido en 'DevExpress.Web.MenuItemCollection'.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   en System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+Exception Type: System.Web.HttpParseException
+Exception: El contenido literal ('<!--') no está permitido en 'DevExpress.Web.MenuItemCollection'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   en System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseReader(StreamReader reader, VirtualPath virtualPath)
+   en System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)
+   en System.Web.UI.TemplateParser.ParseInternal()
+   en System.Web.UI.TemplateParser.Parse()
+   en System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()
+   en System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   en System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   en System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   en System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   en System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
+   en System.Web.Routing.PageRouteHandler.GetHttpHandler(RequestContext requestContext)
+   en System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   en System.Web.Routing.UrlRoutingModule.OnApplicationPostResolveRequestCache(Object sender, EventArgs e)
+   en System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 18/5/2018 06:36:05 **********
+Inner Exception Type: System.Web.HttpParseException
+Inner Exception: El contenido literal ('<!--') no está permitido en 'DevExpress.Web.MenuItemCollection'.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   en System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+Exception Type: System.Web.HttpParseException
+Exception: El contenido literal ('<!--') no está permitido en 'DevExpress.Web.MenuItemCollection'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   en System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseReader(StreamReader reader, VirtualPath virtualPath)
+   en System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)
+   en System.Web.UI.TemplateParser.ParseInternal()
+   en System.Web.UI.TemplateParser.Parse()
+   en System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()
+   en System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   en System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   en System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   en System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.Abstractions.BuildManagerWrapper.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetWebObjectFactory(HttpContextBase httpContext, String modifiedVirtualPath)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Microsoft.AspNet.FriendlyUrls.Abstractions.IFriendlyUrlRouteSupportFunctions.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext, String pathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.RouteCollection.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   en System.Web.Routing.UrlRoutingModule.OnApplicationPostResolveRequestCache(Object sender, EventArgs e)
+   en System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 18/5/2018 06:38:47 **********
+Inner Exception Type: System.Web.HttpParseException
+Inner Exception: El contenido literal ('<!--') no está permitido en 'DevExpress.Web.MenuItemCollection'.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   en System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+Exception Type: System.Web.HttpParseException
+Exception: El contenido literal ('<!--') no está permitido en 'DevExpress.Web.MenuItemCollection'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   en System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseReader(StreamReader reader, VirtualPath virtualPath)
+   en System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)
+   en System.Web.UI.TemplateParser.ParseInternal()
+   en System.Web.UI.TemplateParser.Parse()
+   en System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()
+   en System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   en System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   en System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   en System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.Abstractions.BuildManagerWrapper.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetWebObjectFactory(HttpContextBase httpContext, String modifiedVirtualPath)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Microsoft.AspNet.FriendlyUrls.Abstractions.IFriendlyUrlRouteSupportFunctions.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext, String pathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.RouteCollection.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   en System.Web.Routing.UrlRoutingModule.OnApplicationPostResolveRequestCache(Object sender, EventArgs e)
+   en System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 18/5/2018 06:38:50 **********
+Inner Exception Type: System.Web.HttpParseException
+Inner Exception: El contenido literal ('<!--') no está permitido en 'DevExpress.Web.MenuItemCollection'.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   en System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+Exception Type: System.Web.HttpParseException
+Exception: El contenido literal ('<!--') no está permitido en 'DevExpress.Web.MenuItemCollection'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   en System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseReader(StreamReader reader, VirtualPath virtualPath)
+   en System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)
+   en System.Web.UI.TemplateParser.ParseInternal()
+   en System.Web.UI.TemplateParser.Parse()
+   en System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()
+   en System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   en System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   en System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   en System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.Abstractions.BuildManagerWrapper.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetWebObjectFactory(HttpContextBase httpContext, String modifiedVirtualPath)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Microsoft.AspNet.FriendlyUrls.Abstractions.IFriendlyUrlRouteSupportFunctions.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext, String pathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.RouteCollection.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   en System.Web.Routing.UrlRoutingModule.OnApplicationPostResolveRequestCache(Object sender, EventArgs e)
+   en System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 18/5/2018 06:41:50 **********
+Inner Exception Type: System.Web.HttpParseException
+Inner Exception: El contenido literal ('<!--') no está permitido en 'DevExpress.Web.MenuItemCollection'.
+Inner Source: System.Web
+Inner Stack Trace: 
+   en System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   en System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+Exception Type: System.Web.HttpParseException
+Exception: El contenido literal ('<!--') no está permitido en 'DevExpress.Web.MenuItemCollection'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   en System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   en System.Web.UI.TemplateParser.ParseReader(StreamReader reader, VirtualPath virtualPath)
+   en System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)
+   en System.Web.UI.TemplateParser.ParseInternal()
+   en System.Web.UI.TemplateParser.Parse()
+   en System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()
+   en System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   en System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   en System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   en System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   en System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.Abstractions.BuildManagerWrapper.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetWebObjectFactory(HttpContextBase httpContext, String modifiedVirtualPath)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.Microsoft.AspNet.FriendlyUrls.Abstractions.IFriendlyUrlRouteSupportFunctions.Resolve(HttpContextBase httpContext, IList`1 extensions, String virtualPathOverride)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext, String pathOverride, IFriendlyUrlRouteSupportFunctions supportFunctions)
+   en Microsoft.AspNet.FriendlyUrls.FriendlyUrlRoute.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.RouteCollection.GetRouteData(HttpContextBase httpContext)
+   en System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   en System.Web.Routing.UrlRoutingModule.OnApplicationPostResolveRequestCache(Object sender, EventArgs e)
+   en System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 18/5/2018 07:12:27 **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
+Inner Stack Trace: 
+   en Class.Utilidades.UtilidadesReporte.cargarObjetoImpresion(DocumentoElectronico dato, String mensajeHacienda, Empresa empresa)
+   en Web.Pages.Consulta.CreateReport(String clave)
+   en Web.Pages.Consulta.Page_Load(Object sender, EventArgs e)
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_consulta_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4a5bbe80\ea8ad4ab\App_Web_2nhspxjy.10.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+

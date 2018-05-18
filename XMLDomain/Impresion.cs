@@ -25,7 +25,7 @@ namespace XMLDomain
 
         public string CondicionVenta { set; get; }
         public string MedioPago { set; get; }
-        public DateTime fecha { set; get; }
+        public string fecha { set; get; }
         public DateTime fechaImpresion { set; get; }
         public string leyenda { set; get; }
         public string moneda { set; get; }
@@ -68,7 +68,7 @@ namespace XMLDomain
 
             this.clave = "50608011800060354097400100001010000000038188888888";
             this.consecutivo = "00100001010000000038";
-            this.fecha = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss") + "-06:00");
+            this.fecha = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss") + "-06:00";
             this.leyenda = "Acá va una leyenda";
             this.moneda = "CRC";
             this.tipoCambio = "1.0000";
