@@ -67,7 +67,11 @@
     </dx:ASPxFormLayout>
 
     <div class="borde_redondo_tabla">
-        <dx:ASPxGridView ID="dgvDatos" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
+         <div style="text-align: right;">
+                        <asp:ImageButton ID="exportarPDF" runat="server" ImageUrl="~/Content/Images/pdf.png" ToolTip="Exportar a PDF" OnClick="exportarPDF_Click" />
+                        <asp:ImageButton ID="exportarXLSX" runat="server" ImageUrl="~/Content/Images/xlsx.png" ToolTip="Exportar a MS-Excel 2007 o superior" OnClick="exportarXLSX_Click" />
+                        <asp:ImageButton ID="exportarCSV" runat="server" ImageUrl="~/Content/Images/csv.png" ToolTip="Exportar a MS-Excel delimitado con punto y coma" OnClick="exportarCSV_Click" />
+                    </div>        <dx:ASPxGridView ID="dgvDatos" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
             Width="100%" EnableTheming="True" KeyFieldName="clave" Theme="Moderno">
             <Columns>
                 <dx:GridViewCommandColumn Caption=" " SelectAllCheckboxMode="Page" ShowSelectCheckbox="True" VisibleIndex="0">
@@ -181,13 +185,11 @@
 
         </dx:ASPxGridView>
 
-                        <FooterRow>
-                    <asp:ImageButton ID="exportarPDF" runat="server" ImageUrl="~/Content/Images/pdf.png" ToolTip="Exportar a PDF" OnClick="exportarPDF_Click" />
-                    <asp:ImageButton ID="exportarXLSX" runat="server" ImageUrl="~/Content/Images/xlsx.png" ToolTip="Exportar a MS-Excel 2007 o superior" OnClick="exportarXLSX_Click" />
-                    <asp:ImageButton ID="exportarCSV" runat="server" ImageUrl="~/Content/Images/csv.png" ToolTip="Exportar a MS-Excel delimitado con punto y coma" OnClick="exportarCSV_Click" />
+                 <FooterRow>
+                    
                 </FooterRow>
 
-        <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="ASPxGridView1" FileName="Resumen Documentos">
+        <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="dgvDatos" FileName="Resumen Documentos">
             <Styles>
                 <Default Font-Names="Arial" Font-Size="Small" />
             </Styles>

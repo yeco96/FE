@@ -58,15 +58,6 @@ namespace Web.Pages.Facturacion {
         protected global::DevExpress.Web.ASPxButton btnReporte;
         
         /// <summary>
-        /// Control dgvDatos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView dgvDatos;
-        
-        /// <summary>
         /// Control exportarPDF.
         /// </summary>
         /// <remarks>
@@ -92,6 +83,15 @@ namespace Web.Pages.Facturacion {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton exportarCSV;
+        
+        /// <summary>
+        /// Control dgvDatos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGridView dgvDatos;
         
         /// <summary>
         /// Control ASPxGridViewExporter1.
