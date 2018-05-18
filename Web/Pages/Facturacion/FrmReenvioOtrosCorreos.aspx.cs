@@ -320,9 +320,21 @@ namespace Web.Pages.Facturacion
                 using (var conexion = new DataModelFE())
                 {
                     string clave = Session["clave"].ToString();
-                    WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
-                    dato.cargarEmisorReceptor();
-                    string xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
+                    string xml =  "";
+                    string asunto = "";
+
+                    if (clave.Substring(29, 2) == TipoDocumento.PROFORMA)
+                    {
+                        WSRecepcionPOSTProforma dato = conexion.WSRecepcionPOSTProforma.Find(clave);
+                        xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
+                        asunto = "Proforma";
+                    }
+                    else
+                    {
+                        WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
+                        xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
+                        asunto = "Documento Electrónico";
+                    }
 
                     string numeroConsecutivo = XMLUtils.buscarValorEtiquetaXML(XMLUtils.tipoDocumentoXML(xml), "NumeroConsecutivo", xml);
                     string correoElectronico = XMLUtils.buscarValorEtiquetaXML("Receptor", "CorreoElectronico", xml);
@@ -353,7 +365,7 @@ namespace Web.Pages.Facturacion
                         {
                             bool result = Utilidades.sendMail(Session["emisor"].ToString(), correoElectronico,
                             string.Format("{0} - {1}", numeroConsecutivo, nombre),
-                            Utilidades.mensageGenerico(), "Documento Electrónico", xml, numeroConsecutivo, dato.clave, cc);
+                            Utilidades.mensageGenerico(), asunto , xml, numeroConsecutivo, clave, cc);
 
                             if (result)
                             {

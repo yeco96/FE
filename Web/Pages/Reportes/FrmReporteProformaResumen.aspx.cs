@@ -55,8 +55,8 @@ namespace Web.Pages.Reportes
                     xml = xml.Replace("FacturaElectronica", "ProformaElectronica");// esto es solo para que no se reemplace por el de abajo
 
 
-                    RptComprobanteProformas reportES = new RptComprobanteProformas();
-                    RptComprobanteProformasEN reportEN = new RptComprobanteProformasEN();
+                    RptComprobante reportES = new RptComprobante();
+                    RptComprobanteEN reportEN = new RptComprobanteEN();
 
                     ProformaElectronica documento = (ProformaElectronica)EncodeXML.XMLUtils.getObjetcFromXML(xml);
                     Empresa empresa = conexion.Empresa.Find(documento.emisor.identificacion.numero);

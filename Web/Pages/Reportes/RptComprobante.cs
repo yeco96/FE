@@ -68,6 +68,7 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
     private XRLabel xrLabel43;
     private XRLabel xrLabel44;
     private XRLabel xrLabel38;
+    private CalculatedField cAutorizacion;
 
     /// <summary>
     /// Required designer variable.
@@ -142,6 +143,7 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel25 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel26 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel27 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrSubreport1 = new DevExpress.XtraReports.UI.XRSubreport();
             this.xrLabel37 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrBarCode1 = new DevExpress.XtraReports.UI.XRBarCode();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
@@ -162,7 +164,7 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
             this.cSimboloMoneda = new DevExpress.XtraReports.UI.CalculatedField();
             this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
-            this.xrSubreport1 = new DevExpress.XtraReports.UI.XRSubreport();
+            this.cAutorizacion = new DevExpress.XtraReports.UI.CalculatedField();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -822,9 +824,20 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel27.Text = "xrLabel27";
             this.xrLabel27.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
+            // xrSubreport1
+            // 
+            this.xrSubreport1.CanShrink = true;
+            this.xrSubreport1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 145F);
+            this.xrSubreport1.Name = "xrSubreport1";
+            this.xrSubreport1.ReportSource = new RptComprobanteDetalle();
+            this.xrSubreport1.SizeF = new System.Drawing.SizeF(750F, 56.99994F);
+            this.xrSubreport1.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrSubreport1_BeforePrint);
+            // 
             // xrLabel37
             // 
             this.xrLabel37.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.xrLabel37.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "cAutorizacion")});
             this.xrLabel37.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel37.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel37.Name = "xrLabel37";
@@ -833,7 +846,6 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel37.StylePriority.UseBorders = false;
             this.xrLabel37.StylePriority.UseFont = false;
             this.xrLabel37.StylePriority.UseTextAlignment = false;
-            this.xrLabel37.Text = "Autorizada mediante resolución No DGT-R-48-2016 del 7 de Octubre de 2016";
             this.xrLabel37.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrBarCode1
@@ -1051,14 +1063,11 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             this.objectDataSource1.DataSource = typeof(XMLDomain.Impresion);
             this.objectDataSource1.Name = "objectDataSource1";
             // 
-            // xrSubreport1
+            // cAutorizacion
             // 
-            this.xrSubreport1.CanShrink = true;
-            this.xrSubreport1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 145F);
-            this.xrSubreport1.Name = "xrSubreport1";
-            this.xrSubreport1.ReportSource = new RptComprobanteDetalle();
-            this.xrSubreport1.SizeF = new System.Drawing.SizeF(750F, 56.99994F);
-            this.xrSubreport1.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrSubreport1_BeforePrint);
+            this.cAutorizacion.Expression = "Iif([tipoDocumento] = \'PROFORMA\',\'\' , \'Autorizada mediante resolución No DGT-R-48" +
+    "-2016 del 7 de Octubre de 2016\')";
+            this.cAutorizacion.Name = "cAutorizacion";
             // 
             // RptComprobante
             // 
@@ -1068,7 +1077,8 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             this.BottomMargin,
             this.reportHeaderBand1});
             this.CalculatedFields.AddRange(new DevExpress.XtraReports.UI.CalculatedField[] {
-            this.cSimboloMoneda});
+            this.cSimboloMoneda,
+            this.cAutorizacion});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.objectDataSource1});
             this.DataSource = this.objectDataSource1;

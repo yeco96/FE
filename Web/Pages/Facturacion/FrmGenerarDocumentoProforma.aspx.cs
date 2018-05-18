@@ -1261,7 +1261,7 @@ namespace Web.Pages.Facturacion
 
                         Utilidades.sendMailProforma(Session["emisor"].ToString(), dato.receptor.correoElectronico,
                             string.Format("{0} - {1}", dato.numeroConsecutivo, elEmisor.nombre),
-                            Utilidades.mensageGenericoProforma(), "Proforma Electrónica", EncodeXML.XMLUtils.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave, cc);
+                            Utilidades.mensageGenericoProforma(), "Proforma", EncodeXML.XMLUtils.getXMLFromObject(dato), dato.numeroConsecutivo, dato.clave, cc);
                     } 
                       
                     //Crear el consulta proforma para ROll Paper

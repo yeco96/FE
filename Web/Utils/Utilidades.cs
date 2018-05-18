@@ -326,7 +326,7 @@ namespace Class.Utilidades
 
                         if (xml != null)
                         {
-                            correo.Attachments.Add(new Attachment(GenerateStreamFromMemoryStream(UtilidadesReporte.generarPDFProforma(clave)), string.Format("{0}.pdf", consecutivo)));
+                            correo.Attachments.Add(new Attachment(GenerateStreamFromMemoryStream(UtilidadesReporte.generarPDF(clave)), string.Format("{0}.pdf", consecutivo)));
                             //correo.Attachments.Add(new Attachment(GenerateStreamFromString(xml), string.Format("{0}.xml", consecutivo)));
                         }
                         correo.Priority = MailPriority.Normal;

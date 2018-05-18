@@ -80,61 +80,7 @@ namespace Class.Utilidades
             return reportStream;
         }
 
-        /// <summary>
-        /// Reporte PDF proforma
-        /// </summary>
-        /// <param name="clave"></param>
-        /// <returns></returns>
-        public static MemoryStream generarPDFProforma(string clave)
-        {
-            var reportStream = new MemoryStream();
-            using (var conexion = new DataModelFE())
-            {
-                WSRecepcionPOSTProforma dato = conexion.WSRecepcionPOSTProforma.Where(x => x.clave == clave).FirstOrDefault();
-                string xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
-
-                //Cambiar el formato a Proforma Electrónica
-                //xml = xml.Replace("FacturaElectronica", "ProformaElectronica");// esto es solo para que no se reemplace por el de abajo
-                 
-                ProformaElectronica documento = (ProformaElectronica)EncodeXML.XMLUtils.getObjetcFromXML(xml);
-                Empresa empresa = conexion.Empresa.Find(documento.emisor.identificacion.numero);
-
-                if (empresa != null && "EN".Equals(empresa.idioma))
-                {
-                    using (RptComprobanteProformasEN report = new RptComprobanteProformasEN())
-                    {
-                        object dataSource = UtilidadesReporte.cargarObjetoImpresionProforma(documento, dato.mensaje, empresa);
-                        report.objectDataSource1.DataSource = dataSource;
-                        string enviroment_url = ConfigurationManager.AppSettings["ENVIROMENT_URL"].ToString();
-                        report.xrBarCode1.Text = (enviroment_url + documento.clave).ToUpper();
-                        if (empresa != null && empresa.logo != null)
-                        {
-                            report.pbLogo.Image = byteArrayToImage(empresa.logo);
-                        }
-                        report.CreateDocument();
-                        report.ExportToPdf(reportStream);
-                    }
-                }
-                else
-                {
-                    using (RptComprobanteProformas report = new RptComprobanteProformas())
-                    {
-                        object dataSource = UtilidadesReporte.cargarObjetoImpresionProforma(documento, dato.mensaje, empresa);
-                        report.objectDataSource1.DataSource = dataSource;
-                        string enviroment_url = ConfigurationManager.AppSettings["ENVIROMENT_URL"].ToString();
-                        report.xrBarCode1.Text = (enviroment_url + documento.clave).ToUpper();
-                        if (empresa != null && empresa.logo != null)
-                        {
-                            report.pbLogo.Image = byteArrayToImage(empresa.logo);
-                        }
-                        report.CreateDocument();
-                        report.ExportToPdf(reportStream);
-                    }
-                }
-            }
-            return reportStream;
-        }
-
+      
         public static Image byteArrayToImage(byte[] imgBytes)
         {
             using (MemoryStream imgStream = new MemoryStream(imgBytes))

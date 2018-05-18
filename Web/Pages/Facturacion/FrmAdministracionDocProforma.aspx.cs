@@ -110,11 +110,6 @@ namespace Web.Pages.Facturacion
                 errors[column] = errorText;
             }
         }
-
-        protected void ASPxGridView1_RowUpdated(object sender, DevExpress.Web.Data.ASPxDataUpdatedEventArgs e)
-        {
-
-        }
          
 
         /// <summary>
