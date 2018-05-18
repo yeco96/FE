@@ -902,8 +902,6 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             // 
             // xrLabel42
             // 
-            this.xrLabel42.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "cSimboloMonedaEN", "Total Exempt : {0}")});
             this.xrLabel42.ForeColor = System.Drawing.Color.Black;
             this.xrLabel42.LocationFloat = new DevExpress.Utils.PointFloat(391.4164F, 241.9584F);
             this.xrLabel42.Multiline = true;
@@ -913,12 +911,11 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel42.StyleName = "FieldCaption";
             this.xrLabel42.StylePriority.UseForeColor = false;
             this.xrLabel42.StylePriority.UseTextAlignment = false;
+            this.xrLabel42.Text = "Total Exento";
             this.xrLabel42.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel41
             // 
-            this.xrLabel41.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "cSimboloMonedaEN", "Total Taxed : {0}")});
             this.xrLabel41.ForeColor = System.Drawing.Color.Black;
             this.xrLabel41.LocationFloat = new DevExpress.Utils.PointFloat(391.4164F, 223.9583F);
             this.xrLabel41.Name = "xrLabel41";
@@ -927,6 +924,7 @@ public class RptComprobanteProformasEN : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel41.StyleName = "FieldCaption";
             this.xrLabel41.StylePriority.UseForeColor = false;
             this.xrLabel41.StylePriority.UseTextAlignment = false;
+            this.xrLabel41.Text = "Total Gravado";
             this.xrLabel41.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel43
