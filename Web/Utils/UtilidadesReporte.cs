@@ -80,6 +80,11 @@ namespace Class.Utilidades
             return reportStream;
         }
 
+        /// <summary>
+        /// Reporte PDF proforma
+        /// </summary>
+        /// <param name="clave"></param>
+        /// <returns></returns>
         public static MemoryStream generarPDFProforma(string clave)
         {
             var reportStream = new MemoryStream();
@@ -89,9 +94,8 @@ namespace Class.Utilidades
                 string xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
 
                 //Cambiar el formato a Proforma Electrónica
-                xml = xml.Replace("FacturaElectronica", "ProformaElectronica");// esto es solo para que no se reemplace por el de abajo
-
-
+                //xml = xml.Replace("FacturaElectronica", "ProformaElectronica");// esto es solo para que no se reemplace por el de abajo
+                 
                 ProformaElectronica documento = (ProformaElectronica)EncodeXML.XMLUtils.getObjetcFromXML(xml);
                 Empresa empresa = conexion.Empresa.Find(documento.emisor.identificacion.numero);
 
