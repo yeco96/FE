@@ -493,7 +493,7 @@
                         </ContentCollection>
                     </dx:TabPage>
 
-                    <dx:TabPage Text="Profomra"> 
+                    <dx:TabPage Text="Proforma"> 
                         <ContentCollection>
                             <dx:ContentControl runat="server">
 
