@@ -1,5 +1,7 @@
 ﻿using Class.Utilidades;
+using DevExpress.Export;
 using DevExpress.Web;
+using DevExpress.XtraPrinting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -96,6 +98,26 @@ namespace Web.Pages.Facturacion
                 this.dgvDatos.DataBind();
                 //Session["claves"] = claves;
             }
+        }
+
+        protected void exportarPDF_Click(object sender, ImageClickEventArgs e)
+        {
+            this.ASPxGridViewExporter1.WritePdfToResponse();
+        }
+
+        protected void exportarXLS_Click(object sender, ImageClickEventArgs e)
+        {
+            this.ASPxGridViewExporter1.WriteXlsToResponse();
+        }
+
+        protected void exportarXLSX_Click(object sender, ImageClickEventArgs e)
+        {
+            this.ASPxGridViewExporter1.WriteXlsxToResponse(new XlsxExportOptionsEx { ExportType = ExportType.WYSIWYG });
+        }
+
+        protected void exportarCSV_Click(object sender, ImageClickEventArgs e)
+        {
+            this.ASPxGridViewExporter1.WriteCsvToResponse();
         }
 
         protected void btnConsultar_Click(object sender, EventArgs e)
