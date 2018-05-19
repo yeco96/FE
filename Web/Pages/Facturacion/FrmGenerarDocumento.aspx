@@ -17,7 +17,7 @@
 
             <div id="alertMessages" role="alert" runat="server" />
 
-            <dx:ASPxPageControl ID="documento" Width="100%" runat="server" ActiveTabIndex="2" EnableHierarchyRecreation="True" Theme="MetropolisBlue" >
+            <dx:ASPxPageControl ID="documento" Width="100%" runat="server" ActiveTabIndex="0" EnableHierarchyRecreation="True" Theme="MetropolisBlue" >
                 <TabPages>
                   
 

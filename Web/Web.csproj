@@ -943,6 +943,9 @@
     <EmbeddedResource Include="Pages\Reportes\RptComprobante.resx">
       <DependentUpon>RptComprobante.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Reportes\RptComprobanteDetalleEN.resx">
+      <DependentUpon>RptComprobanteDetalleEN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\Reportes\RptComprobanteEN.resx">
       <DependentUpon>RptComprobanteEN.cs</DependentUpon>
     </EmbeddedResource>
