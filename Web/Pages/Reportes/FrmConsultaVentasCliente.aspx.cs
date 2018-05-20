@@ -53,6 +53,8 @@ namespace Web.Pages.Reportes
                     this.txtFechaFin.Date = Date.DateTimeNow();
                 }
                 //this.refreshData();
+                //Cargar Combos
+                this.cargarCombos();
             }
             catch (Exception ex)
             {
@@ -63,10 +65,20 @@ namespace Web.Pages.Reportes
 
         protected void txtConsultar_Click(object sender, EventArgs e)
         {
+            
             //Genera el reporte
             ASPxWebDocumentViewer1.OpenReport(CreateReport());
+            
         }
 
+
+        public void cargarCombos()
+        {
+            cmbTipoResumen.Items.Clear();
+            cmbTipoResumen.Items.Add("DETALLADO", "D");
+            cmbTipoResumen.Items.Add("RESUMEN", "R");
+            cmbTipoResumen.SelectedIndex = 0;
+        }
 
         XtraReport CreateReport()
         {
@@ -74,14 +86,14 @@ namespace Web.Pages.Reportes
             RptVentaClientesEmisor reporte = new RptVentaClientesEmisor();
             //object dataSource = UtilidadesReporte.cargarObjetoImpresion(documento, mensaje, empresa);
             //reporte.objectDataSource1.DataSource = dataSource;
-            
+
             //Parámetros
-            reporte.pEmisor.Value = "603540974";
-            reporte.pFechaInicio.Value = "20180101";
-            reporte.pFechaFin.Value = "20180601";
-            reporte.pTipo.Value = "";
-
-
+            string emisor = Session["emisor"].ToString();
+            reporte.pEmisor.Value = emisor;
+            reporte.pFechaInicio.Value = txtFechaInicio.Text.Replace("/", "");
+            reporte.pFechaFin.Value = txtFechaFin.Text.Replace("/", "");
+            reporte.pTipo.Value = cmbTipoResumen.Value;
+            
             reporte.CreateDocument();
             report = reporte;
 

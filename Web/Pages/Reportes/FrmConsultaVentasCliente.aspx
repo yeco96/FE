@@ -43,6 +43,14 @@
                             </LayoutItemNestedControlCollection>
                         </dx:LayoutItem>
 
+                       <dx:LayoutItem Caption="Tipo">
+                            <LayoutItemNestedControlCollection>
+                                <dx:LayoutItemNestedControlContainer>
+                                    <dx:ASPxComboBox ID="cmbTipoResumen" runat="server" ValueType="System.String"></dx:ASPxComboBox>
+                                </dx:LayoutItemNestedControlContainer>
+                            </LayoutItemNestedControlCollection>
+                        </dx:LayoutItem>
+
                         <dx:LayoutItem Caption="">
                             <LayoutItemNestedControlCollection>
                                 <dx:LayoutItemNestedControlContainer>
