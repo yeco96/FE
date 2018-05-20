@@ -656,16 +656,14 @@
                                         </dx:GridViewCommandColumn>
 
                                         <dx:GridViewDataSpinEditColumn Caption="Cantidad" FieldName="cantidad" VisibleIndex="2" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
-                                            PropertiesSpinEdit-AllowMouseWheel="false"
-                                            PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                            PropertiesSpinEdit-AllowMouseWheel="false">
                                             <PropertiesSpinEdit DisplayFormatString="g" DecimalPlaces="2" MaxLength="10">
                                                 <ValidationSettings>
                                                     <RequiredField ErrorText="Requerido" IsRequired="True" />
                                                 </ValidationSettings>
                                             </PropertiesSpinEdit>
                                         </dx:GridViewDataSpinEditColumn>
-                                        <dx:GridViewDataComboBoxColumn Caption="Producto" FieldName="producto" VisibleIndex="3" PropertiesComboBox-ClientSideEvents-ValueChanged="function(s,e){cambioPrecio(s,e);}"
-                                            PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                        <dx:GridViewDataComboBoxColumn Caption="Producto" FieldName="producto" VisibleIndex="3" PropertiesComboBox-ClientSideEvents-ValueChanged="function(s,e){cambioPrecio(s,e);}">
                                             <PropertiesComboBox>
                                                 <ClientSideEvents ValueChanged="function(s,e){cambioPrecio(s,e);}" />
                                                 <ValidationSettings>
@@ -674,10 +672,9 @@
                                             </PropertiesComboBox>
                                         </dx:GridViewDataComboBoxColumn>
 
-                                        <dx:GridViewDataSpinEditColumn Caption="Precio U" FieldName="precioUnitario" VisibleIndex="4" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
+                                        <dx:GridViewDataSpinEditColumn Caption="Precio" FieldName="precioUnitario" VisibleIndex="4" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
                                             PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="n2"
-                                            PropertiesSpinEdit-AllowMouseWheel="false"
-                                            PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                            PropertiesSpinEdit-AllowMouseWheel="false">
                                             <PropertiesSpinEdit DisplayFormatString="n2" NumberFormat="Custom" DecimalPlaces="2" MaxValue="999999999999" MaxLength="10">
                                                 <ValidationSettings>
                                                     <RequiredField ErrorText="Requerido" IsRequired="True" />
@@ -687,8 +684,7 @@
 
                                         <dx:GridViewDataSpinEditColumn Caption="SubTotal" FieldName="montoTotal" VisibleIndex="5" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
                                             EditFormSettings-Visible="False"
-                                            PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="n2"
-                                            PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                            PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="n2">
                                             <PropertiesSpinEdit DisplayFormatString="n2" NumberFormat="Custom" DecimalPlaces="2" MaxValue="999999999999" MaxLength="10">
                                                 <ValidationSettings>
                                                     <RequiredField ErrorText="Requerido" IsRequired="True" />
@@ -699,8 +695,7 @@
 
                                         <dx:GridViewDataSpinEditColumn Caption="Descuento" FieldName="montoDescuento" VisibleIndex="6" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
                                             PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="n2"
-                                            PropertiesSpinEdit-AllowMouseWheel="false"
-                                            PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                            PropertiesSpinEdit-AllowMouseWheel="false">
                                             <PropertiesSpinEdit DisplayFormatString="n2" NumberFormat="Custom" DecimalPlaces="2" MaxValue="999999999999" MaxLength="10">
                                                 <ValidationSettings>
                                                     <RequiredField ErrorText="Requerido" IsRequired="True" />
@@ -709,7 +704,7 @@
                                         </dx:GridViewDataSpinEditColumn>
 
                                         <dx:GridViewDataTextColumn Caption="Naturaleza Descuento" FieldName="naturalezaDescuento" VisibleIndex="7" PropertiesTextEdit-MaxLength="80"
-                                            PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                            Visible="false" EditFormSettings-Visible="True" >
                                             <PropertiesTextEdit MaxLength="80">
                                                 <ValidationSettings>
                                                     <RequiredField ErrorText="Requerido" IsRequired="True" />
@@ -720,8 +715,7 @@
 
                                         <dx:GridViewDataSpinEditColumn Caption="Total" FieldName="subTotal" VisibleIndex="8" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
                                             PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="n2"
-                                            EditFormSettings-Visible="False"
-                                            PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                            EditFormSettings-Visible="False">
                                             <PropertiesSpinEdit DisplayFormatString="n2" NumberFormat="Custom" DecimalPlaces="2" MaxValue="999999999999" MaxLength="10">
                                                 <ValidationSettings>
                                                     <RequiredField ErrorText="Requerido" IsRequired="True" />
@@ -731,27 +725,37 @@
                                         </dx:GridViewDataSpinEditColumn>
 
 
-                                        <dx:GridViewDataSpinEditColumn Caption="Total + Impuestos" FieldName="montoTotalLinea" VisibleIndex="8" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
+                                        <dx:GridViewDataSpinEditColumn Caption="Impuestos" FieldName="montoImpuesto" VisibleIndex="8" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
                                             EditFormSettings-Visible="False"
-                                            PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="n2"
-                                            PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                                            PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="n2">
 
                                             <PropertiesSpinEdit DisplayFormatString="n2" NumberFormat="Custom" DecimalPlaces="2" MaxValue="999999999999" MaxLength="10">
                                                 <ValidationSettings>
                                                     <RequiredField ErrorText="Requerido" IsRequired="True" />
                                                 </ValidationSettings>
                                             </PropertiesSpinEdit>
+                                             
 
-                                            <EditFormSettings Visible="False" />
+                                        </dx:GridViewDataSpinEditColumn>
 
+                                          <dx:GridViewDataSpinEditColumn Caption="Total Linea" FieldName="montoTotalLinea" VisibleIndex="8" PropertiesSpinEdit-MaxLength="10" PropertiesSpinEdit-DecimalPlaces="2"
+                                            EditFormSettings-Visible="False"
+                                            PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="n2">
+
+                                            <PropertiesSpinEdit DisplayFormatString="n2" NumberFormat="Custom" DecimalPlaces="2" MaxValue="999999999999" MaxLength="10">
+                                                <ValidationSettings>
+                                                    <RequiredField ErrorText="Requerido" IsRequired="True" />
+                                                </ValidationSettings>
+                                            </PropertiesSpinEdit> 
                                         </dx:GridViewDataSpinEditColumn>
 
                                     </Columns>
                                     <TotalSummary>
-                                        <dx:ASPxSummaryItem FieldName="subTotal" SummaryType="Sum" />
-                                        <dx:ASPxSummaryItem FieldName="montoDescuento" SummaryType="Sum" />
-                                        <dx:ASPxSummaryItem FieldName="montoTotal" SummaryType="Sum" />
-                                        <dx:ASPxSummaryItem FieldName="montoTotalLinea" SummaryType="Sum" />
+                                        <dx:ASPxSummaryItem FieldName="subTotal" SummaryType="Sum" DisplayFormat="{0:n2}" />
+                                        <dx:ASPxSummaryItem FieldName="montoDescuento" SummaryType="Sum" DisplayFormat="{0:n2}" />
+                                        <dx:ASPxSummaryItem FieldName="montoTotal" SummaryType="Sum" DisplayFormat="{0:n2}" />
+                                        <dx:ASPxSummaryItem FieldName="montoImpuesto" SummaryType="Sum" DisplayFormat="{0:n2}" /> 
+                                        <dx:ASPxSummaryItem FieldName="montoTotalLinea" SummaryType="Sum" DisplayFormat="{0:n2}" />
                                     </TotalSummary>
 
                                     <SettingsBehavior ColumnResizeMode="NextColumn" />

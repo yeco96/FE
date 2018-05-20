@@ -54,6 +54,8 @@ namespace Web.Pages.Facturacion
                     Response.Redirect("~/Pages/Login.aspx");
                 }
 
+                this.documento.TabPages[2].Visible = false;
+
                 this.alertMessages.Attributes["class"] = "";
                 this.alertMessages.InnerText = "";
                 //Se agrega segundo mensaje
@@ -1497,6 +1499,9 @@ namespace Web.Pages.Facturacion
                     cmbTipoDocumento.Value.ToString() == TipoDocumento.NOTA_DEBITO ||
                     cmbTipoDocumento.Value.ToString() == TipoDocumento.COMPROBANTE_CONTNGENCIA)
             {
+                this.documento.TabPages[2].Visible = true;
+                this.documento.ActiveTabIndex = 2;
+                
                 this.alertMessages.Attributes["class"] = "alert alert-info";
                 this.alertMessages.InnerText = "Se le recuerda que debe de agregar el número de documento al que hace referencia, en la sección de 'Referencias'";
             }
