@@ -67,6 +67,9 @@ namespace Web.Models.Catalogos
         public decimal precio { set; get; }
 
         [Required]
+        public decimal precioCompra { set; get; }
+
+        [Required]
         public int orden { set; get; }
 
         /// <summary>
@@ -80,6 +83,22 @@ namespace Web.Models.Catalogos
         [Required]
         public string aplicaIS { set; get; }
 
+        /// <summary>
+        /// Cantidad minima de inventario
+        /// </summary>
+        [Required]
+        public int cantidadMinima { set; get; }
+        /// <summary>
+        /// Cantidadmaximade inventario
+        /// </summary>
+        [Required]
+        public int cantidadMaxima { set; get; }
+
+        /// <summary>
+        /// Porcentaje de ganancia del producto
+        /// </summary>
+        [Required]
+        public double porcentajeGanancia { set; get; }
 
         /// <summary>
         /// AUDIOTORIA
