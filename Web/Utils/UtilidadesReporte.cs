@@ -181,12 +181,11 @@ namespace Class.Utilidades
                     detalle.descripcion = string.Format("{0} - {1}",item.detalle, impresion.fecha.Substring(0,7));
                 }else
                 {
-                    if(item.cantidad == 1)
-                        detalle.descripcion =  item.detalle;
-                    else
-                        detalle.descripcion = string.Format("{0} p/u={1}" ,item.detalle, item.precioUnitario) ;
+                    detalle.descripcion = item.detalle ;
                 }
                 detalle.monto = item.montoTotal;
+                detalle.precioUnitario = item.precioUnitario;
+                detalle.impuesto = item.impuestos.Sum(x =>x.monto);
 
                 impresion.detalles.Add(detalle);
             }
@@ -295,12 +294,11 @@ namespace Class.Utilidades
                 }
                 else
                 {
-                    if (item.cantidad == 1)
-                        detalle.descripcion = item.detalle;
-                    else
-                        detalle.descripcion = string.Format("{0} p/u={1}", item.detalle, item.precioUnitario);
+                    detalle.descripcion = item.detalle;
                 }
                 detalle.monto = item.montoTotal;
+                detalle.precioUnitario = item.precioUnitario;
+                detalle.impuesto = item.impuestos.Sum(x => x.monto);
 
                 impresion.detalles.Add(detalle);
             }

@@ -11,7 +11,10 @@ namespace XMLDomain
         public string codigo { set; get; }
         public string descripcion { set; get; }
         public int cantidad { set; get; }
-        public decimal  monto { set; get; }
+        public decimal precioUnitario { set; get; }
+        public decimal descuento { set; get; }
+        public decimal impuesto { set; get; }
+        public decimal monto { set; get; }
 
     }
 }
