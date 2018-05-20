@@ -257,6 +257,7 @@
     <Content Include="Pages\Home.aspx" />
     <Content Include="Pages\Recepcion\FrmRecepcionEmail.aspx" />
     <Content Include="Pages\ConsultaDocXClave.aspx" />
+    <Content Include="Pages\Reportes\FrmConsultaVentasCliente.aspx" />
     <Content Include="Pages\Reportes\FrmReporteProformaResumen.aspx" />
     <Content Include="Pages\Reportes\FrmReporteDocumentoResumen.aspx" />
     <Content Include="Pages\Reportes\FrmReporteFactura.aspx" />
@@ -759,6 +760,13 @@
     <Compile Include="Pages\Reportes\DCC.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Pages\Reportes\FrmConsultaVentasCliente.aspx.cs">
+      <DependentUpon>FrmConsultaVentasCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reportes\FrmConsultaVentasCliente.aspx.designer.cs">
+      <DependentUpon>FrmConsultaVentasCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Reportes\FrmReporteProformaResumen.aspx.cs">
       <DependentUpon>FrmReporteProformaResumen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -816,6 +824,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Pages\Reportes\RptFacturacionElectronicaRollPaper.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Pages\Reportes\RptVentaClientesEmisor.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Pages\Search.aspx.cs">
@@ -960,6 +971,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Reportes\RptFacturacionElectronicaRollPaper.resx">
       <DependentUpon>RptFacturacionElectronicaRollPaper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Reportes\RptVentaClientesEmisor.resx">
+      <DependentUpon>RptVentaClientesEmisor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
