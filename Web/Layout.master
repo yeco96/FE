@@ -80,7 +80,8 @@
                                                             <dx:MenuItem Text="CONSULTA XML RECIBIDOS" NavigateUrl="~/Pages/Facturacion/FrmConsultaResumenReceptor"  />
                                                             <dx:MenuItem Text="CONSULTA" NavigateUrl="~/Pages/ConsultaDocXClave"/>
                                                             <dx:MenuItem Text="ESTADÍSTICA" NavigateUrl="~/Pages/Administracion/FrmDashboard"/>
-                                                            <dx:MenuItem Text="REPORTE" NavigateUrl="~/Pages/Facturacion/FrmConsultaResumen" />
+                                                            <dx:MenuItem Text="RESUMEN" NavigateUrl="~/Pages/Facturacion/FrmConsultaResumen" />
+                                                            <dx:MenuItem Text="REPORTE VENTAS" NavigateUrl="~/Pages/Reportes/FrmConsultaVentasCliente" />
                                                             <dx:MenuItem Text="HISTÓRICO FACTURAS/NOTAS" NavigateUrl="~/Pages/Facturacion/FrmAdministracionDocElectronicoAdmin" />
                                                             <dx:MenuItem Text="HISTÓRICO PROFORMA" NavigateUrl="~/Pages/Facturacion/FrmAdministracionDocProforma" /> 
                                                             <dx:MenuItem Text="FACTURAR" NavigateUrl="~/Pages/Facturacion/FrmGenerarDocumento" />
@@ -116,6 +117,11 @@
                                                                     <dx:MenuItem Text="EMPRESAS" NavigateUrl="~/Pages/Catalogos/FrmCatalogoEmpresaAdmin" />
                                                                     <dx:MenuItem Text="PRODUCTO / SERVICIO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProducto" />
                                                                     <dx:MenuItem Text="PRODUCTO IMPUESTO" NavigateUrl="~/Pages/Catalogos/FrmCatalogoProductoImpuesto" />
+                                                                </Items>
+                                                            </dx:MenuItem>
+                                                            <dx:MenuItem Text="INVENTARIO">
+                                                                <Items>  
+                                                                    <dx:MenuItem Text="PRODUCTOS" NavigateUrl="~/Pages/Catalogos/FrmCatalogoInvetarioProducto" /> 
                                                                 </Items>
                                                             </dx:MenuItem>
                                                             <dx:MenuItem Text="PLAN" NavigateUrl="~/Pages/Administracion/FrmPlanAdmin" />  
