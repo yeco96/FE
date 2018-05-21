@@ -16634,3 +16634,151 @@ Stack Trace:
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
+********** 21/5/2018 13:29:49 **********
+Exception Type: System.Security.SecurityException
+Exception: Error de la solicitud de permiso principal.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Security.Permissions.PrincipalPermission.ThrowSecurityException()
+   en System.Security.Permissions.PrincipalPermission.Demand()
+   en System.Security.PermissionSet.DemandNonCAS()
+   en Web.Pages.Inventario.FrmCatalogoInvetarioProducto..ctor() en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Inventario\FrmCatalogoInvetarioProducto.aspx.cs:línea 30
+   en ASP.pages_inventario_frmcatalogoinvetarioproducto_aspx..ctor() en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4a5bbe80\ea8ad4ab\App_Web_azzoi4lp.0.cs:línea 0
+   en __ASP.FastObjectFactory_app_web_azzoi4lp.Create_ASP_pages_inventario_frmcatalogoinvetarioproducto_aspx() en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4a5bbe80\ea8ad4ab\App_Web_azzoi4lp.1.cs:línea 0
+   en System.Web.Compilation.BuildResultCompiledType.CreateInstance()
+   en System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
+   en System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   en System.Web.UI.PageHandlerFactory.GetHandler(HttpContext context, String requestType, String virtualPath, String path)
+   en System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 21/5/2018 13:32:50 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error al tratar de llenar la fuente de datos. Se ha lanzado la siguiente excepción: 
+consulta fe_hacienda_sp_datos_emisor(@p_emisor) no se pudo ejecutar.
+Inner Source: DevExpress.Printing.v17.1.Core
+Inner Stack Trace: 
+   en DevExpress.XtraPrinting.PrintingSystemBase.OnCreateDocumentException(ExceptionEventArgs args)
+   en DevExpress.XtraReports.UI.XtraReport.TryCreateDocument(Single progressRange, Boolean buildPagesInBackground)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument(Boolean buildForInstantPreview)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument()
+   en Web.Pages.Reportes.FrmConsultaVentasCliente.CreateReport() en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Reportes\FrmConsultaVentasCliente.aspx.cs:línea 96
+   en Web.Pages.Reportes.FrmConsultaVentasCliente.txtConsultar_Click(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Reportes\FrmConsultaVentasCliente.aspx.cs:línea 69
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestAsync>d__515.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.UI.Page.<ProcessRequestAsync>d__554.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
+   en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
+   en ASP.pages_reportes_frmconsultaventascliente_aspx.EndProcessRequest(IAsyncResult ar) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4a5bbe80\ea8ad4ab\App_Web_2xqgq50h.2.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 21/5/2018 13:56:24 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error al tratar de llenar la fuente de datos. Se ha lanzado la siguiente excepción: 
+consulta fe_hacienda_reporte_ventas_x_emisor(@p_emisor, @p_fecha_inicio, @p_fecha_fin, @p_tipo) no se pudo ejecutar.
+Inner Source: DevExpress.Printing.v17.1.Core
+Inner Stack Trace: 
+   en DevExpress.XtraPrinting.PrintingSystemBase.OnCreateDocumentException(ExceptionEventArgs args)
+   en DevExpress.XtraReports.UI.XtraReport.TryCreateDocument(Single progressRange, Boolean buildPagesInBackground)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument(Boolean buildForInstantPreview)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument()
+   en Web.Pages.Reportes.FrmConsultaVentasCliente.CreateReport() en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Reportes\FrmConsultaVentasCliente.aspx.cs:línea 96
+   en Web.Pages.Reportes.FrmConsultaVentasCliente.txtConsultar_Click(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Reportes\FrmConsultaVentasCliente.aspx.cs:línea 69
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestAsync>d__515.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.UI.Page.<ProcessRequestAsync>d__554.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
+   en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
+   en ASP.pages_reportes_frmconsultaventascliente_aspx.EndProcessRequest(IAsyncResult ar) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4a5bbe80\ea8ad4ab\App_Web_2xqgq50h.2.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 21/5/2018 13:57:05 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error al tratar de llenar la fuente de datos. Se ha lanzado la siguiente excepción: 
+consulta fe_hacienda_reporte_ventas_x_emisor(@p_emisor, @p_fecha_inicio, @p_fecha_fin, @p_tipo) no se pudo ejecutar.
+Inner Source: DevExpress.Printing.v17.1.Core
+Inner Stack Trace: 
+   en DevExpress.XtraPrinting.PrintingSystemBase.OnCreateDocumentException(ExceptionEventArgs args)
+   en DevExpress.XtraReports.UI.XtraReport.TryCreateDocument(Single progressRange, Boolean buildPagesInBackground)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument(Boolean buildForInstantPreview)
+   en DevExpress.XtraReports.UI.XtraReport.CreateDocument()
+   en Web.Pages.Reportes.FrmConsultaVentasCliente.CreateReport() en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Reportes\FrmConsultaVentasCliente.aspx.cs:línea 96
+   en Web.Pages.Reportes.FrmConsultaVentasCliente.txtConsultar_Click(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Reportes\FrmConsultaVentasCliente.aspx.cs:línea 69
+   en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
+   en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
+   en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   en System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestAsync>d__515.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.UI.Page.<ProcessRequestAsync>d__554.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
+   en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
+   en ASP.pages_reportes_frmconsultaventascliente_aspx.EndProcessRequest(IAsyncResult ar) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4a5bbe80\ea8ad4ab\App_Web_2xqgq50h.2.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
