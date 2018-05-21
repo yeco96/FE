@@ -51,10 +51,10 @@ namespace Web.Pages.Reportes
                     
                     this.txtFechaInicio.Date = DateTime.Today;
                     this.txtFechaFin.Date = Date.DateTimeNow();
+                    //Cargar Combos
+                    this.cargarCombos();
                 }
                 //this.refreshData();
-                //Cargar Combos
-                this.cargarCombos();
             }
             catch (Exception ex)
             {
@@ -65,10 +65,8 @@ namespace Web.Pages.Reportes
 
         protected void txtConsultar_Click(object sender, EventArgs e)
         {
-            
             //Genera el reporte
             ASPxWebDocumentViewer1.OpenReport(CreateReport());
-            
         }
 
 
@@ -88,7 +86,8 @@ namespace Web.Pages.Reportes
             //reporte.objectDataSource1.DataSource = dataSource;
 
             //Parámetros
-            string emisor = Session["emisor"].ToString();
+            //string emisor = Session["emisor"].ToString();
+            string emisor = "603540974";
             reporte.pEmisor.Value = emisor;
             reporte.pFechaInicio.Value = txtFechaInicio.Text.Replace("/", "");
             reporte.pFechaFin.Value = txtFechaFin.Text.Replace("/", "");
