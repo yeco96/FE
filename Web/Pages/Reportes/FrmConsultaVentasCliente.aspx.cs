@@ -86,8 +86,8 @@ namespace Web.Pages.Reportes
             //reporte.objectDataSource1.DataSource = dataSource;
 
             //Parámetros
-            //string emisor = Session["emisor"].ToString();
-            string emisor = "603540974";
+            string emisor = Session["emisor"].ToString();
+            //string emisor = "603540974";
             reporte.pEmisor.Value = emisor;
             reporte.pFechaInicio.Value = txtFechaInicio.Text.Replace("/", "");
             reporte.pFechaFin.Value = txtFechaFin.Text.Replace("/", "");
