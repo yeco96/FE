@@ -210,7 +210,7 @@
     <Content Include="Pages\BlogPost.aspx" />
     <Content Include="Pages\BlogTimeline.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoCodigoPais.aspx" />
-    <Content Include="Pages\Catalogos\FrmCatalogoInvetarioProducto.aspx" />
+    <Content Include="Pages\Inventario\FrmCatalogoInvetarioProducto.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoTipoPlan.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoConfiguracionCorreoAdmin.aspx" />
     <Content Include="Pages\Catalogos\FrmCatalogoConfiguracionCorreo.aspx" />
@@ -428,11 +428,11 @@
     <Compile Include="Pages\Catalogos\FrmCatalogoCodigoPais.aspx.designer.cs">
       <DependentUpon>FrmCatalogoCodigoPais.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Catalogos\FrmCatalogoInvetarioProducto.aspx.cs">
+    <Compile Include="Pages\Inventario\FrmCatalogoInvetarioProducto.aspx.cs">
       <DependentUpon>FrmCatalogoInvetarioProducto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Catalogos\FrmCatalogoInvetarioProducto.aspx.designer.cs">
+    <Compile Include="Pages\Inventario\FrmCatalogoInvetarioProducto.aspx.designer.cs">
       <DependentUpon>FrmCatalogoInvetarioProducto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Catalogos\FrmCatalogoTipoPlan.aspx.cs">
@@ -1020,7 +1020,9 @@
       <Name>XMLDomain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Models\Inventario\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

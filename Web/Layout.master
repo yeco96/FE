@@ -121,7 +121,7 @@
                                                             </dx:MenuItem>
                                                             <dx:MenuItem Text="INVENTARIO">
                                                                 <Items>  
-                                                                    <dx:MenuItem Text="PRODUCTOS" NavigateUrl="~/Pages/Catalogos/FrmCatalogoInvetarioProducto" /> 
+                                                                    <dx:MenuItem Text="PRODUCTOS" NavigateUrl="~/Pages/Inventario/FrmCatalogoInvetarioProducto" /> 
                                                                 </Items>
                                                             </dx:MenuItem>
                                                             <dx:MenuItem Text="PLAN" NavigateUrl="~/Pages/Administracion/FrmPlanAdmin" />  

@@ -16615,3 +16615,22 @@ Stack Trace:
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
+********** 21/5/2018 06:35:43 **********
+Exception Type: System.Security.SecurityException
+Exception: Error de la solicitud de permiso principal.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Security.Permissions.PrincipalPermission.ThrowSecurityException()
+   en System.Security.Permissions.PrincipalPermission.Demand()
+   en System.Security.PermissionSet.DemandNonCAS()
+   en Web.Pages.Inventario.FrmCatalogoInvetarioProducto..ctor() en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Inventario\FrmCatalogoInvetarioProducto.aspx.cs:línea 30
+   en ASP.pages_inventario_frmcatalogoinvetarioproducto_aspx..ctor() en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4a5bbe80\ea8ad4ab\App_Web_bshcuw4d.0.cs:línea 0
+   en __ASP.FastObjectFactory_app_web_bshcuw4d.Create_ASP_pages_inventario_frmcatalogoinvetarioproducto_aspx() en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4a5bbe80\ea8ad4ab\App_Web_bshcuw4d.1.cs:línea 0
+   en System.Web.Compilation.BuildResultCompiledType.CreateInstance()
+   en System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
+   en System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   en System.Web.UI.PageHandlerFactory.GetHandler(HttpContext context, String requestType, String virtualPath, String path)
+   en System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+

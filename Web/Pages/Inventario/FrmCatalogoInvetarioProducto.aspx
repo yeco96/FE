@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmCatalogoInvetarioProducto.aspx.cs" Inherits="Web.Pages.Catalogos.FrmCatalogoInvetarioProducto" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout.master" AutoEventWireup="true" CodeBehind="FrmCatalogoInvetarioProducto.aspx.cs" Inherits="Web.Pages.Inventario.FrmCatalogoInvetarioProducto" %>
 
 <%@ Register Src="~/UserControls/AddAuditoriaForm.ascx" TagPrefix="user" TagName="AddAuditoriaForm" %>
 
@@ -11,13 +11,12 @@
     <div class="borde_redondo_tabla">
 
          <script type="text/javascript">
-            function cambioPrecio(s, e) {
+            function calculaPrecio(s, e) {
                 //var porcentaje = s.GetText(); 
                 
-                var porcentaje = ASPxGridView1.GetEditValue("porcentajeGanancia");
-                //alert(porcentaje)
-                //porcentaje = (porcentaje.replace(",", ".") / 100) + 1;
-
+                var porcentaje = ASPxGridView1.GetEditValue("porcentajeGanancia"); 
+                var aplicaIV = ASPxGridView1.GetEditValue("aplicaIV");
+                var aplicaIS = ASPxGridView1.GetEditValue("aplicaIS");
                 var precioCompra = ASPxGridView1.GetEditValue("precioCompra"); 
                 //alert(precio);
                 if (isNaN(porcentaje)) {
@@ -66,7 +65,7 @@
                     PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="{0:n2}"
                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                     <PropertiesSpinEdit>
-                          <ClientSideEvents ValueChanged="function(s,e){cambioPrecio(s,e);}" />
+                          <ClientSideEvents ValueChanged="function(s,e){calculaPrecio(s,e);}" />
                       </PropertiesSpinEdit>
                 </dx:GridViewDataSpinEditColumn>
                  
@@ -75,7 +74,7 @@
                     PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="{0:n2}"
                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                       <PropertiesSpinEdit>
-                          <ClientSideEvents ValueChanged="function(s,e){cambioPrecio(s,e);}" />
+                          <ClientSideEvents ValueChanged="function(s,e){calculaPrecio(s,e);}" />
                       </PropertiesSpinEdit>
                 </dx:GridViewDataSpinEditColumn>
 

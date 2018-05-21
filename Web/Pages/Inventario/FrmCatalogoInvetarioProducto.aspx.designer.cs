@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Web.Pages.Catalogos {
+namespace Web.Pages.Inventario {
     
     
     public partial class FrmCatalogoInvetarioProducto {
