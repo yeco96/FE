@@ -117,13 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="sqlDataSource2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 95</value>
+  </metadata>
+  <data name="sqlDataSource2.ResultSchemaSerializable" xml:space="preserve">
+    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTIiPjxWaWV3IE5hbWU9ImZlX2hhY2llbmRhX3NwX2RhdG9zX2VtaXNvcihAcF9lbWlzb3IpIj48RmllbGQgTmFtZT0iaWRlbnRpZmljYWNpb24iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0ibm9tYnJlIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9Im5vbWJyZUNvbWVyY2lhbCIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJ0ZWxlZm9ubyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJjb3JyZW9FbGVjdHJvbmljbyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJsb2dvIiBUeXBlPSJCeXRlQXJyYXkiIC8+PEZpZWxkIE5hbWU9ImRpcmVjY2lvbiIgVHlwZT0iU3RyaW5nIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
+  </data>
   <metadata name="sqlDataSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+    <value>17, 134</value>
   </metadata>
   <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
-    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9ImZlX2hhY2llbmRhX3JlcG9ydGVfdmVudGFzX3hfZW1pc29yKEBwX2VtaXNvciwgQHBfZmVjaGFfaW5pY2lvLCBAcF9mZWNoYV9maW4sIEBwX3RpcG8pIj48RmllbGQgTmFtZT0icmVjZXB0b3JJZGVudGlmaWNhY2lvbiIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJmZWNoYSIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9ImNvZGlnb01vbmVkYSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJ0aXBvQ2FtYmlvIiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJ0b3RhbEV4ZW50byIgVHlwZT0iRGVjaW1hbCIgLz48RmllbGQgTmFtZT0idG90YWxHcmF2YWRvIiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJ0b3RhbEltcHVlc3RvIiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJ0b3RhbENvbXByb2JhbnRlIiBUeXBlPSJEZWNpbWFsIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
+    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9ImZlX2hhY2llbmRhX3JlcG9ydGVfdmVudGFzX3hfZW1pc29yKEBwX2VtaXNvciwgQHBfZmVjaGFfaW5pY2lvLCBAcF9mZWNoYV9maW4sIEBwX3RpcG8pIj48RmllbGQgTmFtZT0icmVjZXB0b3JJZGVudGlmaWNhY2lvbiIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJjb2RpZ29Nb25lZGEiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0ibm9tYnJlQ2xpZW50ZWYiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0idG90YWxFeGVudG8iIFR5cGU9IkRlY2ltYWwiIC8+PEZpZWxkIE5hbWU9InRvdGFsR3JhdmFkbyIgVHlwZT0iRGVjaW1hbCIgLz48RmllbGQgTmFtZT0idG90YWxJbXB1ZXN0byIgVHlwZT0iRGVjaW1hbCIgLz48RmllbGQgTmFtZT0idG90YWxDb21wcm9iYW50ZSIgVHlwZT0iRGVjaW1hbCIgLz48L1ZpZXc+PC9EYXRhU2V0Pg==</value>
   </data>
-  <metadata name="dataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
-  </metadata>
 </root>
