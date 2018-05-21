@@ -26,7 +26,8 @@ public enum Sexo
 public enum TipoServMerc
 {
     SERVICIO,
-    MERCANCIA
+    MERCANCIA,
+    ACTIVO,
 }
 
 
