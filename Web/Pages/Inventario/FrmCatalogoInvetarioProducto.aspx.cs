@@ -16,7 +16,7 @@ using Web.Models;
 using Web.Models.Catalogos;
 using Web.Models.Facturacion;
 
-namespace Web.Pages.Catalogos
+namespace Web.Pages.Inventario
 {
     [PrincipalPermission(SecurityAction.Demand, Role = "POST")]
     [PrincipalPermission(SecurityAction.Demand, Role = "SUPER")]
