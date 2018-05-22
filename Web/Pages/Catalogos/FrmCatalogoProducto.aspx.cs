@@ -398,7 +398,19 @@ namespace Web.Pages.Catalogos
                 {
                     e.Editor.Value = Estado.ACTIVO.ToString();
                 }
-                
+                if (e.Column.FieldName == "aplicaIV")
+                {
+                    e.Editor.Value = Confirmacion.NO.ToString();
+                }
+                if (e.Column.FieldName == "aplicaIS")
+                {
+                    e.Editor.Value = Confirmacion.NO.ToString();
+                } 
+                if (e.Column.FieldName == "tipo")
+                {
+                    e.Editor.Value = "01";
+                }
+
             }
             else
             {

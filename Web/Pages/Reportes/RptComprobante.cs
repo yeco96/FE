@@ -156,7 +156,6 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel25 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel26 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel27 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrSubreport1 = new DevExpress.XtraReports.UI.XRSubreport();
             this.xrLabel37 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrBarCode1 = new DevExpress.XtraReports.UI.XRBarCode();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
@@ -167,6 +166,7 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel19 = new DevExpress.XtraReports.UI.XRLabel();
             this.pbLogo = new DevExpress.XtraReports.UI.XRPictureBox();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
+            this.xrLabel51 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel40 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.reportHeaderBand1 = new DevExpress.XtraReports.UI.ReportHeaderBand();
@@ -176,9 +176,9 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
             this.cSimboloMoneda = new DevExpress.XtraReports.UI.CalculatedField();
-            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             this.cAutorizacion = new DevExpress.XtraReports.UI.CalculatedField();
-            this.xrLabel51 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrSubreport1 = new DevExpress.XtraReports.UI.XRSubreport();
+            this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -982,15 +982,6 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel27.Text = "xrLabel27";
             this.xrLabel27.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
-            // xrSubreport1
-            // 
-            this.xrSubreport1.CanShrink = true;
-            this.xrSubreport1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 145F);
-            this.xrSubreport1.Name = "xrSubreport1";
-            this.xrSubreport1.ReportSource = new RptComprobanteDetalle();
-            this.xrSubreport1.SizeF = new System.Drawing.SizeF(750F, 56.99994F);
-            this.xrSubreport1.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrSubreport1_BeforePrint);
-            // 
             // xrLabel37
             // 
             this.xrLabel37.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
@@ -1011,9 +1002,10 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             this.xrBarCode1.AutoModule = true;
             this.xrBarCode1.LocationFloat = new DevExpress.Utils.PointFloat(650.0001F, 26.16669F);
             this.xrBarCode1.Name = "xrBarCode1";
-            this.xrBarCode1.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 10, 0, 0, 100F);
+            this.xrBarCode1.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.xrBarCode1.ShowText = false;
             this.xrBarCode1.SizeF = new System.Drawing.SizeF(100F, 100F);
+            this.xrBarCode1.StylePriority.UsePadding = false;
             this.xrBarCode1.Symbology = qrCodeGenerator1;
             // 
             // TopMargin
@@ -1036,7 +1028,7 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel20.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "emisorIdentificacionCorreo", "Correo electrónico : {0}")});
             this.xrLabel20.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel20.LocationFloat = new DevExpress.Utils.PointFloat(110.1756F, 100.875F);
+            this.xrLabel20.LocationFloat = new DevExpress.Utils.PointFloat(110.1756F, 82.87508F);
             this.xrLabel20.Name = "xrLabel20";
             this.xrLabel20.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel20.SizeF = new System.Drawing.SizeF(525.8569F, 17.99998F);
@@ -1050,7 +1042,7 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             this.xrLabel16.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "emisorDireccion", "Dirección : {0}")});
             this.xrLabel16.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(110.1756F, 82.87509F);
+            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(109.4347F, 100.8751F);
             this.xrLabel16.Name = "xrLabel16";
             this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel16.SizeF = new System.Drawing.SizeF(525.8569F, 17.99999F);
@@ -1118,6 +1110,21 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // xrLabel51
+            // 
+            this.xrLabel51.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel51.ForeColor = System.Drawing.Color.Black;
+            this.xrLabel51.LocationFloat = new DevExpress.Utils.PointFloat(235.167F, 23.00004F);
+            this.xrLabel51.Name = "xrLabel51";
+            this.xrLabel51.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel51.SizeF = new System.Drawing.SizeF(279.6665F, 23.00002F);
+            this.xrLabel51.StyleName = "FieldCaption";
+            this.xrLabel51.StylePriority.UseFont = false;
+            this.xrLabel51.StylePriority.UseForeColor = false;
+            this.xrLabel51.StylePriority.UseTextAlignment = false;
+            this.xrLabel51.Text = "Generado por msasoft.net";
+            this.xrLabel51.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel40
             // 
@@ -1217,31 +1224,25 @@ public class RptComprobante : DevExpress.XtraReports.UI.XtraReport
             this.cSimboloMoneda.Expression = "Iif([moneda]==\'CRC\', \'₡\' ,Iif([moneda]==\'USD\',\'$\' ,\'€\' ) )";
             this.cSimboloMoneda.Name = "cSimboloMoneda";
             // 
-            // objectDataSource1
-            // 
-            this.objectDataSource1.DataSource = typeof(XMLDomain.Impresion);
-            this.objectDataSource1.Name = "objectDataSource1";
-            // 
             // cAutorizacion
             // 
             this.cAutorizacion.Expression = "Iif([tipoDocumento] = \'PROFORMA\',\'\' , \'Autorizada mediante resolución No DGT-R-48" +
     "-2016 del 7 de Octubre de 2016.\')";
             this.cAutorizacion.Name = "cAutorizacion";
             // 
-            // xrLabel51
+            // xrSubreport1
             // 
-            this.xrLabel51.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel51.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel51.LocationFloat = new DevExpress.Utils.PointFloat(235.167F, 23.00004F);
-            this.xrLabel51.Name = "xrLabel51";
-            this.xrLabel51.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel51.SizeF = new System.Drawing.SizeF(279.6665F, 23.00002F);
-            this.xrLabel51.StyleName = "FieldCaption";
-            this.xrLabel51.StylePriority.UseFont = false;
-            this.xrLabel51.StylePriority.UseForeColor = false;
-            this.xrLabel51.StylePriority.UseTextAlignment = false;
-            this.xrLabel51.Text = "Generado por msasoft.net";
-            this.xrLabel51.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrSubreport1.CanShrink = true;
+            this.xrSubreport1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 145F);
+            this.xrSubreport1.Name = "xrSubreport1";
+            this.xrSubreport1.ReportSource = new RptComprobanteDetalle();
+            this.xrSubreport1.SizeF = new System.Drawing.SizeF(750F, 56.99994F);
+            this.xrSubreport1.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrSubreport1_BeforePrint);
+            // 
+            // objectDataSource1
+            // 
+            this.objectDataSource1.DataSource = typeof(XMLDomain.Impresion);
+            this.objectDataSource1.Name = "objectDataSource1";
             // 
             // RptComprobante
             // 

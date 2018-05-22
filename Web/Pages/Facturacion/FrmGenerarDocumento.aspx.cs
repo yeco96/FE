@@ -428,8 +428,11 @@ namespace Web.Pages.Facturacion
                 GridViewDataComboBoxColumn comboTipoDocumento = this.ASPxGridView2.Columns["tipoDocumento"] as GridViewDataComboBoxColumn;
                 foreach (var item in conexion.TipoDocumento.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
                 {
-                    this.cmbTipoDocumento.Items.Add(item.descripcion, item.codigo);
-                    comboTipoDocumento.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
+                    if (!"PROFORMA".Equals(item.descripcion))
+                    {
+                        this.cmbTipoDocumento.Items.Add(item.descripcion, item.codigo);
+                        comboTipoDocumento.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
+                    }
                 }
                 this.cmbTipoDocumento.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
                 comboTipoDocumento.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
@@ -1597,7 +1600,12 @@ namespace Web.Pages.Facturacion
             } 
         }
 
+        protected void txtReceptorNombre_ValueChanged(object sender, EventArgs e)
+        {
 
-
+            if (!string.IsNullOrWhiteSpace(((ASPxTextBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorNombre")).Text))
+                this.txtReceptor.Text = ((ASPxTextBox)acordionReceptor.Groups[0].FindControl("ASPxFormLayout").FindControl("txtReceptorNombre")).Text.ToUpper();
+             
+        }
     } 
 }

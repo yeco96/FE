@@ -158,7 +158,7 @@
                                                                         <LayoutItemNestedControlCollection>
                                                                             <dx:LayoutItemNestedControlContainer>
                                                                                 <dx:ASPxTextBox ID="txtReceptorNombre" Width="100%" AutoResizeWithContainer="true" runat="server" ValidationSettings-ErrorDisplayMode="ImageWithTooltip"
-                                                                                    ValidationSettings-RequiredField-IsRequired="false" ValidationSettings-RequiredField-ErrorText="Requerido" MaxLength="80">
+                                                                                     OnValueChanged="txtReceptorNombre_ValueChanged"  AutoPostBack="true" MaxLength="80">
                                                                                     <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
                                                                                         <RequiredField ErrorText="Requerido" />
                                                                                     </ValidationSettings>
@@ -530,7 +530,7 @@
                                                     </LayoutItemNestedControlCollection>
                                                 </dx:LayoutItem>
 
-                                                                                                <dx:LayoutItem Caption="Cliente">
+                                                 <dx:LayoutItem Caption="Cliente">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer>
                                                             <dx:ASPxTextBox  runat="server" ID="txtReceptor" ReadOnly="true" BackColor="#d9edf7" Width="100%"></dx:ASPxTextBox>
