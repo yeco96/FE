@@ -66,7 +66,7 @@ namespace Web.Pages.Reportes
         protected void txtConsultar_Click(object sender, EventArgs e)
         {
             //Genera el reporte
-            ASPxWebDocumentViewer1.OpenReport(CreateReport());
+            ASPxWebDocumentViewer1.OpenReport(CreateReport(cmbTipoResumen.Value.ToString()));
         }
 
 
@@ -78,26 +78,33 @@ namespace Web.Pages.Reportes
             cmbTipoResumen.SelectedIndex = 0;
         }
 
-        XtraReport CreateReport()
+        XtraReport CreateReport(string pTipo)
         {
             XtraReport report = null;
-            RptVentaClientesEmisor reporte = new RptVentaClientesEmisor();
-            //object dataSource = UtilidadesReporte.cargarObjetoImpresion(documento, mensaje, empresa);
-            //reporte.objectDataSource1.DataSource = dataSource;
-
-            //Parámetros
             string emisor = Session["emisor"].ToString();
-            //string emisor = "603540974";
-            reporte.pEmisor.Value = emisor;
-            reporte.pFechaInicio.Value = txtFechaInicio.Text.Replace("/", "");
-            reporte.pFechaFin.Value = txtFechaFin.Text.Replace("/", "");
-            reporte.pTipo.Value = cmbTipoResumen.Value;
-            
-            reporte.CreateDocument();
-            report = reporte;
 
+            if (pTipo == "D")
+            {
+                RptVentaClientesEmisor reporte = new RptVentaClientesEmisor();
+                reporte.pEmisor.Value = emisor;
+                reporte.pFechaInicio.Value = txtFechaInicio.Text.Replace("/", "");
+                reporte.pFechaFin.Value = txtFechaFin.Text.Replace("/", "");
+                reporte.pTipo.Value = cmbTipoResumen.Value;
+
+                reporte.CreateDocument();
+                report = reporte;
+            }
+            else {
+                RptVentaClientesEmisorResumen reporte = new RptVentaClientesEmisorResumen();
+                reporte.pEmisor.Value = emisor;
+                reporte.pFechaInicio.Value = txtFechaInicio.Text.Replace("/", "");
+                reporte.pFechaFin.Value = txtFechaFin.Text.Replace("/", "");
+                reporte.pTipo.Value = cmbTipoResumen.Value;
+
+                reporte.CreateDocument();
+                report = reporte;
+            }
             return report;
-
         }
     }
 }

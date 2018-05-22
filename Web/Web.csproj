@@ -834,6 +834,9 @@
     <Compile Include="Pages\Reportes\RptFacturacionElectronicaRollPaper.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Pages\Reportes\RptVentaClientesEmisorResumen.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Pages\Reportes\RptVentaClientesEmisor.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -982,6 +985,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Reportes\RptFacturacionElectronicaRollPaper.resx">
       <DependentUpon>RptFacturacionElectronicaRollPaper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Reportes\RptVentaClientesEmisorResumen.resx">
+      <DependentUpon>RptVentaClientesEmisorResumen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Reportes\RptVentaClientesEmisor.resx">
       <DependentUpon>RptVentaClientesEmisor.cs</DependentUpon>
