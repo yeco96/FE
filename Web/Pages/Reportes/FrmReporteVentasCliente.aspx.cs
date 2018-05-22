@@ -31,7 +31,7 @@ namespace Web.Pages.Reportes
     [PrincipalPermission(SecurityAction.Demand, Role = "FACT")]
     [PrincipalPermission(SecurityAction.Demand, Role = "SUPER")]
     [PrincipalPermission(SecurityAction.Demand, Role = "ADMIN")]
-    public partial class FrmConsultaVentasCliente : System.Web.UI.Page
+    public partial class FrmReporteVentasCliente : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

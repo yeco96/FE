@@ -258,7 +258,7 @@
     <Content Include="Pages\Home.aspx" />
     <Content Include="Pages\Recepcion\FrmRecepcionEmail.aspx" />
     <Content Include="Pages\ConsultaDocXClave.aspx" />
-    <Content Include="Pages\Reportes\FrmConsultaVentasCliente.aspx" />
+    <Content Include="Pages\Reportes\FrmReporteVentasCliente.aspx" />
     <Content Include="Pages\Reportes\FrmReporteProformaResumen.aspx" />
     <Content Include="Pages\Reportes\FrmReporteDocumentoResumen.aspx" />
     <Content Include="Pages\Reportes\FrmReporteFactura.aspx" />
@@ -768,12 +768,12 @@
     <Compile Include="Pages\Reportes\DCC.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Pages\Reportes\FrmConsultaVentasCliente.aspx.cs">
-      <DependentUpon>FrmConsultaVentasCliente.aspx</DependentUpon>
+    <Compile Include="Pages\Reportes\FrmReporteVentasCliente.aspx.cs">
+      <DependentUpon>FrmReporteVentasCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Reportes\FrmConsultaVentasCliente.aspx.designer.cs">
-      <DependentUpon>FrmConsultaVentasCliente.aspx</DependentUpon>
+    <Compile Include="Pages\Reportes\FrmReporteVentasCliente.aspx.designer.cs">
+      <DependentUpon>FrmReporteVentasCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Reportes\FrmReporteProformaResumen.aspx.cs">
       <DependentUpon>FrmReporteProformaResumen.aspx</DependentUpon>
