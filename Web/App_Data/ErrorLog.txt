@@ -16782,18 +16782,13 @@ Stack Trace:
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
-********** 22/05/2018 07:50:57 a.m. **********
-Inner Exception Type: System.Exception
-Inner Exception: Error al tratar de llenar la fuente de datos. Se ha lanzado la siguiente excepción: 
-consulta fe_hacienda_reporte_ventas_x_emisor(@p_emisor, @p_fecha_inicio, @p_fecha_fin, @p_tipo) no se pudo ejecutar.
-Inner Source: DevExpress.Printing.v17.1.Core
+********** 22/5/2018 07:34:05 **********
+Inner Exception Type: System.NullReferenceException
+Inner Exception: Referencia a objeto no establecida como instancia de un objeto.
+Inner Source: Web
 Inner Stack Trace: 
-   en DevExpress.XtraPrinting.PrintingSystemBase.OnCreateDocumentException(ExceptionEventArgs args)
-   en DevExpress.XtraReports.UI.XtraReport.TryCreateDocument(Single progressRange, Boolean buildPagesInBackground)
-   en DevExpress.XtraReports.UI.XtraReport.CreateDocument(Boolean buildForInstantPreview)
-   en DevExpress.XtraReports.UI.XtraReport.CreateDocument()
-   en Web.Pages.Reportes.FrmReporteVentasCliente.CreateReport() en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteVentasCliente.aspx.cs:línea 96
-   en Web.Pages.Reportes.FrmReporteVentasCliente.txtConsultar_Click(Object sender, EventArgs e) en C:\Users\bcrrreyeper\Documents\GitHub\WebServiceFE\Web\Pages\Reportes\FrmReporteVentasCliente.aspx.cs:línea 69
+   en Web.Pages.Reportes.FrmReporteVentasCliente.CreateReport() en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Reportes\FrmReporteVentasCliente.aspx.cs:línea 89
+   en Web.Pages.Reportes.FrmReporteVentasCliente.txtConsultar_Click(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Reportes\FrmReporteVentasCliente.aspx.cs:línea 69
    en DevExpress.Web.ASPxButton.OnClick(EventArgs e)
    en DevExpress.Web.ASPxButton.RaisePostBackEvent(String eventArgument)
    en DevExpress.Web.ASPxWebControl.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
@@ -16820,7 +16815,7 @@ Stack Trace:
    en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
    en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
    en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
-   en ASP.pages_reportes_frmreporteventascliente_aspx.EndProcessRequest(IAsyncResult ar) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\68ed8e17\e5063617\App_Web_10paxwze.0.cs:línea 0
+   en ASP.pages_reportes_frmreporteventascliente_aspx.EndProcessRequest(IAsyncResult ar) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4a5bbe80\ea8ad4ab\App_Web_ak4ojf5a.1.cs:línea 0
    en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)

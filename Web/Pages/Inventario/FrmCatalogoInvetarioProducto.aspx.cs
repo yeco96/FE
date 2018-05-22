@@ -425,11 +425,11 @@ namespace Web.Pages.Inventario
                 }
                 if (e.Column.FieldName == "cantidadMinima")
                 {
-                    e.Editor.Value = 1;
+                    e.Editor.Value = 0;
                 }
                 if (e.Column.FieldName == "cantidadMaxima")
                 {
-                    e.Editor.Value = 1;
+                    e.Editor.Value = 0;
                 }
 
             }

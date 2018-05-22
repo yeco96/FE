@@ -55,7 +55,17 @@ namespace XMLDomain
         public List<Impuesto> impuestos { set; get; }
 
         [XmlIgnore]
-        public decimal montoImpuesto { get { return this.impuestos.Sum(x => x.monto); } }
+        public decimal montoImpuesto {
+            get {
+                if (this.impuestos != null)
+                {
+                    return this.impuestos.Sum(x => x.monto);
+                }
+                else{
+                    return 0;
+                }
+            }
+        }
 
         /// <summary>
         /// Se obtiene de la suma de los campos subtotal más monto de los impuestos //tamaño 18,3 DGT
