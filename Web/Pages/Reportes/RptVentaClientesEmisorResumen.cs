@@ -291,7 +291,7 @@ public class RptVentaClientesEmisorResumen : DevExpress.XtraReports.UI.XtraRepor
                     "tipo).totalImpuesto", "{0:C2}")});
             this.xrLabel17.Font = new System.Drawing.Font("Tahoma", 8F);
             this.xrLabel17.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel17.LocationFloat = new DevExpress.Utils.PointFloat(513.1597F, 0F);
+            this.xrLabel17.LocationFloat = new DevExpress.Utils.PointFloat(513.1598F, 0F);
             this.xrLabel17.Name = "xrLabel17";
             this.xrLabel17.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel17.SizeF = new System.Drawing.SizeF(119.4958F, 25F);
