@@ -77,6 +77,7 @@ namespace HighSchoolWeb.ScheduledTask
                                     dato.usuarioModificacion = Usuario.USUARIO_AUTOMATICO;
                                     dato.montoTotalFactura = mensajeHacienda.montoTotalFactura;
                                     dato.montoTotalImpuesto = mensajeHacienda.montoTotalImpuesto;
+                                    dato.comprobanteRespXML = respuestaXML;
 
                                     if (mensajeHacienda.montoTotalFactura==0)
                                     {
@@ -87,7 +88,7 @@ namespace HighSchoolWeb.ScheduledTask
 
                                     conexionWS.Entry(dato).State = EntityState.Modified;
                                     conexionWS.SaveChanges();
-
+                                     
                                 }
                             }
                             else

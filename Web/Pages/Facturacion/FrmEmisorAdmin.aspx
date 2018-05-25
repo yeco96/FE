@@ -181,6 +181,15 @@
                                                                         </LayoutItemNestedControlCollection>
                                                                     </dx:LayoutItem>
 
+                                                                     <dx:LayoutItem Caption="Plan" ColSpan="4" Width="100%">
+                                                                        <LayoutItemNestedControlCollection>
+                                                                            <dx:LayoutItemNestedControlContainer>
+                                                                                <dx:ASPxComboBox ID="cmbPlan" runat="server" Width="100%" AutoResizeWithContainer="true"
+                                                                                    ValidationSettings-RequiredField-IsRequired="true" ValidationSettings-RequiredField-ErrorText="Requerido" ValidationSettings-ErrorDisplayMode="ImageWithTooltip" />
+                                                                            </dx:LayoutItemNestedControlContainer>
+                                                                        </LayoutItemNestedControlCollection>
+                                                                    </dx:LayoutItem>
+
                                                                 </Items>
                                                             </dx:LayoutGroup>
 

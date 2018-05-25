@@ -17,6 +17,7 @@ using System.Web.UI.WebControls;
 using System.Xml;
 using System.Xml.Linq;
 using Web.Models;
+using Web.Models.Catalogos;
 using Web.Models.Facturacion;
 using Web.WebServices;
 using WSDomain;
@@ -81,6 +82,13 @@ namespace Web.Pages.Facturacion
                 Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
                 string xml = Session["xmlFileValidar"].ToString();
 
+                if(string.IsNullOrWhiteSpace( XMLUtils.buscarValorEtiquetaXML("Receptor", "Identificacion", xml)))
+                {
+                    this.alertMessages.Attributes["class"] = "alert alert-danger";
+                    this.alertMessages.InnerText = "XML no tiene etiqueta de <Identificacion>, no se puede validar el receptor del XML!!!";
+                    return;
+                }
+
                 if (XMLUtils.buscarValorEtiquetaXML("Receptor", "Identificacion", xml).Substring(2) == Session["emisor"].ToString())
                 {
                     txtClave.Text = XMLUtils.buscarValorEtiquetaXML(XMLUtils.tipoDocumentoXML(xml), "Clave", xml);
@@ -88,9 +96,7 @@ namespace Web.Pages.Facturacion
                     string emisorIdentificacion = XMLUtils.buscarValorEtiquetaXML("Emisor", "Identificacion", xml);
                     txtNumCedEmisor.Text = emisorIdentificacion.Substring(2);
                     txtFechaEmisor.Text = XMLUtils.buscarValorEtiquetaXML(XMLUtils.tipoDocumentoXML(xml), "FechaEmision", xml);
-
-                    EmisorReceptorIMEC emisor = (EmisorReceptorIMEC)Session["elEmisor"];
-                    this.txtNumConsecutivoReceptor.Text = "0010000107" + emisor.consecutivo.ToString().PadLeft(10, '0');
+                      
 
                     //Factura
                     double totalImpuesto = Convert.ToDouble(XMLUtils.buscarValorEtiquetaXML("ResumenFactura", "TotalImpuesto", xml));
@@ -114,7 +120,8 @@ namespace Web.Pages.Facturacion
                     Session["receptor.CorreoElectronico"] = XMLUtils.buscarValorEtiquetaXML("Receptor", "CorreoElectronico", xml);
                     Session["receptor.Nombre"] = XMLUtils.buscarValorEtiquetaXML("Receptor", "Nombre", xml);
 
-
+                    /*CONSECUTIVO*/
+                    this.obtenerConsecutivo();
 
                     this.alertMessages.Attributes["class"] = "alert alert-info";
                     this.alertMessages.InnerText = "Los datos fueron cargados correctamente!!!";
@@ -132,6 +139,103 @@ namespace Web.Pages.Facturacion
             {
                 this.alertMessages.Attributes["class"] = "alert alert-danger";
                 this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
+            }
+        }
+
+        /// <summary>
+        /// consulta el consecutivo actual
+        /// </summary>
+        protected void obtenerConsecutivo()
+        {
+            //genera el consecutivo del documento
+            string emisor = Session["emisor"].ToString();
+            string sucursal = ConsecutivoDocElectronico.DEFAULT_SUCURSAL; ;
+            string caja = ConsecutivoDocElectronico.DEFAULT_CAJA;
+            string tipoDocumento = "";
+
+            if (this.cmbMensaje.Value.Equals(TipoConsecutivo.ACEPTADO.ToString()))
+            {
+                tipoDocumento = TipoConsecutivo.DOCUMENTO_ACEPTADO;
+            }
+            else
+            {
+                if (this.cmbMensaje.Value.Equals(TipoConsecutivo.RECHAZADO_PARCIAL.ToString()))
+                {
+                    tipoDocumento = TipoConsecutivo.DOCUMENTO_RECHAZADO_PARCIAL;
+                }
+                else
+                {
+                    tipoDocumento = TipoConsecutivo.DOCUMENTO_RECHAZADO;
+                }
+            }
+             
+            using (var conexion = new DataModelFE())
+            {
+                object[] key = new object[] { emisor, sucursal, caja, tipoDocumento };
+                ConsecutivoDocElectronico consecutivo = conexion.ConsecutivoDocElectronico.Find(key);
+                if (consecutivo != null)
+                {
+                    this.txtNumConsecutivoReceptor.Text = consecutivo.getConsecutivo();
+                }
+                else
+                {
+                    consecutivo = new ConsecutivoDocElectronico();
+                    consecutivo.sucursal = ConsecutivoDocElectronico.DEFAULT_SUCURSAL;
+                    consecutivo.caja = ConsecutivoDocElectronico.DEFAULT_CAJA;
+                    consecutivo.digitoVerificador = ConsecutivoDocElectronico.DEFAULT_DIGITO_VERIFICADOR;
+                    consecutivo.emisor = emisor;
+                    consecutivo.tipoDocumento = tipoDocumento;
+                    consecutivo.consecutivo = 1;
+                    consecutivo.estado = Estado.ACTIVO.ToString();
+                    consecutivo.fechaCreacion = Date.DateTimeNow(); 
+                    conexion.ConsecutivoDocElectronico.Add(consecutivo);
+                    conexion.SaveChangesAsync();
+
+                    this.txtNumConsecutivoReceptor.Text = consecutivo.getConsecutivo();
+
+                }
+
+            } 
+        }
+
+        /// <summary>
+        /// guardar el consecutivo utilizado
+        /// </summary>
+        protected void actualizarConsecutivo()
+        {
+            //genera el consecutivo del documento
+            string emisor = Session["emisor"].ToString();
+            string sucursal = ConsecutivoDocElectronico.DEFAULT_SUCURSAL; ;
+            string caja = ConsecutivoDocElectronico.DEFAULT_CAJA;
+            string tipoDocumento = "";
+
+            if (this.cmbMensaje.Value.Equals(TipoConsecutivo.ACEPTADO.ToString()))
+            {
+                tipoDocumento = TipoConsecutivo.DOCUMENTO_ACEPTADO;
+            }
+            else
+            {
+                if (this.cmbMensaje.Value.Equals(TipoConsecutivo.RECHAZADO_PARCIAL.ToString()))
+                {
+                    tipoDocumento = TipoConsecutivo.DOCUMENTO_RECHAZADO_PARCIAL;
+                }
+                else
+                {
+                    tipoDocumento = TipoConsecutivo.DOCUMENTO_RECHAZADO;
+                }
+            }
+
+            using (var conexion = new DataModelFE())
+            {
+                object[] key = new object[] { emisor, sucursal, caja, tipoDocumento };
+                ConsecutivoDocElectronico consecutivo = conexion.ConsecutivoDocElectronico.Find(key);
+                if (consecutivo != null)
+                {
+                    consecutivo.consecutivo += 1;
+                    conexion.Entry(consecutivo).State = EntityState.Modified;
+                    conexion.SaveChanges(); 
+                }
+
             }
         }
 
@@ -158,7 +262,9 @@ namespace Web.Pages.Facturacion
                 dato.mensajeDetalle = this.txtDetalleMensaje.Text;
                 dato.mensaje = int.Parse(this.cmbMensaje.Value.ToString());
                 dato.numeroConsecutivoReceptor = this.txtNumConsecutivoReceptor.Text;
-
+                /*ACTUALIZA CONSECUTIVO*/
+                this.actualizarConsecutivo();
+                
                 dato.montoTotalImpuesto = decimal.Parse(this.txtMontoTotalImpuesto.Text);
                 dato.montoTotalFactura = decimal.Parse(this.txtTotalFactura.Text);
 
@@ -316,6 +422,11 @@ namespace Web.Pages.Facturacion
             {
                 throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
             }
+        }
+
+        protected void cmbMensaje_ValueChanged(object sender, EventArgs e)
+        {
+            this.obtenerConsecutivo();
         }
     }
 }

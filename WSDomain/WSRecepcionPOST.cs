@@ -65,6 +65,10 @@ namespace WSDomain
         public string comprobanteXml { set; get; }
 
         [JsonIgnore]
+        public string comprobanteRespXML { set; get; }
+
+
+        [JsonIgnore]
         public int indEstado { set; get; }
         [JsonIgnore]
         public string mensaje { set; get; }

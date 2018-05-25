@@ -505,13 +505,15 @@ namespace Web.Pages.Facturacion
 
             if (emisor.provincia != null)
             {
-                cmbReceptorProvincia_ValueChanged(null, null);
+                this.cargarProvicia();
+
+                this.cargarCantones();
                 cmbReceptorCanton.Value = emisor.canton;
 
-                cmbReceptorCanton_ValueChanged(null, null);
+                this.cargarDistritos();
                 cmbReceptorDistrito.Value = emisor.distrito;
 
-                cmbReceptorDistrito_ValueChanged(null, null);
+                this.cargarBarrio();
                 cmbReceptorBarrio.Value = emisor.barrio;
             }
             if (emisor.otraSena != null)
@@ -520,71 +522,123 @@ namespace Web.Pages.Facturacion
             }
         }
 
-        protected void cmbReceptorProvincia_ValueChanged(object sender, EventArgs e)
+
+
+        private void cargarProvicia()
         {
-            ASPxComboBox cmbReceptorProvincia = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorProvincia"));
-            ASPxComboBox cmbReceptorCanton = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorCanton"));
-            ASPxComboBox cmbReceptorDistrito = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorDistrito"));
+            ASPxComboBox comboProvincia = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorProvincia"));
+            //ASPxComboBox cmbReceptorCanton = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorCanton"));
+            //ASPxComboBox cmbReceptorDistrito = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorDistrito"));
 
             using (var conexion = new DataModelFE())
             {
-                cmbReceptorDistrito.SelectedItem = null;
-                cmbReceptorDistrito.Items.Clear();
-                cmbReceptorCanton.SelectedItem = null;
-
-                cmbReceptorCanton.Items.Clear();
-                foreach (var item in conexion.Ubicacion.Where(x => x.codProvincia == cmbReceptorProvincia.Value.ToString()).Select(x => new { x.codCanton, x.nombreCanton }).Distinct())
-                {
-                    cmbReceptorCanton.Items.Add(item.nombreCanton, item.codCanton);
-                }
-                cmbReceptorCanton.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
-            }
-        }
-
-        protected void cmbReceptorCanton_ValueChanged(object sender, EventArgs e)
-        {
-            using (var conexion = new DataModelFE())
-            {
-                ASPxComboBox cmbReceptorProvincia = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorProvincia"));
-                ASPxComboBox cmbReceptorCanton = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorCanton"));
-                ASPxComboBox cmbReceptorDistrito = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorDistrito"));
-
-                cmbReceptorDistrito.SelectedItem = null;
-                cmbReceptorDistrito.Items.Clear();
                 foreach (var item in conexion.Ubicacion.
-                    Where(x => x.codProvincia == cmbReceptorProvincia.Value.ToString()).
-                    Where(x => x.codCanton == cmbReceptorCanton.Value.ToString()).
-                    Select(x => new { x.codDistrito, x.nombreDistrito }).Distinct())
+                 Select(x => new { x.codProvincia, x.nombreProvincia }).Distinct())
                 {
-                    cmbReceptorDistrito.Items.Add(item.nombreDistrito, item.codDistrito);
+                    comboProvincia.Items.Add(item.nombreProvincia, item.codProvincia);
                 }
-                cmbReceptorDistrito.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                comboProvincia.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             }
         }
 
-        protected void cmbReceptorDistrito_ValueChanged(object sender, EventArgs e)
+        private void cargarCantones()
+        {
+            using (var conexion = new DataModelFE())
+            {
+                ASPxComboBox comboProvincia = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorProvincia"));
+                ASPxComboBox comboCanton = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorCanton"));
+                //ASPxComboBox cmbReceptorDistrito = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorDistrito"));
+
+                comboCanton.Items.Clear();
+                if (comboProvincia.Value != null)
+                {
+                        foreach (var item in conexion.Ubicacion.
+                                Where(x => x.codProvincia == comboProvincia.Value.ToString()).
+                                Select(x => new { x.codCanton, x.nombreCanton }).Distinct())
+                        {
+                            comboCanton.Items.Add(item.nombreCanton, item.codCanton);
+                        }
+                        comboCanton.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                        comboCanton.SelectedIndex = 0;
+                    
+                }
+            }
+        }
+
+        private void cargarDistritos()
         {
             using (var conexion = new DataModelFE())
             {
 
-                ASPxComboBox cmbReceptorProvincia = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorProvincia"));
-                ASPxComboBox cmbReceptorCanton = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorCanton"));
-                ASPxComboBox cmbReceptorDistrito = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorDistrito"));
-                ASPxComboBox cmbReceptorBarrio = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorBarrio"));
+                ASPxComboBox comboProvincia = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorProvincia"));
+                ASPxComboBox comboCanton = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorCanton"));
+                ASPxComboBox comboDistrito = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorDistrito"));
+                //ASPxComboBox cmbReceptorBarrio = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorBarrio"));
 
-                cmbReceptorBarrio.SelectedItem = null;
-                cmbReceptorBarrio.Items.Clear();
-                foreach (var item in conexion.Ubicacion.
-                    Where(x => x.codProvincia == cmbReceptorProvincia.Value.ToString()).
-                    Where(x => x.codCanton == cmbReceptorCanton.Value.ToString()).
-                     Where(x => x.codDistrito == cmbReceptorDistrito.Value.ToString()).
-                    Select(x => new { x.codBarrio, x.nombreBarrio }).Distinct())
+                comboDistrito.Items.Clear();
+                if (comboProvincia.Value != null && comboCanton.Value != null)
                 {
-                    cmbReceptorBarrio.Items.Add(item.nombreBarrio, item.codBarrio);
+                    foreach (var item in conexion.Ubicacion.
+                        Where(x => x.codProvincia == comboProvincia.Value.ToString()).
+                        Where(x => x.codCanton == comboCanton.Value.ToString()).
+                        Select(x => new { x.codDistrito, x.nombreDistrito }).Distinct())
+                    {
+                        comboDistrito.Items.Add(item.nombreDistrito, item.codDistrito);
+                    }
+                    comboDistrito.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                    comboDistrito.SelectedIndex = 0;
                 }
-                cmbReceptorBarrio.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             }
         }
+
+        private void cargarBarrio()
+        {
+            using (var conexion = new DataModelFE())
+            {
+
+                ASPxComboBox comboProvincia = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorProvincia"));
+                ASPxComboBox comboCanton = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorCanton"));
+                ASPxComboBox comboDistrito = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorDistrito"));
+                ASPxComboBox comboBarrio = ((ASPxComboBox)acordionReceptor.Groups[2].FindControl("ASPxFormLayout").FindControl("cmbReceptorBarrio"));
+
+                comboBarrio.Items.Clear();
+                if (comboProvincia.Value != null && comboCanton.Value != null && comboDistrito.Value != null)
+                { 
+                        foreach (var item in conexion.Ubicacion.
+                            Where(x => x.codProvincia == comboProvincia.Value.ToString()).
+                            Where(x => x.codCanton == comboCanton.Value.ToString()).
+                                Where(x => x.codDistrito == comboDistrito.Value.ToString()).
+                            Select(x => new { x.codBarrio, x.nombreBarrio }).Distinct())
+                        {
+                            comboBarrio.Items.Add(item.nombreBarrio, item.codBarrio);
+                        }
+                        comboBarrio.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                        comboBarrio.SelectedIndex = 0;
+                     
+                }
+            }
+        }
+
+
+
+        protected void cmbProvincia_ValueChanged(object sender, EventArgs e)
+        {
+            this.cargarCantones();
+            this.cargarDistritos();
+            this.cargarBarrio();
+        }
+
+        protected void cmbCanton_ValueChanged(object sender, EventArgs e)
+        {
+            this.cargarDistritos();
+            this.cargarBarrio();
+        }
+
+        protected void cmbDistrito_ValueChanged(object sender, EventArgs e)
+        {
+            this.cargarBarrio();
+        }
+
 
         protected void cmbMoneda_ValueChanged(object sender, EventArgs e)
         {

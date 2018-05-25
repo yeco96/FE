@@ -8,13 +8,29 @@ using System.Web;
 
 namespace Web.Models.Catalogos
 {
-    [Table("fact_tipo_plan")]
-    public class TipoPlan
+    [Table("xml_tipo_consecutivo")]
+    public class TipoConsecutivo
     {
+
+        [NotMapped]
+        public static int ACEPTADO = 1;
+        [NotMapped]
+        public static int RECHAZADO_PARCIAL = 2;
+        [NotMapped]
+        public static int RECHAZADO = 3;
+
+
+        [NotMapped]
+        public static string DOCUMENTO_ACEPTADO = "05";
+        [NotMapped]
+        public static string DOCUMENTO_RECHAZADO_PARCIAL = "06";
+        [NotMapped]
+        public static string DOCUMENTO_RECHAZADO = "07";
+
+
         [Key]
         [Required]
-        [MinLength(5, ErrorMessage = "La propiedad {0} no puede tener menos de {1} elementos")]
-        [MaxLength(5, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [MaxLength(2, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
         [Display(Name = "Código")]
         public string codigo { set; get; }
 
@@ -23,11 +39,10 @@ namespace Web.Models.Catalogos
         [Display(Name = "Descripción")]
         public string descripcion { set; get; }
 
-
-
         [Required]
-        [Display(Name = "Cantidad")]
-        public int cantidad { set; get; }
+        [MaxLength(50, ErrorMessage = "La propiedad {0} no puede tener más de {1} elementos")]
+        [Display(Name = "Descripción Inglés")]
+        public string descripcionEN { set; get; }
 
         /// <summary>
         /// AUDIOTORIA
@@ -47,7 +62,7 @@ namespace Web.Models.Catalogos
         /// <summary>
         /// CONSTRUCTOR
         /// </summary>
-        public TipoPlan()
+        public TipoConsecutivo()
         {
         }
 
@@ -56,8 +71,6 @@ namespace Web.Models.Catalogos
         /// </summary>
         public virtual Usuario UsuarioCreacion { get; set; }
         public virtual Usuario UsuarioModificacion { get; set; }
-
-
 
 
     }

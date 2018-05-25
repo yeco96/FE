@@ -10,6 +10,7 @@
      </div>   
      
     <div class="borde_redondo_tabla">
+         
 
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
             Width="100%" EnableTheming="True" KeyFieldName="emisor" Theme="Moderno" 

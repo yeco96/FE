@@ -284,7 +284,7 @@
                                                                     <dx:LayoutItem Caption="Provincia">
                                                                         <LayoutItemNestedControlCollection>
                                                                             <dx:LayoutItemNestedControlContainer>
-                                                                                <dx:ASPxComboBox ID="cmbReceptorProvincia" runat="server" Width="100%" AutoResizeWithContainer="true" OnValueChanged="cmbReceptorProvincia_ValueChanged" AutoPostBack="true"
+                                                                                <dx:ASPxComboBox ID="cmbReceptorProvincia" runat="server" Width="100%" AutoResizeWithContainer="true" OnValueChanged="cmbProvincia_ValueChanged" AutoPostBack="true"
                                                                                     ValidationSettings-ErrorDisplayMode="ImageWithTooltip">
                                                                                     <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
                                                                                     </ValidationSettings>
@@ -295,7 +295,7 @@
                                                                     <dx:LayoutItem Caption="Cantón">
                                                                         <LayoutItemNestedControlCollection>
                                                                             <dx:LayoutItemNestedControlContainer>
-                                                                                <dx:ASPxComboBox ID="cmbReceptorCanton" runat="server" Width="100%" AutoResizeWithContainer="true" OnValueChanged="cmbReceptorCanton_ValueChanged" AutoPostBack="true"
+                                                                                <dx:ASPxComboBox ID="cmbReceptorCanton" runat="server" Width="100%" AutoResizeWithContainer="true" OnValueChanged="cmbCanton_ValueChanged" AutoPostBack="true"
                                                                                     ValidationSettings-ErrorDisplayMode="ImageWithTooltip">
                                                                                     <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
                                                                                     </ValidationSettings>
@@ -306,7 +306,7 @@
                                                                     <dx:LayoutItem Caption="Distrito">
                                                                         <LayoutItemNestedControlCollection>
                                                                             <dx:LayoutItemNestedControlContainer>
-                                                                                <dx:ASPxComboBox ID="cmbReceptorDistrito" Width="100%" AutoResizeWithContainer="true" runat="server" OnValueChanged="cmbReceptorDistrito_ValueChanged" AutoPostBack="true"
+                                                                                <dx:ASPxComboBox ID="cmbReceptorDistrito" Width="100%" AutoResizeWithContainer="true" runat="server" OnValueChanged="cmbDistrito_ValueChanged" AutoPostBack="true"
                                                                                     ValidationSettings-ErrorDisplayMode="ImageWithTooltip">
                                                                                     <ValidationSettings ErrorDisplayMode="ImageWithTooltip">
                                                                                     </ValidationSettings>

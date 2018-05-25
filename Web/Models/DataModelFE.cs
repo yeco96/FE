@@ -46,6 +46,8 @@ namespace Web.Models
         public virtual DbSet<TipoPlan> TipoPlan { get; set; }
         public virtual DbSet<TipoProductoServicio> TipoProductoServicio { get; set; }
         public virtual DbSet<TipoDocumento> TipoDocumento { get; set; }
+        public virtual DbSet<TipoConsecutivo> TipoConsecutivo { get; set; }
+        
         public virtual DbSet<TipoIdentificacion> TipoIdentificacion { get; set; }
         public virtual DbSet<TipoImpuesto> TipoImpuesto { get; set; }
         public virtual DbSet<TipoMoneda> TipoMoneda { get; set; }
@@ -67,7 +69,6 @@ namespace Web.Models
         //Para los datos del Receptor que suba informacion
         public virtual DbSet<XMLDomain.ResumenFacturaReceptor> ResumenFacturaReceptor { get; set; } 
         public virtual DbSet<WSDomain.WSRecepcionPOSTReceptor> WSRecepcionPOSTReceptor { get; set; }
-
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Empresa> Empresa { get; set; }
         public virtual DbSet<Supervisor> Supervisor { get; set; }

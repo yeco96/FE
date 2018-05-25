@@ -300,7 +300,23 @@ namespace Web.Pages.Administracion
         {
             if (this.ASPxGridView1.IsNewRowEditing)
             {
-               // if (e.Column.FieldName == "emisor") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray;  }
+                // if (e.Column.FieldName == "emisor") { e.Editor.ReadOnly = true; e.Column.ReadOnly = true; e.Editor.BackColor = System.Drawing.Color.LightGray;  }
+                if (e.Column.FieldName == "fechaInicio") {
+                    e.Editor.Value = Date.DateTimeNow();
+                }
+                if (e.Column.FieldName == "fechaFin") {
+                    e.Editor.Value = Date.DateTimeNow().AddYears(1);
+                }
+                if (e.Column.FieldName == "estado")
+                {
+                    e.Editor.Value = Estado.ACTIVO.ToString();
+                }
+                if (e.Column.FieldName == "cantidadDocEmitido")
+                {
+                    e.Editor.Value = 0;
+                }
+
+
             }
             else
             {

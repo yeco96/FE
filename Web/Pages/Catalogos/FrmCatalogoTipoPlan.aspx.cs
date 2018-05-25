@@ -107,7 +107,7 @@ namespace Web.Pages.Catalogos
                     //llena el objeto con los valores de la pantalla
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString().ToUpper() : null;
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
-
+                    dato.cantidad = int.Parse(e.NewValues["cantidad"].ToString());
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioCreacion = Session["usuario"].ToString();
                     dato.fechaCreacion = Date.DateTimeNow();
@@ -165,7 +165,7 @@ namespace Web.Pages.Catalogos
 
                     //busca el objeto 
                     dato = conexion.TipoPlan.Find(dato.codigo);
-
+                    dato.cantidad = int.Parse(e.NewValues["cantidad"].ToString());
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
                     dato.estado = e.NewValues["estado"].ToString();
                     dato.usuarioModificacion = Session["usuario"].ToString();

@@ -353,6 +353,7 @@
     </Compile>
     <Compile Include="Models\Administracion\Plan.cs" />
     <Compile Include="Models\Catalogos\Comision.cs" />
+    <Compile Include="Models\Catalogos\TipoConsecutivo.cs" />
     <Compile Include="Models\Catalogos\TipoPlan.cs" />
     <Compile Include="Models\Catalogos\CodigoReferencia.cs" />
     <Compile Include="Models\Catalogos\CondicionVenta.cs" />

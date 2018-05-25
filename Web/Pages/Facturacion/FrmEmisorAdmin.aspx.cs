@@ -15,6 +15,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Web.Models;
+using Web.Models.Administracion;
 using Web.Models.Catalogos;
 using Web.Models.Facturacion;
 
@@ -190,6 +191,10 @@ namespace Web.Pages.Catalogos
                     ASPxComboBox comboBarrio = (ASPxComboBox)form.FindControl("cmbBarrio");
                     ASPxMemo otraSena = (ASPxMemo)form.FindControl("txtOtraSenas");
 
+                    /* PLAN */
+                    ASPxComboBox combPlan = (ASPxComboBox)form.FindControl("cmbPlan");
+                   
+
                     dato.provincia = comboProvincia.Value.ToString();
                     dato.canton = comboCanton.Value.ToString();
                     dato.distrito = comboDistrito.Value.ToString();
@@ -218,13 +223,32 @@ namespace Web.Pages.Catalogos
                     {
                         conexion.Entry(dato).State = EntityState.Modified; 
                     }
-                    
+
+
+                    Plan planE = conexion.Plan.Find(dato.identificacion);
+                    if (planE == null)
+                    {
+                        TipoPlan tipoPlan = conexion.TipoPlan.Find(combPlan.Value.ToString());
+
+                        Plan plan = new Plan();
+                        plan.usuarioCreacion = Session["usuario"].ToString();
+                        plan.fechaCreacion = Date.DateTimeNow();
+                        plan.cantidadDocEmitido = 0;
+                        plan.cantidadDocPlan = tipoPlan.cantidad;
+                        plan.plan = tipoPlan.codigo;
+                        plan.emisor = dato.identificacion;
+                        plan.estado = Estado.ACTIVO.ToString();
+                        plan.fechaInicio = Date.DateTimeNow();
+                        plan.fechaFin = Date.DateTimeNow().AddYears(1);
+                        conexion.Plan.Add(plan);
+                    }
+
                     Usuario usuario = conexion.Usuario.Find(dato.identificacion);
                     if (usuario == null)
                     {
                         usuario = new Usuario();
                         usuario.usuarioCreacion = Session["usuario"].ToString();
-                        usuario.fechaModificacion = Date.DateTimeNow();
+                        usuario.fechaCreacion = Date.DateTimeNow();
                         usuario.nombre = dato.nombre;
                         usuario.emisor = dato.identificacion;
                         usuario.codigo = dato.identificacion;
@@ -258,6 +282,7 @@ namespace Web.Pages.Catalogos
                         empresa.descripcion = dato.nombre == null ? dato.nombreComercial : dato.nombre;
                         empresa.estado = Estado.ACTIVO.ToString();
                         empresa.usuarioCreacion = Session["usuario"].ToString();
+                        empresa.fechaCreacion = Date.DateTimeNow();
                         empresa.idioma = Empresa.IDIOMA_ESPANOL;
                         empresa.medioPago = "01";
                         empresa.condicionVenta = "01";
@@ -430,11 +455,40 @@ namespace Web.Pages.Catalogos
             {
                 using (var conexion = new DataModelFE())
                 {
-                    var id = e.Values["identificacion"].ToString();
+                    var identificacion = e.Values["identificacion"].ToString();
 
-                    //busca objeto
-                    var itemToRemove = conexion.EmisorReceptorIMEC.SingleOrDefault(x => x.identificacion == id);
+                    //empresa
+                    var empresa = conexion.Empresa.SingleOrDefault(x => x.codigo == identificacion);
+                    if (empresa != null)
+                    {
+                        conexion.Empresa.Remove(empresa);
+                    }
+
+                    //supervisor
+                    string emisorSupervisor = Session["emisor"].ToString();
+                    var supervisor = conexion.Supervisor.SingleOrDefault(x => x.emisor == identificacion && x.supervisor == emisorSupervisor);
+                    if (supervisor != null)
+                    {
+                        conexion.Supervisor.Remove(supervisor);
+                    }
+
+                    //conecutivo
+                    foreach (var conecutivo in conexion.ConsecutivoDocElectronico.Where(x => x.emisor == identificacion))
+                    {
+                        conexion.ConsecutivoDocElectronico.Remove(conecutivo);
+                    }
+
+                    //usuario
+                    var usuario = conexion.Usuario.SingleOrDefault(x => x.codigo == identificacion);
+                    if (usuario != null)
+                    {
+                        conexion.Usuario.Remove(usuario);
+                    }
+                    
+                    //emisor
+                    var itemToRemove = conexion.EmisorReceptorIMEC.SingleOrDefault(x => x.identificacion == identificacion);
                     conexion.EmisorReceptorIMEC.Remove(itemToRemove);
+
                     conexion.SaveChanges();
 
                     //esto es para el manero del devexpress
@@ -483,6 +537,7 @@ namespace Web.Pages.Catalogos
                 if (e.Column.FieldName == "identificacion")
                 {
                     this.cargarProvincias();
+                    this.cargaPlanes();
                 }
 
                 if (e.Column.FieldName == "estado")
@@ -608,6 +663,24 @@ namespace Web.Pages.Catalogos
             catch (Exception ex)
             {
                 throw new Exception(Utilidades.validarExepcionSQL(ex), ex.InnerException);
+            }
+        }
+
+        private void cargaPlanes()
+        {
+            /* PLAN */
+
+            ASPxPageControl tabs = (ASPxPageControl)ASPxGridView1.FindEditFormTemplateControl("pageControl");
+            ASPxFormLayout form = (ASPxFormLayout)tabs.FindControl("formLayoutUbicacion");
+
+            ASPxComboBox comboPlan = (ASPxComboBox)form.FindControl("cmbPlan");
+            comboPlan.Items.Clear();
+            using (var conexion = new DataModelFE())
+            {
+                foreach (var item in conexion.TipoPlan.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                {
+                    comboPlan.Items.Add(item.descripcion, item.codigo);
+                }
             }
         }
 
@@ -762,9 +835,16 @@ namespace Web.Pages.Catalogos
                 ASPxComboBox comboBarrio = (ASPxComboBox)form.FindControl("cmbBarrio");
                 ASPxMemo otraSena = (ASPxMemo)form.FindControl("txtOtraSenas");
 
+                ASPxComboBox combPlan = (ASPxComboBox)form.FindControl("cmbPlan");
+
                 if (comboProvincia.Value == null || comboCanton.Value == null || comboDistrito.Value == null || comboBarrio.Value == null || string.IsNullOrWhiteSpace(otraSena.Text))
                 {
                     e.RowError = "La ubicación es obligatoria (provincia, cantón, distrito, barrio y otras señas";
+                }
+
+                if (string.IsNullOrWhiteSpace(combPlan.Text))
+                {
+                    e.RowError = "Debe seleccionar un plan";
                 }
             }
 

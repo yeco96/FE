@@ -94,11 +94,12 @@
                             <dx:LayoutItem Caption="Mensaje">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer>
-                                        <dx:ASPxComboBox ID="cmbMensaje" runat="server" SelectedIndex="0" Width="100%" AutoResizeWithContainer="true">
+                                        <dx:ASPxComboBox ID="cmbMensaje" runat="server" SelectedIndex="0" Width="100%" AutoResizeWithContainer="true"
+                                             AutoPostBack="true" OnValueChanged="cmbMensaje_ValueChanged">
                                             <Items>
-                                                <dx:ListEditItem Selected="True" Text="Aceptado" Value="1" />
-                                                <dx:ListEditItem Text="Rechazado Parcial" Value="2" />
-                                                <dx:ListEditItem Text="Rechazado" Value="3" />
+                                                <dx:ListEditItem Selected="True" Text="ACEPTADO" Value="1" />
+                                                <dx:ListEditItem Text="RECHAZADO PARCIAL" Value="2" />
+                                                <dx:ListEditItem Text="RECHAZADO" Value="3" />
                                             </Items>
                                         </dx:ASPxComboBox>
                                     </dx:LayoutItemNestedControlContainer>

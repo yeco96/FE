@@ -80,12 +80,12 @@ namespace Web.Pages.Facturacion
             /* TIPO DOCUMENTO */
             using (var conexion = new DataModelFE())
             {
-                GridViewDataComboBoxColumn comboTipoDocumento = this.ASPxGridView1.Columns["tipoDocumento"] as GridViewDataComboBoxColumn;
-                foreach (var item in conexion.TipoDocumento.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
+                GridViewDataComboBoxColumn comboTipoConsecutivo = this.ASPxGridView1.Columns["tipoDocumento"] as GridViewDataComboBoxColumn;
+                foreach (var item in conexion.TipoConsecutivo.Where(x => x.estado == Estado.ACTIVO.ToString()).ToList())
                 {
-                    comboTipoDocumento.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
+                    comboTipoConsecutivo.PropertiesComboBox.Items.Add(item.descripcion, item.codigo);
                 }
-                comboTipoDocumento.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                comboTipoConsecutivo.PropertiesComboBox.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
             }
         }
 

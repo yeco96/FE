@@ -152,12 +152,12 @@ namespace Web.WebServices
         /// <param name="documento">puede ser cualquer tipo de documento electronico</param>
         /// <param name="responsePost">respuesta del webs ervices</param>
         /// <param name="tipoDocumento">Facura, Nota Crédito, Nota Débito</param> 
-        public static async Task<string> enviarDocumentoElectronico(bool tieneFirma, DocumentoElectronico documento, EmisorReceptorIMEC emisor, string tipoDocumento, string usuario)
+        public static async Task<string> enviarDocumentoElectronico(bool tieneFirma, DocumentoElectronico documentoElectronico, EmisorReceptorIMEC emisor, string tipoDocumento, string usuario)
         {
             String responsePost = "";
             try
             {
-                string xmlFile = EncodeXML.XMLUtils.getXMLFromObject(documento);
+                string xmlFile = EncodeXML.XMLUtils.getXMLFromObject(documentoElectronico);
                  
                 using (var conexion = new DataModelFE())
                 {
@@ -220,34 +220,33 @@ namespace Web.WebServices
 
 
                     WSRecepcionPOST tramaExiste = conexion.WSRecepcionPOST.Find(trama.clave);
+                    documentoElectronico.resumenFactura.clave = documentoElectronico.clave;
+                    trama.cargarEmisorReceptor();
 
                     if (tramaExiste != null)
                     {// si existe
                         trama.fechaModificacion = Date.DateTimeNow();
                         trama.usuarioModificacion = usuario;
-                        trama.indEstado = 0;
-                        trama.cargarEmisorReceptor();
+                        trama.indEstado = 0; 
                         conexion.Entry(tramaExiste).State = EntityState.Modified;
-
-                        documento.resumenFactura.clave = documento.clave;
-                        conexion.Entry(documento.resumenFactura).State = EntityState.Modified;
+                        
+                        conexion.Entry(documentoElectronico.resumenFactura).State = EntityState.Modified;
                     }
                     else//si no existe
                     {
                         trama.fechaCreacion = Date.DateTimeNow();
-                        trama.usuarioCreacion = usuario;
-                        trama.cargarEmisorReceptor();
+                        trama.usuarioCreacion = usuario; 
                         conexion.WSRecepcionPOST.Add(trama);
-
-                        documento.resumenFactura.clave = documento.clave;
-                        conexion.ResumenFactura.Add(documento.resumenFactura);
+                        
+                        conexion.ResumenFactura.Add(documentoElectronico.resumenFactura);
 
                         Plan plan = conexion.Plan.Find(emisor.identificacion);
                         if (plan != null)
                         {
                             plan.cantidadDocEmitido += 1;
                             conexion.Entry(plan).State = EntityState.Modified;
-                        }
+                        } 
+
                     } 
                     conexion.SaveChanges();
 
