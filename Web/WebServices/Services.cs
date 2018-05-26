@@ -219,7 +219,7 @@ namespace Web.WebServices
                         trama.indEstado = 9;
                     }
                     // SE DECODIFICA PARA GUARDAR A BASE DE DATOS
-                    trama.comprobanteXml = XMLUtils.base64Decode(xmlFile);
+                    trama.comprobanteXml = xmlFile;
 
                     WSRecepcionPOST tramaExiste = conexion.WSRecepcionPOST.Find(trama.clave);
                     documentoElectronico.resumenFactura.clave = documentoElectronico.clave;
