@@ -161,7 +161,7 @@ namespace Web.Pages.Catalogos
                     dato.tipo = e.NewValues["tipo"] != null ? e.NewValues["tipo"].ToString().ToUpper() : null;
                     dato.tipoServMerc = e.NewValues["tipoServMerc"] != null ? e.NewValues["tipoServMerc"].ToString().ToUpper() : null;
                     dato.unidadMedida = e.NewValues["unidadMedida"] != null ? e.NewValues["unidadMedida"].ToString() : null;
-                    dato.precio = e.NewValues["precio"] != null ? decimal.Parse(e.NewValues["precio"].ToString()) : 0;
+                    dato.precioVenta1 = e.NewValues["precioVenta1"] != null ? decimal.Parse(e.NewValues["precioVenta1"].ToString()) : 0;
                     dato.orden = e.NewValues["orden"] != null ? int.Parse(e.NewValues["orden"].ToString()) : 0;
                     dato.emisor =Session["emisor"].ToString();
                     dato.aplicaIV = e.NewValues["aplicaIV"].ToString();
@@ -223,7 +223,7 @@ namespace Web.Pages.Catalogos
                     Producto dato = conexion.Producto.Find(long.Parse(e.NewValues["id"].ToString()));
 
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
-                    dato.precio = e.NewValues["precio"] != null ? decimal.Parse(e.NewValues["precio"].ToString()) : 0;
+                    dato.precioVenta1 = e.NewValues["precioVenta1"] != null ? decimal.Parse(e.NewValues["precioVenta1"].ToString()) : 0;
                     dato.emisor =Session["emisor"].ToString();
                     dato.tipo = e.NewValues["tipo"] != null ? e.NewValues["tipo"].ToString().ToUpper() : null;
                     dato.tipoServMerc = e.NewValues["tipoServMerc"] != null ? e.NewValues["tipoServMerc"].ToString().ToUpper() : null;

@@ -64,7 +64,11 @@ namespace Web.Models.Catalogos
         public string emisor { set; get; }
 
         [Required]
-        public decimal precio { set; get; }
+        public decimal precioVenta1 { set; get; }
+        [Required]
+        public decimal precioVenta2 { set; get; }
+        [Required]
+        public decimal precioVenta3 { set; get; }
 
         [Required]
         public decimal precioCompra { set; get; }
@@ -94,6 +98,9 @@ namespace Web.Models.Catalogos
         [Required]
         public int cantidadMaxima { set; get; }
 
+        [Required]
+        public int cantidadDisponible { set; get; }
+
         /// <summary>
         /// Porcentaje de ganancia del producto
         /// </summary>
@@ -115,6 +122,15 @@ namespace Web.Models.Catalogos
 
         public DateTime? fechaModificacion { set; get; }
 
+
+
+        [NotMapped]
+        public Decimal subTotal1 { get { return cantidadDisponible * precioVenta1; } }
+        [NotMapped]
+        public Decimal subTotal2 { get { return cantidadDisponible * precioVenta2; } }
+        [NotMapped]
+        public Decimal subTotal3 { get { return cantidadDisponible * precioVenta3; } }
+
         /// <summary>
         /// CONSTRUCTOR
         /// </summary>
@@ -134,7 +150,7 @@ namespace Web.Models.Catalogos
 
         public override string ToString()
         {
-            return String.Format("{0} - {1}",this.descripcion,this.precio.ToString("n2"));
+            return String.Format("{0} - {1}",this.descripcion,this.precioVenta1.ToString("n2"));
         }
 
     }

@@ -140,7 +140,7 @@ namespace Web.Pages.Facturacion
                             dato.unidadMedidaComercial = "";
                             dato.tipoServMerc = producto.tipoServMerc;
                             dato.producto = producto.codigo;/*solo para uso del grid*/
-                            dato.precioUnitario = producto.precio;
+                            dato.precioUnitario = producto.precioVenta1;
                             dato.montoDescuento = 0;
                             dato.naturalezaDescuento = "N/A";
                             dato.calcularMontos();
@@ -779,7 +779,7 @@ namespace Web.Pages.Facturacion
                     dato.unidadMedida = producto.unidadMedida;
                     dato.unidadMedidaComercial = "";
 
-                    decimal precio = "0".Equals(e.NewValues["precioUnitario"].ToString()) ? producto.precio : decimal.Parse(e.NewValues["precioUnitario"].ToString());
+                    decimal precio = "0".Equals(e.NewValues["precioUnitario"].ToString()) ? producto.precioVenta1 : decimal.Parse(e.NewValues["precioUnitario"].ToString());
 
                     dato.tipoServMerc = producto.tipoServMerc;
                     dato.producto = producto.codigo;/*solo para uso del grid*/
@@ -873,7 +873,7 @@ namespace Web.Pages.Facturacion
                     //dato.unidadMedida = producto.unidadMedida;
                     dato.unidadMedidaComercial = "";
 
-                    decimal precio = "0".Equals(e.NewValues["precioUnitario"].ToString()) ? producto.precio : decimal.Parse(e.NewValues["precioUnitario"].ToString());
+                    decimal precio = "0".Equals(e.NewValues["precioUnitario"].ToString()) ? producto.precioVenta1 : decimal.Parse(e.NewValues["precioUnitario"].ToString());
 
                     dato.tipoServMerc = producto.tipoServMerc;
                     dato.producto = producto.codigo;/*solo para uso del grid*/

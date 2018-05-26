@@ -20,18 +20,22 @@
                 var precioCompra = ASPxGridView1.GetEditValue("precioCompra"); 
                 //alert(precio);
                 if (isNaN(porcentaje)) {
-                    ASPxGridView1.SetEditValue("precio", 0);
+                    ASPxGridView1.SetEditValue("precioVenta1", 0);
+                    ASPxGridView1.SetEditValue("precioVenta2", 0);
+                    ASPxGridView1.SetEditValue("precioVenta3", 0);
                 } else {
-                    ASPxGridView1.SetEditValue("precio", ((porcentaje/100)+1) * precioCompra);
+                    ASPxGridView1.SetEditValue("precioVenta1", ((porcentaje / 100) + 1) * precioCompra);
+                    ASPxGridView1.SetEditValue("precioVenta2", ((porcentaje / 100) + 1) * precioCompra);
+                    ASPxGridView1.SetEditValue("precioVenta3", ((porcentaje / 100) + 1) * precioCompra);
                 }
             } 
 
         </script>
 
         <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView1" KeyboardSupport="True"
-            Width="100%" EnableTheming="True" KeyFieldName="id" Theme="Moderno" 
+            Width="100%" EnableTheming="True" KeyFieldName="id" Theme="MetropolisBlue" 
             OnCellEditorInitialize="ASPxGridView1_CellEditorInitialize" OnDetailRowExpandedChanged="ASPxGridView2_DetailRowExpandedChanged"
-            OnRowDeleting="ASPxGridView1_RowDeleting"
+            OnRowDeleting="ASPxGridView1_RowDeleting" 
             OnRowInserting="ASPxGridView1_RowInserting" 
             OnRowUpdating="ASPxGridView1_RowUpdating">
             <ClientSideEvents EndCallback="function(s, e) {if (s.cpUpdatedMessage) { alert(s.cpUpdatedMessage);  delete s.cpUpdatedMessage;  }}" />
@@ -41,26 +45,26 @@
                      ShowNewButtonInHeader="True" VisibleIndex="0" ShowClearFilterButton="True" Caption=" ">
                 </dx:GridViewCommandColumn>
 
-                <dx:GridViewDataTextColumn Caption="Id" FieldName="id" VisibleIndex="2" Visible="false" EditFormSettings-Visible="True" EditFormSettings-VisibleIndex="50"
+                <dx:GridViewDataTextColumn Caption="Id" FieldName="id" VisibleIndex="2" Visible="false" EditFormSettings-Visible="True"  EditFormSettings-VisibleIndex="1"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataComboBoxColumn Caption="Tipo Código" FieldName="tipo" VisibleIndex="2"  Visible="false" EditFormSettings-Visible="True"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
-                  <dx:GridViewDataComboBoxColumn Caption="Tipo Serv/Merc" FieldName="tipoServMerc" VisibleIndex="3" 
+                  <dx:GridViewDataComboBoxColumn Caption="Tipo" FieldName="tipoServMerc" VisibleIndex="3" 
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
                 <dx:GridViewDataComboBoxColumn Caption="Unidad Medida" FieldName="unidadMedida" VisibleIndex="4"   Visible="false" EditFormSettings-Visible="True"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
-                <dx:GridViewDataTextColumn Caption="Código" FieldName="codigo" VisibleIndex="5"  PropertiesTextEdit-MaxLength="20"
+                <dx:GridViewDataTextColumn Caption="Código" FieldName="codigo" VisibleIndex="5"  PropertiesTextEdit-MaxLength="20" EditFormSettings-VisibleIndex="2"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Descripción" FieldName="descripcion" VisibleIndex="6" EditFormSettings-VisibleIndex="5" PropertiesTextEdit-MaxLength="50" Width="25%"
+                <dx:GridViewDataTextColumn Caption="Descripción" FieldName="descripcion" VisibleIndex="6" EditFormSettings-VisibleIndex="5" PropertiesTextEdit-MaxLength="50" Width="20%"
                     PropertiesTextEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesTextEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataTextColumn>
 
-                <dx:GridViewDataSpinEditColumn Caption="Precio Compra" FieldName="precioCompra" VisibleIndex="7" PropertiesSpinEdit-DecimalPlaces="2"
+                <dx:GridViewDataSpinEditColumn Caption="P.Compra" FieldName="precioCompra" VisibleIndex="7" PropertiesSpinEdit-DecimalPlaces="2"
                      PropertiesSpinEdit-AllowMouseWheel="false"
                     PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="{0:n2}"
                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
@@ -79,19 +83,31 @@
                 </dx:GridViewDataSpinEditColumn>
 
 
-                  <dx:GridViewDataSpinEditColumn Caption="Precio Venta" FieldName="precio" VisibleIndex="9" PropertiesSpinEdit-DecimalPlaces="2"
+                  <dx:GridViewDataSpinEditColumn Caption="P.Venta 1" FieldName="precioVenta1" VisibleIndex="9" PropertiesSpinEdit-DecimalPlaces="2"
+                     PropertiesSpinEdit-AllowMouseWheel="false"
+                    PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="{0:n2}"
+                    PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataSpinEditColumn>
+
+                  <dx:GridViewDataSpinEditColumn Caption="P.Venta 2" FieldName="precioVenta2" VisibleIndex="9" PropertiesSpinEdit-DecimalPlaces="2"
+                     PropertiesSpinEdit-AllowMouseWheel="false"
+                    PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="{0:n2}"
+                    PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataSpinEditColumn>
+
+                  <dx:GridViewDataSpinEditColumn Caption="P.Venta 3" FieldName="precioVenta3" VisibleIndex="9" PropertiesSpinEdit-DecimalPlaces="2"
                      PropertiesSpinEdit-AllowMouseWheel="false"
                     PropertiesSpinEdit-MinValue="0" PropertiesSpinEdit-MaxValue="999999999999" PropertiesSpinEdit-DisplayFormatString="{0:n2}"
                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataSpinEditColumn>
 
                  
-                 <dx:GridViewDataComboBoxColumn Caption="Imp. Venta" FieldName="aplicaIV" VisibleIndex="10"
-                     Visible="true" EditFormSettings-Visible="True"  CellStyle-HorizontalAlign="Center"
+                 <dx:GridViewDataComboBoxColumn Caption="Imp. Venta" FieldName="aplicaIV" VisibleIndex="100" 
+                     Visible="false" EditFormSettings-Visible="True"  CellStyle-HorizontalAlign="Center"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
-                 <dx:GridViewDataComboBoxColumn Caption="Imp. Servicio" FieldName="aplicaIS" VisibleIndex="11"
-                     Visible="true" EditFormSettings-Visible="True"  CellStyle-HorizontalAlign="Center"
+                 <dx:GridViewDataComboBoxColumn Caption="Imp. Servicio" FieldName="aplicaIS" VisibleIndex="101"
+                     Visible="false" EditFormSettings-Visible="True"  CellStyle-HorizontalAlign="Center"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
 
@@ -101,8 +117,11 @@
                  <dx:GridViewDataSpinEditColumn Caption="Cant. Máxima" FieldName="cantidadMaxima" VisibleIndex="13"   PropertiesSpinEdit-DisplayFormatString="{0:n2}"
                     PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataSpinEditColumn>
+                 <dx:GridViewDataSpinEditColumn Caption="Cant. Disponible" FieldName="cantidadDisponible" VisibleIndex="13"   PropertiesSpinEdit-DisplayFormatString="{0:n2}"
+                    PropertiesSpinEdit-ValidationSettings-RequiredField-IsRequired="true" PropertiesSpinEdit-ValidationSettings-RequiredField-ErrorText="Requerido">
+                </dx:GridViewDataSpinEditColumn>
 
-                <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="14" EditFormSettings-VisibleIndex="51"
+                <dx:GridViewDataComboBoxColumn Caption="Estado" FieldName="estado" VisibleIndex="14" EditFormSettings-VisibleIndex="7"
                     PropertiesComboBox-ValidationSettings-RequiredField-IsRequired="true" PropertiesComboBox-ValidationSettings-RequiredField-ErrorText="Requerido">
                 </dx:GridViewDataComboBoxColumn>
                 <dx:GridViewDataTextColumn Visible="false" Caption="Usuario Creación" FieldName="usuarioCreacion" VisibleIndex="5">
@@ -116,12 +135,18 @@
                     <PropertiesDateEdit EditFormat="DateTime" DisplayFormatString="" EditFormatString="dd/MM/yyyy hh:mm:ss"></PropertiesDateEdit>
                 </dx:GridViewDataDateColumn>
             </Columns>
-
+            <TotalSummary>
+                <dx:ASPxSummaryItem FieldName="cantidadDisponible" SummaryType="Sum" DisplayFormat="{0:n0}" />
+                <dx:ASPxSummaryItem FieldName="precioCompra" SummaryType="Sum" DisplayFormat="{0:n2}"/>
+                <dx:ASPxSummaryItem FieldName="subTotal1" ShowInColumn="precioVenta1" SummaryType="Sum" DisplayFormat="{0:n2}"/>
+                <dx:ASPxSummaryItem FieldName="subTotal2" ShowInColumn="precioVenta2" SummaryType="Sum" DisplayFormat="{0:n2}"/>
+                <dx:ASPxSummaryItem FieldName="subTotal3" ShowInColumn="precioVenta3" SummaryType="Sum" DisplayFormat="{0:n2}"/>
+            </TotalSummary>
             <SettingsBehavior ColumnResizeMode="NextColumn" />
-            <Settings ShowFooter="True" ShowFilterBar="Visible" ShowFilterRow="true"  />
+            <Settings ShowFooter="True" ShowFilterBar="Visible" ShowFilterRow="true"   />
             <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="True" ConfirmDelete="True" />
             <SettingsPager PageSize="10" PageSizeItemSettings-Visible="true" PageSizeItemSettings-Items="10, 20, 50, 100" />
-            <SettingsEditing Mode="EditFormAndDisplayRow"   />
+            <SettingsEditing Mode="EditFormAndDisplayRow"  EditFormColumnCount="3"  />
             <Settings VerticalScrollBarMode="Hidden" GridLines="Both" VerticalScrollableHeight="350" VerticalScrollBarStyle="Standard" ShowGroupPanel="True" ShowFilterRow="True" ShowTitlePanel="True" UseFixedTableLayout="True" />
             <SettingsContextMenu EnableColumnMenu="True" Enabled="True" EnableFooterMenu="True" EnableGroupPanelMenu="True" EnableRowMenu="True" />
             <SettingsDetail ShowDetailRow="true" />
@@ -169,11 +194,13 @@
                         <dx:ASPxGridViewTemplateReplacement ID="CancelButton" ReplacementType="EditFormCancelButton" runat="server" />
                     </div>
                 </EditForm>
-                <FooterRow>
-                    <asp:ImageButton ID="exportarPDF" runat="server" ImageUrl="~/Content/Images/pdf.png" ToolTip="Exportar a PDF" OnClick="exportarPDF_Click" />
-                    <asp:ImageButton ID="exportarXLSX" runat="server" ImageUrl="~/Content/Images/xlsx.png" ToolTip="Exportar a MS-Excel 2007 o superior" OnClick="exportarXLSX_Click" />
-                    <asp:ImageButton ID="exportarCSV" runat="server" ImageUrl="~/Content/Images/csv.png" ToolTip="Exportar a MS-Excel delimitado con punto y coma" OnClick="exportarCSV_Click" />
-                </FooterRow>
+                <TitlePanel>
+                    <div style="text-align: right;" >
+                        <asp:ImageButton ID="exportarPDF" runat="server" ImageUrl="~/Content/Images/pdf.png" ToolTip="Exportar a PDF" OnClick="exportarPDF_Click" />
+                        <asp:ImageButton ID="exportarXLSX" runat="server" ImageUrl="~/Content/Images/xlsx.png" ToolTip="Exportar a MS-Excel 2007 o superior" OnClick="exportarXLSX_Click" />
+                        <asp:ImageButton ID="exportarCSV" runat="server" ImageUrl="~/Content/Images/csv.png" ToolTip="Exportar a MS-Excel delimitado con punto y coma" OnClick="exportarCSV_Click" />
+                    </div>
+                </TitlePanel>
                 <DetailRow>
 
                     <dx:ASPxGridView ID="ASPxGridView2" runat="server" AutoGenerateColumns="False" ClientInstanceName="ASPxGridView2" KeyboardSupport="True"

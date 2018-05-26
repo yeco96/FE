@@ -158,9 +158,12 @@ namespace Web.Pages.Inventario
                     dato.tipo = e.NewValues["tipo"] != null ? e.NewValues["tipo"].ToString().ToUpper() : null;
                     dato.tipoServMerc = e.NewValues["tipoServMerc"] != null ? e.NewValues["tipoServMerc"].ToString().ToUpper() : null;
                     dato.unidadMedida = e.NewValues["unidadMedida"] != null ? e.NewValues["unidadMedida"].ToString() : null;
-                    dato.precio = e.NewValues["precio"] != null ? decimal.Parse(e.NewValues["precio"].ToString()) : 0;
+                    dato.precioVenta1 = e.NewValues["precioVenta1"] != null ? decimal.Parse(e.NewValues["precioVenta1"].ToString()) : 0;
+                    dato.precioVenta2 = e.NewValues["precioVenta2"] != null ? decimal.Parse(e.NewValues["precioVenta2"].ToString()) : 0;
+                    dato.precioVenta3 = e.NewValues["precioVenta3"] != null ? decimal.Parse(e.NewValues["precioVenta3"].ToString()) : 0;
                     dato.precioCompra = e.NewValues["precioCompra"] != null ? decimal.Parse(e.NewValues["precioCompra"].ToString()) : 0;
                     dato.orden = 0;
+                    dato.cantidadDisponible = e.NewValues["cantidadDisponible"] != null ? int.Parse(e.NewValues["cantidadDisponible"].ToString()) : 0;
                     dato.cantidadMinima = e.NewValues["cantidadMinima"] != null ? int.Parse(e.NewValues["cantidadMinima"].ToString()) : 0;
                     dato.cantidadMaxima = e.NewValues["cantidadMaxima"] != null ? int.Parse(e.NewValues["cantidadMaxima"].ToString()) : 0;
                     dato.porcentajeGanancia = e.NewValues["porcentajeGanancia"] != null ? double.Parse(e.NewValues["porcentajeGanancia"].ToString()) : 1;
@@ -224,7 +227,9 @@ namespace Web.Pages.Inventario
                     Producto dato = conexion.Producto.Find(long.Parse(e.NewValues["id"].ToString()));
 
                     dato.codigo = e.NewValues["codigo"] != null ? e.NewValues["codigo"].ToString() : null;
-                    dato.precio = e.NewValues["precio"] != null ? decimal.Parse(e.NewValues["precio"].ToString()) : 0;
+                    dato.precioVenta1 = e.NewValues["precioVenta1"] != null ? decimal.Parse(e.NewValues["precioVenta1"].ToString()) : 0;
+                    dato.precioVenta2 = e.NewValues["precioVenta2"] != null ? decimal.Parse(e.NewValues["precioVenta2"].ToString()) : 0;
+                    dato.precioVenta3 = e.NewValues["precioVenta3"] != null ? decimal.Parse(e.NewValues["precioVenta3"].ToString()) : 0;
                     dato.precioCompra = e.NewValues["precioCompra"] != null ? decimal.Parse(e.NewValues["precioCompra"].ToString()) : 0;
                     dato.emisor =Session["emisor"].ToString();
                     dato.tipo = e.NewValues["tipo"] != null ? e.NewValues["tipo"].ToString().ToUpper() : null;
@@ -232,6 +237,7 @@ namespace Web.Pages.Inventario
                     dato.unidadMedida = e.NewValues["unidadMedida"] != null ? e.NewValues["unidadMedida"].ToString() : null;
                     dato.descripcion = e.NewValues["descripcion"] != null ? e.NewValues["descripcion"].ToString().ToUpper() : null;
                     dato.orden =  0;
+                    dato.cantidadDisponible = e.NewValues["cantidadDisponible"] != null ? int.Parse(e.NewValues["cantidadDisponible"].ToString()) : 0;
                     dato.cantidadMinima = e.NewValues["cantidadMinima"] != null ? int.Parse(e.NewValues["cantidadMinima"].ToString()) : 0;
                     dato.cantidadMaxima = e.NewValues["cantidadMaxima"] != null ? int.Parse(e.NewValues["cantidadMaxima"].ToString()) : 0;
                     dato.porcentajeGanancia = e.NewValues["porcentajeGanancia"] != null ? double.Parse(e.NewValues["porcentajeGanancia"].ToString()) : 1;
@@ -491,5 +497,7 @@ namespace Web.Pages.Inventario
                 }
             }
         }
+
+         
     }
 }
