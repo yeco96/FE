@@ -177,6 +177,8 @@ namespace Web.Pages.Facturacion
                                 //dato.receptorIdentificacion = mensajeHacienda.receptorNumeroCedula;
                                 dato.montoTotalFactura = mensajeHacienda.montoTotalFactura;
                                 dato.montoTotalImpuesto = mensajeHacienda.montoTotalImpuesto;
+                                dato.montoTotalImpuesto = mensajeHacienda.montoTotalImpuesto;
+                                dato.comprobanteRespXML = respuestaXML;
 
                                 if (mensajeHacienda.montoTotalFactura == 0)
                                 {
@@ -284,7 +286,7 @@ namespace Web.Pages.Facturacion
                 {
                     string clave = Session["clave"].ToString();
                     WSRecepcionPOST dato = conexion.WSRecepcionPOST.Where(x => x.clave == clave).FirstOrDefault();
-                    xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteRespXML);
+                    xml = dato.comprobanteRespXML;
                 }
                 Response.Clear();
                 Response.ClearHeaders();
@@ -315,7 +317,7 @@ namespace Web.Pages.Facturacion
                     {
                         string clave = Session["clave"].ToString();
                         WSRecepcionPOST dato = conexion.WSRecepcionPOST.Where(x => x.clave == clave).FirstOrDefault();
-                        xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
+                        xml = dato.comprobanteXml;
                     }
                     Response.Clear();
                     Response.ClearHeaders();
@@ -369,7 +371,7 @@ namespace Web.Pages.Facturacion
 
                         string clave = Session["clave"].ToString();
                         WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
-                        string xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
+                        string xml = dato.comprobanteXml;
                         DocumentoElectronico documento = (DocumentoElectronico) EncodeXML.XMLUtils.getObjetcFromXML(xml);
                         documento.verificaDatosParaXML();
 

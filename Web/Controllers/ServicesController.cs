@@ -149,7 +149,7 @@ namespace Web.Controllers
                                 WSRecepcionGET respuesta = JsonConvert.DeserializeObject<WSRecepcionGET>(respuestaJSON);
                                 if (respuesta.respuestaXml != null)
                                 {
-                                    string respuestaXML = EncodeXML.XMLUtils.base64Decode(respuesta.respuestaXml);
+                                    string respuestaXML = respuesta.respuestaXml;
 
                                     MensajeHacienda mensajeHacienda = new MensajeHacienda(respuestaXML);
 

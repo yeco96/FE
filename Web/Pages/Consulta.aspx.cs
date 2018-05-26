@@ -45,13 +45,13 @@ namespace Web.Pages
                 if (clave.Substring(29,2) == TipoDocumento.PROFORMA)
                 {
                     WSRecepcionPOSTProforma dato = conexion.WSRecepcionPOSTProforma.Find(clave);
-                    xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
+                    xml = dato.comprobanteXml;
                     mensaje = dato.mensaje;
                 }
                 else
                 {
                     WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
-                    xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
+                    xml = dato.comprobanteXml;
                     mensaje = dato.mensaje;
                 }  
 

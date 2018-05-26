@@ -17251,3 +17251,395 @@ Stack Trace:
    en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
+********** 26/5/2018 08:28:47 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error en Descodificar a base 64La entrada no es una cadena Base 64 válida porque contiene un carácter que no es Base 64, más de dos caracteres de relleno o un carácter no válido entre los caracteres de relleno. 
+Inner Source: EncodeXML
+Inner Stack Trace: 
+   en EncodeXML.XMLUtils.base64Decode(String data) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\EncodeXML\EncodeXML.cs:línea 36
+   en WSDomain.WSRecepcionPOST.get_moneda() en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\WSDomain\WSRecepcionPOST.cs:línea 39
+   en (Object )
+   en DevExpress.Data.Access.DataListDescriptor.FastPropertyDescriptor.GetValue(Object component)
+   en DevExpress.Data.Helpers.BaseListDataControllerHelper.GetRowValue(Int32 listSourceRow, DataColumnInfo columnInfo, OperationCompleted completed)
+   en DevExpress.Data.DataController.GetRowValue(Int32 controllerRow, Int32 column, OperationCompleted completed)
+   en DevExpress.Data.BaseListSourceDataController.GetRowValue(Int32 controllerRow, Int32 column, OperationCompleted completed)
+   en DevExpress.Data.DataController.GetRowValue(Int32 controllerRow, DataColumnInfo column, OperationCompleted completed)
+   en DevExpress.Web.Data.WebDataControllerProvider.GetRowValueByControllerRow(Int32 controllerRow, String fieldName, Boolean isDesignTime)
+   en DevExpress.Web.Data.WebDataControllerProvider.GetRowValue(Int32 visibleIndex, String fieldName, Boolean isDesignTime)
+   en DevExpress.Web.Data.WebDataProxy.GetRowValue(Int32 visibleIndex, String fieldName)
+   en DevExpress.Web.Internal.GridTextBuilder.GetDisplayControlArgs(IWebGridDataColumn column, Int32 visibleIndex, IValueProvider provider, ASPxGridBase grid, Boolean highlightSearchText)
+   en DevExpress.Web.Internal.GridRenderHelper.CreateDataCellDisplayControl(IWebGridDataColumn column, Int32 visibleIndex, IValueProvider row)
+   en DevExpress.Web.Internal.GridRenderHelper.AddDisplayControlToDataCell(Control cell, IWebGridDataColumn column, Int32 visibleIndex, IValueProvider row)
+   en DevExpress.Web.Rendering.GridViewTableDataCell.CreateControlHierarchy()
+   en DevExpress.Web.Internal.InternalTableCell.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.Internal.InternalTableCell.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control)
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control)
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en DevExpress.Web.ASPxWebControl.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en System.Web.UI.Control.FindControl(String id, Int32 pathOffset)
+   en System.Web.UI.Control.FindControl(String id, Int32 pathOffset)
+   en System.Web.UI.Control.FindControl(String id, Int32 pathOffset)
+   en System.Web.UI.Control.FindControl(String id, Int32 pathOffset)
+   en System.Web.UI.Page.FindControl(String id)
+   en System.Web.UI.Page.ProcessPostData(NameValueCollection postData, Boolean fBeforeLoad)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestAsync>d__515.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.UI.Page.<ProcessRequestAsync>d__554.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
+   en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
+   en ASP.pages_facturacion_frmadministraciondocelectronicoadmin_aspx.EndProcessRequest(IAsyncResult ar) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4a5bbe80\ea8ad4ab\App_Web_ueu5hm4u.3.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/5/2018 08:33:33 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error en Descodificar a base 64La entrada no es una cadena Base 64 válida porque contiene un carácter que no es Base 64, más de dos caracteres de relleno o un carácter no válido entre los caracteres de relleno. 
+Inner Source: EncodeXML
+Inner Stack Trace: 
+   en EncodeXML.XMLUtils.base64Decode(String data) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\EncodeXML\EncodeXML.cs:línea 36
+   en WSDomain.WSRecepcionPOST.get_moneda() en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\WSDomain\WSRecepcionPOST.cs:línea 39
+   en (Object )
+   en DevExpress.Data.Access.DataListDescriptor.FastPropertyDescriptor.GetValue(Object component)
+   en DevExpress.Data.Helpers.BaseListDataControllerHelper.GetRowValue(Int32 listSourceRow, DataColumnInfo columnInfo, OperationCompleted completed)
+   en DevExpress.Data.DataController.GetRowValue(Int32 controllerRow, Int32 column, OperationCompleted completed)
+   en DevExpress.Data.BaseListSourceDataController.GetRowValue(Int32 controllerRow, Int32 column, OperationCompleted completed)
+   en DevExpress.Data.DataController.GetRowValue(Int32 controllerRow, DataColumnInfo column, OperationCompleted completed)
+   en DevExpress.Web.Data.WebDataControllerProvider.GetRowValueByControllerRow(Int32 controllerRow, String fieldName, Boolean isDesignTime)
+   en DevExpress.Web.Data.WebDataControllerProvider.GetRowValue(Int32 visibleIndex, String fieldName, Boolean isDesignTime)
+   en DevExpress.Web.Data.WebDataProxy.GetRowValue(Int32 visibleIndex, String fieldName)
+   en DevExpress.Web.Internal.GridTextBuilder.GetDisplayControlArgs(IWebGridDataColumn column, Int32 visibleIndex, IValueProvider provider, ASPxGridBase grid, Boolean highlightSearchText)
+   en DevExpress.Web.Internal.GridRenderHelper.CreateDataCellDisplayControl(IWebGridDataColumn column, Int32 visibleIndex, IValueProvider row)
+   en DevExpress.Web.Internal.GridRenderHelper.AddDisplayControlToDataCell(Control cell, IWebGridDataColumn column, Int32 visibleIndex, IValueProvider row)
+   en DevExpress.Web.Rendering.GridViewTableDataCell.CreateControlHierarchy()
+   en DevExpress.Web.Internal.InternalTableCell.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.Internal.InternalTableCell.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control)
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.DevExpress.Web.Internal.IWebControl.EnsureChildControls()
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Predicate`1 skipControlCondition)
+   en DevExpress.Web.Internal.RenderUtils.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control, Boolean skipContentContainers)
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControlsRecursive(Control control)
+   en DevExpress.Web.ASPxWebControlBase.CreateChildControls()
+   en DevExpress.Web.ASPxWebControl.CreateChildControls()
+   en System.Web.UI.Control.EnsureChildControls()
+   en DevExpress.Web.ASPxWebControlBase.EnsureChildControls()
+   en System.Web.UI.Control.FindControl(String id, Int32 pathOffset)
+   en System.Web.UI.Control.FindControl(String id, Int32 pathOffset)
+   en System.Web.UI.Control.FindControl(String id, Int32 pathOffset)
+   en System.Web.UI.Control.FindControl(String id, Int32 pathOffset)
+   en System.Web.UI.Page.FindControl(String id)
+   en System.Web.UI.Page.ProcessPostData(NameValueCollection postData, Boolean fBeforeLoad)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.<ProcessRequestMainAsync>d__523.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.Util.WithinCancellableCallbackTaskAwaitable.WithinCancellableCallbackTaskAwaiter.GetResult()
+   en System.Web.UI.Page.<ProcessRequestAsync>d__515.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.UI.Page.<ProcessRequestAsync>d__554.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Web.TaskAsyncHelper.EndTask(IAsyncResult ar)
+   en System.Web.UI.Page.AsyncPageEndProcessRequest(IAsyncResult result)
+   en ASP.pages_facturacion_frmadministraciondocelectronicoadmin_aspx.EndProcessRequest(IAsyncResult ar) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4a5bbe80\ea8ad4ab\App_Web_ueu5hm4u.3.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/5/2018 08:39:03 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error en Descodificar a base 64La entrada no es una cadena Base 64 válida porque contiene un carácter que no es Base 64, más de dos caracteres de relleno o un carácter no válido entre los caracteres de relleno. 
+Inner Source: EncodeXML
+Inner Stack Trace: 
+   en EncodeXML.XMLUtils.base64Decode(String data) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\EncodeXML\EncodeXML.cs:línea 36
+   en Web.Pages.Consulta.CreateReport(String clave) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Consulta.aspx.cs:línea 54
+   en Web.Pages.Consulta.Page_Load(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Consulta.aspx.cs:línea 33
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_consulta_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4a5bbe80\ea8ad4ab\App_Web_ec4dqgko.5.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/5/2018 08:42:15 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error en Descodificar a base 64La entrada no es una cadena Base 64 válida porque contiene un carácter que no es Base 64, más de dos caracteres de relleno o un carácter no válido entre los caracteres de relleno. 
+Inner Source: EncodeXML
+Inner Stack Trace: 
+   en EncodeXML.XMLUtils.base64Decode(String data) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\EncodeXML\EncodeXML.cs:línea 36
+   en Web.Pages.Consulta.CreateReport(String clave)
+   en Web.Pages.Consulta.Page_Load(Object sender, EventArgs e)
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_consulta_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4a5bbe80\ea8ad4ab\App_Web_ec4dqgko.5.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/5/2018 08:43:04 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error en Descodificar a base 64La entrada no es una cadena Base 64 válida porque contiene un carácter que no es Base 64, más de dos caracteres de relleno o un carácter no válido entre los caracteres de relleno. 
+Inner Source: EncodeXML
+Inner Stack Trace: 
+   en EncodeXML.XMLUtils.base64Decode(String data) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\EncodeXML\EncodeXML.cs:línea 36
+   en Web.Pages.Consulta.CreateReport(String clave)
+   en Web.Pages.Consulta.Page_Load(Object sender, EventArgs e)
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_consulta_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4a5bbe80\ea8ad4ab\App_Web_ec4dqgko.5.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/5/2018 08:43:06 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error en Descodificar a base 64La entrada no es una cadena Base 64 válida porque contiene un carácter que no es Base 64, más de dos caracteres de relleno o un carácter no válido entre los caracteres de relleno. 
+Inner Source: EncodeXML
+Inner Stack Trace: 
+   en EncodeXML.XMLUtils.base64Decode(String data) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\EncodeXML\EncodeXML.cs:línea 36
+   en Web.Pages.Consulta.CreateReport(String clave)
+   en Web.Pages.Consulta.Page_Load(Object sender, EventArgs e)
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_consulta_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4a5bbe80\ea8ad4ab\App_Web_ec4dqgko.5.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/5/2018 08:43:07 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error en Descodificar a base 64La entrada no es una cadena Base 64 válida porque contiene un carácter que no es Base 64, más de dos caracteres de relleno o un carácter no válido entre los caracteres de relleno. 
+Inner Source: EncodeXML
+Inner Stack Trace: 
+   en EncodeXML.XMLUtils.base64Decode(String data) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\EncodeXML\EncodeXML.cs:línea 36
+   en Web.Pages.Consulta.CreateReport(String clave)
+   en Web.Pages.Consulta.Page_Load(Object sender, EventArgs e)
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_consulta_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4a5bbe80\ea8ad4ab\App_Web_ec4dqgko.5.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/5/2018 08:57:15 **********
+Inner Exception Type: System.Exception
+Inner Exception: Error en Descodificar a base 64La entrada no es una cadena Base 64 válida porque contiene un carácter que no es Base 64, más de dos caracteres de relleno o un carácter no válido entre los caracteres de relleno. 
+Inner Source: EncodeXML
+Inner Stack Trace: 
+   en EncodeXML.XMLUtils.base64Decode(String data) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\EncodeXML\EncodeXML.cs:línea 36
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e)
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4a5bbe80\ea8ad4ab\App_Web_54qelumg.5.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/5/2018 08:58:14 **********
+Inner Exception Type: System.Reflection.TargetException
+Inner Exception: El campo no estático necesita un destino.
+Inner Source: mscorlib
+Inner Stack Trace: 
+   en System.Reflection.RtFieldInfo.CheckConsistency(Object target)
+   en System.Reflection.RtFieldInfo.InternalGetValue(Object obj, StackCrawlMark& stackMark)
+   en System.Reflection.RtFieldInfo.GetValue(Object obj)
+   en System.Data.Entity.Core.Objects.ELinq.QueryParameterExpression.TryGetFieldOrPropertyValue(MemberExpression me, Object instance, Object& memberValue)
+   en System.Data.Entity.Core.Objects.ELinq.QueryParameterExpression.TryEvaluatePath(Expression expression, ConstantExpression& constantExpression)
+   en System.Data.Entity.Core.Objects.ELinq.QueryParameterExpression.EvaluateParameter(Object[] arguments)
+   en System.Data.Entity.Core.Objects.ELinq.ELinqQueryState.GetExecutionPlan(Nullable`1 forMergeOption)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   en System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   en System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__1[TResult](IEnumerable`1 sequence)
+   en System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   en System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   en System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   en System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.CreateReport()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.generarReporte()
+   en Web.Pages.Reportes.FrmReporteDocumentoResumen.Page_Load(Object sender, EventArgs e)
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_reportes_frmreportedocumentoresumen_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4a5bbe80\ea8ad4ab\App_Web_54qelumg.5.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 26/5/2018 09:47:15 **********
+Inner Exception Type: System.InvalidCastException
+Inner Exception: No se puede convertir un objeto de tipo 'System.String' al tipo 'XMLDomain.DocumentoElectronico'.
+Inner Source: Web
+Inner Stack Trace: 
+   en Web.Pages.Consulta.CreateReport(String clave) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Consulta.aspx.cs:línea 61
+   en Web.Pages.Consulta.Page_Load(Object sender, EventArgs e) en d:\Documents\Visual Studio 2015\Projects\WebServiceFE\Web\Pages\Consulta.aspx.cs:línea 33
+   en System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   en System.Web.UI.Control.OnLoad(EventArgs e)
+   en System.Web.UI.Control.LoadRecursive()
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+Source: Generic Error Page
+Stack Trace: 
+   en System.Web.UI.Page.HandleError(Exception e)
+   en System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   en System.Web.UI.Page.ProcessRequest()
+   en System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   en System.Web.UI.Page.ProcessRequest(HttpContext context)
+   en ASP.pages_consulta_aspx.ProcessRequest(HttpContext context) en c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4a5bbe80\ea8ad4ab\App_Web_a2i0idei.5.cs:línea 0
+   en System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+

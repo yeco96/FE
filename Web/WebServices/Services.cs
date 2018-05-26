@@ -204,7 +204,8 @@ namespace Web.WebServices
                         xmlFile = FirmaXML.getXMLFirmadoWeb(xmlFile, emisor.llaveCriptografica, emisor.claveLlaveCriptografica.ToString());
                     }
                     trama.consecutivoReceptor = null;
-                    trama.comprobanteXml = EncodeXML.XMLUtils.base64Encode(xmlFile);
+                    // SE CODIFICA ENVIO HACIENDA
+                    trama.comprobanteXml = XMLUtils.base64Encode(xmlFile);
 
                     string jsonTrama = JsonConvert.SerializeObject(trama);
 
@@ -217,7 +218,8 @@ namespace Web.WebServices
                         // facturar guardada para envio en linea
                         trama.indEstado = 9;
                     }
-
+                    // SE DECODIFICA PARA GUARDAR A BASE DE DATOS
+                    trama.comprobanteXml = XMLUtils.base64Decode(xmlFile);
 
                     WSRecepcionPOST tramaExiste = conexion.WSRecepcionPOST.Find(trama.clave);
                     documentoElectronico.resumenFactura.clave = documentoElectronico.clave;
@@ -321,7 +323,7 @@ namespace Web.WebServices
                     trama.receptorIdentificacion = trama.receptor.numeroIdentificacion;
                     trama.tipoDocumento = tipoDocumento; 
                     trama.consecutivoReceptor = null;
-                    trama.comprobanteXml = EncodeXML.XMLUtils.base64Encode(xmlFile); 
+                    trama.comprobanteXml = xmlFile; 
                     trama.indEstado = 1;
                     WSRecepcionPOSTProforma tramaExiste = conexion.WSRecepcionPOSTProforma.Find(trama.clave);
 

@@ -111,7 +111,7 @@ namespace Web.Pages.Facturacion
                     this.cmbSucursalCaja.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
 
 
-                    string xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
+                    string xml = dato.comprobanteXml;
                      
                     FacturaElectronica factura = (FacturaElectronica)EncodeXML.XMLUtils.getObjetcFromXML(xml, typeof(FacturaElectronica) );
 
@@ -342,7 +342,7 @@ namespace Web.Pages.Facturacion
                 using (var conexion = new DataModelFE())
                 {
                     WSRecepcionPOST datoPost = conexion.WSRecepcionPOST.Find(clave);
-                    string xmlFactura = EncodeXML.XMLUtils.base64Decode(datoPost.comprobanteXml);
+                    string xmlFactura = datoPost.comprobanteXml;
                     factura = (FacturaElectronica)EncodeXML.XMLUtils.getObjetcFromXML(xmlFactura, typeof(FacturaElectronica));
                      
                     DocumentoElectronico dato = null;

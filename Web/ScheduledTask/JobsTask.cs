@@ -27,6 +27,28 @@ namespace HighSchoolWeb.ScheduledTask
         public async Task Execute(IJobExecutionContext context)
         { 
             await this.actualizarMensajesHacienda();
+            this.decodeXML();
+        }
+
+        private void decodeXML()
+        {
+            using (var conexion = new DataModelFE())
+            {
+                List<WSRecepcionPOST> lista = conexion.WSRecepcionPOST.
+                    Where(x => x.comprobanteXml.Substring(0,3) =="PD9" ).ToList();
+                foreach (var item in lista)
+                {
+                    WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(item.clave); 
+                    if(dato.comprobanteXml!=null)
+                        dato.comprobanteXml = XMLUtils.base64Decode( dato.comprobanteXml);
+                    if (dato.comprobanteRespXML != null )
+                        if(dato.comprobanteRespXML.Substring(0, 3) == "PD9")
+                            dato.comprobanteRespXML = XMLUtils.base64Decode(dato.comprobanteRespXML);
+                     
+                    conexion.Entry(dato).State = EntityState.Modified;
+                    conexion.SaveChanges();
+                }
+            }
         }
 
         /// <summary>
@@ -79,7 +101,7 @@ namespace HighSchoolWeb.ScheduledTask
                                     dato.usuarioModificacion = Usuario.USUARIO_AUTOMATICO;
                                     dato.montoTotalFactura = mensajeHacienda.montoTotalFactura;
                                     dato.montoTotalImpuesto = mensajeHacienda.montoTotalImpuesto;
-                                    dato.comprobanteRespXML = EncodeXML.XMLUtils.base64Encode(respuestaXML);
+                                    dato.comprobanteRespXML = respuestaXML;
 
                                     if (mensajeHacienda.montoTotalFactura==0)
                                     {

@@ -36,8 +36,15 @@ namespace WSDomain
             get {
                 if (!string.IsNullOrWhiteSpace(comprobanteXml))
                 {
-                    string xml = EncodeXML.XMLUtils.base64Decode(comprobanteXml);
-                    string codMoneda = EncodeXML.XMLUtils.buscarValorEtiquetaXML("ResumenFactura", "CodigoMoneda", xml);
+                    string codMoneda = "";
+                    if (comprobanteXml.Substring(0, 3) == "PD9")
+                    {
+                        string xml = EncodeXML.XMLUtils.base64Decode(comprobanteXml);
+                        codMoneda = EncodeXML.XMLUtils.buscarValorEtiquetaXML("ResumenFactura", "CodigoMoneda", xml);
+                    }
+                    else { 
+                        codMoneda = EncodeXML.XMLUtils.buscarValorEtiquetaXML("ResumenFactura", "CodigoMoneda", comprobanteXml);
+                    }
                     return codMoneda;
                 }
                 else

@@ -50,7 +50,7 @@ namespace Web.Pages.Reportes
                 using (var conexion = new DataModelFE())
                 {
                     WSRecepcionPOST dato = conexion.WSRecepcionPOST.Where(x => x.clave == item.ToString()).FirstOrDefault();
-                    string xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
+                    string xml = dato.comprobanteXml;
 
                     RptComprobante reportES = new RptComprobante();
                     RptComprobanteEN reportEN = new RptComprobanteEN();

@@ -35,7 +35,7 @@ namespace Web.Pages
                     WSRecepcionPOSTProforma dato = conexion.WSRecepcionPOSTProforma.Find(clave);
                     if (dato != null)
                     {
-                        xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
+                        xml = dato.comprobanteXml;
                     }
                 }
                 else
@@ -43,7 +43,7 @@ namespace Web.Pages
                     WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
                     if (dato != null)
                     {
-                        xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
+                        xml = dato.comprobanteXml;
                     }
                 }
 

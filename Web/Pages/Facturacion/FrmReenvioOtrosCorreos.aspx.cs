@@ -81,12 +81,12 @@ namespace Web.Pages.Facturacion
                     if (clave.Substring(29, 2) == TipoDocumento.PROFORMA)
                     {
                         WSRecepcionPOSTProforma dato = conexion.WSRecepcionPOSTProforma.Find(clave);
-                        xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml); 
+                        xml =dato.comprobanteXml; 
                     }
                     else
                     {
                         WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
-                        xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml); 
+                        xml = dato.comprobanteXml; 
                     }
                      
                     this.cmbTipoDocumento.Value = Session["tipoDocumento"].ToString(); 
@@ -326,13 +326,13 @@ namespace Web.Pages.Facturacion
                     if (clave.Substring(29, 2) == TipoDocumento.PROFORMA)
                     {
                         WSRecepcionPOSTProforma dato = conexion.WSRecepcionPOSTProforma.Find(clave);
-                        xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
+                        xml = dato.comprobanteXml;
                         asunto = "Proforma";
                     }
                     else
                     {
                         WSRecepcionPOST dato = conexion.WSRecepcionPOST.Find(clave);
-                        xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteXml);
+                        xml = dato.comprobanteXml;
                         asunto = "Documento Electrónico";
                     }
 
