@@ -272,6 +272,39 @@ namespace Web.Pages.Facturacion
             Session["tipoDocumento"] = (sender as ASPxGridView).GetRowValues(e.VisibleIndex, "tipoDocumento");
         }
 
+
+
+        protected void btnDescargarXMLRecibido_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string xml = "";
+
+                using (var conexion = new DataModelFE())
+                {
+                    string clave = Session["clave"].ToString();
+                    WSRecepcionPOST dato = conexion.WSRecepcionPOST.Where(x => x.clave == clave).FirstOrDefault();
+                    xml = EncodeXML.XMLUtils.base64Decode(dato.comprobanteRespXML);
+                }
+                Response.Clear();
+                Response.ClearHeaders();
+
+                Response.AddHeader("Content-Length", xml.Length.ToString());
+                Response.ContentType = "application/xml";
+                Response.AppendHeader("content-disposition", String.Format("attachment;filename=\"{0}.xml\"", Session["clave"].ToString()));
+
+                Response.Write(xml);
+                Response.End();
+            }
+            catch (Exception ex)
+            {
+                this.alertMessages.Attributes["class"] = "alert alert-danger";
+                this.alertMessages.InnerText = Utilidades.validarExepcionSQL(ex);
+            }
+
+        }
+
+
         protected void btnDescargarXML_Click(object sender, EventArgs e)
         {
             try

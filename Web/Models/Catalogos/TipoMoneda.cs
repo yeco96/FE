@@ -13,6 +13,7 @@ namespace Web.Models.Catalogos
     public class TipoMoneda 
     {
         public static string CRC = "CRC";
+        public static string USD = "USD";
 
         [Key]
         [Required]

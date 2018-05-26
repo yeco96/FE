@@ -162,6 +162,13 @@
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
 
+                                     <dx:LayoutItem Caption="">
+                                        <LayoutItemNestedControlCollection>
+                                            <dx:LayoutItemNestedControlContainer>
+                                                <dx:ASPxButton ID="btnDescargarXMLRecibido" Width="100%" AutoResizeWithContainer="true"  runat="server" Text="XML Recibido" OnClick="btnDescargarXMLRecibido_Click" Image-Url="~/Content/Images/xml.png"></dx:ASPxButton>
+                                            </dx:LayoutItemNestedControlContainer>
+                                        </LayoutItemNestedControlCollection>
+                                    </dx:LayoutItem>
 
                                     <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>

@@ -651,8 +651,16 @@ namespace Web.Pages.Facturacion
                 }
                 else
                 {
-                    this.txtTipoCambio.Enabled = true;
-                    this.txtTipoCambio.Value = BCCR.tipoCambioDOLAR(this.txtFechaEmision.Date);
+                    if (TipoMoneda.USD.Equals(this.cmbTipoMoneda.Value.ToString()))
+                    {
+                        this.txtTipoCambio.Enabled = true;
+                        this.txtTipoCambio.Value = BCCR.tipoCambioDOLAR(this.txtFechaEmision.Date);
+                    }
+                    else
+                    {
+                        this.txtTipoCambio.Enabled = true;
+                        this.txtTipoCambio.Value = 1;
+                    }
                 }
             }
             catch (Exception ex)

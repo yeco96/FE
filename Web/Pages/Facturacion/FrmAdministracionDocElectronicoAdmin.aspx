@@ -155,7 +155,15 @@
                                     <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="btnDescargarXML" Width="100%" AutoResizeWithContainer="true"  runat="server" Text="Descargar XML" OnClick="btnDescargarXML_Click" Image-Url="~/Content/Images/xml.png"></dx:ASPxButton>
+                                                <dx:ASPxButton ID="btnDescargarXMLEnviado" Width="100%" AutoResizeWithContainer="true"  runat="server" Text="XML Enviado" OnClick="btnDescargarXML_Click" Image-Url="~/Content/Images/xml.png"></dx:ASPxButton>
+                                            </dx:LayoutItemNestedControlContainer>
+                                        </LayoutItemNestedControlCollection>
+                                    </dx:LayoutItem>
+
+                                      <dx:LayoutItem Caption="">
+                                        <LayoutItemNestedControlCollection>
+                                            <dx:LayoutItemNestedControlContainer>
+                                                <dx:ASPxButton ID="btnDescargarXMLRecibido" Width="100%" AutoResizeWithContainer="true"  runat="server" Text="XML Recibido" OnClick="btnDescargarXMLRecibido_Click" Image-Url="~/Content/Images/xml.png"></dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>

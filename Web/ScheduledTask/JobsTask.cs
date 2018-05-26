@@ -39,13 +39,15 @@ namespace HighSchoolWeb.ScheduledTask
             {
                 EmisorReceptorIMEC emisor = null;
                 OAuth2.OAuth2Config config = null;
+                Thread.CurrentThread.CurrentCulture = Utilidades.getCulture();
 
                 using (var conexion = new DataModelFE())
                 {                                                                                                              
                     List<WSRecepcionPOST> lista = conexion.WSRecepcionPOST.
                         Where(x =>  x.indEstado == 0 /*ENVIADO*/    || 
                                     x.indEstado == 8  /*RECIBIDO*/   ||
-                                    x.indEstado == 9  /*PENDIENTE*/  ).ToList();
+                                    x.indEstado == 9  /*PENDIENTE  ||
+                                    x.comprobanteRespXML == null*/).ToList();
                     foreach (var item in lista)
                     {
 
@@ -77,13 +79,22 @@ namespace HighSchoolWeb.ScheduledTask
                                     dato.usuarioModificacion = Usuario.USUARIO_AUTOMATICO;
                                     dato.montoTotalFactura = mensajeHacienda.montoTotalFactura;
                                     dato.montoTotalImpuesto = mensajeHacienda.montoTotalImpuesto;
-                                    dato.comprobanteRespXML = respuestaXML;
+                                    dato.comprobanteRespXML = EncodeXML.XMLUtils.base64Encode(respuestaXML);
 
                                     if (mensajeHacienda.montoTotalFactura==0)
                                     {
                                         string xml = XMLUtils.base64Decode(dato.comprobanteXml);
-                                        dato.montoTotalImpuesto = Convert.ToDecimal(XMLUtils.buscarValorEtiquetaXML("ResumenFactura", "TotalImpuesto", xml));
-                                        dato.montoTotalFactura = Convert.ToDecimal(XMLUtils.buscarValorEtiquetaXML("ResumenFactura", "TotalComprobante", xml));
+                                        
+                                        try
+                                        {
+                                            dato.montoTotalImpuesto = Convert.ToDecimal(XMLUtils.buscarValorEtiquetaXML("ResumenFactura", "TotalImpuesto", xml));
+                                            dato.montoTotalFactura = Convert.ToDecimal(XMLUtils.buscarValorEtiquetaXML("ResumenFactura", "TotalComprobante", xml));
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            dato.montoTotalImpuesto = Convert.ToDecimal(XMLUtils.buscarValorEtiquetaXML("ResumenFactura", "TotalImpuesto", xml).Replace(".", ","));
+                                            dato.montoTotalFactura = Convert.ToDecimal(XMLUtils.buscarValorEtiquetaXML("ResumenFactura", "TotalComprobante", xml).Replace(".",",") );
+                                        }
                                     }
 
                                     conexionWS.Entry(dato).State = EntityState.Modified;
